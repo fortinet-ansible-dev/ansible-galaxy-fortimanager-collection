@@ -323,6 +323,7 @@ options:
                     - 'extensioncontroller_extenderprofile_cellular_smsnotification_receiver'
                     - 'extensioncontroller_extenderprofile_lanextension'
                     - 'extensioncontroller_extenderprofile_lanextension_backhaul'
+                    - 'extensioncontroller_extenderprofile_lanextension_downlinks'
                     - 'extensioncontroller_extenderprofile_lanextension_trafficsplitservices'
                     - 'extensioncontroller_extenderprofile_wifi'
                     - 'extensioncontroller_extenderprofile_wifi_radio1'
@@ -854,7 +855,6 @@ options:
                     - 'switchcontroller_securitypolicy_8021x'
                     - 'switchcontroller_securitypolicy_captiveportal'
                     - 'switchcontroller_securitypolicy_localaccess'
-                    - 'switchcontroller_switchgroup'
                     - 'switchcontroller_switchinterfacetag'
                     - 'switchcontroller_switchprofile'
                     - 'switchcontroller_trafficpolicy'
@@ -1000,6 +1000,7 @@ options:
                     - 'system_npu_dswqueuedtsprofile'
                     - 'system_npu_fpanomaly'
                     - 'system_npu_hpe'
+                    - 'system_npu_icmperrorratectrl'
                     - 'system_npu_icmpratectrl'
                     - 'system_npu_ipreassembly'
                     - 'system_npu_isfnpqueues'
@@ -1269,6 +1270,8 @@ options:
                     - 'wanprof_system_sdwan_duplication'
                     - 'wanprof_system_sdwan_healthcheck'
                     - 'wanprof_system_sdwan_healthcheck_sla'
+                    - 'wanprof_system_sdwan_healthcheckfortiguard'
+                    - 'wanprof_system_sdwan_healthcheckfortiguard_sla'
                     - 'wanprof_system_sdwan_members'
                     - 'wanprof_system_sdwan_neighbor'
                     - 'wanprof_system_sdwan_service'
@@ -1348,7 +1351,6 @@ options:
                     - 'ztna_webportal'
                     - 'ztna_webportalbookmark'
                     - 'ztna_webportalbookmark_bookmarks'
-                    - 'ztna_webportalbookmark_llmsecureproxy'
                     - 'ztna_webproxy'
                     - 'ztna_webproxy_apigateway'
                     - 'ztna_webproxy_apigateway6'
@@ -3688,6 +3690,16 @@ def main():
                 '/pm/config/global/obj/extension-controller/extender-profile/{extender-profile}/lan-extension/backhaul/{backhaul}'
             ],
             'v_range': [['7.2.1', '']]
+        },
+        'extensioncontroller_extenderprofile_lanextension_downlinks': {
+            'params': ['adom', 'downlinks', 'extender-profile'],
+            'urls': [
+                '/pm/config/adom/{adom}/obj/extension-controller/extender-profile/{extender-profile}/lan-extension/downlinks',
+                '/pm/config/adom/{adom}/obj/extension-controller/extender-profile/{extender-profile}/lan-extension/downlinks/{downlinks}',
+                '/pm/config/global/obj/extension-controller/extender-profile/{extender-profile}/lan-extension/downlinks',
+                '/pm/config/global/obj/extension-controller/extender-profile/{extender-profile}/lan-extension/downlinks/{downlinks}'
+            ],
+            'v_range': [['7.6.0', '']]
         },
         'extensioncontroller_extenderprofile_lanextension_trafficsplitservices': {
             'params': ['adom', 'extender-profile', 'traffic-split-services'],
@@ -8417,14 +8429,6 @@ def main():
             ],
             'v_range': [['7.6.4', '']]
         },
-        'switchcontroller_switchgroup': {
-            'params': ['adom', 'switch-group'],
-            'urls': [
-                '/pm/config/adom/{adom}/obj/switch-controller/switch-group',
-                '/pm/config/adom/{adom}/obj/switch-controller/switch-group/{switch-group}'
-            ],
-            'v_range': [['7.6.4', '']]
-        },
         'switchcontroller_switchinterfacetag': {
             'params': ['adom', 'switch-interface-tag'],
             'urls': [
@@ -9481,6 +9485,14 @@ def main():
                 '/pm/config/global/obj/system/npu/hpe'
             ],
             'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']]
+        },
+        'system_npu_icmperrorratectrl': {
+            'params': ['adom'],
+            'urls': [
+                '/pm/config/adom/{adom}/obj/system/npu/icmp-error-rate-ctrl',
+                '/pm/config/global/obj/system/npu/icmp-error-rate-ctrl'
+            ],
+            'v_range': [['7.4.4', '']]
         },
         'system_npu_icmpratectrl': {
             'params': ['adom'],
@@ -11831,6 +11843,22 @@ def main():
             ],
             'v_range': [['6.4.1', '']]
         },
+        'wanprof_system_sdwan_healthcheckfortiguard': {
+            'params': ['adom', 'health-check-fortiguard', 'wanprof'],
+            'urls': [
+                '/pm/config/adom/{adom}/wanprof/{wanprof}/system/sdwan/health-check-fortiguard',
+                '/pm/config/adom/{adom}/wanprof/{wanprof}/system/sdwan/health-check-fortiguard/{health-check-fortiguard}'
+            ],
+            'v_range': [['7.6.0', '']]
+        },
+        'wanprof_system_sdwan_healthcheckfortiguard_sla': {
+            'params': ['adom', 'health-check-fortiguard', 'sla', 'wanprof'],
+            'urls': [
+                '/pm/config/adom/{adom}/wanprof/{wanprof}/system/sdwan/health-check-fortiguard/{health-check-fortiguard}/sla',
+                '/pm/config/adom/{adom}/wanprof/{wanprof}/system/sdwan/health-check-fortiguard/{health-check-fortiguard}/sla/{sla}'
+            ],
+            'v_range': [['7.6.0', '']]
+        },
         'wanprof_system_sdwan_members': {
             'params': ['adom', 'members', 'wanprof'],
             'urls': [
@@ -12531,14 +12559,6 @@ def main():
                 '/pm/config/global/obj/ztna/web-portal-bookmark/{web-portal-bookmark}/bookmarks/{bookmarks}'
             ],
             'v_range': [['7.6.4', '']]
-        },
-        'ztna_webportalbookmark_llmsecureproxy': {
-            'params': ['adom', 'web-portal-bookmark'],
-            'urls': [
-                '/pm/config/adom/{adom}/obj/ztna/web-portal-bookmark/{web-portal-bookmark}/llm-secure-proxy',
-                '/pm/config/global/obj/ztna/web-portal-bookmark/{web-portal-bookmark}/llm-secure-proxy'
-            ],
-            'v_range': [['7.6.5', '']]
         },
         'ztna_webproxy': {
             'params': ['adom', 'web-proxy'],

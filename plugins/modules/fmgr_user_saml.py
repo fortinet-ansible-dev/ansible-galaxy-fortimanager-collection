@@ -13,75 +13,14 @@ DOCUMENTATION = '''
 ---
 module: fmgr_user_saml
 short_description: SAML server entry configuration.
-description:
-    - This module is able to configure a FortiManager device.
-    - Examples include all parameters and values which need to be adjusted to data sources before usage.
 version_added: "2.1.0"
-author:
-    - Xinwei Du (@dux-fortinet)
-    - Xing Li (@lix-fortinet)
-    - Jie Xue (@JieX19)
-    - Link Zheng (@chillancezen)
-    - Frank Shen (@fshen01)
-    - Hongbin Lu (@fgtdev-hblu)
-notes:
-    - Starting in version 2.4.0, all input arguments are named using the underscore naming convention (snake_case).
-      Please change the arguments such as "var-name" to "var_name".
-      Old argument names are still available yet you will receive deprecation warnings.
-      You can ignore this warning by setting deprecation_warnings=False in ansible.cfg.
-    - Running in workspace locking mode is supported in this FortiManager module, the top
-      level parameters workspace_locking_adom and workspace_locking_timeout help do the work.
-    - To create or update an object, use state present directive.
-    - To delete an object, use state absent directive.
-    - Normally, running one module can fail when a non-zero rc is returned. you can also override
-      the conditions to fail or succeed with parameters rc_failed and rc_succeeded
+extends_documentation_fragment:
+    - fortinet.fortimanager.general
+    - fortinet.fortimanager.general.full_crud
 options:
-    access_token:
-        description: The token to access FortiManager without using username and password.
-        type: str
-    bypass_validation:
-        description: Only set to True when module schema diffs with FortiManager API structure, module continues to execute without validating parameters.
-        type: bool
-        default: false
-    enable_log:
-        description: Enable/Disable logging for task.
-        type: bool
-        default: false
-    forticloud_access_token:
-        description: Authenticate Ansible client with forticloud API access token.
-        type: str
-    proposed_method:
-        description: The overridden method for the underlying Json RPC request.
-        type: str
-        choices:
-          - update
-          - set
-          - add
-    rc_succeeded:
-        description: The rc codes list with which the conditions to succeed will be overriden.
-        type: list
-        elements: int
-    rc_failed:
-        description: The rc codes list with which the conditions to fail will be overriden.
-        type: list
-        elements: int
-    state:
-        description: The directive to create, update or delete an object.
-        type: str
-        required: true
-        choices:
-          - present
-          - absent
     revision_note:
         description: The change note that can be specified when an object is created or updated.
         type: str
-    workspace_locking_adom:
-        description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
-        type: str
-    workspace_locking_timeout:
-        description: The maximum time in seconds to wait for other user to release the workspace lock.
-        type: int
-        default: 300
     adom:
         description: The parameter (adom) in requested url.
         type: str
@@ -138,73 +77,35 @@ options:
                 aliases: ['adfs-claim']
                 type: str
                 description: Enable/disable ADFS Claim for user/group attribute in assertion statement
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             digest_method:
                 aliases: ['digest-method']
                 type: str
                 description: Digest Method Algorithm.
-                choices:
-                    - 'sha1'
-                    - 'sha256'
+                choices: ['sha1', 'sha256']
             group_claim_type:
                 aliases: ['group-claim-type']
                 type: str
                 description: Group claim in assertion statement.
-                choices:
-                    - 'email'
-                    - 'given-name'
-                    - 'name'
-                    - 'upn'
-                    - 'common-name'
-                    - 'email-adfs-1x'
-                    - 'group'
-                    - 'upn-adfs-1x'
-                    - 'role'
-                    - 'sur-name'
-                    - 'ppid'
-                    - 'name-identifier'
-                    - 'authentication-method'
-                    - 'deny-only-group-sid'
-                    - 'deny-only-primary-sid'
-                    - 'deny-only-primary-group-sid'
-                    - 'group-sid'
-                    - 'primary-group-sid'
-                    - 'primary-sid'
-                    - 'windows-account-name'
+                choices: ['email', 'given-name', 'name', 'upn', 'common-name', 'email-adfs-1x',
+                          'group', 'upn-adfs-1x', 'role', 'sur-name', 'ppid', 'name-identifier',
+                          'authentication-method', 'deny-only-group-sid', 'deny-only-primary-sid',
+                          'deny-only-primary-group-sid', 'group-sid', 'primary-group-sid',
+                          'primary-sid', 'windows-account-name']
             limit_relaystate:
                 aliases: ['limit-relaystate']
                 type: str
                 description: Enable/disable limiting of relay-state parameter when it exceeds SAML 2.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             user_claim_type:
                 aliases: ['user-claim-type']
                 type: str
                 description: User name claim in assertion statement.
-                choices:
-                    - 'email'
-                    - 'given-name'
-                    - 'name'
-                    - 'upn'
-                    - 'common-name'
-                    - 'email-adfs-1x'
-                    - 'group'
-                    - 'upn-adfs-1x'
-                    - 'role'
-                    - 'sur-name'
-                    - 'ppid'
-                    - 'name-identifier'
-                    - 'authentication-method'
-                    - 'deny-only-group-sid'
-                    - 'deny-only-primary-sid'
-                    - 'deny-only-primary-group-sid'
-                    - 'group-sid'
-                    - 'primary-group-sid'
-                    - 'primary-sid'
-                    - 'windows-account-name'
+                choices: ['email', 'given-name', 'name', 'upn', 'common-name', 'email-adfs-1x',
+                          'group', 'upn-adfs-1x', 'role', 'sur-name', 'ppid', 'name-identifier',
+                          'authentication-method', 'deny-only-group-sid', 'deny-only-primary-sid',
+                          'deny-only-primary-group-sid', 'group-sid', 'primary-group-sid',
+                          'primary-sid', 'windows-account-name']
             clock_tolerance:
                 aliases: ['clock-tolerance']
                 type: int
@@ -229,9 +130,7 @@ options:
                         aliases: ['adfs-claim']
                         type: str
                         description: Enable/disable ADFS Claim for user/group attribute in assertion statement
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     cert:
                         type: str
                         description: Certificate to sign SAML messages.
@@ -243,9 +142,7 @@ options:
                         aliases: ['digest-method']
                         type: str
                         description: Digest method algorithm
-                        choices:
-                            - 'sha1'
-                            - 'sha256'
+                        choices: ['sha1', 'sha256']
                     entity_id:
                         aliases: ['entity-id']
                         type: str
@@ -254,27 +151,12 @@ options:
                         aliases: ['group-claim-type']
                         type: str
                         description: Group claim in assertion statement.
-                        choices:
-                            - 'email'
-                            - 'given-name'
-                            - 'name'
-                            - 'upn'
-                            - 'common-name'
-                            - 'email-adfs-1x'
-                            - 'group'
-                            - 'upn-adfs-1x'
-                            - 'role'
-                            - 'sur-name'
-                            - 'ppid'
-                            - 'name-identifier'
-                            - 'authentication-method'
-                            - 'deny-only-group-sid'
-                            - 'deny-only-primary-sid'
-                            - 'deny-only-primary-group-sid'
-                            - 'group-sid'
-                            - 'primary-group-sid'
-                            - 'primary-sid'
-                            - 'windows-account-name'
+                        choices: ['email', 'given-name', 'name', 'upn', 'common-name',
+                                  'email-adfs-1x', 'group', 'upn-adfs-1x', 'role', 'sur-name',
+                                  'ppid', 'name-identifier', 'authentication-method',
+                                  'deny-only-group-sid', 'deny-only-primary-sid',
+                                  'deny-only-primary-group-sid', 'group-sid', 'primary-group-sid',
+                                  'primary-sid', 'windows-account-name']
                     group_name:
                         aliases: ['group-name']
                         type: str
@@ -299,9 +181,7 @@ options:
                         aliases: ['limit-relaystate']
                         type: str
                         description: Enable/disable limiting of relay-state parameter when it exceeds SAML 2.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     single_logout_url:
                         aliases: ['single-logout-url']
                         type: str
@@ -314,27 +194,12 @@ options:
                         aliases: ['user-claim-type']
                         type: str
                         description: User name claim in assertion statement.
-                        choices:
-                            - 'email'
-                            - 'given-name'
-                            - 'name'
-                            - 'upn'
-                            - 'common-name'
-                            - 'email-adfs-1x'
-                            - 'group'
-                            - 'upn-adfs-1x'
-                            - 'role'
-                            - 'sur-name'
-                            - 'ppid'
-                            - 'name-identifier'
-                            - 'authentication-method'
-                            - 'deny-only-group-sid'
-                            - 'deny-only-primary-sid'
-                            - 'deny-only-primary-group-sid'
-                            - 'group-sid'
-                            - 'primary-group-sid'
-                            - 'primary-sid'
-                            - 'windows-account-name'
+                        choices: ['email', 'given-name', 'name', 'upn', 'common-name',
+                                  'email-adfs-1x', 'group', 'upn-adfs-1x', 'role', 'sur-name',
+                                  'ppid', 'name-identifier', 'authentication-method',
+                                  'deny-only-group-sid', 'deny-only-primary-sid',
+                                  'deny-only-primary-group-sid', 'group-sid', 'primary-group-sid',
+                                  'primary-sid', 'windows-account-name']
                     user_name:
                         aliases: ['user-name']
                         type: str
@@ -346,9 +211,7 @@ options:
                     reauth:
                         type: str
                         description: Enable/disable signalling of IDP to force user re-authentication
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     scim_client:
                         aliases: ['scim-client']
                         type: raw
@@ -357,25 +220,17 @@ options:
                         aliases: ['scim-group-attr-type']
                         type: str
                         description: Group attribute type used to match SCIM groups
-                        choices:
-                            - 'display-name'
-                            - 'external-id'
+                        choices: ['display-name', 'external-id']
                     require_signed_resp_and_asrt:
                         aliases: ['require-signed-resp-and-asrt']
                         type: str
                         description: Require signed resp and asrt.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     scim_user_attr_type:
                         aliases: ['scim-user-attr-type']
                         type: str
                         description: User attribute type used to match SCIM users
-                        choices:
-                            - 'display-name'
-                            - 'external-id'
-                            - 'user-name'
-                            - 'email'
+                        choices: ['display-name', 'external-id', 'user-name', 'email']
             auth_url:
                 aliases: ['auth-url']
                 type: str
@@ -383,9 +238,7 @@ options:
             reauth:
                 type: str
                 description: Enable/disable signalling of IDP to force user re-authentication
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             scim_client:
                 aliases: ['scim-client']
                 type: raw
@@ -394,25 +247,17 @@ options:
                 aliases: ['scim-group-attr-type']
                 type: str
                 description: Group attribute type used to match SCIM groups
-                choices:
-                    - 'display-name'
-                    - 'external-id'
+                choices: ['display-name', 'external-id']
             require_signed_resp_and_asrt:
                 aliases: ['require-signed-resp-and-asrt']
                 type: str
                 description: Require signed resp and asrt.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             scim_user_attr_type:
                 aliases: ['scim-user-attr-type']
                 type: str
                 description: User attribute type used to match SCIM users
-                choices:
-                    - 'display-name'
-                    - 'external-id'
-                    - 'user-name'
-                    - 'email'
+                choices: ['display-name', 'external-id', 'user-name', 'email']
 '''
 
 EXAMPLES = '''
@@ -420,18 +265,10 @@ EXAMPLES = '''
   hosts: fortimanagers
   connection: httpapi
   gather_facts: false
-  vars:
-    ansible_httpapi_use_ssl: true
-    ansible_httpapi_validate_certs: false
-    ansible_httpapi_port: 443
   tasks:
     - name: SAML server entry configuration.
       fortinet.fortimanager.fmgr_user_saml:
-        # bypass_validation: false
         # workspace_locking_adom: <global or your adom name>
-        # workspace_locking_timeout: 300
-        # rc_succeeded: [0, -2, -3, ...]
-        # rc_failed: [-2, -3, ...]
         adom: <your own value>
         state: present # <value in [present, absent]>
         user_saml:
@@ -536,14 +373,11 @@ def main():
         '/pm/config/adom/{adom}/obj/user/saml',
         '/pm/config/global/obj/user/saml'
     ]
-    url_params = ['adom']
-    module_primary_key = 'name'
     module_arg_spec = {
         'adom': {'required': True, 'type': 'str'},
         'revision_note': {'type': 'str'},
         'user_saml': {
-            'type': 'dict',
-            'v_range': [['6.4.0', '']],
+            'type': 'dict', 'v_range': [['6.4.0', '']],
             'options': {
                 'cert': {'v_range': [['6.4.0', '']], 'type': 'str'},
                 'entity-id': {'v_range': [['6.4.0', '']], 'type': 'str'},
@@ -656,19 +490,15 @@ def main():
 
     module_option_spec = get_module_arg_spec('full crud')
     module_arg_spec.update(module_option_spec)
-    params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'user_saml'),
                            supports_check_mode=True)
-
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
-                       module, connection, top_level_schema_name='data')
-    fmgr.validate_parameters(params_validation_blob)
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list,
+                       'name', 'data', module, connection)
     fmgr.process_crud()
-
     module.exit_json(meta=module.params)
 
 

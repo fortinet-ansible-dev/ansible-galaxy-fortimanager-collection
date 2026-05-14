@@ -13,63 +13,11 @@ DOCUMENTATION = '''
 ---
 module: fmgr_vpn_ssl_settings
 short_description: Configure SSL VPN.
-description:
-    - This module is able to configure a FortiManager device.
-    - Examples include all parameters and values which need to be adjusted to data sources before usage.
 version_added: "2.1.0"
-author:
-    - Xinwei Du (@dux-fortinet)
-    - Xing Li (@lix-fortinet)
-    - Jie Xue (@JieX19)
-    - Link Zheng (@chillancezen)
-    - Frank Shen (@fshen01)
-    - Hongbin Lu (@fgtdev-hblu)
-notes:
-    - Starting in version 2.4.0, all input arguments are named using the underscore naming convention (snake_case).
-      Please change the arguments such as "var-name" to "var_name".
-      Old argument names are still available yet you will receive deprecation warnings.
-      You can ignore this warning by setting deprecation_warnings=False in ansible.cfg.
-    - Running in workspace locking mode is supported in this FortiManager module, the top
-      level parameters workspace_locking_adom and workspace_locking_timeout help do the work.
-    - Normally, running one module can fail when a non-zero rc is returned. you can also override
-      the conditions to fail or succeed with parameters rc_failed and rc_succeeded
+extends_documentation_fragment:
+    - fortinet.fortimanager.general
+    - fortinet.fortimanager.general.partial_crud
 options:
-    access_token:
-        description: The token to access FortiManager without using username and password.
-        type: str
-    bypass_validation:
-        description: Only set to True when module schema diffs with FortiManager API structure, module continues to execute without validating parameters.
-        type: bool
-        default: false
-    enable_log:
-        description: Enable/Disable logging for task.
-        type: bool
-        default: false
-    forticloud_access_token:
-        description: Authenticate Ansible client with forticloud API access token.
-        type: str
-    proposed_method:
-        description: The overridden method for the underlying Json RPC request.
-        type: str
-        choices:
-          - update
-          - set
-          - add
-    rc_succeeded:
-        description: The rc codes list with which the conditions to succeed will be overriden.
-        type: list
-        elements: int
-    rc_failed:
-        description: The rc codes list with which the conditions to fail will be overriden.
-        type: list
-        elements: int
-    workspace_locking_adom:
-        description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
-        type: str
-    workspace_locking_timeout:
-        description: The maximum time in seconds to wait for other user to release the workspace lock.
-        type: int
-        default: 300
     device:
         description: The parameter (device) in requested url.
         type: str
@@ -86,18 +34,12 @@ options:
             algorithm:
                 type: str
                 description: Force the SSL VPN security level.
-                choices:
-                    - 'default'
-                    - 'high'
-                    - 'low'
-                    - 'medium'
+                choices: ['default', 'high', 'low', 'medium']
             auth_session_check_source_ip:
                 aliases: ['auth-session-check-source-ip']
                 type: str
                 description: Enable/disable checking of source IP for authentication session.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             auth_timeout:
                 aliases: ['auth-timeout']
                 type: int
@@ -111,27 +53,16 @@ options:
                     auth:
                         type: str
                         description: SSL VPN authentication method restriction.
-                        choices:
-                            - 'any'
-                            - 'local'
-                            - 'radius'
-                            - 'ldap'
-                            - 'tacacs+'
-                            - 'peer'
+                        choices: ['any', 'local', 'radius', 'ldap', 'tacacs+', 'peer']
                     cipher:
                         type: str
                         description: SSL VPN cipher strength.
-                        choices:
-                            - 'any'
-                            - 'high'
-                            - 'medium'
+                        choices: ['any', 'high', 'medium']
                     client_cert:
                         aliases: ['client-cert']
                         type: str
                         description: Enable/disable SSL VPN client certificate restrictive.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     groups:
                         type: raw
                         description: (list or str) User groups.
@@ -152,9 +83,7 @@ options:
                         aliases: ['source-address-negate']
                         type: str
                         description: Enable/disable negated source address match.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     source_address6:
                         aliases: ['source-address6']
                         type: raw
@@ -163,9 +92,7 @@ options:
                         aliases: ['source-address6-negate']
                         type: str
                         description: Enable/disable negated source IPv6 address match.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     source_interface:
                         aliases: ['source-interface']
                         type: raw
@@ -181,40 +108,20 @@ options:
                 aliases: ['auto-tunnel-static-route']
                 type: str
                 description: Enable/disable to auto-create static routes for the SSL VPN tunnel IP addresses.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             banned_cipher:
                 aliases: ['banned-cipher']
                 type: list
                 elements: str
                 description: Select one or more cipher technologies that cannot be used in SSL VPN negotiations.
-                choices:
-                    - 'RSA'
-                    - 'DH'
-                    - 'DHE'
-                    - 'ECDH'
-                    - 'ECDHE'
-                    - 'DSS'
-                    - 'ECDSA'
-                    - 'AES'
-                    - 'AESGCM'
-                    - 'CAMELLIA'
-                    - '3DES'
-                    - 'SHA1'
-                    - 'SHA256'
-                    - 'SHA384'
-                    - 'STATIC'
-                    - 'CHACHA20'
-                    - 'ARIA'
-                    - 'AESCCM'
+                choices: ['RSA', 'DH', 'DHE', 'ECDH', 'ECDHE', 'DSS', 'ECDSA', 'AES', 'AESGCM',
+                          'CAMELLIA', '3DES', 'SHA1', 'SHA256', 'SHA384', 'STATIC', 'CHACHA20',
+                          'ARIA', 'AESCCM']
             check_referer:
                 aliases: ['check-referer']
                 type: str
                 description: Enable/disable verification of referer field in HTTP request header.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             default_portal:
                 aliases: ['default-portal']
                 type: str
@@ -247,73 +154,52 @@ options:
                 aliases: ['dtls-max-proto-ver']
                 type: str
                 description: DTLS maximum protocol version.
-                choices:
-                    - 'dtls1-0'
-                    - 'dtls1-2'
+                choices: ['dtls1-0', 'dtls1-2']
             dtls_min_proto_ver:
                 aliases: ['dtls-min-proto-ver']
                 type: str
                 description: DTLS minimum protocol version.
-                choices:
-                    - 'dtls1-0'
-                    - 'dtls1-2'
+                choices: ['dtls1-0', 'dtls1-2']
             dtls_tunnel:
                 aliases: ['dtls-tunnel']
                 type: str
                 description: Enable/disable DTLS to prevent eavesdropping, tampering, or message forgery.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             encode_2f_sequence:
                 aliases: ['encode-2f-sequence']
                 type: str
                 description: Encode 2F sequence to forward slash in URLs.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             encrypt_and_store_password:
                 aliases: ['encrypt-and-store-password']
                 type: str
                 description: Encrypt and store user passwords for SSL VPN web sessions.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             force_two_factor_auth:
                 aliases: ['force-two-factor-auth']
                 type: str
                 description: Enable/disable only PKI users with two-factor authentication for SSL VPNs.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             header_x_forwarded_for:
                 aliases: ['header-x-forwarded-for']
                 type: str
                 description: Forward the same, add, or remove HTTP header.
-                choices:
-                    - 'pass'
-                    - 'add'
-                    - 'remove'
+                choices: ['pass', 'add', 'remove']
             hsts_include_subdomains:
                 aliases: ['hsts-include-subdomains']
                 type: str
                 description: Add HSTS includeSubDomains response header.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             http_compression:
                 aliases: ['http-compression']
                 type: str
                 description: Enable/disable to allow HTTP compression over SSL VPN tunnels.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             http_only_cookie:
                 aliases: ['http-only-cookie']
                 type: str
                 description: Enable/disable SSL VPN support for HttpOnly cookies.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             http_request_body_timeout:
                 aliases: ['http-request-body-timeout']
                 type: int
@@ -326,9 +212,7 @@ options:
                 aliases: ['https-redirect']
                 type: str
                 description: Enable/disable redirect of port 80 to SSL VPN port.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             idle_timeout:
                 aliases: ['idle-timeout']
                 type: int
@@ -368,22 +252,16 @@ options:
                 aliases: ['port-precedence']
                 type: str
                 description: Enable/disable, Enable means that if SSL VPN connections are allowed on an interface admin GUI connections are blocked on ...
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             reqclientcert:
                 type: str
                 description: Enable/disable to require client certificates for all SSL VPN users.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             route_source_interface:
                 aliases: ['route-source-interface']
                 type: str
                 description: Enable/disable to allow SSL VPN sessions to bypass routing and bind to the incoming interface.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             servercert:
                 type: str
                 description: Name of the server certificate to be used for SSL VPNs.
@@ -395,9 +273,7 @@ options:
                 aliases: ['source-address-negate']
                 type: str
                 description: Enable/disable negated source address match.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             source_address6:
                 aliases: ['source-address6']
                 type: raw
@@ -406,9 +282,7 @@ options:
                 aliases: ['source-address6-negate']
                 type: str
                 description: Enable/disable negated source IPv6 address match.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             source_interface:
                 aliases: ['source-interface']
                 type: raw
@@ -417,76 +291,52 @@ options:
                 aliases: ['ssl-client-renegotiation']
                 type: str
                 description: Enable/disable to allow client renegotiation by the server if the tunnel goes down.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             ssl_insert_empty_fragment:
                 aliases: ['ssl-insert-empty-fragment']
                 type: str
                 description: Enable/disable insertion of empty fragment.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             ssl_max_proto_ver:
                 aliases: ['ssl-max-proto-ver']
                 type: str
                 description: SSL maximum protocol version.
-                choices:
-                    - 'tls1-0'
-                    - 'tls1-1'
-                    - 'tls1-2'
-                    - 'tls1-3'
+                choices: ['tls1-0', 'tls1-1', 'tls1-2', 'tls1-3']
             ssl_min_proto_ver:
                 aliases: ['ssl-min-proto-ver']
                 type: str
                 description: SSL minimum protocol version.
-                choices:
-                    - 'tls1-0'
-                    - 'tls1-1'
-                    - 'tls1-2'
-                    - 'tls1-3'
+                choices: ['tls1-0', 'tls1-1', 'tls1-2', 'tls1-3']
             tlsv1_0:
                 aliases: ['tlsv1-0']
                 type: str
                 description: Enable/disable TLSv1.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             tlsv1_1:
                 aliases: ['tlsv1-1']
                 type: str
                 description: Enable/disable TLSv1.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             tlsv1_2:
                 aliases: ['tlsv1-2']
                 type: str
                 description: Enable/disable TLSv1.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             tlsv1_3:
                 aliases: ['tlsv1-3']
                 type: str
                 description: Tlsv1 3.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             transform_backward_slashes:
                 aliases: ['transform-backward-slashes']
                 type: str
                 description: Transform backward slashes to forward slashes in URLs.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             tunnel_connect_without_reauth:
                 aliases: ['tunnel-connect-without-reauth']
                 type: str
                 description: Enable/disable tunnel connection without re-authorization if previous connection dropped.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             tunnel_ip_pools:
                 aliases: ['tunnel-ip-pools']
                 type: raw
@@ -503,16 +353,12 @@ options:
                 aliases: ['unsafe-legacy-renegotiation']
                 type: str
                 description: Enable/disable unsafe legacy re-negotiation.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             url_obscuration:
                 aliases: ['url-obscuration']
                 type: str
                 description: Enable/disable to obscure the host name of the URL of the web browser display.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             user_peer:
                 aliases: ['user-peer']
                 type: str
@@ -529,60 +375,43 @@ options:
                 aliases: ['x-content-type-options']
                 type: str
                 description: Add HTTP X-Content-Type-Options header.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             sslv3:
                 type: str
                 description: Sslv3.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             ssl_big_buffer:
                 aliases: ['ssl-big-buffer']
                 type: str
                 description: Disable using the big SSLv3 buffer feature to save memory and force higher security.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             client_sigalgs:
                 aliases: ['client-sigalgs']
                 type: str
                 description: Set signature algorithms related to client authentication.
-                choices:
-                    - 'no-rsa-pss'
-                    - 'all'
+                choices: ['no-rsa-pss', 'all']
             ciphersuite:
                 type: list
                 elements: str
                 description: Select one or more TLS 1.
-                choices:
-                    - 'TLS-AES-128-GCM-SHA256'
-                    - 'TLS-AES-256-GCM-SHA384'
-                    - 'TLS-CHACHA20-POLY1305-SHA256'
-                    - 'TLS-AES-128-CCM-SHA256'
-                    - 'TLS-AES-128-CCM-8-SHA256'
+                choices: ['TLS-AES-128-GCM-SHA256', 'TLS-AES-256-GCM-SHA384',
+                          'TLS-CHACHA20-POLY1305-SHA256', 'TLS-AES-128-CCM-SHA256',
+                          'TLS-AES-128-CCM-8-SHA256']
             dual_stack_mode:
                 aliases: ['dual-stack-mode']
                 type: str
                 description: Tunnel mode
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             tunnel_addr_assigned_method:
                 aliases: ['tunnel-addr-assigned-method']
                 type: str
                 description: Method used for assigning address for tunnel.
-                choices:
-                    - 'first-available'
-                    - 'round-robin'
+                choices: ['first-available', 'round-robin']
             browser_language_detection:
                 aliases: ['browser-language-detection']
                 type: str
                 description: Enable/disable overriding the configured system language based on the preferred language of the browser.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             saml_redirect_port:
                 aliases: ['saml-redirect-port']
                 type: int
@@ -590,23 +419,17 @@ options:
             status:
                 type: str
                 description: Enable/disable SSL-VPN.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             web_mode_snat:
                 aliases: ['web-mode-snat']
                 type: str
                 description: Enable/disable use of IP pools defined in firewall policy while using web-mode.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             ztna_trusted_client:
                 aliases: ['ztna-trusted-client']
                 type: str
                 description: Enable/disable verification of device certificate for SSLVPN ZTNA session.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             dtls_heartbeat_fail_count:
                 aliases: ['dtls-heartbeat-fail-count']
                 type: int
@@ -627,32 +450,15 @@ options:
                 aliases: ['remote-https-cert-check']
                 type: str
                 description: Configure how the FortiGate unit checks and responds to the remote HTTPS servers certificate
-                choices:
-                    - 'no-check'
-                    - 'warn-on-error'
-                    - 'reject-on-error'
+                choices: ['no-check', 'warn-on-error', 'reject-on-error']
             tls_groups:
                 aliases: ['tls-groups']
                 type: list
                 elements: str
                 description: Configure the supported groups for TLS negotiation.
-                choices:
-                    - 'P-521'
-                    - 'P-384'
-                    - 'P-256'
-                    - 'ML-KEM512'
-                    - 'ML-KEM768'
-                    - 'ML-KEM1024'
-                    - 'P-384-MLKEM1024'
-                    - 'P-256-MLKEM768'
-                    - 'X25519-MLKEM768'
-                    - 'X448'
-                    - 'X25519'
-                    - 'FFDHE2048'
-                    - 'FFDHE3072'
-                    - 'FFDHE4096'
-                    - 'FFDHE6144'
-                    - 'FFDHE8192'
+                choices: ['P-521', 'P-384', 'P-256', 'ML-KEM512', 'ML-KEM768', 'ML-KEM1024',
+                          'P-384-MLKEM1024', 'P-256-MLKEM768', 'X25519-MLKEM768', 'X448',
+                          'X25519', 'FFDHE2048', 'FFDHE3072', 'FFDHE4096', 'FFDHE6144', 'FFDHE8192']
 '''
 
 EXAMPLES = '''
@@ -660,18 +466,10 @@ EXAMPLES = '''
   hosts: fortimanagers
   connection: httpapi
   gather_facts: false
-  vars:
-    ansible_httpapi_use_ssl: true
-    ansible_httpapi_validate_certs: false
-    ansible_httpapi_port: 443
   tasks:
     - name: Configure SSL VPN.
       fortinet.fortimanager.fmgr_vpn_ssl_settings:
-        # bypass_validation: false
         # workspace_locking_adom: <global or your adom name>
-        # workspace_locking_timeout: 300
-        # rc_succeeded: [0, -2, -3, ...]
-        # rc_failed: [-2, -3, ...]
         device: <your own value>
         vdom: <your own value>
         vpn_ssl_settings:
@@ -694,25 +492,9 @@ EXAMPLES = '''
           #     user_peer: <string>
           #     users: <list or string>
           # auto_tunnel_static_route: <value in [disable, enable]>
-          # banned_cipher:
-          #   - "RSA"
-          #   - "DH"
-          #   - "DHE"
-          #   - "ECDH"
-          #   - "ECDHE"
-          #   - "DSS"
-          #   - "ECDSA"
-          #   - "AES"
-          #   - "AESGCM"
-          #   - "CAMELLIA"
-          #   - "3DES"
-          #   - "SHA1"
-          #   - "SHA256"
-          #   - "SHA384"
-          #   - "STATIC"
-          #   - "CHACHA20"
-          #   - "ARIA"
-          #   - "AESCCM"
+          # banned_cipher: ["RSA", "DH", "DHE", "ECDH", "ECDHE", "DSS", "ECDSA", "AES", "AESGCM",
+          #                 "CAMELLIA", "3DES", "SHA1", "SHA256", "SHA384", "STATIC", "CHACHA20",
+          #                 "ARIA", "AESCCM"]
           # check_referer: <value in [disable, enable]>
           # default_portal: <string>
           # deflate_compression_level: <integer>
@@ -774,12 +556,9 @@ EXAMPLES = '''
           # sslv3: <value in [disable, enable]>
           # ssl_big_buffer: <value in [disable, enable]>
           # client_sigalgs: <value in [no-rsa-pss, all]>
-          # ciphersuite:
-          #   - "TLS-AES-128-GCM-SHA256"
-          #   - "TLS-AES-256-GCM-SHA384"
-          #   - "TLS-CHACHA20-POLY1305-SHA256"
-          #   - "TLS-AES-128-CCM-SHA256"
-          #   - "TLS-AES-128-CCM-8-SHA256"
+          # ciphersuite: ["TLS-AES-128-GCM-SHA256", "TLS-AES-256-GCM-SHA384",
+          #               "TLS-CHACHA20-POLY1305-SHA256", "TLS-AES-128-CCM-SHA256",
+          #               "TLS-AES-128-CCM-8-SHA256"]
           # dual_stack_mode: <value in [disable, enable]>
           # tunnel_addr_assigned_method: <value in [first-available, round-robin]>
           # browser_language_detection: <value in [disable, enable]>
@@ -792,23 +571,9 @@ EXAMPLES = '''
           # dtls_heartbeat_interval: <integer>
           # server_hostname: <string>
           # remote_https_cert_check: <value in [no-check, warn-on-error, reject-on-error]>
-          # tls_groups:
-          #   - "P-521"
-          #   - "P-384"
-          #   - "P-256"
-          #   - "ML-KEM512"
-          #   - "ML-KEM768"
-          #   - "ML-KEM1024"
-          #   - "P-384-MLKEM1024"
-          #   - "P-256-MLKEM768"
-          #   - "X25519-MLKEM768"
-          #   - "X448"
-          #   - "X25519"
-          #   - "FFDHE2048"
-          #   - "FFDHE3072"
-          #   - "FFDHE4096"
-          #   - "FFDHE6144"
-          #   - "FFDHE8192"
+          # tls_groups: ["P-521", "P-384", "P-256", "ML-KEM512", "ML-KEM768", "ML-KEM1024",
+          #              "P-384-MLKEM1024", "P-256-MLKEM768", "X25519-MLKEM768", "X448", "X25519",
+          #              "FFDHE2048", "FFDHE3072", "FFDHE4096", "FFDHE6144", "FFDHE8192"]
 '''
 
 RETURN = '''
@@ -860,14 +625,11 @@ def main():
     urls_list = [
         '/pm/config/device/{device}/vdom/{vdom}/vpn/ssl/settings'
     ]
-    url_params = ['device', 'vdom']
-    module_primary_key = None
     module_arg_spec = {
         'device': {'required': True, 'type': 'str'},
         'vdom': {'required': True, 'type': 'str'},
         'vpn_ssl_settings': {
-            'type': 'dict',
-            'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']],
+            'type': 'dict', 'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']],
             'options': {
                 'algorithm': {
                     'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '7.2.1'], ['7.2.6', '7.2.12'], ['7.4.3', '']],
@@ -1016,19 +778,15 @@ def main():
 
     module_option_spec = get_module_arg_spec('partial crud')
     module_arg_spec.update(module_option_spec)
-    params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'vpn_ssl_settings'),
                            supports_check_mode=True)
-
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list, module_primary_key, url_params,
-                       module, connection, top_level_schema_name='data')
-    fmgr.validate_parameters(params_validation_blob)
+    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list,
+                       None, 'data', module, connection)
     fmgr.process_partial_crud()
-
     module.exit_json(meta=module.params)
 
 

@@ -13,75 +13,14 @@ DOCUMENTATION = '''
 ---
 module: fmgr_firewall_vip
 short_description: Configure virtual IP for IPv4.
-description:
-    - This module is able to configure a FortiManager device.
-    - Examples include all parameters and values which need to be adjusted to data sources before usage.
 version_added: "1.0.0"
-author:
-    - Xinwei Du (@dux-fortinet)
-    - Xing Li (@lix-fortinet)
-    - Jie Xue (@JieX19)
-    - Link Zheng (@chillancezen)
-    - Frank Shen (@fshen01)
-    - Hongbin Lu (@fgtdev-hblu)
-notes:
-    - Starting in version 2.4.0, all input arguments are named using the underscore naming convention (snake_case).
-      Please change the arguments such as "var-name" to "var_name".
-      Old argument names are still available yet you will receive deprecation warnings.
-      You can ignore this warning by setting deprecation_warnings=False in ansible.cfg.
-    - Running in workspace locking mode is supported in this FortiManager module, the top
-      level parameters workspace_locking_adom and workspace_locking_timeout help do the work.
-    - To create or update an object, use state present directive.
-    - To delete an object, use state absent directive.
-    - Normally, running one module can fail when a non-zero rc is returned. you can also override
-      the conditions to fail or succeed with parameters rc_failed and rc_succeeded
+extends_documentation_fragment:
+    - fortinet.fortimanager.general
+    - fortinet.fortimanager.general.full_crud
 options:
-    access_token:
-        description: The token to access FortiManager without using username and password.
-        type: str
-    bypass_validation:
-        description: Only set to True when module schema diffs with FortiManager API structure, module continues to execute without validating parameters.
-        type: bool
-        default: false
-    enable_log:
-        description: Enable/Disable logging for task.
-        type: bool
-        default: false
-    forticloud_access_token:
-        description: Authenticate Ansible client with forticloud API access token.
-        type: str
-    proposed_method:
-        description: The overridden method for the underlying Json RPC request.
-        type: str
-        choices:
-          - update
-          - set
-          - add
-    rc_succeeded:
-        description: The rc codes list with which the conditions to succeed will be overriden.
-        type: list
-        elements: int
-    rc_failed:
-        description: The rc codes list with which the conditions to fail will be overriden.
-        type: list
-        elements: int
-    state:
-        description: The directive to create, update or delete an object.
-        type: str
-        required: true
-        choices:
-          - present
-          - absent
     revision_note:
         description: The change note that can be specified when an object is created or updated.
         type: str
-    workspace_locking_adom:
-        description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
-        type: str
-    workspace_locking_timeout:
-        description: The maximum time in seconds to wait for other user to release the workspace lock.
-        type: int
-        default: 300
     adom:
         description: The parameter (adom) in requested url.
         type: str
@@ -95,9 +34,7 @@ options:
                 aliases: ['arp-reply']
                 type: str
                 description: Enable to respond to ARP requests for this virtual IP address.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             color:
                 type: int
                 description: Color of icon on the GUI.
@@ -128,9 +65,7 @@ options:
                         aliases: ['arp-reply']
                         type: str
                         description: Arp reply.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     color:
                         type: int
                         description: Color.
@@ -169,9 +104,7 @@ options:
                         aliases: ['http-cookie-domain-from-host']
                         type: str
                         description: Http cookie domain from host.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     http_cookie_generation:
                         aliases: ['http-cookie-generation']
                         type: int
@@ -184,16 +117,12 @@ options:
                         aliases: ['http-cookie-share']
                         type: str
                         description: Http cookie share.
-                        choices:
-                            - 'disable'
-                            - 'same-ip'
+                        choices: ['disable', 'same-ip']
                     http_ip_header:
                         aliases: ['http-ip-header']
                         type: str
                         description: Http ip header.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     http_ip_header_name:
                         aliases: ['http-ip-header-name']
                         type: str
@@ -202,16 +131,12 @@ options:
                         aliases: ['http-multiplex']
                         type: str
                         description: Http multiplex.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     https_cookie_secure:
                         aliases: ['https-cookie-secure']
                         type: str
                         description: Https cookie secure.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     id:
                         type: int
                         description: Id.
@@ -219,14 +144,8 @@ options:
                         aliases: ['ldb-method']
                         type: str
                         description: Ldb method.
-                        choices:
-                            - 'static'
-                            - 'round-robin'
-                            - 'weighted'
-                            - 'least-session'
-                            - 'least-rtt'
-                            - 'first-alive'
-                            - 'http-host'
+                        choices: ['static', 'round-robin', 'weighted', 'least-session',
+                                  'least-rtt', 'first-alive', 'http-host']
                     mapped_addr:
                         aliases: ['mapped-addr']
                         type: str
@@ -248,44 +167,29 @@ options:
                         aliases: ['nat-source-vip']
                         type: str
                         description: Nat source vip.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     outlook_web_access:
                         aliases: ['outlook-web-access']
                         type: str
                         description: Outlook web access.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     persistence:
                         type: str
                         description: Persistence.
-                        choices:
-                            - 'none'
-                            - 'http-cookie'
-                            - 'ssl-session-id'
+                        choices: ['none', 'http-cookie', 'ssl-session-id']
                     portforward:
                         type: str
                         description: Portforward.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     portmapping_type:
                         aliases: ['portmapping-type']
                         type: str
                         description: Portmapping type.
-                        choices:
-                            - '1-to-1'
-                            - 'm-to-n'
+                        choices: ['1-to-1', 'm-to-n']
                     protocol:
                         type: str
                         description: Protocol.
-                        choices:
-                            - 'tcp'
-                            - 'udp'
-                            - 'sctp'
-                            - 'icmp'
+                        choices: ['tcp', 'udp', 'sctp', 'icmp']
                     realservers:
                         type: list
                         elements: dict
@@ -298,10 +202,7 @@ options:
                             healthcheck:
                                 type: str
                                 description: Healthcheck.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
-                                    - 'vip'
+                                choices: ['disable', 'enable', 'vip']
                             holddown_interval:
                                 aliases: ['holddown-interval']
                                 type: int
@@ -329,10 +230,7 @@ options:
                             status:
                                 type: str
                                 description: Status.
-                                choices:
-                                    - 'active'
-                                    - 'standby'
-                                    - 'disable'
+                                choices: ['active', 'standby', 'disable']
                             weight:
                                 type: int
                                 description: Weight.
@@ -345,45 +243,28 @@ options:
                             type:
                                 type: str
                                 description: Type.
-                                choices:
-                                    - 'ip'
-                                    - 'address'
+                                choices: ['ip', 'address']
                             translate_host:
                                 aliases: ['translate-host']
                                 type: str
                                 description: Enable/disable translation of hostname/IP from virtual server to real server.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             health_check_proto:
                                 aliases: ['health-check-proto']
                                 type: str
                                 description: Health check proto.
-                                choices:
-                                    - 'ping'
-                                    - 'http'
+                                choices: ['ping', 'http']
                             verify_cert:
                                 aliases: ['verify-cert']
                                 type: str
                                 description: Verify cert.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                     server_type:
                         aliases: ['server-type']
                         type: str
                         description: Server type.
-                        choices:
-                            - 'http'
-                            - 'https'
-                            - 'ssl'
-                            - 'tcp'
-                            - 'udp'
-                            - 'ip'
-                            - 'imaps'
-                            - 'pop3s'
-                            - 'smtps'
-                            - 'ssh'
+                        choices: ['http', 'https', 'ssl', 'tcp', 'udp', 'ip', 'imaps', 'pop3s',
+                                  'smtps', 'ssh']
                     service:
                         type: raw
                         description: (list or str) Service.
@@ -399,11 +280,7 @@ options:
                         aliases: ['ssl-algorithm']
                         type: str
                         description: Ssl algorithm.
-                        choices:
-                            - 'high'
-                            - 'medium'
-                            - 'low'
-                            - 'custom'
+                        choices: ['high', 'medium', 'low', 'custom']
                     ssl_certificate:
                         aliases: ['ssl-certificate']
                         type: str
@@ -417,78 +294,75 @@ options:
                             cipher:
                                 type: str
                                 description: Cipher.
-                                choices:
-                                    - 'TLS-RSA-WITH-RC4-128-MD5'
-                                    - 'TLS-RSA-WITH-RC4-128-SHA'
-                                    - 'TLS-RSA-WITH-DES-CBC-SHA'
-                                    - 'TLS-RSA-WITH-3DES-EDE-CBC-SHA'
-                                    - 'TLS-RSA-WITH-AES-128-CBC-SHA'
-                                    - 'TLS-RSA-WITH-AES-256-CBC-SHA'
-                                    - 'TLS-RSA-WITH-AES-128-CBC-SHA256'
-                                    - 'TLS-RSA-WITH-AES-256-CBC-SHA256'
-                                    - 'TLS-RSA-WITH-CAMELLIA-128-CBC-SHA'
-                                    - 'TLS-RSA-WITH-CAMELLIA-256-CBC-SHA'
-                                    - 'TLS-RSA-WITH-CAMELLIA-128-CBC-SHA256'
-                                    - 'TLS-RSA-WITH-CAMELLIA-256-CBC-SHA256'
-                                    - 'TLS-RSA-WITH-SEED-CBC-SHA'
-                                    - 'TLS-RSA-WITH-ARIA-128-CBC-SHA256'
-                                    - 'TLS-RSA-WITH-ARIA-256-CBC-SHA384'
-                                    - 'TLS-DHE-RSA-WITH-DES-CBC-SHA'
-                                    - 'TLS-DHE-RSA-WITH-3DES-EDE-CBC-SHA'
-                                    - 'TLS-DHE-RSA-WITH-AES-128-CBC-SHA'
-                                    - 'TLS-DHE-RSA-WITH-AES-256-CBC-SHA'
-                                    - 'TLS-DHE-RSA-WITH-AES-128-CBC-SHA256'
-                                    - 'TLS-DHE-RSA-WITH-AES-256-CBC-SHA256'
-                                    - 'TLS-DHE-RSA-WITH-CAMELLIA-128-CBC-SHA'
-                                    - 'TLS-DHE-RSA-WITH-CAMELLIA-256-CBC-SHA'
-                                    - 'TLS-DHE-RSA-WITH-CAMELLIA-128-CBC-SHA256'
-                                    - 'TLS-DHE-RSA-WITH-CAMELLIA-256-CBC-SHA256'
-                                    - 'TLS-DHE-RSA-WITH-SEED-CBC-SHA'
-                                    - 'TLS-DHE-RSA-WITH-ARIA-128-CBC-SHA256'
-                                    - 'TLS-DHE-RSA-WITH-ARIA-256-CBC-SHA384'
-                                    - 'TLS-ECDHE-RSA-WITH-RC4-128-SHA'
-                                    - 'TLS-ECDHE-RSA-WITH-3DES-EDE-CBC-SHA'
-                                    - 'TLS-ECDHE-RSA-WITH-AES-128-CBC-SHA'
-                                    - 'TLS-ECDHE-RSA-WITH-AES-256-CBC-SHA'
-                                    - 'TLS-ECDHE-RSA-WITH-CHACHA20-POLY1305-SHA256'
-                                    - 'TLS-ECDHE-ECDSA-WITH-CHACHA20-POLY1305-SHA256'
-                                    - 'TLS-DHE-RSA-WITH-CHACHA20-POLY1305-SHA256'
-                                    - 'TLS-DHE-RSA-WITH-AES-128-GCM-SHA256'
-                                    - 'TLS-DHE-RSA-WITH-AES-256-GCM-SHA384'
-                                    - 'TLS-DHE-DSS-WITH-AES-128-CBC-SHA'
-                                    - 'TLS-DHE-DSS-WITH-AES-256-CBC-SHA'
-                                    - 'TLS-DHE-DSS-WITH-AES-128-CBC-SHA256'
-                                    - 'TLS-DHE-DSS-WITH-AES-128-GCM-SHA256'
-                                    - 'TLS-DHE-DSS-WITH-AES-256-CBC-SHA256'
-                                    - 'TLS-DHE-DSS-WITH-AES-256-GCM-SHA384'
-                                    - 'TLS-ECDHE-RSA-WITH-AES-128-CBC-SHA256'
-                                    - 'TLS-ECDHE-RSA-WITH-AES-128-GCM-SHA256'
-                                    - 'TLS-ECDHE-RSA-WITH-AES-256-CBC-SHA384'
-                                    - 'TLS-ECDHE-RSA-WITH-AES-256-GCM-SHA384'
-                                    - 'TLS-ECDHE-ECDSA-WITH-AES-128-CBC-SHA'
-                                    - 'TLS-ECDHE-ECDSA-WITH-AES-128-CBC-SHA256'
-                                    - 'TLS-ECDHE-ECDSA-WITH-AES-128-GCM-SHA256'
-                                    - 'TLS-ECDHE-ECDSA-WITH-AES-256-CBC-SHA384'
-                                    - 'TLS-ECDHE-ECDSA-WITH-AES-256-GCM-SHA384'
-                                    - 'TLS-RSA-WITH-AES-128-GCM-SHA256'
-                                    - 'TLS-RSA-WITH-AES-256-GCM-SHA384'
-                                    - 'TLS-DHE-DSS-WITH-CAMELLIA-128-CBC-SHA'
-                                    - 'TLS-DHE-DSS-WITH-CAMELLIA-256-CBC-SHA'
-                                    - 'TLS-DHE-DSS-WITH-CAMELLIA-128-CBC-SHA256'
-                                    - 'TLS-DHE-DSS-WITH-CAMELLIA-256-CBC-SHA256'
-                                    - 'TLS-DHE-DSS-WITH-SEED-CBC-SHA'
-                                    - 'TLS-DHE-DSS-WITH-ARIA-128-CBC-SHA256'
-                                    - 'TLS-DHE-DSS-WITH-ARIA-256-CBC-SHA384'
-                                    - 'TLS-ECDHE-RSA-WITH-ARIA-128-CBC-SHA256'
-                                    - 'TLS-ECDHE-RSA-WITH-ARIA-256-CBC-SHA384'
-                                    - 'TLS-ECDHE-ECDSA-WITH-ARIA-128-CBC-SHA256'
-                                    - 'TLS-ECDHE-ECDSA-WITH-ARIA-256-CBC-SHA384'
-                                    - 'TLS-DHE-DSS-WITH-3DES-EDE-CBC-SHA'
-                                    - 'TLS-DHE-DSS-WITH-DES-CBC-SHA'
-                                    - 'TLS-AES-128-GCM-SHA256'
-                                    - 'TLS-AES-256-GCM-SHA384'
-                                    - 'TLS-CHACHA20-POLY1305-SHA256'
-                                    - 'TLS-ECDHE-ECDSA-WITH-AES-256-CBC-SHA'
+                                choices: ['TLS-RSA-WITH-RC4-128-MD5', 'TLS-RSA-WITH-RC4-128-SHA',
+                                          'TLS-RSA-WITH-DES-CBC-SHA',
+                                          'TLS-RSA-WITH-3DES-EDE-CBC-SHA',
+                                          'TLS-RSA-WITH-AES-128-CBC-SHA',
+                                          'TLS-RSA-WITH-AES-256-CBC-SHA',
+                                          'TLS-RSA-WITH-AES-128-CBC-SHA256',
+                                          'TLS-RSA-WITH-AES-256-CBC-SHA256',
+                                          'TLS-RSA-WITH-CAMELLIA-128-CBC-SHA',
+                                          'TLS-RSA-WITH-CAMELLIA-256-CBC-SHA',
+                                          'TLS-RSA-WITH-CAMELLIA-128-CBC-SHA256',
+                                          'TLS-RSA-WITH-CAMELLIA-256-CBC-SHA256',
+                                          'TLS-RSA-WITH-SEED-CBC-SHA',
+                                          'TLS-RSA-WITH-ARIA-128-CBC-SHA256',
+                                          'TLS-RSA-WITH-ARIA-256-CBC-SHA384',
+                                          'TLS-DHE-RSA-WITH-DES-CBC-SHA',
+                                          'TLS-DHE-RSA-WITH-3DES-EDE-CBC-SHA',
+                                          'TLS-DHE-RSA-WITH-AES-128-CBC-SHA',
+                                          'TLS-DHE-RSA-WITH-AES-256-CBC-SHA',
+                                          'TLS-DHE-RSA-WITH-AES-128-CBC-SHA256',
+                                          'TLS-DHE-RSA-WITH-AES-256-CBC-SHA256',
+                                          'TLS-DHE-RSA-WITH-CAMELLIA-128-CBC-SHA',
+                                          'TLS-DHE-RSA-WITH-CAMELLIA-256-CBC-SHA',
+                                          'TLS-DHE-RSA-WITH-CAMELLIA-128-CBC-SHA256',
+                                          'TLS-DHE-RSA-WITH-CAMELLIA-256-CBC-SHA256',
+                                          'TLS-DHE-RSA-WITH-SEED-CBC-SHA',
+                                          'TLS-DHE-RSA-WITH-ARIA-128-CBC-SHA256',
+                                          'TLS-DHE-RSA-WITH-ARIA-256-CBC-SHA384',
+                                          'TLS-ECDHE-RSA-WITH-RC4-128-SHA',
+                                          'TLS-ECDHE-RSA-WITH-3DES-EDE-CBC-SHA',
+                                          'TLS-ECDHE-RSA-WITH-AES-128-CBC-SHA',
+                                          'TLS-ECDHE-RSA-WITH-AES-256-CBC-SHA',
+                                          'TLS-ECDHE-RSA-WITH-CHACHA20-POLY1305-SHA256',
+                                          'TLS-ECDHE-ECDSA-WITH-CHACHA20-POLY1305-SHA256',
+                                          'TLS-DHE-RSA-WITH-CHACHA20-POLY1305-SHA256',
+                                          'TLS-DHE-RSA-WITH-AES-128-GCM-SHA256',
+                                          'TLS-DHE-RSA-WITH-AES-256-GCM-SHA384',
+                                          'TLS-DHE-DSS-WITH-AES-128-CBC-SHA',
+                                          'TLS-DHE-DSS-WITH-AES-256-CBC-SHA',
+                                          'TLS-DHE-DSS-WITH-AES-128-CBC-SHA256',
+                                          'TLS-DHE-DSS-WITH-AES-128-GCM-SHA256',
+                                          'TLS-DHE-DSS-WITH-AES-256-CBC-SHA256',
+                                          'TLS-DHE-DSS-WITH-AES-256-GCM-SHA384',
+                                          'TLS-ECDHE-RSA-WITH-AES-128-CBC-SHA256',
+                                          'TLS-ECDHE-RSA-WITH-AES-128-GCM-SHA256',
+                                          'TLS-ECDHE-RSA-WITH-AES-256-CBC-SHA384',
+                                          'TLS-ECDHE-RSA-WITH-AES-256-GCM-SHA384',
+                                          'TLS-ECDHE-ECDSA-WITH-AES-128-CBC-SHA',
+                                          'TLS-ECDHE-ECDSA-WITH-AES-128-CBC-SHA256',
+                                          'TLS-ECDHE-ECDSA-WITH-AES-128-GCM-SHA256',
+                                          'TLS-ECDHE-ECDSA-WITH-AES-256-CBC-SHA384',
+                                          'TLS-ECDHE-ECDSA-WITH-AES-256-GCM-SHA384',
+                                          'TLS-RSA-WITH-AES-128-GCM-SHA256',
+                                          'TLS-RSA-WITH-AES-256-GCM-SHA384',
+                                          'TLS-DHE-DSS-WITH-CAMELLIA-128-CBC-SHA',
+                                          'TLS-DHE-DSS-WITH-CAMELLIA-256-CBC-SHA',
+                                          'TLS-DHE-DSS-WITH-CAMELLIA-128-CBC-SHA256',
+                                          'TLS-DHE-DSS-WITH-CAMELLIA-256-CBC-SHA256',
+                                          'TLS-DHE-DSS-WITH-SEED-CBC-SHA',
+                                          'TLS-DHE-DSS-WITH-ARIA-128-CBC-SHA256',
+                                          'TLS-DHE-DSS-WITH-ARIA-256-CBC-SHA384',
+                                          'TLS-ECDHE-RSA-WITH-ARIA-128-CBC-SHA256',
+                                          'TLS-ECDHE-RSA-WITH-ARIA-256-CBC-SHA384',
+                                          'TLS-ECDHE-ECDSA-WITH-ARIA-128-CBC-SHA256',
+                                          'TLS-ECDHE-ECDSA-WITH-ARIA-256-CBC-SHA384',
+                                          'TLS-DHE-DSS-WITH-3DES-EDE-CBC-SHA',
+                                          'TLS-DHE-DSS-WITH-DES-CBC-SHA',
+                                          'TLS-AES-128-GCM-SHA256', 'TLS-AES-256-GCM-SHA384',
+                                          'TLS-CHACHA20-POLY1305-SHA256',
+                                          'TLS-ECDHE-ECDSA-WITH-AES-256-CBC-SHA']
                             id:
                                 type: int
                                 description: Id.
@@ -496,12 +370,7 @@ options:
                                 type: list
                                 elements: str
                                 description: Versions.
-                                choices:
-                                    - 'ssl-3.0'
-                                    - 'tls-1.0'
-                                    - 'tls-1.1'
-                                    - 'tls-1.2'
-                                    - 'tls-1.3'
+                                choices: ['ssl-3.0', 'tls-1.0', 'tls-1.1', 'tls-1.2', 'tls-1.3']
                             priority:
                                 type: int
                                 description: Priority.
@@ -509,17 +378,12 @@ options:
                         aliases: ['ssl-client-fallback']
                         type: str
                         description: Ssl client fallback.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     ssl_client_renegotiation:
                         aliases: ['ssl-client-renegotiation']
                         type: str
                         description: Ssl client renegotiation.
-                        choices:
-                            - 'deny'
-                            - 'allow'
-                            - 'secure'
+                        choices: ['deny', 'allow', 'secure']
                     ssl_client_session_state_max:
                         aliases: ['ssl-client-session-state-max']
                         type: int
@@ -532,30 +396,17 @@ options:
                         aliases: ['ssl-client-session-state-type']
                         type: str
                         description: Ssl client session state type.
-                        choices:
-                            - 'disable'
-                            - 'time'
-                            - 'count'
-                            - 'both'
+                        choices: ['disable', 'time', 'count', 'both']
                     ssl_dh_bits:
                         aliases: ['ssl-dh-bits']
                         type: str
                         description: Ssl dh bits.
-                        choices:
-                            - '768'
-                            - '1024'
-                            - '1536'
-                            - '2048'
-                            - '3072'
-                            - '4096'
+                        choices: ['768', '1024', '1536', '2048', '3072', '4096']
                     ssl_hpkp:
                         aliases: ['ssl-hpkp']
                         type: str
                         description: Ssl hpkp.
-                        choices:
-                            - 'disable'
-                            - 'enable'
-                            - 'report-only'
+                        choices: ['disable', 'enable', 'report-only']
                     ssl_hpkp_age:
                         aliases: ['ssl-hpkp-age']
                         type: int
@@ -568,9 +419,7 @@ options:
                         aliases: ['ssl-hpkp-include-subdomains']
                         type: str
                         description: Ssl hpkp include subdomains.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     ssl_hpkp_primary:
                         aliases: ['ssl-hpkp-primary']
                         type: str
@@ -583,9 +432,7 @@ options:
                         aliases: ['ssl-hsts']
                         type: str
                         description: Ssl hsts.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     ssl_hsts_age:
                         aliases: ['ssl-hsts-age']
                         type: int
@@ -594,97 +441,57 @@ options:
                         aliases: ['ssl-hsts-include-subdomains']
                         type: str
                         description: Ssl hsts include subdomains.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     ssl_http_location_conversion:
                         aliases: ['ssl-http-location-conversion']
                         type: str
                         description: Ssl http location conversion.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     ssl_http_match_host:
                         aliases: ['ssl-http-match-host']
                         type: str
                         description: Ssl http match host.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     ssl_max_version:
                         aliases: ['ssl-max-version']
                         type: str
                         description: Ssl max version.
-                        choices:
-                            - 'ssl-3.0'
-                            - 'tls-1.0'
-                            - 'tls-1.1'
-                            - 'tls-1.2'
-                            - 'tls-1.3'
+                        choices: ['ssl-3.0', 'tls-1.0', 'tls-1.1', 'tls-1.2', 'tls-1.3']
                     ssl_min_version:
                         aliases: ['ssl-min-version']
                         type: str
                         description: Ssl min version.
-                        choices:
-                            - 'ssl-3.0'
-                            - 'tls-1.0'
-                            - 'tls-1.1'
-                            - 'tls-1.2'
-                            - 'tls-1.3'
+                        choices: ['ssl-3.0', 'tls-1.0', 'tls-1.1', 'tls-1.2', 'tls-1.3']
                     ssl_mode:
                         aliases: ['ssl-mode']
                         type: str
                         description: Ssl mode.
-                        choices:
-                            - 'half'
-                            - 'full'
+                        choices: ['half', 'full']
                     ssl_pfs:
                         aliases: ['ssl-pfs']
                         type: str
                         description: Ssl pfs.
-                        choices:
-                            - 'require'
-                            - 'deny'
-                            - 'allow'
+                        choices: ['require', 'deny', 'allow']
                     ssl_send_empty_frags:
                         aliases: ['ssl-send-empty-frags']
                         type: str
                         description: Ssl send empty frags.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     ssl_server_algorithm:
                         aliases: ['ssl-server-algorithm']
                         type: str
                         description: Ssl server algorithm.
-                        choices:
-                            - 'high'
-                            - 'low'
-                            - 'medium'
-                            - 'custom'
-                            - 'client'
+                        choices: ['high', 'low', 'medium', 'custom', 'client']
                     ssl_server_max_version:
                         aliases: ['ssl-server-max-version']
                         type: str
                         description: Ssl server max version.
-                        choices:
-                            - 'ssl-3.0'
-                            - 'tls-1.0'
-                            - 'tls-1.1'
-                            - 'tls-1.2'
-                            - 'client'
-                            - 'tls-1.3'
+                        choices: ['ssl-3.0', 'tls-1.0', 'tls-1.1', 'tls-1.2', 'client', 'tls-1.3']
                     ssl_server_min_version:
                         aliases: ['ssl-server-min-version']
                         type: str
                         description: Ssl server min version.
-                        choices:
-                            - 'ssl-3.0'
-                            - 'tls-1.0'
-                            - 'tls-1.1'
-                            - 'tls-1.2'
-                            - 'client'
-                            - 'tls-1.3'
+                        choices: ['ssl-3.0', 'tls-1.0', 'tls-1.1', 'tls-1.2', 'client', 'tls-1.3']
                     ssl_server_session_state_max:
                         aliases: ['ssl-server-session-state-max']
                         type: int
@@ -697,21 +504,12 @@ options:
                         aliases: ['ssl-server-session-state-type']
                         type: str
                         description: Ssl server session state type.
-                        choices:
-                            - 'disable'
-                            - 'time'
-                            - 'count'
-                            - 'both'
+                        choices: ['disable', 'time', 'count', 'both']
                     type:
                         type: str
                         description: Type.
-                        choices:
-                            - 'static-nat'
-                            - 'load-balance'
-                            - 'server-load-balance'
-                            - 'dns-translation'
-                            - 'fqdn'
-                            - 'access-proxy'
+                        choices: ['static-nat', 'load-balance', 'server-load-balance',
+                                  'dns-translation', 'fqdn', 'access-proxy']
                     uuid:
                         type: str
                         description: Uuid.
@@ -719,23 +517,17 @@ options:
                         aliases: ['weblogic-server']
                         type: str
                         description: Weblogic server.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     websphere_server:
                         aliases: ['websphere-server']
                         type: str
                         description: Websphere server.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     http_redirect:
                         aliases: ['http-redirect']
                         type: str
                         description: Http redirect.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     ssl_client_rekey_count:
                         aliases: ['ssl-client-rekey-count']
                         type: int
@@ -743,16 +535,12 @@ options:
                     status:
                         type: str
                         description: Enable/disable VIP.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     add_nat46_route:
                         aliases: ['add-nat46-route']
                         type: str
                         description: Enable/disable adding NAT46 route.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     ipv6_mappedip:
                         aliases: ['ipv6-mappedip']
                         type: str
@@ -764,22 +552,16 @@ options:
                     nat44:
                         type: str
                         description: Enable/disable NAT44.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     nat46:
                         type: str
                         description: Enable/disable NAT46.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     ssl_accept_ffdhe_groups:
                         aliases: ['ssl-accept-ffdhe-groups']
                         type: str
                         description: Enable/disable FFDHE cipher suite for SSL key exchange.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     http_multiplex_max_request:
                         aliases: ['http-multiplex-max-request']
                         type: int
@@ -792,30 +574,22 @@ options:
                         aliases: ['http-supported-max-version']
                         type: str
                         description: Maximum supported HTTP versions.
-                        choices:
-                            - 'http1'
-                            - 'http2'
+                        choices: ['http1', 'http2']
                     ssl_server_renegotiation:
                         aliases: ['ssl-server-renegotiation']
                         type: str
                         description: Enable/disable secure renegotiation to comply with RFC 5746.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     h2_support:
                         aliases: ['h2-support']
                         type: str
                         description: Enable/disable HTTP2 support
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     h3_support:
                         aliases: ['h3-support']
                         type: str
                         description: Enable/disable HTTP3/QUIC support
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     http_multiplex_max_concurrent_request:
                         aliases: ['http-multiplex-max-concurrent-request']
                         type: int
@@ -832,38 +606,27 @@ options:
                         aliases: ['one-click-gslb-server']
                         type: str
                         description: Enable/disable one click GSLB server integration with FortiGSLB.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     src_vip_filter:
                         aliases: ['src-vip-filter']
                         type: str
                         description: Enable/disable use of src-filter to match destinations for the reverse SNAT rule.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     client_cert:
                         aliases: ['client-cert']
                         type: str
                         description: Enable/disable requesting client certificate.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     empty_cert_action:
                         aliases: ['empty-cert-action']
                         type: str
                         description: Action for an empty client certificate.
-                        choices:
-                            - 'accept'
-                            - 'block'
-                            - 'accept-unmanageable'
+                        choices: ['accept', 'block', 'accept-unmanageable']
                     user_agent_detect:
                         aliases: ['user-agent-detect']
                         type: str
                         description: Enable/disable detecting device type by HTTP user-agent if no client certificate is provided.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     vip_id:
                         aliases: ['vip-id']
                         type: int
@@ -896,9 +659,7 @@ options:
                 aliases: ['http-cookie-domain-from-host']
                 type: str
                 description: Enable/disable use of HTTP cookie domain from host field in HTTP.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             http_cookie_generation:
                 aliases: ['http-cookie-generation']
                 type: int
@@ -911,16 +672,12 @@ options:
                 aliases: ['http-cookie-share']
                 type: str
                 description: Control sharing of cookies across virtual servers.
-                choices:
-                    - 'disable'
-                    - 'same-ip'
+                choices: ['disable', 'same-ip']
             http_ip_header:
                 aliases: ['http-ip-header']
                 type: str
                 description: For HTTP multiplexing, enable to add the original client IP address in the XForwarded-For HTTP header.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             http_ip_header_name:
                 aliases: ['http-ip-header-name']
                 type: str
@@ -929,16 +686,12 @@ options:
                 aliases: ['http-multiplex']
                 type: str
                 description: Enable/disable HTTP multiplexing.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             https_cookie_secure:
                 aliases: ['https-cookie-secure']
                 type: str
                 description: Enable/disable verification that inserted HTTPS cookies are secure.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             id:
                 type: int
                 description: Custom defined ID.
@@ -946,14 +699,8 @@ options:
                 aliases: ['ldb-method']
                 type: str
                 description: Method used to distribute sessions to real servers.
-                choices:
-                    - 'static'
-                    - 'round-robin'
-                    - 'weighted'
-                    - 'least-session'
-                    - 'least-rtt'
-                    - 'first-alive'
-                    - 'http-host'
+                choices: ['static', 'round-robin', 'weighted', 'least-session', 'least-rtt',
+                          'first-alive', 'http-host']
             mapped_addr:
                 aliases: ['mapped-addr']
                 type: str
@@ -979,44 +726,29 @@ options:
                 aliases: ['nat-source-vip']
                 type: str
                 description: Enable/disable forcing the source NAT mapped IP to the external IP for all traffic.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             outlook_web_access:
                 aliases: ['outlook-web-access']
                 type: str
                 description: Enable to add the Front-End-Https header for Microsoft Outlook Web Access.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             persistence:
                 type: str
                 description: Configure how to make sure that clients connect to the same server every time they make a request that is part of the same...
-                choices:
-                    - 'none'
-                    - 'http-cookie'
-                    - 'ssl-session-id'
+                choices: ['none', 'http-cookie', 'ssl-session-id']
             portforward:
                 type: str
                 description: Enable/disable port forwarding.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             portmapping_type:
                 aliases: ['portmapping-type']
                 type: str
                 description: Port mapping type.
-                choices:
-                    - '1-to-1'
-                    - 'm-to-n'
+                choices: ['1-to-1', 'm-to-n']
             protocol:
                 type: str
                 description: Protocol to use when forwarding packets.
-                choices:
-                    - 'tcp'
-                    - 'udp'
-                    - 'sctp'
-                    - 'icmp'
+                choices: ['tcp', 'udp', 'sctp', 'icmp']
             realservers:
                 type: list
                 elements: dict
@@ -1029,10 +761,7 @@ options:
                     healthcheck:
                         type: str
                         description: Enable to check the responsiveness of the real server before forwarding traffic.
-                        choices:
-                            - 'disable'
-                            - 'enable'
-                            - 'vip'
+                        choices: ['disable', 'enable', 'vip']
                     holddown_interval:
                         aliases: ['holddown-interval']
                         type: int
@@ -1060,10 +789,7 @@ options:
                     status:
                         type: str
                         description: Set the status of the real server to active so that it can accept traffic, or on standby or disabled so no traffic...
-                        choices:
-                            - 'active'
-                            - 'standby'
-                            - 'disable'
+                        choices: ['active', 'standby', 'disable']
                     weight:
                         type: int
                         description: Weight of the real server.
@@ -1076,45 +802,28 @@ options:
                     type:
                         type: str
                         description: Type of address.
-                        choices:
-                            - 'ip'
-                            - 'address'
+                        choices: ['ip', 'address']
                     translate_host:
                         aliases: ['translate-host']
                         type: str
                         description: Enable/disable translation of hostname/IP from virtual server to real server.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     verify_cert:
                         aliases: ['verify-cert']
                         type: str
                         description: Enable/disable certificate verification of the real server.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     health_check_proto:
                         aliases: ['health-check-proto']
                         type: str
                         description: Health check proto.
-                        choices:
-                            - 'ping'
-                            - 'http'
+                        choices: ['ping', 'http']
             server_type:
                 aliases: ['server-type']
                 type: str
                 description: Protocol to be load balanced by the virtual server
-                choices:
-                    - 'http'
-                    - 'https'
-                    - 'ssl'
-                    - 'tcp'
-                    - 'udp'
-                    - 'ip'
-                    - 'imaps'
-                    - 'pop3s'
-                    - 'smtps'
-                    - 'ssh'
+                choices: ['http', 'https', 'ssl', 'tcp', 'udp', 'ip', 'imaps', 'pop3s', 'smtps',
+                          'ssh']
             service:
                 type: raw
                 description: (list or str) Service name.
@@ -1130,11 +839,7 @@ options:
                 aliases: ['ssl-algorithm']
                 type: str
                 description: Permitted encryption algorithms for SSL sessions according to encryption strength.
-                choices:
-                    - 'high'
-                    - 'medium'
-                    - 'low'
-                    - 'custom'
+                choices: ['high', 'medium', 'low', 'custom']
             ssl_certificate:
                 aliases: ['ssl-certificate']
                 type: str
@@ -1148,78 +853,71 @@ options:
                     cipher:
                         type: str
                         description: Cipher suite name.
-                        choices:
-                            - 'TLS-RSA-WITH-RC4-128-MD5'
-                            - 'TLS-RSA-WITH-RC4-128-SHA'
-                            - 'TLS-RSA-WITH-DES-CBC-SHA'
-                            - 'TLS-RSA-WITH-3DES-EDE-CBC-SHA'
-                            - 'TLS-RSA-WITH-AES-128-CBC-SHA'
-                            - 'TLS-RSA-WITH-AES-256-CBC-SHA'
-                            - 'TLS-RSA-WITH-AES-128-CBC-SHA256'
-                            - 'TLS-RSA-WITH-AES-256-CBC-SHA256'
-                            - 'TLS-RSA-WITH-CAMELLIA-128-CBC-SHA'
-                            - 'TLS-RSA-WITH-CAMELLIA-256-CBC-SHA'
-                            - 'TLS-RSA-WITH-CAMELLIA-128-CBC-SHA256'
-                            - 'TLS-RSA-WITH-CAMELLIA-256-CBC-SHA256'
-                            - 'TLS-RSA-WITH-SEED-CBC-SHA'
-                            - 'TLS-RSA-WITH-ARIA-128-CBC-SHA256'
-                            - 'TLS-RSA-WITH-ARIA-256-CBC-SHA384'
-                            - 'TLS-DHE-RSA-WITH-DES-CBC-SHA'
-                            - 'TLS-DHE-RSA-WITH-3DES-EDE-CBC-SHA'
-                            - 'TLS-DHE-RSA-WITH-AES-128-CBC-SHA'
-                            - 'TLS-DHE-RSA-WITH-AES-256-CBC-SHA'
-                            - 'TLS-DHE-RSA-WITH-AES-128-CBC-SHA256'
-                            - 'TLS-DHE-RSA-WITH-AES-256-CBC-SHA256'
-                            - 'TLS-DHE-RSA-WITH-CAMELLIA-128-CBC-SHA'
-                            - 'TLS-DHE-RSA-WITH-CAMELLIA-256-CBC-SHA'
-                            - 'TLS-DHE-RSA-WITH-CAMELLIA-128-CBC-SHA256'
-                            - 'TLS-DHE-RSA-WITH-CAMELLIA-256-CBC-SHA256'
-                            - 'TLS-DHE-RSA-WITH-SEED-CBC-SHA'
-                            - 'TLS-DHE-RSA-WITH-ARIA-128-CBC-SHA256'
-                            - 'TLS-DHE-RSA-WITH-ARIA-256-CBC-SHA384'
-                            - 'TLS-ECDHE-RSA-WITH-RC4-128-SHA'
-                            - 'TLS-ECDHE-RSA-WITH-3DES-EDE-CBC-SHA'
-                            - 'TLS-ECDHE-RSA-WITH-AES-128-CBC-SHA'
-                            - 'TLS-ECDHE-RSA-WITH-AES-256-CBC-SHA'
-                            - 'TLS-ECDHE-RSA-WITH-CHACHA20-POLY1305-SHA256'
-                            - 'TLS-ECDHE-ECDSA-WITH-CHACHA20-POLY1305-SHA256'
-                            - 'TLS-DHE-RSA-WITH-CHACHA20-POLY1305-SHA256'
-                            - 'TLS-DHE-RSA-WITH-AES-128-GCM-SHA256'
-                            - 'TLS-DHE-RSA-WITH-AES-256-GCM-SHA384'
-                            - 'TLS-DHE-DSS-WITH-AES-128-CBC-SHA'
-                            - 'TLS-DHE-DSS-WITH-AES-256-CBC-SHA'
-                            - 'TLS-DHE-DSS-WITH-AES-128-CBC-SHA256'
-                            - 'TLS-DHE-DSS-WITH-AES-128-GCM-SHA256'
-                            - 'TLS-DHE-DSS-WITH-AES-256-CBC-SHA256'
-                            - 'TLS-DHE-DSS-WITH-AES-256-GCM-SHA384'
-                            - 'TLS-ECDHE-RSA-WITH-AES-128-CBC-SHA256'
-                            - 'TLS-ECDHE-RSA-WITH-AES-128-GCM-SHA256'
-                            - 'TLS-ECDHE-RSA-WITH-AES-256-CBC-SHA384'
-                            - 'TLS-ECDHE-RSA-WITH-AES-256-GCM-SHA384'
-                            - 'TLS-ECDHE-ECDSA-WITH-AES-128-CBC-SHA'
-                            - 'TLS-ECDHE-ECDSA-WITH-AES-128-CBC-SHA256'
-                            - 'TLS-ECDHE-ECDSA-WITH-AES-128-GCM-SHA256'
-                            - 'TLS-ECDHE-ECDSA-WITH-AES-256-CBC-SHA384'
-                            - 'TLS-ECDHE-ECDSA-WITH-AES-256-GCM-SHA384'
-                            - 'TLS-RSA-WITH-AES-128-GCM-SHA256'
-                            - 'TLS-RSA-WITH-AES-256-GCM-SHA384'
-                            - 'TLS-DHE-DSS-WITH-CAMELLIA-128-CBC-SHA'
-                            - 'TLS-DHE-DSS-WITH-CAMELLIA-256-CBC-SHA'
-                            - 'TLS-DHE-DSS-WITH-CAMELLIA-128-CBC-SHA256'
-                            - 'TLS-DHE-DSS-WITH-CAMELLIA-256-CBC-SHA256'
-                            - 'TLS-DHE-DSS-WITH-SEED-CBC-SHA'
-                            - 'TLS-DHE-DSS-WITH-ARIA-128-CBC-SHA256'
-                            - 'TLS-DHE-DSS-WITH-ARIA-256-CBC-SHA384'
-                            - 'TLS-ECDHE-RSA-WITH-ARIA-128-CBC-SHA256'
-                            - 'TLS-ECDHE-RSA-WITH-ARIA-256-CBC-SHA384'
-                            - 'TLS-ECDHE-ECDSA-WITH-ARIA-128-CBC-SHA256'
-                            - 'TLS-ECDHE-ECDSA-WITH-ARIA-256-CBC-SHA384'
-                            - 'TLS-DHE-DSS-WITH-3DES-EDE-CBC-SHA'
-                            - 'TLS-DHE-DSS-WITH-DES-CBC-SHA'
-                            - 'TLS-AES-128-GCM-SHA256'
-                            - 'TLS-AES-256-GCM-SHA384'
-                            - 'TLS-CHACHA20-POLY1305-SHA256'
-                            - 'TLS-ECDHE-ECDSA-WITH-AES-256-CBC-SHA'
+                        choices: ['TLS-RSA-WITH-RC4-128-MD5', 'TLS-RSA-WITH-RC4-128-SHA',
+                                  'TLS-RSA-WITH-DES-CBC-SHA', 'TLS-RSA-WITH-3DES-EDE-CBC-SHA',
+                                  'TLS-RSA-WITH-AES-128-CBC-SHA', 'TLS-RSA-WITH-AES-256-CBC-SHA',
+                                  'TLS-RSA-WITH-AES-128-CBC-SHA256',
+                                  'TLS-RSA-WITH-AES-256-CBC-SHA256',
+                                  'TLS-RSA-WITH-CAMELLIA-128-CBC-SHA',
+                                  'TLS-RSA-WITH-CAMELLIA-256-CBC-SHA',
+                                  'TLS-RSA-WITH-CAMELLIA-128-CBC-SHA256',
+                                  'TLS-RSA-WITH-CAMELLIA-256-CBC-SHA256',
+                                  'TLS-RSA-WITH-SEED-CBC-SHA', 'TLS-RSA-WITH-ARIA-128-CBC-SHA256',
+                                  'TLS-RSA-WITH-ARIA-256-CBC-SHA384',
+                                  'TLS-DHE-RSA-WITH-DES-CBC-SHA',
+                                  'TLS-DHE-RSA-WITH-3DES-EDE-CBC-SHA',
+                                  'TLS-DHE-RSA-WITH-AES-128-CBC-SHA',
+                                  'TLS-DHE-RSA-WITH-AES-256-CBC-SHA',
+                                  'TLS-DHE-RSA-WITH-AES-128-CBC-SHA256',
+                                  'TLS-DHE-RSA-WITH-AES-256-CBC-SHA256',
+                                  'TLS-DHE-RSA-WITH-CAMELLIA-128-CBC-SHA',
+                                  'TLS-DHE-RSA-WITH-CAMELLIA-256-CBC-SHA',
+                                  'TLS-DHE-RSA-WITH-CAMELLIA-128-CBC-SHA256',
+                                  'TLS-DHE-RSA-WITH-CAMELLIA-256-CBC-SHA256',
+                                  'TLS-DHE-RSA-WITH-SEED-CBC-SHA',
+                                  'TLS-DHE-RSA-WITH-ARIA-128-CBC-SHA256',
+                                  'TLS-DHE-RSA-WITH-ARIA-256-CBC-SHA384',
+                                  'TLS-ECDHE-RSA-WITH-RC4-128-SHA',
+                                  'TLS-ECDHE-RSA-WITH-3DES-EDE-CBC-SHA',
+                                  'TLS-ECDHE-RSA-WITH-AES-128-CBC-SHA',
+                                  'TLS-ECDHE-RSA-WITH-AES-256-CBC-SHA',
+                                  'TLS-ECDHE-RSA-WITH-CHACHA20-POLY1305-SHA256',
+                                  'TLS-ECDHE-ECDSA-WITH-CHACHA20-POLY1305-SHA256',
+                                  'TLS-DHE-RSA-WITH-CHACHA20-POLY1305-SHA256',
+                                  'TLS-DHE-RSA-WITH-AES-128-GCM-SHA256',
+                                  'TLS-DHE-RSA-WITH-AES-256-GCM-SHA384',
+                                  'TLS-DHE-DSS-WITH-AES-128-CBC-SHA',
+                                  'TLS-DHE-DSS-WITH-AES-256-CBC-SHA',
+                                  'TLS-DHE-DSS-WITH-AES-128-CBC-SHA256',
+                                  'TLS-DHE-DSS-WITH-AES-128-GCM-SHA256',
+                                  'TLS-DHE-DSS-WITH-AES-256-CBC-SHA256',
+                                  'TLS-DHE-DSS-WITH-AES-256-GCM-SHA384',
+                                  'TLS-ECDHE-RSA-WITH-AES-128-CBC-SHA256',
+                                  'TLS-ECDHE-RSA-WITH-AES-128-GCM-SHA256',
+                                  'TLS-ECDHE-RSA-WITH-AES-256-CBC-SHA384',
+                                  'TLS-ECDHE-RSA-WITH-AES-256-GCM-SHA384',
+                                  'TLS-ECDHE-ECDSA-WITH-AES-128-CBC-SHA',
+                                  'TLS-ECDHE-ECDSA-WITH-AES-128-CBC-SHA256',
+                                  'TLS-ECDHE-ECDSA-WITH-AES-128-GCM-SHA256',
+                                  'TLS-ECDHE-ECDSA-WITH-AES-256-CBC-SHA384',
+                                  'TLS-ECDHE-ECDSA-WITH-AES-256-GCM-SHA384',
+                                  'TLS-RSA-WITH-AES-128-GCM-SHA256',
+                                  'TLS-RSA-WITH-AES-256-GCM-SHA384',
+                                  'TLS-DHE-DSS-WITH-CAMELLIA-128-CBC-SHA',
+                                  'TLS-DHE-DSS-WITH-CAMELLIA-256-CBC-SHA',
+                                  'TLS-DHE-DSS-WITH-CAMELLIA-128-CBC-SHA256',
+                                  'TLS-DHE-DSS-WITH-CAMELLIA-256-CBC-SHA256',
+                                  'TLS-DHE-DSS-WITH-SEED-CBC-SHA',
+                                  'TLS-DHE-DSS-WITH-ARIA-128-CBC-SHA256',
+                                  'TLS-DHE-DSS-WITH-ARIA-256-CBC-SHA384',
+                                  'TLS-ECDHE-RSA-WITH-ARIA-128-CBC-SHA256',
+                                  'TLS-ECDHE-RSA-WITH-ARIA-256-CBC-SHA384',
+                                  'TLS-ECDHE-ECDSA-WITH-ARIA-128-CBC-SHA256',
+                                  'TLS-ECDHE-ECDSA-WITH-ARIA-256-CBC-SHA384',
+                                  'TLS-DHE-DSS-WITH-3DES-EDE-CBC-SHA',
+                                  'TLS-DHE-DSS-WITH-DES-CBC-SHA', 'TLS-AES-128-GCM-SHA256',
+                                  'TLS-AES-256-GCM-SHA384', 'TLS-CHACHA20-POLY1305-SHA256',
+                                  'TLS-ECDHE-ECDSA-WITH-AES-256-CBC-SHA']
                     id:
                         type: int
                         description: Id.
@@ -1227,12 +925,7 @@ options:
                         type: list
                         elements: str
                         description: SSL/TLS versions that the cipher suite can be used with.
-                        choices:
-                            - 'ssl-3.0'
-                            - 'tls-1.0'
-                            - 'tls-1.1'
-                            - 'tls-1.2'
-                            - 'tls-1.3'
+                        choices: ['ssl-3.0', 'tls-1.0', 'tls-1.1', 'tls-1.2', 'tls-1.3']
                     priority:
                         type: int
                         description: SSL/TLS cipher suites priority.
@@ -1240,17 +933,12 @@ options:
                 aliases: ['ssl-client-fallback']
                 type: str
                 description: Enable/disable support for preventing Downgrade Attacks on client connections
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             ssl_client_renegotiation:
                 aliases: ['ssl-client-renegotiation']
                 type: str
                 description: Allow, deny, or require secure renegotiation of client sessions to comply with RFC 5746.
-                choices:
-                    - 'deny'
-                    - 'allow'
-                    - 'secure'
+                choices: ['deny', 'allow', 'secure']
             ssl_client_session_state_max:
                 aliases: ['ssl-client-session-state-max']
                 type: int
@@ -1263,30 +951,17 @@ options:
                 aliases: ['ssl-client-session-state-type']
                 type: str
                 description: How to expire SSL sessions for the segment of the SSL connection between the client and the FortiGate.
-                choices:
-                    - 'disable'
-                    - 'time'
-                    - 'count'
-                    - 'both'
+                choices: ['disable', 'time', 'count', 'both']
             ssl_dh_bits:
                 aliases: ['ssl-dh-bits']
                 type: str
                 description: Number of bits to use in the Diffie-Hellman exchange for RSA encryption of SSL sessions.
-                choices:
-                    - '768'
-                    - '1024'
-                    - '1536'
-                    - '2048'
-                    - '3072'
-                    - '4096'
+                choices: ['768', '1024', '1536', '2048', '3072', '4096']
             ssl_hpkp:
                 aliases: ['ssl-hpkp']
                 type: str
                 description: Enable/disable including HPKP header in response.
-                choices:
-                    - 'disable'
-                    - 'enable'
-                    - 'report-only'
+                choices: ['disable', 'enable', 'report-only']
             ssl_hpkp_age:
                 aliases: ['ssl-hpkp-age']
                 type: int
@@ -1299,9 +974,7 @@ options:
                 aliases: ['ssl-hpkp-include-subdomains']
                 type: str
                 description: Indicate that HPKP header applies to all subdomains.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             ssl_hpkp_primary:
                 aliases: ['ssl-hpkp-primary']
                 type: str
@@ -1314,9 +987,7 @@ options:
                 aliases: ['ssl-hsts']
                 type: str
                 description: Enable/disable including HSTS header in response.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             ssl_hsts_age:
                 aliases: ['ssl-hsts-age']
                 type: int
@@ -1325,75 +996,47 @@ options:
                 aliases: ['ssl-hsts-include-subdomains']
                 type: str
                 description: Indicate that HSTS header applies to all subdomains.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             ssl_http_location_conversion:
                 aliases: ['ssl-http-location-conversion']
                 type: str
                 description: Enable to replace HTTP with HTTPS in the replys Location HTTP header field.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             ssl_http_match_host:
                 aliases: ['ssl-http-match-host']
                 type: str
                 description: Enable/disable HTTP host matching for location conversion.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             ssl_max_version:
                 aliases: ['ssl-max-version']
                 type: str
                 description: Highest SSL/TLS version acceptable from a client.
-                choices:
-                    - 'ssl-3.0'
-                    - 'tls-1.0'
-                    - 'tls-1.1'
-                    - 'tls-1.2'
-                    - 'tls-1.3'
+                choices: ['ssl-3.0', 'tls-1.0', 'tls-1.1', 'tls-1.2', 'tls-1.3']
             ssl_min_version:
                 aliases: ['ssl-min-version']
                 type: str
                 description: Lowest SSL/TLS version acceptable from a client.
-                choices:
-                    - 'ssl-3.0'
-                    - 'tls-1.0'
-                    - 'tls-1.1'
-                    - 'tls-1.2'
-                    - 'tls-1.3'
+                choices: ['ssl-3.0', 'tls-1.0', 'tls-1.1', 'tls-1.2', 'tls-1.3']
             ssl_mode:
                 aliases: ['ssl-mode']
                 type: str
                 description: Apply SSL offloading between the client and the FortiGate
-                choices:
-                    - 'half'
-                    - 'full'
+                choices: ['half', 'full']
             ssl_pfs:
                 aliases: ['ssl-pfs']
                 type: str
                 description: Select the cipher suites that can be used for SSL perfect forward secrecy
-                choices:
-                    - 'require'
-                    - 'deny'
-                    - 'allow'
+                choices: ['require', 'deny', 'allow']
             ssl_send_empty_frags:
                 aliases: ['ssl-send-empty-frags']
                 type: str
                 description: Enable/disable sending empty fragments to avoid CBC IV attacks
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             ssl_server_algorithm:
                 aliases: ['ssl-server-algorithm']
                 type: str
                 description: Permitted encryption algorithms for the server side of SSL full mode sessions according to encryption strength.
-                choices:
-                    - 'high'
-                    - 'low'
-                    - 'medium'
-                    - 'custom'
-                    - 'client'
+                choices: ['high', 'low', 'medium', 'custom', 'client']
             ssl_server_cipher_suites:
                 aliases: ['ssl-server-cipher-suites']
                 type: list
@@ -1403,78 +1046,71 @@ options:
                     cipher:
                         type: str
                         description: Cipher suite name.
-                        choices:
-                            - 'TLS-RSA-WITH-RC4-128-MD5'
-                            - 'TLS-RSA-WITH-RC4-128-SHA'
-                            - 'TLS-RSA-WITH-DES-CBC-SHA'
-                            - 'TLS-RSA-WITH-3DES-EDE-CBC-SHA'
-                            - 'TLS-RSA-WITH-AES-128-CBC-SHA'
-                            - 'TLS-RSA-WITH-AES-256-CBC-SHA'
-                            - 'TLS-RSA-WITH-AES-128-CBC-SHA256'
-                            - 'TLS-RSA-WITH-AES-256-CBC-SHA256'
-                            - 'TLS-RSA-WITH-CAMELLIA-128-CBC-SHA'
-                            - 'TLS-RSA-WITH-CAMELLIA-256-CBC-SHA'
-                            - 'TLS-RSA-WITH-CAMELLIA-128-CBC-SHA256'
-                            - 'TLS-RSA-WITH-CAMELLIA-256-CBC-SHA256'
-                            - 'TLS-RSA-WITH-SEED-CBC-SHA'
-                            - 'TLS-RSA-WITH-ARIA-128-CBC-SHA256'
-                            - 'TLS-RSA-WITH-ARIA-256-CBC-SHA384'
-                            - 'TLS-DHE-RSA-WITH-DES-CBC-SHA'
-                            - 'TLS-DHE-RSA-WITH-3DES-EDE-CBC-SHA'
-                            - 'TLS-DHE-RSA-WITH-AES-128-CBC-SHA'
-                            - 'TLS-DHE-RSA-WITH-AES-256-CBC-SHA'
-                            - 'TLS-DHE-RSA-WITH-AES-128-CBC-SHA256'
-                            - 'TLS-DHE-RSA-WITH-AES-256-CBC-SHA256'
-                            - 'TLS-DHE-RSA-WITH-CAMELLIA-128-CBC-SHA'
-                            - 'TLS-DHE-RSA-WITH-CAMELLIA-256-CBC-SHA'
-                            - 'TLS-DHE-RSA-WITH-CAMELLIA-128-CBC-SHA256'
-                            - 'TLS-DHE-RSA-WITH-CAMELLIA-256-CBC-SHA256'
-                            - 'TLS-DHE-RSA-WITH-SEED-CBC-SHA'
-                            - 'TLS-DHE-RSA-WITH-ARIA-128-CBC-SHA256'
-                            - 'TLS-DHE-RSA-WITH-ARIA-256-CBC-SHA384'
-                            - 'TLS-ECDHE-RSA-WITH-RC4-128-SHA'
-                            - 'TLS-ECDHE-RSA-WITH-3DES-EDE-CBC-SHA'
-                            - 'TLS-ECDHE-RSA-WITH-AES-128-CBC-SHA'
-                            - 'TLS-ECDHE-RSA-WITH-AES-256-CBC-SHA'
-                            - 'TLS-ECDHE-RSA-WITH-CHACHA20-POLY1305-SHA256'
-                            - 'TLS-ECDHE-ECDSA-WITH-CHACHA20-POLY1305-SHA256'
-                            - 'TLS-DHE-RSA-WITH-CHACHA20-POLY1305-SHA256'
-                            - 'TLS-DHE-RSA-WITH-AES-128-GCM-SHA256'
-                            - 'TLS-DHE-RSA-WITH-AES-256-GCM-SHA384'
-                            - 'TLS-DHE-DSS-WITH-AES-128-CBC-SHA'
-                            - 'TLS-DHE-DSS-WITH-AES-256-CBC-SHA'
-                            - 'TLS-DHE-DSS-WITH-AES-128-CBC-SHA256'
-                            - 'TLS-DHE-DSS-WITH-AES-128-GCM-SHA256'
-                            - 'TLS-DHE-DSS-WITH-AES-256-CBC-SHA256'
-                            - 'TLS-DHE-DSS-WITH-AES-256-GCM-SHA384'
-                            - 'TLS-ECDHE-RSA-WITH-AES-128-CBC-SHA256'
-                            - 'TLS-ECDHE-RSA-WITH-AES-128-GCM-SHA256'
-                            - 'TLS-ECDHE-RSA-WITH-AES-256-CBC-SHA384'
-                            - 'TLS-ECDHE-RSA-WITH-AES-256-GCM-SHA384'
-                            - 'TLS-ECDHE-ECDSA-WITH-AES-128-CBC-SHA'
-                            - 'TLS-ECDHE-ECDSA-WITH-AES-128-CBC-SHA256'
-                            - 'TLS-ECDHE-ECDSA-WITH-AES-128-GCM-SHA256'
-                            - 'TLS-ECDHE-ECDSA-WITH-AES-256-CBC-SHA384'
-                            - 'TLS-ECDHE-ECDSA-WITH-AES-256-GCM-SHA384'
-                            - 'TLS-RSA-WITH-AES-128-GCM-SHA256'
-                            - 'TLS-RSA-WITH-AES-256-GCM-SHA384'
-                            - 'TLS-DHE-DSS-WITH-CAMELLIA-128-CBC-SHA'
-                            - 'TLS-DHE-DSS-WITH-CAMELLIA-256-CBC-SHA'
-                            - 'TLS-DHE-DSS-WITH-CAMELLIA-128-CBC-SHA256'
-                            - 'TLS-DHE-DSS-WITH-CAMELLIA-256-CBC-SHA256'
-                            - 'TLS-DHE-DSS-WITH-SEED-CBC-SHA'
-                            - 'TLS-DHE-DSS-WITH-ARIA-128-CBC-SHA256'
-                            - 'TLS-DHE-DSS-WITH-ARIA-256-CBC-SHA384'
-                            - 'TLS-ECDHE-RSA-WITH-ARIA-128-CBC-SHA256'
-                            - 'TLS-ECDHE-RSA-WITH-ARIA-256-CBC-SHA384'
-                            - 'TLS-ECDHE-ECDSA-WITH-ARIA-128-CBC-SHA256'
-                            - 'TLS-ECDHE-ECDSA-WITH-ARIA-256-CBC-SHA384'
-                            - 'TLS-DHE-DSS-WITH-3DES-EDE-CBC-SHA'
-                            - 'TLS-DHE-DSS-WITH-DES-CBC-SHA'
-                            - 'TLS-AES-128-GCM-SHA256'
-                            - 'TLS-AES-256-GCM-SHA384'
-                            - 'TLS-CHACHA20-POLY1305-SHA256'
-                            - 'TLS-ECDHE-ECDSA-WITH-AES-256-CBC-SHA'
+                        choices: ['TLS-RSA-WITH-RC4-128-MD5', 'TLS-RSA-WITH-RC4-128-SHA',
+                                  'TLS-RSA-WITH-DES-CBC-SHA', 'TLS-RSA-WITH-3DES-EDE-CBC-SHA',
+                                  'TLS-RSA-WITH-AES-128-CBC-SHA', 'TLS-RSA-WITH-AES-256-CBC-SHA',
+                                  'TLS-RSA-WITH-AES-128-CBC-SHA256',
+                                  'TLS-RSA-WITH-AES-256-CBC-SHA256',
+                                  'TLS-RSA-WITH-CAMELLIA-128-CBC-SHA',
+                                  'TLS-RSA-WITH-CAMELLIA-256-CBC-SHA',
+                                  'TLS-RSA-WITH-CAMELLIA-128-CBC-SHA256',
+                                  'TLS-RSA-WITH-CAMELLIA-256-CBC-SHA256',
+                                  'TLS-RSA-WITH-SEED-CBC-SHA', 'TLS-RSA-WITH-ARIA-128-CBC-SHA256',
+                                  'TLS-RSA-WITH-ARIA-256-CBC-SHA384',
+                                  'TLS-DHE-RSA-WITH-DES-CBC-SHA',
+                                  'TLS-DHE-RSA-WITH-3DES-EDE-CBC-SHA',
+                                  'TLS-DHE-RSA-WITH-AES-128-CBC-SHA',
+                                  'TLS-DHE-RSA-WITH-AES-256-CBC-SHA',
+                                  'TLS-DHE-RSA-WITH-AES-128-CBC-SHA256',
+                                  'TLS-DHE-RSA-WITH-AES-256-CBC-SHA256',
+                                  'TLS-DHE-RSA-WITH-CAMELLIA-128-CBC-SHA',
+                                  'TLS-DHE-RSA-WITH-CAMELLIA-256-CBC-SHA',
+                                  'TLS-DHE-RSA-WITH-CAMELLIA-128-CBC-SHA256',
+                                  'TLS-DHE-RSA-WITH-CAMELLIA-256-CBC-SHA256',
+                                  'TLS-DHE-RSA-WITH-SEED-CBC-SHA',
+                                  'TLS-DHE-RSA-WITH-ARIA-128-CBC-SHA256',
+                                  'TLS-DHE-RSA-WITH-ARIA-256-CBC-SHA384',
+                                  'TLS-ECDHE-RSA-WITH-RC4-128-SHA',
+                                  'TLS-ECDHE-RSA-WITH-3DES-EDE-CBC-SHA',
+                                  'TLS-ECDHE-RSA-WITH-AES-128-CBC-SHA',
+                                  'TLS-ECDHE-RSA-WITH-AES-256-CBC-SHA',
+                                  'TLS-ECDHE-RSA-WITH-CHACHA20-POLY1305-SHA256',
+                                  'TLS-ECDHE-ECDSA-WITH-CHACHA20-POLY1305-SHA256',
+                                  'TLS-DHE-RSA-WITH-CHACHA20-POLY1305-SHA256',
+                                  'TLS-DHE-RSA-WITH-AES-128-GCM-SHA256',
+                                  'TLS-DHE-RSA-WITH-AES-256-GCM-SHA384',
+                                  'TLS-DHE-DSS-WITH-AES-128-CBC-SHA',
+                                  'TLS-DHE-DSS-WITH-AES-256-CBC-SHA',
+                                  'TLS-DHE-DSS-WITH-AES-128-CBC-SHA256',
+                                  'TLS-DHE-DSS-WITH-AES-128-GCM-SHA256',
+                                  'TLS-DHE-DSS-WITH-AES-256-CBC-SHA256',
+                                  'TLS-DHE-DSS-WITH-AES-256-GCM-SHA384',
+                                  'TLS-ECDHE-RSA-WITH-AES-128-CBC-SHA256',
+                                  'TLS-ECDHE-RSA-WITH-AES-128-GCM-SHA256',
+                                  'TLS-ECDHE-RSA-WITH-AES-256-CBC-SHA384',
+                                  'TLS-ECDHE-RSA-WITH-AES-256-GCM-SHA384',
+                                  'TLS-ECDHE-ECDSA-WITH-AES-128-CBC-SHA',
+                                  'TLS-ECDHE-ECDSA-WITH-AES-128-CBC-SHA256',
+                                  'TLS-ECDHE-ECDSA-WITH-AES-128-GCM-SHA256',
+                                  'TLS-ECDHE-ECDSA-WITH-AES-256-CBC-SHA384',
+                                  'TLS-ECDHE-ECDSA-WITH-AES-256-GCM-SHA384',
+                                  'TLS-RSA-WITH-AES-128-GCM-SHA256',
+                                  'TLS-RSA-WITH-AES-256-GCM-SHA384',
+                                  'TLS-DHE-DSS-WITH-CAMELLIA-128-CBC-SHA',
+                                  'TLS-DHE-DSS-WITH-CAMELLIA-256-CBC-SHA',
+                                  'TLS-DHE-DSS-WITH-CAMELLIA-128-CBC-SHA256',
+                                  'TLS-DHE-DSS-WITH-CAMELLIA-256-CBC-SHA256',
+                                  'TLS-DHE-DSS-WITH-SEED-CBC-SHA',
+                                  'TLS-DHE-DSS-WITH-ARIA-128-CBC-SHA256',
+                                  'TLS-DHE-DSS-WITH-ARIA-256-CBC-SHA384',
+                                  'TLS-ECDHE-RSA-WITH-ARIA-128-CBC-SHA256',
+                                  'TLS-ECDHE-RSA-WITH-ARIA-256-CBC-SHA384',
+                                  'TLS-ECDHE-ECDSA-WITH-ARIA-128-CBC-SHA256',
+                                  'TLS-ECDHE-ECDSA-WITH-ARIA-256-CBC-SHA384',
+                                  'TLS-DHE-DSS-WITH-3DES-EDE-CBC-SHA',
+                                  'TLS-DHE-DSS-WITH-DES-CBC-SHA', 'TLS-AES-128-GCM-SHA256',
+                                  'TLS-AES-256-GCM-SHA384', 'TLS-CHACHA20-POLY1305-SHA256',
+                                  'TLS-ECDHE-ECDSA-WITH-AES-256-CBC-SHA']
                     priority:
                         type: int
                         description: SSL/TLS cipher suites priority.
@@ -1482,34 +1118,17 @@ options:
                         type: list
                         elements: str
                         description: SSL/TLS versions that the cipher suite can be used with.
-                        choices:
-                            - 'ssl-3.0'
-                            - 'tls-1.0'
-                            - 'tls-1.1'
-                            - 'tls-1.2'
-                            - 'tls-1.3'
+                        choices: ['ssl-3.0', 'tls-1.0', 'tls-1.1', 'tls-1.2', 'tls-1.3']
             ssl_server_max_version:
                 aliases: ['ssl-server-max-version']
                 type: str
                 description: Highest SSL/TLS version acceptable from a server.
-                choices:
-                    - 'ssl-3.0'
-                    - 'tls-1.0'
-                    - 'tls-1.1'
-                    - 'tls-1.2'
-                    - 'client'
-                    - 'tls-1.3'
+                choices: ['ssl-3.0', 'tls-1.0', 'tls-1.1', 'tls-1.2', 'client', 'tls-1.3']
             ssl_server_min_version:
                 aliases: ['ssl-server-min-version']
                 type: str
                 description: Lowest SSL/TLS version acceptable from a server.
-                choices:
-                    - 'ssl-3.0'
-                    - 'tls-1.0'
-                    - 'tls-1.1'
-                    - 'tls-1.2'
-                    - 'client'
-                    - 'tls-1.3'
+                choices: ['ssl-3.0', 'tls-1.0', 'tls-1.1', 'tls-1.2', 'client', 'tls-1.3']
             ssl_server_session_state_max:
                 aliases: ['ssl-server-session-state-max']
                 type: int
@@ -1522,21 +1141,12 @@ options:
                 aliases: ['ssl-server-session-state-type']
                 type: str
                 description: How to expire SSL sessions for the segment of the SSL connection between the server and the FortiGate.
-                choices:
-                    - 'disable'
-                    - 'time'
-                    - 'count'
-                    - 'both'
+                choices: ['disable', 'time', 'count', 'both']
             type:
                 type: str
                 description: Configure a static NAT, load balance, DNS translation, or FQDN VIP.
-                choices:
-                    - 'static-nat'
-                    - 'load-balance'
-                    - 'server-load-balance'
-                    - 'dns-translation'
-                    - 'fqdn'
-                    - 'access-proxy'
+                choices: ['static-nat', 'load-balance', 'server-load-balance', 'dns-translation',
+                          'fqdn', 'access-proxy']
             uuid:
                 type: str
                 description: Universally Unique Identifier
@@ -1544,23 +1154,17 @@ options:
                 aliases: ['weblogic-server']
                 type: str
                 description: Enable to add an HTTP header to indicate SSL offloading for a WebLogic server.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             websphere_server:
                 aliases: ['websphere-server']
                 type: str
                 description: Enable to add an HTTP header to indicate SSL offloading for a WebSphere server.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             http_redirect:
                 aliases: ['http-redirect']
                 type: str
                 description: Enable/disable redirection of HTTP to HTTPS
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             ssl_client_rekey_count:
                 aliases: ['ssl-client-rekey-count']
                 type: int
@@ -1568,16 +1172,12 @@ options:
             status:
                 type: str
                 description: Enable/disable VIP.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             add_nat46_route:
                 aliases: ['add-nat46-route']
                 type: str
                 description: Enable/disable adding NAT46 route.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             ipv6_mappedip:
                 aliases: ['ipv6-mappedip']
                 type: str
@@ -1589,22 +1189,16 @@ options:
             nat44:
                 type: str
                 description: Enable/disable NAT44.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             nat46:
                 type: str
                 description: Enable/disable NAT46.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             ssl_accept_ffdhe_groups:
                 aliases: ['ssl-accept-ffdhe-groups']
                 type: str
                 description: Enable/disable FFDHE cipher suite for SSL key exchange.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             http_multiplex_max_request:
                 aliases: ['http-multiplex-max-request']
                 type: int
@@ -1617,30 +1211,22 @@ options:
                 aliases: ['http-supported-max-version']
                 type: str
                 description: Maximum supported HTTP versions.
-                choices:
-                    - 'http1'
-                    - 'http2'
+                choices: ['http1', 'http2']
             ssl_server_renegotiation:
                 aliases: ['ssl-server-renegotiation']
                 type: str
                 description: Enable/disable secure renegotiation to comply with RFC 5746.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             h2_support:
                 aliases: ['h2-support']
                 type: str
                 description: Enable/disable HTTP2 support
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             h3_support:
                 aliases: ['h3-support']
                 type: str
                 description: Enable/disable HTTP3/QUIC support
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             http_multiplex_max_concurrent_request:
                 aliases: ['http-multiplex-max-concurrent-request']
                 type: int
@@ -1661,16 +1247,12 @@ options:
                         aliases: ['active-migration']
                         type: str
                         description: Enable/disable active migration
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     grease_quic_bit:
                         aliases: ['grease-quic-bit']
                         type: str
                         description: Enable/disable grease QUIC bit
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     max_ack_delay:
                         aliases: ['max-ack-delay']
                         type: int
@@ -1711,38 +1293,27 @@ options:
                 aliases: ['one-click-gslb-server']
                 type: str
                 description: Enable/disable one click GSLB server integration with FortiGSLB.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             src_vip_filter:
                 aliases: ['src-vip-filter']
                 type: str
                 description: Enable/disable use of src-filter to match destinations for the reverse SNAT rule.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             client_cert:
                 aliases: ['client-cert']
                 type: str
                 description: Enable/disable requesting client certificate.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             empty_cert_action:
                 aliases: ['empty-cert-action']
                 type: str
                 description: Action for an empty client certificate.
-                choices:
-                    - 'accept'
-                    - 'block'
-                    - 'accept-unmanageable'
+                choices: ['accept', 'block', 'accept-unmanageable']
             user_agent_detect:
                 aliases: ['user-agent-detect']
                 type: str
                 description: Enable/disable detecting device type by HTTP user-agent if no client certificate is provided.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             vip_id:
                 aliases: ['vip-id']
                 type: int
@@ -1879,14 +1450,11 @@ def main():
         '/pm/config/adom/{adom}/obj/firewall/vip',
         '/pm/config/global/obj/firewall/vip'
     ]
-    url_params = ['adom']
-    module_primary_key = 'name'
     module_arg_spec = {
         'adom': {'required': True, 'type': 'str'},
         'revision_note': {'type': 'str'},
         'firewall_vip': {
-            'type': 'dict',
-            'v_range': [['6.0.0', '']],
+            'type': 'dict', 'v_range': [['6.0.0', '']],
             'options': {
                 'arp-reply': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'color': {'type': 'int'},
@@ -2284,19 +1852,15 @@ def main():
 
     module_option_spec = get_module_arg_spec('full crud')
     module_arg_spec.update(module_option_spec)
-    params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'firewall_vip'),
                            supports_check_mode=True)
-
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
-                       module, connection, top_level_schema_name='data')
-    fmgr.validate_parameters(params_validation_blob)
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list,
+                       'name', 'data', module, connection)
     fmgr.process_crud()
-
     module.exit_json(meta=module.params)
 
 

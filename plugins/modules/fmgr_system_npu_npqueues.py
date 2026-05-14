@@ -13,66 +13,14 @@ DOCUMENTATION = '''
 ---
 module: fmgr_system_npu_npqueues
 short_description: Configure queue assignment on NP7.
-description:
-    - This module is able to configure a FortiManager device.
-    - Examples include all parameters and values which need to be adjusted to data sources before usage.
 version_added: "2.2.0"
-author:
-    - Xinwei Du (@dux-fortinet)
-    - Xing Li (@lix-fortinet)
-    - Jie Xue (@JieX19)
-    - Link Zheng (@chillancezen)
-    - Frank Shen (@fshen01)
-    - Hongbin Lu (@fgtdev-hblu)
-notes:
-    - Starting in version 2.4.0, all input arguments are named using the underscore naming convention (snake_case).
-      Please change the arguments such as "var-name" to "var_name".
-      Old argument names are still available yet you will receive deprecation warnings.
-      You can ignore this warning by setting deprecation_warnings=False in ansible.cfg.
-    - Running in workspace locking mode is supported in this FortiManager module, the top
-      level parameters workspace_locking_adom and workspace_locking_timeout help do the work.
-    - Normally, running one module can fail when a non-zero rc is returned. you can also override
-      the conditions to fail or succeed with parameters rc_failed and rc_succeeded
+extends_documentation_fragment:
+    - fortinet.fortimanager.general
+    - fortinet.fortimanager.general.partial_crud
 options:
-    access_token:
-        description: The token to access FortiManager without using username and password.
-        type: str
-    bypass_validation:
-        description: Only set to True when module schema diffs with FortiManager API structure, module continues to execute without validating parameters.
-        type: bool
-        default: false
-    enable_log:
-        description: Enable/Disable logging for task.
-        type: bool
-        default: false
-    forticloud_access_token:
-        description: Authenticate Ansible client with forticloud API access token.
-        type: str
-    proposed_method:
-        description: The overridden method for the underlying Json RPC request.
-        type: str
-        choices:
-          - update
-          - set
-          - add
-    rc_succeeded:
-        description: The rc codes list with which the conditions to succeed will be overriden.
-        type: list
-        elements: int
-    rc_failed:
-        description: The rc codes list with which the conditions to fail will be overriden.
-        type: list
-        elements: int
     revision_note:
         description: The change note that can be specified when an object is created or updated.
         type: str
-    workspace_locking_adom:
-        description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
-        type: str
-    workspace_locking_timeout:
-        description: The maximum time in seconds to wait for other user to release the workspace lock.
-        type: int
-        default: 300
     adom:
         description: The parameter (adom) in requested url.
         type: str
@@ -150,876 +98,370 @@ options:
                     cos0:
                         type: str
                         description: Queue number of CoS 0.
-                        choices:
-                            - 'queue0'
-                            - 'queue1'
-                            - 'queue2'
-                            - 'queue3'
-                            - 'queue4'
-                            - 'queue5'
-                            - 'queue6'
-                            - 'queue7'
+                        choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5',
+                                  'queue6', 'queue7']
                     cos1:
                         type: str
                         description: Queue number of CoS 1.
-                        choices:
-                            - 'queue0'
-                            - 'queue1'
-                            - 'queue2'
-                            - 'queue3'
-                            - 'queue4'
-                            - 'queue5'
-                            - 'queue6'
-                            - 'queue7'
+                        choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5',
+                                  'queue6', 'queue7']
                     cos2:
                         type: str
                         description: Queue number of CoS 2.
-                        choices:
-                            - 'queue0'
-                            - 'queue1'
-                            - 'queue2'
-                            - 'queue3'
-                            - 'queue4'
-                            - 'queue5'
-                            - 'queue6'
-                            - 'queue7'
+                        choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5',
+                                  'queue6', 'queue7']
                     cos3:
                         type: str
                         description: Queue number of CoS 3.
-                        choices:
-                            - 'queue0'
-                            - 'queue1'
-                            - 'queue2'
-                            - 'queue3'
-                            - 'queue4'
-                            - 'queue5'
-                            - 'queue6'
-                            - 'queue7'
+                        choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5',
+                                  'queue6', 'queue7']
                     cos4:
                         type: str
                         description: Queue number of CoS 4.
-                        choices:
-                            - 'queue0'
-                            - 'queue1'
-                            - 'queue2'
-                            - 'queue3'
-                            - 'queue4'
-                            - 'queue5'
-                            - 'queue6'
-                            - 'queue7'
+                        choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5',
+                                  'queue6', 'queue7']
                     cos5:
                         type: str
                         description: Queue number of CoS 5.
-                        choices:
-                            - 'queue0'
-                            - 'queue1'
-                            - 'queue2'
-                            - 'queue3'
-                            - 'queue4'
-                            - 'queue5'
-                            - 'queue6'
-                            - 'queue7'
+                        choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5',
+                                  'queue6', 'queue7']
                     cos6:
                         type: str
                         description: Queue number of CoS 6.
-                        choices:
-                            - 'queue0'
-                            - 'queue1'
-                            - 'queue2'
-                            - 'queue3'
-                            - 'queue4'
-                            - 'queue5'
-                            - 'queue6'
-                            - 'queue7'
+                        choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5',
+                                  'queue6', 'queue7']
                     cos7:
                         type: str
                         description: Queue number of CoS 7.
-                        choices:
-                            - 'queue0'
-                            - 'queue1'
-                            - 'queue2'
-                            - 'queue3'
-                            - 'queue4'
-                            - 'queue5'
-                            - 'queue6'
-                            - 'queue7'
+                        choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5',
+                                  'queue6', 'queue7']
                     dscp0:
                         type: str
                         description: Queue number of DSCP 0.
-                        choices:
-                            - 'queue0'
-                            - 'queue1'
-                            - 'queue2'
-                            - 'queue3'
-                            - 'queue4'
-                            - 'queue5'
-                            - 'queue6'
-                            - 'queue7'
+                        choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5',
+                                  'queue6', 'queue7']
                     dscp1:
                         type: str
                         description: Queue number of DSCP 1.
-                        choices:
-                            - 'queue0'
-                            - 'queue1'
-                            - 'queue2'
-                            - 'queue3'
-                            - 'queue4'
-                            - 'queue5'
-                            - 'queue6'
-                            - 'queue7'
+                        choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5',
+                                  'queue6', 'queue7']
                     dscp10:
                         type: str
                         description: Queue number of DSCP 10.
-                        choices:
-                            - 'queue0'
-                            - 'queue1'
-                            - 'queue2'
-                            - 'queue3'
-                            - 'queue4'
-                            - 'queue5'
-                            - 'queue6'
-                            - 'queue7'
+                        choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5',
+                                  'queue6', 'queue7']
                     dscp11:
                         type: str
                         description: Queue number of DSCP 11.
-                        choices:
-                            - 'queue0'
-                            - 'queue1'
-                            - 'queue2'
-                            - 'queue3'
-                            - 'queue4'
-                            - 'queue5'
-                            - 'queue6'
-                            - 'queue7'
+                        choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5',
+                                  'queue6', 'queue7']
                     dscp12:
                         type: str
                         description: Queue number of DSCP 12.
-                        choices:
-                            - 'queue0'
-                            - 'queue1'
-                            - 'queue2'
-                            - 'queue3'
-                            - 'queue4'
-                            - 'queue5'
-                            - 'queue6'
-                            - 'queue7'
+                        choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5',
+                                  'queue6', 'queue7']
                     dscp13:
                         type: str
                         description: Queue number of DSCP 13.
-                        choices:
-                            - 'queue0'
-                            - 'queue1'
-                            - 'queue2'
-                            - 'queue3'
-                            - 'queue4'
-                            - 'queue5'
-                            - 'queue6'
-                            - 'queue7'
+                        choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5',
+                                  'queue6', 'queue7']
                     dscp14:
                         type: str
                         description: Queue number of DSCP 14.
-                        choices:
-                            - 'queue0'
-                            - 'queue1'
-                            - 'queue2'
-                            - 'queue3'
-                            - 'queue4'
-                            - 'queue5'
-                            - 'queue6'
-                            - 'queue7'
+                        choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5',
+                                  'queue6', 'queue7']
                     dscp15:
                         type: str
                         description: Queue number of DSCP 15.
-                        choices:
-                            - 'queue0'
-                            - 'queue1'
-                            - 'queue2'
-                            - 'queue3'
-                            - 'queue4'
-                            - 'queue5'
-                            - 'queue6'
-                            - 'queue7'
+                        choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5',
+                                  'queue6', 'queue7']
                     dscp16:
                         type: str
                         description: Queue number of DSCP 16.
-                        choices:
-                            - 'queue0'
-                            - 'queue1'
-                            - 'queue2'
-                            - 'queue3'
-                            - 'queue4'
-                            - 'queue5'
-                            - 'queue6'
-                            - 'queue7'
+                        choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5',
+                                  'queue6', 'queue7']
                     dscp17:
                         type: str
                         description: Queue number of DSCP 17.
-                        choices:
-                            - 'queue0'
-                            - 'queue1'
-                            - 'queue2'
-                            - 'queue3'
-                            - 'queue4'
-                            - 'queue5'
-                            - 'queue6'
-                            - 'queue7'
+                        choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5',
+                                  'queue6', 'queue7']
                     dscp18:
                         type: str
                         description: Queue number of DSCP 18.
-                        choices:
-                            - 'queue0'
-                            - 'queue1'
-                            - 'queue2'
-                            - 'queue3'
-                            - 'queue4'
-                            - 'queue5'
-                            - 'queue6'
-                            - 'queue7'
+                        choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5',
+                                  'queue6', 'queue7']
                     dscp19:
                         type: str
                         description: Queue number of DSCP 19.
-                        choices:
-                            - 'queue0'
-                            - 'queue1'
-                            - 'queue2'
-                            - 'queue3'
-                            - 'queue4'
-                            - 'queue5'
-                            - 'queue6'
-                            - 'queue7'
+                        choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5',
+                                  'queue6', 'queue7']
                     dscp2:
                         type: str
                         description: Queue number of DSCP 2.
-                        choices:
-                            - 'queue0'
-                            - 'queue1'
-                            - 'queue2'
-                            - 'queue3'
-                            - 'queue4'
-                            - 'queue5'
-                            - 'queue6'
-                            - 'queue7'
+                        choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5',
+                                  'queue6', 'queue7']
                     dscp20:
                         type: str
                         description: Queue number of DSCP 20.
-                        choices:
-                            - 'queue0'
-                            - 'queue1'
-                            - 'queue2'
-                            - 'queue3'
-                            - 'queue4'
-                            - 'queue5'
-                            - 'queue6'
-                            - 'queue7'
+                        choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5',
+                                  'queue6', 'queue7']
                     dscp21:
                         type: str
                         description: Queue number of DSCP 21.
-                        choices:
-                            - 'queue0'
-                            - 'queue1'
-                            - 'queue2'
-                            - 'queue3'
-                            - 'queue4'
-                            - 'queue5'
-                            - 'queue6'
-                            - 'queue7'
+                        choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5',
+                                  'queue6', 'queue7']
                     dscp22:
                         type: str
                         description: Queue number of DSCP 22.
-                        choices:
-                            - 'queue0'
-                            - 'queue1'
-                            - 'queue2'
-                            - 'queue3'
-                            - 'queue4'
-                            - 'queue5'
-                            - 'queue6'
-                            - 'queue7'
+                        choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5',
+                                  'queue6', 'queue7']
                     dscp23:
                         type: str
                         description: Queue number of DSCP 23.
-                        choices:
-                            - 'queue0'
-                            - 'queue1'
-                            - 'queue2'
-                            - 'queue3'
-                            - 'queue4'
-                            - 'queue5'
-                            - 'queue6'
-                            - 'queue7'
+                        choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5',
+                                  'queue6', 'queue7']
                     dscp24:
                         type: str
                         description: Queue number of DSCP 24.
-                        choices:
-                            - 'queue0'
-                            - 'queue1'
-                            - 'queue2'
-                            - 'queue3'
-                            - 'queue4'
-                            - 'queue5'
-                            - 'queue6'
-                            - 'queue7'
+                        choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5',
+                                  'queue6', 'queue7']
                     dscp25:
                         type: str
                         description: Queue number of DSCP 25.
-                        choices:
-                            - 'queue0'
-                            - 'queue1'
-                            - 'queue2'
-                            - 'queue3'
-                            - 'queue4'
-                            - 'queue5'
-                            - 'queue6'
-                            - 'queue7'
+                        choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5',
+                                  'queue6', 'queue7']
                     dscp26:
                         type: str
                         description: Queue number of DSCP 26.
-                        choices:
-                            - 'queue0'
-                            - 'queue1'
-                            - 'queue2'
-                            - 'queue3'
-                            - 'queue4'
-                            - 'queue5'
-                            - 'queue6'
-                            - 'queue7'
+                        choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5',
+                                  'queue6', 'queue7']
                     dscp27:
                         type: str
                         description: Queue number of DSCP 27.
-                        choices:
-                            - 'queue0'
-                            - 'queue1'
-                            - 'queue2'
-                            - 'queue3'
-                            - 'queue4'
-                            - 'queue5'
-                            - 'queue6'
-                            - 'queue7'
+                        choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5',
+                                  'queue6', 'queue7']
                     dscp28:
                         type: str
                         description: Queue number of DSCP 28.
-                        choices:
-                            - 'queue0'
-                            - 'queue1'
-                            - 'queue2'
-                            - 'queue3'
-                            - 'queue4'
-                            - 'queue5'
-                            - 'queue6'
-                            - 'queue7'
+                        choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5',
+                                  'queue6', 'queue7']
                     dscp29:
                         type: str
                         description: Queue number of DSCP 29.
-                        choices:
-                            - 'queue0'
-                            - 'queue1'
-                            - 'queue2'
-                            - 'queue3'
-                            - 'queue4'
-                            - 'queue5'
-                            - 'queue6'
-                            - 'queue7'
+                        choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5',
+                                  'queue6', 'queue7']
                     dscp3:
                         type: str
                         description: Queue number of DSCP 3.
-                        choices:
-                            - 'queue0'
-                            - 'queue1'
-                            - 'queue2'
-                            - 'queue3'
-                            - 'queue4'
-                            - 'queue5'
-                            - 'queue6'
-                            - 'queue7'
+                        choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5',
+                                  'queue6', 'queue7']
                     dscp30:
                         type: str
                         description: Queue number of DSCP 30.
-                        choices:
-                            - 'queue0'
-                            - 'queue1'
-                            - 'queue2'
-                            - 'queue3'
-                            - 'queue4'
-                            - 'queue5'
-                            - 'queue6'
-                            - 'queue7'
+                        choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5',
+                                  'queue6', 'queue7']
                     dscp31:
                         type: str
                         description: Queue number of DSCP 31.
-                        choices:
-                            - 'queue0'
-                            - 'queue1'
-                            - 'queue2'
-                            - 'queue3'
-                            - 'queue4'
-                            - 'queue5'
-                            - 'queue6'
-                            - 'queue7'
+                        choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5',
+                                  'queue6', 'queue7']
                     dscp32:
                         type: str
                         description: Queue number of DSCP 32.
-                        choices:
-                            - 'queue0'
-                            - 'queue1'
-                            - 'queue2'
-                            - 'queue3'
-                            - 'queue4'
-                            - 'queue5'
-                            - 'queue6'
-                            - 'queue7'
+                        choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5',
+                                  'queue6', 'queue7']
                     dscp33:
                         type: str
                         description: Queue number of DSCP 33.
-                        choices:
-                            - 'queue0'
-                            - 'queue1'
-                            - 'queue2'
-                            - 'queue3'
-                            - 'queue4'
-                            - 'queue5'
-                            - 'queue6'
-                            - 'queue7'
+                        choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5',
+                                  'queue6', 'queue7']
                     dscp34:
                         type: str
                         description: Queue number of DSCP 34.
-                        choices:
-                            - 'queue0'
-                            - 'queue1'
-                            - 'queue2'
-                            - 'queue3'
-                            - 'queue4'
-                            - 'queue5'
-                            - 'queue6'
-                            - 'queue7'
+                        choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5',
+                                  'queue6', 'queue7']
                     dscp35:
                         type: str
                         description: Queue number of DSCP 35.
-                        choices:
-                            - 'queue0'
-                            - 'queue1'
-                            - 'queue2'
-                            - 'queue3'
-                            - 'queue4'
-                            - 'queue5'
-                            - 'queue6'
-                            - 'queue7'
+                        choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5',
+                                  'queue6', 'queue7']
                     dscp36:
                         type: str
                         description: Queue number of DSCP 36.
-                        choices:
-                            - 'queue0'
-                            - 'queue1'
-                            - 'queue2'
-                            - 'queue3'
-                            - 'queue4'
-                            - 'queue5'
-                            - 'queue6'
-                            - 'queue7'
+                        choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5',
+                                  'queue6', 'queue7']
                     dscp37:
                         type: str
                         description: Queue number of DSCP 37.
-                        choices:
-                            - 'queue0'
-                            - 'queue1'
-                            - 'queue2'
-                            - 'queue3'
-                            - 'queue4'
-                            - 'queue5'
-                            - 'queue6'
-                            - 'queue7'
+                        choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5',
+                                  'queue6', 'queue7']
                     dscp38:
                         type: str
                         description: Queue number of DSCP 38.
-                        choices:
-                            - 'queue0'
-                            - 'queue1'
-                            - 'queue2'
-                            - 'queue3'
-                            - 'queue4'
-                            - 'queue5'
-                            - 'queue6'
-                            - 'queue7'
+                        choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5',
+                                  'queue6', 'queue7']
                     dscp39:
                         type: str
                         description: Queue number of DSCP 39.
-                        choices:
-                            - 'queue0'
-                            - 'queue1'
-                            - 'queue2'
-                            - 'queue3'
-                            - 'queue4'
-                            - 'queue5'
-                            - 'queue6'
-                            - 'queue7'
+                        choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5',
+                                  'queue6', 'queue7']
                     dscp4:
                         type: str
                         description: Queue number of DSCP 4.
-                        choices:
-                            - 'queue0'
-                            - 'queue1'
-                            - 'queue2'
-                            - 'queue3'
-                            - 'queue4'
-                            - 'queue5'
-                            - 'queue6'
-                            - 'queue7'
+                        choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5',
+                                  'queue6', 'queue7']
                     dscp40:
                         type: str
                         description: Queue number of DSCP 40.
-                        choices:
-                            - 'queue0'
-                            - 'queue1'
-                            - 'queue2'
-                            - 'queue3'
-                            - 'queue4'
-                            - 'queue5'
-                            - 'queue6'
-                            - 'queue7'
+                        choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5',
+                                  'queue6', 'queue7']
                     dscp41:
                         type: str
                         description: Queue number of DSCP 41.
-                        choices:
-                            - 'queue0'
-                            - 'queue1'
-                            - 'queue2'
-                            - 'queue3'
-                            - 'queue4'
-                            - 'queue5'
-                            - 'queue6'
-                            - 'queue7'
+                        choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5',
+                                  'queue6', 'queue7']
                     dscp42:
                         type: str
                         description: Queue number of DSCP 42.
-                        choices:
-                            - 'queue0'
-                            - 'queue1'
-                            - 'queue2'
-                            - 'queue3'
-                            - 'queue4'
-                            - 'queue5'
-                            - 'queue6'
-                            - 'queue7'
+                        choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5',
+                                  'queue6', 'queue7']
                     dscp43:
                         type: str
                         description: Queue number of DSCP 43.
-                        choices:
-                            - 'queue0'
-                            - 'queue1'
-                            - 'queue2'
-                            - 'queue3'
-                            - 'queue4'
-                            - 'queue5'
-                            - 'queue6'
-                            - 'queue7'
+                        choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5',
+                                  'queue6', 'queue7']
                     dscp44:
                         type: str
                         description: Queue number of DSCP 44.
-                        choices:
-                            - 'queue0'
-                            - 'queue1'
-                            - 'queue2'
-                            - 'queue3'
-                            - 'queue4'
-                            - 'queue5'
-                            - 'queue6'
-                            - 'queue7'
+                        choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5',
+                                  'queue6', 'queue7']
                     dscp45:
                         type: str
                         description: Queue number of DSCP 45.
-                        choices:
-                            - 'queue0'
-                            - 'queue1'
-                            - 'queue2'
-                            - 'queue3'
-                            - 'queue4'
-                            - 'queue5'
-                            - 'queue6'
-                            - 'queue7'
+                        choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5',
+                                  'queue6', 'queue7']
                     dscp46:
                         type: str
                         description: Queue number of DSCP 46.
-                        choices:
-                            - 'queue0'
-                            - 'queue1'
-                            - 'queue2'
-                            - 'queue3'
-                            - 'queue4'
-                            - 'queue5'
-                            - 'queue6'
-                            - 'queue7'
+                        choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5',
+                                  'queue6', 'queue7']
                     dscp47:
                         type: str
                         description: Queue number of DSCP 47.
-                        choices:
-                            - 'queue0'
-                            - 'queue1'
-                            - 'queue2'
-                            - 'queue3'
-                            - 'queue4'
-                            - 'queue5'
-                            - 'queue6'
-                            - 'queue7'
+                        choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5',
+                                  'queue6', 'queue7']
                     dscp48:
                         type: str
                         description: Queue number of DSCP 48.
-                        choices:
-                            - 'queue0'
-                            - 'queue1'
-                            - 'queue2'
-                            - 'queue3'
-                            - 'queue4'
-                            - 'queue5'
-                            - 'queue6'
-                            - 'queue7'
+                        choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5',
+                                  'queue6', 'queue7']
                     dscp49:
                         type: str
                         description: Queue number of DSCP 49.
-                        choices:
-                            - 'queue0'
-                            - 'queue1'
-                            - 'queue2'
-                            - 'queue3'
-                            - 'queue4'
-                            - 'queue5'
-                            - 'queue6'
-                            - 'queue7'
+                        choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5',
+                                  'queue6', 'queue7']
                     dscp5:
                         type: str
                         description: Queue number of DSCP 5.
-                        choices:
-                            - 'queue0'
-                            - 'queue1'
-                            - 'queue2'
-                            - 'queue3'
-                            - 'queue4'
-                            - 'queue5'
-                            - 'queue6'
-                            - 'queue7'
+                        choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5',
+                                  'queue6', 'queue7']
                     dscp50:
                         type: str
                         description: Queue number of DSCP 50.
-                        choices:
-                            - 'queue0'
-                            - 'queue1'
-                            - 'queue2'
-                            - 'queue3'
-                            - 'queue4'
-                            - 'queue5'
-                            - 'queue6'
-                            - 'queue7'
+                        choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5',
+                                  'queue6', 'queue7']
                     dscp51:
                         type: str
                         description: Queue number of DSCP 51.
-                        choices:
-                            - 'queue0'
-                            - 'queue1'
-                            - 'queue2'
-                            - 'queue3'
-                            - 'queue4'
-                            - 'queue5'
-                            - 'queue6'
-                            - 'queue7'
+                        choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5',
+                                  'queue6', 'queue7']
                     dscp52:
                         type: str
                         description: Queue number of DSCP 52.
-                        choices:
-                            - 'queue0'
-                            - 'queue1'
-                            - 'queue2'
-                            - 'queue3'
-                            - 'queue4'
-                            - 'queue5'
-                            - 'queue6'
-                            - 'queue7'
+                        choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5',
+                                  'queue6', 'queue7']
                     dscp53:
                         type: str
                         description: Queue number of DSCP 53.
-                        choices:
-                            - 'queue0'
-                            - 'queue1'
-                            - 'queue2'
-                            - 'queue3'
-                            - 'queue4'
-                            - 'queue5'
-                            - 'queue6'
-                            - 'queue7'
+                        choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5',
+                                  'queue6', 'queue7']
                     dscp54:
                         type: str
                         description: Queue number of DSCP 54.
-                        choices:
-                            - 'queue0'
-                            - 'queue1'
-                            - 'queue2'
-                            - 'queue3'
-                            - 'queue4'
-                            - 'queue5'
-                            - 'queue6'
-                            - 'queue7'
+                        choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5',
+                                  'queue6', 'queue7']
                     dscp55:
                         type: str
                         description: Queue number of DSCP 55.
-                        choices:
-                            - 'queue0'
-                            - 'queue1'
-                            - 'queue2'
-                            - 'queue3'
-                            - 'queue4'
-                            - 'queue5'
-                            - 'queue6'
-                            - 'queue7'
+                        choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5',
+                                  'queue6', 'queue7']
                     dscp56:
                         type: str
                         description: Queue number of DSCP 56.
-                        choices:
-                            - 'queue0'
-                            - 'queue1'
-                            - 'queue2'
-                            - 'queue3'
-                            - 'queue4'
-                            - 'queue5'
-                            - 'queue6'
-                            - 'queue7'
+                        choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5',
+                                  'queue6', 'queue7']
                     dscp57:
                         type: str
                         description: Queue number of DSCP 57.
-                        choices:
-                            - 'queue0'
-                            - 'queue1'
-                            - 'queue2'
-                            - 'queue3'
-                            - 'queue4'
-                            - 'queue5'
-                            - 'queue6'
-                            - 'queue7'
+                        choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5',
+                                  'queue6', 'queue7']
                     dscp58:
                         type: str
                         description: Queue number of DSCP 58.
-                        choices:
-                            - 'queue0'
-                            - 'queue1'
-                            - 'queue2'
-                            - 'queue3'
-                            - 'queue4'
-                            - 'queue5'
-                            - 'queue6'
-                            - 'queue7'
+                        choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5',
+                                  'queue6', 'queue7']
                     dscp59:
                         type: str
                         description: Queue number of DSCP 59.
-                        choices:
-                            - 'queue0'
-                            - 'queue1'
-                            - 'queue2'
-                            - 'queue3'
-                            - 'queue4'
-                            - 'queue5'
-                            - 'queue6'
-                            - 'queue7'
+                        choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5',
+                                  'queue6', 'queue7']
                     dscp6:
                         type: str
                         description: Queue number of DSCP 6.
-                        choices:
-                            - 'queue0'
-                            - 'queue1'
-                            - 'queue2'
-                            - 'queue3'
-                            - 'queue4'
-                            - 'queue5'
-                            - 'queue6'
-                            - 'queue7'
+                        choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5',
+                                  'queue6', 'queue7']
                     dscp60:
                         type: str
                         description: Queue number of DSCP 60.
-                        choices:
-                            - 'queue0'
-                            - 'queue1'
-                            - 'queue2'
-                            - 'queue3'
-                            - 'queue4'
-                            - 'queue5'
-                            - 'queue6'
-                            - 'queue7'
+                        choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5',
+                                  'queue6', 'queue7']
                     dscp61:
                         type: str
                         description: Queue number of DSCP 61.
-                        choices:
-                            - 'queue0'
-                            - 'queue1'
-                            - 'queue2'
-                            - 'queue3'
-                            - 'queue4'
-                            - 'queue5'
-                            - 'queue6'
-                            - 'queue7'
+                        choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5',
+                                  'queue6', 'queue7']
                     dscp62:
                         type: str
                         description: Queue number of DSCP 62.
-                        choices:
-                            - 'queue0'
-                            - 'queue1'
-                            - 'queue2'
-                            - 'queue3'
-                            - 'queue4'
-                            - 'queue5'
-                            - 'queue6'
-                            - 'queue7'
+                        choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5',
+                                  'queue6', 'queue7']
                     dscp63:
                         type: str
                         description: Queue number of DSCP 63.
-                        choices:
-                            - 'queue0'
-                            - 'queue1'
-                            - 'queue2'
-                            - 'queue3'
-                            - 'queue4'
-                            - 'queue5'
-                            - 'queue6'
-                            - 'queue7'
+                        choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5',
+                                  'queue6', 'queue7']
                     dscp7:
                         type: str
                         description: Queue number of DSCP 7.
-                        choices:
-                            - 'queue0'
-                            - 'queue1'
-                            - 'queue2'
-                            - 'queue3'
-                            - 'queue4'
-                            - 'queue5'
-                            - 'queue6'
-                            - 'queue7'
+                        choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5',
+                                  'queue6', 'queue7']
                     dscp8:
                         type: str
                         description: Queue number of DSCP 8.
-                        choices:
-                            - 'queue0'
-                            - 'queue1'
-                            - 'queue2'
-                            - 'queue3'
-                            - 'queue4'
-                            - 'queue5'
-                            - 'queue6'
-                            - 'queue7'
+                        choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5',
+                                  'queue6', 'queue7']
                     dscp9:
                         type: str
                         description: Queue number of DSCP 9.
-                        choices:
-                            - 'queue0'
-                            - 'queue1'
-                            - 'queue2'
-                            - 'queue3'
-                            - 'queue4'
-                            - 'queue5'
-                            - 'queue6'
-                            - 'queue7'
+                        choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5',
+                                  'queue6', 'queue7']
                     id:
                         type: int
                         description: Profile ID.
                     type:
                         type: str
                         description: Profile type.
-                        choices:
-                            - 'cos'
-                            - 'dscp'
+                        choices: ['cos', 'dscp']
                     weight:
                         type: int
                         description: Class weight.
@@ -1031,10 +473,7 @@ options:
                     mode:
                         type: str
                         description: Scheduler mode.
-                        choices:
-                            - 'none'
-                            - 'priority'
-                            - 'round-robin'
+                        choices: ['none', 'priority', 'round-robin']
                     name:
                         type: str
                         description: Scheduler name.
@@ -1042,9 +481,7 @@ options:
                 aliases: ['custom-etype-lookup']
                 type: str
                 description: Enable/Disable np-queue lookup for custom Ethernet Types.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -1052,18 +489,10 @@ EXAMPLES = '''
   hosts: fortimanagers
   connection: httpapi
   gather_facts: false
-  vars:
-    ansible_httpapi_use_ssl: true
-    ansible_httpapi_validate_certs: false
-    ansible_httpapi_port: 443
   tasks:
     - name: Configure queue assignment on NP7.
       fortinet.fortimanager.fmgr_system_npu_npqueues:
-        # bypass_validation: false
         # workspace_locking_adom: <global or your adom name>
-        # workspace_locking_timeout: 300
-        # rc_succeeded: [0, -2, -3, ...]
-        # rc_failed: [-2, -3, ...]
         adom: <your own value>
         system_npu_npqueues:
           # ethernet_type:
@@ -1215,14 +644,11 @@ def main():
         '/pm/config/adom/{adom}/obj/system/npu/np-queues',
         '/pm/config/global/obj/system/npu/np-queues'
     ]
-    url_params = ['adom']
-    module_primary_key = None
     module_arg_spec = {
         'adom': {'required': True, 'type': 'str'},
         'revision_note': {'type': 'str'},
         'system_npu_npqueues': {
-            'type': 'dict',
-            'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
+            'type': 'dict', 'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
             'options': {
                 'ethernet-type': {
                     'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
@@ -1645,19 +1071,15 @@ def main():
 
     module_option_spec = get_module_arg_spec('partial crud')
     module_arg_spec.update(module_option_spec)
-    params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'system_npu_npqueues'),
                            supports_check_mode=True)
-
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list, module_primary_key, url_params,
-                       module, connection, top_level_schema_name='data')
-    fmgr.validate_parameters(params_validation_blob)
+    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list,
+                       None, 'data', module, connection)
     fmgr.process_partial_crud()
-
     module.exit_json(meta=module.params)
 
 

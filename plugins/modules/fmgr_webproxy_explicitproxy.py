@@ -13,75 +13,14 @@ DOCUMENTATION = '''
 ---
 module: fmgr_webproxy_explicitproxy
 short_description: Web proxy explicit proxy
-description:
-    - This module is able to configure a FortiManager device (FortiProxy).
-    - Examples include all parameters and values which need to be adjusted to data sources before usage.
 version_added: "2.12.0"
-author:
-    - Xinwei Du (@dux-fortinet)
-    - Xing Li (@lix-fortinet)
-    - Jie Xue (@JieX19)
-    - Link Zheng (@chillancezen)
-    - Frank Shen (@fshen01)
-    - Hongbin Lu (@fgtdev-hblu)
-notes:
-    - Starting in version 2.4.0, all input arguments are named using the underscore naming convention (snake_case).
-      Please change the arguments such as "var-name" to "var_name".
-      Old argument names are still available yet you will receive deprecation warnings.
-      You can ignore this warning by setting deprecation_warnings=False in ansible.cfg.
-    - Running in workspace locking mode is supported in this FortiManager module, the top
-      level parameters workspace_locking_adom and workspace_locking_timeout help do the work.
-    - To create or update an object, use state present directive.
-    - To delete an object, use state absent directive.
-    - Normally, running one module can fail when a non-zero rc is returned. you can also override
-      the conditions to fail or succeed with parameters rc_failed and rc_succeeded
+extends_documentation_fragment:
+    - fortinet.fortimanager.general
+    - fortinet.fortimanager.general.full_crud
 options:
-    access_token:
-        description: The token to access FortiManager without using username and password.
-        type: str
-    bypass_validation:
-        description: Only set to True when module schema diffs with FortiManager API structure, module continues to execute without validating parameters.
-        type: bool
-        default: false
-    enable_log:
-        description: Enable/Disable logging for task.
-        type: bool
-        default: false
-    forticloud_access_token:
-        description: Authenticate Ansible client with forticloud API access token.
-        type: str
-    proposed_method:
-        description: The overridden method for the underlying Json RPC request.
-        type: str
-        choices:
-          - update
-          - set
-          - add
-    rc_succeeded:
-        description: The rc codes list with which the conditions to succeed will be overriden.
-        type: list
-        elements: int
-    rc_failed:
-        description: The rc codes list with which the conditions to fail will be overriden.
-        type: list
-        elements: int
-    state:
-        description: The directive to create, update or delete an object.
-        type: str
-        required: true
-        choices:
-          - present
-          - absent
     revision_note:
         description: The change note that can be specified when an object is created or updated.
         type: str
-    workspace_locking_adom:
-        description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
-        type: str
-    workspace_locking_timeout:
-        description: The maximum time in seconds to wait for other user to release the workspace lock.
-        type: int
-        default: 300
     adom:
         description: The parameter (adom) in requested url.
         type: str
@@ -95,24 +34,17 @@ options:
                 aliases: ['detect-https-in-http-request']
                 type: str
                 description: Detect https in http request.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             dns_mode:
                 aliases: ['dns-mode']
                 type: str
                 description: Dns mode.
-                choices:
-                    - 'recursive'
-                    - 'non-recursive'
-                    - 'forward-only'
+                choices: ['recursive', 'non-recursive', 'forward-only']
             dstport_from_incoming:
                 aliases: ['dstport-from-incoming']
                 type: str
                 description: Dstport from incoming.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             ftp_incoming_port:
                 aliases: ['ftp-incoming-port']
                 type: list
@@ -122,30 +54,21 @@ options:
                 aliases: ['ftp-over-http']
                 type: str
                 description: Ftp over http.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             header_proxy_agent:
                 aliases: ['header-proxy-agent']
                 type: str
                 description: Header proxy agent.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             http:
                 type: str
                 description: Http.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             http_connection_mode:
                 aliases: ['http-connection-mode']
                 type: str
                 description: Http connection mode.
-                choices:
-                    - 'static'
-                    - 'multiplex'
-                    - 'serverpool'
+                choices: ['static', 'multiplex', 'serverpool']
             http_incoming_port:
                 aliases: ['http-incoming-port']
                 type: list
@@ -168,16 +91,12 @@ options:
                 aliases: ['ipv6-status']
                 type: str
                 description: Ipv6 status.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             learn_dst_from_sni:
                 aliases: ['learn-dst-from-sni']
                 type: str
                 description: Learn dst from sni.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             name:
                 type: str
                 description: Name.
@@ -198,16 +117,12 @@ options:
                 aliases: ['pac-file-server-status']
                 type: str
                 description: Pac file server status.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             pac_file_through_https:
                 aliases: ['pac-file-through-https']
                 type: str
                 description: Pac file through https.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             pac_file_url:
                 aliases: ['pac-file-url']
                 type: str
@@ -216,11 +131,7 @@ options:
                 aliases: ['pref-dns-result']
                 type: str
                 description: Pref dns result.
-                choices:
-                    - 'ipv4'
-                    - 'ipv6'
-                    - 'ipv4-strict'
-                    - 'ipv6-strict'
+                choices: ['ipv4', 'ipv6', 'ipv4-strict', 'ipv6-strict']
             realm:
                 type: str
                 description: Realm.
@@ -228,24 +139,17 @@ options:
                 aliases: ['return-to-sender']
                 type: str
                 description: Return to sender.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             sec_default_action:
                 aliases: ['sec-default-action']
                 type: str
                 description: Sec default action.
-                choices:
-                    - 'deny'
-                    - 'accept'
+                choices: ['deny', 'accept']
             secure_web_proxy:
                 aliases: ['secure-web-proxy']
                 type: str
                 description: Secure web proxy.
-                choices:
-                    - 'disable'
-                    - 'enable'
-                    - 'secure'
+                choices: ['disable', 'enable', 'secure']
             secure_web_proxy_cert:
                 aliases: ['secure-web-proxy-cert']
                 type: list
@@ -254,9 +158,7 @@ options:
             socks:
                 type: str
                 description: Socks.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             socks_incoming_port:
                 aliases: ['socks-incoming-port']
                 type: list
@@ -266,32 +168,21 @@ options:
                 aliases: ['ssl-algorithm']
                 type: str
                 description: Ssl algorithm.
-                choices:
-                    - 'high'
-                    - 'low'
-                    - 'medium'
+                choices: ['high', 'low', 'medium']
             ssl_dh_bits:
                 aliases: ['ssl-dh-bits']
                 type: str
                 description: Ssl dh bits.
-                choices:
-                    - '768'
-                    - '1024'
-                    - '1536'
-                    - '2048'
+                choices: ['768', '1024', '1536', '2048']
             status:
                 type: str
                 description: Status.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             unknown_http_version:
                 aliases: ['unknown-http-version']
                 type: str
                 description: Unknown http version.
-                choices:
-                    - 'best-effort'
-                    - 'reject'
+                choices: ['best-effort', 'reject']
             incoming_ip:
                 aliases: ['incoming-ip']
                 type: str
@@ -300,24 +191,17 @@ options:
                 aliases: ['client-cert']
                 type: str
                 description: Client cert.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             empty_cert_action:
                 aliases: ['empty-cert-action']
                 type: str
                 description: Empty cert action.
-                choices:
-                    - 'block'
-                    - 'accept'
-                    - 'accept-unmanageable'
+                choices: ['block', 'accept', 'accept-unmanageable']
             user_agent_detect:
                 aliases: ['user-agent-detect']
                 type: str
                 description: User agent detect.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -325,18 +209,10 @@ EXAMPLES = '''
   hosts: fortimanagers
   connection: httpapi
   gather_facts: false
-  vars:
-    ansible_httpapi_use_ssl: true
-    ansible_httpapi_validate_certs: false
-    ansible_httpapi_port: 443
   tasks:
     - name: Web proxy explicit proxy
       fortinet.fortimanager.fmgr_webproxy_explicitproxy:
-        # bypass_validation: false
         # workspace_locking_adom: <global or your adom name>
-        # workspace_locking_timeout: 300
-        # rc_succeeded: [0, -2, -3, ...]
-        # rc_failed: [-2, -3, ...]
         adom: <your own value>
         state: present # <value in [present, absent]>
         webproxy_explicitproxy:
@@ -429,14 +305,11 @@ def main():
         '/pm/config/adom/{adom}/obj/web-proxy/explicit-proxy',
         '/pm/config/global/obj/web-proxy/explicit-proxy'
     ]
-    url_params = ['adom']
-    module_primary_key = 'name'
     module_arg_spec = {
         'adom': {'required': True, 'type': 'str'},
         'revision_note': {'type': 'str'},
         'webproxy_explicitproxy': {
-            'type': 'dict',
-            'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']],
+            'type': 'dict', 'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']],
             'options': {
                 'detect-https-in-http-request': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'dns-mode': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'choices': ['recursive', 'non-recursive', 'forward-only'], 'type': 'str'},
@@ -485,19 +358,15 @@ def main():
 
     module_option_spec = get_module_arg_spec('full crud')
     module_arg_spec.update(module_option_spec)
-    params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'webproxy_explicitproxy'),
                            supports_check_mode=True)
-
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
-                       module, connection, top_level_schema_name='data')
-    fmgr.validate_parameters(params_validation_blob)
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list,
+                       'name', 'data', module, connection)
     fmgr.process_crud()
-
     module.exit_json(meta=module.params)
 
 

@@ -13,72 +13,11 @@ DOCUMENTATION = '''
 ---
 module: fmgr_devprof_system_template_interface
 short_description: System template system template interface
-description:
-    - This module is able to configure a FortiManager device.
-    - Examples include all parameters and values which need to be adjusted to data sources before usage.
 version_added: "2.13.0"
-author:
-    - Xinwei Du (@dux-fortinet)
-    - Xing Li (@lix-fortinet)
-    - Jie Xue (@JieX19)
-    - Link Zheng (@chillancezen)
-    - Frank Shen (@fshen01)
-    - Hongbin Lu (@fgtdev-hblu)
-notes:
-    - Starting in version 2.4.0, all input arguments are named using the underscore naming convention (snake_case).
-      Please change the arguments such as "var-name" to "var_name".
-      Old argument names are still available yet you will receive deprecation warnings.
-      You can ignore this warning by setting deprecation_warnings=False in ansible.cfg.
-    - Running in workspace locking mode is supported in this FortiManager module, the top
-      level parameters workspace_locking_adom and workspace_locking_timeout help do the work.
-    - To create or update an object, use state present directive.
-    - To delete an object, use state absent directive.
-    - Normally, running one module can fail when a non-zero rc is returned. you can also override
-      the conditions to fail or succeed with parameters rc_failed and rc_succeeded
+extends_documentation_fragment:
+    - fortinet.fortimanager.general
+    - fortinet.fortimanager.general.full_crud
 options:
-    access_token:
-        description: The token to access FortiManager without using username and password.
-        type: str
-    bypass_validation:
-        description: Only set to True when module schema diffs with FortiManager API structure, module continues to execute without validating parameters.
-        type: bool
-        default: false
-    enable_log:
-        description: Enable/Disable logging for task.
-        type: bool
-        default: false
-    forticloud_access_token:
-        description: Authenticate Ansible client with forticloud API access token.
-        type: str
-    proposed_method:
-        description: The overridden method for the underlying Json RPC request.
-        type: str
-        choices:
-          - update
-          - set
-          - add
-    rc_succeeded:
-        description: The rc codes list with which the conditions to succeed will be overriden.
-        type: list
-        elements: int
-    rc_failed:
-        description: The rc codes list with which the conditions to fail will be overriden.
-        type: list
-        elements: int
-    state:
-        description: The directive to create, update or delete an object.
-        type: str
-        required: true
-        choices:
-          - present
-          - absent
-    workspace_locking_adom:
-        description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
-        type: str
-    workspace_locking_timeout:
-        description: The maximum time in seconds to wait for other user to release the workspace lock.
-        type: int
-        default: 300
     adom:
         description: The parameter (adom) in requested url.
         type: str
@@ -95,33 +34,14 @@ options:
             action:
                 type: str
                 description: Action.
-                choices:
-                    - 'add-aggregate'
-                    - 'add-loopback'
-                    - 'add-vlan'
-                    - 'add-zone'
-                    - 'conf-intf'
-                    - 'conf-dhcp-server'
-                    - 'conf-monitor-bandwd'
-                    - 'conf-vap-ssid'
+                choices: ['add-aggregate', 'add-loopback', 'add-vlan', 'add-zone', 'conf-intf',
+                          'conf-dhcp-server', 'conf-monitor-bandwd', 'conf-vap-ssid']
             allowaccess:
                 type: list
                 elements: str
                 description: Allowaccess.
-                choices:
-                    - 'https'
-                    - 'ping'
-                    - 'ssh'
-                    - 'snmp'
-                    - 'http'
-                    - 'telnet'
-                    - 'fgfm'
-                    - 'radius-acct'
-                    - 'probe-response'
-                    - 'dnp'
-                    - 'ftm'
-                    - 'fabric'
-                    - 'speed-test'
+                choices: ['https', 'ping', 'ssh', 'snmp', 'http', 'telnet', 'fgfm', 'radius-acct',
+                          'probe-response', 'dnp', 'ftm', 'fabric', 'speed-test']
             dhcp_id:
                 aliases: ['dhcp-id']
                 type: int
@@ -165,9 +85,7 @@ options:
                 aliases: ['monitor-bandwidth']
                 type: str
                 description: Monitor bandwidth.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             name:
                 type: str
                 description: Support meta variable
@@ -178,11 +96,7 @@ options:
             role:
                 type: str
                 description: Role.
-                choices:
-                    - 'lan'
-                    - 'wan'
-                    - 'dmz'
-                    - 'undefined'
+                choices: ['lan', 'wan', 'dmz', 'undefined']
             seq:
                 type: int
                 description: Seq.
@@ -202,35 +116,14 @@ options:
                 aliases: ['wifi-security']
                 type: str
                 description: Wifi security.
-                choices:
-                    - 'None'
-                    - 'wep64'
-                    - 'wep128'
-                    - 'WPA_PSK'
-                    - 'WPA_RADIUS'
-                    - 'WPA'
-                    - 'WPA2'
-                    - 'WPA2_AUTO'
-                    - 'open'
-                    - 'wpa-personal'
-                    - 'wpa-enterprise'
-                    - 'captive-portal'
-                    - 'wpa-only-personal'
-                    - 'wpa-only-enterprise'
-                    - 'wpa2-only-personal'
-                    - 'wpa2-only-enterprise'
-                    - 'wpa-personal+captive-portal'
-                    - 'wpa-only-personal+captive-portal'
-                    - 'wpa2-only-personal+captive-portal'
-                    - 'osen'
-                    - 'wpa3-enterprise'
-                    - 'sae'
-                    - 'sae-transition'
-                    - 'owe'
-                    - 'wpa3-sae'
-                    - 'wpa3-sae-transition'
-                    - 'wpa3-only-enterprise'
-                    - 'wpa3-enterprise-transition'
+                choices: ['None', 'wep64', 'wep128', 'WPA_PSK', 'WPA_RADIUS', 'WPA', 'WPA2',
+                          'WPA2_AUTO', 'open', 'wpa-personal', 'wpa-enterprise', 'captive-portal',
+                          'wpa-only-personal', 'wpa-only-enterprise', 'wpa2-only-personal',
+                          'wpa2-only-enterprise', 'wpa-personal+captive-portal',
+                          'wpa-only-personal+captive-portal', 'wpa2-only-personal+captive-portal',
+                          'osen', 'wpa3-enterprise', 'sae', 'sae-transition', 'owe', 'wpa3-sae',
+                          'wpa3-sae-transition', 'wpa3-only-enterprise',
+                          'wpa3-enterprise-transition']
             wifi_ssid:
                 aliases: ['wifi-ssid']
                 type: str
@@ -242,38 +135,18 @@ EXAMPLES = '''
   hosts: fortimanagers
   connection: httpapi
   gather_facts: false
-  vars:
-    ansible_httpapi_use_ssl: true
-    ansible_httpapi_validate_certs: false
-    ansible_httpapi_port: 443
   tasks:
     - name: System template system template interface
       fortinet.fortimanager.fmgr_devprof_system_template_interface:
-        # bypass_validation: false
         # workspace_locking_adom: <global or your adom name>
-        # workspace_locking_timeout: 300
-        # rc_succeeded: [0, -2, -3, ...]
-        # rc_failed: [-2, -3, ...]
         adom: <your own value>
         devprof: <your own value>
         state: present # <value in [present, absent]>
         devprof_system_template_interface:
           name: "your value" # Required variable, string
           # action: <value in [add-aggregate, add-loopback, add-vlan, ...]>
-          # allowaccess:
-          #   - "https"
-          #   - "ping"
-          #   - "ssh"
-          #   - "snmp"
-          #   - "http"
-          #   - "telnet"
-          #   - "fgfm"
-          #   - "radius-acct"
-          #   - "probe-response"
-          #   - "dnp"
-          #   - "ftm"
-          #   - "fabric"
-          #   - "speed-test"
+          # allowaccess: ["https", "ping", "ssh", "snmp", "http", "telnet", "fgfm", "radius-acct",
+          #               "probe-response", "dnp", "ftm", "fabric", "speed-test"]
           # dhcp_id: <integer>
           # gateway: <string>
           # interface: <string>
@@ -344,14 +217,11 @@ def main():
     urls_list = [
         '/pm/config/adom/{adom}/devprof/{devprof}/system/template/interface'
     ]
-    url_params = ['adom', 'devprof']
-    module_primary_key = 'name'
     module_arg_spec = {
         'adom': {'required': True, 'type': 'str'},
         'devprof': {'required': True, 'type': 'str'},
         'devprof_system_template_interface': {
-            'type': 'dict',
-            'v_range': [['7.6.5', '']],
+            'type': 'dict', 'v_range': [['7.6.5', '']],
             'options': {
                 'action': {
                     'v_range': [['7.6.5', '']],
@@ -410,19 +280,15 @@ def main():
 
     module_option_spec = get_module_arg_spec('full crud')
     module_arg_spec.update(module_option_spec)
-    params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'devprof_system_template_interface'),
                            supports_check_mode=True)
-
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
-                       module, connection, top_level_schema_name='data')
-    fmgr.validate_parameters(params_validation_blob)
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list,
+                       'name', 'data', module, connection)
     fmgr.process_crud()
-
     module.exit_json(meta=module.params)
 
 

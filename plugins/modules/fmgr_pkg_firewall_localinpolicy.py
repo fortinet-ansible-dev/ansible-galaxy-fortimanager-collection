@@ -13,75 +13,14 @@ DOCUMENTATION = '''
 ---
 module: fmgr_pkg_firewall_localinpolicy
 short_description: Configure user defined IPv4 local-in policies.
-description:
-    - This module is able to configure a FortiManager device.
-    - Examples include all parameters and values which need to be adjusted to data sources before usage.
 version_added: "2.0.0"
-author:
-    - Xinwei Du (@dux-fortinet)
-    - Xing Li (@lix-fortinet)
-    - Jie Xue (@JieX19)
-    - Link Zheng (@chillancezen)
-    - Frank Shen (@fshen01)
-    - Hongbin Lu (@fgtdev-hblu)
-notes:
-    - Starting in version 2.4.0, all input arguments are named using the underscore naming convention (snake_case).
-      Please change the arguments such as "var-name" to "var_name".
-      Old argument names are still available yet you will receive deprecation warnings.
-      You can ignore this warning by setting deprecation_warnings=False in ansible.cfg.
-    - Running in workspace locking mode is supported in this FortiManager module, the top
-      level parameters workspace_locking_adom and workspace_locking_timeout help do the work.
-    - To create or update an object, use state present directive.
-    - To delete an object, use state absent directive.
-    - Normally, running one module can fail when a non-zero rc is returned. you can also override
-      the conditions to fail or succeed with parameters rc_failed and rc_succeeded
+extends_documentation_fragment:
+    - fortinet.fortimanager.general
+    - fortinet.fortimanager.general.full_crud
 options:
-    access_token:
-        description: The token to access FortiManager without using username and password.
-        type: str
-    bypass_validation:
-        description: Only set to True when module schema diffs with FortiManager API structure, module continues to execute without validating parameters.
-        type: bool
-        default: false
-    enable_log:
-        description: Enable/Disable logging for task.
-        type: bool
-        default: false
-    forticloud_access_token:
-        description: Authenticate Ansible client with forticloud API access token.
-        type: str
-    proposed_method:
-        description: The overridden method for the underlying Json RPC request.
-        type: str
-        choices:
-          - update
-          - set
-          - add
-    rc_succeeded:
-        description: The rc codes list with which the conditions to succeed will be overriden.
-        type: list
-        elements: int
-    rc_failed:
-        description: The rc codes list with which the conditions to fail will be overriden.
-        type: list
-        elements: int
-    state:
-        description: The directive to create, update or delete an object.
-        type: str
-        required: true
-        choices:
-          - present
-          - absent
     revision_note:
         description: The change note that can be specified when an object is created or updated.
         type: str
-    workspace_locking_adom:
-        description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
-        type: str
-    workspace_locking_timeout:
-        description: The maximum time in seconds to wait for other user to release the workspace lock.
-        type: int
-        default: 300
     adom:
         description: The parameter (adom) in requested url.
         type: str
@@ -98,9 +37,7 @@ options:
             action:
                 type: str
                 description: Action performed on traffic matching the policy
-                choices:
-                    - 'deny'
-                    - 'accept'
+                choices: ['deny', 'accept']
             dstaddr:
                 type: raw
                 description: (list or str) Destination address object from available options.
@@ -108,9 +45,7 @@ options:
                 aliases: ['ha-mgmt-intf-only']
                 type: str
                 description: Enable/disable dedicating the HA management interface only for local-in policy.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             intf:
                 type: raw
                 description: Incoming interface name from available options.
@@ -130,9 +65,7 @@ options:
             status:
                 type: str
                 description: Enable/disable this local-in policy.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             comments:
                 type: str
                 description: Comment.
@@ -143,37 +76,27 @@ options:
                 aliases: ['dstaddr-negate']
                 type: str
                 description: When enabled dstaddr specifies what the destination address must NOT be.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             service_negate:
                 aliases: ['service-negate']
                 type: str
                 description: When enabled service specifies what the service must NOT be.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             srcaddr_negate:
                 aliases: ['srcaddr-negate']
                 type: str
                 description: When enabled srcaddr specifies what the source address must NOT be.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             virtual_patch:
                 aliases: ['virtual-patch']
                 type: str
                 description: Enable/disable virtual patching.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             internet_service_src:
                 aliases: ['internet-service-src']
                 type: str
                 description: Enable/disable use of Internet Services in source for this local-in policy.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             internet_service_src_custom:
                 aliases: ['internet-service-src-custom']
                 type: raw
@@ -194,15 +117,11 @@ options:
                 aliases: ['internet-service-src-negate']
                 type: str
                 description: When enabled internet-service-src specifies what the service must NOT be.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             logtraffic:
                 type: str
                 description: Enable/disable local-in traffic logging.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             internet_service_src_fortiguard:
                 aliases: ['internet-service-src-fortiguard']
                 type: raw
@@ -303,15 +222,12 @@ def main():
     urls_list = [
         '/pm/config/adom/{adom}/pkg/{pkg}/firewall/local-in-policy'
     ]
-    url_params = ['adom', 'pkg']
-    module_primary_key = 'policyid'
     module_arg_spec = {
         'adom': {'required': True, 'type': 'str'},
         'pkg': {'required': True, 'type': 'str'},
         'revision_note': {'type': 'str'},
         'pkg_firewall_localinpolicy': {
-            'type': 'dict',
-            'v_range': [['6.0.0', '']],
+            'type': 'dict', 'v_range': [['6.0.0', '']],
             'options': {
                 'action': {'choices': ['deny', 'accept'], 'type': 'str'},
                 'dstaddr': {'type': 'raw'},
@@ -342,19 +258,15 @@ def main():
 
     module_option_spec = get_module_arg_spec('full crud')
     module_arg_spec.update(module_option_spec)
-    params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'pkg_firewall_localinpolicy'),
                            supports_check_mode=True)
-
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
-                       module, connection, top_level_schema_name='data')
-    fmgr.validate_parameters(params_validation_blob)
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list,
+                       'policyid', 'data', module, connection)
     fmgr.process_crud()
-
     module.exit_json(meta=module.params)
 
 

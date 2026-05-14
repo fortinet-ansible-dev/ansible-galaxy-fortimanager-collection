@@ -217,6 +217,7 @@ options:
                     - 'extensioncontroller_extenderprofile'
                     - 'extensioncontroller_extenderprofile_cellular_smsnotification_receiver'
                     - 'extensioncontroller_extenderprofile_lanextension_backhaul'
+                    - 'extensioncontroller_extenderprofile_lanextension_downlinks'
                     - 'extensioncontroller_extenderprofile_lanextension_trafficsplitservices'
                     - 'extensioncontroller_extendervap'
                     - 'filefilter_profile'
@@ -611,7 +612,6 @@ options:
                     - 'switchcontroller_securitypolicy_8021x'
                     - 'switchcontroller_securitypolicy_captiveportal'
                     - 'switchcontroller_securitypolicy_localaccess'
-                    - 'switchcontroller_switchgroup'
                     - 'switchcontroller_switchinterfacetag'
                     - 'switchcontroller_switchprofile'
                     - 'switchcontroller_trafficpolicy'
@@ -816,6 +816,8 @@ options:
                     - 'wanprof_system_sdwan_duplication'
                     - 'wanprof_system_sdwan_healthcheck'
                     - 'wanprof_system_sdwan_healthcheck_sla'
+                    - 'wanprof_system_sdwan_healthcheckfortiguard'
+                    - 'wanprof_system_sdwan_healthcheckfortiguard_sla'
                     - 'wanprof_system_sdwan_members'
                     - 'wanprof_system_sdwan_neighbor'
                     - 'wanprof_system_sdwan_service'
@@ -2108,6 +2110,14 @@ def main():
                 '/pm/config/global/obj/extension-controller/extender-profile/{extender-profile}/lan-extension/backhaul/{backhaul}'
             ],
             'mkey': 'name', 'v_range': [['7.2.1', '']]
+        },
+        'extensioncontroller_extenderprofile_lanextension_downlinks': {
+            'params': ['adom', 'downlinks', 'extender-profile'],
+            'urls': [
+                '/pm/config/adom/{adom}/obj/extension-controller/extender-profile/{extender-profile}/lan-extension/downlinks/{downlinks}',
+                '/pm/config/global/obj/extension-controller/extender-profile/{extender-profile}/lan-extension/downlinks/{downlinks}'
+            ],
+            'mkey': 'name', 'v_range': [['7.6.0', '']]
         },
         'extensioncontroller_extenderprofile_lanextension_trafficsplitservices': {
             'params': ['adom', 'extender-profile', 'traffic-split-services'],
@@ -5228,13 +5238,6 @@ def main():
             ],
             'mkey': 'name', 'v_range': [['7.6.4', '']]
         },
-        'switchcontroller_switchgroup': {
-            'params': ['adom', 'switch-group'],
-            'urls': [
-                '/pm/config/adom/{adom}/obj/switch-controller/switch-group/{switch-group}'
-            ],
-            'mkey': 'name', 'v_range': [['7.6.4', '']]
-        },
         'switchcontroller_switchinterfacetag': {
             'params': ['adom', 'switch-interface-tag'],
             'urls': [
@@ -6862,6 +6865,20 @@ def main():
                 '/pm/config/adom/{adom}/wanprof/{wanprof}/system/sdwan/health-check/{health-check}/sla/{sla}'
             ],
             'mkey': 'id', 'v_range': [['6.4.1', '']]
+        },
+        'wanprof_system_sdwan_healthcheckfortiguard': {
+            'params': ['adom', 'health-check-fortiguard', 'wanprof'],
+            'urls': [
+                '/pm/config/adom/{adom}/wanprof/{wanprof}/system/sdwan/health-check-fortiguard/{health-check-fortiguard}'
+            ],
+            'mkey': None, 'v_range': [['7.6.0', '']]
+        },
+        'wanprof_system_sdwan_healthcheckfortiguard_sla': {
+            'params': ['adom', 'health-check-fortiguard', 'sla', 'wanprof'],
+            'urls': [
+                '/pm/config/adom/{adom}/wanprof/{wanprof}/system/sdwan/health-check-fortiguard/{health-check-fortiguard}/sla/{sla}'
+            ],
+            'mkey': 'id', 'v_range': [['7.6.0', '']]
         },
         'wanprof_system_sdwan_members': {
             'params': ['adom', 'members', 'wanprof'],

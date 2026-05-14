@@ -13,75 +13,14 @@ DOCUMENTATION = '''
 ---
 module: fmgr_extensioncontroller_extenderprofile
 short_description: FortiExtender extender profile configuration.
-description:
-    - This module is able to configure a FortiManager device.
-    - Examples include all parameters and values which need to be adjusted to data sources before usage.
 version_added: "2.2.0"
-author:
-    - Xinwei Du (@dux-fortinet)
-    - Xing Li (@lix-fortinet)
-    - Jie Xue (@JieX19)
-    - Link Zheng (@chillancezen)
-    - Frank Shen (@fshen01)
-    - Hongbin Lu (@fgtdev-hblu)
-notes:
-    - Starting in version 2.4.0, all input arguments are named using the underscore naming convention (snake_case).
-      Please change the arguments such as "var-name" to "var_name".
-      Old argument names are still available yet you will receive deprecation warnings.
-      You can ignore this warning by setting deprecation_warnings=False in ansible.cfg.
-    - Running in workspace locking mode is supported in this FortiManager module, the top
-      level parameters workspace_locking_adom and workspace_locking_timeout help do the work.
-    - To create or update an object, use state present directive.
-    - To delete an object, use state absent directive.
-    - Normally, running one module can fail when a non-zero rc is returned. you can also override
-      the conditions to fail or succeed with parameters rc_failed and rc_succeeded
+extends_documentation_fragment:
+    - fortinet.fortimanager.general
+    - fortinet.fortimanager.general.full_crud
 options:
-    access_token:
-        description: The token to access FortiManager without using username and password.
-        type: str
-    bypass_validation:
-        description: Only set to True when module schema diffs with FortiManager API structure, module continues to execute without validating parameters.
-        type: bool
-        default: false
-    enable_log:
-        description: Enable/Disable logging for task.
-        type: bool
-        default: false
-    forticloud_access_token:
-        description: Authenticate Ansible client with forticloud API access token.
-        type: str
-    proposed_method:
-        description: The overridden method for the underlying Json RPC request.
-        type: str
-        choices:
-          - update
-          - set
-          - add
-    rc_succeeded:
-        description: The rc codes list with which the conditions to succeed will be overriden.
-        type: list
-        elements: int
-    rc_failed:
-        description: The rc codes list with which the conditions to fail will be overriden.
-        type: list
-        elements: int
-    state:
-        description: The directive to create, update or delete an object.
-        type: str
-        required: true
-        choices:
-          - present
-          - absent
     revision_note:
         description: The change note that can be specified when an object is created or updated.
         type: str
-    workspace_locking_adom:
-        description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
-        type: str
-    workspace_locking_timeout:
-        description: The maximum time in seconds to wait for other user to release the workspace lock.
-        type: int
-        default: 300
     adom:
         description: The parameter (adom) in requested url.
         type: str
@@ -95,13 +34,7 @@ options:
                 type: list
                 elements: str
                 description: Control management access to the managed extender.
-                choices:
-                    - 'https'
-                    - 'ping'
-                    - 'ssh'
-                    - 'snmp'
-                    - 'http'
-                    - 'telnet'
+                choices: ['https', 'ping', 'ssh', 'snmp', 'http', 'telnet']
             bandwidth_limit:
                 aliases: ['bandwidth-limit']
                 type: int
@@ -125,9 +58,7 @@ options:
                             status:
                                 type: str
                                 description: FortiExtender controller report status.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                     dataplan:
                         type: raw
                         description: (list) Dataplan names.
@@ -143,15 +74,11 @@ options:
                                     dataplan:
                                         type: str
                                         description: Automatically switch based on data usage.
-                                        choices:
-                                            - 'disable'
-                                            - 'enable'
+                                        choices: ['disable', 'enable']
                                     disconnect:
                                         type: str
                                         description: Auto switch by disconnect.
-                                        choices:
-                                            - 'disable'
-                                            - 'enable'
+                                        choices: ['disable', 'enable']
                                     disconnect_period:
                                         aliases: ['disconnect-period']
                                         type: int
@@ -163,17 +90,13 @@ options:
                                     signal:
                                         type: str
                                         description: Automatically switch based on signal strength.
-                                        choices:
-                                            - 'disable'
-                                            - 'enable'
+                                        choices: ['disable', 'enable']
                                     switch_back:
                                         aliases: ['switch-back']
                                         type: list
                                         elements: str
                                         description: Auto switch with switch back multi-options.
-                                        choices:
-                                            - 'time'
-                                            - 'timer'
+                                        choices: ['time', 'timer']
                                     switch_back_time:
                                         aliases: ['switch-back-time']
                                         type: str
@@ -190,17 +113,11 @@ options:
                                 aliases: ['default-sim']
                                 type: str
                                 description: Default SIM selection.
-                                choices:
-                                    - 'sim1'
-                                    - 'sim2'
-                                    - 'carrier'
-                                    - 'cost'
+                                choices: ['sim1', 'sim2', 'carrier', 'cost']
                             gps:
                                 type: str
                                 description: FortiExtender GPS enable/disable.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             modem_id:
                                 aliases: ['modem-id']
                                 type: int
@@ -217,16 +134,12 @@ options:
                                 aliases: ['redundant-mode']
                                 type: str
                                 description: FortiExtender mode.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             sim1_pin:
                                 aliases: ['sim1-pin']
                                 type: str
                                 description: SIM #1 PIN status.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             sim1_pin_code:
                                 aliases: ['sim1-pin-code']
                                 type: raw
@@ -235,9 +148,7 @@ options:
                                 aliases: ['sim2-pin']
                                 type: str
                                 description: SIM #2 PIN status.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             sim2_pin_code:
                                 aliases: ['sim2-pin-code']
                                 type: raw
@@ -246,9 +157,7 @@ options:
                                 aliases: ['multiple-PDN']
                                 type: str
                                 description: Multiple-PDN enable/disable.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             pdn1_dataplan:
                                 aliases: ['pdn1-dataplan']
                                 type: raw
@@ -277,15 +186,11 @@ options:
                                     dataplan:
                                         type: str
                                         description: Automatically switch based on data usage.
-                                        choices:
-                                            - 'disable'
-                                            - 'enable'
+                                        choices: ['disable', 'enable']
                                     disconnect:
                                         type: str
                                         description: Auto switch by disconnect.
-                                        choices:
-                                            - 'disable'
-                                            - 'enable'
+                                        choices: ['disable', 'enable']
                                     disconnect_period:
                                         aliases: ['disconnect-period']
                                         type: int
@@ -297,17 +202,13 @@ options:
                                     signal:
                                         type: str
                                         description: Automatically switch based on signal strength.
-                                        choices:
-                                            - 'disable'
-                                            - 'enable'
+                                        choices: ['disable', 'enable']
                                     switch_back:
                                         aliases: ['switch-back']
                                         type: list
                                         elements: str
                                         description: Auto switch with switch back multi-options.
-                                        choices:
-                                            - 'time'
-                                            - 'timer'
+                                        choices: ['time', 'timer']
                                     switch_back_time:
                                         aliases: ['switch-back-time']
                                         type: str
@@ -324,17 +225,11 @@ options:
                                 aliases: ['default-sim']
                                 type: str
                                 description: Default SIM selection.
-                                choices:
-                                    - 'sim1'
-                                    - 'sim2'
-                                    - 'carrier'
-                                    - 'cost'
+                                choices: ['sim1', 'sim2', 'carrier', 'cost']
                             gps:
                                 type: str
                                 description: FortiExtender GPS enable/disable.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             modem_id:
                                 aliases: ['modem-id']
                                 type: int
@@ -351,16 +246,12 @@ options:
                                 aliases: ['redundant-mode']
                                 type: str
                                 description: FortiExtender mode.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             sim1_pin:
                                 aliases: ['sim1-pin']
                                 type: str
                                 description: SIM #1 PIN status.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             sim1_pin_code:
                                 aliases: ['sim1-pin-code']
                                 type: raw
@@ -369,9 +260,7 @@ options:
                                 aliases: ['sim2-pin']
                                 type: str
                                 description: SIM #2 PIN status.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             sim2_pin_code:
                                 aliases: ['sim2-pin-code']
                                 type: raw
@@ -380,9 +269,7 @@ options:
                                 aliases: ['multiple-PDN']
                                 type: str
                                 description: Multiple-PDN enable/disable.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             pdn1_dataplan:
                                 aliases: ['pdn1-dataplan']
                                 type: raw
@@ -445,14 +332,10 @@ options:
                                         type: list
                                         elements: str
                                         description: Alert multi-options.
-                                        choices:
-                                            - 'system-reboot'
-                                            - 'data-exhausted'
-                                            - 'session-disconnect'
-                                            - 'low-signal-strength'
-                                            - 'mode-switch'
-                                            - 'os-image-fallback'
-                                            - 'fgt-backup-mode-switch'
+                                        choices: ['system-reboot', 'data-exhausted',
+                                                  'session-disconnect', 'low-signal-strength',
+                                                  'mode-switch', 'os-image-fallback',
+                                                  'fgt-backup-mode-switch']
                                     name:
                                         type: str
                                         description: FortiExtender SMS notification receiver name.
@@ -463,28 +346,20 @@ options:
                                     status:
                                         type: str
                                         description: SMS notification receiver status.
-                                        choices:
-                                            - 'disable'
-                                            - 'enable'
+                                        choices: ['disable', 'enable']
                             status:
                                 type: str
                                 description: FortiExtender SMS notification status.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
             enforce_bandwidth:
                 aliases: ['enforce-bandwidth']
                 type: str
                 description: Enable/disable enforcement of bandwidth on LAN extension interface.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             extension:
                 type: str
                 description: Extension option.
-                choices:
-                    - 'wan-extension'
-                    - 'lan-extension'
+                choices: ['wan-extension', 'lan-extension']
             id:
                 type: int
                 description: ID.
@@ -505,22 +380,12 @@ options:
                             port:
                                 type: str
                                 description: FortiExtender uplink port.
-                                choices:
-                                    - 'wan'
-                                    - 'lte1'
-                                    - 'lte2'
-                                    - 'port1'
-                                    - 'port2'
-                                    - 'port3'
-                                    - 'port4'
-                                    - 'port5'
-                                    - 'sfp'
+                                choices: ['wan', 'lte1', 'lte2', 'port1', 'port2', 'port3',
+                                          'port4', 'port5', 'sfp']
                             role:
                                 type: str
                                 description: FortiExtender uplink port.
-                                choices:
-                                    - 'primary'
-                                    - 'secondary'
+                                choices: ['primary', 'secondary']
                             weight:
                                 type: int
                                 description: WRR weight parameter.
@@ -560,9 +425,7 @@ options:
                         aliases: ['link-loadbalance']
                         type: str
                         description: LAN extension link load balance strategy.
-                        choices:
-                            - 'activebackup'
-                            - 'loadbalance'
+                        choices: ['activebackup', 'loadbalance']
                     downlinks:
                         type: list
                         elements: dict
@@ -574,24 +437,15 @@ options:
                             port:
                                 type: str
                                 description: FortiExtender LAN extension downlink port.
-                                choices:
-                                    - 'port1'
-                                    - 'port2'
-                                    - 'port3'
-                                    - 'port4'
-                                    - 'port5'
-                                    - 'lan1'
-                                    - 'lan2'
-                                    - 'lan'
+                                choices: ['port1', 'port2', 'port3', 'port4', 'port5', 'lan1',
+                                          'lan2', 'lan']
                             pvid:
                                 type: int
                                 description: FortiExtender LAN extension downlink PVID.
                             type:
                                 type: str
                                 description: FortiExtender LAN extension downlink type [port/vap].
-                                choices:
-                                    - 'port'
-                                    - 'vap'
+                                choices: ['port', 'vap']
                             vap:
                                 type: raw
                                 description: (list) FortiExtender LAN extension downlink vap.
@@ -616,9 +470,7 @@ options:
                             vsdb:
                                 type: str
                                 description: Select vsdb [enable/disable].
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
             login_password:
                 aliases: ['login-password']
                 type: raw
@@ -627,54 +479,22 @@ options:
                 aliases: ['login-password-change']
                 type: str
                 description: Change or reset the administrator password of a managed extender
-                choices:
-                    - 'no'
-                    - 'yes'
-                    - 'default'
+                choices: ['no', 'yes', 'default']
             model:
                 type: str
                 description: Model.
-                choices:
-                    - 'FX201E'
-                    - 'FX211E'
-                    - 'FX200F'
-                    - 'FXA11F'
-                    - 'FXE11F'
-                    - 'FXA21F'
-                    - 'FXE21F'
-                    - 'FXA22F'
-                    - 'FXE22F'
-                    - 'FX212F'
-                    - 'FX311F'
-                    - 'FX312F'
-                    - 'FX511F'
-                    - 'FVG21F'
-                    - 'FVA21F'
-                    - 'FVG22F'
-                    - 'FVA22F'
-                    - 'FX04DA'
-                    - 'FX04DN'
-                    - 'FX04DI'
-                    - 'FXR51G'
-                    - 'FG'
-                    - 'BS10FW'
-                    - 'BS20GW'
-                    - 'BS20GN'
-                    - 'FXN51G'
-                    - 'FXW51G'
-                    - 'FVG51G'
-                    - 'FXE11G'
-                    - 'FX211G'
+                choices: ['FX201E', 'FX211E', 'FX200F', 'FXA11F', 'FXE11F', 'FXA21F', 'FXE21F',
+                          'FXA22F', 'FXE22F', 'FX212F', 'FX311F', 'FX312F', 'FX511F', 'FVG21F',
+                          'FVA21F', 'FVG22F', 'FVA22F', 'FX04DA', 'FX04DN', 'FX04DI', 'FXR51G',
+                          'FG', 'BS10FW', 'BS20GW', 'BS20GN', 'FXN51G', 'FXW51G', 'FVG51G',
+                          'FXE11G', 'FX211G']
             name:
                 type: str
                 description: FortiExtender profile name.
             _is_factory_setting:
                 type: str
                 description: Is factory setting.
-                choices:
-                    - 'disable'
-                    - 'enable'
-                    - 'ext'
+                choices: ['disable', 'enable', 'ext']
             wifi:
                 type: dict
                 description: Wifi.
@@ -682,210 +502,30 @@ options:
                     DFS:
                         type: str
                         description: Wi-Fi 5G Radio DFS channel enable/disable.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     country:
                         type: str
                         description: Country in which this FEX will operate
-                        choices:
-                            - 'AL'
-                            - 'DZ'
-                            - 'AR'
-                            - 'AM'
-                            - 'AU'
-                            - 'AT'
-                            - 'AZ'
-                            - 'BH'
-                            - 'BD'
-                            - 'BY'
-                            - 'BE'
-                            - 'BZ'
-                            - 'BO'
-                            - 'BA'
-                            - 'BR'
-                            - 'BN'
-                            - 'BG'
-                            - 'CA'
-                            - 'CL'
-                            - 'CN'
-                            - 'CO'
-                            - 'CR'
-                            - 'HR'
-                            - 'CY'
-                            - 'CZ'
-                            - 'DK'
-                            - 'DO'
-                            - 'EC'
-                            - 'EG'
-                            - 'SV'
-                            - 'EE'
-                            - 'FI'
-                            - 'FR'
-                            - 'GE'
-                            - 'DE'
-                            - 'GR'
-                            - 'GT'
-                            - 'HN'
-                            - 'HK'
-                            - 'HU'
-                            - 'IS'
-                            - 'IN'
-                            - 'ID'
-                            - 'IE'
-                            - 'IL'
-                            - 'IT'
-                            - 'JM'
-                            - 'JP'
-                            - 'JO'
-                            - 'KZ'
-                            - 'KE'
-                            - 'KR'
-                            - 'KW'
-                            - 'LV'
-                            - 'LB'
-                            - 'LI'
-                            - 'LT'
-                            - 'LU'
-                            - 'MO'
-                            - 'MK'
-                            - 'MY'
-                            - 'MT'
-                            - 'MX'
-                            - 'MC'
-                            - 'MA'
-                            - 'NP'
-                            - 'NL'
-                            - 'AN'
-                            - 'NZ'
-                            - 'NO'
-                            - 'OM'
-                            - 'PK'
-                            - 'PA'
-                            - 'PG'
-                            - 'PE'
-                            - 'PH'
-                            - 'PL'
-                            - 'PT'
-                            - 'PR'
-                            - 'QA'
-                            - 'RO'
-                            - 'RU'
-                            - 'SA'
-                            - 'SG'
-                            - 'SK'
-                            - 'SI'
-                            - 'ZA'
-                            - 'ES'
-                            - 'LK'
-                            - 'SE'
-                            - 'CH'
-                            - 'TW'
-                            - 'TH'
-                            - 'TT'
-                            - 'TN'
-                            - 'TR'
-                            - 'AE'
-                            - 'UA'
-                            - 'GB'
-                            - 'US'
-                            - 'PS'
-                            - 'UY'
-                            - 'UZ'
-                            - 'VE'
-                            - 'VN'
-                            - 'YE'
-                            - 'ZW'
-                            - 'NA'
-                            - 'BS'
-                            - 'VC'
-                            - 'KH'
-                            - 'MV'
-                            - 'AF'
-                            - 'NG'
-                            - 'TZ'
-                            - 'ZM'
-                            - 'SN'
-                            - 'CI'
-                            - 'GH'
-                            - 'CM'
-                            - 'MW'
-                            - 'AO'
-                            - 'GA'
-                            - 'ML'
-                            - 'BJ'
-                            - 'MG'
-                            - 'TD'
-                            - 'BW'
-                            - 'LY'
-                            - 'RW'
-                            - 'MZ'
-                            - 'GM'
-                            - 'LS'
-                            - 'MU'
-                            - 'CG'
-                            - 'UG'
-                            - 'BF'
-                            - 'SL'
-                            - 'SO'
-                            - 'CD'
-                            - 'NE'
-                            - 'CF'
-                            - 'SZ'
-                            - 'TG'
-                            - 'LR'
-                            - 'MR'
-                            - 'DJ'
-                            - 'RE'
-                            - 'RS'
-                            - 'ME'
-                            - 'IQ'
-                            - 'MD'
-                            - 'KY'
-                            - 'BB'
-                            - 'BM'
-                            - 'TC'
-                            - 'VI'
-                            - 'PM'
-                            - 'MF'
-                            - 'GD'
-                            - 'IM'
-                            - 'FO'
-                            - 'GI'
-                            - 'GL'
-                            - 'TM'
-                            - 'MN'
-                            - 'VU'
-                            - 'FJ'
-                            - 'LA'
-                            - 'GU'
-                            - 'WF'
-                            - 'MH'
-                            - 'BT'
-                            - 'FM'
-                            - 'PF'
-                            - 'NI'
-                            - 'PY'
-                            - 'HT'
-                            - 'GY'
-                            - 'AW'
-                            - 'KN'
-                            - 'GF'
-                            - 'AS'
-                            - 'MP'
-                            - 'PW'
-                            - 'MM'
-                            - 'LC'
-                            - 'GP'
-                            - 'ET'
-                            - 'SR'
-                            - 'CX'
-                            - 'DM'
-                            - 'MQ'
-                            - 'YT'
-                            - 'BL'
-                            - '--'
-                            - 'TL'
+                        choices: ['AL', 'DZ', 'AR', 'AM', 'AU', 'AT', 'AZ', 'BH', 'BD', 'BY',
+                                  'BE', 'BZ', 'BO', 'BA', 'BR', 'BN', 'BG', 'CA', 'CL', 'CN',
+                                  'CO', 'CR', 'HR', 'CY', 'CZ', 'DK', 'DO', 'EC', 'EG', 'SV',
+                                  'EE', 'FI', 'FR', 'GE', 'DE', 'GR', 'GT', 'HN', 'HK', 'HU',
+                                  'IS', 'IN', 'ID', 'IE', 'IL', 'IT', 'JM', 'JP', 'JO', 'KZ',
+                                  'KE', 'KR', 'KW', 'LV', 'LB', 'LI', 'LT', 'LU', 'MO', 'MK',
+                                  'MY', 'MT', 'MX', 'MC', 'MA', 'NP', 'NL', 'AN', 'NZ', 'NO',
+                                  'OM', 'PK', 'PA', 'PG', 'PE', 'PH', 'PL', 'PT', 'PR', 'QA',
+                                  'RO', 'RU', 'SA', 'SG', 'SK', 'SI', 'ZA', 'ES', 'LK', 'SE',
+                                  'CH', 'TW', 'TH', 'TT', 'TN', 'TR', 'AE', 'UA', 'GB', 'US',
+                                  'PS', 'UY', 'UZ', 'VE', 'VN', 'YE', 'ZW', 'NA', 'BS', 'VC',
+                                  'KH', 'MV', 'AF', 'NG', 'TZ', 'ZM', 'SN', 'CI', 'GH', 'CM',
+                                  'MW', 'AO', 'GA', 'ML', 'BJ', 'MG', 'TD', 'BW', 'LY', 'RW',
+                                  'MZ', 'GM', 'LS', 'MU', 'CG', 'UG', 'BF', 'SL', 'SO', 'CD',
+                                  'NE', 'CF', 'SZ', 'TG', 'LR', 'MR', 'DJ', 'RE', 'RS', 'ME',
+                                  'IQ', 'MD', 'KY', 'BB', 'BM', 'TC', 'VI', 'PM', 'MF', 'GD',
+                                  'IM', 'FO', 'GI', 'GL', 'TM', 'MN', 'VU', 'FJ', 'LA', 'GU',
+                                  'WF', 'MH', 'BT', 'FM', 'PF', 'NI', 'PY', 'HT', 'GY', 'AW',
+                                  'KN', 'GF', 'AS', 'MP', 'PW', 'MM', 'LC', 'GP', 'ET', 'SR',
+                                  'CX', 'DM', 'MQ', 'YT', 'BL', '--', 'TL']
                     radio_1:
                         aliases: ['radio-1']
                         type: dict
@@ -895,22 +535,15 @@ options:
                                 aliases: ['80211d']
                                 type: str
                                 description: Enable/disable Wi-Fi 802.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             band:
                                 type: str
                                 description: Wi-Fi band selection 2.
-                                choices:
-                                    - '2.4GHz'
+                                choices: ['2.4GHz']
                             bandwidth:
                                 type: str
                                 description: Wi-Fi channel bandwidth.
-                                choices:
-                                    - 'auto'
-                                    - '20MHz'
-                                    - '40MHz'
-                                    - '80MHz'
+                                choices: ['auto', '20MHz', '40MHz', '80MHz']
                             beacon_interval:
                                 aliases: ['beacon-interval']
                                 type: int
@@ -923,41 +556,23 @@ options:
                                 aliases: ['bss-color-mode']
                                 type: str
                                 description: Wi-Fi 802.
-                                choices:
-                                    - 'auto'
-                                    - 'static'
+                                choices: ['auto', 'static']
                             channel:
                                 type: list
                                 elements: str
                                 description: Wi-Fi channels.
-                                choices:
-                                    - 'CH1'
-                                    - 'CH2'
-                                    - 'CH3'
-                                    - 'CH4'
-                                    - 'CH5'
-                                    - 'CH6'
-                                    - 'CH7'
-                                    - 'CH8'
-                                    - 'CH9'
-                                    - 'CH10'
-                                    - 'CH11'
+                                choices: ['CH1', 'CH2', 'CH3', 'CH4', 'CH5', 'CH6', 'CH7', 'CH8',
+                                          'CH9', 'CH10', 'CH11']
                             extension_channel:
                                 aliases: ['extension-channel']
                                 type: str
                                 description: Wi-Fi extension channel.
-                                choices:
-                                    - 'auto'
-                                    - 'higher'
-                                    - 'lower'
+                                choices: ['auto', 'higher', 'lower']
                             guard_interval:
                                 aliases: ['guard-interval']
                                 type: str
                                 description: Wi-Fi guard interval.
-                                choices:
-                                    - 'auto'
-                                    - '400ns'
-                                    - '800ns'
+                                choices: ['auto', '400ns', '800ns']
                             lan_ext_vap:
                                 aliases: ['lan-ext-vap']
                                 type: raw
@@ -973,33 +588,15 @@ options:
                             mode:
                                 type: str
                                 description: Wi-Fi radio mode AP
-                                choices:
-                                    - 'AP'
-                                    - 'Client'
+                                choices: ['AP', 'Client']
                             operating_standard:
                                 aliases: ['operating-standard']
                                 type: str
                                 description: Wi-Fi operating standard.
-                                choices:
-                                    - 'auto'
-                                    - '11A-N-AC-AX'
-                                    - '11A-N-AC'
-                                    - '11A-N'
-                                    - '11A'
-                                    - '11N-AC-AX'
-                                    - '11AC-AX'
-                                    - '11AC'
-                                    - '11N-AC'
-                                    - '11B-G-N-AX'
-                                    - '11B-G-N'
-                                    - '11B-G'
-                                    - '11B'
-                                    - '11G-N-AX'
-                                    - '11N-AX'
-                                    - '11AX'
-                                    - '11G-N'
-                                    - '11N'
-                                    - '11G'
+                                choices: ['auto', '11A-N-AC-AX', '11A-N-AC', '11A-N', '11A',
+                                          '11N-AC-AX', '11AC-AX', '11AC', '11N-AC', '11B-G-N-AX',
+                                          '11B-G-N', '11B-G', '11B', '11G-N-AX', '11N-AX', '11AX',
+                                          '11G-N', '11N', '11G']
                             power_level:
                                 aliases: ['power-level']
                                 type: int
@@ -1011,9 +608,7 @@ options:
                             status:
                                 type: str
                                 description: Enable/disable Wi-Fi radio.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                     radio_2:
                         aliases: ['radio-2']
                         type: dict
@@ -1023,22 +618,15 @@ options:
                                 aliases: ['80211d']
                                 type: str
                                 description: Enable/disable Wi-Fi 802.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             band:
                                 type: str
                                 description: Wi-Fi band selection 2.
-                                choices:
-                                    - '5GHz'
+                                choices: ['5GHz']
                             bandwidth:
                                 type: str
                                 description: Wi-Fi channel bandwidth.
-                                choices:
-                                    - 'auto'
-                                    - '20MHz'
-                                    - '40MHz'
-                                    - '80MHz'
+                                choices: ['auto', '20MHz', '40MHz', '80MHz']
                             beacon_interval:
                                 aliases: ['beacon-interval']
                                 type: int
@@ -1051,55 +639,25 @@ options:
                                 aliases: ['bss-color-mode']
                                 type: str
                                 description: Wi-Fi 802.
-                                choices:
-                                    - 'auto'
-                                    - 'static'
+                                choices: ['auto', 'static']
                             channel:
                                 type: list
                                 elements: str
                                 description: Wi-Fi channels.
-                                choices:
-                                    - 'CH36'
-                                    - 'CH40'
-                                    - 'CH44'
-                                    - 'CH48'
-                                    - 'CH52'
-                                    - 'CH56'
-                                    - 'CH60'
-                                    - 'CH64'
-                                    - 'CH100'
-                                    - 'CH104'
-                                    - 'CH108'
-                                    - 'CH112'
-                                    - 'CH116'
-                                    - 'CH120'
-                                    - 'CH124'
-                                    - 'CH128'
-                                    - 'CH132'
-                                    - 'CH136'
-                                    - 'CH140'
-                                    - 'CH144'
-                                    - 'CH149'
-                                    - 'CH153'
-                                    - 'CH157'
-                                    - 'CH161'
-                                    - 'CH165'
+                                choices: ['CH36', 'CH40', 'CH44', 'CH48', 'CH52', 'CH56', 'CH60',
+                                          'CH64', 'CH100', 'CH104', 'CH108', 'CH112', 'CH116',
+                                          'CH120', 'CH124', 'CH128', 'CH132', 'CH136', 'CH140',
+                                          'CH144', 'CH149', 'CH153', 'CH157', 'CH161', 'CH165']
                             extension_channel:
                                 aliases: ['extension-channel']
                                 type: str
                                 description: Wi-Fi extension channel.
-                                choices:
-                                    - 'auto'
-                                    - 'higher'
-                                    - 'lower'
+                                choices: ['auto', 'higher', 'lower']
                             guard_interval:
                                 aliases: ['guard-interval']
                                 type: str
                                 description: Wi-Fi guard interval.
-                                choices:
-                                    - 'auto'
-                                    - '400ns'
-                                    - '800ns'
+                                choices: ['auto', '400ns', '800ns']
                             lan_ext_vap:
                                 aliases: ['lan-ext-vap']
                                 type: raw
@@ -1115,33 +673,15 @@ options:
                             mode:
                                 type: str
                                 description: Wi-Fi radio mode AP
-                                choices:
-                                    - 'AP'
-                                    - 'Client'
+                                choices: ['AP', 'Client']
                             operating_standard:
                                 aliases: ['operating-standard']
                                 type: str
                                 description: Wi-Fi operating standard.
-                                choices:
-                                    - 'auto'
-                                    - '11A-N-AC-AX'
-                                    - '11A-N-AC'
-                                    - '11A-N'
-                                    - '11A'
-                                    - '11N-AC-AX'
-                                    - '11AC-AX'
-                                    - '11AC'
-                                    - '11N-AC'
-                                    - '11B-G-N-AX'
-                                    - '11B-G-N'
-                                    - '11B-G'
-                                    - '11B'
-                                    - '11G-N-AX'
-                                    - '11N-AX'
-                                    - '11AX'
-                                    - '11G-N'
-                                    - '11N'
-                                    - '11G'
+                                choices: ['auto', '11A-N-AC-AX', '11A-N-AC', '11A-N', '11A',
+                                          '11N-AC-AX', '11AC-AX', '11AC', '11N-AC', '11B-G-N-AX',
+                                          '11B-G-N', '11B-G', '11B', '11G-N-AX', '11N-AX', '11AX',
+                                          '11G-N', '11N', '11G']
                             power_level:
                                 aliases: ['power-level']
                                 type: int
@@ -1153,9 +693,7 @@ options:
                             status:
                                 type: str
                                 description: Enable/disable Wi-Fi radio.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -1163,29 +701,15 @@ EXAMPLES = '''
   hosts: fortimanagers
   connection: httpapi
   gather_facts: false
-  vars:
-    ansible_httpapi_use_ssl: true
-    ansible_httpapi_validate_certs: false
-    ansible_httpapi_port: 443
   tasks:
     - name: FortiExtender extender profile configuration.
       fortinet.fortimanager.fmgr_extensioncontroller_extenderprofile:
-        # bypass_validation: false
         # workspace_locking_adom: <global or your adom name>
-        # workspace_locking_timeout: 300
-        # rc_succeeded: [0, -2, -3, ...]
-        # rc_failed: [-2, -3, ...]
         adom: <your own value>
         state: present # <value in [present, absent]>
         extensioncontroller_extenderprofile:
           id: 0 # Required variable, integer
-          # allowaccess:
-          #   - "https"
-          #   - "ping"
-          #   - "ssh"
-          #   - "snmp"
-          #   - "http"
-          #   - "telnet"
+          # allowaccess: ["https", "ping", "ssh", "snmp", "http", "telnet"]
           # bandwidth_limit: <integer>
           # cellular:
           #   controller_report:
@@ -1200,9 +724,7 @@ EXAMPLES = '''
           #       disconnect_period: <integer>
           #       disconnect_threshold: <integer>
           #       signal: <value in [disable, enable]>
-          #       switch_back:
-          #         - "time"
-          #         - "timer"
+          #       switch_back: ["time", "timer"]
           #       switch_back_time: <string>
           #       switch_back_timer: <integer>
           #     conn_status: <integer>
@@ -1228,9 +750,7 @@ EXAMPLES = '''
           #       disconnect_period: <integer>
           #       disconnect_threshold: <integer>
           #       signal: <value in [disable, enable]>
-          #       switch_back:
-          #         - "time"
-          #         - "timer"
+          #       switch_back: ["time", "timer"]
           #       switch_back_time: <string>
           #       switch_back_timer: <integer>
           #     conn_status: <integer>
@@ -1259,14 +779,9 @@ EXAMPLES = '''
           #       session_disconnect: <string>
           #       system_reboot: <string>
           #     receiver:
-          #       - alert:
-          #           - "system-reboot"
-          #           - "data-exhausted"
-          #           - "session-disconnect"
-          #           - "low-signal-strength"
-          #           - "mode-switch"
-          #           - "os-image-fallback"
-          #           - "fgt-backup-mode-switch"
+          #       - alert: ["system-reboot", "data-exhausted", "session-disconnect",
+          #                 "low-signal-strength", "mode-switch", "os-image-fallback",
+          #                 "fgt-backup-mode-switch"]
           #         name: <string>
           #         phone_number: <string>
           #         status: <value in [disable, enable]>
@@ -1315,18 +830,8 @@ EXAMPLES = '''
           #     beacon_interval: <integer>
           #     bss_color: <integer>
           #     bss_color_mode: <value in [auto, static]>
-          #     channel:
-          #       - "CH1"
-          #       - "CH2"
-          #       - "CH3"
-          #       - "CH4"
-          #       - "CH5"
-          #       - "CH6"
-          #       - "CH7"
-          #       - "CH8"
-          #       - "CH9"
-          #       - "CH10"
-          #       - "CH11"
+          #     channel: ["CH1", "CH2", "CH3", "CH4", "CH5", "CH6", "CH7", "CH8", "CH9", "CH10",
+          #               "CH11"]
           #     extension_channel: <value in [auto, higher, lower]>
           #     guard_interval: <value in [auto, 400ns, 800ns]>
           #     lan_ext_vap: <list or string>
@@ -1344,32 +849,9 @@ EXAMPLES = '''
           #     beacon_interval: <integer>
           #     bss_color: <integer>
           #     bss_color_mode: <value in [auto, static]>
-          #     channel:
-          #       - "CH36"
-          #       - "CH40"
-          #       - "CH44"
-          #       - "CH48"
-          #       - "CH52"
-          #       - "CH56"
-          #       - "CH60"
-          #       - "CH64"
-          #       - "CH100"
-          #       - "CH104"
-          #       - "CH108"
-          #       - "CH112"
-          #       - "CH116"
-          #       - "CH120"
-          #       - "CH124"
-          #       - "CH128"
-          #       - "CH132"
-          #       - "CH136"
-          #       - "CH140"
-          #       - "CH144"
-          #       - "CH149"
-          #       - "CH153"
-          #       - "CH157"
-          #       - "CH161"
-          #       - "CH165"
+          #     channel: ["CH36", "CH40", "CH44", "CH48", "CH52", "CH56", "CH60", "CH64", "CH100",
+          #               "CH104", "CH108", "CH112", "CH116", "CH120", "CH124", "CH128", "CH132",
+          #               "CH136", "CH140", "CH144", "CH149", "CH153", "CH157", "CH161", "CH165"]
           #     extension_channel: <value in [auto, higher, lower]>
           #     guard_interval: <value in [auto, 400ns, 800ns]>
           #     lan_ext_vap: <list or string>
@@ -1432,14 +914,11 @@ def main():
         '/pm/config/adom/{adom}/obj/extension-controller/extender-profile',
         '/pm/config/global/obj/extension-controller/extender-profile'
     ]
-    url_params = ['adom']
-    module_primary_key = 'id'
     module_arg_spec = {
         'adom': {'required': True, 'type': 'str'},
         'revision_note': {'type': 'str'},
         'extensioncontroller_extenderprofile': {
-            'type': 'dict',
-            'v_range': [['7.2.1', '']],
+            'type': 'dict', 'v_range': [['7.2.1', '']],
             'options': {
                 'allowaccess': {
                     'v_range': [['7.2.1', '']],
@@ -1751,19 +1230,15 @@ def main():
 
     module_option_spec = get_module_arg_spec('full crud')
     module_arg_spec.update(module_option_spec)
-    params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'extensioncontroller_extenderprofile'),
                            supports_check_mode=True)
-
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
-                       module, connection, top_level_schema_name='data')
-    fmgr.validate_parameters(params_validation_blob)
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list,
+                       'id', 'data', module, connection)
     fmgr.process_crud()
-
     module.exit_json(meta=module.params)
 
 

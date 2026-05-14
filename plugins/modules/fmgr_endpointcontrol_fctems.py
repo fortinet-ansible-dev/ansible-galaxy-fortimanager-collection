@@ -13,75 +13,14 @@ DOCUMENTATION = '''
 ---
 module: fmgr_endpointcontrol_fctems
 short_description: Configure FortiClient Enterprise Management Server
-description:
-    - This module is able to configure a FortiManager device.
-    - Examples include all parameters and values which need to be adjusted to data sources before usage.
 version_added: "2.1.0"
-author:
-    - Xinwei Du (@dux-fortinet)
-    - Xing Li (@lix-fortinet)
-    - Jie Xue (@JieX19)
-    - Link Zheng (@chillancezen)
-    - Frank Shen (@fshen01)
-    - Hongbin Lu (@fgtdev-hblu)
-notes:
-    - Starting in version 2.4.0, all input arguments are named using the underscore naming convention (snake_case).
-      Please change the arguments such as "var-name" to "var_name".
-      Old argument names are still available yet you will receive deprecation warnings.
-      You can ignore this warning by setting deprecation_warnings=False in ansible.cfg.
-    - Running in workspace locking mode is supported in this FortiManager module, the top
-      level parameters workspace_locking_adom and workspace_locking_timeout help do the work.
-    - To create or update an object, use state present directive.
-    - To delete an object, use state absent directive.
-    - Normally, running one module can fail when a non-zero rc is returned. you can also override
-      the conditions to fail or succeed with parameters rc_failed and rc_succeeded
+extends_documentation_fragment:
+    - fortinet.fortimanager.general
+    - fortinet.fortimanager.general.full_crud
 options:
-    access_token:
-        description: The token to access FortiManager without using username and password.
-        type: str
-    bypass_validation:
-        description: Only set to True when module schema diffs with FortiManager API structure, module continues to execute without validating parameters.
-        type: bool
-        default: false
-    enable_log:
-        description: Enable/Disable logging for task.
-        type: bool
-        default: false
-    forticloud_access_token:
-        description: Authenticate Ansible client with forticloud API access token.
-        type: str
-    proposed_method:
-        description: The overridden method for the underlying Json RPC request.
-        type: str
-        choices:
-          - update
-          - set
-          - add
-    rc_succeeded:
-        description: The rc codes list with which the conditions to succeed will be overriden.
-        type: list
-        elements: int
-    rc_failed:
-        description: The rc codes list with which the conditions to fail will be overriden.
-        type: list
-        elements: int
-    state:
-        description: The directive to create, update or delete an object.
-        type: str
-        required: true
-        choices:
-          - present
-          - absent
     revision_note:
         description: The change note that can be specified when an object is created or updated.
         type: str
-    workspace_locking_adom:
-        description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
-        type: str
-    workspace_locking_timeout:
-        description: The maximum time in seconds to wait for other user to release the workspace lock.
-        type: int
-        default: 300
     adom:
         description: The parameter (adom) in requested url.
         type: str
@@ -99,19 +38,10 @@ options:
                 type: list
                 elements: str
                 description: List of EMS capabilities.
-                choices:
-                    - 'fabric-auth'
-                    - 'silent-approval'
-                    - 'websocket'
-                    - 'websocket-malware'
-                    - 'push-ca-certs'
-                    - 'common-tags-api'
-                    - 'tenant-id'
-                    - 'single-vdom-connector'
-                    - 'client-avatars'
-                    - 'fgt-sysinfo-api'
-                    - 'ztna-server-info'
-                    - 'used-tags'
+                choices: ['fabric-auth', 'silent-approval', 'websocket', 'websocket-malware',
+                          'push-ca-certs', 'common-tags-api', 'tenant-id',
+                          'single-vdom-connector', 'client-avatars', 'fgt-sysinfo-api',
+                          'ztna-server-info', 'used-tags']
             certificate_fingerprint:
                 aliases: ['certificate-fingerprint']
                 type: str
@@ -120,17 +50,12 @@ options:
                 aliases: ['cloud-server-type']
                 type: str
                 description: Cloud server type.
-                choices:
-                    - 'production'
-                    - 'alpha'
-                    - 'beta'
+                choices: ['production', 'alpha', 'beta']
             fortinetone_cloud_authentication:
                 aliases: ['fortinetone-cloud-authentication']
                 type: str
                 description: Enable/disable authentication of FortiClient EMS Cloud through FortiCloud account.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             https_port:
                 aliases: ['https-port']
                 type: int
@@ -147,44 +72,32 @@ options:
                 aliases: ['preserve-ssl-session']
                 type: str
                 description: Enable/disable preservation of EMS SSL session connection.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             pull_avatars:
                 aliases: ['pull-avatars']
                 type: str
                 description: Enable/disable pulling avatars from EMS.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             pull_malware_hash:
                 aliases: ['pull-malware-hash']
                 type: str
                 description: Enable/disable pulling FortiClient malware hash from EMS.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             pull_sysinfo:
                 aliases: ['pull-sysinfo']
                 type: str
                 description: Enable/disable pulling SysInfo from EMS.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             pull_tags:
                 aliases: ['pull-tags']
                 type: str
                 description: Enable/disable pulling FortiClient user tags from EMS.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             pull_vulnerabilities:
                 aliases: ['pull-vulnerabilities']
                 type: str
                 description: Enable/disable pulling vulnerabilities from EMS.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             server:
                 type: str
                 description: FortiClient EMS FQDN or IPv4 address.
@@ -196,9 +109,7 @@ options:
                 aliases: ['websocket-override']
                 type: str
                 description: Enable/disable override behavior for how this FortiGate unit connects to EMS using a WebSocket connection.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             status_check_interval:
                 aliases: ['status-check-interval']
                 type: int
@@ -225,17 +136,12 @@ options:
                 aliases: ['interface-select-method']
                 type: str
                 description: Specify how to select outgoing interface to reach server.
-                choices:
-                    - 'auto'
-                    - 'sdwan'
-                    - 'specify'
+                choices: ['auto', 'sdwan', 'specify']
             dirty_reason:
                 aliases: ['dirty-reason']
                 type: str
                 description: Dirty Reason for FortiClient EMS.
-                choices:
-                    - 'none'
-                    - 'mismatched-ems-sn'
+                choices: ['none', 'mismatched-ems-sn']
             ems_id:
                 aliases: ['ems-id']
                 type: int
@@ -243,9 +149,7 @@ options:
             status:
                 type: str
                 description: Enable or disable this EMS configuration.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             ca_cn_info:
                 aliases: ['ca-cn-info']
                 type: str
@@ -254,9 +158,7 @@ options:
                 aliases: ['trust-ca-cn']
                 type: str
                 description: Trust ca cn.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             tenant_id:
                 aliases: ['tenant-id']
                 type: str
@@ -265,9 +167,7 @@ options:
                 aliases: ['send-tags-to-all-vdoms']
                 type: str
                 description: Relax restrictions on tags to send all EMS tags to all VDOMs
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             verified_cn:
                 aliases: ['verified-cn']
                 type: str
@@ -287,36 +187,19 @@ EXAMPLES = '''
   hosts: fortimanagers
   connection: httpapi
   gather_facts: false
-  vars:
-    ansible_httpapi_use_ssl: true
-    ansible_httpapi_validate_certs: false
-    ansible_httpapi_port: 443
   tasks:
     - name: Configure FortiClient Enterprise Management Server
       fortinet.fortimanager.fmgr_endpointcontrol_fctems:
-        # bypass_validation: false
         # workspace_locking_adom: <global or your adom name>
-        # workspace_locking_timeout: 300
-        # rc_succeeded: [0, -2, -3, ...]
-        # rc_failed: [-2, -3, ...]
         adom: <your own value>
         state: present # <value in [present, absent]>
         endpointcontrol_fctems:
           name: "your value" # Required variable, string
           # call_timeout: <integer>
-          # capabilities:
-          #   - "fabric-auth"
-          #   - "silent-approval"
-          #   - "websocket"
-          #   - "websocket-malware"
-          #   - "push-ca-certs"
-          #   - "common-tags-api"
-          #   - "tenant-id"
-          #   - "single-vdom-connector"
-          #   - "client-avatars"
-          #   - "fgt-sysinfo-api"
-          #   - "ztna-server-info"
-          #   - "used-tags"
+          # capabilities: ["fabric-auth", "silent-approval", "websocket", "websocket-malware",
+          #                "push-ca-certs", "common-tags-api", "tenant-id",
+          #                "single-vdom-connector", "client-avatars", "fgt-sysinfo-api",
+          #                "ztna-server-info", "used-tags"]
           # certificate_fingerprint: <string>
           # cloud_server_type: <value in [production, alpha, beta]>
           # fortinetone_cloud_authentication: <value in [disable, enable]>
@@ -400,14 +283,11 @@ def main():
         '/pm/config/adom/{adom}/obj/endpoint-control/fctems',
         '/pm/config/global/obj/endpoint-control/fctems'
     ]
-    url_params = ['adom']
-    module_primary_key = 'name'
     module_arg_spec = {
         'adom': {'required': True, 'type': 'str'},
         'revision_note': {'type': 'str'},
         'endpointcontrol_fctems': {
-            'type': 'dict',
-            'v_range': [['7.0.2', '']],
+            'type': 'dict', 'v_range': [['7.0.2', '']],
             'options': {
                 'call-timeout': {'v_range': [['7.0.2', '']], 'type': 'int'},
                 'capabilities': {
@@ -457,19 +337,15 @@ def main():
 
     module_option_spec = get_module_arg_spec('full crud')
     module_arg_spec.update(module_option_spec)
-    params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'endpointcontrol_fctems'),
                            supports_check_mode=True)
-
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
-                       module, connection, top_level_schema_name='data')
-    fmgr.validate_parameters(params_validation_blob)
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list,
+                       'name', 'data', module, connection)
     fmgr.process_crud()
-
     module.exit_json(meta=module.params)
 
 

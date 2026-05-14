@@ -13,75 +13,14 @@ DOCUMENTATION = '''
 ---
 module: fmgr_firewall_mmsprofile
 short_description: Configure MMS profiles.
-description:
-    - This module is able to configure a FortiManager device.
-    - Examples include all parameters and values which need to be adjusted to data sources before usage.
 version_added: "2.0.0"
-author:
-    - Xinwei Du (@dux-fortinet)
-    - Xing Li (@lix-fortinet)
-    - Jie Xue (@JieX19)
-    - Link Zheng (@chillancezen)
-    - Frank Shen (@fshen01)
-    - Hongbin Lu (@fgtdev-hblu)
-notes:
-    - Starting in version 2.4.0, all input arguments are named using the underscore naming convention (snake_case).
-      Please change the arguments such as "var-name" to "var_name".
-      Old argument names are still available yet you will receive deprecation warnings.
-      You can ignore this warning by setting deprecation_warnings=False in ansible.cfg.
-    - Running in workspace locking mode is supported in this FortiManager module, the top
-      level parameters workspace_locking_adom and workspace_locking_timeout help do the work.
-    - To create or update an object, use state present directive.
-    - To delete an object, use state absent directive.
-    - Normally, running one module can fail when a non-zero rc is returned. you can also override
-      the conditions to fail or succeed with parameters rc_failed and rc_succeeded
+extends_documentation_fragment:
+    - fortinet.fortimanager.general
+    - fortinet.fortimanager.general.full_crud
 options:
-    access_token:
-        description: The token to access FortiManager without using username and password.
-        type: str
-    bypass_validation:
-        description: Only set to True when module schema diffs with FortiManager API structure, module continues to execute without validating parameters.
-        type: bool
-        default: false
-    enable_log:
-        description: Enable/Disable logging for task.
-        type: bool
-        default: false
-    forticloud_access_token:
-        description: Authenticate Ansible client with forticloud API access token.
-        type: str
-    proposed_method:
-        description: The overridden method for the underlying Json RPC request.
-        type: str
-        choices:
-          - update
-          - set
-          - add
-    rc_succeeded:
-        description: The rc codes list with which the conditions to succeed will be overriden.
-        type: list
-        elements: int
-    rc_failed:
-        description: The rc codes list with which the conditions to fail will be overriden.
-        type: list
-        elements: int
-    state:
-        description: The directive to create, update or delete an object.
-        type: str
-        required: true
-        choices:
-          - present
-          - absent
     revision_note:
         description: The change note that can be specified when an object is created or updated.
         type: str
-    workspace_locking_adom:
-        description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
-        type: str
-    workspace_locking_timeout:
-        description: The maximum time in seconds to wait for other user to release the workspace lock.
-        type: int
-        default: 300
     adom:
         description: The parameter (adom) in requested url.
         type: str
@@ -101,9 +40,7 @@ options:
                 aliases: ['carrier-endpoint-prefix']
                 type: str
                 description: Enable/disable prefixing of end point values.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             carrier_endpoint_prefix_range_max:
                 aliases: ['carrier-endpoint-prefix-range-max']
                 type: int
@@ -126,24 +63,10 @@ options:
                 type: list
                 elements: str
                 description: MM1 options.
-                choices:
-                    - 'avmonitor'
-                    - 'block'
-                    - 'oversize'
-                    - 'quarantine'
-                    - 'scan'
-                    - 'avquery'
-                    - 'bannedword'
-                    - 'no-content-summary'
-                    - 'archive-summary'
-                    - 'archive-full'
-                    - 'carrier-endpoint-bwl'
-                    - 'remove-blocked'
-                    - 'chunkedbypass'
-                    - 'clientcomfort'
-                    - 'servercomfort'
-                    - 'strict-file'
-                    - 'mms-checksum'
+                choices: ['avmonitor', 'block', 'oversize', 'quarantine', 'scan', 'avquery',
+                          'bannedword', 'no-content-summary', 'archive-summary', 'archive-full',
+                          'carrier-endpoint-bwl', 'remove-blocked', 'chunkedbypass',
+                          'clientcomfort', 'servercomfort', 'strict-file', 'mms-checksum']
             mm1_addr_hdr:
                 aliases: ['mm1-addr-hdr']
                 type: str
@@ -152,38 +75,27 @@ options:
                 aliases: ['mm1-addr-source']
                 type: str
                 description: Source for MM1 user address.
-                choices:
-                    - 'http-header'
-                    - 'cookie'
+                choices: ['http-header', 'cookie']
             mm1_convert_hex:
                 aliases: ['mm1-convert-hex']
                 type: str
                 description: Enable/disable converting user address from HEX string for MM1.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             mm1_outbreak_prevention:
                 aliases: ['mm1-outbreak-prevention']
                 type: str
                 description: Enable FortiGuard Virus Outbreak Prevention service.
-                choices:
-                    - 'disabled'
-                    - 'files'
-                    - 'full-archive'
+                choices: ['disabled', 'files', 'full-archive']
             mm1_retr_dupe:
                 aliases: ['mm1-retr-dupe']
                 type: str
                 description: Enable/disable duplicate scanning of MM1 retr.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             mm1_retrieve_scan:
                 aliases: ['mm1-retrieve-scan']
                 type: str
                 description: Enable/disable scanning on MM1 retrieve configuration messages.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             mm1comfortamount:
                 type: int
                 description: MM1 comfort amount
@@ -197,30 +109,15 @@ options:
                 type: list
                 elements: str
                 description: MM3 options.
-                choices:
-                    - 'avmonitor'
-                    - 'block'
-                    - 'oversize'
-                    - 'quarantine'
-                    - 'scan'
-                    - 'avquery'
-                    - 'bannedword'
-                    - 'no-content-summary'
-                    - 'archive-summary'
-                    - 'archive-full'
-                    - 'carrier-endpoint-bwl'
-                    - 'remove-blocked'
-                    - 'fragmail'
-                    - 'splice'
-                    - 'mms-checksum'
+                choices: ['avmonitor', 'block', 'oversize', 'quarantine', 'scan', 'avquery',
+                          'bannedword', 'no-content-summary', 'archive-summary', 'archive-full',
+                          'carrier-endpoint-bwl', 'remove-blocked', 'fragmail', 'splice',
+                          'mms-checksum']
             mm3_outbreak_prevention:
                 aliases: ['mm3-outbreak-prevention']
                 type: str
                 description: Enable FortiGuard Virus Outbreak Prevention service.
-                choices:
-                    - 'disabled'
-                    - 'files'
-                    - 'full-archive'
+                choices: ['disabled', 'files', 'full-archive']
             mm3oversizelimit:
                 type: int
                 description: Maximum file size to scan
@@ -228,30 +125,15 @@ options:
                 type: list
                 elements: str
                 description: MM4 options.
-                choices:
-                    - 'avmonitor'
-                    - 'block'
-                    - 'oversize'
-                    - 'quarantine'
-                    - 'scan'
-                    - 'avquery'
-                    - 'bannedword'
-                    - 'no-content-summary'
-                    - 'archive-summary'
-                    - 'archive-full'
-                    - 'carrier-endpoint-bwl'
-                    - 'remove-blocked'
-                    - 'fragmail'
-                    - 'splice'
-                    - 'mms-checksum'
+                choices: ['avmonitor', 'block', 'oversize', 'quarantine', 'scan', 'avquery',
+                          'bannedword', 'no-content-summary', 'archive-summary', 'archive-full',
+                          'carrier-endpoint-bwl', 'remove-blocked', 'fragmail', 'splice',
+                          'mms-checksum']
             mm4_outbreak_prevention:
                 aliases: ['mm4-outbreak-prevention']
                 type: str
                 description: Enable FortiGuard Virus Outbreak Prevention service.
-                choices:
-                    - 'disabled'
-                    - 'files'
-                    - 'full-archive'
+                choices: ['disabled', 'files', 'full-archive']
             mm4oversizelimit:
                 type: int
                 description: Maximum file size to scan
@@ -259,24 +141,10 @@ options:
                 type: list
                 elements: str
                 description: MM7 options.
-                choices:
-                    - 'avmonitor'
-                    - 'block'
-                    - 'oversize'
-                    - 'quarantine'
-                    - 'scan'
-                    - 'avquery'
-                    - 'bannedword'
-                    - 'no-content-summary'
-                    - 'archive-summary'
-                    - 'archive-full'
-                    - 'carrier-endpoint-bwl'
-                    - 'remove-blocked'
-                    - 'chunkedbypass'
-                    - 'clientcomfort'
-                    - 'servercomfort'
-                    - 'strict-file'
-                    - 'mms-checksum'
+                choices: ['avmonitor', 'block', 'oversize', 'quarantine', 'scan', 'avquery',
+                          'bannedword', 'no-content-summary', 'archive-summary', 'archive-full',
+                          'carrier-endpoint-bwl', 'remove-blocked', 'chunkedbypass',
+                          'clientcomfort', 'servercomfort', 'strict-file', 'mms-checksum']
             mm7_addr_hdr:
                 aliases: ['mm7-addr-hdr']
                 type: str
@@ -285,24 +153,17 @@ options:
                 aliases: ['mm7-addr-source']
                 type: str
                 description: Source for MM7 user address.
-                choices:
-                    - 'http-header'
-                    - 'cookie'
+                choices: ['http-header', 'cookie']
             mm7_convert_hex:
                 aliases: ['mm7-convert-hex']
                 type: str
                 description: Enable/disable conversion of user address from HEX string for MM7.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             mm7_outbreak_prevention:
                 aliases: ['mm7-outbreak-prevention']
                 type: str
                 description: Enable FortiGuard Virus Outbreak Prevention service.
-                choices:
-                    - 'disabled'
-                    - 'files'
-                    - 'full-archive'
+                choices: ['disabled', 'files', 'full-archive']
             mm7comfortamount:
                 type: int
                 description: MM7 comfort amount
@@ -316,44 +177,32 @@ options:
                 aliases: ['mms-antispam-mass-log']
                 type: str
                 description: Enable/disable logging for MMS antispam mass.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             mms_av_block_log:
                 aliases: ['mms-av-block-log']
                 type: str
                 description: Enable/disable logging for MMS antivirus file blocking.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             mms_av_oversize_log:
                 aliases: ['mms-av-oversize-log']
                 type: str
                 description: Enable/disable logging for MMS antivirus oversize file blocking.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             mms_av_virus_log:
                 aliases: ['mms-av-virus-log']
                 type: str
                 description: Enable/disable logging for MMS antivirus scanning.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             mms_carrier_endpoint_filter_log:
                 aliases: ['mms-carrier-endpoint-filter-log']
                 type: str
                 description: Enable/disable logging for MMS end point filter blocking.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             mms_checksum_log:
                 aliases: ['mms-checksum-log']
                 type: str
                 description: Enable/disable MMS content checksum logging.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             mms_checksum_table:
                 aliases: ['mms-checksum-table']
                 type: str
@@ -362,16 +211,12 @@ options:
                 aliases: ['mms-notification-log']
                 type: str
                 description: Enable/disable logging for MMS notification messages.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             mms_web_content_log:
                 aliases: ['mms-web-content-log']
                 type: str
                 description: Enable/disable logging for MMS web content blocking.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             mmsbwordthreshold:
                 type: int
                 description: MMS banned word threshold.
@@ -392,20 +237,13 @@ options:
                         type: list
                         elements: str
                         description: Thresholds on which this MSISDN will receive an alert.
-                        choices:
-                            - 'flood-thresh-1'
-                            - 'flood-thresh-2'
-                            - 'flood-thresh-3'
-                            - 'dupe-thresh-1'
-                            - 'dupe-thresh-2'
-                            - 'dupe-thresh-3'
+                        choices: ['flood-thresh-1', 'flood-thresh-2', 'flood-thresh-3',
+                                  'dupe-thresh-1', 'dupe-thresh-2', 'dupe-thresh-3']
             remove_blocked_const_length:
                 aliases: ['remove-blocked-const-length']
                 type: str
                 description: Enable/disable MMS replacement of blocked file constant length.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             replacemsg_group:
                 aliases: ['replacemsg-group']
                 type: str
@@ -418,35 +256,20 @@ options:
                         type: list
                         elements: str
                         description: Action to take when threshold reached.
-                        choices:
-                            - 'log'
-                            - 'archive'
-                            - 'intercept'
-                            - 'block'
-                            - 'archive-first'
-                            - 'alert-notif'
+                        choices: ['log', 'archive', 'intercept', 'block', 'archive-first',
+                                  'alert-notif']
                     action2:
                         type: list
                         elements: str
                         description: Action to take when threshold reached.
-                        choices:
-                            - 'log'
-                            - 'archive'
-                            - 'intercept'
-                            - 'block'
-                            - 'archive-first'
-                            - 'alert-notif'
+                        choices: ['log', 'archive', 'intercept', 'block', 'archive-first',
+                                  'alert-notif']
                     action3:
                         type: list
                         elements: str
                         description: Action to take when threshold reached.
-                        choices:
-                            - 'log'
-                            - 'archive'
-                            - 'intercept'
-                            - 'block'
-                            - 'archive-first'
-                            - 'alert-notif'
+                        choices: ['log', 'archive', 'intercept', 'block', 'archive-first',
+                                  'alert-notif']
                     block_time1:
                         aliases: ['block-time1']
                         type: int
@@ -474,21 +297,15 @@ options:
                     status1:
                         type: str
                         description: Enable/disable status1 detection.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     status2:
                         type: str
                         description: Enable/disable status2 detection.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     status3:
                         type: str
                         description: Enable/disable status3 detection.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     window1:
                         type: int
                         description: Window to count messages over
@@ -506,35 +323,20 @@ options:
                         type: list
                         elements: str
                         description: Action to take when threshold reached.
-                        choices:
-                            - 'log'
-                            - 'archive'
-                            - 'intercept'
-                            - 'block'
-                            - 'archive-first'
-                            - 'alert-notif'
+                        choices: ['log', 'archive', 'intercept', 'block', 'archive-first',
+                                  'alert-notif']
                     action2:
                         type: list
                         elements: str
                         description: Action to take when threshold reached.
-                        choices:
-                            - 'log'
-                            - 'archive'
-                            - 'intercept'
-                            - 'block'
-                            - 'archive-first'
-                            - 'alert-notif'
+                        choices: ['log', 'archive', 'intercept', 'block', 'archive-first',
+                                  'alert-notif']
                     action3:
                         type: list
                         elements: str
                         description: Action to take when threshold reached.
-                        choices:
-                            - 'log'
-                            - 'archive'
-                            - 'intercept'
-                            - 'block'
-                            - 'archive-first'
-                            - 'alert-notif'
+                        choices: ['log', 'archive', 'intercept', 'block', 'archive-first',
+                                  'alert-notif']
                     block_time1:
                         aliases: ['block-time1']
                         type: int
@@ -562,21 +364,15 @@ options:
                     status1:
                         type: str
                         description: Enable/disable status1 detection.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     status2:
                         type: str
                         description: Enable/disable status2 detection.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     status3:
                         type: str
                         description: Enable/disable status3 detection.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     window1:
                         type: int
                         description: Window to count messages over
@@ -598,9 +394,7 @@ options:
                         aliases: ['alert-int-mode']
                         type: str
                         description: Alert notification interval mode.
-                        choices:
-                            - 'hours'
-                            - 'minutes'
+                        choices: ['hours', 'minutes']
                     alert_src_msisdn:
                         aliases: ['alert-src-msisdn']
                         type: str
@@ -609,9 +403,7 @@ options:
                         aliases: ['alert-status']
                         type: str
                         description: Alert notification status.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     bword_int:
                         aliases: ['bword-int']
                         type: int
@@ -620,16 +412,12 @@ options:
                         aliases: ['bword-int-mode']
                         type: str
                         description: Banned word notification interval mode.
-                        choices:
-                            - 'hours'
-                            - 'minutes'
+                        choices: ['hours', 'minutes']
                     bword_status:
                         aliases: ['bword-status']
                         type: str
                         description: Banned word notification status.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     carrier_endpoint_bwl_int:
                         aliases: ['carrier-endpoint-bwl-int']
                         type: int
@@ -638,36 +426,24 @@ options:
                         aliases: ['carrier-endpoint-bwl-int-mode']
                         type: str
                         description: Carrier end point black/white list notification interval mode.
-                        choices:
-                            - 'hours'
-                            - 'minutes'
+                        choices: ['hours', 'minutes']
                     carrier_endpoint_bwl_status:
                         aliases: ['carrier-endpoint-bwl-status']
                         type: str
                         description: Carrier end point black/white list notification status.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     days_allowed:
                         aliases: ['days-allowed']
                         type: list
                         elements: str
                         description: Weekdays on which notification messages may be sent.
-                        choices:
-                            - 'sunday'
-                            - 'monday'
-                            - 'tuesday'
-                            - 'wednesday'
-                            - 'thursday'
-                            - 'friday'
-                            - 'saturday'
+                        choices: ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday',
+                                  'friday', 'saturday']
                     detect_server:
                         aliases: ['detect-server']
                         type: str
                         description: Enable/disable automatic server address determination.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     dupe_int:
                         aliases: ['dupe-int']
                         type: int
@@ -676,16 +452,12 @@ options:
                         aliases: ['dupe-int-mode']
                         type: str
                         description: Duplicate notification interval mode.
-                        choices:
-                            - 'hours'
-                            - 'minutes'
+                        choices: ['hours', 'minutes']
                     dupe_status:
                         aliases: ['dupe-status']
                         type: str
                         description: Duplicate notification status.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     file_block_int:
                         aliases: ['file-block-int']
                         type: int
@@ -694,16 +466,12 @@ options:
                         aliases: ['file-block-int-mode']
                         type: str
                         description: File block notification interval mode.
-                        choices:
-                            - 'hours'
-                            - 'minutes'
+                        choices: ['hours', 'minutes']
                     file_block_status:
                         aliases: ['file-block-status']
                         type: str
                         description: File block notification status.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     flood_int:
                         aliases: ['flood-int']
                         type: int
@@ -712,23 +480,17 @@ options:
                         aliases: ['flood-int-mode']
                         type: str
                         description: Flood notification interval mode.
-                        choices:
-                            - 'hours'
-                            - 'minutes'
+                        choices: ['hours', 'minutes']
                     flood_status:
                         aliases: ['flood-status']
                         type: str
                         description: Flood notification status.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     from_in_header:
                         aliases: ['from-in-header']
                         type: str
                         description: Enable/disable insertion of from address in HTTP header.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     mms_checksum_int:
                         aliases: ['mms-checksum-int']
                         type: int
@@ -737,16 +499,12 @@ options:
                         aliases: ['mms-checksum-int-mode']
                         type: str
                         description: MMS checksum notification interval mode.
-                        choices:
-                            - 'hours'
-                            - 'minutes'
+                        choices: ['hours', 'minutes']
                     mms_checksum_status:
                         aliases: ['mms-checksum-status']
                         type: str
                         description: MMS checksum notification status.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     mmsc_hostname:
                         aliases: ['mmsc-hostname']
                         type: str
@@ -771,18 +529,12 @@ options:
                         aliases: ['msg-protocol']
                         type: str
                         description: Protocol to use for sending notification messages.
-                        choices:
-                            - 'mm1'
-                            - 'mm3'
-                            - 'mm4'
-                            - 'mm7'
+                        choices: ['mm1', 'mm3', 'mm4', 'mm7']
                     msg_type:
                         aliases: ['msg-type']
                         type: str
                         description: MM7 message type.
-                        choices:
-                            - 'submit-req'
-                            - 'deliver-req'
+                        choices: ['submit-req', 'deliver-req']
                     protocol:
                         type: str
                         description: Protocol.
@@ -822,16 +574,12 @@ options:
                         aliases: ['virus-int-mode']
                         type: str
                         description: Virus notification interval mode.
-                        choices:
-                            - 'hours'
-                            - 'minutes'
+                        choices: ['hours', 'minutes']
                     virus_status:
                         aliases: ['virus-status']
                         type: str
                         description: Virus notification status.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
             outbreak_prevention:
                 aliases: ['outbreak-prevention']
                 type: dict
@@ -841,16 +589,12 @@ options:
                         aliases: ['external-blocklist']
                         type: str
                         description: Enable/disable external malware blocklist.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     ftgd_service:
                         aliases: ['ftgd-service']
                         type: str
                         description: Enable/disable FortiGuard Virus outbreak prevention service.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -1009,14 +753,11 @@ def main():
         '/pm/config/adom/{adom}/obj/firewall/mms-profile',
         '/pm/config/global/obj/firewall/mms-profile'
     ]
-    url_params = ['adom']
-    module_primary_key = 'name'
     module_arg_spec = {
         'adom': {'required': True, 'type': 'str'},
         'revision_note': {'type': 'str'},
         'firewall_mmsprofile': {
-            'type': 'dict',
-            'v_range': [['6.0.0', '7.6.2']],
+            'type': 'dict', 'v_range': [['6.0.0', '7.6.2']],
             'options': {
                 'avnotificationtable': {'v_range': [['6.0.0', '7.6.2']], 'type': 'str'},
                 'bwordtable': {'v_range': [['6.0.0', '7.6.2']], 'type': 'str'},
@@ -1261,19 +1002,15 @@ def main():
 
     module_option_spec = get_module_arg_spec('full crud')
     module_arg_spec.update(module_option_spec)
-    params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'firewall_mmsprofile'),
                            supports_check_mode=True)
-
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
-                       module, connection, top_level_schema_name='data')
-    fmgr.validate_parameters(params_validation_blob)
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list,
+                       'name', 'data', module, connection)
     fmgr.process_crud()
-
     module.exit_json(meta=module.params)
 
 

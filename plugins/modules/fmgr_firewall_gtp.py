@@ -13,75 +13,14 @@ DOCUMENTATION = '''
 ---
 module: fmgr_firewall_gtp
 short_description: Configure GTP.
-description:
-    - This module is able to configure a FortiManager device.
-    - Examples include all parameters and values which need to be adjusted to data sources before usage.
 version_added: "2.0.0"
-author:
-    - Xinwei Du (@dux-fortinet)
-    - Xing Li (@lix-fortinet)
-    - Jie Xue (@JieX19)
-    - Link Zheng (@chillancezen)
-    - Frank Shen (@fshen01)
-    - Hongbin Lu (@fgtdev-hblu)
-notes:
-    - Starting in version 2.4.0, all input arguments are named using the underscore naming convention (snake_case).
-      Please change the arguments such as "var-name" to "var_name".
-      Old argument names are still available yet you will receive deprecation warnings.
-      You can ignore this warning by setting deprecation_warnings=False in ansible.cfg.
-    - Running in workspace locking mode is supported in this FortiManager module, the top
-      level parameters workspace_locking_adom and workspace_locking_timeout help do the work.
-    - To create or update an object, use state present directive.
-    - To delete an object, use state absent directive.
-    - Normally, running one module can fail when a non-zero rc is returned. you can also override
-      the conditions to fail or succeed with parameters rc_failed and rc_succeeded
+extends_documentation_fragment:
+    - fortinet.fortimanager.general
+    - fortinet.fortimanager.general.full_crud
 options:
-    access_token:
-        description: The token to access FortiManager without using username and password.
-        type: str
-    bypass_validation:
-        description: Only set to True when module schema diffs with FortiManager API structure, module continues to execute without validating parameters.
-        type: bool
-        default: false
-    enable_log:
-        description: Enable/Disable logging for task.
-        type: bool
-        default: false
-    forticloud_access_token:
-        description: Authenticate Ansible client with forticloud API access token.
-        type: str
-    proposed_method:
-        description: The overridden method for the underlying Json RPC request.
-        type: str
-        choices:
-          - update
-          - set
-          - add
-    rc_succeeded:
-        description: The rc codes list with which the conditions to succeed will be overriden.
-        type: list
-        elements: int
-    rc_failed:
-        description: The rc codes list with which the conditions to fail will be overriden.
-        type: list
-        elements: int
-    state:
-        description: The directive to create, update or delete an object.
-        type: str
-        required: true
-        choices:
-          - present
-          - absent
     revision_note:
         description: The change note that can be specified when an object is created or updated.
         type: str
-    workspace_locking_adom:
-        description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
-        type: str
-    workspace_locking_timeout:
-        description: The maximum time in seconds to wait for other user to release the workspace lock.
-        type: int
-        default: 300
     adom:
         description: The parameter (adom) in requested url.
         type: str
@@ -103,9 +42,7 @@ options:
                     action:
                         type: str
                         description: Action.
-                        choices:
-                            - 'allow'
-                            - 'deny'
+                        choices: ['allow', 'deny']
                     apnmember:
                         type: raw
                         description: (list or str) APN member.
@@ -117,17 +54,12 @@ options:
                         type: list
                         elements: str
                         description: APN selection mode.
-                        choices:
-                            - 'ms'
-                            - 'net'
-                            - 'vrf'
+                        choices: ['ms', 'net', 'vrf']
             apn_filter:
                 aliases: ['apn-filter']
                 type: str
                 description: Apn filter
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             authorized_ggsns:
                 aliases: ['authorized-ggsns']
                 type: str
@@ -151,44 +83,32 @@ options:
                 aliases: ['default-apn-action']
                 type: str
                 description: Default apn action
-                choices:
-                    - 'allow'
-                    - 'deny'
+                choices: ['allow', 'deny']
             default_imsi_action:
                 aliases: ['default-imsi-action']
                 type: str
                 description: Default imsi action
-                choices:
-                    - 'allow'
-                    - 'deny'
+                choices: ['allow', 'deny']
             default_ip_action:
                 aliases: ['default-ip-action']
                 type: str
                 description: Default action for encapsulated IP traffic
-                choices:
-                    - 'allow'
-                    - 'deny'
+                choices: ['allow', 'deny']
             default_noip_action:
                 aliases: ['default-noip-action']
                 type: str
                 description: Default action for encapsulated non-IP traffic
-                choices:
-                    - 'allow'
-                    - 'deny'
+                choices: ['allow', 'deny']
             default_policy_action:
                 aliases: ['default-policy-action']
                 type: str
                 description: Default advanced policy action
-                choices:
-                    - 'allow'
-                    - 'deny'
+                choices: ['allow', 'deny']
             denied_log:
                 aliases: ['denied-log']
                 type: str
                 description: Log denied
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             echo_request_interval:
                 aliases: ['echo-request-interval']
                 type: int
@@ -197,16 +117,12 @@ options:
                 aliases: ['extension-log']
                 type: str
                 description: Log in extension format
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             forwarded_log:
                 aliases: ['forwarded-log']
                 type: str
                 description: Log forwarded
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             global_tunnel_limit:
                 aliases: ['global-tunnel-limit']
                 type: str
@@ -215,23 +131,17 @@ options:
                 aliases: ['gtp-in-gtp']
                 type: str
                 description: Gtp in gtp
-                choices:
-                    - 'allow'
-                    - 'deny'
+                choices: ['allow', 'deny']
             gtpu_denied_log:
                 aliases: ['gtpu-denied-log']
                 type: str
                 description: Enable/disable logging of denied GTP-U packets.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             gtpu_forwarded_log:
                 aliases: ['gtpu-forwarded-log']
                 type: str
                 description: Enable/disable logging of forwarded GTP-U packets.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             gtpu_log_freq:
                 aliases: ['gtpu-log-freq']
                 type: int
@@ -262,12 +172,7 @@ options:
                         type: list
                         elements: str
                         description: GTP IEs to be removed.
-                        choices:
-                            - 'apn-restriction'
-                            - 'rat-type'
-                            - 'rai'
-                            - 'uli'
-                            - 'imei'
+                        choices: ['apn-restriction', 'rat-type', 'rai', 'uli', 'imei']
                     sgsn_addr:
                         aliases: ['sgsn-addr']
                         type: str
@@ -280,9 +185,7 @@ options:
                 aliases: ['ie-remover']
                 type: str
                 description: IE removal policy.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             ie_white_list_v0v1:
                 aliases: ['ie-white-list-v0v1']
                 type: str
@@ -299,9 +202,7 @@ options:
                     action:
                         type: str
                         description: Action.
-                        choices:
-                            - 'allow'
-                            - 'deny'
+                        choices: ['allow', 'deny']
                     apnmember:
                         type: raw
                         description: (list or str) APN member.
@@ -321,17 +222,12 @@ options:
                         type: list
                         elements: str
                         description: APN selection mode.
-                        choices:
-                            - 'ms'
-                            - 'net'
-                            - 'vrf'
+                        choices: ['ms', 'net', 'vrf']
             imsi_filter:
                 aliases: ['imsi-filter']
                 type: str
                 description: Imsi filter
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             interface_notify:
                 aliases: ['interface-notify']
                 type: str
@@ -340,9 +236,7 @@ options:
                 aliases: ['invalid-reserved-field']
                 type: str
                 description: Invalid reserved field in GTP header
-                choices:
-                    - 'allow'
-                    - 'deny'
+                choices: ['allow', 'deny']
             invalid_sgsns_to_log:
                 aliases: ['invalid-sgsns-to-log']
                 type: str
@@ -351,9 +245,7 @@ options:
                 aliases: ['ip-filter']
                 type: str
                 description: IP filter for encapsulted traffic
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             ip_policy:
                 aliases: ['ip-policy']
                 type: list
@@ -363,9 +255,7 @@ options:
                     action:
                         type: str
                         description: Action.
-                        choices:
-                            - 'allow'
-                            - 'deny'
+                        choices: ['allow', 'deny']
                     dstaddr:
                         type: str
                         description: Destination address name.
@@ -417,17 +307,12 @@ options:
                 aliases: ['miss-must-ie']
                 type: str
                 description: Missing mandatory information element
-                choices:
-                    - 'allow'
-                    - 'deny'
+                choices: ['allow', 'deny']
             monitor_mode:
                 aliases: ['monitor-mode']
                 type: str
                 description: GTP monitor mode
-                choices:
-                    - 'disable'
-                    - 'enable'
-                    - 'vdom'
+                choices: ['disable', 'enable', 'vdom']
             name:
                 type: str
                 description: Profile name.
@@ -436,9 +321,7 @@ options:
                 aliases: ['noip-filter']
                 type: str
                 description: Non-IP filter for encapsulted traffic
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             noip_policy:
                 aliases: ['noip-policy']
                 type: list
@@ -448,9 +331,7 @@ options:
                     action:
                         type: str
                         description: Action.
-                        choices:
-                            - 'allow'
-                            - 'deny'
+                        choices: ['allow', 'deny']
                     end:
                         type: int
                         description: End of protocol range
@@ -463,23 +344,17 @@ options:
                     type:
                         type: str
                         description: Protocol field type.
-                        choices:
-                            - 'etsi'
-                            - 'ietf'
+                        choices: ['etsi', 'ietf']
             out_of_state_ie:
                 aliases: ['out-of-state-ie']
                 type: str
                 description: Out of state information element.
-                choices:
-                    - 'allow'
-                    - 'deny'
+                choices: ['allow', 'deny']
             out_of_state_message:
                 aliases: ['out-of-state-message']
                 type: str
                 description: Out of state GTP message
-                choices:
-                    - 'allow'
-                    - 'deny'
+                choices: ['allow', 'deny']
             per_apn_shaper:
                 aliases: ['per-apn-shaper']
                 type: list
@@ -507,18 +382,13 @@ options:
                     action:
                         type: str
                         description: Action.
-                        choices:
-                            - 'allow'
-                            - 'deny'
+                        choices: ['allow', 'deny']
                     apn_sel_mode:
                         aliases: ['apn-sel-mode']
                         type: list
                         elements: str
                         description: APN selection mode.
-                        choices:
-                            - 'ms'
-                            - 'net'
-                            - 'vrf'
+                        choices: ['ms', 'net', 'vrf']
                     apnmember:
                         type: raw
                         description: (list or str) APN member.
@@ -535,21 +405,12 @@ options:
                         aliases: ['max-apn-restriction']
                         type: str
                         description: Maximum APN restriction value.
-                        choices:
-                            - 'all'
-                            - 'public-1'
-                            - 'public-2'
-                            - 'private-1'
-                            - 'private-2'
+                        choices: ['all', 'public-1', 'public-2', 'private-1', 'private-2']
                     messages:
                         type: list
                         elements: str
                         description: GTP messages.
-                        choices:
-                            - 'create-req'
-                            - 'create-res'
-                            - 'update-req'
-                            - 'update-res'
+                        choices: ['create-req', 'create-res', 'update-req', 'update-res']
                     msisdn:
                         type: str
                         description: MSISDN prefix.
@@ -561,16 +422,8 @@ options:
                         type: list
                         elements: str
                         description: RAT Type.
-                        choices:
-                            - 'any'
-                            - 'utran'
-                            - 'geran'
-                            - 'wlan'
-                            - 'gan'
-                            - 'hspa'
-                            - 'eutran'
-                            - 'virtual'
-                            - 'nbiot'
+                        choices: ['any', 'utran', 'geran', 'wlan', 'gan', 'hspa', 'eutran',
+                                  'virtual', 'nbiot']
                     uli:
                         type: str
                         description: ULI pattern.
@@ -589,9 +442,7 @@ options:
                 aliases: ['policy-filter']
                 type: str
                 description: Advanced policy filter
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             port_notify:
                 aliases: ['port-notify']
                 type: int
@@ -600,17 +451,12 @@ options:
                 aliases: ['rate-limit-mode']
                 type: str
                 description: GTP rate limit mode.
-                choices:
-                    - 'per-profile'
-                    - 'per-stream'
-                    - 'per-apn'
+                choices: ['per-profile', 'per-stream', 'per-apn']
             rate_limited_log:
                 aliases: ['rate-limited-log']
                 type: str
                 description: Log rate limited
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             rate_sampling_interval:
                 aliases: ['rate-sampling-interval']
                 type: int
@@ -619,58 +465,42 @@ options:
                 aliases: ['remove-if-echo-expires']
                 type: str
                 description: Remove if echo response expires
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             remove_if_recovery_differ:
                 aliases: ['remove-if-recovery-differ']
                 type: str
                 description: Remove upon different Recovery IE
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             reserved_ie:
                 aliases: ['reserved-ie']
                 type: str
                 description: Reserved information element
-                choices:
-                    - 'allow'
-                    - 'deny'
+                choices: ['allow', 'deny']
             send_delete_when_timeout:
                 aliases: ['send-delete-when-timeout']
                 type: str
                 description: Send DELETE request to path endpoints when GTPv0/v1 tunnel timeout.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             send_delete_when_timeout_v2:
                 aliases: ['send-delete-when-timeout-v2']
                 type: str
                 description: Send DELETE request to path endpoints when GTPv2 tunnel timeout.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             spoof_src_addr:
                 aliases: ['spoof-src-addr']
                 type: str
                 description: Spoofed source address for Mobile Station.
-                choices:
-                    - 'allow'
-                    - 'deny'
+                choices: ['allow', 'deny']
             state_invalid_log:
                 aliases: ['state-invalid-log']
                 type: str
                 description: Log state invalid
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             traffic_count_log:
                 aliases: ['traffic-count-log']
                 type: str
                 description: Log tunnel traffic counter
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             tunnel_limit:
                 aliases: ['tunnel-limit']
                 type: int
@@ -679,9 +509,7 @@ options:
                 aliases: ['tunnel-limit-log']
                 type: str
                 description: Tunnel limit
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             tunnel_timeout:
                 aliases: ['tunnel-timeout']
                 type: int
@@ -690,9 +518,7 @@ options:
                 aliases: ['unknown-version-action']
                 type: str
                 description: Action for unknown gtp version
-                choices:
-                    - 'allow'
-                    - 'deny'
+                choices: ['allow', 'deny']
             user_plane_message_rate_limit:
                 aliases: ['user-plane-message-rate-limit']
                 type: int
@@ -710,18 +536,13 @@ options:
                     action:
                         type: str
                         description: Action.
-                        choices:
-                            - 'deny'
-                            - 'allow'
+                        choices: ['deny', 'allow']
                     apn_sel_mode:
                         aliases: ['apn-sel-mode']
                         type: list
                         elements: str
                         description: APN selection mode.
-                        choices:
-                            - 'ms'
-                            - 'net'
-                            - 'vrf'
+                        choices: ['ms', 'net', 'vrf']
                     apnmember:
                         type: raw
                         description: (list or str) APN member.
@@ -736,12 +557,7 @@ options:
                         aliases: ['max-apn-restriction']
                         type: str
                         description: Maximum APN restriction value.
-                        choices:
-                            - 'all'
-                            - 'public-1'
-                            - 'public-2'
-                            - 'private-1'
-                            - 'private-2'
+                        choices: ['all', 'public-1', 'public-2', 'private-1', 'private-2']
                     mei:
                         type: str
                         description: MEI pattern.
@@ -749,11 +565,8 @@ options:
                         type: list
                         elements: str
                         description: GTP messages.
-                        choices:
-                            - 'create-ses-req'
-                            - 'create-ses-res'
-                            - 'modify-bearer-req'
-                            - 'modify-bearer-res'
+                        choices: ['create-ses-req', 'create-ses-res', 'modify-bearer-req',
+                                  'modify-bearer-res']
                     msisdn_prefix:
                         aliases: ['msisdn-prefix']
                         type: str
@@ -763,18 +576,8 @@ options:
                         type: list
                         elements: str
                         description: RAT Type.
-                        choices:
-                            - 'any'
-                            - 'utran'
-                            - 'geran'
-                            - 'wlan'
-                            - 'gan'
-                            - 'hspa'
-                            - 'eutran'
-                            - 'virtual'
-                            - 'nbiot'
-                            - 'ltem'
-                            - 'nr'
+                        choices: ['any', 'utran', 'geran', 'wlan', 'gan', 'hspa', 'eutran',
+                                  'virtual', 'nbiot', 'ltem', 'nr']
                     uli:
                         type: raw
                         description: (list) GTPv2 ULI patterns
@@ -782,17 +585,12 @@ options:
                 aliases: ['sub-second-interval']
                 type: str
                 description: Sub-second interval
-                choices:
-                    - '0.1'
-                    - '0.25'
-                    - '0.5'
+                choices: ['0.1', '0.25', '0.5']
             sub_second_sampling:
                 aliases: ['sub-second-sampling']
                 type: str
                 description: Enable/disable sub-second sampling.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             authorized_ggsns6:
                 aliases: ['authorized-ggsns6']
                 type: str
@@ -818,129 +616,91 @@ options:
                         aliases: ['apn-restriction']
                         type: str
                         description: Validate APN restriction.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     charging_ID:
                         aliases: ['charging-ID']
                         type: str
                         description: Validate charging ID.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     charging_gateway_addr:
                         aliases: ['charging-gateway-addr']
                         type: str
                         description: Validate charging gateway address.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     end_user_addr:
                         aliases: ['end-user-addr']
                         type: str
                         description: Validate end user address.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     gsn_addr:
                         aliases: ['gsn-addr']
                         type: str
                         description: Validate GSN address.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     imei:
                         type: str
                         description: Validate IMEI
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     imsi:
                         type: str
                         description: Validate IMSI.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     mm_context:
                         aliases: ['mm-context']
                         type: str
                         description: Validate MM context.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     ms_tzone:
                         aliases: ['ms-tzone']
                         type: str
                         description: Validate MS time zone.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     ms_validated:
                         aliases: ['ms-validated']
                         type: str
                         description: Validate MS validated.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     msisdn:
                         type: str
                         description: Validate MSISDN.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     nsapi:
                         type: str
                         description: Validate NSAPI.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     pdp_context:
                         aliases: ['pdp-context']
                         type: str
                         description: Validate PDP context.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     qos_profile:
                         aliases: ['qos-profile']
                         type: str
                         description: Validate Quality of Service
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     rai:
                         type: str
                         description: Validate RAI.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     rat_type:
                         aliases: ['rat-type']
                         type: str
                         description: Validate RAT type.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     reordering_required:
                         aliases: ['reordering-required']
                         type: str
                         description: Validate re-ordering required.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     selection_mode:
                         aliases: ['selection-mode']
                         type: str
                         description: Validate selection mode.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     uli:
                         type: str
                         description: Validate user location information.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
             message_rate_limit:
                 aliases: ['message-rate-limit']
                 type: dict
@@ -1254,208 +1014,148 @@ options:
                         aliases: ['create-aa-pdp']
                         type: str
                         description: Create AA PDP.
-                        choices:
-                            - 'allow'
-                            - 'deny'
+                        choices: ['allow', 'deny']
                     create_mbms:
                         aliases: ['create-mbms']
                         type: str
                         description: Create MBMS.
-                        choices:
-                            - 'allow'
-                            - 'deny'
+                        choices: ['allow', 'deny']
                     create_pdp:
                         aliases: ['create-pdp']
                         type: str
                         description: Create PDP.
-                        choices:
-                            - 'allow'
-                            - 'deny'
+                        choices: ['allow', 'deny']
                     data_record:
                         aliases: ['data-record']
                         type: str
                         description: Data record.
-                        choices:
-                            - 'allow'
-                            - 'deny'
+                        choices: ['allow', 'deny']
                     delete_aa_pdp:
                         aliases: ['delete-aa-pdp']
                         type: str
                         description: Delete AA PDP.
-                        choices:
-                            - 'allow'
-                            - 'deny'
+                        choices: ['allow', 'deny']
                     delete_mbms:
                         aliases: ['delete-mbms']
                         type: str
                         description: Delete MBMS.
-                        choices:
-                            - 'allow'
-                            - 'deny'
+                        choices: ['allow', 'deny']
                     delete_pdp:
                         aliases: ['delete-pdp']
                         type: str
                         description: Delete PDP.
-                        choices:
-                            - 'allow'
-                            - 'deny'
+                        choices: ['allow', 'deny']
                     echo:
                         type: str
                         description: Echo.
-                        choices:
-                            - 'allow'
-                            - 'deny'
+                        choices: ['allow', 'deny']
                     error_indication:
                         aliases: ['error-indication']
                         type: str
                         description: Error indication.
-                        choices:
-                            - 'allow'
-                            - 'deny'
+                        choices: ['allow', 'deny']
                     failure_report:
                         aliases: ['failure-report']
                         type: str
                         description: Failure report.
-                        choices:
-                            - 'allow'
-                            - 'deny'
+                        choices: ['allow', 'deny']
                     fwd_relocation:
                         aliases: ['fwd-relocation']
                         type: str
                         description: Forward relocation.
-                        choices:
-                            - 'allow'
-                            - 'deny'
+                        choices: ['allow', 'deny']
                     fwd_srns_context:
                         aliases: ['fwd-srns-context']
                         type: str
                         description: Forward SRNS context.
-                        choices:
-                            - 'allow'
-                            - 'deny'
+                        choices: ['allow', 'deny']
                     gtp_pdu:
                         aliases: ['gtp-pdu']
                         type: str
                         description: GTP PDU.
-                        choices:
-                            - 'allow'
-                            - 'deny'
+                        choices: ['allow', 'deny']
                     identification:
                         type: str
                         description: Identification.
-                        choices:
-                            - 'allow'
-                            - 'deny'
+                        choices: ['allow', 'deny']
                     mbms_notification:
                         aliases: ['mbms-notification']
                         type: str
                         description: MBMS notification.
-                        choices:
-                            - 'allow'
-                            - 'deny'
+                        choices: ['allow', 'deny']
                     node_alive:
                         aliases: ['node-alive']
                         type: str
                         description: Node alive.
-                        choices:
-                            - 'allow'
-                            - 'deny'
+                        choices: ['allow', 'deny']
                     note_ms_present:
                         aliases: ['note-ms-present']
                         type: str
                         description: Note MS present.
-                        choices:
-                            - 'allow'
-                            - 'deny'
+                        choices: ['allow', 'deny']
                     pdu_notification:
                         aliases: ['pdu-notification']
                         type: str
                         description: PDU notification.
-                        choices:
-                            - 'allow'
-                            - 'deny'
+                        choices: ['allow', 'deny']
                     ran_info:
                         aliases: ['ran-info']
                         type: str
                         description: Ran info.
-                        choices:
-                            - 'allow'
-                            - 'deny'
+                        choices: ['allow', 'deny']
                     redirection:
                         type: str
                         description: Redirection.
-                        choices:
-                            - 'allow'
-                            - 'deny'
+                        choices: ['allow', 'deny']
                     relocation_cancel:
                         aliases: ['relocation-cancel']
                         type: str
                         description: Relocation cancel.
-                        choices:
-                            - 'allow'
-                            - 'deny'
+                        choices: ['allow', 'deny']
                     send_route:
                         aliases: ['send-route']
                         type: str
                         description: Send route.
-                        choices:
-                            - 'allow'
-                            - 'deny'
+                        choices: ['allow', 'deny']
                     sgsn_context:
                         aliases: ['sgsn-context']
                         type: str
                         description: SGSN context.
-                        choices:
-                            - 'allow'
-                            - 'deny'
+                        choices: ['allow', 'deny']
                     support_extension:
                         aliases: ['support-extension']
                         type: str
                         description: Support extension.
-                        choices:
-                            - 'allow'
-                            - 'deny'
+                        choices: ['allow', 'deny']
                     unknown_message_action:
                         aliases: ['unknown-message-action']
                         type: str
                         description: Unknown message action.
-                        choices:
-                            - 'allow'
-                            - 'deny'
+                        choices: ['allow', 'deny']
                     update_mbms:
                         aliases: ['update-mbms']
                         type: str
                         description: Update MBMS.
-                        choices:
-                            - 'allow'
-                            - 'deny'
+                        choices: ['allow', 'deny']
                     update_pdp:
                         aliases: ['update-pdp']
                         type: str
                         description: Update PDP.
-                        choices:
-                            - 'allow'
-                            - 'deny'
+                        choices: ['allow', 'deny']
                     version_not_support:
                         aliases: ['version-not-support']
                         type: str
                         description: Version not supported.
-                        choices:
-                            - 'allow'
-                            - 'deny'
+                        choices: ['allow', 'deny']
             gtpv0:
                 type: str
                 description: GTPv0 traffic.
-                choices:
-                    - 'allow'
-                    - 'deny'
+                choices: ['allow', 'deny']
             echo_requires_path_in_use:
                 aliases: ['echo-requires-path-in-use']
                 type: str
                 description: Block GTP Echo Request if no active tunnel over the associated GTP path.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -1545,14 +1245,11 @@ def main():
         '/pm/config/adom/{adom}/obj/firewall/gtp',
         '/pm/config/global/obj/firewall/gtp'
     ]
-    url_params = ['adom']
-    module_primary_key = 'name'
     module_arg_spec = {
         'adom': {'required': True, 'type': 'str'},
         'revision_note': {'type': 'str'},
         'firewall_gtp': {
-            'type': 'dict',
-            'v_range': [['6.0.0', '']],
+            'type': 'dict', 'v_range': [['6.0.0', '']],
             'options': {
                 'addr-notify': {'type': 'str'},
                 'apn': {
@@ -1904,19 +1601,15 @@ def main():
 
     module_option_spec = get_module_arg_spec('full crud')
     module_arg_spec.update(module_option_spec)
-    params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'firewall_gtp'),
                            supports_check_mode=True)
-
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
-                       module, connection, top_level_schema_name='data')
-    fmgr.validate_parameters(params_validation_blob)
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list,
+                       'name', 'data', module, connection)
     fmgr.process_crud()
-
     module.exit_json(meta=module.params)
 
 

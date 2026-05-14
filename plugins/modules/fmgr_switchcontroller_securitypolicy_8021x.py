@@ -13,75 +13,14 @@ DOCUMENTATION = '''
 ---
 module: fmgr_switchcontroller_securitypolicy_8021x
 short_description: Configure 802.
-description:
-    - This module is able to configure a FortiManager device.
-    - Examples include all parameters and values which need to be adjusted to data sources before usage.
 version_added: "2.0.0"
-author:
-    - Xinwei Du (@dux-fortinet)
-    - Xing Li (@lix-fortinet)
-    - Jie Xue (@JieX19)
-    - Link Zheng (@chillancezen)
-    - Frank Shen (@fshen01)
-    - Hongbin Lu (@fgtdev-hblu)
-notes:
-    - Starting in version 2.4.0, all input arguments are named using the underscore naming convention (snake_case).
-      Please change the arguments such as "var-name" to "var_name".
-      Old argument names are still available yet you will receive deprecation warnings.
-      You can ignore this warning by setting deprecation_warnings=False in ansible.cfg.
-    - Running in workspace locking mode is supported in this FortiManager module, the top
-      level parameters workspace_locking_adom and workspace_locking_timeout help do the work.
-    - To create or update an object, use state present directive.
-    - To delete an object, use state absent directive.
-    - Normally, running one module can fail when a non-zero rc is returned. you can also override
-      the conditions to fail or succeed with parameters rc_failed and rc_succeeded
+extends_documentation_fragment:
+    - fortinet.fortimanager.general
+    - fortinet.fortimanager.general.full_crud
 options:
-    access_token:
-        description: The token to access FortiManager without using username and password.
-        type: str
-    bypass_validation:
-        description: Only set to True when module schema diffs with FortiManager API structure, module continues to execute without validating parameters.
-        type: bool
-        default: false
-    enable_log:
-        description: Enable/Disable logging for task.
-        type: bool
-        default: false
-    forticloud_access_token:
-        description: Authenticate Ansible client with forticloud API access token.
-        type: str
-    proposed_method:
-        description: The overridden method for the underlying Json RPC request.
-        type: str
-        choices:
-          - update
-          - set
-          - add
-    rc_succeeded:
-        description: The rc codes list with which the conditions to succeed will be overriden.
-        type: list
-        elements: int
-    rc_failed:
-        description: The rc codes list with which the conditions to fail will be overriden.
-        type: list
-        elements: int
-    state:
-        description: The directive to create, update or delete an object.
-        type: str
-        required: true
-        choices:
-          - present
-          - absent
     revision_note:
         description: The change note that can be specified when an object is created or updated.
         type: str
-    workspace_locking_adom:
-        description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
-        type: str
-    workspace_locking_timeout:
-        description: The maximum time in seconds to wait for other user to release the workspace lock.
-        type: int
-        default: 300
     adom:
         description: The parameter (adom) in requested url.
         type: str
@@ -95,9 +34,7 @@ options:
                 aliases: ['auth-fail-vlan']
                 type: str
                 description: Enable to allow limited access to clients that cannot authenticate.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             auth_fail_vlan_id:
                 aliases: ['auth-fail-vlan-id']
                 type: str
@@ -110,9 +47,7 @@ options:
                 aliases: ['eap-passthru']
                 type: str
                 description: Enable/disable EAP pass-through mode, allowing protocols
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             guest_auth_delay:
                 aliases: ['guest-auth-delay']
                 type: int
@@ -121,9 +56,7 @@ options:
                 aliases: ['guest-vlan']
                 type: str
                 description: Enable the guest VLAN feature to allow limited access to non-802.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             guest_vlan_id:
                 aliases: ['guest-vlan-id']
                 type: str
@@ -136,9 +69,7 @@ options:
                 aliases: ['mac-auth-bypass']
                 type: str
                 description: Enable/disable MAB for this policy.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             name:
                 type: str
                 description: Policy name.
@@ -147,29 +78,22 @@ options:
                 aliases: ['open-auth']
                 type: str
                 description: Enable/disable open authentication for this policy.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             policy_type:
                 aliases: ['policy-type']
                 type: str
                 description: Policy type.
-                choices:
-                    - '802.1X'
+                choices: ['802.1X']
             radius_timeout_overwrite:
                 aliases: ['radius-timeout-overwrite']
                 type: str
                 description: Enable to override the global RADIUS session timeout.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             security_mode:
                 aliases: ['security-mode']
                 type: str
                 description: Port or MAC based 802.
-                choices:
-                    - '802.1X'
-                    - '802.1X-mac-based'
+                choices: ['802.1X', '802.1X-mac-based']
             user_group:
                 aliases: ['user-group']
                 type: raw
@@ -178,16 +102,12 @@ options:
                 aliases: ['framevid-apply']
                 type: str
                 description: Enable/disable the capability to apply the EAP/MAB frame VLAN to the port native VLAN.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             eap_auto_untagged_vlans:
                 aliases: ['eap-auto-untagged-vlans']
                 type: str
                 description: Enable/disable automatic inclusion of untagged VLANs.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             authserver_timeout_period:
                 aliases: ['authserver-timeout-period']
                 type: int
@@ -196,9 +116,7 @@ options:
                 aliases: ['authserver-timeout-vlan']
                 type: str
                 description: Enable/disable the authentication server timeout VLAN to allow limited access when RADIUS is unavailable.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             authserver_timeout_vlanid:
                 aliases: ['authserver-timeout-vlanid']
                 type: str
@@ -207,10 +125,7 @@ options:
                 aliases: ['authserver-timeout-tagged']
                 type: str
                 description: Configure timeout option for the tagged VLAN which allows limited access when the authentication server is unavailable.
-                choices:
-                    - 'static'
-                    - 'disable'
-                    - 'lldp-voice'
+                choices: ['static', 'disable', 'lldp-voice']
             authserver_timeout_tagged_vlanid:
                 aliases: ['authserver-timeout-tagged-vlanid']
                 type: raw
@@ -218,25 +133,17 @@ options:
             dacl:
                 type: str
                 description: Enable/disable dynamic access control list on this interface.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             auth_order:
                 aliases: ['auth-order']
                 type: str
                 description: Configure authentication order.
-                choices:
-                    - 'dot1x-mab'
-                    - 'mab-dot1x'
-                    - 'mab'
+                choices: ['dot1x-mab', 'mab-dot1x', 'mab']
             auth_priority:
                 aliases: ['auth-priority']
                 type: str
                 description: Configure authentication priority.
-                choices:
-                    - 'dot1x-mab'
-                    - 'mab-dot1x'
-                    - 'legacy'
+                choices: ['dot1x-mab', 'mab-dot1x', 'legacy']
 '''
 
 EXAMPLES = '''
@@ -244,18 +151,10 @@ EXAMPLES = '''
   hosts: fortimanagers
   connection: httpapi
   gather_facts: false
-  vars:
-    ansible_httpapi_use_ssl: true
-    ansible_httpapi_validate_certs: false
-    ansible_httpapi_port: 443
   tasks:
     - name: Configure 802.
       fortinet.fortimanager.fmgr_switchcontroller_securitypolicy_8021x:
-        # bypass_validation: false
         # workspace_locking_adom: <global or your adom name>
-        # workspace_locking_timeout: 300
-        # rc_succeeded: [0, -2, -3, ...]
-        # rc_failed: [-2, -3, ...]
         adom: <your own value>
         state: present # <value in [present, absent]>
         switchcontroller_securitypolicy_8021x:
@@ -336,14 +235,11 @@ def main():
         '/pm/config/adom/{adom}/obj/switch-controller/security-policy/802-1X',
         '/pm/config/global/obj/switch-controller/security-policy/802-1X'
     ]
-    url_params = ['adom']
-    module_primary_key = 'name'
     module_arg_spec = {
         'adom': {'required': True, 'type': 'str'},
         'revision_note': {'type': 'str'},
         'switchcontroller_securitypolicy_8021x': {
-            'type': 'dict',
-            'v_range': [['6.0.0', '']],
+            'type': 'dict', 'v_range': [['6.0.0', '']],
             'options': {
                 'auth-fail-vlan': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'auth-fail-vlan-id': {'type': 'str'},
@@ -380,19 +276,15 @@ def main():
 
     module_option_spec = get_module_arg_spec('full crud')
     module_arg_spec.update(module_option_spec)
-    params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'switchcontroller_securitypolicy_8021x'),
                            supports_check_mode=True)
-
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
-                       module, connection, top_level_schema_name='data')
-    fmgr.validate_parameters(params_validation_blob)
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list,
+                       'name', 'data', module, connection)
     fmgr.process_crud()
-
     module.exit_json(meta=module.params)
 
 

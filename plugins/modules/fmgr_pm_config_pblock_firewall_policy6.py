@@ -13,72 +13,11 @@ DOCUMENTATION = '''
 ---
 module: fmgr_pm_config_pblock_firewall_policy6
 short_description: Configure IPv6 policies.
-description:
-    - This module is able to configure a FortiManager device.
-    - Examples include all parameters and values which need to be adjusted to data sources before usage.
 version_added: "2.2.0"
-author:
-    - Xinwei Du (@dux-fortinet)
-    - Xing Li (@lix-fortinet)
-    - Jie Xue (@JieX19)
-    - Link Zheng (@chillancezen)
-    - Frank Shen (@fshen01)
-    - Hongbin Lu (@fgtdev-hblu)
-notes:
-    - Starting in version 2.4.0, all input arguments are named using the underscore naming convention (snake_case).
-      Please change the arguments such as "var-name" to "var_name".
-      Old argument names are still available yet you will receive deprecation warnings.
-      You can ignore this warning by setting deprecation_warnings=False in ansible.cfg.
-    - Running in workspace locking mode is supported in this FortiManager module, the top
-      level parameters workspace_locking_adom and workspace_locking_timeout help do the work.
-    - To create or update an object, use state present directive.
-    - To delete an object, use state absent directive.
-    - Normally, running one module can fail when a non-zero rc is returned. you can also override
-      the conditions to fail or succeed with parameters rc_failed and rc_succeeded
+extends_documentation_fragment:
+    - fortinet.fortimanager.general
+    - fortinet.fortimanager.general.full_crud
 options:
-    access_token:
-        description: The token to access FortiManager without using username and password.
-        type: str
-    bypass_validation:
-        description: Only set to True when module schema diffs with FortiManager API structure, module continues to execute without validating parameters.
-        type: bool
-        default: false
-    enable_log:
-        description: Enable/Disable logging for task.
-        type: bool
-        default: false
-    forticloud_access_token:
-        description: Authenticate Ansible client with forticloud API access token.
-        type: str
-    proposed_method:
-        description: The overridden method for the underlying Json RPC request.
-        type: str
-        choices:
-          - update
-          - set
-          - add
-    rc_succeeded:
-        description: The rc codes list with which the conditions to succeed will be overriden.
-        type: list
-        elements: int
-    rc_failed:
-        description: The rc codes list with which the conditions to fail will be overriden.
-        type: list
-        elements: int
-    state:
-        description: The directive to create, update or delete an object.
-        type: str
-        required: true
-        choices:
-          - present
-          - absent
-    workspace_locking_adom:
-        description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
-        type: str
-    workspace_locking_timeout:
-        description: The maximum time in seconds to wait for other user to release the workspace lock.
-        type: int
-        default: 300
     adom:
         description: The parameter (adom) in requested url.
         type: str
@@ -98,18 +37,12 @@ options:
             action:
                 type: str
                 description: Policy action
-                choices:
-                    - 'deny'
-                    - 'accept'
-                    - 'ipsec'
-                    - 'ssl-vpn'
+                choices: ['deny', 'accept', 'ipsec', 'ssl-vpn']
             anti_replay:
                 aliases: ['anti-replay']
                 type: str
                 description: Enable/disable anti-replay check.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             app_category:
                 aliases: ['app-category']
                 type: raw
@@ -129,9 +62,7 @@ options:
                 aliases: ['auto-asic-offload']
                 type: str
                 description: Enable/disable policy traffic ASIC offloading.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             av_profile:
                 aliases: ['av-profile']
                 type: str
@@ -155,16 +86,12 @@ options:
                 aliases: ['diffserv-forward']
                 type: str
                 description: Enable to change packets DiffServ values to the specified diffservcode-forward value.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             diffserv_reverse:
                 aliases: ['diffserv-reverse']
                 type: str
                 description: Enable to change packets reverse
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             diffservcode_forward:
                 aliases: ['diffservcode-forward']
                 type: str
@@ -184,9 +111,7 @@ options:
             dsri:
                 type: str
                 description: Enable DSRI to ignore HTTP server responses.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             dstaddr:
                 type: raw
                 description: (list) Destination address and address group names.
@@ -194,9 +119,7 @@ options:
                 aliases: ['dstaddr-negate']
                 type: str
                 description: When enabled dstaddr specifies what the destination address must NOT be.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             dstintf:
                 type: raw
                 description: (list) Outgoing
@@ -208,15 +131,11 @@ options:
                 aliases: ['firewall-session-dirty']
                 type: str
                 description: How to handle sessions if the configuration of this firewall policy changes.
-                choices:
-                    - 'check-all'
-                    - 'check-new'
+                choices: ['check-all', 'check-new']
             fixedport:
                 type: str
                 description: Enable to prevent source NAT from changing a sessions source port.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             fsso_groups:
                 aliases: ['fsso-groups']
                 type: raw
@@ -232,9 +151,7 @@ options:
                 aliases: ['http-policy-redirect']
                 type: str
                 description: Redirect HTTP
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             icap_profile:
                 aliases: ['icap-profile']
                 type: str
@@ -242,22 +159,16 @@ options:
             inbound:
                 type: str
                 description: Policy-based IPsec VPN
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             inspection_mode:
                 aliases: ['inspection-mode']
                 type: str
                 description: Policy inspection mode
-                choices:
-                    - 'proxy'
-                    - 'flow'
+                choices: ['proxy', 'flow']
             ippool:
                 type: str
                 description: Enable to use IP Pools for source NAT.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             ips_sensor:
                 aliases: ['ips-sensor']
                 type: str
@@ -268,18 +179,12 @@ options:
             logtraffic:
                 type: str
                 description: Enable or disable logging.
-                choices:
-                    - 'disable'
-                    - 'enable'
-                    - 'all'
-                    - 'utm'
+                choices: ['disable', 'enable', 'all', 'utm']
             logtraffic_start:
                 aliases: ['logtraffic-start']
                 type: str
                 description: Record logs when a session starts.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             mms_profile:
                 aliases: ['mms-profile']
                 type: str
@@ -290,34 +195,24 @@ options:
             nat:
                 type: str
                 description: Enable/disable source NAT.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             natinbound:
                 type: str
                 description: Policy-based IPsec VPN
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             natoutbound:
                 type: str
                 description: Policy-based IPsec VPN
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             np_acceleration:
                 aliases: ['np-acceleration']
                 type: str
                 description: Enable/disable UTM Network Processor acceleration.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             outbound:
                 type: str
                 description: Policy-based IPsec VPN
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             per_ip_shaper:
                 aliases: ['per-ip-shaper']
                 type: str
@@ -326,9 +221,7 @@ options:
                 aliases: ['policy-offload']
                 type: str
                 description: Policy offload.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             policyid:
                 type: int
                 description: Policy ID
@@ -348,9 +241,7 @@ options:
                 aliases: ['profile-type']
                 type: str
                 description: Determine whether the firewall policy allows security profile groups or single profiles only.
-                choices:
-                    - 'single'
-                    - 'group'
+                choices: ['single', 'group']
             replacemsg_override_group:
                 aliases: ['replacemsg-override-group']
                 type: str
@@ -358,9 +249,7 @@ options:
             rsso:
                 type: str
                 description: Enable/disable RADIUS single sign-on
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             schedule:
                 type: str
                 description: Schedule name.
@@ -368,9 +257,7 @@ options:
                 aliases: ['send-deny-packet']
                 type: str
                 description: Enable/disable return of deny-packet.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             service:
                 type: raw
                 description: (list) Service and service group names.
@@ -378,9 +265,7 @@ options:
                 aliases: ['service-negate']
                 type: str
                 description: When enabled service specifies what the service must NOT be.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             session_ttl:
                 aliases: ['session-ttl']
                 type: str
@@ -392,9 +277,7 @@ options:
                 aliases: ['srcaddr-negate']
                 type: str
                 description: When enabled srcaddr specifies what the source address must NOT be.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             srcintf:
                 type: raw
                 description: (list) Incoming
@@ -406,16 +289,12 @@ options:
                 aliases: ['ssh-policy-redirect']
                 type: str
                 description: Redirect SSH traffic to matching transparent proxy policy.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             ssl_mirror:
                 aliases: ['ssl-mirror']
                 type: str
                 description: Enable to copy decrypted SSL traffic to a FortiGate interface
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             ssl_mirror_intf:
                 aliases: ['ssl-mirror-intf']
                 type: raw
@@ -427,9 +306,7 @@ options:
             status:
                 type: str
                 description: Enable or disable this policy.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             tcp_mss_receiver:
                 aliases: ['tcp-mss-receiver']
                 type: int
@@ -442,17 +319,12 @@ options:
                 aliases: ['tcp-session-without-syn']
                 type: str
                 description: Enable/disable creation of TCP session without SYN flag.
-                choices:
-                    - 'all'
-                    - 'data-only'
-                    - 'disable'
+                choices: ['all', 'data-only', 'disable']
             timeout_send_rst:
                 aliases: ['timeout-send-rst']
                 type: str
                 description: Enable/disable sending RST packets when TCP sessions expire.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             tos:
                 type: str
                 description: ToS
@@ -464,9 +336,7 @@ options:
                 aliases: ['tos-negate']
                 type: str
                 description: Enable negated TOS match.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             traffic_shaper:
                 aliases: ['traffic-shaper']
                 type: str
@@ -486,9 +356,7 @@ options:
                 aliases: ['utm-status']
                 type: str
                 description: Enable AV/web/ips protection profile.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             uuid:
                 type: str
                 description: Universally Unique Identifier
@@ -518,16 +386,12 @@ options:
             webcache:
                 type: str
                 description: Enable/disable web cache.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             webcache_https:
                 aliases: ['webcache-https']
                 type: str
                 description: Enable/disable web cache for HTTPS.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             webfilter_profile:
                 aliases: ['webfilter-profile']
                 type: str
@@ -544,9 +408,7 @@ options:
                 aliases: ['dscp-negate']
                 type: str
                 description: Enable negated DSCP match.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             devices:
                 type: raw
                 description: (list) Names of devices or device groups that can be matched by the policy.
@@ -562,9 +424,7 @@ options:
                 aliases: ['dscp-match']
                 type: str
                 description: Enable DSCP check.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -572,18 +432,10 @@ EXAMPLES = '''
   hosts: fortimanagers
   connection: httpapi
   gather_facts: false
-  vars:
-    ansible_httpapi_use_ssl: true
-    ansible_httpapi_validate_certs: false
-    ansible_httpapi_port: 443
   tasks:
     - name: Configure IPv6 policies.
       fortinet.fortimanager.fmgr_pm_config_pblock_firewall_policy6:
-        # bypass_validation: false
         # workspace_locking_adom: <global or your adom name>
-        # workspace_locking_timeout: 300
-        # rc_succeeded: [0, -2, -3, ...]
-        # rc_failed: [-2, -3, ...]
         adom: <your own value>
         pblock: <your own value>
         state: present # <value in [present, absent]>
@@ -736,14 +588,11 @@ def main():
     urls_list = [
         '/pm/config/adom/{adom}/pblock/{pblock}/firewall/policy6'
     ]
-    url_params = ['adom', 'pblock']
-    module_primary_key = 'policyid'
     module_arg_spec = {
         'adom': {'required': True, 'type': 'str'},
         'pblock': {'required': True, 'type': 'str'},
         'pm_config_pblock_firewall_policy6': {
-            'type': 'dict',
-            'v_range': [['7.0.3', '7.6.2']],
+            'type': 'dict', 'v_range': [['7.0.3', '7.6.2']],
             'options': {
                 '_policy_block': {'v_range': [['7.0.3', '7.6.2']], 'type': 'int'},
                 'action': {'v_range': [['7.0.3', '7.6.2']], 'choices': ['deny', 'accept', 'ipsec', 'ssl-vpn'], 'type': 'str'},
@@ -860,19 +709,15 @@ def main():
 
     module_option_spec = get_module_arg_spec('full crud')
     module_arg_spec.update(module_option_spec)
-    params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'pm_config_pblock_firewall_policy6'),
                            supports_check_mode=True)
-
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
-                       module, connection, top_level_schema_name='data')
-    fmgr.validate_parameters(params_validation_blob)
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list,
+                       'policyid', 'data', module, connection)
     fmgr.process_crud()
-
     module.exit_json(meta=module.params)
 
 

@@ -1,0 +1,6 @@
+release_summary: Release fortinet.fortimanager 2.14.0
+minor_changes:
+  - Added 22 new modules.
+bugfixes:
+  - Reduced the number of requests sent when workspace mode is enabled.
+  - Improved the login logic.

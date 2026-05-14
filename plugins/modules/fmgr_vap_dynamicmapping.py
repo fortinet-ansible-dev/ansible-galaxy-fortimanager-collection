@@ -13,75 +13,14 @@ DOCUMENTATION = '''
 ---
 module: fmgr_vap_dynamicmapping
 short_description: Configure Virtual Access Points
-description:
-    - This module is able to configure a FortiManager device.
-    - Examples include all parameters and values which need to be adjusted to data sources before usage.
 version_added: "2.0.0"
-author:
-    - Xinwei Du (@dux-fortinet)
-    - Xing Li (@lix-fortinet)
-    - Jie Xue (@JieX19)
-    - Link Zheng (@chillancezen)
-    - Frank Shen (@fshen01)
-    - Hongbin Lu (@fgtdev-hblu)
-notes:
-    - Starting in version 2.4.0, all input arguments are named using the underscore naming convention (snake_case).
-      Please change the arguments such as "var-name" to "var_name".
-      Old argument names are still available yet you will receive deprecation warnings.
-      You can ignore this warning by setting deprecation_warnings=False in ansible.cfg.
-    - Running in workspace locking mode is supported in this FortiManager module, the top
-      level parameters workspace_locking_adom and workspace_locking_timeout help do the work.
-    - To create or update an object, use state present directive.
-    - To delete an object, use state absent directive.
-    - Normally, running one module can fail when a non-zero rc is returned. you can also override
-      the conditions to fail or succeed with parameters rc_failed and rc_succeeded
+extends_documentation_fragment:
+    - fortinet.fortimanager.general
+    - fortinet.fortimanager.general.full_crud
 options:
-    access_token:
-        description: The token to access FortiManager without using username and password.
-        type: str
-    bypass_validation:
-        description: Only set to True when module schema diffs with FortiManager API structure, module continues to execute without validating parameters.
-        type: bool
-        default: false
-    enable_log:
-        description: Enable/Disable logging for task.
-        type: bool
-        default: false
-    forticloud_access_token:
-        description: Authenticate Ansible client with forticloud API access token.
-        type: str
-    proposed_method:
-        description: The overridden method for the underlying Json RPC request.
-        type: str
-        choices:
-          - update
-          - set
-          - add
-    rc_succeeded:
-        description: The rc codes list with which the conditions to succeed will be overriden.
-        type: list
-        elements: int
-    rc_failed:
-        description: The rc codes list with which the conditions to fail will be overriden.
-        type: list
-        elements: int
-    state:
-        description: The directive to create, update or delete an object.
-        type: str
-        required: true
-        choices:
-          - present
-          - absent
     revision_note:
         description: The change note that can be specified when an object is created or updated.
         type: str
-    workspace_locking_adom:
-        description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
-        type: str
-    workspace_locking_timeout:
-        description: The maximum time in seconds to wait for other user to release the workspace lock.
-        type: int
-        default: 300
     adom:
         description: The parameter (adom) in requested url.
         type: str
@@ -98,9 +37,7 @@ options:
             _centmgmt:
                 type: str
                 description: Centmgmt.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             _dhcp_svr_id:
                 type: str
                 description: Dhcp svr id.
@@ -108,36 +45,19 @@ options:
                 type: list
                 elements: str
                 description: Intf allowaccess.
-                choices:
-                    - 'https'
-                    - 'ping'
-                    - 'ssh'
-                    - 'snmp'
-                    - 'http'
-                    - 'telnet'
-                    - 'fgfm'
-                    - 'auto-ipsec'
-                    - 'radius-acct'
-                    - 'probe-response'
-                    - 'capwap'
-                    - 'dnp'
-                    - 'ftm'
-                    - 'fabric'
-                    - 'speed-test'
+                choices: ['https', 'ping', 'ssh', 'snmp', 'http', 'telnet', 'fgfm', 'auto-ipsec',
+                          'radius-acct', 'probe-response', 'capwap', 'dnp', 'ftm', 'fabric',
+                          'speed-test']
             _intf_device_identification:
                 aliases: ['_intf_device-identification']
                 type: str
                 description: Intf device identification.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             _intf_device_netscan:
                 aliases: ['_intf_device-netscan']
                 type: str
                 description: Intf device netscan.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             _intf_dhcp_relay_ip:
                 aliases: ['_intf_dhcp-relay-ip']
                 type: raw
@@ -146,16 +66,12 @@ options:
                 aliases: ['_intf_dhcp-relay-service']
                 type: str
                 description: Intf dhcp relay service.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             _intf_dhcp_relay_type:
                 aliases: ['_intf_dhcp-relay-type']
                 type: str
                 description: Intf dhcp relay type.
-                choices:
-                    - 'regular'
-                    - 'ipsec'
+                choices: ['regular', 'ipsec']
             _intf_dhcp6_relay_ip:
                 aliases: ['_intf_dhcp6-relay-ip']
                 type: str
@@ -164,15 +80,12 @@ options:
                 aliases: ['_intf_dhcp6-relay-service']
                 type: str
                 description: Intf dhcp6 relay service.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             _intf_dhcp6_relay_type:
                 aliases: ['_intf_dhcp6-relay-type']
                 type: str
                 description: Intf dhcp6 relay type.
-                choices:
-                    - 'regular'
+                choices: ['regular']
             _intf_ip:
                 type: str
                 description: Intf ip.
@@ -185,23 +98,12 @@ options:
                 type: list
                 elements: str
                 description: Intf ip6 allowaccess.
-                choices:
-                    - 'https'
-                    - 'ping'
-                    - 'ssh'
-                    - 'snmp'
-                    - 'http'
-                    - 'telnet'
-                    - 'any'
-                    - 'fgfm'
-                    - 'capwap'
+                choices: ['https', 'ping', 'ssh', 'snmp', 'http', 'telnet', 'any', 'fgfm', 'capwap']
             _intf_listen_forticlient_connection:
                 aliases: ['_intf_listen-forticlient-connection']
                 type: str
                 description: Intf listen forticlient connection.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             _scope:
                 type: list
                 elements: dict
@@ -231,44 +133,21 @@ options:
             auth:
                 type: str
                 description: Auth.
-                choices:
-                    - 'PSK'
-                    - 'psk'
-                    - 'RADIUS'
-                    - 'radius'
-                    - 'usergroup'
+                choices: ['PSK', 'psk', 'RADIUS', 'radius', 'usergroup']
             broadcast_ssid:
                 aliases: ['broadcast-ssid']
                 type: str
                 description: Broadcast ssid.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             broadcast_suppression:
                 aliases: ['broadcast-suppression']
                 type: list
                 elements: str
                 description: Broadcast suppression.
-                choices:
-                    - 'dhcp'
-                    - 'arp'
-                    - 'dhcp2'
-                    - 'arp2'
-                    - 'netbios-ns'
-                    - 'netbios-ds'
-                    - 'arp3'
-                    - 'dhcp-up'
-                    - 'dhcp-down'
-                    - 'arp-known'
-                    - 'arp-unknown'
-                    - 'arp-reply'
-                    - 'ipv6'
-                    - 'dhcp-starvation'
-                    - 'arp-poison'
-                    - 'all-other-mc'
-                    - 'all-other-bc'
-                    - 'arp-proxy'
-                    - 'dhcp-ucast'
+                choices: ['dhcp', 'arp', 'dhcp2', 'arp2', 'netbios-ns', 'netbios-ds', 'arp3',
+                          'dhcp-up', 'dhcp-down', 'arp-known', 'arp-unknown', 'arp-reply', 'ipv6',
+                          'dhcp-starvation', 'arp-poison', 'all-other-mc', 'all-other-bc',
+                          'arp-proxy', 'dhcp-ucast']
             captive_portal_ac_name:
                 aliases: ['captive-portal-ac-name']
                 type: str
@@ -305,39 +184,27 @@ options:
                 aliases: ['dhcp-option82-circuit-id-insertion']
                 type: str
                 description: Dhcp option82 circuit id insertion.
-                choices:
-                    - 'disable'
-                    - 'style-1'
-                    - 'style-2'
-                    - 'style-3'
+                choices: ['disable', 'style-1', 'style-2', 'style-3']
             dhcp_option82_insertion:
                 aliases: ['dhcp-option82-insertion']
                 type: str
                 description: Dhcp option82 insertion.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             dhcp_option82_remote_id_insertion:
                 aliases: ['dhcp-option82-remote-id-insertion']
                 type: str
                 description: Dhcp option82 remote id insertion.
-                choices:
-                    - 'disable'
-                    - 'style-1'
+                choices: ['disable', 'style-1']
             dynamic_vlan:
                 aliases: ['dynamic-vlan']
                 type: str
                 description: Dynamic vlan.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             eap_reauth:
                 aliases: ['eap-reauth']
                 type: str
                 description: Eap reauth.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             eap_reauth_intv:
                 aliases: ['eap-reauth-intv']
                 type: int
@@ -346,23 +213,16 @@ options:
                 aliases: ['eapol-key-retries']
                 type: str
                 description: Eapol key retries.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             encrypt:
                 type: str
                 description: Encrypt.
-                choices:
-                    - 'TKIP'
-                    - 'AES'
-                    - 'TKIP-AES'
+                choices: ['TKIP', 'AES', 'TKIP-AES']
             external_fast_roaming:
                 aliases: ['external-fast-roaming']
                 type: str
                 description: External fast roaming.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             external_logout:
                 aliases: ['external-logout']
                 type: str
@@ -375,16 +235,12 @@ options:
                 aliases: ['fast-bss-transition']
                 type: str
                 description: Fast bss transition.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             fast_roaming:
                 aliases: ['fast-roaming']
                 type: str
                 description: Fast roaming.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             ft_mobility_domain:
                 aliases: ['ft-mobility-domain']
                 type: int
@@ -393,9 +249,7 @@ options:
                 aliases: ['ft-over-ds']
                 type: str
                 description: Ft over ds.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             ft_r0_key_lifetime:
                 aliases: ['ft-r0-key-lifetime']
                 type: int
@@ -404,9 +258,7 @@ options:
                 aliases: ['gtk-rekey']
                 type: str
                 description: Gtk rekey.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             gtk_rekey_intv:
                 aliases: ['gtk-rekey-intv']
                 type: int
@@ -419,9 +271,7 @@ options:
                 aliases: ['intra-vap-privacy']
                 type: str
                 description: Intra vap privacy.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             ip:
                 type: str
                 description: Ip.
@@ -434,74 +284,52 @@ options:
             ldpc:
                 type: str
                 description: Ldpc.
-                choices:
-                    - 'disable'
-                    - 'tx'
-                    - 'rx'
-                    - 'rxtx'
+                choices: ['disable', 'tx', 'rx', 'rxtx']
             local_authentication:
                 aliases: ['local-authentication']
                 type: str
                 description: Local authentication.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             local_bridging:
                 aliases: ['local-bridging']
                 type: str
                 description: Local bridging.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             local_lan:
                 aliases: ['local-lan']
                 type: str
                 description: Local lan.
-                choices:
-                    - 'deny'
-                    - 'allow'
+                choices: ['deny', 'allow']
             local_standalone:
                 aliases: ['local-standalone']
                 type: str
                 description: Local standalone.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             local_standalone_nat:
                 aliases: ['local-standalone-nat']
                 type: str
                 description: Local standalone nat.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             local_switching:
                 aliases: ['local-switching']
                 type: str
                 description: Local switching.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             mac_auth_bypass:
                 aliases: ['mac-auth-bypass']
                 type: str
                 description: Mac auth bypass.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             mac_filter:
                 aliases: ['mac-filter']
                 type: str
                 description: Mac filter.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             mac_filter_policy_other:
                 aliases: ['mac-filter-policy-other']
                 type: str
                 description: Mac filter policy other.
-                choices:
-                    - 'deny'
-                    - 'allow'
+                choices: ['deny', 'allow']
             max_clients:
                 aliases: ['max-clients']
                 type: int
@@ -518,15 +346,11 @@ options:
                 aliases: ['mesh-backhaul']
                 type: str
                 description: Mesh backhaul.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             mpsk:
                 type: str
                 description: Mpsk.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             mpsk_concurrent_clients:
                 aliases: ['mpsk-concurrent-clients']
                 type: int
@@ -535,40 +359,27 @@ options:
                 aliases: ['multicast-enhance']
                 type: str
                 description: Multicast enhance.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             multicast_rate:
                 aliases: ['multicast-rate']
                 type: str
                 description: Multicast rate.
-                choices:
-                    - '0'
-                    - '6000'
-                    - '12000'
-                    - '24000'
+                choices: ['0', '6000', '12000', '24000']
             okc:
                 type: str
                 description: Okc.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             owe_groups:
                 aliases: ['owe-groups']
                 type: list
                 elements: str
                 description: Owe groups.
-                choices:
-                    - '19'
-                    - '20'
-                    - '21'
+                choices: ['19', '20', '21']
             owe_transition:
                 aliases: ['owe-transition']
                 type: str
                 description: Owe transition.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             owe_transition_ssid:
                 aliases: ['owe-transition-ssid']
                 type: str
@@ -579,10 +390,7 @@ options:
             pmf:
                 type: str
                 description: Pmf.
-                choices:
-                    - 'disable'
-                    - 'enable'
-                    - 'optional'
+                choices: ['disable', 'enable', 'optional']
             pmf_assoc_comeback_timeout:
                 aliases: ['pmf-assoc-comeback-timeout']
                 type: int
@@ -599,23 +407,13 @@ options:
                 aliases: ['portal-type']
                 type: str
                 description: Portal type.
-                choices:
-                    - 'auth'
-                    - 'auth+disclaimer'
-                    - 'disclaimer'
-                    - 'email-collect'
-                    - 'cmcc'
-                    - 'cmcc-macauth'
-                    - 'auth-mac'
-                    - 'external-auth'
-                    - 'external-macauth'
+                choices: ['auth', 'auth+disclaimer', 'disclaimer', 'email-collect', 'cmcc',
+                          'cmcc-macauth', 'auth-mac', 'external-auth', 'external-macauth']
             probe_resp_suppression:
                 aliases: ['probe-resp-suppression']
                 type: str
                 description: Probe resp suppression.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             probe_resp_threshold:
                 aliases: ['probe-resp-threshold']
                 type: str
@@ -624,9 +422,7 @@ options:
                 aliases: ['ptk-rekey']
                 type: str
                 description: Ptk rekey.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             ptk_rekey_intv:
                 aliases: ['ptk-rekey-intv']
                 type: int
@@ -638,9 +434,7 @@ options:
             quarantine:
                 type: str
                 description: Quarantine.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             radio_2g_threshold:
                 aliases: ['radio-2g-threshold']
                 type: str
@@ -653,16 +447,12 @@ options:
                 aliases: ['radio-sensitivity']
                 type: str
                 description: Radio sensitivity.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             radius_mac_auth:
                 aliases: ['radius-mac-auth']
                 type: str
                 description: Radius mac auth.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             radius_mac_auth_server:
                 aliases: ['radius-mac-auth-server']
                 type: str
@@ -680,187 +470,58 @@ options:
                 type: list
                 elements: str
                 description: Rates 11a.
-                choices:
-                    - '1'
-                    - '1-basic'
-                    - '2'
-                    - '2-basic'
-                    - '5.5'
-                    - '5.5-basic'
-                    - '6'
-                    - '6-basic'
-                    - '9'
-                    - '9-basic'
-                    - '12'
-                    - '12-basic'
-                    - '18'
-                    - '18-basic'
-                    - '24'
-                    - '24-basic'
-                    - '36'
-                    - '36-basic'
-                    - '48'
-                    - '48-basic'
-                    - '54'
-                    - '54-basic'
-                    - '11'
-                    - '11-basic'
+                choices: ['1', '1-basic', '2', '2-basic', '5.5', '5.5-basic', '6', '6-basic', '9',
+                          '9-basic', '12', '12-basic', '18', '18-basic', '24', '24-basic', '36',
+                          '36-basic', '48', '48-basic', '54', '54-basic', '11', '11-basic']
             rates_11ac_ss12:
                 aliases: ['rates-11ac-ss12']
                 type: list
                 elements: str
                 description: Rates 11ac ss12.
-                choices:
-                    - 'mcs0/1'
-                    - 'mcs1/1'
-                    - 'mcs2/1'
-                    - 'mcs3/1'
-                    - 'mcs4/1'
-                    - 'mcs5/1'
-                    - 'mcs6/1'
-                    - 'mcs7/1'
-                    - 'mcs8/1'
-                    - 'mcs9/1'
-                    - 'mcs0/2'
-                    - 'mcs1/2'
-                    - 'mcs2/2'
-                    - 'mcs3/2'
-                    - 'mcs4/2'
-                    - 'mcs5/2'
-                    - 'mcs6/2'
-                    - 'mcs7/2'
-                    - 'mcs8/2'
-                    - 'mcs9/2'
-                    - 'mcs10/1'
-                    - 'mcs11/1'
-                    - 'mcs10/2'
-                    - 'mcs11/2'
+                choices: ['mcs0/1', 'mcs1/1', 'mcs2/1', 'mcs3/1', 'mcs4/1', 'mcs5/1', 'mcs6/1',
+                          'mcs7/1', 'mcs8/1', 'mcs9/1', 'mcs0/2', 'mcs1/2', 'mcs2/2', 'mcs3/2',
+                          'mcs4/2', 'mcs5/2', 'mcs6/2', 'mcs7/2', 'mcs8/2', 'mcs9/2', 'mcs10/1',
+                          'mcs11/1', 'mcs10/2', 'mcs11/2']
             rates_11ac_ss34:
                 aliases: ['rates-11ac-ss34']
                 type: list
                 elements: str
                 description: Rates 11ac ss34.
-                choices:
-                    - 'mcs0/3'
-                    - 'mcs1/3'
-                    - 'mcs2/3'
-                    - 'mcs3/3'
-                    - 'mcs4/3'
-                    - 'mcs5/3'
-                    - 'mcs6/3'
-                    - 'mcs7/3'
-                    - 'mcs8/3'
-                    - 'mcs9/3'
-                    - 'mcs0/4'
-                    - 'mcs1/4'
-                    - 'mcs2/4'
-                    - 'mcs3/4'
-                    - 'mcs4/4'
-                    - 'mcs5/4'
-                    - 'mcs6/4'
-                    - 'mcs7/4'
-                    - 'mcs8/4'
-                    - 'mcs9/4'
-                    - 'mcs10/3'
-                    - 'mcs11/3'
-                    - 'mcs10/4'
-                    - 'mcs11/4'
+                choices: ['mcs0/3', 'mcs1/3', 'mcs2/3', 'mcs3/3', 'mcs4/3', 'mcs5/3', 'mcs6/3',
+                          'mcs7/3', 'mcs8/3', 'mcs9/3', 'mcs0/4', 'mcs1/4', 'mcs2/4', 'mcs3/4',
+                          'mcs4/4', 'mcs5/4', 'mcs6/4', 'mcs7/4', 'mcs8/4', 'mcs9/4', 'mcs10/3',
+                          'mcs11/3', 'mcs10/4', 'mcs11/4']
             rates_11bg:
                 aliases: ['rates-11bg']
                 type: list
                 elements: str
                 description: Rates 11bg.
-                choices:
-                    - '1'
-                    - '1-basic'
-                    - '2'
-                    - '2-basic'
-                    - '5.5'
-                    - '5.5-basic'
-                    - '6'
-                    - '6-basic'
-                    - '9'
-                    - '9-basic'
-                    - '12'
-                    - '12-basic'
-                    - '18'
-                    - '18-basic'
-                    - '24'
-                    - '24-basic'
-                    - '36'
-                    - '36-basic'
-                    - '48'
-                    - '48-basic'
-                    - '54'
-                    - '54-basic'
-                    - '11'
-                    - '11-basic'
+                choices: ['1', '1-basic', '2', '2-basic', '5.5', '5.5-basic', '6', '6-basic', '9',
+                          '9-basic', '12', '12-basic', '18', '18-basic', '24', '24-basic', '36',
+                          '36-basic', '48', '48-basic', '54', '54-basic', '11', '11-basic']
             rates_11n_ss12:
                 aliases: ['rates-11n-ss12']
                 type: list
                 elements: str
                 description: Rates 11n ss12.
-                choices:
-                    - 'mcs0/1'
-                    - 'mcs1/1'
-                    - 'mcs2/1'
-                    - 'mcs3/1'
-                    - 'mcs4/1'
-                    - 'mcs5/1'
-                    - 'mcs6/1'
-                    - 'mcs7/1'
-                    - 'mcs8/2'
-                    - 'mcs9/2'
-                    - 'mcs10/2'
-                    - 'mcs11/2'
-                    - 'mcs12/2'
-                    - 'mcs13/2'
-                    - 'mcs14/2'
-                    - 'mcs15/2'
+                choices: ['mcs0/1', 'mcs1/1', 'mcs2/1', 'mcs3/1', 'mcs4/1', 'mcs5/1', 'mcs6/1',
+                          'mcs7/1', 'mcs8/2', 'mcs9/2', 'mcs10/2', 'mcs11/2', 'mcs12/2',
+                          'mcs13/2', 'mcs14/2', 'mcs15/2']
             rates_11n_ss34:
                 aliases: ['rates-11n-ss34']
                 type: list
                 elements: str
                 description: Rates 11n ss34.
-                choices:
-                    - 'mcs16/3'
-                    - 'mcs17/3'
-                    - 'mcs18/3'
-                    - 'mcs19/3'
-                    - 'mcs20/3'
-                    - 'mcs21/3'
-                    - 'mcs22/3'
-                    - 'mcs23/3'
-                    - 'mcs24/4'
-                    - 'mcs25/4'
-                    - 'mcs26/4'
-                    - 'mcs27/4'
-                    - 'mcs28/4'
-                    - 'mcs29/4'
-                    - 'mcs30/4'
-                    - 'mcs31/4'
+                choices: ['mcs16/3', 'mcs17/3', 'mcs18/3', 'mcs19/3', 'mcs20/3', 'mcs21/3',
+                          'mcs22/3', 'mcs23/3', 'mcs24/4', 'mcs25/4', 'mcs26/4', 'mcs27/4',
+                          'mcs28/4', 'mcs29/4', 'mcs30/4', 'mcs31/4']
             sae_groups:
                 aliases: ['sae-groups']
                 type: list
                 elements: str
                 description: Sae groups.
-                choices:
-                    - '1'
-                    - '2'
-                    - '5'
-                    - '14'
-                    - '15'
-                    - '16'
-                    - '17'
-                    - '18'
-                    - '19'
-                    - '20'
-                    - '21'
-                    - '27'
-                    - '28'
-                    - '29'
-                    - '30'
-                    - '31'
+                choices: ['1', '2', '5', '14', '15', '16', '17', '18', '19', '20', '21', '27',
+                          '28', '29', '30', '31']
             sae_password:
                 aliases: ['sae-password']
                 type: raw
@@ -871,37 +532,14 @@ options:
             security:
                 type: str
                 description: Security.
-                choices:
-                    - 'None'
-                    - 'WEP64'
-                    - 'wep64'
-                    - 'WEP128'
-                    - 'wep128'
-                    - 'WPA_PSK'
-                    - 'WPA_RADIUS'
-                    - 'WPA'
-                    - 'WPA2'
-                    - 'WPA2_AUTO'
-                    - 'open'
-                    - 'wpa-personal'
-                    - 'wpa-enterprise'
-                    - 'captive-portal'
-                    - 'wpa-only-personal'
-                    - 'wpa-only-enterprise'
-                    - 'wpa2-only-personal'
-                    - 'wpa2-only-enterprise'
-                    - 'wpa-personal+captive-portal'
-                    - 'wpa-only-personal+captive-portal'
-                    - 'wpa2-only-personal+captive-portal'
-                    - 'osen'
-                    - 'wpa3-enterprise'
-                    - 'sae'
-                    - 'sae-transition'
-                    - 'owe'
-                    - 'wpa3-sae'
-                    - 'wpa3-sae-transition'
-                    - 'wpa3-only-enterprise'
-                    - 'wpa3-enterprise-transition'
+                choices: ['None', 'WEP64', 'wep64', 'WEP128', 'wep128', 'WPA_PSK', 'WPA_RADIUS',
+                          'WPA', 'WPA2', 'WPA2_AUTO', 'open', 'wpa-personal', 'wpa-enterprise',
+                          'captive-portal', 'wpa-only-personal', 'wpa-only-enterprise',
+                          'wpa2-only-personal', 'wpa2-only-enterprise',
+                          'wpa-personal+captive-portal', 'wpa-only-personal+captive-portal',
+                          'wpa2-only-personal+captive-portal', 'osen', 'wpa3-enterprise', 'sae',
+                          'sae-transition', 'owe', 'wpa3-sae', 'wpa3-sae-transition',
+                          'wpa3-only-enterprise', 'wpa3-enterprise-transition']
             security_exempt_list:
                 aliases: ['security-exempt-list']
                 type: str
@@ -910,9 +548,7 @@ options:
                 aliases: ['security-obsolete-option']
                 type: str
                 description: Security obsolete option.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             security_redirect_url:
                 aliases: ['security-redirect-url']
                 type: str
@@ -925,9 +561,7 @@ options:
                 aliases: ['split-tunneling']
                 type: str
                 description: Split tunneling.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             ssid:
                 type: str
                 description: Ssid.
@@ -935,9 +569,7 @@ options:
                 aliases: ['tkip-counter-measure']
                 type: str
                 description: Tkip counter measure.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             usergroup:
                 type: raw
                 description: (list or str) Usergroup.
@@ -952,18 +584,12 @@ options:
                 aliases: ['vlan-auto']
                 type: str
                 description: Vlan auto.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             vlan_pooling:
                 aliases: ['vlan-pooling']
                 type: str
                 description: Vlan pooling.
-                choices:
-                    - 'wtp-group'
-                    - 'round-robin'
-                    - 'hash'
-                    - 'disable'
+                choices: ['wtp-group', 'round-robin', 'hash', 'disable']
             vlanid:
                 type: int
                 description: Vlanid.
@@ -971,16 +597,12 @@ options:
                 aliases: ['voice-enterprise']
                 type: str
                 description: Voice enterprise.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             mu_mimo:
                 aliases: ['mu-mimo']
                 type: str
                 description: Mu mimo.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             _intf_device_access_list:
                 aliases: ['_intf_device-access-list']
                 type: str
@@ -989,17 +611,12 @@ options:
                 aliases: ['external-web-format']
                 type: str
                 description: External web format.
-                choices:
-                    - 'auto-detect'
-                    - 'no-query-string'
-                    - 'partial-query-string'
+                choices: ['auto-detect', 'no-query-string', 'partial-query-string']
             high_efficiency:
                 aliases: ['high-efficiency']
                 type: str
                 description: High efficiency.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             primary_wag_profile:
                 aliases: ['primary-wag-profile']
                 type: str
@@ -1012,9 +629,7 @@ options:
                 aliases: ['target-wake-time']
                 type: str
                 description: Target wake time.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             tunnel_echo_interval:
                 aliases: ['tunnel-echo-interval']
                 type: int
@@ -1036,23 +651,14 @@ options:
                 type: list
                 elements: str
                 description: Ipv6 rules.
-                choices:
-                    - 'drop-icmp6ra'
-                    - 'drop-icmp6rs'
-                    - 'drop-llmnr6'
-                    - 'drop-icmp6mld2'
-                    - 'drop-dhcp6s'
-                    - 'drop-dhcp6c'
-                    - 'ndp-proxy'
-                    - 'drop-ns-dad'
-                    - 'drop-ns-nondad'
+                choices: ['drop-icmp6ra', 'drop-icmp6rs', 'drop-llmnr6', 'drop-icmp6mld2',
+                          'drop-dhcp6s', 'drop-dhcp6c', 'ndp-proxy', 'drop-ns-dad',
+                          'drop-ns-nondad']
             sticky_client_remove:
                 aliases: ['sticky-client-remove']
                 type: str
                 description: Sticky client remove.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             sticky_client_threshold_2g:
                 aliases: ['sticky-client-threshold-2g']
                 type: str
@@ -1065,16 +671,12 @@ options:
                 aliases: ['bss-color-partial']
                 type: str
                 description: Bss color partial.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             dhcp_option43_insertion:
                 aliases: ['dhcp-option43-insertion']
                 type: str
                 description: Dhcp option43 insertion.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             mpsk_profile:
                 aliases: ['mpsk-profile']
                 type: str
@@ -1083,17 +685,12 @@ options:
                 aliases: ['igmp-snooping']
                 type: str
                 description: Enable/disable IGMP snooping.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             port_macauth:
                 aliases: ['port-macauth']
                 type: str
                 description: Enable/disable LAN port MAC authentication
-                choices:
-                    - 'disable'
-                    - 'radius'
-                    - 'address-group'
+                choices: ['disable', 'radius', 'address-group']
             port_macauth_reauth_timeout:
                 aliases: ['port-macauth-reauth-timeout']
                 type: int
@@ -1107,16 +704,12 @@ options:
                 type: list
                 elements: str
                 description: Additional AKMs.
-                choices:
-                    - 'akm6'
-                    - 'akm24'
+                choices: ['akm6', 'akm24']
             bstm_disassociation_imminent:
                 aliases: ['bstm-disassociation-imminent']
                 type: str
                 description: Enable/disable forcing of disassociation after the BSTM request timer has been reached
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             bstm_load_balancing_disassoc_timer:
                 aliases: ['bstm-load-balancing-disassoc-timer']
                 type: int
@@ -1129,9 +722,7 @@ options:
                 aliases: ['dhcp-address-enforcement']
                 type: str
                 description: Enable/disable DHCP address enforcement
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             gas_comeback_delay:
                 aliases: ['gas-comeback-delay']
                 type: int
@@ -1144,65 +735,40 @@ options:
                 aliases: ['mac-called-station-delimiter']
                 type: str
                 description: MAC called station delimiter
-                choices:
-                    - 'hyphen'
-                    - 'single-hyphen'
-                    - 'colon'
-                    - 'none'
+                choices: ['hyphen', 'single-hyphen', 'colon', 'none']
             mac_calling_station_delimiter:
                 aliases: ['mac-calling-station-delimiter']
                 type: str
                 description: MAC calling station delimiter
-                choices:
-                    - 'hyphen'
-                    - 'single-hyphen'
-                    - 'colon'
-                    - 'none'
+                choices: ['hyphen', 'single-hyphen', 'colon', 'none']
             mac_case:
                 aliases: ['mac-case']
                 type: str
                 description: MAC case
-                choices:
-                    - 'uppercase'
-                    - 'lowercase'
+                choices: ['uppercase', 'lowercase']
             mac_password_delimiter:
                 aliases: ['mac-password-delimiter']
                 type: str
                 description: MAC authentication password delimiter
-                choices:
-                    - 'hyphen'
-                    - 'single-hyphen'
-                    - 'colon'
-                    - 'none'
+                choices: ['hyphen', 'single-hyphen', 'colon', 'none']
             mac_username_delimiter:
                 aliases: ['mac-username-delimiter']
                 type: str
                 description: MAC authentication username delimiter
-                choices:
-                    - 'hyphen'
-                    - 'single-hyphen'
-                    - 'colon'
-                    - 'none'
+                choices: ['hyphen', 'single-hyphen', 'colon', 'none']
             mbo:
                 type: str
                 description: Enable/disable Multiband Operation
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             mbo_cell_data_conn_pref:
                 aliases: ['mbo-cell-data-conn-pref']
                 type: str
                 description: MBO cell data connection preference
-                choices:
-                    - 'excluded'
-                    - 'prefer-not'
-                    - 'prefer-use'
+                choices: ['excluded', 'prefer-not', 'prefer-use']
             nac:
                 type: str
                 description: Enable/disable network access control.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             nac_profile:
                 aliases: ['nac-profile']
                 type: str
@@ -1211,17 +777,12 @@ options:
                 aliases: ['neighbor-report-dual-band']
                 type: str
                 description: Enable/disable dual-band neighbor report
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             address_group_policy:
                 aliases: ['address-group-policy']
                 type: str
                 description: Configure MAC address filtering policy for MAC addresses that are in the address-group.
-                choices:
-                    - 'disable'
-                    - 'allow'
-                    - 'deny'
+                choices: ['disable', 'allow', 'deny']
             antivirus_profile:
                 aliases: ['antivirus-profile']
                 type: str
@@ -1230,9 +791,7 @@ options:
                 aliases: ['application-detection-engine']
                 type: str
                 description: Enable/disable application detection engine
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             application_list:
                 aliases: ['application-list']
                 type: str
@@ -1254,10 +813,7 @@ options:
                 type: list
                 elements: str
                 description: Fortinet beacon advertising IE data
-                choices:
-                    - 'name'
-                    - 'model'
-                    - 'serial-number'
+                choices: ['name', 'model', 'serial-number']
             ips_sensor:
                 aliases: ['ips-sensor']
                 type: str
@@ -1266,16 +822,12 @@ options:
                 aliases: ['l3-roaming']
                 type: str
                 description: Enable/disable layer 3 roaming
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             local_standalone_dns:
                 aliases: ['local-standalone-dns']
                 type: str
                 description: Enable/disable AP local standalone DNS.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             local_standalone_dns_ip:
                 aliases: ['local-standalone-dns-ip']
                 type: raw
@@ -1283,16 +835,12 @@ options:
             osen:
                 type: str
                 description: Enable/disable OSEN as part of key management
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             radius_mac_mpsk_auth:
                 aliases: ['radius-mac-mpsk-auth']
                 type: str
                 description: Enable/disable RADIUS-based MAC authentication of clients for MPSK authentication
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             radius_mac_mpsk_timeout:
                 aliases: ['radius-mac-mpsk-timeout']
                 type: int
@@ -1302,83 +850,34 @@ options:
                 type: list
                 elements: str
                 description: Allowed data rates for 802.
-                choices:
-                    - 'mcs0/1'
-                    - 'mcs1/1'
-                    - 'mcs2/1'
-                    - 'mcs3/1'
-                    - 'mcs4/1'
-                    - 'mcs5/1'
-                    - 'mcs6/1'
-                    - 'mcs7/1'
-                    - 'mcs8/1'
-                    - 'mcs9/1'
-                    - 'mcs10/1'
-                    - 'mcs11/1'
-                    - 'mcs0/2'
-                    - 'mcs1/2'
-                    - 'mcs2/2'
-                    - 'mcs3/2'
-                    - 'mcs4/2'
-                    - 'mcs5/2'
-                    - 'mcs6/2'
-                    - 'mcs7/2'
-                    - 'mcs8/2'
-                    - 'mcs9/2'
-                    - 'mcs10/2'
-                    - 'mcs11/2'
+                choices: ['mcs0/1', 'mcs1/1', 'mcs2/1', 'mcs3/1', 'mcs4/1', 'mcs5/1', 'mcs6/1',
+                          'mcs7/1', 'mcs8/1', 'mcs9/1', 'mcs10/1', 'mcs11/1', 'mcs0/2', 'mcs1/2',
+                          'mcs2/2', 'mcs3/2', 'mcs4/2', 'mcs5/2', 'mcs6/2', 'mcs7/2', 'mcs8/2',
+                          'mcs9/2', 'mcs10/2', 'mcs11/2']
             rates_11ax_ss34:
                 aliases: ['rates-11ax-ss34']
                 type: list
                 elements: str
                 description: Allowed data rates for 802.
-                choices:
-                    - 'mcs0/3'
-                    - 'mcs1/3'
-                    - 'mcs2/3'
-                    - 'mcs3/3'
-                    - 'mcs4/3'
-                    - 'mcs5/3'
-                    - 'mcs6/3'
-                    - 'mcs7/3'
-                    - 'mcs8/3'
-                    - 'mcs9/3'
-                    - 'mcs10/3'
-                    - 'mcs11/3'
-                    - 'mcs0/4'
-                    - 'mcs1/4'
-                    - 'mcs2/4'
-                    - 'mcs3/4'
-                    - 'mcs4/4'
-                    - 'mcs5/4'
-                    - 'mcs6/4'
-                    - 'mcs7/4'
-                    - 'mcs8/4'
-                    - 'mcs9/4'
-                    - 'mcs10/4'
-                    - 'mcs11/4'
+                choices: ['mcs0/3', 'mcs1/3', 'mcs2/3', 'mcs3/3', 'mcs4/3', 'mcs5/3', 'mcs6/3',
+                          'mcs7/3', 'mcs8/3', 'mcs9/3', 'mcs10/3', 'mcs11/3', 'mcs0/4', 'mcs1/4',
+                          'mcs2/4', 'mcs3/4', 'mcs4/4', 'mcs5/4', 'mcs6/4', 'mcs7/4', 'mcs8/4',
+                          'mcs9/4', 'mcs10/4', 'mcs11/4']
             scan_botnet_connections:
                 aliases: ['scan-botnet-connections']
                 type: str
                 description: Block or monitor connections to Botnet servers or disable Botnet scanning.
-                choices:
-                    - 'disable'
-                    - 'block'
-                    - 'monitor'
+                choices: ['disable', 'block', 'monitor']
             utm_log:
                 aliases: ['utm-log']
                 type: str
                 description: Enable/disable UTM logging.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             utm_status:
                 aliases: ['utm-status']
                 type: str
                 description: Enable to add one or more security profiles
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             webfilter_profile:
                 aliases: ['webfilter-profile']
                 type: str
@@ -1387,16 +886,12 @@ options:
                 aliases: ['sae-h2e-only']
                 type: str
                 description: Use hash-to-element-only mechanism for PWE derivation
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             sae_pk:
                 aliases: ['sae-pk']
                 type: str
                 description: Enable/disable WPA3 SAE-PK
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             sae_private_key:
                 aliases: ['sae-private-key']
                 type: str
@@ -1409,16 +904,12 @@ options:
                 aliases: ['application-dscp-marking']
                 type: str
                 description: Enable/disable application attribute based DSCP marking
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             l3_roaming_mode:
                 aliases: ['l3-roaming-mode']
                 type: str
                 description: Select the way that layer 3 roaming traffic is passed
-                choices:
-                    - 'direct'
-                    - 'indirect'
+                choices: ['direct', 'indirect']
             rates_11ac_mcs_map:
                 aliases: ['rates-11ac-mcs-map']
                 type: str
@@ -1431,9 +922,7 @@ options:
                 aliases: ['captive-portal-fw-accounting']
                 type: str
                 description: Enable/disable RADIUS accounting for captive portal firewall authentication session.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             radius_mac_auth_block_interval:
                 aliases: ['radius-mac-auth-block-interval']
                 type: int
@@ -1441,66 +930,47 @@ options:
             _is_factory_setting:
                 type: str
                 description: Is factory setting.
-                choices:
-                    - 'disable'
-                    - 'enable'
-                    - 'ext'
+                choices: ['disable', 'enable', 'ext']
             d80211k:
                 aliases: ['80211k']
                 type: str
                 description: Enable/disable 802.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             d80211v:
                 aliases: ['80211v']
                 type: str
                 description: Enable/disable 802.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             roaming_acct_interim_update:
                 aliases: ['roaming-acct-interim-update']
                 type: str
                 description: Enable/disable using accounting interim update instead of accounting start/stop on roaming for WPA-Enterprise security.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             sae_hnp_only:
                 aliases: ['sae-hnp-only']
                 type: str
                 description: Use hunting-and-pecking-only mechanism for PWE derivation
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             akm24_only:
                 aliases: ['akm24-only']
                 type: str
                 description: WPA3 SAE using group-dependent hash only
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             beacon_protection:
                 aliases: ['beacon-protection']
                 type: str
                 description: Enable/disable beacon protection support
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             captive_portal:
                 aliases: ['captive-portal']
                 type: str
                 description: Enable/disable captive portal.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             nas_filter_rule:
                 aliases: ['nas-filter-rule']
                 type: str
                 description: Enable/disable NAS filter rule support
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             rates_11be_mcs_map:
                 aliases: ['rates-11be-mcs-map']
                 type: str
@@ -1517,78 +987,47 @@ options:
                 aliases: ['_intf_ip-managed-by-fortiipam']
                 type: str
                 description: Intf ip managed by fortiipam.
-                choices:
-                    - 'disable'
-                    - 'enable'
-                    - 'inherit-global'
+                choices: ['disable', 'enable', 'inherit-global']
             _intf_managed_subnetwork_size:
                 aliases: ['_intf_managed-subnetwork-size']
                 type: str
                 description: Intf managed subnetwork size.
-                choices:
-                    - '32'
-                    - '64'
-                    - '128'
-                    - '256'
-                    - '512'
-                    - '1024'
-                    - '2048'
-                    - '4096'
-                    - '8192'
-                    - '16384'
-                    - '32768'
-                    - '65536'
+                choices: ['32', '64', '128', '256', '512', '1024', '2048', '4096', '8192',
+                          '16384', '32768', '65536']
             domain_name_stripping:
                 aliases: ['domain-name-stripping']
                 type: str
                 description: Enable/disable stripping domain name from identity
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             local_lan_partition:
                 aliases: ['local-lan-partition']
                 type: str
                 description: Enable/disable segregating client traffic to local LAN side
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             _intf_role:
                 type: str
                 description: Intf role.
-                choices:
-                    - 'lan'
-                    - 'wan'
-                    - 'dmz'
-                    - 'undefined'
+                choices: ['lan', 'wan', 'dmz', 'undefined']
             called_station_id_type:
                 aliases: ['called-station-id-type']
                 type: str
                 description: The format type of RADIUS attribute Called-Station-Id
-                choices:
-                    - 'mac'
-                    - 'ip'
-                    - 'apname'
+                choices: ['mac', 'ip', 'apname']
             external_pre_auth:
                 aliases: ['external-pre-auth']
                 type: str
                 description: Enable/disable pre-authentication with external APs not managed by the FortiGate
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             pre_auth:
                 aliases: ['pre-auth']
                 type: str
                 description: Enable/disable pre-authentication, where supported by clients
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             _intf_ip6_send_adv:
                 aliases: ['_intf_ip6-send-adv']
                 type: str
                 description: Intf ip6 send adv.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             ip6_prefix_list:
                 aliases: ['ip6-prefix-list']
                 type: list
@@ -1599,9 +1038,7 @@ options:
                         aliases: ['autonomous-flag']
                         type: str
                         description: Autonomous flag.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     dnssl:
                         type: raw
                         description: (list) Dnssl.
@@ -1609,9 +1046,7 @@ options:
                         aliases: ['onlink-flag']
                         type: str
                         description: Onlink flag.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     preferred_life_time:
                         aliases: ['preferred-life-time']
                         type: int
@@ -1633,15 +1068,11 @@ options:
                 aliases: ['captive-network-assistant-bypass']
                 type: str
                 description: Enable/disable Captive Network Assistant bypass.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             mlo:
                 type: str
                 description: Enable/disable WiFi7 Multi-Link-Operation
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -1649,18 +1080,10 @@ EXAMPLES = '''
   hosts: fortimanagers
   connection: httpapi
   gather_facts: false
-  vars:
-    ansible_httpapi_use_ssl: true
-    ansible_httpapi_validate_certs: false
-    ansible_httpapi_port: 443
   tasks:
     - name: Configure Virtual Access Points
       fortinet.fortimanager.fmgr_vap_dynamicmapping:
-        # bypass_validation: false
         # workspace_locking_adom: <global or your adom name>
-        # workspace_locking_timeout: 300
-        # rc_succeeded: [0, -2, -3, ...]
-        # rc_failed: [-2, -3, ...]
         adom: <your own value>
         vap: <your own value>
         state: present # <value in [present, absent]>
@@ -1670,22 +1093,9 @@ EXAMPLES = '''
               vdom: <string>
           # _centmgmt: <value in [disable, enable]>
           # _dhcp_svr_id: <string>
-          # _intf_allowaccess:
-          #   - "https"
-          #   - "ping"
-          #   - "ssh"
-          #   - "snmp"
-          #   - "http"
-          #   - "telnet"
-          #   - "fgfm"
-          #   - "auto-ipsec"
-          #   - "radius-acct"
-          #   - "probe-response"
-          #   - "capwap"
-          #   - "dnp"
-          #   - "ftm"
-          #   - "fabric"
-          #   - "speed-test"
+          # _intf_allowaccess: ["https", "ping", "ssh", "snmp", "http", "telnet", "fgfm",
+          #                     "auto-ipsec", "radius-acct", "probe-response", "capwap", "dnp",
+          #                     "ftm", "fabric", "speed-test"]
           # _intf_device_identification: <value in [disable, enable]>
           # _intf_device_netscan: <value in [disable, enable]>
           # _intf_dhcp_relay_ip: <list or string>
@@ -1696,16 +1106,8 @@ EXAMPLES = '''
           # _intf_dhcp6_relay_type: <value in [regular]>
           # _intf_ip: <string>
           # _intf_ip6_address: <string>
-          # _intf_ip6_allowaccess:
-          #   - "https"
-          #   - "ping"
-          #   - "ssh"
-          #   - "snmp"
-          #   - "http"
-          #   - "telnet"
-          #   - "any"
-          #   - "fgfm"
-          #   - "capwap"
+          # _intf_ip6_allowaccess: ["https", "ping", "ssh", "snmp", "http", "telnet", "any",
+          #                         "fgfm", "capwap"]
           # _intf_listen_forticlient_connection: <value in [disable, enable]>
           # acct_interim_interval: <integer>
           # address_group: <string>
@@ -1713,26 +1115,10 @@ EXAMPLES = '''
           # atf_weight: <integer>
           # auth: <value in [PSK, psk, RADIUS, ...]>
           # broadcast_ssid: <value in [disable, enable]>
-          # broadcast_suppression:
-          #   - "dhcp"
-          #   - "arp"
-          #   - "dhcp2"
-          #   - "arp2"
-          #   - "netbios-ns"
-          #   - "netbios-ds"
-          #   - "arp3"
-          #   - "dhcp-up"
-          #   - "dhcp-down"
-          #   - "arp-known"
-          #   - "arp-unknown"
-          #   - "arp-reply"
-          #   - "ipv6"
-          #   - "dhcp-starvation"
-          #   - "arp-poison"
-          #   - "all-other-mc"
-          #   - "all-other-bc"
-          #   - "arp-proxy"
-          #   - "dhcp-ucast"
+          # broadcast_suppression: ["dhcp", "arp", "dhcp2", "arp2", "netbios-ns", "netbios-ds",
+          #                         "arp3", "dhcp-up", "dhcp-down", "arp-known", "arp-unknown",
+          #                         "arp-reply", "ipv6", "dhcp-starvation", "arp-poison",
+          #                         "all-other-mc", "all-other-bc", "arp-proxy", "dhcp-ucast"]
           # captive_portal_ac_name: <string>
           # captive_portal_macauth_radius_secret: <list or string>
           # captive_portal_macauth_radius_server: <string>
@@ -1783,10 +1169,7 @@ EXAMPLES = '''
           # multicast_enhance: <value in [disable, enable]>
           # multicast_rate: <value in [0, 6000, 12000, ...]>
           # okc: <value in [disable, enable]>
-          # owe_groups:
-          #   - "19"
-          #   - "20"
-          #   - "21"
+          # owe_groups: ["19", "20", "21"]
           # owe_transition: <value in [disable, enable]>
           # owe_transition_ssid: <string>
           # passphrase: <list or string>
@@ -1808,157 +1191,28 @@ EXAMPLES = '''
           # radius_mac_auth_server: <string>
           # radius_mac_auth_usergroups: <list or string>
           # radius_server: <string>
-          # rates_11a:
-          #   - "1"
-          #   - "1-basic"
-          #   - "2"
-          #   - "2-basic"
-          #   - "5.5"
-          #   - "5.5-basic"
-          #   - "6"
-          #   - "6-basic"
-          #   - "9"
-          #   - "9-basic"
-          #   - "12"
-          #   - "12-basic"
-          #   - "18"
-          #   - "18-basic"
-          #   - "24"
-          #   - "24-basic"
-          #   - "36"
-          #   - "36-basic"
-          #   - "48"
-          #   - "48-basic"
-          #   - "54"
-          #   - "54-basic"
-          #   - "11"
-          #   - "11-basic"
-          # rates_11ac_ss12:
-          #   - "mcs0/1"
-          #   - "mcs1/1"
-          #   - "mcs2/1"
-          #   - "mcs3/1"
-          #   - "mcs4/1"
-          #   - "mcs5/1"
-          #   - "mcs6/1"
-          #   - "mcs7/1"
-          #   - "mcs8/1"
-          #   - "mcs9/1"
-          #   - "mcs0/2"
-          #   - "mcs1/2"
-          #   - "mcs2/2"
-          #   - "mcs3/2"
-          #   - "mcs4/2"
-          #   - "mcs5/2"
-          #   - "mcs6/2"
-          #   - "mcs7/2"
-          #   - "mcs8/2"
-          #   - "mcs9/2"
-          #   - "mcs10/1"
-          #   - "mcs11/1"
-          #   - "mcs10/2"
-          #   - "mcs11/2"
-          # rates_11ac_ss34:
-          #   - "mcs0/3"
-          #   - "mcs1/3"
-          #   - "mcs2/3"
-          #   - "mcs3/3"
-          #   - "mcs4/3"
-          #   - "mcs5/3"
-          #   - "mcs6/3"
-          #   - "mcs7/3"
-          #   - "mcs8/3"
-          #   - "mcs9/3"
-          #   - "mcs0/4"
-          #   - "mcs1/4"
-          #   - "mcs2/4"
-          #   - "mcs3/4"
-          #   - "mcs4/4"
-          #   - "mcs5/4"
-          #   - "mcs6/4"
-          #   - "mcs7/4"
-          #   - "mcs8/4"
-          #   - "mcs9/4"
-          #   - "mcs10/3"
-          #   - "mcs11/3"
-          #   - "mcs10/4"
-          #   - "mcs11/4"
-          # rates_11bg:
-          #   - "1"
-          #   - "1-basic"
-          #   - "2"
-          #   - "2-basic"
-          #   - "5.5"
-          #   - "5.5-basic"
-          #   - "6"
-          #   - "6-basic"
-          #   - "9"
-          #   - "9-basic"
-          #   - "12"
-          #   - "12-basic"
-          #   - "18"
-          #   - "18-basic"
-          #   - "24"
-          #   - "24-basic"
-          #   - "36"
-          #   - "36-basic"
-          #   - "48"
-          #   - "48-basic"
-          #   - "54"
-          #   - "54-basic"
-          #   - "11"
-          #   - "11-basic"
-          # rates_11n_ss12:
-          #   - "mcs0/1"
-          #   - "mcs1/1"
-          #   - "mcs2/1"
-          #   - "mcs3/1"
-          #   - "mcs4/1"
-          #   - "mcs5/1"
-          #   - "mcs6/1"
-          #   - "mcs7/1"
-          #   - "mcs8/2"
-          #   - "mcs9/2"
-          #   - "mcs10/2"
-          #   - "mcs11/2"
-          #   - "mcs12/2"
-          #   - "mcs13/2"
-          #   - "mcs14/2"
-          #   - "mcs15/2"
-          # rates_11n_ss34:
-          #   - "mcs16/3"
-          #   - "mcs17/3"
-          #   - "mcs18/3"
-          #   - "mcs19/3"
-          #   - "mcs20/3"
-          #   - "mcs21/3"
-          #   - "mcs22/3"
-          #   - "mcs23/3"
-          #   - "mcs24/4"
-          #   - "mcs25/4"
-          #   - "mcs26/4"
-          #   - "mcs27/4"
-          #   - "mcs28/4"
-          #   - "mcs29/4"
-          #   - "mcs30/4"
-          #   - "mcs31/4"
-          # sae_groups:
-          #   - "1"
-          #   - "2"
-          #   - "5"
-          #   - "14"
-          #   - "15"
-          #   - "16"
-          #   - "17"
-          #   - "18"
-          #   - "19"
-          #   - "20"
-          #   - "21"
-          #   - "27"
-          #   - "28"
-          #   - "29"
-          #   - "30"
-          #   - "31"
+          # rates_11a: ["1", "1-basic", "2", "2-basic", "5.5", "5.5-basic", "6", "6-basic", "9",
+          #             "9-basic", "12", "12-basic", "18", "18-basic", "24", "24-basic", "36",
+          #             "36-basic", "48", "48-basic", "54", "54-basic", "11", "11-basic"]
+          # rates_11ac_ss12: ["mcs0/1", "mcs1/1", "mcs2/1", "mcs3/1", "mcs4/1", "mcs5/1",
+          #                   "mcs6/1", "mcs7/1", "mcs8/1", "mcs9/1", "mcs0/2", "mcs1/2",
+          #                   "mcs2/2", "mcs3/2", "mcs4/2", "mcs5/2", "mcs6/2", "mcs7/2",
+          #                   "mcs8/2", "mcs9/2", "mcs10/1", "mcs11/1", "mcs10/2", "mcs11/2"]
+          # rates_11ac_ss34: ["mcs0/3", "mcs1/3", "mcs2/3", "mcs3/3", "mcs4/3", "mcs5/3",
+          #                   "mcs6/3", "mcs7/3", "mcs8/3", "mcs9/3", "mcs0/4", "mcs1/4",
+          #                   "mcs2/4", "mcs3/4", "mcs4/4", "mcs5/4", "mcs6/4", "mcs7/4",
+          #                   "mcs8/4", "mcs9/4", "mcs10/3", "mcs11/3", "mcs10/4", "mcs11/4"]
+          # rates_11bg: ["1", "1-basic", "2", "2-basic", "5.5", "5.5-basic", "6", "6-basic", "9",
+          #              "9-basic", "12", "12-basic", "18", "18-basic", "24", "24-basic", "36",
+          #              "36-basic", "48", "48-basic", "54", "54-basic", "11", "11-basic"]
+          # rates_11n_ss12: ["mcs0/1", "mcs1/1", "mcs2/1", "mcs3/1", "mcs4/1", "mcs5/1", "mcs6/1",
+          #                  "mcs7/1", "mcs8/2", "mcs9/2", "mcs10/2", "mcs11/2", "mcs12/2",
+          #                  "mcs13/2", "mcs14/2", "mcs15/2"]
+          # rates_11n_ss34: ["mcs16/3", "mcs17/3", "mcs18/3", "mcs19/3", "mcs20/3", "mcs21/3",
+          #                  "mcs22/3", "mcs23/3", "mcs24/4", "mcs25/4", "mcs26/4", "mcs27/4",
+          #                  "mcs28/4", "mcs29/4", "mcs30/4", "mcs31/4"]
+          # sae_groups: ["1", "2", "5", "14", "15", "16", "17", "18", "19", "20", "21", "27",
+          #              "28", "29", "30", "31"]
           # sae_password: <list or string>
           # schedule: <list or string>
           # security: <value in [None, WEP64, wep64, ...]>
@@ -1987,16 +1241,9 @@ EXAMPLES = '''
           # tunnel_fallback_interval: <integer>
           # access_control_list: <string>
           # captive_portal_auth_timeout: <integer>
-          # ipv6_rules:
-          #   - "drop-icmp6ra"
-          #   - "drop-icmp6rs"
-          #   - "drop-llmnr6"
-          #   - "drop-icmp6mld2"
-          #   - "drop-dhcp6s"
-          #   - "drop-dhcp6c"
-          #   - "ndp-proxy"
-          #   - "drop-ns-dad"
-          #   - "drop-ns-nondad"
+          # ipv6_rules: ["drop-icmp6ra", "drop-icmp6rs", "drop-llmnr6", "drop-icmp6mld2",
+          #              "drop-dhcp6s", "drop-dhcp6c", "ndp-proxy", "drop-ns-dad",
+          #              "drop-ns-nondad"]
           # sticky_client_remove: <value in [disable, enable]>
           # sticky_client_threshold_2g: <string>
           # sticky_client_threshold_5g: <string>
@@ -2007,9 +1254,7 @@ EXAMPLES = '''
           # port_macauth: <value in [disable, radius, address-group]>
           # port_macauth_reauth_timeout: <integer>
           # port_macauth_timeout: <integer>
-          # additional_akms:
-          #   - "akm6"
-          #   - "akm24"
+          # additional_akms: ["akm6", "akm24"]
           # bstm_disassociation_imminent: <value in [disable, enable]>
           # bstm_load_balancing_disassoc_timer: <integer>
           # bstm_rssi_disassoc_timer: <integer>
@@ -2033,10 +1278,7 @@ EXAMPLES = '''
           # application_report_intv: <integer>
           # auth_cert: <string>
           # auth_portal_addr: <string>
-          # beacon_advertising:
-          #   - "name"
-          #   - "model"
-          #   - "serial-number"
+          # beacon_advertising: ["name", "model", "serial-number"]
           # ips_sensor: <string>
           # l3_roaming: <value in [disable, enable]>
           # local_standalone_dns: <value in [disable, enable]>
@@ -2044,56 +1286,14 @@ EXAMPLES = '''
           # osen: <value in [disable, enable]>
           # radius_mac_mpsk_auth: <value in [disable, enable]>
           # radius_mac_mpsk_timeout: <integer>
-          # rates_11ax_ss12:
-          #   - "mcs0/1"
-          #   - "mcs1/1"
-          #   - "mcs2/1"
-          #   - "mcs3/1"
-          #   - "mcs4/1"
-          #   - "mcs5/1"
-          #   - "mcs6/1"
-          #   - "mcs7/1"
-          #   - "mcs8/1"
-          #   - "mcs9/1"
-          #   - "mcs10/1"
-          #   - "mcs11/1"
-          #   - "mcs0/2"
-          #   - "mcs1/2"
-          #   - "mcs2/2"
-          #   - "mcs3/2"
-          #   - "mcs4/2"
-          #   - "mcs5/2"
-          #   - "mcs6/2"
-          #   - "mcs7/2"
-          #   - "mcs8/2"
-          #   - "mcs9/2"
-          #   - "mcs10/2"
-          #   - "mcs11/2"
-          # rates_11ax_ss34:
-          #   - "mcs0/3"
-          #   - "mcs1/3"
-          #   - "mcs2/3"
-          #   - "mcs3/3"
-          #   - "mcs4/3"
-          #   - "mcs5/3"
-          #   - "mcs6/3"
-          #   - "mcs7/3"
-          #   - "mcs8/3"
-          #   - "mcs9/3"
-          #   - "mcs10/3"
-          #   - "mcs11/3"
-          #   - "mcs0/4"
-          #   - "mcs1/4"
-          #   - "mcs2/4"
-          #   - "mcs3/4"
-          #   - "mcs4/4"
-          #   - "mcs5/4"
-          #   - "mcs6/4"
-          #   - "mcs7/4"
-          #   - "mcs8/4"
-          #   - "mcs9/4"
-          #   - "mcs10/4"
-          #   - "mcs11/4"
+          # rates_11ax_ss12: ["mcs0/1", "mcs1/1", "mcs2/1", "mcs3/1", "mcs4/1", "mcs5/1",
+          #                   "mcs6/1", "mcs7/1", "mcs8/1", "mcs9/1", "mcs10/1", "mcs11/1",
+          #                   "mcs0/2", "mcs1/2", "mcs2/2", "mcs3/2", "mcs4/2", "mcs5/2",
+          #                   "mcs6/2", "mcs7/2", "mcs8/2", "mcs9/2", "mcs10/2", "mcs11/2"]
+          # rates_11ax_ss34: ["mcs0/3", "mcs1/3", "mcs2/3", "mcs3/3", "mcs4/3", "mcs5/3",
+          #                   "mcs6/3", "mcs7/3", "mcs8/3", "mcs9/3", "mcs10/3", "mcs11/3",
+          #                   "mcs0/4", "mcs1/4", "mcs2/4", "mcs3/4", "mcs4/4", "mcs5/4",
+          #                   "mcs6/4", "mcs7/4", "mcs8/4", "mcs9/4", "mcs10/4", "mcs11/4"]
           # scan_botnet_connections: <value in [disable, block, monitor]>
           # utm_log: <value in [disable, enable]>
           # utm_status: <value in [disable, enable]>
@@ -2192,15 +1392,12 @@ def main():
         '/pm/config/adom/{adom}/obj/wireless-controller/vap/{vap}/dynamic_mapping',
         '/pm/config/global/obj/wireless-controller/vap/{vap}/dynamic_mapping'
     ]
-    url_params = ['adom', 'vap']
-    module_primary_key = 'complex:{{module}}["_scope"][0]["name"]+"/"+{{module}}["_scope"][0]["vdom"]'
     module_arg_spec = {
         'adom': {'required': True, 'type': 'str'},
         'vap': {'required': True, 'type': 'str'},
         'revision_note': {'type': 'str'},
         'vap_dynamicmapping': {
-            'type': 'dict',
-            'v_range': [['6.0.0', '']],
+            'type': 'dict', 'v_range': [['6.0.0', '']],
             'options': {
                 '_centmgmt': {'choices': ['disable', 'enable'], 'type': 'str'},
                 '_dhcp_svr_id': {'type': 'str'},
@@ -2558,19 +1755,15 @@ def main():
 
     module_option_spec = get_module_arg_spec('full crud')
     module_arg_spec.update(module_option_spec)
-    params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'vap_dynamicmapping'),
                            supports_check_mode=True)
-
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
-                       module, connection, top_level_schema_name='data')
-    fmgr.validate_parameters(params_validation_blob)
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list,
+                       'complex:{{module}}["_scope"][0]["name"]+"/"+{{module}}["_scope"][0]["vdom"]', 'data', module, connection)
     fmgr.process_crud()
-
     module.exit_json(meta=module.params)
 
 

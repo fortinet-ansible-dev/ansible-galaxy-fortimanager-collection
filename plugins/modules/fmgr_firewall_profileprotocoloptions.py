@@ -13,75 +13,14 @@ DOCUMENTATION = '''
 ---
 module: fmgr_firewall_profileprotocoloptions
 short_description: Configure protocol options.
-description:
-    - This module is able to configure a FortiManager device.
-    - Examples include all parameters and values which need to be adjusted to data sources before usage.
 version_added: "2.0.0"
-author:
-    - Xinwei Du (@dux-fortinet)
-    - Xing Li (@lix-fortinet)
-    - Jie Xue (@JieX19)
-    - Link Zheng (@chillancezen)
-    - Frank Shen (@fshen01)
-    - Hongbin Lu (@fgtdev-hblu)
-notes:
-    - Starting in version 2.4.0, all input arguments are named using the underscore naming convention (snake_case).
-      Please change the arguments such as "var-name" to "var_name".
-      Old argument names are still available yet you will receive deprecation warnings.
-      You can ignore this warning by setting deprecation_warnings=False in ansible.cfg.
-    - Running in workspace locking mode is supported in this FortiManager module, the top
-      level parameters workspace_locking_adom and workspace_locking_timeout help do the work.
-    - To create or update an object, use state present directive.
-    - To delete an object, use state absent directive.
-    - Normally, running one module can fail when a non-zero rc is returned. you can also override
-      the conditions to fail or succeed with parameters rc_failed and rc_succeeded
+extends_documentation_fragment:
+    - fortinet.fortimanager.general
+    - fortinet.fortimanager.general.full_crud
 options:
-    access_token:
-        description: The token to access FortiManager without using username and password.
-        type: str
-    bypass_validation:
-        description: Only set to True when module schema diffs with FortiManager API structure, module continues to execute without validating parameters.
-        type: bool
-        default: false
-    enable_log:
-        description: Enable/Disable logging for task.
-        type: bool
-        default: false
-    forticloud_access_token:
-        description: Authenticate Ansible client with forticloud API access token.
-        type: str
-    proposed_method:
-        description: The overridden method for the underlying Json RPC request.
-        type: str
-        choices:
-          - update
-          - set
-          - add
-    rc_succeeded:
-        description: The rc codes list with which the conditions to succeed will be overriden.
-        type: list
-        elements: int
-    rc_failed:
-        description: The rc codes list with which the conditions to fail will be overriden.
-        type: list
-        elements: int
-    state:
-        description: The directive to create, update or delete an object.
-        type: str
-        required: true
-        choices:
-          - present
-          - absent
     revision_note:
         description: The change note that can be specified when an object is created or updated.
         type: str
-    workspace_locking_adom:
-        description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
-        type: str
-    workspace_locking_timeout:
-        description: The maximum time in seconds to wait for other user to release the workspace lock.
-        type: int
-        default: 300
     adom:
         description: The parameter (adom) in requested url.
         type: str
@@ -102,9 +41,7 @@ options:
                 aliases: ['oversize-log']
                 type: str
                 description: Enable/disable logging for antivirus oversize file blocking.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             replacemsg_group:
                 aliases: ['replacemsg-group']
                 type: str
@@ -113,23 +50,17 @@ options:
                 aliases: ['rpc-over-http']
                 type: str
                 description: Enable/disable inspection of RPC over HTTP.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             switching_protocols_log:
                 aliases: ['switching-protocols-log']
                 type: str
                 description: Enable/disable logging for HTTP/HTTPS switching protocols.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             feature_set:
                 aliases: ['feature-set']
                 type: str
                 description: Flow/proxy feature set.
-                choices:
-                    - 'proxy'
-                    - 'flow'
+                choices: ['proxy', 'flow']
             cifs:
                 type: dict
                 description: Cifs.
@@ -151,19 +82,14 @@ options:
                                     action:
                                         type: str
                                         description: Action taken for matched file.
-                                        choices:
-                                            - 'log'
-                                            - 'block'
+                                        choices: ['log', 'block']
                                     comment:
                                         type: str
                                         description: Comment.
                                     direction:
                                         type: str
                                         description: Match files transmitted in the sessions originating or reply direction.
-                                        choices:
-                                            - 'any'
-                                            - 'incoming'
-                                            - 'outgoing'
+                                        choices: ['any', 'incoming', 'outgoing']
                                     file_type:
                                         aliases: ['file-type']
                                         type: raw
@@ -175,26 +101,20 @@ options:
                                         type: list
                                         elements: str
                                         description: Protocols to apply with.
-                                        choices:
-                                            - 'cifs'
+                                        choices: ['cifs']
                             log:
                                 type: str
                                 description: Enable/disable file filter logging.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             status:
                                 type: str
                                 description: Enable/disable file filter.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                     options:
                         type: list
                         elements: str
                         description: One or more options that can be applied to the session.
-                        choices:
-                            - 'oversize'
+                        choices: ['oversize']
                     oversize_limit:
                         aliases: ['oversize-limit']
                         type: int
@@ -206,17 +126,12 @@ options:
                         aliases: ['scan-bzip2']
                         type: str
                         description: Enable/disable scanning of BZip2 compressed files.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     server_credential_type:
                         aliases: ['server-credential-type']
                         type: str
                         description: CIFS server credential type.
-                        choices:
-                            - 'none'
-                            - 'credential-replication'
-                            - 'credential-keytab'
+                        choices: ['none', 'credential-replication', 'credential-keytab']
                     server_keytab:
                         aliases: ['server-keytab']
                         type: list
@@ -235,9 +150,7 @@ options:
                     status:
                         type: str
                         description: Enable/disable the active status of scanning for this protocol.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     tcp_window_maximum:
                         aliases: ['tcp-window-maximum']
                         type: int
@@ -254,11 +167,7 @@ options:
                         aliases: ['tcp-window-type']
                         type: str
                         description: Specify type of TCP window to use for this protocol.
-                        choices:
-                            - 'system'
-                            - 'static'
-                            - 'dynamic'
-                            - 'auto-tuning'
+                        choices: ['system', 'static', 'dynamic', 'auto-tuning']
                     uncompressed_nest_limit:
                         aliases: ['uncompressed-nest-limit']
                         type: int
@@ -277,9 +186,7 @@ options:
                     status:
                         type: str
                         description: Enable/disable the active status of scanning for this protocol.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
             ftp:
                 type: dict
                 description: Ftp.
@@ -296,20 +203,13 @@ options:
                         aliases: ['inspect-all']
                         type: str
                         description: Enable/disable the inspection of all ports for the protocol.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     options:
                         type: list
                         elements: str
                         description: One or more options that can be applied to the session.
-                        choices:
-                            - 'clientcomfort'
-                            - 'no-content-summary'
-                            - 'oversize'
-                            - 'splice'
-                            - 'bypass-rest-command'
-                            - 'bypass-mode-command'
+                        choices: ['clientcomfort', 'no-content-summary', 'oversize', 'splice',
+                                  'bypass-rest-command', 'bypass-mode-command']
                     oversize_limit:
                         aliases: ['oversize-limit']
                         type: int
@@ -321,22 +221,16 @@ options:
                         aliases: ['scan-bzip2']
                         type: str
                         description: Enable/disable scanning of BZip2 compressed files.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     ssl_offloaded:
                         aliases: ['ssl-offloaded']
                         type: str
                         description: SSL decryption and encryption performed by an external device.
-                        choices:
-                            - 'no'
-                            - 'yes'
+                        choices: ['no', 'yes']
                     status:
                         type: str
                         description: Enable/disable the active status of scanning for this protocol.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     uncompressed_nest_limit:
                         aliases: ['uncompressed-nest-limit']
                         type: int
@@ -365,18 +259,12 @@ options:
                         aliases: ['tcp-window-type']
                         type: str
                         description: TCP window type to use for this protocol.
-                        choices:
-                            - 'system'
-                            - 'static'
-                            - 'dynamic'
-                            - 'auto-tuning'
+                        choices: ['system', 'static', 'dynamic', 'auto-tuning']
                     explicit_ftp_tls:
                         aliases: ['explicit-ftp-tls']
                         type: str
                         description: Enable/disable FTP redirection for explicit FTPS.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
             http:
                 type: dict
                 description: Http.
@@ -397,9 +285,7 @@ options:
                         aliases: ['fortinet-bar']
                         type: str
                         description: Enable/disable Fortinet bar on HTML content.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     fortinet_bar_port:
                         aliases: ['fortinet-bar-port']
                         type: int
@@ -408,19 +294,13 @@ options:
                         aliases: ['inspect-all']
                         type: str
                         description: Enable/disable the inspection of all ports for the protocol.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     options:
                         type: list
                         elements: str
                         description: One or more options that can be applied to the session.
-                        choices:
-                            - 'oversize'
-                            - 'chunkedbypass'
-                            - 'clientcomfort'
-                            - 'no-content-summary'
-                            - 'servercomfort'
+                        choices: ['oversize', 'chunkedbypass', 'clientcomfort',
+                                  'no-content-summary', 'servercomfort']
                     oversize_limit:
                         aliases: ['oversize-limit']
                         type: int
@@ -433,42 +313,20 @@ options:
                         type: list
                         elements: str
                         description: ID codes for character sets to be used to convert to UTF-8 for banned words and DLP on HTTP posts
-                        choices:
-                            - 'jisx0201'
-                            - 'jisx0208'
-                            - 'jisx0212'
-                            - 'gb2312'
-                            - 'ksc5601-ex'
-                            - 'euc-jp'
-                            - 'sjis'
-                            - 'iso2022-jp'
-                            - 'iso2022-jp-1'
-                            - 'iso2022-jp-2'
-                            - 'euc-cn'
-                            - 'ces-gbk'
-                            - 'hz'
-                            - 'ces-big5'
-                            - 'euc-kr'
-                            - 'iso2022-jp-3'
-                            - 'iso8859-1'
-                            - 'tis620'
-                            - 'cp874'
-                            - 'cp1252'
-                            - 'cp1251'
+                        choices: ['jisx0201', 'jisx0208', 'jisx0212', 'gb2312', 'ksc5601-ex',
+                                  'euc-jp', 'sjis', 'iso2022-jp', 'iso2022-jp-1', 'iso2022-jp-2',
+                                  'euc-cn', 'ces-gbk', 'hz', 'ces-big5', 'euc-kr', 'iso2022-jp-3',
+                                  'iso8859-1', 'tis620', 'cp874', 'cp1252', 'cp1251']
                     proxy_after_tcp_handshake:
                         aliases: ['proxy-after-tcp-handshake']
                         type: str
                         description: Proxy traffic after the TCP 3-way handshake has been established
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     range_block:
                         aliases: ['range-block']
                         type: str
                         description: Enable/disable blocking of partial downloads.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     retry_count:
                         aliases: ['retry-count']
                         type: int
@@ -477,22 +335,16 @@ options:
                         aliases: ['scan-bzip2']
                         type: str
                         description: Enable/disable scanning of BZip2 compressed files.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     ssl_offloaded:
                         aliases: ['ssl-offloaded']
                         type: str
                         description: SSL decryption and encryption performed by an external device.
-                        choices:
-                            - 'no'
-                            - 'yes'
+                        choices: ['no', 'yes']
                     status:
                         type: str
                         description: Enable/disable the active status of scanning for this protocol.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     stream_based_uncompressed_limit:
                         aliases: ['stream-based-uncompressed-limit']
                         type: int
@@ -501,23 +353,17 @@ options:
                         aliases: ['streaming-content-bypass']
                         type: str
                         description: Enable/disable bypassing of streaming content from buffering.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     strip_x_forwarded_for:
                         aliases: ['strip-x-forwarded-for']
                         type: str
                         description: Enable/disable stripping of HTTP X-Forwarded-For header.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     switching_protocols:
                         aliases: ['switching-protocols']
                         type: str
                         description: Bypass from scanning, or block a connection that attempts to switch protocol.
-                        choices:
-                            - 'bypass'
-                            - 'block'
+                        choices: ['bypass', 'block']
                     tcp_window_maximum:
                         aliases: ['tcp-window-maximum']
                         type: int
@@ -534,18 +380,12 @@ options:
                         aliases: ['tcp-window-type']
                         type: str
                         description: Specify type of TCP window to use for this protocol.
-                        choices:
-                            - 'system'
-                            - 'static'
-                            - 'dynamic'
-                            - 'auto-tuning'
+                        choices: ['system', 'static', 'dynamic', 'auto-tuning']
                     tunnel_non_http:
                         aliases: ['tunnel-non-http']
                         type: str
                         description: Configure how to process non-HTTP traffic when a profile configured for HTTP traffic accepts a non-HTTP session.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     uncompressed_nest_limit:
                         aliases: ['uncompressed-nest-limit']
                         type: int
@@ -558,85 +398,56 @@ options:
                         aliases: ['unknown-http-version']
                         type: str
                         description: How to handle HTTP sessions that do not comply with HTTP 0.
-                        choices:
-                            - 'best-effort'
-                            - 'reject'
-                            - 'tunnel'
+                        choices: ['best-effort', 'reject', 'tunnel']
                     http_policy:
                         aliases: ['http-policy']
                         type: str
                         description: Enable/disable HTTP policy check.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     address_ip_rating:
                         aliases: ['address-ip-rating']
                         type: str
                         description: Enable/disable IP based URL rating.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     h2c:
                         type: str
                         description: Enable/disable h2c HTTP connection upgrade.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     verify_dns_for_policy_matching:
                         aliases: ['verify-dns-for-policy-matching']
                         type: str
                         description: Enable/disable verification of DNS for policy matching.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     unknown_content_encoding:
                         aliases: ['unknown-content-encoding']
                         type: str
                         description: Configure the action the FortiGate unit will take on unknown content-encoding.
-                        choices:
-                            - 'block'
-                            - 'inspect'
-                            - 'bypass'
+                        choices: ['block', 'inspect', 'bypass']
                     domain_fronting:
                         aliases: ['domain-fronting']
                         type: str
                         description: Configure HTTP domain fronting
-                        choices:
-                            - 'block'
-                            - 'monitor'
-                            - 'allow'
-                            - 'disable'
-                            - 'enable'
-                            - 'strict'
+                        choices: ['block', 'monitor', 'allow', 'disable', 'enable', 'strict']
                     http_0_9:
                         aliases: ['http-0.9']
                         type: str
                         description: Configure action to take upon receipt of HTTP 0.
-                        choices:
-                            - 'block'
-                            - 'allow'
+                        choices: ['block', 'allow']
                     dns_protection:
                         aliases: ['dns-protection']
                         type: str
                         description: Enable/disable DNS protection for HTTP/HTTPS traffic.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     encrypted_file:
                         aliases: ['encrypted-file']
                         type: str
                         description: Encrypted file.
-                        choices:
-                            - 'block'
-                            - 'pass'
-                            - 'inspect'
+                        choices: ['block', 'pass', 'inspect']
                     encrypted_file_log:
                         aliases: ['encrypted-file-log']
                         type: str
                         description: Encrypted file log.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
             imap:
                 type: dict
                 description: Imap.
@@ -645,17 +456,12 @@ options:
                         aliases: ['inspect-all']
                         type: str
                         description: Enable/disable the inspection of all ports for the protocol.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     options:
                         type: list
                         elements: str
                         description: One or more options that can be applied to the session.
-                        choices:
-                            - 'oversize'
-                            - 'fragmail'
-                            - 'no-content-summary'
+                        choices: ['oversize', 'fragmail', 'no-content-summary']
                     oversize_limit:
                         aliases: ['oversize-limit']
                         type: int
@@ -667,29 +473,21 @@ options:
                         aliases: ['proxy-after-tcp-handshake']
                         type: str
                         description: Proxy traffic after the TCP 3-way handshake has been established
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     scan_bzip2:
                         aliases: ['scan-bzip2']
                         type: str
                         description: Enable/disable scanning of BZip2 compressed files.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     ssl_offloaded:
                         aliases: ['ssl-offloaded']
                         type: str
                         description: SSL decryption and encryption performed by an external device.
-                        choices:
-                            - 'no'
-                            - 'yes'
+                        choices: ['no', 'yes']
                     status:
                         type: str
                         description: Enable/disable the active status of scanning for this protocol.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     uncompressed_nest_limit:
                         aliases: ['uncompressed-nest-limit']
                         type: int
@@ -702,9 +500,7 @@ options:
                         aliases: ['address-ip-rating']
                         type: str
                         description: Address ip rating.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
             mail_signature:
                 aliases: ['mail-signature']
                 type: dict
@@ -716,9 +512,7 @@ options:
                     status:
                         type: str
                         description: Enable/disable adding an email signature to SMTP email messages as they pass through the FortiGate.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
             mapi:
                 type: dict
                 description: Mapi.
@@ -727,10 +521,7 @@ options:
                         type: list
                         elements: str
                         description: One or more options that can be applied to the session.
-                        choices:
-                            - 'fragmail'
-                            - 'oversize'
-                            - 'no-content-summary'
+                        choices: ['fragmail', 'oversize', 'no-content-summary']
                     oversize_limit:
                         aliases: ['oversize-limit']
                         type: int
@@ -742,15 +533,11 @@ options:
                         aliases: ['scan-bzip2']
                         type: str
                         description: Enable/disable scanning of BZip2 compressed files.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     status:
                         type: str
                         description: Enable/disable the active status of scanning for this protocol.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     uncompressed_nest_limit:
                         aliases: ['uncompressed-nest-limit']
                         type: int
@@ -767,17 +554,12 @@ options:
                         aliases: ['inspect-all']
                         type: str
                         description: Enable/disable the inspection of all ports for the protocol.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     options:
                         type: list
                         elements: str
                         description: One or more options that can be applied to the session.
-                        choices:
-                            - 'oversize'
-                            - 'no-content-summary'
-                            - 'splice'
+                        choices: ['oversize', 'no-content-summary', 'splice']
                     oversize_limit:
                         aliases: ['oversize-limit']
                         type: int
@@ -789,22 +571,16 @@ options:
                         aliases: ['proxy-after-tcp-handshake']
                         type: str
                         description: Proxy traffic after the TCP 3-way handshake has been established
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     scan_bzip2:
                         aliases: ['scan-bzip2']
                         type: str
                         description: Enable/disable scanning of BZip2 compressed files.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     status:
                         type: str
                         description: Enable/disable the active status of scanning for this protocol.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     uncompressed_nest_limit:
                         aliases: ['uncompressed-nest-limit']
                         type: int
@@ -821,17 +597,12 @@ options:
                         aliases: ['inspect-all']
                         type: str
                         description: Enable/disable the inspection of all ports for the protocol.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     options:
                         type: list
                         elements: str
                         description: One or more options that can be applied to the session.
-                        choices:
-                            - 'oversize'
-                            - 'fragmail'
-                            - 'no-content-summary'
+                        choices: ['oversize', 'fragmail', 'no-content-summary']
                     oversize_limit:
                         aliases: ['oversize-limit']
                         type: int
@@ -843,29 +614,21 @@ options:
                         aliases: ['proxy-after-tcp-handshake']
                         type: str
                         description: Proxy traffic after the TCP 3-way handshake has been established
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     scan_bzip2:
                         aliases: ['scan-bzip2']
                         type: str
                         description: Enable/disable scanning of BZip2 compressed files.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     ssl_offloaded:
                         aliases: ['ssl-offloaded']
                         type: str
                         description: SSL decryption and encryption performed by an external device.
-                        choices:
-                            - 'no'
-                            - 'yes'
+                        choices: ['no', 'yes']
                     status:
                         type: str
                         description: Enable/disable the active status of scanning for this protocol.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     uncompressed_nest_limit:
                         aliases: ['uncompressed-nest-limit']
                         type: int
@@ -882,18 +645,12 @@ options:
                         aliases: ['inspect-all']
                         type: str
                         description: Enable/disable the inspection of all ports for the protocol.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     options:
                         type: list
                         elements: str
                         description: One or more options that can be applied to the session.
-                        choices:
-                            - 'oversize'
-                            - 'fragmail'
-                            - 'no-content-summary'
-                            - 'splice'
+                        choices: ['oversize', 'fragmail', 'no-content-summary', 'splice']
                     oversize_limit:
                         aliases: ['oversize-limit']
                         type: int
@@ -905,36 +662,26 @@ options:
                         aliases: ['proxy-after-tcp-handshake']
                         type: str
                         description: Proxy traffic after the TCP 3-way handshake has been established
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     scan_bzip2:
                         aliases: ['scan-bzip2']
                         type: str
                         description: Enable/disable scanning of BZip2 compressed files.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     server_busy:
                         aliases: ['server-busy']
                         type: str
                         description: Enable/disable SMTP server busy when server not available.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     ssl_offloaded:
                         aliases: ['ssl-offloaded']
                         type: str
                         description: SSL decryption and encryption performed by an external device.
-                        choices:
-                            - 'no'
-                            - 'yes'
+                        choices: ['no', 'yes']
                     status:
                         type: str
                         description: Enable/disable the active status of scanning for this protocol.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     uncompressed_nest_limit:
                         aliases: ['uncompressed-nest-limit']
                         type: int
@@ -959,10 +706,7 @@ options:
                         type: list
                         elements: str
                         description: One or more options that can be applied to the session.
-                        choices:
-                            - 'oversize'
-                            - 'clientcomfort'
-                            - 'servercomfort'
+                        choices: ['oversize', 'clientcomfort', 'servercomfort']
                     oversize_limit:
                         aliases: ['oversize-limit']
                         type: int
@@ -971,9 +715,7 @@ options:
                         aliases: ['scan-bzip2']
                         type: str
                         description: Enable/disable scanning of BZip2 compressed files.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     uncompressed_nest_limit:
                         aliases: ['uncompressed-nest-limit']
                         type: int
@@ -986,9 +728,7 @@ options:
                         aliases: ['ssl-offloaded']
                         type: str
                         description: SSL decryption and encryption performed by an external device.
-                        choices:
-                            - 'no'
-                            - 'yes'
+                        choices: ['no', 'yes']
                     stream_based_uncompressed_limit:
                         aliases: ['stream-based-uncompressed-limit']
                         type: int
@@ -1009,18 +749,12 @@ options:
                         aliases: ['tcp-window-type']
                         type: str
                         description: TCP window type to use for this protocol.
-                        choices:
-                            - 'system'
-                            - 'static'
-                            - 'dynamic'
-                            - 'auto-tuning'
+                        choices: ['system', 'static', 'dynamic', 'auto-tuning']
                     explicit_ftp_tls:
                         aliases: ['explicit-ftp-tls']
                         type: str
                         description: Explicit ftp tls.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
             proxy_redirect:
                 aliases: ['proxy-redirect']
                 type: dict
@@ -1032,9 +766,7 @@ options:
                     status:
                         type: str
                         description: Status.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
             rtmp:
                 type: dict
                 description: Rtmp.
@@ -1043,24 +775,18 @@ options:
                         aliases: ['http-tunnel']
                         type: str
                         description: Enable/disable RTMP http tunnel.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     ports:
                         type: raw
                         description: (list) Ports to scan for content
                     rtmpt:
                         type: str
                         description: Enable/disable RTMPT.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     status:
                         type: str
                         description: Enable/disable the active status of scanning for this protocol.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -1150,14 +876,11 @@ def main():
         '/pm/config/adom/{adom}/obj/firewall/profile-protocol-options',
         '/pm/config/global/obj/firewall/profile-protocol-options'
     ]
-    url_params = ['adom']
-    module_primary_key = 'name'
     module_arg_spec = {
         'adom': {'required': True, 'type': 'str'},
         'revision_note': {'type': 'str'},
         'firewall_profileprotocoloptions': {
-            'type': 'dict',
-            'v_range': [['6.0.0', '']],
+            'type': 'dict', 'v_range': [['6.0.0', '']],
             'options': {
                 'comment': {'type': 'str'},
                 'name': {'required': True, 'type': 'str'},
@@ -1483,19 +1206,15 @@ def main():
 
     module_option_spec = get_module_arg_spec('full crud')
     module_arg_spec.update(module_option_spec)
-    params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'firewall_profileprotocoloptions'),
                            supports_check_mode=True)
-
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
-                       module, connection, top_level_schema_name='data')
-    fmgr.validate_parameters(params_validation_blob)
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list,
+                       'name', 'data', module, connection)
     fmgr.process_crud()
-
     module.exit_json(meta=module.params)
 
 

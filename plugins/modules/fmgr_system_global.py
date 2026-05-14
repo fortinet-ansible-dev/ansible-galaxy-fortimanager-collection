@@ -13,63 +13,11 @@ DOCUMENTATION = '''
 ---
 module: fmgr_system_global
 short_description: Global range attributes.
-description:
-    - This module is able to configure a FortiManager device.
-    - Examples include all parameters and values which need to be adjusted to data sources before usage.
 version_added: "1.0.0"
-author:
-    - Xinwei Du (@dux-fortinet)
-    - Xing Li (@lix-fortinet)
-    - Jie Xue (@JieX19)
-    - Link Zheng (@chillancezen)
-    - Frank Shen (@fshen01)
-    - Hongbin Lu (@fgtdev-hblu)
-notes:
-    - Starting in version 2.4.0, all input arguments are named using the underscore naming convention (snake_case).
-      Please change the arguments such as "var-name" to "var_name".
-      Old argument names are still available yet you will receive deprecation warnings.
-      You can ignore this warning by setting deprecation_warnings=False in ansible.cfg.
-    - Running in workspace locking mode is supported in this FortiManager module, the top
-      level parameters workspace_locking_adom and workspace_locking_timeout help do the work.
-    - Normally, running one module can fail when a non-zero rc is returned. you can also override
-      the conditions to fail or succeed with parameters rc_failed and rc_succeeded
+extends_documentation_fragment:
+    - fortinet.fortimanager.general
+    - fortinet.fortimanager.general.partial_crud
 options:
-    access_token:
-        description: The token to access FortiManager without using username and password.
-        type: str
-    bypass_validation:
-        description: Only set to True when module schema diffs with FortiManager API structure, module continues to execute without validating parameters.
-        type: bool
-        default: false
-    enable_log:
-        description: Enable/Disable logging for task.
-        type: bool
-        default: false
-    forticloud_access_token:
-        description: Authenticate Ansible client with forticloud API access token.
-        type: str
-    proposed_method:
-        description: The overridden method for the underlying Json RPC request.
-        type: str
-        choices:
-          - update
-          - set
-          - add
-    rc_succeeded:
-        description: The rc codes list with which the conditions to succeed will be overriden.
-        type: list
-        elements: int
-    rc_failed:
-        description: The rc codes list with which the conditions to fail will be overriden.
-        type: list
-        elements: int
-    workspace_locking_adom:
-        description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
-        type: str
-    workspace_locking_timeout:
-        description: The maximum time in seconds to wait for other user to release the workspace lock.
-        type: int
-        default: 300
     system_global:
         description: The top level parameters set.
         required: false
@@ -90,9 +38,7 @@ options:
                     - ADOM mode.
                     - normal - Normal ADOM mode.
                     - advanced - Advanced ADOM mode.
-                choices:
-                    - 'normal'
-                    - 'advanced'
+                choices: ['normal', 'advanced']
             adom_rev_auto_delete:
                 aliases: ['adom-rev-auto-delete']
                 type: str
@@ -101,10 +47,7 @@ options:
                     - disable - Disable auto delete function for ADOM revision.
                     - by-revisions - Auto delete ADOM revisions by maximum number of revisions.
                     - by-days - Auto delete ADOM revisions by maximum days.
-                choices:
-                    - 'disable'
-                    - 'by-revisions'
-                    - 'by-days'
+                choices: ['disable', 'by-revisions', 'by-days']
             adom_rev_max_backup_revisions:
                 aliases: ['adom-rev-max-backup-revisions']
                 type: int
@@ -124,9 +67,7 @@ options:
                     - Enable/disable select ADOM after login.
                     - disable - Disable select ADOM after login.
                     - enable - Enable select ADOM after login.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             adom_status:
                 aliases: ['adom-status']
                 type: str
@@ -134,9 +75,7 @@ options:
                     - ADOM status.
                     - disable - Disable ADOM mode.
                     - enable - Enable ADOM mode.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             clt_cert_req:
                 aliases: ['clt-cert-req']
                 type: str
@@ -145,10 +84,7 @@ options:
                     - disable - Disable setting.
                     - enable - Require client certificate for GUI login.
                     - optional - Optional client certificate for GUI login.
-                choices:
-                    - 'disable'
-                    - 'enable'
-                    - 'optional'
+                choices: ['disable', 'enable', 'optional']
             console_output:
                 aliases: ['console-output']
                 type: str
@@ -156,9 +92,7 @@ options:
                     - Console output mode.
                     - standard - Standard output.
                     - more - More page output.
-                choices:
-                    - 'standard'
-                    - 'more'
+                choices: ['standard', 'more']
             country_flag:
                 aliases: ['country-flag']
                 type: str
@@ -166,9 +100,7 @@ options:
                     - Country flag Status.
                     - disable - Disable country flag icon beside ip address.
                     - enable - Enable country flag icon beside ip address.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             create_revision:
                 aliases: ['create-revision']
                 type: str
@@ -176,18 +108,14 @@ options:
                     - Enable/disable create revision by default.
                     - disable - Disable create revision by default.
                     - enable - Enable create revision by default.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             daylightsavetime:
                 type: str
                 description:
                     - Enable/disable daylight saving time.
                     - disable - Disable setting.
                     - enable - Enable setting.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             default_disk_quota:
                 aliases: ['default-disk-quota']
                 type: int
@@ -199,9 +127,7 @@ options:
                     - Detect unregistered logging device from log message.
                     - disable - Disable attribute function.
                     - enable - Enable attribute function.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             device_view_mode:
                 aliases: ['device-view-mode']
                 type: str
@@ -209,9 +135,7 @@ options:
                     - Set devices/groups view mode.
                     - regular - Regular view mode.
                     - tree - Tree view mode.
-                choices:
-                    - 'regular'
-                    - 'tree'
+                choices: ['regular', 'tree']
             dh_params:
                 aliases: ['dh-params']
                 type: str
@@ -224,14 +148,7 @@ options:
                     - 4096 - 4096 bits.
                     - 6144 - 6144 bits.
                     - 8192 - 8192 bits.
-                choices:
-                    - '1024'
-                    - '1536'
-                    - '2048'
-                    - '3072'
-                    - '4096'
-                    - '6144'
-                    - '8192'
+                choices: ['1024', '1536', '2048', '3072', '4096', '6144', '8192']
             disable_module:
                 aliases: ['disable-module']
                 type: list
@@ -239,14 +156,8 @@ options:
                 description:
                     - Disable module list.
                     - fortiview-noc - FortiView/NOC-SOC module.
-                choices:
-                    - 'fortiview-noc'
-                    - 'none'
-                    - 'fortirecorder'
-                    - 'siem'
-                    - 'soc'
-                    - 'ai'
-                    - 'safeguard-mv'
+                choices: ['fortiview-noc', 'none', 'fortirecorder', 'siem', 'soc', 'ai',
+                          'safeguard-mv']
             enc_algorithm:
                 aliases: ['enc-algorithm']
                 type: str
@@ -255,11 +166,7 @@ options:
                     - low - SSL communication using all available encryption algorithms.
                     - medium - SSL communication using high and medium encryption algorithms.
                     - high - SSL communication using high encryption algorithms.
-                choices:
-                    - 'low'
-                    - 'medium'
-                    - 'high'
-                    - 'custom'
+                choices: ['low', 'medium', 'high', 'custom']
             faz_status:
                 aliases: ['faz-status']
                 type: str
@@ -267,9 +174,7 @@ options:
                     - FAZ status.
                     - disable - Disable FAZ feature.
                     - enable - Enable FAZ feature.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             fgfm_local_cert:
                 aliases: ['fgfm-local-cert']
                 type: str
@@ -283,13 +188,8 @@ options:
                     - tlsv1.
                     - tlsv1.
                     - tlsv1.
-                choices:
-                    - 'sslv3'
-                    - 'tlsv1.0'
-                    - 'tlsv1.1'
-                    - 'tlsv1.2'
-                    - 'tlsv1.3'
-                    - 'follow-global-ssl-protocol'
+                choices: ['sslv3', 'tlsv1.0', 'tlsv1.1', 'tlsv1.2', 'tlsv1.3',
+                          'follow-global-ssl-protocol']
             ha_member_auto_grouping:
                 aliases: ['ha-member-auto-grouping']
                 type: str
@@ -297,9 +197,7 @@ options:
                     - Enable/disable automatically group HA members feature
                     - disable - Disable automatically grouping HA members feature.
                     - enable - Enable automatically grouping HA members only when group name is unique in your network.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             hitcount_concurrent:
                 type: int
                 description: The number of FortiGates that FortiManager polls at one time
@@ -316,9 +214,7 @@ options:
                     - Enable/Disable import ignore of address comments.
                     - disable - Disable import ignore of address comments.
                     - enable - Enable import ignore of address comments.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             language:
                 type: str
                 description:
@@ -329,13 +225,7 @@ options:
                     - korean - Korean
                     - spanish - Spanish
                     - trach - Traditional Chinese
-                choices:
-                    - 'english'
-                    - 'simch'
-                    - 'japanese'
-                    - 'korean'
-                    - 'spanish'
-                    - 'trach'
+                choices: ['english', 'simch', 'japanese', 'korean', 'spanish', 'trach']
             latitude:
                 type: str
                 description: Fmg location latitude
@@ -353,9 +243,7 @@ options:
                     - Enable/disable ADOM lock override.
                     - disable - Disable lock preempt.
                     - enable - Enable lock preempt.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             log_checksum:
                 aliases: ['log-checksum']
                 type: str
@@ -364,10 +252,7 @@ options:
                     - none - No record log file checksum.
                     - md5 - Record log files MD5 hash value only.
                     - md5-auth - Record log files MD5 hash value and authentication code.
-                choices:
-                    - 'none'
-                    - 'md5'
-                    - 'md5-auth'
+                choices: ['none', 'md5', 'md5-auth']
             log_forward_cache_size:
                 aliases: ['log-forward-cache-size']
                 type: int
@@ -392,12 +277,7 @@ options:
                     - tlsv1.
                     - tlsv1.
                     - tlsv1.
-                choices:
-                    - 'sslv3'
-                    - 'tlsv1.0'
-                    - 'tlsv1.1'
-                    - 'tlsv1.2'
-                    - 'tlsv1.3'
+                choices: ['sslv3', 'tlsv1.0', 'tlsv1.1', 'tlsv1.2', 'tlsv1.3']
             partial_install:
                 aliases: ['partial-install']
                 type: str
@@ -405,9 +285,7 @@ options:
                     - Enable/Disable partial install
                     - disable - Disable partial install function.
                     - enable - Enable partial install function.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             partial_install_force:
                 aliases: ['partial-install-force']
                 type: str
@@ -415,9 +293,7 @@ options:
                     - Enable/Disable partial install when devdb is modified.
                     - disable - Disable partial install when devdb is modified.
                     - enable - Enable partial install when devdb is modified.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             partial_install_rev:
                 aliases: ['partial-install-rev']
                 type: str
@@ -425,9 +301,7 @@ options:
                     - Enable/Disable auto creating adom revision for partial install.
                     - disable - Disable partial install revision.
                     - enable - Enable partial install revision.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             perform_improve_by_ha:
                 aliases: ['perform-improve-by-ha']
                 type: str
@@ -435,9 +309,7 @@ options:
                     - Enable/Disable performance improvement by distributing tasks to HA slaves.
                     - disable - Disable performance improvement by HA.
                     - enable - Enable performance improvement by HA.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             policy_hit_count:
                 aliases: ['policy-hit-count']
                 type: str
@@ -445,9 +317,7 @@ options:
                     - show policy hit count.
                     - disable - Disable policy hit count.
                     - enable - Enable policy hit count.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             policy_object_in_dual_pane:
                 aliases: ['policy-object-in-dual-pane']
                 type: str
@@ -455,9 +325,7 @@ options:
                     - show policies and objects in dual pane.
                     - disable - Disable polices and objects in dual pane.
                     - enable - Enable polices and objects in dual pane.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             pre_login_banner:
                 aliases: ['pre-login-banner']
                 type: str
@@ -465,9 +333,7 @@ options:
                     - Enable/disable pre-login banner.
                     - disable - Disable pre-login banner.
                     - enable - Enable pre-login banner.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             pre_login_banner_message:
                 aliases: ['pre-login-banner-message']
                 type: str
@@ -482,9 +348,7 @@ options:
                     - Enable/Disable Search all ADOMs for where-used query.
                     - disable - Disable search all ADOMs for where-used queries.
                     - enable - Enable search all ADOMs for where-used queries.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             ssl_low_encryption:
                 aliases: ['ssl-low-encryption']
                 type: str
@@ -492,9 +356,7 @@ options:
                     - SSL low-grade encryption.
                     - disable - Disable SSL low-grade encryption.
                     - enable - Enable SSL low-grade encryption.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             ssl_protocol:
                 aliases: ['ssl-protocol']
                 type: list
@@ -505,12 +367,7 @@ options:
                     - tlsv1.
                     - tlsv1.
                     - sslv3 - Enable SSLv3.
-                choices:
-                    - 'tlsv1.2'
-                    - 'tlsv1.1'
-                    - 'tlsv1.0'
-                    - 'sslv3'
-                    - 'tlsv1.3'
+                choices: ['tlsv1.2', 'tlsv1.1', 'tlsv1.0', 'sslv3', 'tlsv1.3']
             ssl_static_key_ciphers:
                 aliases: ['ssl-static-key-ciphers']
                 type: str
@@ -518,9 +375,7 @@ options:
                     - Enable/disable SSL static key ciphers.
                     - disable - Disable setting.
                     - enable - Enable setting.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             task_list_size:
                 aliases: ['task-list-size']
                 type: int
@@ -531,9 +386,7 @@ options:
                     - Enable/disable TFTP in `exec restore image` command
                     - disable - Disable TFTP
                     - enable - Enable TFTP
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             timezone:
                 type: str
                 description:
@@ -628,99 +481,14 @@ options:
                     - 87 -
                     - 88 -
                     - 89 -
-                choices:
-                    - '00'
-                    - '01'
-                    - '02'
-                    - '03'
-                    - '04'
-                    - '05'
-                    - '06'
-                    - '07'
-                    - '08'
-                    - '09'
-                    - '10'
-                    - '11'
-                    - '12'
-                    - '13'
-                    - '14'
-                    - '15'
-                    - '16'
-                    - '17'
-                    - '18'
-                    - '19'
-                    - '20'
-                    - '21'
-                    - '22'
-                    - '23'
-                    - '24'
-                    - '25'
-                    - '26'
-                    - '27'
-                    - '28'
-                    - '29'
-                    - '30'
-                    - '31'
-                    - '32'
-                    - '33'
-                    - '34'
-                    - '35'
-                    - '36'
-                    - '37'
-                    - '38'
-                    - '39'
-                    - '40'
-                    - '41'
-                    - '42'
-                    - '43'
-                    - '44'
-                    - '45'
-                    - '46'
-                    - '47'
-                    - '48'
-                    - '49'
-                    - '50'
-                    - '51'
-                    - '52'
-                    - '53'
-                    - '54'
-                    - '55'
-                    - '56'
-                    - '57'
-                    - '58'
-                    - '59'
-                    - '60'
-                    - '61'
-                    - '62'
-                    - '63'
-                    - '64'
-                    - '65'
-                    - '66'
-                    - '67'
-                    - '68'
-                    - '69'
-                    - '70'
-                    - '71'
-                    - '72'
-                    - '73'
-                    - '74'
-                    - '75'
-                    - '76'
-                    - '77'
-                    - '78'
-                    - '79'
-                    - '80'
-                    - '81'
-                    - '82'
-                    - '83'
-                    - '84'
-                    - '85'
-                    - '86'
-                    - '87'
-                    - '88'
-                    - '89'
-                    - '90'
-                    - '91'
+                choices: ['00', '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11',
+                          '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23',
+                          '24', '25', '26', '27', '28', '29', '30', '31', '32', '33', '34', '35',
+                          '36', '37', '38', '39', '40', '41', '42', '43', '44', '45', '46', '47',
+                          '48', '49', '50', '51', '52', '53', '54', '55', '56', '57', '58', '59',
+                          '60', '61', '62', '63', '64', '65', '66', '67', '68', '69', '70', '71',
+                          '72', '73', '74', '75', '76', '77', '78', '79', '80', '81', '82', '83',
+                          '84', '85', '86', '87', '88', '89', '90', '91']
             tunnel_mtu:
                 aliases: ['tunnel-mtu']
                 type: int
@@ -731,9 +499,7 @@ options:
                     - Enable/disable Fortiguard server restriction.
                     - disable - Contact any Fortiguard server
                     - enable - Contact Fortiguard server in USA only
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             vdom_mirror:
                 aliases: ['vdom-mirror']
                 type: str
@@ -741,9 +507,7 @@ options:
                     - VDOM mirror.
                     - disable - Disable VDOM mirror function.
                     - enable - Enable VDOM mirror function.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             webservice_proto:
                 aliases: ['webservice-proto']
                 type: list
@@ -755,13 +519,7 @@ options:
                     - tlsv1.
                     - sslv3 - Web Service connection using SSLv3 protocol.
                     - sslv2 - Web Service connection using SSLv2 protocol.
-                choices:
-                    - 'tlsv1.2'
-                    - 'tlsv1.1'
-                    - 'tlsv1.0'
-                    - 'sslv3'
-                    - 'sslv2'
-                    - 'tlsv1.3'
+                choices: ['tlsv1.2', 'tlsv1.1', 'tlsv1.0', 'sslv3', 'sslv2', 'tlsv1.3']
             workflow_max_sessions:
                 aliases: ['workflow-max-sessions']
                 type: int
@@ -774,11 +532,7 @@ options:
                     - disabled - Workspace disabled.
                     - normal - Workspace lock mode.
                     - workflow - Workspace workflow mode.
-                choices:
-                    - 'disabled'
-                    - 'normal'
-                    - 'workflow'
-                    - 'per-adom'
+                choices: ['disabled', 'normal', 'workflow', 'per-adom']
             clone_name_option:
                 aliases: ['clone-name-option']
                 type: str
@@ -786,9 +540,7 @@ options:
                     - set the clone object names option.
                     - default - Add a prefix of Clone of to the clone name.
                     - keep - Keep the original name for user to edit.
-                choices:
-                    - 'default'
-                    - 'keep'
+                choices: ['default', 'keep']
             fgfm_ca_cert:
                 aliases: ['fgfm-ca-cert']
                 type: str
@@ -810,9 +562,7 @@ options:
                     - show icons of policy objects.
                     - disable - Disable icon of policy objects.
                     - enable - Enable icon of policy objects.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             private_data_encryption:
                 aliases: ['private-data-encryption']
                 type: str
@@ -820,9 +570,7 @@ options:
                     - Enable/disable private data encryption using an AES 128-bit key.
                     - disable - Disable private data encryption using an AES 128-bit key.
                     - enable - Enable private data encryption using an AES 128-bit key.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             per_policy_lock:
                 aliases: ['per-policy-lock']
                 type: str
@@ -830,9 +578,7 @@ options:
                     - Enable/Disable per policy lock.
                     - disable - Disable per policy lock.
                     - enable - Enable per policy lock.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             multiple_steps_upgrade_in_autolink:
                 aliases: ['multiple-steps-upgrade-in-autolink']
                 type: str
@@ -840,9 +586,7 @@ options:
                     - Enable/disable multiple steps upgade in autolink process
                     - disable - Disable setting.
                     - enable - Enable setting.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             object_revision_db_max:
                 aliases: ['object-revision-db-max']
                 type: int
@@ -854,9 +598,7 @@ options:
                     - Enable/disable mandatory note when create revision.
                     - disable - Disable object revision.
                     - enable - Enable object revision.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             object_revision_object_max:
                 aliases: ['object-revision-object-max']
                 type: int
@@ -868,9 +610,7 @@ options:
                     - Enable/disable create revision when modify objects.
                     - disable - Disable object revision.
                     - enable - Enable object revision.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             normalized_intf_zone_only:
                 aliases: ['normalized-intf-zone-only']
                 type: str
@@ -878,9 +618,7 @@ options:
                     - allow normalized interface to be zone only.
                     - disable - Disable SSL low-grade encryption.
                     - enable - Enable SSL low-grade encryption.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             ssl_cipher_suites:
                 aliases: ['ssl-cipher-suites']
                 type: list
@@ -899,9 +637,7 @@ options:
                             - SSL/TLS version the cipher suite can be used with.
                             - tls1.
                             - tls1.
-                        choices:
-                            - 'tls1.2-or-below'
-                            - 'tls1.3'
+                        choices: ['tls1.2-or-below', 'tls1.3']
             gui_curl_timeout:
                 aliases: ['gui-curl-timeout']
                 type: int
@@ -913,9 +649,7 @@ options:
                     - set if the local or CA certificates should be used exclusively.
                     - disable - Used certificate best-effort.
                     - enable - Used certificate exclusive.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             fgfm_deny_unknown:
                 aliases: ['fgfm-deny-unknown']
                 type: str
@@ -923,9 +657,7 @@ options:
                     - set if allow devices with unknown SN actively register as an unauthorized device.
                     - disable - Allow devices with unknown SN to actively register as an unauthorized device.
                     - enable - Deny devices with unknown SN to actively register as an unauthorized device.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             fgfm_peercert_withoutsn:
                 aliases: ['fgfm-peercert-withoutsn']
                 type: str
@@ -933,9 +665,7 @@ options:
                     - set if the subject CN or SAN of peers SSL certificate sent in FGFM should include the serial number of the device.
                     - disable - Peers certificate must include serial number in subject CN or SAN.
                     - enable - Peers certificate might not include serial number in subject CN or SAN.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             table_entry_blink:
                 aliases: ['table-entry-blink']
                 type: str
@@ -943,9 +673,7 @@ options:
                     - Enable/disable table entry blink in GUI
                     - disable - Disable setting.
                     - enable - Enable setting.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             contentpack_fgt_install:
                 aliases: ['contentpack-fgt-install']
                 type: str
@@ -953,9 +681,7 @@ options:
                     - Enable/disable outbreak alert auto install for FGT ADOMS .
                     - disable - Disable the sql report auto outbreak auto install.
                     - enable - Enable the sql report auto outbreak auto install.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             gui_polling_interval:
                 aliases: ['gui-polling-interval']
                 type: int
@@ -967,9 +693,7 @@ options:
                     - Do not perform permission check to block object changes in different adom during copy and install.
                     - disable - Disable setting.
                     - enable - Enable setting.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             ssh_enc_algo:
                 aliases: ['ssh-enc-algo']
                 type: list
@@ -992,23 +716,11 @@ options:
                     - rijndael-cbc@lysator.
                     - aes128-gcm@openssh.
                     - aes256-gcm@openssh.
-                choices:
-                    - 'chacha20-poly1305@openssh.com'
-                    - 'aes128-ctr'
-                    - 'aes192-ctr'
-                    - 'aes256-ctr'
-                    - 'arcfour256'
-                    - 'arcfour128'
-                    - 'aes128-cbc'
-                    - '3des-cbc'
-                    - 'blowfish-cbc'
-                    - 'cast128-cbc'
-                    - 'aes192-cbc'
-                    - 'aes256-cbc'
-                    - 'arcfour'
-                    - 'rijndael-cbc@lysator.liu.se'
-                    - 'aes128-gcm@openssh.com'
-                    - 'aes256-gcm@openssh.com'
+                choices: ['chacha20-poly1305@openssh.com', 'aes128-ctr', 'aes192-ctr',
+                          'aes256-ctr', 'arcfour256', 'arcfour128', 'aes128-cbc', '3des-cbc',
+                          'blowfish-cbc', 'cast128-cbc', 'aes192-cbc', 'aes256-cbc', 'arcfour',
+                          'rijndael-cbc@lysator.liu.se', 'aes128-gcm@openssh.com',
+                          'aes256-gcm@openssh.com']
             ssh_hostkey_algo:
                 aliases: ['ssh-hostkey-algo']
                 type: list
@@ -1020,12 +732,8 @@ options:
                     - rsa-sha2-256
                     - rsa-sha2-512
                     - ssh-ed25519
-                choices:
-                    - 'ssh-rsa'
-                    - 'ecdsa-sha2-nistp521'
-                    - 'rsa-sha2-256'
-                    - 'rsa-sha2-512'
-                    - 'ssh-ed25519'
+                choices: ['ssh-rsa', 'ecdsa-sha2-nistp521', 'rsa-sha2-256', 'rsa-sha2-512',
+                          'ssh-ed25519']
             ssh_kex_algo:
                 aliases: ['ssh-kex-algo']
                 type: list
@@ -1043,18 +751,11 @@ options:
                     - ecdh-sha2-nistp256
                     - ecdh-sha2-nistp384
                     - ecdh-sha2-nistp521
-                choices:
-                    - 'diffie-hellman-group1-sha1'
-                    - 'diffie-hellman-group14-sha1'
-                    - 'diffie-hellman-group14-sha256'
-                    - 'diffie-hellman-group16-sha512'
-                    - 'diffie-hellman-group18-sha512'
-                    - 'diffie-hellman-group-exchange-sha1'
-                    - 'diffie-hellman-group-exchange-sha256'
-                    - 'curve25519-sha256@libssh.org'
-                    - 'ecdh-sha2-nistp256'
-                    - 'ecdh-sha2-nistp384'
-                    - 'ecdh-sha2-nistp521'
+                choices: ['diffie-hellman-group1-sha1', 'diffie-hellman-group14-sha1',
+                          'diffie-hellman-group14-sha256', 'diffie-hellman-group16-sha512',
+                          'diffie-hellman-group18-sha512', 'diffie-hellman-group-exchange-sha1',
+                          'diffie-hellman-group-exchange-sha256', 'curve25519-sha256@libssh.org',
+                          'ecdh-sha2-nistp256', 'ecdh-sha2-nistp384', 'ecdh-sha2-nistp521']
             ssh_mac_algo:
                 aliases: ['ssh-mac-algo']
                 type: list
@@ -1078,24 +779,13 @@ options:
                     - umac-128@openssh.
                     - umac-64-etm@openssh.
                     - umac-128-etm@openssh.
-                choices:
-                    - 'hmac-md5'
-                    - 'hmac-md5-etm@openssh.com'
-                    - 'hmac-md5-96'
-                    - 'hmac-md5-96-etm@openssh.com'
-                    - 'hmac-sha1'
-                    - 'hmac-sha1-etm@openssh.com'
-                    - 'hmac-sha2-256'
-                    - 'hmac-sha2-256-etm@openssh.com'
-                    - 'hmac-sha2-512'
-                    - 'hmac-sha2-512-etm@openssh.com'
-                    - 'hmac-ripemd160'
-                    - 'hmac-ripemd160@openssh.com'
-                    - 'hmac-ripemd160-etm@openssh.com'
-                    - 'umac-64@openssh.com'
-                    - 'umac-128@openssh.com'
-                    - 'umac-64-etm@openssh.com'
-                    - 'umac-128-etm@openssh.com'
+                choices: ['hmac-md5', 'hmac-md5-etm@openssh.com', 'hmac-md5-96',
+                          'hmac-md5-96-etm@openssh.com', 'hmac-sha1', 'hmac-sha1-etm@openssh.com',
+                          'hmac-sha2-256', 'hmac-sha2-256-etm@openssh.com', 'hmac-sha2-512',
+                          'hmac-sha2-512-etm@openssh.com', 'hmac-ripemd160',
+                          'hmac-ripemd160@openssh.com', 'hmac-ripemd160-etm@openssh.com',
+                          'umac-64@openssh.com', 'umac-128@openssh.com',
+                          'umac-64-etm@openssh.com', 'umac-128-etm@openssh.com']
             ssh_strong_crypto:
                 aliases: ['ssh-strong-crypto']
                 type: str
@@ -1103,9 +793,7 @@ options:
                     - Only allow strong ciphers for SSH when enabled.
                     - disable - Disable strong crypto for SSH.
                     - enable - Enable strong crypto for SSH.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             admin_lockout_method:
                 aliases: ['admin-lockout-method']
                 type: str
@@ -1113,9 +801,7 @@ options:
                     - Lockout method for administration.
                     - ip - Lockout by IP
                     - user - Lockout by user
-                choices:
-                    - 'ip'
-                    - 'user'
+                choices: ['ip', 'user']
             workspace_unlock_after_install:
                 aliases: ['workspace-unlock-after-install']
                 type: str
@@ -1123,9 +809,7 @@ options:
                     - Enable/disable ADOM auto-unlock after device installation.
                     - disable - Disable automatically unlock adom after device installation.
                     - enable - Enable automatically unlock adom after device installation.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             log_checksum_upload:
                 aliases: ['log-checksum-upload']
                 type: str
@@ -1133,9 +817,7 @@ options:
                     - Enable/disable upload log checksum with log files.
                     - disable - Disable attribute function.
                     - enable - Enable attribute function.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             apache_mode:
                 aliases: ['apache-mode']
                 type: str
@@ -1143,9 +825,7 @@ options:
                     - Set apache mode.
                     - event - Apache event mode.
                     - prefork - Apache prefork mode.
-                choices:
-                    - 'event'
-                    - 'prefork'
+                choices: ['event', 'prefork']
             no_vip_value_check:
                 aliases: ['no-vip-value-check']
                 type: str
@@ -1153,9 +833,7 @@ options:
                     - Enable/disable skipping policy instead of throwing error when vip has no default or dynamic mapping during policy copy
                     - disable - Disable setting.
                     - enable - Enable setting.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             fortiservice_port:
                 aliases: ['fortiservice-port']
                 type: int
@@ -1175,9 +853,7 @@ options:
                     - Enable/Disable save last-hit value in adomdb.
                     - disable - Disable save last-hit value in adomdb.
                     - enable - Enable save last-hit value in adomdb.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             api_ip_binding:
                 aliases: ['api-ip-binding']
                 type: str
@@ -1185,9 +861,7 @@ options:
                     - Enable/disable source IP check for JSON API request.
                     - disable - Disable setting.
                     - enable - Enable setting.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             admin_host:
                 aliases: ['admin-host']
                 type: str
@@ -1211,9 +885,7 @@ options:
                     - Enable/disable FCP service processing configuration requests
                     - disable - FCP service doesn&apos;t process configuration requests from web
                     - enable - FCP service processes configuration requests from web.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             jsonapi_log:
                 aliases: ['jsonapi-log']
                 type: str
@@ -1223,11 +895,7 @@ options:
                     - request - logging jsonapi request.
                     - response - logging jsonapi response.
                     - all - logging both jsonapi request &amp; response.
-                choices:
-                    - 'disable'
-                    - 'request'
-                    - 'response'
-                    - 'all'
+                choices: ['disable', 'request', 'response', 'all']
             global_ssl_protocol:
                 aliases: ['global-ssl-protocol']
                 type: str
@@ -1238,12 +906,7 @@ options:
                     - tlsv1.
                     - tlsv1.
                     - tlsv1.
-                choices:
-                    - 'sslv3'
-                    - 'tlsv1.0'
-                    - 'tlsv1.1'
-                    - 'tlsv1.2'
-                    - 'tlsv1.3'
+                choices: ['sslv3', 'tlsv1.0', 'tlsv1.1', 'tlsv1.2', 'tlsv1.3']
             httpd_ssl_protocol:
                 aliases: ['httpd-ssl-protocol']
                 type: list
@@ -1255,12 +918,7 @@ options:
                     - tlsv1.
                     - tlsv1.
                     - tlsv1.
-                choices:
-                    - 'sslv3'
-                    - 'tlsv1.0'
-                    - 'tlsv1.1'
-                    - 'tlsv1.2'
-                    - 'tlsv1.3'
+                choices: ['sslv3', 'tlsv1.0', 'tlsv1.1', 'tlsv1.2', 'tlsv1.3']
             mapclient_ssl_protocol:
                 aliases: ['mapclient-ssl-protocol']
                 type: str
@@ -1272,13 +930,8 @@ options:
                     - tlsv1.
                     - tlsv1.
                     - tlsv1.
-                choices:
-                    - 'follow-global-ssl-protocol'
-                    - 'sslv3'
-                    - 'tlsv1.0'
-                    - 'tlsv1.1'
-                    - 'tlsv1.2'
-                    - 'tlsv1.3'
+                choices: ['follow-global-ssl-protocol', 'sslv3', 'tlsv1.0', 'tlsv1.1', 'tlsv1.2',
+                          'tlsv1.3']
             apache_wsgi_processes:
                 aliases: ['apache-wsgi-processes']
                 type: int
@@ -1291,9 +944,7 @@ options:
                 aliases: ['gui-feature-visibility-mode']
                 type: str
                 description: Gui feature visibility mode.
-                choices:
-                    - 'per-adom'
-                    - 'per-admin'
+                choices: ['per-adom', 'per-admin']
             storage_age_limit:
                 aliases: ['storage-age-limit']
                 type: int
@@ -1305,9 +956,7 @@ options:
                     - Enable/disable VM platform FGFM connect restriction.
                     - disable - Don&apos;t allow VM platform connection in FGFM.
                     - enable - Allow VM platform connection in FGFM.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             hitcount_response_timeout:
                 aliases: ['hitcount-response-timeout']
                 type: int
@@ -1319,16 +968,12 @@ options:
                     - Enable/Disable incoming/outgoing rpc log.
                     - disable - Disable rpc log.
                     - enable - Enable rpc log
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             auth_dev_restapi_allowlist:
                 aliases: ['auth-dev-restapi-allowlist']
                 type: str
                 description: Auth dev restapi allowlist.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             gui_install_preview_concurrency:
                 aliases: ['gui-install-preview-concurrency']
                 type: int
@@ -1341,23 +986,17 @@ options:
                 aliases: ['cli-auth']
                 type: str
                 description: Cli auth.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             debug_tool:
                 aliases: ['debug-tool']
                 type: str
                 description: Debug tool.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             skip_ip_check_in_session:
                 aliases: ['skip-ip-check-in-session']
                 type: str
                 description: Skip ip check in session.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -1454,12 +1093,9 @@ def main():
     urls_list = [
         '/cli/global/system/global'
     ]
-    url_params = []
-    module_primary_key = None
     module_arg_spec = {
         'system_global': {
-            'type': 'dict',
-            'v_range': [['6.0.0', '']],
+            'type': 'dict', 'v_range': [['6.0.0', '']],
             'options': {
                 'admin-lockout-duration': {'type': 'int'},
                 'admin-lockout-threshold': {'type': 'int'},
@@ -1685,19 +1321,15 @@ def main():
 
     module_option_spec = get_module_arg_spec('partial crud')
     module_arg_spec.update(module_option_spec)
-    params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'system_global'),
                            supports_check_mode=True)
-
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list, module_primary_key, url_params,
-                       module, connection, top_level_schema_name='data')
-    fmgr.validate_parameters(params_validation_blob)
+    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list,
+                       None, 'data', module, connection)
     fmgr.process_partial_crud()
-
     module.exit_json(meta=module.params)
 
 

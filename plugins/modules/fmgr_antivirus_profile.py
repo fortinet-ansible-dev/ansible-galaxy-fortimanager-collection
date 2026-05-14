@@ -13,75 +13,14 @@ DOCUMENTATION = '''
 ---
 module: fmgr_antivirus_profile
 short_description: Configure AntiVirus profiles.
-description:
-    - This module is able to configure a FortiManager device.
-    - Examples include all parameters and values which need to be adjusted to data sources before usage.
 version_added: "1.0.0"
-author:
-    - Xinwei Du (@dux-fortinet)
-    - Xing Li (@lix-fortinet)
-    - Jie Xue (@JieX19)
-    - Link Zheng (@chillancezen)
-    - Frank Shen (@fshen01)
-    - Hongbin Lu (@fgtdev-hblu)
-notes:
-    - Starting in version 2.4.0, all input arguments are named using the underscore naming convention (snake_case).
-      Please change the arguments such as "var-name" to "var_name".
-      Old argument names are still available yet you will receive deprecation warnings.
-      You can ignore this warning by setting deprecation_warnings=False in ansible.cfg.
-    - Running in workspace locking mode is supported in this FortiManager module, the top
-      level parameters workspace_locking_adom and workspace_locking_timeout help do the work.
-    - To create or update an object, use state present directive.
-    - To delete an object, use state absent directive.
-    - Normally, running one module can fail when a non-zero rc is returned. you can also override
-      the conditions to fail or succeed with parameters rc_failed and rc_succeeded
+extends_documentation_fragment:
+    - fortinet.fortimanager.general
+    - fortinet.fortimanager.general.full_crud
 options:
-    access_token:
-        description: The token to access FortiManager without using username and password.
-        type: str
-    bypass_validation:
-        description: Only set to True when module schema diffs with FortiManager API structure, module continues to execute without validating parameters.
-        type: bool
-        default: false
-    enable_log:
-        description: Enable/Disable logging for task.
-        type: bool
-        default: false
-    forticloud_access_token:
-        description: Authenticate Ansible client with forticloud API access token.
-        type: str
-    proposed_method:
-        description: The overridden method for the underlying Json RPC request.
-        type: str
-        choices:
-          - update
-          - set
-          - add
-    rc_succeeded:
-        description: The rc codes list with which the conditions to succeed will be overriden.
-        type: list
-        elements: int
-    rc_failed:
-        description: The rc codes list with which the conditions to fail will be overriden.
-        type: list
-        elements: int
-    state:
-        description: The directive to create, update or delete an object.
-        type: str
-        required: true
-        choices:
-          - present
-          - absent
     revision_note:
         description: The change note that can be specified when an object is created or updated.
         type: str
-    workspace_locking_adom:
-        description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
-        type: str
-    workspace_locking_timeout:
-        description: The maximum time in seconds to wait for other user to release the workspace lock.
-        type: int
-        default: 300
     adom:
         description: The parameter (adom) in requested url.
         type: str
@@ -99,9 +38,7 @@ options:
                 aliases: ['analytics-db']
                 type: str
                 description: Enable/disable using the FortiSandbox signature database to supplement the AV signature databases.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             analytics_max_upload:
                 aliases: ['analytics-max-upload']
                 type: int
@@ -114,16 +51,12 @@ options:
                 aliases: ['av-block-log']
                 type: str
                 description: Enable/disable logging for AntiVirus file blocking.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             av_virus_log:
                 aliases: ['av-virus-log']
                 type: str
                 description: Enable/disable AntiVirus logging.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             comment:
                 type: str
                 description: Comment.
@@ -131,31 +64,22 @@ options:
                 aliases: ['extended-log']
                 type: str
                 description: Enable/disable extended logging for antivirus.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             ftgd_analytics:
                 aliases: ['ftgd-analytics']
                 type: str
                 description: Settings to control which files are uploaded to FortiSandbox.
-                choices:
-                    - 'disable'
-                    - 'suspicious'
-                    - 'everything'
+                choices: ['disable', 'suspicious', 'everything']
             inspection_mode:
                 aliases: ['inspection-mode']
                 type: str
                 description: Inspection mode.
-                choices:
-                    - 'proxy'
-                    - 'flow-based'
+                choices: ['proxy', 'flow-based']
             mobile_malware_db:
                 aliases: ['mobile-malware-db']
                 type: str
                 description: Enable/disable using the mobile malware signature database.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             name:
                 type: str
                 description: Profile name.
@@ -168,18 +92,12 @@ options:
                 aliases: ['scan-mode']
                 type: str
                 description: Choose between full scan mode and quick scan mode.
-                choices:
-                    - 'quick'
-                    - 'full'
-                    - 'legacy'
-                    - 'default'
+                choices: ['quick', 'full', 'legacy', 'default']
             feature_set:
                 aliases: ['feature-set']
                 type: str
                 description: Flow/proxy feature set.
-                choices:
-                    - 'proxy'
-                    - 'flow'
+                choices: ['proxy', 'flow']
             cifs:
                 type: dict
                 description: Cifs.
@@ -189,107 +107,61 @@ options:
                         type: list
                         elements: str
                         description: Select the archive types to block.
-                        choices:
-                            - 'encrypted'
-                            - 'corrupted'
-                            - 'multipart'
-                            - 'nested'
-                            - 'mailbomb'
-                            - 'unhandled'
-                            - 'partiallycorrupted'
-                            - 'fileslimit'
-                            - 'timeout'
+                        choices: ['encrypted', 'corrupted', 'multipart', 'nested', 'mailbomb',
+                                  'unhandled', 'partiallycorrupted', 'fileslimit', 'timeout']
                     archive_log:
                         aliases: ['archive-log']
                         type: list
                         elements: str
                         description: Select the archive types to log.
-                        choices:
-                            - 'encrypted'
-                            - 'corrupted'
-                            - 'multipart'
-                            - 'nested'
-                            - 'mailbomb'
-                            - 'unhandled'
-                            - 'partiallycorrupted'
-                            - 'fileslimit'
-                            - 'timeout'
+                        choices: ['encrypted', 'corrupted', 'multipart', 'nested', 'mailbomb',
+                                  'unhandled', 'partiallycorrupted', 'fileslimit', 'timeout']
                     emulator:
                         type: str
                         description: Enable/disable the virus emulator.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     options:
                         type: list
                         elements: str
                         description: Enable/disable CIFS AntiVirus scanning, monitoring, and quarantine.
-                        choices:
-                            - 'scan'
-                            - 'quarantine'
-                            - 'avmonitor'
+                        choices: ['scan', 'quarantine', 'avmonitor']
                     outbreak_prevention:
                         aliases: ['outbreak-prevention']
                         type: str
                         description: Enable Virus Outbreak Prevention service.
-                        choices:
-                            - 'disabled'
-                            - 'files'
-                            - 'full-archive'
-                            - 'disable'
-                            - 'block'
-                            - 'monitor'
+                        choices: ['disabled', 'files', 'full-archive', 'disable', 'block',
+                                  'monitor']
                     av_scan:
                         aliases: ['av-scan']
                         type: str
                         description: Enable AntiVirus scan service.
-                        choices:
-                            - 'disable'
-                            - 'monitor'
-                            - 'block'
+                        choices: ['disable', 'monitor', 'block']
                     external_blocklist:
                         aliases: ['external-blocklist']
                         type: str
                         description: Enable external-blocklist.
-                        choices:
-                            - 'disable'
-                            - 'monitor'
-                            - 'block'
+                        choices: ['disable', 'monitor', 'block']
                     quarantine:
                         type: str
                         description: Enable/disable quarantine for infected files.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     fortindr:
                         type: str
                         description: Enable scanning of files by FortiNDR.
-                        choices:
-                            - 'disable'
-                            - 'block'
-                            - 'monitor'
+                        choices: ['disable', 'block', 'monitor']
                     fortisandbox:
                         type: str
                         description: Enable scanning of files by FortiSandbox.
-                        choices:
-                            - 'disable'
-                            - 'block'
-                            - 'monitor'
+                        choices: ['disable', 'block', 'monitor']
                     fortiai:
                         type: str
                         description: Enable/disable scanning of files by FortiAI.
-                        choices:
-                            - 'disable'
-                            - 'monitor'
-                            - 'block'
+                        choices: ['disable', 'monitor', 'block']
                     malware_stream:
                         aliases: ['malware-stream']
                         type: str
                         description: Enable 0-day malware-stream scanning.
-                        choices:
-                            - 'disable'
-                            - 'monitor'
-                            - 'block'
+                        choices: ['disable', 'monitor', 'block']
             content_disarm:
                 aliases: ['content-disarm']
                 type: dict
@@ -299,144 +171,102 @@ options:
                         aliases: ['cover-page']
                         type: str
                         description: Enable/disable inserting a cover page into the disarmed document.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     detect_only:
                         aliases: ['detect-only']
                         type: str
                         description: Enable/disable only detect disarmable files, do not alter content.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     error_action:
                         aliases: ['error-action']
                         type: str
                         description: Action to be taken if CDR engine encounters an unrecoverable error.
-                        choices:
-                            - 'block'
-                            - 'log-only'
-                            - 'ignore'
+                        choices: ['block', 'log-only', 'ignore']
                     office_action:
                         aliases: ['office-action']
                         type: str
                         description: Enable/disable stripping of PowerPoint action events in Microsoft Office documents.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     office_dde:
                         aliases: ['office-dde']
                         type: str
                         description: Enable/disable stripping of Dynamic Data Exchange events in Microsoft Office documents.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     office_embed:
                         aliases: ['office-embed']
                         type: str
                         description: Enable/disable stripping of embedded objects in Microsoft Office documents.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     office_hylink:
                         aliases: ['office-hylink']
                         type: str
                         description: Enable/disable stripping of hyperlinks in Microsoft Office documents.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     office_linked:
                         aliases: ['office-linked']
                         type: str
                         description: Enable/disable stripping of linked objects in Microsoft Office documents.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     office_macro:
                         aliases: ['office-macro']
                         type: str
                         description: Enable/disable stripping of macros in Microsoft Office documents.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     original_file_destination:
                         aliases: ['original-file-destination']
                         type: str
                         description: Destination to send original file if active content is removed.
-                        choices:
-                            - 'fortisandbox'
-                            - 'quarantine'
-                            - 'discard'
+                        choices: ['fortisandbox', 'quarantine', 'discard']
                     pdf_act_form:
                         aliases: ['pdf-act-form']
                         type: str
                         description: Enable/disable stripping of PDF document actions that submit data to other targets.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     pdf_act_gotor:
                         aliases: ['pdf-act-gotor']
                         type: str
                         description: Enable/disable stripping of PDF document actions that access other PDF documents.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     pdf_act_java:
                         aliases: ['pdf-act-java']
                         type: str
                         description: Enable/disable stripping of PDF document actions that execute JavaScript code.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     pdf_act_launch:
                         aliases: ['pdf-act-launch']
                         type: str
                         description: Enable/disable stripping of PDF document actions that launch other applications.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     pdf_act_movie:
                         aliases: ['pdf-act-movie']
                         type: str
                         description: Enable/disable stripping of PDF document actions that play a movie.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     pdf_act_sound:
                         aliases: ['pdf-act-sound']
                         type: str
                         description: Enable/disable stripping of PDF document actions that play a sound.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     pdf_embedfile:
                         aliases: ['pdf-embedfile']
                         type: str
                         description: Enable/disable stripping of embedded files in PDF documents.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     pdf_hyperlink:
                         aliases: ['pdf-hyperlink']
                         type: str
                         description: Enable/disable stripping of hyperlinks from PDF documents.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     pdf_javacode:
                         aliases: ['pdf-javacode']
                         type: str
                         description: Enable/disable stripping of JavaScript code in PDF documents.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     analytics_suspicious:
                         aliases: ['analytics-suspicious']
                         type: str
                         description: Enable/disable using CDR as a secondary method for determining suspicous files for analytics.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
             ftp:
                 type: dict
                 description: Ftp.
@@ -446,109 +276,61 @@ options:
                         type: list
                         elements: str
                         description: Select the archive types to block.
-                        choices:
-                            - 'encrypted'
-                            - 'corrupted'
-                            - 'multipart'
-                            - 'nested'
-                            - 'mailbomb'
-                            - 'unhandled'
-                            - 'partiallycorrupted'
-                            - 'fileslimit'
-                            - 'timeout'
+                        choices: ['encrypted', 'corrupted', 'multipart', 'nested', 'mailbomb',
+                                  'unhandled', 'partiallycorrupted', 'fileslimit', 'timeout']
                     archive_log:
                         aliases: ['archive-log']
                         type: list
                         elements: str
                         description: Select the archive types to log.
-                        choices:
-                            - 'encrypted'
-                            - 'corrupted'
-                            - 'multipart'
-                            - 'nested'
-                            - 'mailbomb'
-                            - 'unhandled'
-                            - 'partiallycorrupted'
-                            - 'fileslimit'
-                            - 'timeout'
+                        choices: ['encrypted', 'corrupted', 'multipart', 'nested', 'mailbomb',
+                                  'unhandled', 'partiallycorrupted', 'fileslimit', 'timeout']
                     emulator:
                         type: str
                         description: Enable/disable the virus emulator.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     options:
                         type: list
                         elements: str
                         description: Enable/disable FTP AntiVirus scanning, monitoring, and quarantine.
-                        choices:
-                            - 'scan'
-                            - 'file-filter'
-                            - 'quarantine'
-                            - 'avquery'
-                            - 'avmonitor'
+                        choices: ['scan', 'file-filter', 'quarantine', 'avquery', 'avmonitor']
                     outbreak_prevention:
                         aliases: ['outbreak-prevention']
                         type: str
                         description: Enable Virus Outbreak Prevention service.
-                        choices:
-                            - 'disabled'
-                            - 'files'
-                            - 'full-archive'
-                            - 'disable'
-                            - 'block'
-                            - 'monitor'
+                        choices: ['disabled', 'files', 'full-archive', 'disable', 'block',
+                                  'monitor']
                     av_scan:
                         aliases: ['av-scan']
                         type: str
                         description: Enable AntiVirus scan service.
-                        choices:
-                            - 'disable'
-                            - 'monitor'
-                            - 'block'
+                        choices: ['disable', 'monitor', 'block']
                     external_blocklist:
                         aliases: ['external-blocklist']
                         type: str
                         description: Enable external-blocklist.
-                        choices:
-                            - 'disable'
-                            - 'monitor'
-                            - 'block'
+                        choices: ['disable', 'monitor', 'block']
                     quarantine:
                         type: str
                         description: Enable/disable quarantine for infected files.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     fortindr:
                         type: str
                         description: Enable scanning of files by FortiNDR.
-                        choices:
-                            - 'disable'
-                            - 'block'
-                            - 'monitor'
+                        choices: ['disable', 'block', 'monitor']
                     fortisandbox:
                         type: str
                         description: Enable scanning of files by FortiSandbox.
-                        choices:
-                            - 'disable'
-                            - 'block'
-                            - 'monitor'
+                        choices: ['disable', 'block', 'monitor']
                     fortiai:
                         type: str
                         description: Enable/disable scanning of files by FortiAI.
-                        choices:
-                            - 'disable'
-                            - 'monitor'
-                            - 'block'
+                        choices: ['disable', 'monitor', 'block']
                     malware_stream:
                         aliases: ['malware-stream']
                         type: str
                         description: Enable 0-day malware-stream scanning.
-                        choices:
-                            - 'disable'
-                            - 'monitor'
-                            - 'block'
+                        choices: ['disable', 'monitor', 'block']
             http:
                 type: dict
                 description: Http.
@@ -558,132 +340,77 @@ options:
                         type: list
                         elements: str
                         description: Select the archive types to block.
-                        choices:
-                            - 'encrypted'
-                            - 'corrupted'
-                            - 'multipart'
-                            - 'nested'
-                            - 'mailbomb'
-                            - 'unhandled'
-                            - 'partiallycorrupted'
-                            - 'fileslimit'
-                            - 'timeout'
+                        choices: ['encrypted', 'corrupted', 'multipart', 'nested', 'mailbomb',
+                                  'unhandled', 'partiallycorrupted', 'fileslimit', 'timeout']
                     archive_log:
                         aliases: ['archive-log']
                         type: list
                         elements: str
                         description: Select the archive types to log.
-                        choices:
-                            - 'encrypted'
-                            - 'corrupted'
-                            - 'multipart'
-                            - 'nested'
-                            - 'mailbomb'
-                            - 'unhandled'
-                            - 'partiallycorrupted'
-                            - 'fileslimit'
-                            - 'timeout'
+                        choices: ['encrypted', 'corrupted', 'multipart', 'nested', 'mailbomb',
+                                  'unhandled', 'partiallycorrupted', 'fileslimit', 'timeout']
                     content_disarm:
                         aliases: ['content-disarm']
                         type: str
                         description: Enable Content Disarm and Reconstruction for this protocol.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     emulator:
                         type: str
                         description: Enable/disable the virus emulator.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     options:
                         type: list
                         elements: str
                         description: Enable/disable HTTP AntiVirus scanning, monitoring, and quarantine.
-                        choices:
-                            - 'scan'
-                            - 'file-filter'
-                            - 'quarantine'
-                            - 'avquery'
-                            - 'avmonitor'
-                            - 'strict-file'
+                        choices: ['scan', 'file-filter', 'quarantine', 'avquery', 'avmonitor',
+                                  'strict-file']
                     outbreak_prevention:
                         aliases: ['outbreak-prevention']
                         type: str
                         description: Enable Virus Outbreak Prevention service.
-                        choices:
-                            - 'disabled'
-                            - 'files'
-                            - 'full-archive'
-                            - 'disable'
-                            - 'block'
-                            - 'monitor'
+                        choices: ['disabled', 'files', 'full-archive', 'disable', 'block',
+                                  'monitor']
                     av_optimize:
                         aliases: ['av-optimize']
                         type: str
                         description: Av optimize.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     av_scan:
                         aliases: ['av-scan']
                         type: str
                         description: Enable AntiVirus scan service.
-                        choices:
-                            - 'disable'
-                            - 'monitor'
-                            - 'block'
+                        choices: ['disable', 'monitor', 'block']
                     external_blocklist:
                         aliases: ['external-blocklist']
                         type: str
                         description: Enable external-blocklist.
-                        choices:
-                            - 'disable'
-                            - 'monitor'
-                            - 'block'
+                        choices: ['disable', 'monitor', 'block']
                     quarantine:
                         type: str
                         description: Enable/disable quarantine for infected files.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     fortindr:
                         type: str
                         description: Enable scanning of files by FortiNDR.
-                        choices:
-                            - 'disable'
-                            - 'block'
-                            - 'monitor'
+                        choices: ['disable', 'block', 'monitor']
                     fortisandbox:
                         type: str
                         description: Enable scanning of files by FortiSandbox.
-                        choices:
-                            - 'disable'
-                            - 'block'
-                            - 'monitor'
+                        choices: ['disable', 'block', 'monitor']
                     fortiai:
                         type: str
                         description: Enable/disable scanning of files by FortiAI.
-                        choices:
-                            - 'disable'
-                            - 'monitor'
-                            - 'block'
+                        choices: ['disable', 'monitor', 'block']
                     unknown_content_encoding:
                         aliases: ['unknown-content-encoding']
                         type: str
                         description: Configure the action the FortiGate unit will take on unknown content-encoding.
-                        choices:
-                            - 'block'
-                            - 'inspect'
-                            - 'bypass'
+                        choices: ['block', 'inspect', 'bypass']
                     malware_stream:
                         aliases: ['malware-stream']
                         type: str
                         description: Enable 0-day malware-stream scanning.
-                        choices:
-                            - 'disable'
-                            - 'monitor'
-                            - 'block'
+                        choices: ['disable', 'monitor', 'block']
             imap:
                 type: dict
                 description: Imap.
@@ -693,122 +420,70 @@ options:
                         type: list
                         elements: str
                         description: Select the archive types to block.
-                        choices:
-                            - 'encrypted'
-                            - 'corrupted'
-                            - 'multipart'
-                            - 'nested'
-                            - 'mailbomb'
-                            - 'unhandled'
-                            - 'partiallycorrupted'
-                            - 'fileslimit'
-                            - 'timeout'
+                        choices: ['encrypted', 'corrupted', 'multipart', 'nested', 'mailbomb',
+                                  'unhandled', 'partiallycorrupted', 'fileslimit', 'timeout']
                     archive_log:
                         aliases: ['archive-log']
                         type: list
                         elements: str
                         description: Select the archive types to log.
-                        choices:
-                            - 'encrypted'
-                            - 'corrupted'
-                            - 'multipart'
-                            - 'nested'
-                            - 'mailbomb'
-                            - 'unhandled'
-                            - 'partiallycorrupted'
-                            - 'fileslimit'
-                            - 'timeout'
+                        choices: ['encrypted', 'corrupted', 'multipart', 'nested', 'mailbomb',
+                                  'unhandled', 'partiallycorrupted', 'fileslimit', 'timeout']
                     content_disarm:
                         aliases: ['content-disarm']
                         type: str
                         description: Enable Content Disarm and Reconstruction for this protocol.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     emulator:
                         type: str
                         description: Enable/disable the virus emulator.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     executables:
                         type: str
                         description: Treat Windows executable files as viruses for the purpose of blocking or monitoring.
-                        choices:
-                            - 'default'
-                            - 'virus'
+                        choices: ['default', 'virus']
                     options:
                         type: list
                         elements: str
                         description: Enable/disable IMAP AntiVirus scanning, monitoring, and quarantine.
-                        choices:
-                            - 'scan'
-                            - 'file-filter'
-                            - 'quarantine'
-                            - 'avquery'
-                            - 'avmonitor'
+                        choices: ['scan', 'file-filter', 'quarantine', 'avquery', 'avmonitor']
                     outbreak_prevention:
                         aliases: ['outbreak-prevention']
                         type: str
                         description: Enable Virus Outbreak Prevention service.
-                        choices:
-                            - 'disabled'
-                            - 'files'
-                            - 'full-archive'
-                            - 'disable'
-                            - 'block'
-                            - 'monitor'
+                        choices: ['disabled', 'files', 'full-archive', 'disable', 'block',
+                                  'monitor']
                     av_scan:
                         aliases: ['av-scan']
                         type: str
                         description: Enable AntiVirus scan service.
-                        choices:
-                            - 'disable'
-                            - 'monitor'
-                            - 'block'
+                        choices: ['disable', 'monitor', 'block']
                     external_blocklist:
                         aliases: ['external-blocklist']
                         type: str
                         description: Enable external-blocklist.
-                        choices:
-                            - 'disable'
-                            - 'monitor'
-                            - 'block'
+                        choices: ['disable', 'monitor', 'block']
                     quarantine:
                         type: str
                         description: Enable/disable quarantine for infected files.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     fortindr:
                         type: str
                         description: Enable scanning of files by FortiNDR.
-                        choices:
-                            - 'disable'
-                            - 'block'
-                            - 'monitor'
+                        choices: ['disable', 'block', 'monitor']
                     fortisandbox:
                         type: str
                         description: Enable scanning of files by FortiSandbox.
-                        choices:
-                            - 'disable'
-                            - 'block'
-                            - 'monitor'
+                        choices: ['disable', 'block', 'monitor']
                     fortiai:
                         type: str
                         description: Enable/disable scanning of files by FortiAI.
-                        choices:
-                            - 'disable'
-                            - 'monitor'
-                            - 'block'
+                        choices: ['disable', 'monitor', 'block']
                     malware_stream:
                         aliases: ['malware-stream']
                         type: str
                         description: Enable 0-day malware-stream scanning.
-                        choices:
-                            - 'disable'
-                            - 'monitor'
-                            - 'block'
+                        choices: ['disable', 'monitor', 'block']
             mapi:
                 type: dict
                 description: Mapi.
@@ -818,114 +493,65 @@ options:
                         type: list
                         elements: str
                         description: Select the archive types to block.
-                        choices:
-                            - 'encrypted'
-                            - 'corrupted'
-                            - 'multipart'
-                            - 'nested'
-                            - 'mailbomb'
-                            - 'unhandled'
-                            - 'partiallycorrupted'
-                            - 'fileslimit'
-                            - 'timeout'
+                        choices: ['encrypted', 'corrupted', 'multipart', 'nested', 'mailbomb',
+                                  'unhandled', 'partiallycorrupted', 'fileslimit', 'timeout']
                     archive_log:
                         aliases: ['archive-log']
                         type: list
                         elements: str
                         description: Select the archive types to log.
-                        choices:
-                            - 'encrypted'
-                            - 'corrupted'
-                            - 'multipart'
-                            - 'nested'
-                            - 'mailbomb'
-                            - 'unhandled'
-                            - 'partiallycorrupted'
-                            - 'fileslimit'
-                            - 'timeout'
+                        choices: ['encrypted', 'corrupted', 'multipart', 'nested', 'mailbomb',
+                                  'unhandled', 'partiallycorrupted', 'fileslimit', 'timeout']
                     emulator:
                         type: str
                         description: Enable/disable the virus emulator.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     executables:
                         type: str
                         description: Treat Windows executable files as viruses for the purpose of blocking or monitoring.
-                        choices:
-                            - 'default'
-                            - 'virus'
+                        choices: ['default', 'virus']
                     options:
                         type: list
                         elements: str
                         description: Enable/disable MAPI AntiVirus scanning, monitoring, and quarantine.
-                        choices:
-                            - 'scan'
-                            - 'quarantine'
-                            - 'avquery'
-                            - 'avmonitor'
+                        choices: ['scan', 'quarantine', 'avquery', 'avmonitor']
                     outbreak_prevention:
                         aliases: ['outbreak-prevention']
                         type: str
                         description: Enable Virus Outbreak Prevention service.
-                        choices:
-                            - 'disabled'
-                            - 'files'
-                            - 'full-archive'
-                            - 'disable'
-                            - 'block'
-                            - 'monitor'
+                        choices: ['disabled', 'files', 'full-archive', 'disable', 'block',
+                                  'monitor']
                     av_scan:
                         aliases: ['av-scan']
                         type: str
                         description: Enable AntiVirus scan service.
-                        choices:
-                            - 'disable'
-                            - 'monitor'
-                            - 'block'
+                        choices: ['disable', 'monitor', 'block']
                     external_blocklist:
                         aliases: ['external-blocklist']
                         type: str
                         description: Enable external-blocklist.
-                        choices:
-                            - 'disable'
-                            - 'monitor'
-                            - 'block'
+                        choices: ['disable', 'monitor', 'block']
                     quarantine:
                         type: str
                         description: Enable/disable quarantine for infected files.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     fortindr:
                         type: str
                         description: Enable scanning of files by FortiNDR.
-                        choices:
-                            - 'disable'
-                            - 'block'
-                            - 'monitor'
+                        choices: ['disable', 'block', 'monitor']
                     fortisandbox:
                         type: str
                         description: Enable scanning of files by FortiSandbox.
-                        choices:
-                            - 'disable'
-                            - 'block'
-                            - 'monitor'
+                        choices: ['disable', 'block', 'monitor']
                     fortiai:
                         type: str
                         description: Enable/disable scanning of files by FortiAI.
-                        choices:
-                            - 'disable'
-                            - 'monitor'
-                            - 'block'
+                        choices: ['disable', 'monitor', 'block']
                     malware_stream:
                         aliases: ['malware-stream']
                         type: str
                         description: Enable 0-day malware-stream scanning.
-                        choices:
-                            - 'disable'
-                            - 'monitor'
-                            - 'block'
+                        choices: ['disable', 'monitor', 'block']
             nac_quar:
                 aliases: ['nac-quar']
                 type: dict
@@ -937,16 +563,11 @@ options:
                     infected:
                         type: str
                         description: Enable/Disable quarantining infected hosts to the banned user list.
-                        choices:
-                            - 'none'
-                            - 'quar-src-ip'
-                            - 'quar-interface'
+                        choices: ['none', 'quar-src-ip', 'quar-interface']
                     log:
                         type: str
                         description: Enable/disable AntiVirus quarantine logging.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
             nntp:
                 type: dict
                 description: Nntp.
@@ -956,109 +577,61 @@ options:
                         type: list
                         elements: str
                         description: Select the archive types to block.
-                        choices:
-                            - 'encrypted'
-                            - 'corrupted'
-                            - 'multipart'
-                            - 'nested'
-                            - 'mailbomb'
-                            - 'unhandled'
-                            - 'partiallycorrupted'
-                            - 'fileslimit'
-                            - 'timeout'
+                        choices: ['encrypted', 'corrupted', 'multipart', 'nested', 'mailbomb',
+                                  'unhandled', 'partiallycorrupted', 'fileslimit', 'timeout']
                     archive_log:
                         aliases: ['archive-log']
                         type: list
                         elements: str
                         description: Select the archive types to log.
-                        choices:
-                            - 'encrypted'
-                            - 'corrupted'
-                            - 'multipart'
-                            - 'nested'
-                            - 'mailbomb'
-                            - 'unhandled'
-                            - 'partiallycorrupted'
-                            - 'fileslimit'
-                            - 'timeout'
+                        choices: ['encrypted', 'corrupted', 'multipart', 'nested', 'mailbomb',
+                                  'unhandled', 'partiallycorrupted', 'fileslimit', 'timeout']
                     emulator:
                         type: str
                         description: Enable/disable the virus emulator.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     options:
                         type: list
                         elements: str
                         description: Enable/disable NNTP AntiVirus scanning, monitoring, and quarantine.
-                        choices:
-                            - 'scan'
-                            - 'file-filter'
-                            - 'quarantine'
-                            - 'avquery'
-                            - 'avmonitor'
+                        choices: ['scan', 'file-filter', 'quarantine', 'avquery', 'avmonitor']
                     outbreak_prevention:
                         aliases: ['outbreak-prevention']
                         type: str
                         description: Enable Virus Outbreak Prevention service.
-                        choices:
-                            - 'disabled'
-                            - 'files'
-                            - 'full-archive'
-                            - 'disable'
-                            - 'block'
-                            - 'monitor'
+                        choices: ['disabled', 'files', 'full-archive', 'disable', 'block',
+                                  'monitor']
                     av_scan:
                         aliases: ['av-scan']
                         type: str
                         description: Enable AntiVirus scan service.
-                        choices:
-                            - 'disable'
-                            - 'monitor'
-                            - 'block'
+                        choices: ['disable', 'monitor', 'block']
                     external_blocklist:
                         aliases: ['external-blocklist']
                         type: str
                         description: Enable external-blocklist.
-                        choices:
-                            - 'disable'
-                            - 'monitor'
-                            - 'block'
+                        choices: ['disable', 'monitor', 'block']
                     quarantine:
                         type: str
                         description: Enable/disable quarantine for infected files.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     fortindr:
                         type: str
                         description: Enable scanning of files by FortiNDR.
-                        choices:
-                            - 'disable'
-                            - 'block'
-                            - 'monitor'
+                        choices: ['disable', 'block', 'monitor']
                     fortisandbox:
                         type: str
                         description: Enable scanning of files by FortiSandbox.
-                        choices:
-                            - 'disable'
-                            - 'block'
-                            - 'monitor'
+                        choices: ['disable', 'block', 'monitor']
                     fortiai:
                         type: str
                         description: Enable/disable scanning of files by FortiAI.
-                        choices:
-                            - 'disable'
-                            - 'monitor'
-                            - 'block'
+                        choices: ['disable', 'monitor', 'block']
                     malware_stream:
                         aliases: ['malware-stream']
                         type: str
                         description: Enable 0-day malware-stream scanning.
-                        choices:
-                            - 'disable'
-                            - 'monitor'
-                            - 'block'
+                        choices: ['disable', 'monitor', 'block']
             outbreak_prevention:
                 aliases: ['outbreak-prevention']
                 type: dict
@@ -1068,16 +641,12 @@ options:
                         aliases: ['external-blocklist']
                         type: str
                         description: Enable/disable external malware blocklist.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     ftgd_service:
                         aliases: ['ftgd-service']
                         type: str
                         description: Enable/disable FortiGuard Virus outbreak prevention service.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
             pop3:
                 type: dict
                 description: Pop3.
@@ -1087,122 +656,70 @@ options:
                         type: list
                         elements: str
                         description: Select the archive types to block.
-                        choices:
-                            - 'encrypted'
-                            - 'corrupted'
-                            - 'multipart'
-                            - 'nested'
-                            - 'mailbomb'
-                            - 'unhandled'
-                            - 'partiallycorrupted'
-                            - 'fileslimit'
-                            - 'timeout'
+                        choices: ['encrypted', 'corrupted', 'multipart', 'nested', 'mailbomb',
+                                  'unhandled', 'partiallycorrupted', 'fileslimit', 'timeout']
                     archive_log:
                         aliases: ['archive-log']
                         type: list
                         elements: str
                         description: Select the archive types to log.
-                        choices:
-                            - 'encrypted'
-                            - 'corrupted'
-                            - 'multipart'
-                            - 'nested'
-                            - 'mailbomb'
-                            - 'unhandled'
-                            - 'partiallycorrupted'
-                            - 'fileslimit'
-                            - 'timeout'
+                        choices: ['encrypted', 'corrupted', 'multipart', 'nested', 'mailbomb',
+                                  'unhandled', 'partiallycorrupted', 'fileslimit', 'timeout']
                     content_disarm:
                         aliases: ['content-disarm']
                         type: str
                         description: Enable Content Disarm and Reconstruction for this protocol.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     emulator:
                         type: str
                         description: Enable/disable the virus emulator.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     executables:
                         type: str
                         description: Treat Windows executable files as viruses for the purpose of blocking or monitoring.
-                        choices:
-                            - 'default'
-                            - 'virus'
+                        choices: ['default', 'virus']
                     options:
                         type: list
                         elements: str
                         description: Enable/disable POP3 AntiVirus scanning, monitoring, and quarantine.
-                        choices:
-                            - 'scan'
-                            - 'file-filter'
-                            - 'quarantine'
-                            - 'avquery'
-                            - 'avmonitor'
+                        choices: ['scan', 'file-filter', 'quarantine', 'avquery', 'avmonitor']
                     outbreak_prevention:
                         aliases: ['outbreak-prevention']
                         type: str
                         description: Enable Virus Outbreak Prevention service.
-                        choices:
-                            - 'disabled'
-                            - 'files'
-                            - 'full-archive'
-                            - 'disable'
-                            - 'block'
-                            - 'monitor'
+                        choices: ['disabled', 'files', 'full-archive', 'disable', 'block',
+                                  'monitor']
                     av_scan:
                         aliases: ['av-scan']
                         type: str
                         description: Enable AntiVirus scan service.
-                        choices:
-                            - 'disable'
-                            - 'monitor'
-                            - 'block'
+                        choices: ['disable', 'monitor', 'block']
                     external_blocklist:
                         aliases: ['external-blocklist']
                         type: str
                         description: Enable external-blocklist.
-                        choices:
-                            - 'disable'
-                            - 'monitor'
-                            - 'block'
+                        choices: ['disable', 'monitor', 'block']
                     quarantine:
                         type: str
                         description: Enable/disable quarantine for infected files.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     fortindr:
                         type: str
                         description: Enable scanning of files by FortiNDR.
-                        choices:
-                            - 'disable'
-                            - 'block'
-                            - 'monitor'
+                        choices: ['disable', 'block', 'monitor']
                     fortisandbox:
                         type: str
                         description: Enable scanning of files by FortiSandbox.
-                        choices:
-                            - 'disable'
-                            - 'block'
-                            - 'monitor'
+                        choices: ['disable', 'block', 'monitor']
                     fortiai:
                         type: str
                         description: Enable/disable scanning of files by FortiAI.
-                        choices:
-                            - 'disable'
-                            - 'monitor'
-                            - 'block'
+                        choices: ['disable', 'monitor', 'block']
                     malware_stream:
                         aliases: ['malware-stream']
                         type: str
                         description: Enable 0-day malware-stream scanning.
-                        choices:
-                            - 'disable'
-                            - 'monitor'
-                            - 'block'
+                        choices: ['disable', 'monitor', 'block']
             smtp:
                 type: dict
                 description: Smtp.
@@ -1212,122 +729,70 @@ options:
                         type: list
                         elements: str
                         description: Select the archive types to block.
-                        choices:
-                            - 'encrypted'
-                            - 'corrupted'
-                            - 'multipart'
-                            - 'nested'
-                            - 'mailbomb'
-                            - 'unhandled'
-                            - 'partiallycorrupted'
-                            - 'fileslimit'
-                            - 'timeout'
+                        choices: ['encrypted', 'corrupted', 'multipart', 'nested', 'mailbomb',
+                                  'unhandled', 'partiallycorrupted', 'fileslimit', 'timeout']
                     archive_log:
                         aliases: ['archive-log']
                         type: list
                         elements: str
                         description: Select the archive types to log.
-                        choices:
-                            - 'encrypted'
-                            - 'corrupted'
-                            - 'multipart'
-                            - 'nested'
-                            - 'mailbomb'
-                            - 'unhandled'
-                            - 'partiallycorrupted'
-                            - 'fileslimit'
-                            - 'timeout'
+                        choices: ['encrypted', 'corrupted', 'multipart', 'nested', 'mailbomb',
+                                  'unhandled', 'partiallycorrupted', 'fileslimit', 'timeout']
                     content_disarm:
                         aliases: ['content-disarm']
                         type: str
                         description: Enable Content Disarm and Reconstruction for this protocol.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     emulator:
                         type: str
                         description: Enable/disable the virus emulator.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     executables:
                         type: str
                         description: Treat Windows executable files as viruses for the purpose of blocking or monitoring.
-                        choices:
-                            - 'default'
-                            - 'virus'
+                        choices: ['default', 'virus']
                     options:
                         type: list
                         elements: str
                         description: Enable/disable SMTP AntiVirus scanning, monitoring, and quarantine.
-                        choices:
-                            - 'scan'
-                            - 'file-filter'
-                            - 'quarantine'
-                            - 'avquery'
-                            - 'avmonitor'
+                        choices: ['scan', 'file-filter', 'quarantine', 'avquery', 'avmonitor']
                     outbreak_prevention:
                         aliases: ['outbreak-prevention']
                         type: str
                         description: Enable Virus Outbreak Prevention service.
-                        choices:
-                            - 'disabled'
-                            - 'files'
-                            - 'full-archive'
-                            - 'disable'
-                            - 'block'
-                            - 'monitor'
+                        choices: ['disabled', 'files', 'full-archive', 'disable', 'block',
+                                  'monitor']
                     av_scan:
                         aliases: ['av-scan']
                         type: str
                         description: Enable AntiVirus scan service.
-                        choices:
-                            - 'disable'
-                            - 'monitor'
-                            - 'block'
+                        choices: ['disable', 'monitor', 'block']
                     external_blocklist:
                         aliases: ['external-blocklist']
                         type: str
                         description: Enable external-blocklist.
-                        choices:
-                            - 'disable'
-                            - 'monitor'
-                            - 'block'
+                        choices: ['disable', 'monitor', 'block']
                     quarantine:
                         type: str
                         description: Enable/disable quarantine for infected files.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     fortindr:
                         type: str
                         description: Enable scanning of files by FortiNDR.
-                        choices:
-                            - 'disable'
-                            - 'block'
-                            - 'monitor'
+                        choices: ['disable', 'block', 'monitor']
                     fortisandbox:
                         type: str
                         description: Enable scanning of files by FortiSandbox.
-                        choices:
-                            - 'disable'
-                            - 'block'
-                            - 'monitor'
+                        choices: ['disable', 'block', 'monitor']
                     fortiai:
                         type: str
                         description: Enable/disable scanning of files by FortiAI.
-                        choices:
-                            - 'disable'
-                            - 'monitor'
-                            - 'block'
+                        choices: ['disable', 'monitor', 'block']
                     malware_stream:
                         aliases: ['malware-stream']
                         type: str
                         description: Enable 0-day malware-stream scanning.
-                        choices:
-                            - 'disable'
-                            - 'monitor'
-                            - 'block'
+                        choices: ['disable', 'monitor', 'block']
             ssh:
                 type: dict
                 description: Ssh.
@@ -1337,107 +802,61 @@ options:
                         type: list
                         elements: str
                         description: Select the archive types to block.
-                        choices:
-                            - 'encrypted'
-                            - 'corrupted'
-                            - 'multipart'
-                            - 'nested'
-                            - 'mailbomb'
-                            - 'unhandled'
-                            - 'partiallycorrupted'
-                            - 'fileslimit'
-                            - 'timeout'
+                        choices: ['encrypted', 'corrupted', 'multipart', 'nested', 'mailbomb',
+                                  'unhandled', 'partiallycorrupted', 'fileslimit', 'timeout']
                     archive_log:
                         aliases: ['archive-log']
                         type: list
                         elements: str
                         description: Select the archive types to log.
-                        choices:
-                            - 'encrypted'
-                            - 'corrupted'
-                            - 'multipart'
-                            - 'nested'
-                            - 'mailbomb'
-                            - 'unhandled'
-                            - 'partiallycorrupted'
-                            - 'fileslimit'
-                            - 'timeout'
+                        choices: ['encrypted', 'corrupted', 'multipart', 'nested', 'mailbomb',
+                                  'unhandled', 'partiallycorrupted', 'fileslimit', 'timeout']
                     emulator:
                         type: str
                         description: Enable/disable the virus emulator.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     options:
                         type: list
                         elements: str
                         description: Enable/disable SFTP and SCP AntiVirus scanning, monitoring, and quarantine.
-                        choices:
-                            - 'avmonitor'
-                            - 'quarantine'
-                            - 'scan'
+                        choices: ['avmonitor', 'quarantine', 'scan']
                     outbreak_prevention:
                         aliases: ['outbreak-prevention']
                         type: str
                         description: Enable Virus Outbreak Prevention service.
-                        choices:
-                            - 'disabled'
-                            - 'files'
-                            - 'full-archive'
-                            - 'disable'
-                            - 'block'
-                            - 'monitor'
+                        choices: ['disabled', 'files', 'full-archive', 'disable', 'block',
+                                  'monitor']
                     av_scan:
                         aliases: ['av-scan']
                         type: str
                         description: Enable AntiVirus scan service.
-                        choices:
-                            - 'disable'
-                            - 'monitor'
-                            - 'block'
+                        choices: ['disable', 'monitor', 'block']
                     external_blocklist:
                         aliases: ['external-blocklist']
                         type: str
                         description: Enable external-blocklist.
-                        choices:
-                            - 'disable'
-                            - 'monitor'
-                            - 'block'
+                        choices: ['disable', 'monitor', 'block']
                     quarantine:
                         type: str
                         description: Enable/disable quarantine for infected files.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     fortindr:
                         type: str
                         description: Enable scanning of files by FortiNDR.
-                        choices:
-                            - 'disable'
-                            - 'block'
-                            - 'monitor'
+                        choices: ['disable', 'block', 'monitor']
                     fortisandbox:
                         type: str
                         description: Enable scanning of files by FortiSandbox.
-                        choices:
-                            - 'disable'
-                            - 'block'
-                            - 'monitor'
+                        choices: ['disable', 'block', 'monitor']
                     fortiai:
                         type: str
                         description: Enable/disable scanning of files by FortiAI.
-                        choices:
-                            - 'disable'
-                            - 'monitor'
-                            - 'block'
+                        choices: ['disable', 'monitor', 'block']
                     malware_stream:
                         aliases: ['malware-stream']
                         type: str
                         description: Enable 0-day malware-stream scanning.
-                        choices:
-                            - 'disable'
-                            - 'monitor'
-                            - 'block'
+                        choices: ['disable', 'monitor', 'block']
             smb:
                 type: dict
                 description: Smb.
@@ -1447,54 +866,29 @@ options:
                         type: list
                         elements: str
                         description: Select the archive types to block.
-                        choices:
-                            - 'encrypted'
-                            - 'corrupted'
-                            - 'multipart'
-                            - 'nested'
-                            - 'mailbomb'
-                            - 'unhandled'
-                            - 'partiallycorrupted'
-                            - 'fileslimit'
-                            - 'timeout'
+                        choices: ['encrypted', 'corrupted', 'multipart', 'nested', 'mailbomb',
+                                  'unhandled', 'partiallycorrupted', 'fileslimit', 'timeout']
                     archive_log:
                         aliases: ['archive-log']
                         type: list
                         elements: str
                         description: Select the archive types to log.
-                        choices:
-                            - 'encrypted'
-                            - 'corrupted'
-                            - 'multipart'
-                            - 'nested'
-                            - 'mailbomb'
-                            - 'unhandled'
-                            - 'partiallycorrupted'
-                            - 'fileslimit'
-                            - 'timeout'
+                        choices: ['encrypted', 'corrupted', 'multipart', 'nested', 'mailbomb',
+                                  'unhandled', 'partiallycorrupted', 'fileslimit', 'timeout']
                     emulator:
                         type: str
                         description: Enable/disable the virus emulator.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     options:
                         type: list
                         elements: str
                         description: Enable/disable SMB AntiVirus scanning, monitoring, and quarantine.
-                        choices:
-                            - 'scan'
-                            - 'quarantine'
-                            - 'avquery'
-                            - 'avmonitor'
+                        choices: ['scan', 'quarantine', 'avquery', 'avmonitor']
                     outbreak_prevention:
                         aliases: ['outbreak-prevention']
                         type: str
                         description: Enable FortiGuard Virus Outbreak Prevention service.
-                        choices:
-                            - 'disabled'
-                            - 'files'
-                            - 'full-archive'
+                        choices: ['disabled', 'files', 'full-archive']
             analytics_accept_filetype:
                 aliases: ['analytics-accept-filetype']
                 type: str
@@ -1507,9 +901,7 @@ options:
                 aliases: ['ems-threat-feed']
                 type: str
                 description: Enable/disable use of EMS threat feed when performing AntiVirus scan.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             external_blocklist:
                 aliases: ['external-blocklist']
                 type: raw
@@ -1518,47 +910,32 @@ options:
                 aliases: ['external-blocklist-archive-scan']
                 type: str
                 description: Enable/disable external-blocklist archive scanning.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             external_blocklist_enable_all:
                 aliases: ['external-blocklist-enable-all']
                 type: str
                 description: Enable/disable all external blocklists.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             outbreak_prevention_archive_scan:
                 aliases: ['outbreak-prevention-archive-scan']
                 type: str
                 description: Enable/disable outbreak-prevention archive scanning.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             fortindr_error_action:
                 aliases: ['fortindr-error-action']
                 type: str
                 description: Action to take if FortiNDR encounters an error.
-                choices:
-                    - 'log-only'
-                    - 'block'
-                    - 'ignore'
+                choices: ['log-only', 'block', 'ignore']
             fortindr_timeout_action:
                 aliases: ['fortindr-timeout-action']
                 type: str
                 description: Action to take if FortiNDR encounters a scan timeout.
-                choices:
-                    - 'log-only'
-                    - 'block'
-                    - 'ignore'
+                choices: ['log-only', 'block', 'ignore']
             fortisandbox_error_action:
                 aliases: ['fortisandbox-error-action']
                 type: str
                 description: Action to take if FortiSandbox inline scan encounters an error.
-                choices:
-                    - 'log-only'
-                    - 'block'
-                    - 'ignore'
+                choices: ['log-only', 'block', 'ignore']
             fortisandbox_max_upload:
                 aliases: ['fortisandbox-max-upload']
                 type: int
@@ -1567,34 +944,22 @@ options:
                 aliases: ['fortisandbox-mode']
                 type: str
                 description: FortiSandbox scan modes.
-                choices:
-                    - 'inline'
-                    - 'analytics-suspicious'
-                    - 'analytics-everything'
+                choices: ['inline', 'analytics-suspicious', 'analytics-everything']
             fortisandbox_timeout_action:
                 aliases: ['fortisandbox-timeout-action']
                 type: str
                 description: Action to take if FortiSandbox inline scan encounters a scan timeout.
-                choices:
-                    - 'log-only'
-                    - 'block'
-                    - 'ignore'
+                choices: ['log-only', 'block', 'ignore']
             fortiai_error_action:
                 aliases: ['fortiai-error-action']
                 type: str
                 description: Action to take if FortiAI encounters an error.
-                choices:
-                    - 'block'
-                    - 'log-only'
-                    - 'ignore'
+                choices: ['block', 'log-only', 'ignore']
             fortiai_timeout_action:
                 aliases: ['fortiai-timeout-action']
                 type: str
                 description: Action to take if FortiAI encounters a scan timeout.
-                choices:
-                    - 'block'
-                    - 'log-only'
-                    - 'ignore'
+                choices: ['block', 'log-only', 'ignore']
             fortisandbox_scan_timeout:
                 aliases: ['fortisandbox-scan-timeout']
                 type: int
@@ -1696,14 +1061,11 @@ def main():
         '/pm/config/adom/{adom}/obj/antivirus/profile',
         '/pm/config/global/obj/antivirus/profile'
     ]
-    url_params = ['adom']
-    module_primary_key = 'name'
     module_arg_spec = {
         'adom': {'required': True, 'type': 'str'},
         'revision_note': {'type': 'str'},
         'antivirus_profile': {
-            'type': 'dict',
-            'v_range': [['6.0.0', '']],
+            'type': 'dict', 'v_range': [['6.0.0', '']],
             'options': {
                 'analytics-bl-filetype': {'type': 'str'},
                 'analytics-db': {'choices': ['disable', 'enable'], 'type': 'str'},
@@ -2206,19 +1568,15 @@ def main():
 
     module_option_spec = get_module_arg_spec('full crud')
     module_arg_spec.update(module_option_spec)
-    params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'antivirus_profile'),
                            supports_check_mode=True)
-
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
-                       module, connection, top_level_schema_name='data')
-    fmgr.validate_parameters(params_validation_blob)
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list,
+                       'name', 'data', module, connection)
     fmgr.process_crud()
-
     module.exit_json(meta=module.params)
 
 

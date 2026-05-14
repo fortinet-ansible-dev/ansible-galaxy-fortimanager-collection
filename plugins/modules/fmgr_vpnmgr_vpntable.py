@@ -13,75 +13,14 @@ DOCUMENTATION = '''
 ---
 module: fmgr_vpnmgr_vpntable
 short_description: Vpnmgr vpntable
-description:
-    - This module is able to configure a FortiManager device.
-    - Examples include all parameters and values which need to be adjusted to data sources before usage.
 version_added: "2.0.0"
-author:
-    - Xinwei Du (@dux-fortinet)
-    - Xing Li (@lix-fortinet)
-    - Jie Xue (@JieX19)
-    - Link Zheng (@chillancezen)
-    - Frank Shen (@fshen01)
-    - Hongbin Lu (@fgtdev-hblu)
-notes:
-    - Starting in version 2.4.0, all input arguments are named using the underscore naming convention (snake_case).
-      Please change the arguments such as "var-name" to "var_name".
-      Old argument names are still available yet you will receive deprecation warnings.
-      You can ignore this warning by setting deprecation_warnings=False in ansible.cfg.
-    - Running in workspace locking mode is supported in this FortiManager module, the top
-      level parameters workspace_locking_adom and workspace_locking_timeout help do the work.
-    - To create or update an object, use state present directive.
-    - To delete an object, use state absent directive.
-    - Normally, running one module can fail when a non-zero rc is returned. you can also override
-      the conditions to fail or succeed with parameters rc_failed and rc_succeeded
+extends_documentation_fragment:
+    - fortinet.fortimanager.general
+    - fortinet.fortimanager.general.full_crud
 options:
-    access_token:
-        description: The token to access FortiManager without using username and password.
-        type: str
-    bypass_validation:
-        description: Only set to True when module schema diffs with FortiManager API structure, module continues to execute without validating parameters.
-        type: bool
-        default: false
-    enable_log:
-        description: Enable/Disable logging for task.
-        type: bool
-        default: false
-    forticloud_access_token:
-        description: Authenticate Ansible client with forticloud API access token.
-        type: str
-    proposed_method:
-        description: The overridden method for the underlying Json RPC request.
-        type: str
-        choices:
-          - update
-          - set
-          - add
-    rc_succeeded:
-        description: The rc codes list with which the conditions to succeed will be overriden.
-        type: list
-        elements: int
-    rc_failed:
-        description: The rc codes list with which the conditions to fail will be overriden.
-        type: list
-        elements: int
-    state:
-        description: The directive to create, update or delete an object.
-        type: str
-        required: true
-        choices:
-          - present
-          - absent
     revision_note:
         description: The change note that can be specified when an object is created or updated.
         type: str
-    workspace_locking_adom:
-        description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
-        type: str
-    workspace_locking_timeout:
-        description: The maximum time in seconds to wait for other user to release the workspace lock.
-        type: int
-        default: 300
     adom:
         description: The parameter (adom) in requested url.
         type: str
@@ -94,17 +33,12 @@ options:
             authmethod:
                 type: str
                 description: Authmethod.
-                choices:
-                    - 'psk'
-                    - 'rsa-signature'
-                    - 'signature'
+                choices: ['psk', 'rsa-signature', 'signature']
             auto_zone_policy:
                 aliases: ['auto-zone-policy']
                 type: str
                 description: Auto zone policy.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             certificate:
                 type: raw
                 description: (list or str) Certificate.
@@ -114,11 +48,7 @@ options:
             dpd:
                 type: str
                 description: Dpd.
-                choices:
-                    - 'disable'
-                    - 'enable'
-                    - 'on-idle'
-                    - 'on-demand'
+                choices: ['disable', 'enable', 'on-idle', 'on-demand']
             dpd_retrycount:
                 aliases: ['dpd-retrycount']
                 type: int
@@ -131,9 +61,7 @@ options:
                 aliases: ['fcc-enforcement']
                 type: str
                 description: Fcc enforcement.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             hub2spoke_zone:
                 aliases: ['hub2spoke-zone']
                 type: raw
@@ -142,37 +70,17 @@ options:
                 aliases: ['ike-version']
                 type: str
                 description: Ike version.
-                choices:
-                    - '1'
-                    - '2'
+                choices: ['1', '2']
             ike1dhgroup:
                 type: list
                 elements: str
                 description: Ike1dhgroup.
-                choices:
-                    - '1'
-                    - '2'
-                    - '5'
-                    - '14'
-                    - '15'
-                    - '16'
-                    - '17'
-                    - '18'
-                    - '19'
-                    - '20'
-                    - '21'
-                    - '27'
-                    - '28'
-                    - '29'
-                    - '30'
-                    - '31'
-                    - '32'
+                choices: ['1', '2', '5', '14', '15', '16', '17', '18', '19', '20', '21', '27',
+                          '28', '29', '30', '31', '32']
             ike1dpd:
                 type: str
                 description: Ike1dpd.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             ike1keylifesec:
                 type: int
                 description: Ike1keylifesec.
@@ -182,114 +90,47 @@ options:
             ike1mode:
                 type: str
                 description: Ike1mode.
-                choices:
-                    - 'main'
-                    - 'aggressive'
+                choices: ['main', 'aggressive']
             ike1natkeepalive:
                 type: int
                 description: Ike1natkeepalive.
             ike1nattraversal:
                 type: str
                 description: Ike1nattraversal.
-                choices:
-                    - 'disable'
-                    - 'enable'
-                    - 'forced'
+                choices: ['disable', 'enable', 'forced']
             ike1proposal:
                 type: str
                 description: Ike1proposal.
-                choices:
-                    - 'des-md5'
-                    - 'des-sha1'
-                    - '3des-md5'
-                    - '3des-sha1'
-                    - 'aes128-md5'
-                    - 'aes128-sha1'
-                    - 'aes192-md5'
-                    - 'aes192-sha1'
-                    - 'aes256-md5'
-                    - 'aes256-sha1'
-                    - 'des-sha256'
-                    - '3des-sha256'
-                    - 'aes128-sha256'
-                    - 'aes192-sha256'
-                    - 'aes256-sha256'
-                    - 'des-sha384'
-                    - 'des-sha512'
-                    - '3des-sha384'
-                    - '3des-sha512'
-                    - 'aes128-sha384'
-                    - 'aes128-sha512'
-                    - 'aes192-sha384'
-                    - 'aes192-sha512'
-                    - 'aes256-sha384'
-                    - 'aes256-sha512'
-                    - 'aria128-md5'
-                    - 'aria128-sha1'
-                    - 'aria128-sha256'
-                    - 'aria128-sha384'
-                    - 'aria128-sha512'
-                    - 'aria192-md5'
-                    - 'aria192-sha1'
-                    - 'aria192-sha256'
-                    - 'aria192-sha384'
-                    - 'aria192-sha512'
-                    - 'aria256-md5'
-                    - 'aria256-sha1'
-                    - 'aria256-sha256'
-                    - 'aria256-sha384'
-                    - 'aria256-sha512'
-                    - 'seed-md5'
-                    - 'seed-sha1'
-                    - 'seed-sha256'
-                    - 'seed-sha384'
-                    - 'seed-sha512'
-                    - 'aes128gcm-prfsha1'
-                    - 'aes128gcm-prfsha256'
-                    - 'aes128gcm-prfsha384'
-                    - 'aes128gcm-prfsha512'
-                    - 'aes256gcm-prfsha1'
-                    - 'aes256gcm-prfsha256'
-                    - 'aes256gcm-prfsha384'
-                    - 'aes256gcm-prfsha512'
-                    - 'chacha20poly1305-prfsha1'
-                    - 'chacha20poly1305-prfsha256'
-                    - 'chacha20poly1305-prfsha384'
-                    - 'chacha20poly1305-prfsha512'
+                choices: ['des-md5', 'des-sha1', '3des-md5', '3des-sha1', 'aes128-md5',
+                          'aes128-sha1', 'aes192-md5', 'aes192-sha1', 'aes256-md5', 'aes256-sha1',
+                          'des-sha256', '3des-sha256', 'aes128-sha256', 'aes192-sha256',
+                          'aes256-sha256', 'des-sha384', 'des-sha512', '3des-sha384',
+                          '3des-sha512', 'aes128-sha384', 'aes128-sha512', 'aes192-sha384',
+                          'aes192-sha512', 'aes256-sha384', 'aes256-sha512', 'aria128-md5',
+                          'aria128-sha1', 'aria128-sha256', 'aria128-sha384', 'aria128-sha512',
+                          'aria192-md5', 'aria192-sha1', 'aria192-sha256', 'aria192-sha384',
+                          'aria192-sha512', 'aria256-md5', 'aria256-sha1', 'aria256-sha256',
+                          'aria256-sha384', 'aria256-sha512', 'seed-md5', 'seed-sha1',
+                          'seed-sha256', 'seed-sha384', 'seed-sha512', 'aes128gcm-prfsha1',
+                          'aes128gcm-prfsha256', 'aes128gcm-prfsha384', 'aes128gcm-prfsha512',
+                          'aes256gcm-prfsha1', 'aes256gcm-prfsha256', 'aes256gcm-prfsha384',
+                          'aes256gcm-prfsha512', 'chacha20poly1305-prfsha1',
+                          'chacha20poly1305-prfsha256', 'chacha20poly1305-prfsha384',
+                          'chacha20poly1305-prfsha512']
             ike2autonego:
                 type: str
                 description: Ike2autonego.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             ike2dhgroup:
                 type: list
                 elements: str
                 description: Ike2dhgroup.
-                choices:
-                    - '1'
-                    - '2'
-                    - '5'
-                    - '14'
-                    - '15'
-                    - '16'
-                    - '17'
-                    - '18'
-                    - '19'
-                    - '20'
-                    - '21'
-                    - '27'
-                    - '28'
-                    - '29'
-                    - '30'
-                    - '31'
-                    - '32'
+                choices: ['1', '2', '5', '14', '15', '16', '17', '18', '19', '20', '21', '27',
+                          '28', '29', '30', '31', '32']
             ike2keepalive:
                 type: str
                 description: Ike2keepalive.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             ike2keylifekbs:
                 type: int
                 description: Ike2keylifekbs.
@@ -299,101 +140,40 @@ options:
             ike2keylifetype:
                 type: str
                 description: Ike2keylifetype.
-                choices:
-                    - 'seconds'
-                    - 'kbs'
-                    - 'both'
+                choices: ['seconds', 'kbs', 'both']
             ike2proposal:
                 type: str
                 description: Ike2proposal.
-                choices:
-                    - 'null-md5'
-                    - 'null-sha1'
-                    - 'des-null'
-                    - '3des-null'
-                    - 'des-md5'
-                    - 'des-sha1'
-                    - '3des-md5'
-                    - '3des-sha1'
-                    - 'aes128-md5'
-                    - 'aes128-sha1'
-                    - 'aes192-md5'
-                    - 'aes192-sha1'
-                    - 'aes256-md5'
-                    - 'aes256-sha1'
-                    - 'aes128-null'
-                    - 'aes192-null'
-                    - 'aes256-null'
-                    - 'null-sha256'
-                    - 'des-sha256'
-                    - '3des-sha256'
-                    - 'aes128-sha256'
-                    - 'aes192-sha256'
-                    - 'aes256-sha256'
-                    - 'des-sha384'
-                    - 'des-sha512'
-                    - '3des-sha384'
-                    - '3des-sha512'
-                    - 'aes128-sha384'
-                    - 'aes128-sha512'
-                    - 'aes192-sha384'
-                    - 'aes192-sha512'
-                    - 'aes256-sha384'
-                    - 'aes256-sha512'
-                    - 'null-sha384'
-                    - 'null-sha512'
-                    - 'aria128-null'
-                    - 'aria128-md5'
-                    - 'aria128-sha1'
-                    - 'aria128-sha256'
-                    - 'aria128-sha384'
-                    - 'aria128-sha512'
-                    - 'aria192-null'
-                    - 'aria192-md5'
-                    - 'aria192-sha1'
-                    - 'aria192-sha256'
-                    - 'aria192-sha384'
-                    - 'aria192-sha512'
-                    - 'aria256-null'
-                    - 'aria256-md5'
-                    - 'aria256-sha1'
-                    - 'aria256-sha256'
-                    - 'aria256-sha384'
-                    - 'aria256-sha512'
-                    - 'seed-null'
-                    - 'seed-md5'
-                    - 'seed-sha1'
-                    - 'seed-sha256'
-                    - 'seed-sha384'
-                    - 'seed-sha512'
-                    - 'aes128gcm'
-                    - 'aes256gcm'
-                    - 'chacha20poly1305'
+                choices: ['null-md5', 'null-sha1', 'des-null', '3des-null', 'des-md5', 'des-sha1',
+                          '3des-md5', '3des-sha1', 'aes128-md5', 'aes128-sha1', 'aes192-md5',
+                          'aes192-sha1', 'aes256-md5', 'aes256-sha1', 'aes128-null',
+                          'aes192-null', 'aes256-null', 'null-sha256', 'des-sha256',
+                          '3des-sha256', 'aes128-sha256', 'aes192-sha256', 'aes256-sha256',
+                          'des-sha384', 'des-sha512', '3des-sha384', '3des-sha512',
+                          'aes128-sha384', 'aes128-sha512', 'aes192-sha384', 'aes192-sha512',
+                          'aes256-sha384', 'aes256-sha512', 'null-sha384', 'null-sha512',
+                          'aria128-null', 'aria128-md5', 'aria128-sha1', 'aria128-sha256',
+                          'aria128-sha384', 'aria128-sha512', 'aria192-null', 'aria192-md5',
+                          'aria192-sha1', 'aria192-sha256', 'aria192-sha384', 'aria192-sha512',
+                          'aria256-null', 'aria256-md5', 'aria256-sha1', 'aria256-sha256',
+                          'aria256-sha384', 'aria256-sha512', 'seed-null', 'seed-md5',
+                          'seed-sha1', 'seed-sha256', 'seed-sha384', 'seed-sha512', 'aes128gcm',
+                          'aes256gcm', 'chacha20poly1305']
             inter_vdom:
                 aliases: ['inter-vdom']
                 type: str
                 description: Inter vdom.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             intf_mode:
                 aliases: ['intf-mode']
                 type: str
                 description: Intf mode.
-                choices:
-                    - 'off'
-                    - 'on'
+                choices: ['off', 'on']
             localid_type:
                 aliases: ['localid-type']
                 type: str
                 description: Localid type.
-                choices:
-                    - 'auto'
-                    - 'fqdn'
-                    - 'user-fqdn'
-                    - 'keyid'
-                    - 'address'
-                    - 'asn1dn'
+                choices: ['auto', 'fqdn', 'user-fqdn', 'keyid', 'address', 'asn1dn']
             name:
                 type: str
                 description: Name.
@@ -406,31 +186,23 @@ options:
                 aliases: ['npu-offload']
                 type: str
                 description: Npu offload.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             pfs:
                 type: str
                 description: Pfs.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             psk_auto_generate:
                 aliases: ['psk-auto-generate']
                 type: str
                 description: Psk auto generate.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             psksecret:
                 type: raw
                 description: (list) Psksecret.
             replay:
                 type: str
                 description: Replay.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             rsa_certificate:
                 aliases: ['rsa-certificate']
                 type: str
@@ -442,10 +214,7 @@ options:
             topology:
                 type: str
                 description: Topology.
-                choices:
-                    - 'meshed'
-                    - 'star'
-                    - 'dialup'
+                choices: ['meshed', 'star', 'dialup']
             vpn_zone:
                 aliases: ['vpn-zone']
                 type: raw
@@ -458,9 +227,7 @@ options:
                 aliases: ['network-overlay']
                 type: str
                 description: Network overlay.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -468,18 +235,10 @@ EXAMPLES = '''
   hosts: fortimanagers
   connection: httpapi
   gather_facts: false
-  vars:
-    ansible_httpapi_use_ssl: true
-    ansible_httpapi_validate_certs: false
-    ansible_httpapi_port: 443
   tasks:
     - name: Vpnmgr vpntable
       fortinet.fortimanager.fmgr_vpnmgr_vpntable:
-        # bypass_validation: false
         # workspace_locking_adom: <global or your adom name>
-        # workspace_locking_timeout: 300
-        # rc_succeeded: [0, -2, -3, ...]
-        # rc_failed: [-2, -3, ...]
         adom: <your own value>
         state: present # <value in [present, absent]>
         vpnmgr_vpntable:
@@ -494,24 +253,8 @@ EXAMPLES = '''
           # fcc_enforcement: <value in [disable, enable]>
           # hub2spoke_zone: <list or string>
           # ike_version: <value in [1, 2]>
-          # ike1dhgroup:
-          #   - "1"
-          #   - "2"
-          #   - "5"
-          #   - "14"
-          #   - "15"
-          #   - "16"
-          #   - "17"
-          #   - "18"
-          #   - "19"
-          #   - "20"
-          #   - "21"
-          #   - "27"
-          #   - "28"
-          #   - "29"
-          #   - "30"
-          #   - "31"
-          #   - "32"
+          # ike1dhgroup: ["1", "2", "5", "14", "15", "16", "17", "18", "19", "20", "21", "27",
+          #               "28", "29", "30", "31", "32"]
           # ike1dpd: <value in [disable, enable]>
           # ike1keylifesec: <integer>
           # ike1localid: <string>
@@ -520,24 +263,8 @@ EXAMPLES = '''
           # ike1nattraversal: <value in [disable, enable, forced]>
           # ike1proposal: <value in [des-md5, des-sha1, 3des-md5, ...]>
           # ike2autonego: <value in [disable, enable]>
-          # ike2dhgroup:
-          #   - "1"
-          #   - "2"
-          #   - "5"
-          #   - "14"
-          #   - "15"
-          #   - "16"
-          #   - "17"
-          #   - "18"
-          #   - "19"
-          #   - "20"
-          #   - "21"
-          #   - "27"
-          #   - "28"
-          #   - "29"
-          #   - "30"
-          #   - "31"
-          #   - "32"
+          # ike2dhgroup: ["1", "2", "5", "14", "15", "16", "17", "18", "19", "20", "21", "27",
+          #               "28", "29", "30", "31", "32"]
           # ike2keepalive: <value in [disable, enable]>
           # ike2keylifekbs: <integer>
           # ike2keylifesec: <integer>
@@ -610,14 +337,11 @@ def main():
         '/pm/config/adom/{adom}/obj/vpnmgr/vpntable',
         '/pm/config/global/obj/vpnmgr/vpntable'
     ]
-    url_params = ['adom']
-    module_primary_key = 'name'
     module_arg_spec = {
         'adom': {'required': True, 'type': 'str'},
         'revision_note': {'type': 'str'},
         'vpnmgr_vpntable': {
-            'type': 'dict',
-            'v_range': [['6.0.0', '']],
+            'type': 'dict', 'v_range': [['6.0.0', '']],
             'options': {
                 'authmethod': {'choices': ['psk', 'rsa-signature', 'signature'], 'type': 'str'},
                 'auto-zone-policy': {'choices': ['disable', 'enable'], 'type': 'str'},
@@ -699,19 +423,15 @@ def main():
 
     module_option_spec = get_module_arg_spec('full crud')
     module_arg_spec.update(module_option_spec)
-    params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'vpnmgr_vpntable'),
                            supports_check_mode=True)
-
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
-                       module, connection, top_level_schema_name='data')
-    fmgr.validate_parameters(params_validation_blob)
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list,
+                       'name', 'data', module, connection)
     fmgr.process_crud()
-
     module.exit_json(meta=module.params)
 
 

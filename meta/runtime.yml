@@ -48,14 +48,20 @@ action_groups:
     - fmgr_casb_profile
     - fmgr_casb_profile_saasapplication
     - fmgr_casb_profile_saasapplication_accessrule
+    - fmgr_casb_profile_saasapplication_advancedtenantcontrol
+    - fmgr_casb_profile_saasapplication_advancedtenantcontrol_attribute
     - fmgr_casb_profile_saasapplication_customcontrol
     - fmgr_casb_profile_saasapplication_customcontrol_option
     - fmgr_casb_saasapplication
+    - fmgr_casb_saasapplication_inputattributes
+    - fmgr_casb_saasapplication_outputattributes
     - fmgr_casb_useractivity
     - fmgr_casb_useractivity_controloptions
     - fmgr_casb_useractivity_controloptions_operations
     - fmgr_casb_useractivity_match
     - fmgr_casb_useractivity_match_rules
+    - fmgr_casb_useractivity_match_tenantextraction
+    - fmgr_casb_useractivity_match_tenantextraction_filters
     - fmgr_certificate_template
     - fmgr_cifs_domaincontroller
     - fmgr_cifs_profile
@@ -183,6 +189,7 @@ action_groups:
     - fmgr_dynamic_interface_dynamicmapping
     - fmgr_dynamic_interface_platformmapping
     - fmgr_dynamic_ippool
+    - fmgr_dynamic_log_npuserver_servergroup
     - fmgr_dynamic_log_npuserver_servergroup_dynamicmapping
     - fmgr_dynamic_multicast_interface
     - fmgr_dynamic_multicast_interface_dynamicmapping
@@ -250,6 +257,8 @@ action_groups:
     - fmgr_extensioncontroller_extenderprofile_cellular_smsnotification_receiver
     - fmgr_extensioncontroller_extenderprofile_lanextension
     - fmgr_extensioncontroller_extenderprofile_lanextension_backhaul
+    - fmgr_extensioncontroller_extenderprofile_lanextension_downlinks
+    - fmgr_extensioncontroller_extenderprofile_lanextension_trafficsplitservices
     - fmgr_extensioncontroller_extenderprofile_wifi
     - fmgr_extensioncontroller_extenderprofile_wifi_radio1
     - fmgr_extensioncontroller_extenderprofile_wifi_radio2
@@ -705,6 +714,7 @@ action_groups:
     - fmgr_switchcontroller_managedswitch_snmptrapthreshold
     - fmgr_switchcontroller_managedswitch_snmpuser
     - fmgr_switchcontroller_managedswitch_systemdhcpserver
+    - fmgr_switchcontroller_managedswitch_systemdhcpserver_iprange
     - fmgr_switchcontroller_managedswitch_systemdhcpserver_options
     - fmgr_switchcontroller_managedswitch_systeminterface
     - fmgr_switchcontroller_managedswitch_vlan
@@ -731,6 +741,7 @@ action_groups:
     - fmgr_system_dnsdatabase
     - fmgr_system_dnsdatabase_dnsentry
     - fmgr_system_externalresource
+    - fmgr_system_externalresource_dynamicmapping
     - fmgr_system_fortiguard
     - fmgr_system_geoipcountry
     - fmgr_system_geoipoverride
@@ -745,6 +756,7 @@ action_groups:
     - fmgr_system_npu_dswqueuedtsprofile
     - fmgr_system_npu_fpanomaly
     - fmgr_system_npu_hpe
+    - fmgr_system_npu_icmperrorratectrl
     - fmgr_system_npu_icmpratectrl
     - fmgr_system_npu_ipreassembly
     - fmgr_system_npu_isfnpqueues
@@ -914,6 +926,7 @@ action_groups:
     - fmgr_vpn_ipsec_phase1_ipv6excluderange
     - fmgr_vpn_kmipserver
     - fmgr_vpn_kmipserver_serverlist
+    - fmgr_vpn_qkd
     - fmgr_vpnmgr_node
     - fmgr_vpnmgr_node_iprange
     - fmgr_vpnmgr_node_ipv4excluderange
@@ -974,6 +987,8 @@ action_groups:
     - fmgr_wanprof_system_sdwan_duplication
     - fmgr_wanprof_system_sdwan_healthcheck
     - fmgr_wanprof_system_sdwan_healthcheck_sla
+    - fmgr_wanprof_system_sdwan_healthcheckfortiguard
+    - fmgr_wanprof_system_sdwan_healthcheckfortiguard_sla
     - fmgr_wanprof_system_sdwan_members
     - fmgr_wanprof_system_sdwan_neighbor
     - fmgr_wanprof_system_sdwan_service
@@ -1005,6 +1020,7 @@ action_groups:
     - fmgr_webfilter_profile_ftgdwf
     - fmgr_webfilter_profile_ftgdwf_filters
     - fmgr_webfilter_profile_ftgdwf_quota
+    - fmgr_webfilter_profile_ftgdwf_risk
     - fmgr_webfilter_profile_override
     - fmgr_webfilter_profile_urlextraction
     - fmgr_webfilter_profile_web
@@ -1017,6 +1033,7 @@ action_groups:
     - fmgr_webproxy_forwardserver
     - fmgr_webproxy_forwardservergroup
     - fmgr_webproxy_forwardservergroup_serverlist
+    - fmgr_webproxy_isolatorserver
     - fmgr_webproxy_profile
     - fmgr_webproxy_profile_headers
     - fmgr_webproxy_redirectprofile
@@ -1044,6 +1061,8 @@ action_groups:
     - fmgr_wtpprofile_splittunnelingacl
     - fmgr_ztna_serviceconnector
     - fmgr_ztna_trafficforwardproxy
+    - fmgr_ztna_trafficforwardproxy_quic
+    - fmgr_ztna_trafficforwardproxy_sslciphersuites
     - fmgr_ztna_trafficforwardproxy_sslserverciphersuites
     - fmgr_ztna_trafficforwardproxy_urlroute
     - fmgr_ztna_webportal
@@ -1052,9 +1071,12 @@ action_groups:
     - fmgr_ztna_webproxy
     - fmgr_ztna_webproxy_apigateway
     - fmgr_ztna_webproxy_apigateway6
+    - fmgr_ztna_webproxy_apigateway6_quic
     - fmgr_ztna_webproxy_apigateway6_realservers
     - fmgr_ztna_webproxy_apigateway6_sslciphersuites
+    - fmgr_ztna_webproxy_apigateway_quic
     - fmgr_ztna_webproxy_apigateway_realservers
+    - fmgr_ztna_webproxy_apigateway_sslciphersuites
   all:
     - fmgr_clone
     - fmgr_dvm_cmd_add_device

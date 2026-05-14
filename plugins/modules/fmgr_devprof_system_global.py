@@ -13,63 +13,11 @@ DOCUMENTATION = '''
 ---
 module: fmgr_devprof_system_global
 short_description: Configure global attributes.
-description:
-    - This module is able to configure a FortiManager device.
-    - Examples include all parameters and values which need to be adjusted to data sources before usage.
 version_added: "1.0.0"
-author:
-    - Xinwei Du (@dux-fortinet)
-    - Xing Li (@lix-fortinet)
-    - Jie Xue (@JieX19)
-    - Link Zheng (@chillancezen)
-    - Frank Shen (@fshen01)
-    - Hongbin Lu (@fgtdev-hblu)
-notes:
-    - Starting in version 2.4.0, all input arguments are named using the underscore naming convention (snake_case).
-      Please change the arguments such as "var-name" to "var_name".
-      Old argument names are still available yet you will receive deprecation warnings.
-      You can ignore this warning by setting deprecation_warnings=False in ansible.cfg.
-    - Running in workspace locking mode is supported in this FortiManager module, the top
-      level parameters workspace_locking_adom and workspace_locking_timeout help do the work.
-    - Normally, running one module can fail when a non-zero rc is returned. you can also override
-      the conditions to fail or succeed with parameters rc_failed and rc_succeeded
+extends_documentation_fragment:
+    - fortinet.fortimanager.general
+    - fortinet.fortimanager.general.partial_crud
 options:
-    access_token:
-        description: The token to access FortiManager without using username and password.
-        type: str
-    bypass_validation:
-        description: Only set to True when module schema diffs with FortiManager API structure, module continues to execute without validating parameters.
-        type: bool
-        default: false
-    enable_log:
-        description: Enable/Disable logging for task.
-        type: bool
-        default: false
-    forticloud_access_token:
-        description: Authenticate Ansible client with forticloud API access token.
-        type: str
-    proposed_method:
-        description: The overridden method for the underlying Json RPC request.
-        type: str
-        choices:
-          - update
-          - set
-          - add
-    rc_succeeded:
-        description: The rc codes list with which the conditions to succeed will be overriden.
-        type: list
-        elements: int
-    rc_failed:
-        description: The rc codes list with which the conditions to fail will be overriden.
-        type: list
-        elements: int
-    workspace_locking_adom:
-        description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
-        type: str
-    workspace_locking_timeout:
-        description: The maximum time in seconds to wait for other user to release the workspace lock.
-        type: int
-        default: 300
     adom:
         description: The parameter (adom) in requested url.
         type: str
@@ -87,9 +35,7 @@ options:
                 aliases: ['admin-https-redirect']
                 type: str
                 description: Enable/disable redirection of HTTP administration access to HTTPS.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             admin_port:
                 aliases: ['admin-port']
                 type: int
@@ -98,9 +44,7 @@ options:
                 aliases: ['admin-scp']
                 type: str
                 description: Enable/disable using SCP to download the system configuration.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             admin_sport:
                 aliases: ['admin-sport']
                 type: int
@@ -113,9 +57,7 @@ options:
                 aliases: ['admin-ssh-v1']
                 type: str
                 description: Enable/disable SSH v1 compatibility.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             admin_telnet_port:
                 aliases: ['admin-telnet-port']
                 type: int
@@ -127,9 +69,7 @@ options:
                 aliases: ['gui-ipv6']
                 type: str
                 description: Enable/disable IPv6 settings on the GUI.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             gui_lines_per_page:
                 aliases: ['gui-lines-per-page']
                 type: int
@@ -138,41 +78,19 @@ options:
                 aliases: ['gui-theme']
                 type: str
                 description: Color scheme for the administration GUI.
-                choices:
-                    - 'blue'
-                    - 'green'
-                    - 'melongene'
-                    - 'red'
-                    - 'mariner'
-                    - 'neutrino'
-                    - 'jade'
-                    - 'graphite'
-                    - 'dark-matter'
-                    - 'onyx'
-                    - 'eclipse'
-                    - 'retro'
-                    - 'fpx'
-                    - 'jet-stream'
-                    - 'security-fabric'
+                choices: ['blue', 'green', 'melongene', 'red', 'mariner', 'neutrino', 'jade',
+                          'graphite', 'dark-matter', 'onyx', 'eclipse', 'retro', 'fpx',
+                          'jet-stream', 'security-fabric']
             language:
                 type: str
                 description: GUI display language.
-                choices:
-                    - 'english'
-                    - 'simch'
-                    - 'japanese'
-                    - 'korean'
-                    - 'spanish'
-                    - 'trach'
-                    - 'french'
-                    - 'portuguese'
+                choices: ['english', 'simch', 'japanese', 'korean', 'spanish', 'trach', 'french',
+                          'portuguese']
             switch_controller:
                 aliases: ['switch-controller']
                 type: str
                 description: Enable/disable switch controller feature.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             gui_device_latitude:
                 aliases: ['gui-device-latitude']
                 type: str
@@ -196,139 +114,44 @@ options:
                 description:
                     - Support meta variable
                     - Timezone database name.
-                choices:
-                    - '00'
-                    - '01'
-                    - '02'
-                    - '03'
-                    - '04'
-                    - '05'
-                    - '06'
-                    - '07'
-                    - '08'
-                    - '09'
-                    - '10'
-                    - '11'
-                    - '12'
-                    - '13'
-                    - '14'
-                    - '15'
-                    - '16'
-                    - '17'
-                    - '18'
-                    - '19'
-                    - '20'
-                    - '21'
-                    - '22'
-                    - '23'
-                    - '24'
-                    - '25'
-                    - '26'
-                    - '27'
-                    - '28'
-                    - '29'
-                    - '30'
-                    - '31'
-                    - '32'
-                    - '33'
-                    - '34'
-                    - '35'
-                    - '36'
-                    - '37'
-                    - '38'
-                    - '39'
-                    - '40'
-                    - '41'
-                    - '42'
-                    - '43'
-                    - '44'
-                    - '45'
-                    - '46'
-                    - '47'
-                    - '48'
-                    - '49'
-                    - '50'
-                    - '51'
-                    - '52'
-                    - '53'
-                    - '54'
-                    - '55'
-                    - '56'
-                    - '57'
-                    - '58'
-                    - '59'
-                    - '60'
-                    - '61'
-                    - '62'
-                    - '63'
-                    - '64'
-                    - '65'
-                    - '66'
-                    - '67'
-                    - '68'
-                    - '69'
-                    - '70'
-                    - '71'
-                    - '72'
-                    - '73'
-                    - '74'
-                    - '75'
-                    - '76'
-                    - '77'
-                    - '78'
-                    - '79'
-                    - '80'
-                    - '81'
-                    - '82'
-                    - '83'
-                    - '84'
-                    - '85'
-                    - '86'
-                    - '87'
+                choices: ['00', '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11',
+                          '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23',
+                          '24', '25', '26', '27', '28', '29', '30', '31', '32', '33', '34', '35',
+                          '36', '37', '38', '39', '40', '41', '42', '43', '44', '45', '46', '47',
+                          '48', '49', '50', '51', '52', '53', '54', '55', '56', '57', '58', '59',
+                          '60', '61', '62', '63', '64', '65', '66', '67', '68', '69', '70', '71',
+                          '72', '73', '74', '75', '76', '77', '78', '79', '80', '81', '82', '83',
+                          '84', '85', '86', '87']
             check_reset_range:
                 aliases: ['check-reset-range']
                 type: str
                 description: Configure ICMP error message verification.
-                choices:
-                    - 'disable'
-                    - 'strict'
+                choices: ['disable', 'strict']
             pmtu_discovery:
                 aliases: ['pmtu-discovery']
                 type: str
                 description: Enable/disable path MTU discovery.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             gui_allow_incompatible_fabric_fgt:
                 aliases: ['gui-allow-incompatible-fabric-fgt']
                 type: str
                 description: Enable/disable Allow FGT with incompatible firmware to be treated as compatible in security fabric on the GUI.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             admin_restrict_local:
                 aliases: ['admin-restrict-local']
                 type: str
                 description: Enable/disable local admin authentication restriction when remote authenticator is up and running
-                choices:
-                    - 'disable'
-                    - 'enable'
-                    - 'all'
-                    - 'non-console-only'
+                choices: ['disable', 'enable', 'all', 'non-console-only']
             gui_workflow_management:
                 aliases: ['gui-workflow-management']
                 type: str
                 description: Enable/disable Workflow management features on the GUI.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             send_pmtu_icmp:
                 aliases: ['send-pmtu-icmp']
                 type: str
                 description: Enable/disable sending of path maximum transmission unit
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             tcp_halfclose_timer:
                 aliases: ['tcp-halfclose-timer']
                 type: int
@@ -345,16 +168,12 @@ options:
                 aliases: ['show-backplane-intf']
                 type: str
                 description: Show/hide backplane interfaces
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             gui_custom_language:
                 aliases: ['gui-custom-language']
                 type: str
                 description: Enable/disable custom languages in GUI.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             ldapconntimeout:
                 type: int
                 description: Global timeout for connections with remote LDAP servers in milliseconds
@@ -366,9 +185,7 @@ options:
                 aliases: ['revision-backup-on-logout']
                 type: str
                 description: Enable/disable back-up of the latest configuration revision when an administrator logs out of the CLI or GUI.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             arp_max_entry:
                 aliases: ['arp-max-entry']
                 type: int
@@ -377,16 +194,12 @@ options:
                 aliases: ['long-vdom-name']
                 type: str
                 description: Enable/disable long VDOM name support.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             pre_login_banner:
                 aliases: ['pre-login-banner']
                 type: str
                 description: Enable/disable displaying the administrator access disclaimer message on the login page before an administrator logs in.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             qsfpdd_split8_port:
                 aliases: ['qsfpdd-split8-port']
                 type: raw
@@ -399,23 +212,17 @@ options:
                 aliases: ['fortitoken-cloud-push-status']
                 type: str
                 description: Enable/disable FTM push service of FortiToken Cloud.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             ssh_hostkey_override:
                 aliases: ['ssh-hostkey-override']
                 type: str
                 description: Enable/disable SSH host key override in SSH daemon.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             proxy_hardware_acceleration:
                 aliases: ['proxy-hardware-acceleration']
                 type: str
                 description: Enable/disable email proxy hardware acceleration.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             switch_controller_reserved_network:
                 aliases: ['switch-controller-reserved-network']
                 type: raw
@@ -441,13 +248,8 @@ options:
                 type: list
                 elements: str
                 description: Type of alert to retrieve from FortiGuard.
-                choices:
-                    - 'advisory'
-                    - 'latest-threat'
-                    - 'latest-virus'
-                    - 'latest-attack'
-                    - 'new-antivirus-db'
-                    - 'new-attack-db'
+                choices: ['advisory', 'latest-threat', 'latest-virus', 'latest-attack',
+                          'new-antivirus-db', 'new-attack-db']
             forticontroller_proxy_port:
                 aliases: ['forticontroller-proxy-port']
                 type: int
@@ -456,14 +258,7 @@ options:
                 aliases: ['dh-params']
                 type: str
                 description: Number of bits to use in the Diffie-Hellman exchange for HTTPS/SSH protocols.
-                choices:
-                    - '1024'
-                    - '1536'
-                    - '2048'
-                    - '3072'
-                    - '4096'
-                    - '6144'
-                    - '8192'
+                choices: ['1024', '1536', '2048', '3072', '4096', '6144', '8192']
             memory_use_threshold_green:
                 aliases: ['memory-use-threshold-green']
                 type: int
@@ -472,9 +267,7 @@ options:
                 aliases: ['proxy-cert-use-mgmt-vdom']
                 type: str
                 description: Enable/disable using management VDOM to send requests.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             proxy_auth_lifetime_timeout:
                 aliases: ['proxy-auth-lifetime-timeout']
                 type: int
@@ -483,16 +276,12 @@ options:
                 aliases: ['gui-auto-upgrade-setup-warning']
                 type: str
                 description: Enable/disable the automatic patch upgrade setup prompt on the GUI.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             gui_cdn_usage:
                 aliases: ['gui-cdn-usage']
                 type: str
                 description: Enable/disable Load GUI static files from a CDN.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             two_factor_email_expiry:
                 aliases: ['two-factor-email-expiry']
                 type: int
@@ -505,38 +294,22 @@ options:
                 aliases: ['interface-subnet-usage']
                 type: str
                 description: Enable/disable allowing use of interface-subnet setting in firewall addresses
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             forticontroller_proxy:
                 aliases: ['forticontroller-proxy']
                 type: str
                 description: Enable/disable FortiController proxy.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             ssh_enc_algo:
                 aliases: ['ssh-enc-algo']
                 type: list
                 elements: str
                 description: Select one or more SSH ciphers.
-                choices:
-                    - 'chacha20-poly1305@openssh.com'
-                    - 'aes128-ctr'
-                    - 'aes192-ctr'
-                    - 'aes256-ctr'
-                    - 'arcfour256'
-                    - 'arcfour128'
-                    - 'aes128-cbc'
-                    - '3des-cbc'
-                    - 'blowfish-cbc'
-                    - 'cast128-cbc'
-                    - 'aes192-cbc'
-                    - 'aes256-cbc'
-                    - 'arcfour'
-                    - 'rijndael-cbc@lysator.liu.se'
-                    - 'aes128-gcm@openssh.com'
-                    - 'aes256-gcm@openssh.com'
+                choices: ['chacha20-poly1305@openssh.com', 'aes128-ctr', 'aes192-ctr',
+                          'aes256-ctr', 'arcfour256', 'arcfour128', 'aes128-cbc', '3des-cbc',
+                          'blowfish-cbc', 'cast128-cbc', 'aes192-cbc', 'aes256-cbc', 'arcfour',
+                          'rijndael-cbc@lysator.liu.se', 'aes128-gcm@openssh.com',
+                          'aes256-gcm@openssh.com']
             block_session_timer:
                 aliases: ['block-session-timer']
                 type: int
@@ -545,27 +318,20 @@ options:
                 aliases: ['quic-pmtud']
                 type: str
                 description: Enable/disable path MTU discovery
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             admin_https_ssl_ciphersuites:
                 aliases: ['admin-https-ssl-ciphersuites']
                 type: list
                 elements: str
                 description: Select one or more TLS 1.
-                choices:
-                    - 'TLS-AES-128-GCM-SHA256'
-                    - 'TLS-AES-256-GCM-SHA384'
-                    - 'TLS-CHACHA20-POLY1305-SHA256'
-                    - 'TLS-AES-128-CCM-SHA256'
-                    - 'TLS-AES-128-CCM-8-SHA256'
+                choices: ['TLS-AES-128-GCM-SHA256', 'TLS-AES-256-GCM-SHA384',
+                          'TLS-CHACHA20-POLY1305-SHA256', 'TLS-AES-128-CCM-SHA256',
+                          'TLS-AES-128-CCM-8-SHA256']
             security_rating_result_submission:
                 aliases: ['security-rating-result-submission']
                 type: str
                 description: Enable/disable the submission of Security Rating results to FortiGuard.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             user_device_store_max_unified_mem:
                 aliases: ['user-device-store-max-unified-mem']
                 type: int
@@ -578,20 +344,13 @@ options:
                 aliases: ['fortigslb-integration']
                 type: str
                 description: Enable/disable integration with the FortiGSLB cloud service.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             admin_https_ssl_versions:
                 aliases: ['admin-https-ssl-versions']
                 type: list
                 elements: str
                 description: Allowed TLS versions for web administration.
-                choices:
-                    - 'tlsv1-0'
-                    - 'tlsv1-1'
-                    - 'tlsv1-2'
-                    - 'sslv3'
-                    - 'tlsv1-3'
+                choices: ['tlsv1-0', 'tlsv1-1', 'tlsv1-2', 'sslv3', 'tlsv1-3']
             cert_chain_max:
                 aliases: ['cert-chain-max']
                 type: int
@@ -604,30 +363,22 @@ options:
                 aliases: ['strong-crypto']
                 type: str
                 description: Enable to use strong encryption and only allow strong ciphers and digest for HTTPS/SSH/TLS/SSL functions.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             multi_factor_authentication:
                 aliases: ['multi-factor-authentication']
                 type: str
                 description: Enforce all login methods to require an additional authentication factor
-                choices:
-                    - 'optional'
-                    - 'mandatory'
+                choices: ['optional', 'mandatory']
             fds_statistics:
                 aliases: ['fds-statistics']
                 type: str
                 description: Enable/disable sending IPS, Application Control, and AntiVirus data to FortiGuard.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             gui_display_hostname:
                 aliases: ['gui-display-hostname']
                 type: str
                 description: Enable/disable displaying the FortiGates hostname on the GUI login page.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             two_factor_ftk_expiry:
                 aliases: ['two-factor-ftk-expiry']
                 type: int
@@ -636,30 +387,22 @@ options:
                 aliases: ['wad-source-affinity']
                 type: str
                 description: Enable/disable dispatching traffic to WAD workers based on source affinity.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             ssl_static_key_ciphers:
                 aliases: ['ssl-static-key-ciphers']
                 type: str
                 description: Enable/disable static key ciphers in SSL/TLS connections
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             daily_restart:
                 aliases: ['daily-restart']
                 type: str
                 description: Enable/disable daily restart of FortiGate unit.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             snat_route_change:
                 aliases: ['snat-route-change']
                 type: str
                 description: Enable/disable the ability to change the source NAT route.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             tcp_rst_timer:
                 aliases: ['tcp-rst-timer']
                 type: int
@@ -668,20 +411,12 @@ options:
                 aliases: ['anti-replay']
                 type: str
                 description: Level of checking for packet replay and TCP sequence checking.
-                choices:
-                    - 'disable'
-                    - 'loose'
-                    - 'strict'
+                choices: ['disable', 'loose', 'strict']
             ssl_min_proto_version:
                 aliases: ['ssl-min-proto-version']
                 type: str
                 description: Minimum supported protocol version for SSL/TLS connections
-                choices:
-                    - 'TLSv1'
-                    - 'TLSv1-1'
-                    - 'TLSv1-2'
-                    - 'SSLv3'
-                    - 'TLSv1-3'
+                choices: ['TLSv1', 'TLSv1-1', 'TLSv1-2', 'SSLv3', 'TLSv1-3']
             speedtestd_server_port:
                 aliases: ['speedtestd-server-port']
                 type: int
@@ -698,9 +433,7 @@ options:
                 aliases: ['csr-ca-attribute']
                 type: str
                 description: Enable/disable the CA attribute in certificates.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             fortiservice_port:
                 aliases: ['fortiservice-port']
                 type: int
@@ -713,16 +446,7 @@ options:
                 aliases: ['purdue-level']
                 type: str
                 description: Purdue Level of this FortiGate.
-                choices:
-                    - '1'
-                    - '2'
-                    - '3'
-                    - '4'
-                    - '5'
-                    - '1.5'
-                    - '2.5'
-                    - '3.5'
-                    - '5.5'
+                choices: ['1', '2', '3', '4', '5', '1.5', '2.5', '3.5', '5.5']
             management_vdom:
                 aliases: ['management-vdom']
                 type: raw
@@ -743,25 +467,17 @@ options:
                 aliases: ['vip-arp-range']
                 type: str
                 description: Controls the number of ARPs that the FortiGate sends for a Virtual IP
-                choices:
-                    - 'restricted'
-                    - 'unlimited'
+                choices: ['restricted', 'unlimited']
             internet_service_database:
                 aliases: ['internet-service-database']
                 type: str
                 description: Configure which Internet Service database size to download from FortiGuard and use.
-                choices:
-                    - 'mini'
-                    - 'standard'
-                    - 'full'
-                    - 'on-demand'
+                choices: ['mini', 'standard', 'full', 'on-demand']
             revision_image_auto_backup:
                 aliases: ['revision-image-auto-backup']
                 type: str
                 description: Enable/disable back-up of the latest image revision after the firmware is upgraded.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             sflowd_max_children_num:
                 aliases: ['sflowd-max-children-num']
                 type: int
@@ -770,30 +486,22 @@ options:
                 aliases: ['admin-https-pki-required']
                 type: str
                 description: Enable/disable admin login method.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             special_file_23_support:
                 aliases: ['special-file-23-support']
                 type: str
                 description: Enable/disable detection of those special format files when using Data Loss Prevention.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             npu_neighbor_update:
                 aliases: ['npu-neighbor-update']
                 type: str
                 description: Enable/disable sending of ARP/ICMP6 probing packets to update neighbors for offloaded sessions.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             log_single_cpu_high:
                 aliases: ['log-single-cpu-high']
                 type: str
                 description: Enable/disable logging the event of a single CPU core reaching CPU usage threshold.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             management_ip:
                 aliases: ['management-ip']
                 type: str
@@ -802,23 +510,17 @@ options:
                 aliases: ['proxy-resource-mode']
                 type: str
                 description: Enable/disable use of the maximum memory usage on the FortiGate units proxy processing of resources, such as block lists, ...
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             admin_ble_button:
                 aliases: ['admin-ble-button']
                 type: str
                 description: Press the BLE button can enable BLE function
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             gui_firmware_upgrade_warning:
                 aliases: ['gui-firmware-upgrade-warning']
                 type: str
                 description: Enable/disable the firmware upgrade warning on the GUI.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             dp_tcp_normal_timer:
                 aliases: ['dp-tcp-normal-timer']
                 type: int
@@ -827,16 +529,12 @@ options:
                 aliases: ['ipv6-allow-traffic-redirect']
                 type: str
                 description: Disable to prevent IPv6 traffic with same local ingress and egress interface from being forwarded without policy check.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             cli_audit_log:
                 aliases: ['cli-audit-log']
                 type: str
                 description: Enable/disable CLI audit log.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             memory_use_threshold_extreme:
                 aliases: ['memory-use-threshold-extreme']
                 type: int
@@ -857,9 +555,7 @@ options:
                 aliases: ['gui-wireless-opensecurity']
                 type: str
                 description: Enable/disable wireless open security option on the GUI.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             memory_use_threshold_red:
                 aliases: ['memory-use-threshold-red']
                 type: int
@@ -880,9 +576,7 @@ options:
                 aliases: ['gui-app-detection-sdwan']
                 type: str
                 description: Enable/disable Allow app-detection based SD-WAN.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             scanunit_count:
                 aliases: ['scanunit-count']
                 type: int
@@ -890,9 +584,7 @@ options:
             tftp:
                 type: str
                 description: Enable/disable TFTP.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             xstools_update_frequency:
                 aliases: ['xstools-update-frequency']
                 type: int
@@ -901,16 +593,12 @@ options:
                 aliases: ['clt-cert-req']
                 type: str
                 description: Enable/disable requiring administrators to have a client certificate to log into the GUI using HTTPS.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             fortiextender_vlan_mode:
                 aliases: ['fortiextender-vlan-mode']
                 type: str
                 description: Enable/disable FortiExtender VLAN mode.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             auth_http_port:
                 aliases: ['auth-http-port']
                 type: int
@@ -919,41 +607,28 @@ options:
                 aliases: ['per-user-bal']
                 type: str
                 description: Enable/disable per-user block/allow list filter.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             gui_date_format:
                 aliases: ['gui-date-format']
                 type: str
                 description: Default date format used throughout GUI.
-                choices:
-                    - 'yyyy/MM/dd'
-                    - 'dd/MM/yyyy'
-                    - 'MM/dd/yyyy'
-                    - 'yyyy-MM-dd'
-                    - 'dd-MM-yyyy'
-                    - 'MM-dd-yyyy'
+                choices: ['yyyy/MM/dd', 'dd/MM/yyyy', 'MM/dd/yyyy', 'yyyy-MM-dd', 'dd-MM-yyyy',
+                          'MM-dd-yyyy']
             log_uuid_address:
                 aliases: ['log-uuid-address']
                 type: str
                 description: Enable/disable insertion of address UUIDs to traffic logs.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             cloud_communication:
                 aliases: ['cloud-communication']
                 type: str
                 description: Enable/disable all cloud communication.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             lldp_reception:
                 aliases: ['lldp-reception']
                 type: str
                 description: Enable/disable Link Layer Discovery Protocol
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             two_factor_ftm_expiry:
                 aliases: ['two-factor-ftm-expiry']
                 type: int
@@ -962,44 +637,32 @@ options:
                 aliases: ['quic-udp-payload-size-shaping-per-cid']
                 type: str
                 description: Enable/disable UDP payload size shaping per connection ID
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             autorun_log_fsck:
                 aliases: ['autorun-log-fsck']
                 type: str
                 description: Enable/disable automatic log partition check after ungraceful shutdown.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             vpn_ems_sn_check:
                 aliases: ['vpn-ems-sn-check']
                 type: str
                 description: Enable/disable verification of EMS serial number in SSL-VPN connection.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             admin_ssh_password:
                 aliases: ['admin-ssh-password']
                 type: str
                 description: Enable/disable password authentication for SSH admin access.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             airplane_mode:
                 aliases: ['airplane-mode']
                 type: str
                 description: Enable/disable airplane mode.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             batch_cmdb:
                 aliases: ['batch-cmdb']
                 type: str
                 description: Enable/disable batch mode, allowing you to enter a series of CLI commands that will execute as a group once they are loaded.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             ip_src_port_range:
                 aliases: ['ip-src-port-range']
                 type: raw
@@ -1008,9 +671,7 @@ options:
                 aliases: ['strict-dirty-session-check']
                 type: str
                 description: Enable to check the session against the original policy when revalidating.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             user_device_store_max_devices:
                 aliases: ['user-device-store-max-devices']
                 type: int
@@ -1024,28 +685,17 @@ options:
                 type: list
                 elements: str
                 description: Internal port speed.
-                choices:
-                    - 'auto'
-                    - '10full'
-                    - '10half'
-                    - '100full'
-                    - '100half'
-                    - '1000full'
-                    - '1000auto'
+                choices: ['auto', '10full', '10half', '100full', '100half', '1000full', '1000auto']
             forticonverter_config_upload:
                 aliases: ['forticonverter-config-upload']
                 type: str
                 description: Enable/disable config upload to FortiConverter.
-                choices:
-                    - 'disable'
-                    - 'once'
+                choices: ['disable', 'once']
             ipsec_round_robin:
                 aliases: ['ipsec-round-robin']
                 type: str
                 description: Enable/disable round-robin redistribution to multiple CPUs for IPsec VPN traffic.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             wad_affinity:
                 aliases: ['wad-affinity']
                 type: str
@@ -1058,9 +708,7 @@ options:
                 aliases: ['wimax-4g-usb']
                 type: str
                 description: Enable/disable comparability with WiMAX 4G USB devices.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             miglog_affinity:
                 aliases: ['miglog-affinity']
                 type: str
@@ -1074,46 +722,32 @@ options:
                 type: list
                 elements: str
                 description: Select one or more SSH kex algorithms.
-                choices:
-                    - 'diffie-hellman-group1-sha1'
-                    - 'diffie-hellman-group14-sha1'
-                    - 'diffie-hellman-group-exchange-sha1'
-                    - 'diffie-hellman-group-exchange-sha256'
-                    - 'curve25519-sha256@libssh.org'
-                    - 'ecdh-sha2-nistp256'
-                    - 'ecdh-sha2-nistp384'
-                    - 'ecdh-sha2-nistp521'
-                    - 'diffie-hellman-group14-sha256'
-                    - 'diffie-hellman-group16-sha512'
-                    - 'diffie-hellman-group18-sha512'
+                choices: ['diffie-hellman-group1-sha1', 'diffie-hellman-group14-sha1',
+                          'diffie-hellman-group-exchange-sha1',
+                          'diffie-hellman-group-exchange-sha256', 'curve25519-sha256@libssh.org',
+                          'ecdh-sha2-nistp256', 'ecdh-sha2-nistp384', 'ecdh-sha2-nistp521',
+                          'diffie-hellman-group14-sha256', 'diffie-hellman-group16-sha512',
+                          'diffie-hellman-group18-sha512']
             auto_auth_extension_device:
                 aliases: ['auto-auth-extension-device']
                 type: str
                 description: Enable/disable automatic authorization of dedicated Fortinet extension devices.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             forticarrier_bypass:
                 aliases: ['forticarrier-bypass']
                 type: str
                 description: Forticarrier bypass.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             reset_sessionless_tcp:
                 aliases: ['reset-sessionless-tcp']
                 type: str
                 description: Action to perform if the FortiGate receives a TCP packet but cannot find a corresponding session in its session table.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             early_tcp_npu_session:
                 aliases: ['early-tcp-npu-session']
                 type: str
                 description: Enable/disable early TCP NPU session.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             http_unauthenticated_request_limit:
                 aliases: ['http-unauthenticated-request-limit']
                 type: int
@@ -1122,16 +756,12 @@ options:
                 aliases: ['gui-local-out']
                 type: str
                 description: Enable/disable Local-out traffic on the GUI.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             tcp_option:
                 aliases: ['tcp-option']
                 type: str
                 description: Enable SACK, timestamp and MSS TCP options.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             proxy_auth_timeout:
                 aliases: ['proxy-auth-timeout']
                 type: int
@@ -1140,16 +770,12 @@ options:
                 aliases: ['fortiextender-discovery-lockdown']
                 type: str
                 description: Enable/disable FortiExtender CAPWAP lockdown.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             lldp_transmission:
                 aliases: ['lldp-transmission']
                 type: str
                 description: Enable/disable Link Layer Discovery Protocol
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             split_port:
                 aliases: ['split-port']
                 type: raw
@@ -1158,24 +784,17 @@ options:
                 aliases: ['gui-certificates']
                 type: str
                 description: Enable/disable the System > Certificate GUI page, allowing you to add and configure certificates from the GUI.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             cfg_save:
                 aliases: ['cfg-save']
                 type: str
                 description: Configuration file save mode for CLI changes.
-                choices:
-                    - 'automatic'
-                    - 'manual'
-                    - 'revert'
+                choices: ['automatic', 'manual', 'revert']
             auth_keepalive:
                 aliases: ['auth-keepalive']
                 type: str
                 description: Enable to prevent user authentication sessions from timing out when idle.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             split_port_mode:
                 aliases: ['split-port-mode']
                 type: list
@@ -1189,29 +808,18 @@ options:
                         aliases: ['split-mode']
                         type: str
                         description: The configuration mode for the split port interface.
-                        choices:
-                            - 'disable'
-                            - '4x10G'
-                            - '4x25G'
-                            - '4x50G'
-                            - '8x50G'
-                            - '4x100G'
-                            - '2x200G'
-                            - '8x25G'
+                        choices: ['disable', '4x10G', '4x25G', '4x50G', '8x50G', '4x100G',
+                                  '2x200G', '8x25G']
             admin_forticloud_sso_login:
                 aliases: ['admin-forticloud-sso-login']
                 type: str
                 description: Enable/disable FortiCloud admin login via SSO.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             post_login_banner:
                 aliases: ['post-login-banner']
                 type: str
                 description: Enable/disable displaying the administrator access disclaimer message after an administrator successfully logs in.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             br_fdb_max_entry:
                 aliases: ['br-fdb-max-entry']
                 type: int
@@ -1224,16 +832,12 @@ options:
                 aliases: ['fortiextender-provision-on-authorization']
                 type: str
                 description: Enable/disable automatic provisioning of latest FortiExtender firmware on authorization.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             reboot_upon_config_restore:
                 aliases: ['reboot-upon-config-restore']
                 type: str
                 description: Enable/disable reboot of system upon restoring configuration.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             syslog_affinity:
                 aliases: ['syslog-affinity']
                 type: str
@@ -1250,17 +854,12 @@ options:
                 aliases: ['forticonverter-integration']
                 type: str
                 description: Enable/disable FortiConverter integration service.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             proxy_keep_alive_mode:
                 aliases: ['proxy-keep-alive-mode']
                 type: str
                 description: Control if users must re-authenticate after a session is closed, traffic has been idle, or from the point at which the use...
-                choices:
-                    - 'session'
-                    - 'traffic'
-                    - 're-authentication'
+                choices: ['session', 'traffic', 're-authentication']
             cmdbsvr_affinity:
                 aliases: ['cmdbsvr-affinity']
                 type: str
@@ -1277,16 +876,12 @@ options:
                 aliases: ['check-protocol-header']
                 type: str
                 description: Level of checking performed on protocol headers.
-                choices:
-                    - 'loose'
-                    - 'strict'
+                choices: ['loose', 'strict']
             av_failopen_session:
                 aliases: ['av-failopen-session']
                 type: str
                 description: When enabled and a proxy for a protocol runs out of room in its session table, that protocol goes into failopen mode and e...
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             ipsec_ha_seqjump_rate:
                 aliases: ['ipsec-ha-seqjump-rate']
                 type: int
@@ -1307,16 +902,12 @@ options:
                 aliases: ['ipv6-allow-multicast-probe']
                 type: str
                 description: Enable/disable IPv6 address probe through Multicast.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             virtual_switch_vlan:
                 aliases: ['virtual-switch-vlan']
                 type: str
                 description: Enable/disable virtual switch VLAN.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             admin_lockout_threshold:
                 aliases: ['admin-lockout-threshold']
                 type: int
@@ -1329,9 +920,7 @@ options:
                 aliases: ['wireless-controller']
                 type: str
                 description: Enable/disable the wireless controller feature to use the FortiGate unit to manage FortiAPs.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             bfd_affinity:
                 aliases: ['bfd-affinity']
                 type: str
@@ -1340,12 +929,7 @@ options:
                 aliases: ['ssd-trim-freq']
                 type: str
                 description: How often to run SSD Trim
-                choices:
-                    - 'daily'
-                    - 'weekly'
-                    - 'monthly'
-                    - 'hourly'
-                    - 'never'
+                choices: ['daily', 'weekly', 'monthly', 'hourly', 'never']
             two_factor_sms_expiry:
                 aliases: ['two-factor-sms-expiry']
                 type: int
@@ -1354,23 +938,17 @@ options:
                 aliases: ['traffic-priority']
                 type: str
                 description: Choose Type of Service
-                choices:
-                    - 'tos'
-                    - 'dscp'
+                choices: ['tos', 'dscp']
             proxy_and_explicit_proxy:
                 aliases: ['proxy-and-explicit-proxy']
                 type: str
                 description: Proxy and explicit proxy.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             sslvpn_web_mode:
                 aliases: ['sslvpn-web-mode']
                 type: str
                 description: Enable/disable SSL-VPN web mode.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             ssh_hostkey_password:
                 aliases: ['ssh-hostkey-password']
                 type: raw
@@ -1383,16 +961,12 @@ options:
                 aliases: ['ipv6-allow-anycast-probe']
                 type: str
                 description: Enable/disable IPv6 address probe through Anycast.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             honor_df:
                 aliases: ['honor-df']
                 type: str
                 description: Enable/disable honoring of Dont-Fragment
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             hyper_scale_vdom_num:
                 aliases: ['hyper-scale-vdom-num']
                 type: int
@@ -1405,10 +979,7 @@ options:
                 aliases: ['internal-switch-mode']
                 type: str
                 description: Internal switch mode.
-                choices:
-                    - 'switch'
-                    - 'interface'
-                    - 'hub'
+                choices: ['switch', 'interface', 'hub']
             cfg_revert_timeout:
                 aliases: ['cfg-revert-timeout']
                 type: int
@@ -1417,16 +988,12 @@ options:
                 aliases: ['admin-concurrent']
                 type: str
                 description: Enable/disable concurrent administrator logins.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             ipv6_allow_local_in_silent_drop:
                 aliases: ['ipv6-allow-local-in-silent-drop']
                 type: str
                 description: Enable/disable silent drop of IPv6 local-in traffic.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             tcp_halfopen_timer:
                 aliases: ['tcp-halfopen-timer']
                 type: int
@@ -1439,30 +1006,22 @@ options:
                 aliases: ['management-port-use-admin-sport']
                 type: str
                 description: Enable/disable use of the admin-sport setting for the management port.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             gui_forticare_registration_setup_warning:
                 aliases: ['gui-forticare-registration-setup-warning']
                 type: str
                 description: Enable/disable the FortiCare registration setup warning on the GUI.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             gui_replacement_message_groups:
                 aliases: ['gui-replacement-message-groups']
                 type: str
                 description: Enable/disable replacement message groups on the GUI.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             security_rating_run_on_schedule:
                 aliases: ['security-rating-run-on-schedule']
                 type: str
                 description: Enable/disable scheduled runs of Security Rating.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             admin_lockout_duration:
                 aliases: ['admin-lockout-duration']
                 type: int
@@ -1471,25 +1030,17 @@ options:
                 aliases: ['optimize-flow-mode']
                 type: str
                 description: Flow mode optimization option.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             private_data_encryption:
                 aliases: ['private-data-encryption']
                 type: str
                 description: Enable/disable private data encryption using an AES 128-bit key or passpharse.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             wireless_mode:
                 aliases: ['wireless-mode']
                 type: str
                 description: Wireless mode setting.
-                choices:
-                    - 'ac'
-                    - 'client'
-                    - 'wtp'
-                    - 'fwfap'
+                choices: ['ac', 'client', 'wtp', 'fwfap']
             alias:
                 type: str
                 description: Alias for your FortiGate unit.
@@ -1498,21 +1049,13 @@ options:
                 type: list
                 elements: str
                 description: Select one or more SSH hostkey algorithms.
-                choices:
-                    - 'ssh-rsa'
-                    - 'ecdsa-sha2-nistp521'
-                    - 'rsa-sha2-256'
-                    - 'rsa-sha2-512'
-                    - 'ssh-ed25519'
-                    - 'ecdsa-sha2-nistp384'
-                    - 'ecdsa-sha2-nistp256'
+                choices: ['ssh-rsa', 'ecdsa-sha2-nistp521', 'rsa-sha2-256', 'rsa-sha2-512',
+                          'ssh-ed25519', 'ecdsa-sha2-nistp384', 'ecdsa-sha2-nistp256']
             fortitoken_cloud:
                 aliases: ['fortitoken-cloud']
                 type: str
                 description: Enable/disable FortiToken Cloud service.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             av_affinity:
                 aliases: ['av-affinity']
                 type: str
@@ -1525,9 +1068,7 @@ options:
                 aliases: ['ipsec-asic-offload']
                 type: str
                 description: Enable/disable ASIC offloading
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             miglogd_children:
                 aliases: ['miglogd-children']
                 type: int
@@ -1541,24 +1082,13 @@ options:
                 type: list
                 elements: str
                 description: Select one or more SSH MAC algorithms.
-                choices:
-                    - 'hmac-md5'
-                    - 'hmac-md5-etm@openssh.com'
-                    - 'hmac-md5-96'
-                    - 'hmac-md5-96-etm@openssh.com'
-                    - 'hmac-sha1'
-                    - 'hmac-sha1-etm@openssh.com'
-                    - 'hmac-sha2-256'
-                    - 'hmac-sha2-256-etm@openssh.com'
-                    - 'hmac-sha2-512'
-                    - 'hmac-sha2-512-etm@openssh.com'
-                    - 'hmac-ripemd160'
-                    - 'hmac-ripemd160@openssh.com'
-                    - 'hmac-ripemd160-etm@openssh.com'
-                    - 'umac-64@openssh.com'
-                    - 'umac-128@openssh.com'
-                    - 'umac-64-etm@openssh.com'
-                    - 'umac-128-etm@openssh.com'
+                choices: ['hmac-md5', 'hmac-md5-etm@openssh.com', 'hmac-md5-96',
+                          'hmac-md5-96-etm@openssh.com', 'hmac-sha1', 'hmac-sha1-etm@openssh.com',
+                          'hmac-sha2-256', 'hmac-sha2-256-etm@openssh.com', 'hmac-sha2-512',
+                          'hmac-sha2-512-etm@openssh.com', 'hmac-ripemd160',
+                          'hmac-ripemd160@openssh.com', 'hmac-ripemd160-etm@openssh.com',
+                          'umac-64@openssh.com', 'umac-128@openssh.com',
+                          'umac-64-etm@openssh.com', 'umac-128-etm@openssh.com']
             url_filter_count:
                 aliases: ['url-filter-count']
                 type: int
@@ -1579,9 +1109,7 @@ options:
                 aliases: ['gui-fortigate-cloud-sandbox']
                 type: str
                 description: Enable/disable displaying FortiGate Cloud Sandbox on the GUI.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             auth_cert:
                 aliases: ['auth-cert']
                 type: raw
@@ -1589,25 +1117,17 @@ options:
             fortiextender:
                 type: str
                 description: Enable/disable FortiExtender.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             admin_reset_button:
                 aliases: ['admin-reset-button']
                 type: str
                 description: Press the reset button can reset to factory default.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             av_failopen:
                 aliases: ['av-failopen']
                 type: str
                 description: Set the action to take if the FortiGate is running low on memory or the proxy connection limit has been reached.
-                choices:
-                    - 'off'
-                    - 'pass'
-                    - 'one-shot'
-                    - 'idledrop'
+                choices: ['off', 'pass', 'one-shot', 'idledrop']
             user_device_store_max_users:
                 aliases: ['user-device-store-max-users']
                 type: int
@@ -1616,25 +1136,17 @@ options:
                 aliases: ['auth-session-limit']
                 type: str
                 description: Action to take when the number of allowed user authenticated sessions is reached.
-                choices:
-                    - 'block-new'
-                    - 'logout-inactive'
+                choices: ['block-new', 'logout-inactive']
             ipv6_allow_local_in_slient_drop:
                 aliases: ['ipv6-allow-local-in-slient-drop']
                 type: str
                 description: Enable/disable silent drop of IPv6 local-in traffic.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             quic_congestion_control_algo:
                 aliases: ['quic-congestion-control-algo']
                 type: str
                 description: QUIC congestion control algorithm
-                choices:
-                    - 'cubic'
-                    - 'bbr'
-                    - 'bbr2'
-                    - 'reno'
+                choices: ['cubic', 'bbr', 'bbr2', 'reno']
             auth_ike_saml_port:
                 aliases: ['auth-ike-saml-port']
                 type: int
@@ -1651,9 +1163,7 @@ options:
                 aliases: ['irq-time-accounting']
                 type: str
                 description: Configure CPU IRQ time accounting mode.
-                choices:
-                    - 'auto'
-                    - 'force'
+                choices: ['auto', 'force']
             remoteauthtimeout:
                 type: int
                 description: Number of seconds that the FortiGate waits for responses from remote RADIUS, LDAP, or TACACS+ authentication servers.
@@ -1662,45 +1172,24 @@ options:
                 type: list
                 elements: str
                 description: Select one or more cipher technologies that cannot be used in GUI HTTPS negotiations.
-                choices:
-                    - 'RSA'
-                    - 'DHE'
-                    - 'ECDHE'
-                    - 'DSS'
-                    - 'ECDSA'
-                    - 'AES'
-                    - 'AESGCM'
-                    - 'CAMELLIA'
-                    - '3DES'
-                    - 'SHA1'
-                    - 'SHA256'
-                    - 'SHA384'
-                    - 'STATIC'
-                    - 'CHACHA20'
-                    - 'ARIA'
-                    - 'AESCCM'
+                choices: ['RSA', 'DHE', 'ECDHE', 'DSS', 'ECDSA', 'AES', 'AESGCM', 'CAMELLIA',
+                          '3DES', 'SHA1', 'SHA256', 'SHA384', 'STATIC', 'CHACHA20', 'ARIA',
+                          'AESCCM']
             allow_traffic_redirect:
                 aliases: ['allow-traffic-redirect']
                 type: str
                 description: Disable to prevent traffic with same local ingress and egress interface from being forwarded without policy check.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             legacy_poe_device_support:
                 aliases: ['legacy-poe-device-support']
                 type: str
                 description: Enable/disable legacy POE device support.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             wad_restart_mode:
                 aliases: ['wad-restart-mode']
                 type: str
                 description: WAD worker restart mode
-                choices:
-                    - 'none'
-                    - 'time'
-                    - 'memory'
+                choices: ['none', 'time', 'memory']
             fds_statistics_period:
                 aliases: ['fds-statistics-period']
                 type: int
@@ -1709,9 +1198,7 @@ options:
                 aliases: ['admin-telnet']
                 type: str
                 description: Enable/disable TELNET service.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             ipv6_accept_dad:
                 aliases: ['ipv6-accept-dad']
                 type: int
@@ -1751,24 +1238,17 @@ options:
                 aliases: ['ipsec-hmac-offload']
                 type: str
                 description: Enable/disable offloading
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             traffic_priority_level:
                 aliases: ['traffic-priority-level']
                 type: str
                 description: Default system-wide level of priority for traffic prioritization.
-                choices:
-                    - 'high'
-                    - 'medium'
-                    - 'low'
+                choices: ['high', 'medium', 'low']
             ipsec_qat_offload:
                 aliases: ['ipsec-qat-offload']
                 type: str
                 description: Enable/disable QAT offloading
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             ssd_trim_min:
                 aliases: ['ssd-trim-min']
                 type: int
@@ -1777,16 +1257,12 @@ options:
                 aliases: ['gui-date-time-source']
                 type: str
                 description: Source from which the FortiGate GUI uses to display date and time entries.
-                choices:
-                    - 'system'
-                    - 'browser'
+                choices: ['system', 'browser']
             log_ssl_connection:
                 aliases: ['log-ssl-connection']
                 type: str
                 description: Enable/disable logging of SSL connection events.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             ndp_max_entry:
                 aliases: ['ndp-max-entry']
                 type: int
@@ -1795,10 +1271,7 @@ options:
                 aliases: ['vdom-mode']
                 type: str
                 description: Enable/disable support for multiple virtual domains
-                choices:
-                    - 'no-vdom'
-                    - 'multi-vdom'
-                    - 'split-vdom'
+                choices: ['no-vdom', 'multi-vdom', 'split-vdom']
             internet_service_download_list:
                 aliases: ['internet-service-download-list']
                 type: raw
@@ -1811,14 +1284,8 @@ options:
                 aliases: ['ssd-trim-weekday']
                 type: str
                 description: Day of week to run SSD Trim.
-                choices:
-                    - 'sunday'
-                    - 'monday'
-                    - 'tuesday'
-                    - 'wednesday'
-                    - 'thursday'
-                    - 'friday'
-                    - 'saturday'
+                choices: ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday',
+                          'saturday']
             two_factor_fac_expiry:
                 aliases: ['two-factor-fac-expiry']
                 type: int
@@ -1827,9 +1294,7 @@ options:
                 aliases: ['gui-rest-api-cache']
                 type: str
                 description: Enable/disable REST API result caching on FortiGate.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             admin_forticloud_sso_default_profile:
                 aliases: ['admin-forticloud-sso-default-profile']
                 type: raw
@@ -1838,9 +1303,7 @@ options:
                 aliases: ['proxy-auth-lifetime']
                 type: str
                 description: Enable/disable authenticated users lifetime control.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             device_idle_timeout:
                 aliases: ['device-idle-timeout']
                 type: int
@@ -1849,23 +1312,17 @@ options:
                 aliases: ['login-timestamp']
                 type: str
                 description: Enable/disable login time recording.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             speedtest_server:
                 aliases: ['speedtest-server']
                 type: str
                 description: Enable/disable speed test server.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             edit_vdom_prompt:
                 aliases: ['edit-vdom-prompt']
                 type: str
                 description: Enable/disable edit new VDOM prompt.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             gui_cdn_domain_override:
                 aliases: ['gui-cdn-domain-override']
                 type: str
@@ -1878,9 +1335,7 @@ options:
                 aliases: ['sslvpn-ems-sn-check']
                 type: str
                 description: Enable/disable verification of EMS serial number in SSL-VPN connection.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             user_server_cert:
                 aliases: ['user-server-cert']
                 type: raw
@@ -1889,37 +1344,26 @@ options:
                 aliases: ['gui-allow-default-hostname']
                 type: str
                 description: Enable/disable the factory default hostname warning on the GUI setup wizard.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             proxy_re_authentication_mode:
                 aliases: ['proxy-re-authentication-mode']
                 type: str
                 description: Control if users must re-authenticate after a session is closed, traffic has been idle, or from the point at which the use...
-                choices:
-                    - 'session'
-                    - 'traffic'
-                    - 'absolute'
+                choices: ['session', 'traffic', 'absolute']
             ipsec_soft_dec_async:
                 aliases: ['ipsec-soft-dec-async']
                 type: str
                 description: Enable/disable software decryption asynchronization
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             admin_maintainer:
                 aliases: ['admin-maintainer']
                 type: str
                 description: Enable/disable maintainer administrator login.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             dst:
                 type: str
                 description: Enable/disable daylight saving time.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             fec_port:
                 aliases: ['fec-port']
                 type: int
@@ -1928,23 +1372,17 @@ options:
                 aliases: ['ssh-kex-sha1']
                 type: str
                 description: Enable/disable SHA1 key exchange for SSH access.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             ssh_mac_weak:
                 aliases: ['ssh-mac-weak']
                 type: str
                 description: Enable/disable HMAC-SHA1 and UMAC-64-ETM for SSH access.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             sslvpn_cipher_hardware_acceleration:
                 aliases: ['sslvpn-cipher-hardware-acceleration']
                 type: str
                 description: Enable/disable SSL-VPN hardware acceleration.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             sys_file_check_interval:
                 aliases: ['sys-file-check-interval']
                 type: int
@@ -1953,86 +1391,62 @@ options:
                 aliases: ['ssh-hmac-md5']
                 type: str
                 description: Enable/disable HMAC-MD5 for SSH access.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             ssh_cbc_cipher:
                 aliases: ['ssh-cbc-cipher']
                 type: str
                 description: Enable/disable CBC cipher for SSH access.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             gui_fortiguard_resource_fetch:
                 aliases: ['gui-fortiguard-resource-fetch']
                 type: str
                 description: Enable/disable retrieving static GUI resources from FortiGuard.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             sslvpn_kxp_hardware_acceleration:
                 aliases: ['sslvpn-kxp-hardware-acceleration']
                 type: str
                 description: Enable/disable SSL-VPN KXP hardware acceleration.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             sslvpn_plugin_version_check:
                 aliases: ['sslvpn-plugin-version-check']
                 type: str
                 description: Enable/disable checking browsers plugin version by SSL-VPN.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             fortiipam_integration:
                 aliases: ['fortiipam-integration']
                 type: str
                 description: Enable/disable integration with the FortiIPAM cloud service.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             gui_firmware_upgrade_setup_warning:
                 aliases: ['gui-firmware-upgrade-setup-warning']
                 type: str
                 description: Gui firmware upgrade setup warning.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             log_uuid_policy:
                 aliases: ['log-uuid-policy']
                 type: str
                 description: Enable/disable insertion of policy UUIDs to traffic logs.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             per_user_bwl:
                 aliases: ['per-user-bwl']
                 type: str
                 description: Enable/disable per-user black/white list filter.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             gui_fortisandbox_cloud:
                 aliases: ['gui-fortisandbox-cloud']
                 type: str
                 description: Enable/disable displaying FortiSandbox Cloud on the GUI.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             fortitoken_cloud_service:
                 aliases: ['fortitoken-cloud-service']
                 type: str
                 description: Fortitoken cloud service.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             hw_switch_ether_filter:
                 aliases: ['hw-switch-ether-filter']
                 type: str
                 description: Enable/disable hardware filter for certain Ethernet packet types.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             virtual_server_count:
                 aliases: ['virtual-server-count']
                 type: int
@@ -2041,30 +1455,22 @@ options:
                 aliases: ['endpoint-control-fds-access']
                 type: str
                 description: Endpoint control fds access.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             proxy_cipher_hardware_acceleration:
                 aliases: ['proxy-cipher-hardware-acceleration']
                 type: str
                 description: Enable/disable using content processor
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             proxy_kxp_hardware_acceleration:
                 aliases: ['proxy-kxp-hardware-acceleration']
                 type: str
                 description: Enable/disable using the content processor to accelerate KXP traffic.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             virtual_server_hardware_acceleration:
                 aliases: ['virtual-server-hardware-acceleration']
                 type: str
                 description: Enable/disable virtual server hardware acceleration.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             user_history_password_threshold:
                 aliases: ['user-history-password-threshold']
                 type: int
@@ -2073,33 +1479,22 @@ options:
                 aliases: ['delay-tcp-npu-session']
                 type: str
                 description: Enable TCP NPU session delay to guarantee packet order of 3-way handshake.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             auth_session_auto_backup_interval:
                 aliases: ['auth-session-auto-backup-interval']
                 type: str
                 description: Configure automatic authentication session backup interval in minutes
-                choices:
-                    - '1min'
-                    - '5min'
-                    - '15min'
-                    - '30min'
-                    - '1hr'
+                choices: ['1min', '5min', '15min', '30min', '1hr']
             ip_conflict_detection:
                 aliases: ['ip-conflict-detection']
                 type: str
                 description: Enable/disable logging of IPv4 address conflict detection.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             gtpu_dynamic_source_port:
                 aliases: ['gtpu-dynamic-source-port']
                 type: str
                 description: Enable/disable GTP-U dynamic source port support.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             ip_fragment_timeout:
                 aliases: ['ip-fragment-timeout']
                 type: int
@@ -2120,9 +1515,7 @@ options:
                 aliases: ['auth-session-auto-backup']
                 type: str
                 description: Enable/disable automatic and periodic backup of authentication sessions
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             scim_https_port:
                 aliases: ['scim-https-port']
                 type: int
@@ -2135,16 +1528,12 @@ options:
                 aliases: ['rest-api-key-url-query']
                 type: str
                 description: Enable/disable support for passing REST API keys through URL query parameters.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             single_vdom_npuvlink:
                 aliases: ['single-vdom-npuvlink']
                 type: str
                 description: Enable/disable NPU VDOMs links for single VDOM.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             slbc_fragment_mem_thresholds:
                 aliases: ['slbc-fragment-mem-thresholds']
                 type: int
@@ -2153,16 +1542,12 @@ options:
                 aliases: ['upgrade-report']
                 type: str
                 description: Enable/disable the generation of an upgrade report when upgrading the firmware.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             application_bandwidth_tracking:
                 aliases: ['application-bandwidth-tracking']
                 type: str
                 description: Enable/disable application bandwidth tracking.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             fortitoken_cloud_region:
                 aliases: ['fortitoken-cloud-region']
                 type: str
@@ -2175,16 +1560,12 @@ options:
                 aliases: ['black-box']
                 type: str
                 description: Enable/disable the black box.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             tls_session_cache:
                 aliases: ['tls-session-cache']
                 type: str
                 description: Enable/disable TLS session cache.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             wad_p2s_max_body_size:
                 aliases: ['wad-p2s-max-body-size']
                 type: int
@@ -2193,9 +1574,7 @@ options:
                 aliases: ['telemetry-controller']
                 type: str
                 description: Enable/disable FortiTelemetry controller to manage FortiTelemetry agents.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             telemetry_data_port:
                 aliases: ['telemetry-data-port']
                 type: int
@@ -2216,9 +1595,7 @@ options:
                 aliases: ['username-case-sensitivity']
                 type: str
                 description: Username case sensitivity.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             proxy_auth_machine_timeout:
                 aliases: ['proxy-auth-machine-timeout']
                 type: int
@@ -2235,16 +1612,12 @@ options:
                 aliases: ['license-overlimit']
                 type: str
                 description: System behaviour when max licensed proxy user is reached.
-                choices:
-                    - 'block'
-                    - 'bypass'
+                choices: ['block', 'bypass']
             tcp_random_source_port:
                 aliases: ['tcp-random-source-port']
                 type: str
                 description: Tcp random source port.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             close_wait_timeout:
                 aliases: ['close-wait-timeout']
                 type: int
@@ -2253,9 +1626,7 @@ options:
                 aliases: ['img-cache-mode']
                 type: str
                 description: Img cache mode.
-                choices:
-                    - 'stop'
-                    - 'rolling'
+                choices: ['stop', 'rolling']
             max_session_per_user:
                 aliases: ['max-session-per-user']
                 type: int
@@ -2264,16 +1635,12 @@ options:
                 aliases: ['update-tls-finger-print']
                 type: str
                 description: Update tls finger print.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             kernel_panic_debug:
                 aliases: ['kernel-panic-debug']
                 type: str
                 description: Kernel panic debug.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             syn_recv_timeout:
                 aliases: ['syn-recv-timeout']
                 type: int
@@ -2290,9 +1657,7 @@ options:
                 aliases: ['v-tpm']
                 type: str
                 description: V tpm.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             time_wait_timeout:
                 aliases: ['time-wait-timeout']
                 type: int
@@ -2317,9 +1682,7 @@ options:
                 aliases: ['http-view']
                 type: str
                 description: Enable/disable logging and viewing of HTTP/S cache traffic.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             conntrack:
                 type: int
                 description: Max numbers of conntrack.
@@ -2327,16 +1690,12 @@ options:
                 aliases: ['kernel-panic-on-warn']
                 type: str
                 description: Kernel panic on warn.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             crwl_log:
                 aliases: ['crwl-log']
                 type: str
                 description: Enable/disable http transaction log of crawler.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             udp_timeout:
                 aliases: ['udp-timeout']
                 type: int
@@ -2345,23 +1704,17 @@ options:
                 aliases: ['geoip-full-db']
                 type: str
                 description: When enabled, the full geographic database will be loaded into the kernel which enables geographic information in traffic ...
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             fortiguard_audit_result_submission:
                 aliases: ['fortiguard-audit-result-submission']
                 type: str
                 description: Enable/disable the submission of security audit results to FortiGuard.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             ldap_server_algorithm:
                 aliases: ['ldap-server-algorithm']
                 type: str
                 description: LDAP server selection algorithm.
-                choices:
-                    - 'primary-secondary'
-                    - 'round-robin'
+                choices: ['primary-secondary', 'round-robin']
             router_affinity:
                 aliases: ['router-affinity']
                 type: str
@@ -2370,9 +1723,7 @@ options:
                 aliases: ['ipv6-snat-route-change']
                 type: str
                 description: Enable/disable the ability to change the IPv6 source NAT route.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             web_svc_auto_restart_time_threshold:
                 aliases: ['web-svc-auto-restart-time-threshold']
                 type: int
@@ -2385,9 +1736,7 @@ options:
                 aliases: ['web-svc-auto-restart']
                 type: str
                 description: Enable/disable periodic restarting of the web-svc daemon.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             log_daemon_cpu_threshold:
                 aliases: ['log-daemon-cpu-threshold']
                 type: int
@@ -2403,18 +1752,10 @@ EXAMPLES = '''
   hosts: fortimanagers
   connection: httpapi
   gather_facts: false
-  vars:
-    ansible_httpapi_use_ssl: true
-    ansible_httpapi_validate_certs: false
-    ansible_httpapi_port: 443
   tasks:
     - name: Configure global attributes.
       fortinet.fortimanager.fmgr_devprof_system_global:
-        # bypass_validation: false
         # workspace_locking_adom: <global or your adom name>
-        # workspace_locking_timeout: 300
-        # rc_succeeded: [0, -2, -3, ...]
-        # rc_failed: [-2, -3, ...]
         adom: <your own value>
         devprof: <your own value>
         devprof_system_global:
@@ -2434,95 +1775,14 @@ EXAMPLES = '''
           # gui_device_latitude: <string>
           # gui_device_longitude: <string>
           # hostname: <string>
-          # timezone:
-          #   - "00"
-          #   - "01"
-          #   - "02"
-          #   - "03"
-          #   - "04"
-          #   - "05"
-          #   - "06"
-          #   - "07"
-          #   - "08"
-          #   - "09"
-          #   - "10"
-          #   - "11"
-          #   - "12"
-          #   - "13"
-          #   - "14"
-          #   - "15"
-          #   - "16"
-          #   - "17"
-          #   - "18"
-          #   - "19"
-          #   - "20"
-          #   - "21"
-          #   - "22"
-          #   - "23"
-          #   - "24"
-          #   - "25"
-          #   - "26"
-          #   - "27"
-          #   - "28"
-          #   - "29"
-          #   - "30"
-          #   - "31"
-          #   - "32"
-          #   - "33"
-          #   - "34"
-          #   - "35"
-          #   - "36"
-          #   - "37"
-          #   - "38"
-          #   - "39"
-          #   - "40"
-          #   - "41"
-          #   - "42"
-          #   - "43"
-          #   - "44"
-          #   - "45"
-          #   - "46"
-          #   - "47"
-          #   - "48"
-          #   - "49"
-          #   - "50"
-          #   - "51"
-          #   - "52"
-          #   - "53"
-          #   - "54"
-          #   - "55"
-          #   - "56"
-          #   - "57"
-          #   - "58"
-          #   - "59"
-          #   - "60"
-          #   - "61"
-          #   - "62"
-          #   - "63"
-          #   - "64"
-          #   - "65"
-          #   - "66"
-          #   - "67"
-          #   - "68"
-          #   - "69"
-          #   - "70"
-          #   - "71"
-          #   - "72"
-          #   - "73"
-          #   - "74"
-          #   - "75"
-          #   - "76"
-          #   - "77"
-          #   - "78"
-          #   - "79"
-          #   - "80"
-          #   - "81"
-          #   - "82"
-          #   - "83"
-          #   - "84"
-          #   - "85"
-          #   - "86"
-          #   - "87"
+          # timezone: ["00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11",
+          #            "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23",
+          #            "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35",
+          #            "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47",
+          #            "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59",
+          #            "60", "61", "62", "63", "64", "65", "66", "67", "68", "69", "70", "71",
+          #            "72", "73", "74", "75", "76", "77", "78", "79", "80", "81", "82", "83",
+          #            "84", "85", "86", "87"]
           # check_reset_range: <value in [disable, strict]>
           # pmtu_discovery: <value in [disable, enable]>
           # gui_allow_incompatible_fabric_fgt: <value in [disable, enable]>
@@ -2550,13 +1810,8 @@ EXAMPLES = '''
           # wad_worker_count: <integer>
           # ssh_hostkey: <string>
           # wireless_controller_port: <integer>
-          # fgd_alert_subscription:
-          #   - "advisory"
-          #   - "latest-threat"
-          #   - "latest-virus"
-          #   - "latest-attack"
-          #   - "new-antivirus-db"
-          #   - "new-attack-db"
+          # fgd_alert_subscription: ["advisory", "latest-threat", "latest-virus", "latest-attack",
+          #                          "new-antivirus-db", "new-attack-db"]
           # forticontroller_proxy_port: <integer>
           # dh_params: <value in [1024, 1536, 2048, ...]>
           # memory_use_threshold_green: <integer>
@@ -2568,41 +1823,21 @@ EXAMPLES = '''
           # udp_idle_timer: <integer>
           # interface_subnet_usage: <value in [disable, enable]>
           # forticontroller_proxy: <value in [disable, enable]>
-          # ssh_enc_algo:
-          #   - "chacha20-poly1305@openssh.com"
-          #   - "aes128-ctr"
-          #   - "aes192-ctr"
-          #   - "aes256-ctr"
-          #   - "arcfour256"
-          #   - "arcfour128"
-          #   - "aes128-cbc"
-          #   - "3des-cbc"
-          #   - "blowfish-cbc"
-          #   - "cast128-cbc"
-          #   - "aes192-cbc"
-          #   - "aes256-cbc"
-          #   - "arcfour"
-          #   - "rijndael-cbc@lysator.liu.se"
-          #   - "aes128-gcm@openssh.com"
-          #   - "aes256-gcm@openssh.com"
+          # ssh_enc_algo: ["chacha20-poly1305@openssh.com", "aes128-ctr", "aes192-ctr",
+          #                "aes256-ctr", "arcfour256", "arcfour128", "aes128-cbc", "3des-cbc",
+          #                "blowfish-cbc", "cast128-cbc", "aes192-cbc", "aes256-cbc", "arcfour",
+          #                "rijndael-cbc@lysator.liu.se", "aes128-gcm@openssh.com",
+          #                "aes256-gcm@openssh.com"]
           # block_session_timer: <integer>
           # quic_pmtud: <value in [disable, enable]>
-          # admin_https_ssl_ciphersuites:
-          #   - "TLS-AES-128-GCM-SHA256"
-          #   - "TLS-AES-256-GCM-SHA384"
-          #   - "TLS-CHACHA20-POLY1305-SHA256"
-          #   - "TLS-AES-128-CCM-SHA256"
-          #   - "TLS-AES-128-CCM-8-SHA256"
+          # admin_https_ssl_ciphersuites: ["TLS-AES-128-GCM-SHA256", "TLS-AES-256-GCM-SHA384",
+          #                                "TLS-CHACHA20-POLY1305-SHA256",
+          #                                "TLS-AES-128-CCM-SHA256", "TLS-AES-128-CCM-8-SHA256"]
           # security_rating_result_submission: <value in [disable, enable]>
           # user_device_store_max_unified_mem: <integer>
           # management_port: <integer>
           # fortigslb_integration: <value in [disable, enable]>
-          # admin_https_ssl_versions:
-          #   - "tlsv1-0"
-          #   - "tlsv1-1"
-          #   - "tlsv1-2"
-          #   - "sslv3"
-          #   - "tlsv1-3"
+          # admin_https_ssl_versions: ["tlsv1-0", "tlsv1-1", "tlsv1-2", "sslv3", "tlsv1-3"]
           # cert_chain_max: <integer>
           # qsfp28_40g_port: <list or string>
           # strong_crypto: <value in [disable, enable]>
@@ -2675,14 +1910,8 @@ EXAMPLES = '''
           # strict_dirty_session_check: <value in [disable, enable]>
           # user_device_store_max_devices: <integer>
           # dp_udp_idle_timer: <integer>
-          # internal_switch_speed:
-          #   - "auto"
-          #   - "10full"
-          #   - "10half"
-          #   - "100full"
-          #   - "100half"
-          #   - "1000full"
-          #   - "1000auto"
+          # internal_switch_speed: ["auto", "10full", "10half", "100full", "100half", "1000full",
+          #                         "1000auto"]
           # forticonverter_config_upload: <value in [disable, once]>
           # ipsec_round_robin: <value in [disable, enable]>
           # wad_affinity: <string>
@@ -2690,18 +1919,12 @@ EXAMPLES = '''
           # wimax_4g_usb: <value in [disable, enable]>
           # miglog_affinity: <string>
           # faz_disk_buffer_size: <integer>
-          # ssh_kex_algo:
-          #   - "diffie-hellman-group1-sha1"
-          #   - "diffie-hellman-group14-sha1"
-          #   - "diffie-hellman-group-exchange-sha1"
-          #   - "diffie-hellman-group-exchange-sha256"
-          #   - "curve25519-sha256@libssh.org"
-          #   - "ecdh-sha2-nistp256"
-          #   - "ecdh-sha2-nistp384"
-          #   - "ecdh-sha2-nistp521"
-          #   - "diffie-hellman-group14-sha256"
-          #   - "diffie-hellman-group16-sha512"
-          #   - "diffie-hellman-group18-sha512"
+          # ssh_kex_algo: ["diffie-hellman-group1-sha1", "diffie-hellman-group14-sha1",
+          #                "diffie-hellman-group-exchange-sha1",
+          #                "diffie-hellman-group-exchange-sha256", "curve25519-sha256@libssh.org",
+          #                "ecdh-sha2-nistp256", "ecdh-sha2-nistp384", "ecdh-sha2-nistp521",
+          #                "diffie-hellman-group14-sha256", "diffie-hellman-group16-sha512",
+          #                "diffie-hellman-group18-sha512"]
           # auto_auth_extension_device: <value in [disable, enable]>
           # forticarrier_bypass: <value in [disable, enable]>
           # reset_sessionless_tcp: <value in [disable, enable]>
@@ -2771,38 +1994,22 @@ EXAMPLES = '''
           # private_data_encryption: <value in [disable, enable]>
           # wireless_mode: <value in [ac, client, wtp, ...]>
           # alias: <string>
-          # ssh_hostkey_algo:
-          #   - "ssh-rsa"
-          #   - "ecdsa-sha2-nistp521"
-          #   - "rsa-sha2-256"
-          #   - "rsa-sha2-512"
-          #   - "ssh-ed25519"
-          #   - "ecdsa-sha2-nistp384"
-          #   - "ecdsa-sha2-nistp256"
+          # ssh_hostkey_algo: ["ssh-rsa", "ecdsa-sha2-nistp521", "rsa-sha2-256", "rsa-sha2-512",
+          #                    "ssh-ed25519", "ecdsa-sha2-nistp384", "ecdsa-sha2-nistp256"]
           # fortitoken_cloud: <value in [disable, enable]>
           # av_affinity: <string>
           # proxy_worker_count: <integer>
           # ipsec_asic_offload: <value in [disable, enable]>
           # miglogd_children: <integer>
           # sslvpn_max_worker_count: <integer>
-          # ssh_mac_algo:
-          #   - "hmac-md5"
-          #   - "hmac-md5-etm@openssh.com"
-          #   - "hmac-md5-96"
-          #   - "hmac-md5-96-etm@openssh.com"
-          #   - "hmac-sha1"
-          #   - "hmac-sha1-etm@openssh.com"
-          #   - "hmac-sha2-256"
-          #   - "hmac-sha2-256-etm@openssh.com"
-          #   - "hmac-sha2-512"
-          #   - "hmac-sha2-512-etm@openssh.com"
-          #   - "hmac-ripemd160"
-          #   - "hmac-ripemd160@openssh.com"
-          #   - "hmac-ripemd160-etm@openssh.com"
-          #   - "umac-64@openssh.com"
-          #   - "umac-128@openssh.com"
-          #   - "umac-64-etm@openssh.com"
-          #   - "umac-128-etm@openssh.com"
+          # ssh_mac_algo: ["hmac-md5", "hmac-md5-etm@openssh.com", "hmac-md5-96",
+          #                "hmac-md5-96-etm@openssh.com", "hmac-sha1",
+          #                "hmac-sha1-etm@openssh.com", "hmac-sha2-256",
+          #                "hmac-sha2-256-etm@openssh.com", "hmac-sha2-512",
+          #                "hmac-sha2-512-etm@openssh.com", "hmac-ripemd160",
+          #                "hmac-ripemd160@openssh.com", "hmac-ripemd160-etm@openssh.com",
+          #                "umac-64@openssh.com", "umac-128@openssh.com",
+          #                "umac-64-etm@openssh.com", "umac-128-etm@openssh.com"]
           # url_filter_count: <integer>
           # wifi_certificate: <list or string>
           # radius_port: <integer>
@@ -2821,23 +2028,9 @@ EXAMPLES = '''
           # http_request_limit: <integer>
           # irq_time_accounting: <value in [auto, force]>
           # remoteauthtimeout: <integer>
-          # admin_https_ssl_banned_ciphers:
-          #   - "RSA"
-          #   - "DHE"
-          #   - "ECDHE"
-          #   - "DSS"
-          #   - "ECDSA"
-          #   - "AES"
-          #   - "AESGCM"
-          #   - "CAMELLIA"
-          #   - "3DES"
-          #   - "SHA1"
-          #   - "SHA256"
-          #   - "SHA384"
-          #   - "STATIC"
-          #   - "CHACHA20"
-          #   - "ARIA"
-          #   - "AESCCM"
+          # admin_https_ssl_banned_ciphers: ["RSA", "DHE", "ECDHE", "DSS", "ECDSA", "AES",
+          #                                  "AESGCM", "CAMELLIA", "3DES", "SHA1", "SHA256",
+          #                                  "SHA384", "STATIC", "CHACHA20", "ARIA", "AESCCM"]
           # allow_traffic_redirect: <value in [disable, enable]>
           # legacy_poe_device_support: <value in [disable, enable]>
           # wad_restart_mode: <value in [none, time, memory]>
@@ -3015,14 +2208,11 @@ def main():
     urls_list = [
         '/pm/config/adom/{adom}/devprof/{devprof}/system/global'
     ]
-    url_params = ['adom', 'devprof']
-    module_primary_key = None
     module_arg_spec = {
         'adom': {'required': True, 'type': 'str'},
         'devprof': {'required': True, 'type': 'str'},
         'devprof_system_global': {
-            'type': 'dict',
-            'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '']],
+            'type': 'dict', 'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '']],
             'options': {
                 'admin-https-redirect': {
                     'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '']],
@@ -3559,19 +2749,15 @@ def main():
 
     module_option_spec = get_module_arg_spec('partial crud')
     module_arg_spec.update(module_option_spec)
-    params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'devprof_system_global'),
                            supports_check_mode=True)
-
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list, module_primary_key, url_params,
-                       module, connection, top_level_schema_name='data')
-    fmgr.validate_parameters(params_validation_blob)
+    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list,
+                       None, 'data', module, connection)
     fmgr.process_partial_crud()
-
     module.exit_json(meta=module.params)
 
 

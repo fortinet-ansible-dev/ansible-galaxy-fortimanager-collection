@@ -13,75 +13,14 @@ DOCUMENTATION = '''
 ---
 module: fmgr_switchcontroller_managedswitch_ports
 short_description: Managed-switch port list.
-description:
-    - This module is able to configure a FortiManager device.
-    - Examples include all parameters and values which need to be adjusted to data sources before usage.
 version_added: "2.0.0"
-author:
-    - Xinwei Du (@dux-fortinet)
-    - Xing Li (@lix-fortinet)
-    - Jie Xue (@JieX19)
-    - Link Zheng (@chillancezen)
-    - Frank Shen (@fshen01)
-    - Hongbin Lu (@fgtdev-hblu)
-notes:
-    - Starting in version 2.4.0, all input arguments are named using the underscore naming convention (snake_case).
-      Please change the arguments such as "var-name" to "var_name".
-      Old argument names are still available yet you will receive deprecation warnings.
-      You can ignore this warning by setting deprecation_warnings=False in ansible.cfg.
-    - Running in workspace locking mode is supported in this FortiManager module, the top
-      level parameters workspace_locking_adom and workspace_locking_timeout help do the work.
-    - To create or update an object, use state present directive.
-    - To delete an object, use state absent directive.
-    - Normally, running one module can fail when a non-zero rc is returned. you can also override
-      the conditions to fail or succeed with parameters rc_failed and rc_succeeded
+extends_documentation_fragment:
+    - fortinet.fortimanager.general
+    - fortinet.fortimanager.general.full_crud
 options:
-    access_token:
-        description: The token to access FortiManager without using username and password.
-        type: str
-    bypass_validation:
-        description: Only set to True when module schema diffs with FortiManager API structure, module continues to execute without validating parameters.
-        type: bool
-        default: false
-    enable_log:
-        description: Enable/Disable logging for task.
-        type: bool
-        default: false
-    forticloud_access_token:
-        description: Authenticate Ansible client with forticloud API access token.
-        type: str
-    proposed_method:
-        description: The overridden method for the underlying Json RPC request.
-        type: str
-        choices:
-          - update
-          - set
-          - add
-    rc_succeeded:
-        description: The rc codes list with which the conditions to succeed will be overriden.
-        type: list
-        elements: int
-    rc_failed:
-        description: The rc codes list with which the conditions to fail will be overriden.
-        type: list
-        elements: int
-    state:
-        description: The directive to create, update or delete an object.
-        type: str
-        required: true
-        choices:
-          - present
-          - absent
     revision_note:
         description: The change note that can be specified when an object is created or updated.
         type: str
-    workspace_locking_adom:
-        description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
-        type: str
-    workspace_locking_timeout:
-        description: The maximum time in seconds to wait for other user to release the workspace lock.
-        type: int
-        default: 300
     adom:
         description: The parameter (adom) in requested url.
         type: str
@@ -105,22 +44,16 @@ options:
                 aliases: ['allowed-vlans-all']
                 type: str
                 description: Enable/disable all defined vlans on this port.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             arp_inspection_trust:
                 aliases: ['arp-inspection-trust']
                 type: str
                 description: Trusted or untrusted dynamic ARP inspection.
-                choices:
-                    - 'untrusted'
-                    - 'trusted'
+                choices: ['untrusted', 'trusted']
             bundle:
                 type: str
                 description: Enable/disable Link Aggregation Group
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             description:
                 type: str
                 description: Description for port.
@@ -128,59 +61,42 @@ options:
                 aliases: ['dhcp-snoop-option82-trust']
                 type: str
                 description: Enable/disable allowance of DHCP with option-82 on untrusted interface.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             dhcp_snooping:
                 aliases: ['dhcp-snooping']
                 type: str
                 description: Trusted or untrusted DHCP-snooping interface.
-                choices:
-                    - 'trusted'
-                    - 'untrusted'
+                choices: ['trusted', 'untrusted']
             discard_mode:
                 aliases: ['discard-mode']
                 type: str
                 description: Configure discard mode for port.
-                choices:
-                    - 'none'
-                    - 'all-untagged'
-                    - 'all-tagged'
+                choices: ['none', 'all-untagged', 'all-tagged']
             edge_port:
                 aliases: ['edge-port']
                 type: str
                 description: Enable/disable this interface as an edge port, bridging connections between workstations and/or computers.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             igmp_snooping:
                 aliases: ['igmp-snooping']
                 type: str
                 description: Set IGMP snooping mode for the physical port interface.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             igmps_flood_reports:
                 aliases: ['igmps-flood-reports']
                 type: str
                 description: Enable/disable flooding of IGMP reports to this interface when igmp-snooping enabled.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             igmps_flood_traffic:
                 aliases: ['igmps-flood-traffic']
                 type: str
                 description: Enable/disable flooding of IGMP snooping traffic to this interface.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             lacp_speed:
                 aliases: ['lacp-speed']
                 type: str
                 description: End Link Aggregation Control Protocol
-                choices:
-                    - 'slow'
-                    - 'fast'
+                choices: ['slow', 'fast']
             learning_limit:
                 aliases: ['learning-limit']
                 type: int
@@ -193,18 +109,12 @@ options:
                 aliases: ['lldp-status']
                 type: str
                 description: LLDP transmit and receive status.
-                choices:
-                    - 'disable'
-                    - 'rx-only'
-                    - 'tx-only'
-                    - 'tx-rx'
+                choices: ['disable', 'rx-only', 'tx-only', 'tx-rx']
             loop_guard:
                 aliases: ['loop-guard']
                 type: str
                 description: Enable/disable loop-guard on this interface, an STP optimization used to prevent network loops.
-                choices:
-                    - 'disabled'
-                    - 'enabled'
+                choices: ['disabled', 'enabled']
             loop_guard_timeout:
                 aliases: ['loop-guard-timeout']
                 type: int
@@ -216,16 +126,12 @@ options:
             mclag:
                 type: str
                 description: Enable/disable multi-chassis link aggregation
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             member_withdrawal_behavior:
                 aliases: ['member-withdrawal-behavior']
                 type: str
                 description: Port behavior after it withdraws because of loss of control packets.
-                choices:
-                    - 'forward'
-                    - 'block'
+                choices: ['forward', 'block']
             members:
                 type: raw
                 description: (list) Aggregated LAG bundle interfaces.
@@ -236,24 +142,17 @@ options:
             mode:
                 type: str
                 description: LACP mode
-                choices:
-                    - 'static'
-                    - 'lacp-passive'
-                    - 'lacp-active'
+                choices: ['static', 'lacp-passive', 'lacp-active']
             poe_pre_standard_detection:
                 aliases: ['poe-pre-standard-detection']
                 type: str
                 description: Enable/disable PoE pre-standard detection.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             poe_status:
                 aliases: ['poe-status']
                 type: str
                 description: Enable/disable PoE status.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             port_name:
                 aliases: ['port-name']
                 type: str
@@ -271,13 +170,7 @@ options:
                 aliases: ['port-selection-criteria']
                 type: str
                 description: Algorithm for aggregate port selection.
-                choices:
-                    - 'src-mac'
-                    - 'dst-mac'
-                    - 'src-dst-mac'
-                    - 'src-ip'
-                    - 'dst-ip'
-                    - 'src-dst-ip'
+                choices: ['src-mac', 'dst-mac', 'src-dst-mac', 'src-ip', 'dst-ip', 'src-dst-ip']
             qos_policy:
                 aliases: ['qos-policy']
                 type: str
@@ -286,10 +179,7 @@ options:
                 aliases: ['sample-direction']
                 type: str
                 description: SFlow sample direction.
-                choices:
-                    - 'rx'
-                    - 'tx'
-                    - 'both'
+                choices: ['rx', 'tx', 'both']
             sflow_counter_interval:
                 aliases: ['sflow-counter-interval']
                 type: int
@@ -302,16 +192,12 @@ options:
                 aliases: ['sflow-sampler']
                 type: str
                 description: Enable/disable sFlow protocol on this interface.
-                choices:
-                    - 'disabled'
-                    - 'enabled'
+                choices: ['disabled', 'enabled']
             stp_bpdu_guard:
                 aliases: ['stp-bpdu-guard']
                 type: str
                 description: Enable/disable STP BPDU guard on this interface.
-                choices:
-                    - 'disabled'
-                    - 'enabled'
+                choices: ['disabled', 'enabled']
             stp_bpdu_guard_timeout:
                 aliases: ['stp-bpdu-guard-timeout']
                 type: int
@@ -320,22 +206,16 @@ options:
                 aliases: ['stp-root-guard']
                 type: str
                 description: Enable/disable STP root guard on this interface.
-                choices:
-                    - 'disabled'
-                    - 'enabled'
+                choices: ['disabled', 'enabled']
             stp_state:
                 aliases: ['stp-state']
                 type: str
                 description: Enable/disable Spanning Tree Protocol
-                choices:
-                    - 'disabled'
-                    - 'enabled'
+                choices: ['disabled', 'enabled']
             type:
                 type: str
                 description: Interface type
-                choices:
-                    - 'physical'
-                    - 'trunk'
+                choices: ['physical', 'trunk']
             untagged_vlans:
                 aliases: ['untagged-vlans']
                 type: raw
@@ -359,16 +239,12 @@ options:
                 aliases: ['packet-sampler']
                 type: str
                 description: Enable/disable packet sampling on this interface.
-                choices:
-                    - 'disabled'
-                    - 'enabled'
+                choices: ['disabled', 'enabled']
             sticky_mac:
                 aliases: ['sticky-mac']
                 type: str
                 description: Enable or disable sticky-mac on the interface.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             storm_control_policy:
                 aliases: ['storm-control-policy']
                 type: str
@@ -377,9 +253,7 @@ options:
                 aliases: ['dot1x-enable']
                 type: str
                 description: Dot1x enable.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             max_miss_heartbeats:
                 aliases: ['max-miss-heartbeats']
                 type: int
@@ -388,18 +262,12 @@ options:
                 aliases: ['access-mode']
                 type: str
                 description: Access mode of the port.
-                choices:
-                    - 'normal'
-                    - 'nac'
-                    - 'dynamic'
-                    - 'static'
+                choices: ['normal', 'nac', 'dynamic', 'static']
             ip_source_guard:
                 aliases: ['ip-source-guard']
                 type: str
                 description: Enable/disable IP source guard.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             mclag_icl_port:
                 aliases: ['mclag-icl-port']
                 type: int
@@ -412,25 +280,17 @@ options:
                 aliases: ['aggregator-mode']
                 type: str
                 description: LACP member select mode.
-                choices:
-                    - 'bandwidth'
-                    - 'count'
+                choices: ['bandwidth', 'count']
             rpvst_port:
                 aliases: ['rpvst-port']
                 type: str
                 description: Enable/disable inter-operability with rapid PVST on this interface.
-                choices:
-                    - 'disabled'
-                    - 'enabled'
+                choices: ['disabled', 'enabled']
             flow_control:
                 aliases: ['flow-control']
                 type: str
                 description: Flow control direction.
-                choices:
-                    - 'disable'
-                    - 'tx'
-                    - 'rx'
-                    - 'both'
+                choices: ['disable', 'tx', 'rx', 'both']
             media_type:
                 aliases: ['media-type']
                 type: str
@@ -443,10 +303,7 @@ options:
                 aliases: ['pause-meter-resume']
                 type: str
                 description: Resume threshold for resuming traffic on ingress port.
-                choices:
-                    - '25%'
-                    - '50%'
-                    - '75%'
+                choices: ['25%', '50%', '75%']
             trunk_member:
                 aliases: ['trunk-member']
                 type: int
@@ -459,11 +316,7 @@ options:
                 aliases: ['fec-state']
                 type: str
                 description: State of forward error correction.
-                choices:
-                    - 'disabled'
-                    - 'cl74'
-                    - 'cl91'
-                    - 'detect-by-module'
+                choices: ['disabled', 'cl74', 'cl91', 'detect-by-module']
             matched_dpp_intf_tags:
                 aliases: ['matched-dpp-intf-tags']
                 type: str
@@ -479,9 +332,7 @@ options:
             status:
                 type: str
                 description: Switch port admin status
-                choices:
-                    - 'down'
-                    - 'up'
+                choices: ['down', 'up']
             dsl_profile:
                 aliases: ['dsl-profile']
                 type: str
@@ -501,9 +352,7 @@ options:
             flapguard:
                 type: str
                 description: Enable/disable flap guard.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             interface_tags:
                 aliases: ['interface-tags']
                 type: raw
@@ -520,23 +369,17 @@ options:
                 aliases: ['igmp-snooping-flood-reports']
                 type: str
                 description: Enable/disable flooding of IGMP reports to this interface when igmp-snooping enabled.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             mcast_snooping_flood_traffic:
                 aliases: ['mcast-snooping-flood-traffic']
                 type: str
                 description: Enable/disable flooding of IGMP snooping traffic to this interface.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             link_status:
                 aliases: ['link-status']
                 type: str
                 description: Link status.
-                choices:
-                    - 'down'
-                    - 'up'
+                choices: ['down', 'up']
             poe_mode_bt_cabable:
                 aliases: ['poe-mode-bt-cabable']
                 type: int
@@ -545,27 +388,17 @@ options:
                 aliases: ['poe-port-mode']
                 type: str
                 description: Configure PoE port mode.
-                choices:
-                    - 'ieee802-3af'
-                    - 'ieee802-3at'
-                    - 'ieee802-3bt'
+                choices: ['ieee802-3af', 'ieee802-3at', 'ieee802-3bt']
             poe_port_power:
                 aliases: ['poe-port-power']
                 type: str
                 description: Configure PoE port power.
-                choices:
-                    - 'normal'
-                    - 'perpetual'
-                    - 'perpetual-fast'
+                choices: ['normal', 'perpetual', 'perpetual-fast']
             poe_port_priority:
                 aliases: ['poe-port-priority']
                 type: str
                 description: Configure PoE port priority.
-                choices:
-                    - 'critical-priority'
-                    - 'high-priority'
-                    - 'low-priority'
-                    - 'medium-priority'
+                choices: ['critical-priority', 'high-priority', 'low-priority', 'medium-priority']
             acl_group:
                 aliases: ['acl-group']
                 type: raw
@@ -608,9 +441,7 @@ options:
                 aliases: ['ptp-status']
                 type: str
                 description: Enable/disable PTP policy on this FortiSwitch port.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             restricted_auth_port:
                 aliases: ['restricted-auth-port']
                 type: int
@@ -619,9 +450,7 @@ options:
                 aliases: ['allow-arp-monitor']
                 type: str
                 description: Enable/Disable allow ARP monitor.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             export_to:
                 aliases: ['export-to']
                 type: raw
@@ -684,44 +513,13 @@ options:
             speed:
                 type: str
                 description: Switch port speed; default and available settings depend on hardware.
-                choices:
-                    - 'auto'
-                    - '10full'
-                    - '10half'
-                    - '100full'
-                    - '100half'
-                    - '1000full'
-                    - '10000full'
-                    - '1000auto'
-                    - '40000full'
-                    - '1000fiber'
-                    - '10000'
-                    - '40000'
-                    - 'auto-module'
-                    - '100FX-half'
-                    - '100FX-full'
-                    - '100000full'
-                    - '2500full'
-                    - '25000full'
-                    - '50000full'
-                    - '40000auto'
-                    - '10000cr'
-                    - '10000sr'
-                    - '100000sr4'
-                    - '100000cr4'
-                    - '25000cr4'
-                    - '25000sr4'
-                    - '5000full'
-                    - '2500auto'
-                    - '5000auto'
-                    - '1000full-fiber'
-                    - '40000sr4'
-                    - '40000cr4'
-                    - '25000cr'
-                    - '25000sr'
-                    - '50000cr'
-                    - '50000sr'
-                    - 'sgmii-auto'
+                choices: ['auto', '10full', '10half', '100full', '100half', '1000full',
+                          '10000full', '1000auto', '40000full', '1000fiber', '10000', '40000',
+                          'auto-module', '100FX-half', '100FX-full', '100000full', '2500full',
+                          '25000full', '50000full', '40000auto', '10000cr', '10000sr',
+                          '100000sr4', '100000cr4', '25000cr4', '25000sr4', '5000full',
+                          '2500auto', '5000auto', '1000full-fiber', '40000sr4', '40000cr4',
+                          '25000cr', '25000sr', '50000cr', '50000sr', 'sgmii-auto']
             speed_mask:
                 aliases: ['speed-mask']
                 type: int
@@ -746,9 +544,7 @@ options:
                 aliases: ['log-mac-event']
                 type: str
                 description: Enable/disable logging for dynamic MAC address events.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             pd_capable:
                 aliases: ['pd-capable']
                 type: int
@@ -763,18 +559,10 @@ EXAMPLES = '''
   hosts: fortimanagers
   connection: httpapi
   gather_facts: false
-  vars:
-    ansible_httpapi_use_ssl: true
-    ansible_httpapi_validate_certs: false
-    ansible_httpapi_port: 443
   tasks:
     - name: Managed-switch port list.
       fortinet.fortimanager.fmgr_switchcontroller_managedswitch_ports:
-        # bypass_validation: false
         # workspace_locking_adom: <global or your adom name>
-        # workspace_locking_timeout: 300
-        # rc_succeeded: [0, -2, -3, ...]
-        # rc_failed: [-2, -3, ...]
         adom: <your own value>
         managed_switch: <your own value>
         state: present # <value in [present, absent]>
@@ -949,16 +737,13 @@ def main():
         '/pm/config/adom/{adom}/obj/switch-controller/managed-switch/{managed-switch}/ports',
         '/pm/config/global/obj/switch-controller/managed-switch/{managed-switch}/ports'
     ]
-    url_params = ['adom', 'managed-switch']
-    module_primary_key = 'port-name'
     module_arg_spec = {
         'adom': {'required': True, 'type': 'str'},
         'managed-switch': {'type': 'str', 'api_name': 'managed_switch'},
         'managed_switch': {'type': 'str'},
         'revision_note': {'type': 'str'},
         'switchcontroller_managedswitch_ports': {
-            'type': 'dict',
-            'v_range': [['6.0.0', '']],
+            'type': 'dict', 'v_range': [['6.0.0', '']],
             'options': {
                 'allowed-vlans': {'type': 'raw'},
                 'allowed-vlans-all': {'choices': ['disable', 'enable'], 'type': 'str'},
@@ -1103,19 +888,15 @@ def main():
 
     module_option_spec = get_module_arg_spec('full crud')
     module_arg_spec.update(module_option_spec)
-    params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'switchcontroller_managedswitch_ports'),
                            supports_check_mode=True)
-
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
-                       module, connection, top_level_schema_name='data')
-    fmgr.validate_parameters(params_validation_blob)
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list,
+                       'port-name', 'data', module, connection)
     fmgr.process_crud()
-
     module.exit_json(meta=module.params)
 
 

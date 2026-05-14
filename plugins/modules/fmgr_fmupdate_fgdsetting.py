@@ -13,63 +13,11 @@ DOCUMENTATION = '''
 ---
 module: fmgr_fmupdate_fgdsetting
 short_description: Cli fmupdate fgd setting
-description:
-    - This module is able to configure a FortiManager device.
-    - Examples include all parameters and values which need to be adjusted to data sources before usage.
 version_added: "2.10.0"
-author:
-    - Xinwei Du (@dux-fortinet)
-    - Xing Li (@lix-fortinet)
-    - Jie Xue (@JieX19)
-    - Link Zheng (@chillancezen)
-    - Frank Shen (@fshen01)
-    - Hongbin Lu (@fgtdev-hblu)
-notes:
-    - Starting in version 2.4.0, all input arguments are named using the underscore naming convention (snake_case).
-      Please change the arguments such as "var-name" to "var_name".
-      Old argument names are still available yet you will receive deprecation warnings.
-      You can ignore this warning by setting deprecation_warnings=False in ansible.cfg.
-    - Running in workspace locking mode is supported in this FortiManager module, the top
-      level parameters workspace_locking_adom and workspace_locking_timeout help do the work.
-    - Normally, running one module can fail when a non-zero rc is returned. you can also override
-      the conditions to fail or succeed with parameters rc_failed and rc_succeeded
+extends_documentation_fragment:
+    - fortinet.fortimanager.general
+    - fortinet.fortimanager.general.partial_crud
 options:
-    access_token:
-        description: The token to access FortiManager without using username and password.
-        type: str
-    bypass_validation:
-        description: Only set to True when module schema diffs with FortiManager API structure, module continues to execute without validating parameters.
-        type: bool
-        default: false
-    enable_log:
-        description: Enable/Disable logging for task.
-        type: bool
-        default: false
-    forticloud_access_token:
-        description: Authenticate Ansible client with forticloud API access token.
-        type: str
-    proposed_method:
-        description: The overridden method for the underlying Json RPC request.
-        type: str
-        choices:
-          - update
-          - set
-          - add
-    rc_succeeded:
-        description: The rc codes list with which the conditions to succeed will be overriden.
-        type: list
-        elements: int
-    rc_failed:
-        description: The rc codes list with which the conditions to fail will be overriden.
-        type: list
-        elements: int
-    workspace_locking_adom:
-        description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
-        type: str
-    workspace_locking_timeout:
-        description: The maximum time in seconds to wait for other user to release the workspace lock.
-        type: int
-        default: 300
     fmupdate_fgdsetting:
         description: The top level parameters set.
         required: false
@@ -83,17 +31,12 @@ options:
                 aliases: ['as-log']
                 type: str
                 description: As log.
-                choices:
-                    - 'disable'
-                    - 'nospam'
-                    - 'all'
+                choices: ['disable', 'nospam', 'all']
             as_preload:
                 aliases: ['as-preload']
                 type: str
                 description: As preload.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             av_cache:
                 aliases: ['av-cache']
                 type: int
@@ -102,17 +45,12 @@ options:
                 aliases: ['av-log']
                 type: str
                 description: Av log.
-                choices:
-                    - 'disable'
-                    - 'novirus'
-                    - 'all'
+                choices: ['disable', 'novirus', 'all']
             av_preload:
                 aliases: ['av-preload']
                 type: str
                 description: Av preload.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             av2_cache:
                 aliases: ['av2-cache']
                 type: int
@@ -121,24 +59,17 @@ options:
                 aliases: ['av2-log']
                 type: str
                 description: Av2 log.
-                choices:
-                    - 'disable'
-                    - 'noav2'
-                    - 'all'
+                choices: ['disable', 'noav2', 'all']
             av2_preload:
                 aliases: ['av2-preload']
                 type: str
                 description: Av2 preload.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             eventlog_query:
                 aliases: ['eventlog-query']
                 type: str
                 description: Eventlog query.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             fgd_pull_interval:
                 aliases: ['fgd-pull-interval']
                 type: int
@@ -151,17 +82,12 @@ options:
                 aliases: ['fq-log']
                 type: str
                 description: Fq log.
-                choices:
-                    - 'disable'
-                    - 'nofilequery'
-                    - 'all'
+                choices: ['disable', 'nofilequery', 'all']
             fq_preload:
                 aliases: ['fq-preload']
                 type: str
                 description: Fq preload.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             iot_cache:
                 aliases: ['iot-cache']
                 type: int
@@ -170,38 +96,23 @@ options:
                 aliases: ['iot-log']
                 type: str
                 description: Iot log.
-                choices:
-                    - 'disable'
-                    - 'noiot'
-                    - 'all'
+                choices: ['disable', 'noiot', 'all']
             iot_preload:
                 aliases: ['iot-preload']
                 type: str
                 description: Iot preload.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             iotv_preload:
                 aliases: ['iotv-preload']
                 type: str
                 description: Iotv preload.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             linkd_log:
                 aliases: ['linkd-log']
                 type: str
                 description: Linkd log.
-                choices:
-                    - 'emergency'
-                    - 'alert'
-                    - 'critical'
-                    - 'error'
-                    - 'warn'
-                    - 'notice'
-                    - 'info'
-                    - 'debug'
-                    - 'disable'
+                choices: ['emergency', 'alert', 'critical', 'error', 'warn', 'notice', 'info',
+                          'debug', 'disable']
             max_client_worker:
                 aliases: ['max-client-worker']
                 type: int
@@ -272,32 +183,17 @@ options:
                                 aliases: ['service-type']
                                 type: str
                                 description: Service type.
-                                choices:
-                                    - 'fgd'
-                                    - 'fsa'
-                                    - 'fgfq'
-                                    - 'geoip'
-                                    - 'iot-collect'
+                                choices: ['fgd', 'fsa', 'fgfq', 'geoip', 'iot-collect']
                     status:
                         type: str
                         description: Status.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
             stat_log:
                 aliases: ['stat-log']
                 type: str
                 description: Stat log.
-                choices:
-                    - 'emergency'
-                    - 'alert'
-                    - 'critical'
-                    - 'error'
-                    - 'warn'
-                    - 'notice'
-                    - 'info'
-                    - 'debug'
-                    - 'disable'
+                choices: ['emergency', 'alert', 'critical', 'error', 'warn', 'notice', 'info',
+                          'debug', 'disable']
             stat_log_interval:
                 aliases: ['stat-log-interval']
                 type: int
@@ -314,9 +210,7 @@ options:
                 aliases: ['update-log']
                 type: str
                 description: Update log.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             wf_cache:
                 aliases: ['wf-cache']
                 type: int
@@ -333,17 +227,12 @@ options:
                 aliases: ['wf-log']
                 type: str
                 description: Wf log.
-                choices:
-                    - 'disable'
-                    - 'nourl'
-                    - 'all'
+                choices: ['disable', 'nourl', 'all']
             wf_preload:
                 aliases: ['wf-preload']
                 type: str
                 description: Wf preload.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -351,18 +240,10 @@ EXAMPLES = '''
   hosts: fortimanagers
   connection: httpapi
   gather_facts: false
-  vars:
-    ansible_httpapi_use_ssl: true
-    ansible_httpapi_validate_certs: false
-    ansible_httpapi_port: 443
   tasks:
     - name: Cli fmupdate fgd setting
       fortinet.fortimanager.fmgr_fmupdate_fgdsetting:
-        # bypass_validation: false
         # workspace_locking_adom: <global or your adom name>
-        # workspace_locking_timeout: 300
-        # rc_succeeded: [0, -2, -3, ...]
-        # rc_failed: [-2, -3, ...]
         fmupdate_fgdsetting:
           # as_cache: <integer>
           # as_log: <value in [disable, nospam, all]>
@@ -463,12 +344,9 @@ def main():
     urls_list = [
         '/cli/global/fmupdate/fgd-setting'
     ]
-    url_params = []
-    module_primary_key = None
     module_arg_spec = {
         'fmupdate_fgdsetting': {
-            'type': 'dict',
-            'v_range': [['7.6.3', '']],
+            'type': 'dict', 'v_range': [['7.6.3', '']],
             'options': {
                 'as-cache': {'v_range': [['7.6.3', '']], 'type': 'int'},
                 'as-log': {'v_range': [['7.6.3', '']], 'choices': ['disable', 'nospam', 'all'], 'type': 'str'},
@@ -543,19 +421,15 @@ def main():
 
     module_option_spec = get_module_arg_spec('partial crud')
     module_arg_spec.update(module_option_spec)
-    params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'fmupdate_fgdsetting'),
                            supports_check_mode=True)
-
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list, module_primary_key, url_params,
-                       module, connection, top_level_schema_name='data')
-    fmgr.validate_parameters(params_validation_blob)
+    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list,
+                       None, 'data', module, connection)
     fmgr.process_partial_crud()
-
     module.exit_json(meta=module.params)
 
 

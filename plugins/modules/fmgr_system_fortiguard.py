@@ -13,66 +13,14 @@ DOCUMENTATION = '''
 ---
 module: fmgr_system_fortiguard
 short_description: Configure FortiGuard services.
-description:
-    - This module is able to configure a FortiManager device.
-    - Examples include all parameters and values which need to be adjusted to data sources before usage.
 version_added: "2.0.0"
-author:
-    - Xinwei Du (@dux-fortinet)
-    - Xing Li (@lix-fortinet)
-    - Jie Xue (@JieX19)
-    - Link Zheng (@chillancezen)
-    - Frank Shen (@fshen01)
-    - Hongbin Lu (@fgtdev-hblu)
-notes:
-    - Starting in version 2.4.0, all input arguments are named using the underscore naming convention (snake_case).
-      Please change the arguments such as "var-name" to "var_name".
-      Old argument names are still available yet you will receive deprecation warnings.
-      You can ignore this warning by setting deprecation_warnings=False in ansible.cfg.
-    - Running in workspace locking mode is supported in this FortiManager module, the top
-      level parameters workspace_locking_adom and workspace_locking_timeout help do the work.
-    - Normally, running one module can fail when a non-zero rc is returned. you can also override
-      the conditions to fail or succeed with parameters rc_failed and rc_succeeded
+extends_documentation_fragment:
+    - fortinet.fortimanager.general
+    - fortinet.fortimanager.general.partial_crud
 options:
-    access_token:
-        description: The token to access FortiManager without using username and password.
-        type: str
-    bypass_validation:
-        description: Only set to True when module schema diffs with FortiManager API structure, module continues to execute without validating parameters.
-        type: bool
-        default: false
-    enable_log:
-        description: Enable/Disable logging for task.
-        type: bool
-        default: false
-    forticloud_access_token:
-        description: Authenticate Ansible client with forticloud API access token.
-        type: str
-    proposed_method:
-        description: The overridden method for the underlying Json RPC request.
-        type: str
-        choices:
-          - update
-          - set
-          - add
-    rc_succeeded:
-        description: The rc codes list with which the conditions to succeed will be overriden.
-        type: list
-        elements: int
-    rc_failed:
-        description: The rc codes list with which the conditions to fail will be overriden.
-        type: list
-        elements: int
     revision_note:
         description: The change note that can be specified when an object is created or updated.
         type: str
-    workspace_locking_adom:
-        description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
-        type: str
-    workspace_locking_timeout:
-        description: The maximum time in seconds to wait for other user to release the workspace lock.
-        type: int
-        default: 300
     adom:
         description: The parameter (adom) in requested url.
         type: str
@@ -86,9 +34,7 @@ options:
                 aliases: ['antispam-cache']
                 type: str
                 description: Enable/disable FortiGuard antispam request caching.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             antispam_cache_mpercent:
                 aliases: ['antispam-cache-mpercent']
                 type: int
@@ -105,9 +51,7 @@ options:
                 aliases: ['antispam-force-off']
                 type: str
                 description: Enable/disable turning off the FortiGuard antispam service.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             antispam_license:
                 aliases: ['antispam-license']
                 type: int
@@ -120,9 +64,7 @@ options:
                 aliases: ['auto-join-forticloud']
                 type: str
                 description: Automatically connect to and login to FortiCloud.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             ddns_server_ip:
                 aliases: ['ddns-server-ip']
                 type: str
@@ -139,9 +81,7 @@ options:
                 aliases: ['outbreak-prevention-cache']
                 type: str
                 description: Enable/disable FortiGuard Virus Outbreak Prevention cache.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             outbreak_prevention_cache_mpercent:
                 aliases: ['outbreak-prevention-cache-mpercent']
                 type: int
@@ -158,9 +98,7 @@ options:
                 aliases: ['outbreak-prevention-force-off']
                 type: str
                 description: Turn off FortiGuard Virus Outbreak Prevention service.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             outbreak_prevention_license:
                 aliases: ['outbreak-prevention-license']
                 type: int
@@ -172,11 +110,7 @@ options:
             port:
                 type: str
                 description: Port used to communicate with the FortiGuard servers.
-                choices:
-                    - '53'
-                    - '80'
-                    - '8888'
-                    - '443'
+                choices: ['53', '80', '8888', '443']
             sdns_server_ip:
                 aliases: ['sdns-server-ip']
                 type: raw
@@ -201,18 +135,12 @@ options:
                 aliases: ['update-server-location']
                 type: str
                 description: Signature update server location.
-                choices:
-                    - 'any'
-                    - 'usa'
-                    - 'automatic'
-                    - 'eu'
+                choices: ['any', 'usa', 'automatic', 'eu']
             webfilter_cache:
                 aliases: ['webfilter-cache']
                 type: str
                 description: Enable/disable FortiGuard web filter caching.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             webfilter_cache_ttl:
                 aliases: ['webfilter-cache-ttl']
                 type: int
@@ -225,9 +153,7 @@ options:
                 aliases: ['webfilter-force-off']
                 type: str
                 description: Enable/disable turning off the FortiGuard web filtering service.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             webfilter_license:
                 aliases: ['webfilter-license']
                 type: int
@@ -239,10 +165,7 @@ options:
             protocol:
                 type: str
                 description: Protocol used to communicate with the FortiGuard servers.
-                choices:
-                    - 'udp'
-                    - 'http'
-                    - 'https'
+                choices: ['udp', 'http', 'https']
             proxy_password:
                 aliases: ['proxy-password']
                 type: raw
@@ -275,9 +198,7 @@ options:
                 aliases: ['avquery-cache']
                 type: str
                 description: Enable/disable the FortiGuard antivirus cache.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             avquery_cache_mpercent:
                 aliases: ['avquery-cache-mpercent']
                 type: int
@@ -290,24 +211,17 @@ options:
                 aliases: ['avquery-force-off']
                 type: str
                 description: Turn off the FortiGuard antivirus service.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             fortiguard_anycast:
                 aliases: ['fortiguard-anycast']
                 type: str
                 description: Enable/disable use of FortiGuards anycast network.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             fortiguard_anycast_source:
                 aliases: ['fortiguard-anycast-source']
                 type: str
                 description: Configure which of Fortinets servers to provide FortiGuard services in FortiGuards anycast network.
-                choices:
-                    - 'fortinet'
-                    - 'aws'
-                    - 'debug'
+                choices: ['fortinet', 'aws', 'debug']
             interface:
                 type: str
                 description: Specify outgoing interface to reach server.
@@ -315,17 +229,13 @@ options:
                 aliases: ['interface-select-method']
                 type: str
                 description: Specify how to select outgoing interface to reach server.
-                choices:
-                    - 'auto'
-                    - 'sdwan'
-                    - 'specify'
+                choices: ['auto', 'sdwan', 'specify']
             sdns_options:
                 aliases: ['sdns-options']
                 type: list
                 elements: str
                 description: Customization options for the FortiGuard DNS service.
-                choices:
-                    - 'include-question-section'
+                choices: ['include-question-section']
             anycast_sdns_server_ip:
                 aliases: ['anycast-sdns-server-ip']
                 type: str
@@ -338,37 +248,27 @@ options:
                 aliases: ['persistent-connection']
                 type: str
                 description: Enable/disable use of persistent connection to receive update notification from FortiGuard.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             update_build_proxy:
                 aliases: ['update-build-proxy']
                 type: str
                 description: Enable/disable proxy dictionary rebuild.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             update_extdb:
                 aliases: ['update-extdb']
                 type: str
                 description: Enable/disable external resource update.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             update_ffdb:
                 aliases: ['update-ffdb']
                 type: str
                 description: Enable/disable Internet Service Database update.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             update_uwdb:
                 aliases: ['update-uwdb']
                 type: str
                 description: Enable/disable allowlist update.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             videofilter_expiration:
                 aliases: ['videofilter-expiration']
                 type: int
@@ -388,22 +288,14 @@ options:
                 aliases: ['auto-firmware-upgrade']
                 type: str
                 description: Enable/disable automatic patch-level firmware upgrade from FortiGuard.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             auto_firmware_upgrade_day:
                 aliases: ['auto-firmware-upgrade-day']
                 type: list
                 elements: str
                 description: Allowed day
-                choices:
-                    - 'sunday'
-                    - 'monday'
-                    - 'tuesday'
-                    - 'wednesday'
-                    - 'thursday'
-                    - 'friday'
-                    - 'saturday'
+                choices: ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday',
+                          'saturday']
             auto_firmware_upgrade_end_hour:
                 aliases: ['auto-firmware-upgrade-end-hour']
                 type: int
@@ -416,9 +308,7 @@ options:
                 aliases: ['sandbox-inline-scan']
                 type: str
                 description: Enable/disable FortiCloud Sandbox inline-scan.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             auto_firmware_upgrade_delay:
                 aliases: ['auto-firmware-upgrade-delay']
                 type: int
@@ -427,9 +317,7 @@ options:
                 aliases: ['gui-prompt-auto-upgrade']
                 type: str
                 description: Enable/disable prompting of automatic patch-level firmware upgrade recommendation.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             FDS_license_expiring_days:
                 aliases: ['FDS-license-expiring-days']
                 type: int
@@ -446,9 +334,7 @@ options:
                 aliases: ['update-dldb']
                 type: str
                 description: Enable/disable DLP signature update.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             vrf_select:
                 aliases: ['vrf-select']
                 type: int
@@ -457,9 +343,7 @@ options:
                 aliases: ['subscribe-update-notification']
                 type: str
                 description: Enable/disable subscription to receive update notification from FortiGuard.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             dlp_expiration:
                 aliases: ['dlp-expiration']
                 type: int
@@ -491,18 +375,10 @@ EXAMPLES = '''
   hosts: fortimanagers
   connection: httpapi
   gather_facts: false
-  vars:
-    ansible_httpapi_use_ssl: true
-    ansible_httpapi_validate_certs: false
-    ansible_httpapi_port: 443
   tasks:
     - name: Configure FortiGuard services.
       fortinet.fortimanager.fmgr_system_fortiguard:
-        # bypass_validation: false
         # workspace_locking_adom: <global or your adom name>
-        # workspace_locking_timeout: 300
-        # rc_succeeded: [0, -2, -3, ...]
-        # rc_failed: [-2, -3, ...]
         adom: <your own value>
         system_fortiguard:
           # antispam_cache: <value in [disable, enable]>
@@ -552,8 +428,7 @@ EXAMPLES = '''
           # fortiguard_anycast_source: <value in [fortinet, aws, debug]>
           # interface: <string>
           # interface_select_method: <value in [auto, sdwan, specify]>
-          # sdns_options:
-          #   - "include-question-section"
+          # sdns_options: ["include-question-section"]
           # anycast_sdns_server_ip: <string>
           # anycast_sdns_server_port: <integer>
           # persistent_connection: <value in [disable, enable]>
@@ -566,14 +441,8 @@ EXAMPLES = '''
           # ddns_server_ip6: <string>
           # vdom: <string>
           # auto_firmware_upgrade: <value in [disable, enable]>
-          # auto_firmware_upgrade_day:
-          #   - "sunday"
-          #   - "monday"
-          #   - "tuesday"
-          #   - "wednesday"
-          #   - "thursday"
-          #   - "friday"
-          #   - "saturday"
+          # auto_firmware_upgrade_day: ["sunday", "monday", "tuesday", "wednesday", "thursday",
+          #                             "friday", "saturday"]
           # auto_firmware_upgrade_end_hour: <integer>
           # auto_firmware_upgrade_start_hour: <integer>
           # sandbox_inline_scan: <value in [disable, enable]>
@@ -643,14 +512,11 @@ def main():
         '/pm/config/adom/{adom}/obj/system/fortiguard',
         '/pm/config/global/obj/system/fortiguard'
     ]
-    url_params = ['adom']
-    module_primary_key = None
     module_arg_spec = {
         'adom': {'required': True, 'type': 'str'},
         'revision_note': {'type': 'str'},
         'system_fortiguard': {
-            'type': 'dict',
-            'v_range': [['6.0.0', '']],
+            'type': 'dict', 'v_range': [['6.0.0', '']],
             'options': {
                 'antispam-cache': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'antispam-cache-mpercent': {'type': 'int'},
@@ -741,19 +607,15 @@ def main():
 
     module_option_spec = get_module_arg_spec('partial crud')
     module_arg_spec.update(module_option_spec)
-    params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'system_fortiguard'),
                            supports_check_mode=True)
-
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list, module_primary_key, url_params,
-                       module, connection, top_level_schema_name='data')
-    fmgr.validate_parameters(params_validation_blob)
+    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list,
+                       None, 'data', module, connection)
     fmgr.process_partial_crud()
-
     module.exit_json(meta=module.params)
 
 

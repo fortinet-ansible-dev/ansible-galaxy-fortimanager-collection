@@ -13,75 +13,14 @@ DOCUMENTATION = '''
 ---
 module: fmgr_dlp_profile
 short_description: Configure DLP profiles.
-description:
-    - This module is able to configure a FortiManager device.
-    - Examples include all parameters and values which need to be adjusted to data sources before usage.
 version_added: "2.1.0"
-author:
-    - Xinwei Du (@dux-fortinet)
-    - Xing Li (@lix-fortinet)
-    - Jie Xue (@JieX19)
-    - Link Zheng (@chillancezen)
-    - Frank Shen (@fshen01)
-    - Hongbin Lu (@fgtdev-hblu)
-notes:
-    - Starting in version 2.4.0, all input arguments are named using the underscore naming convention (snake_case).
-      Please change the arguments such as "var-name" to "var_name".
-      Old argument names are still available yet you will receive deprecation warnings.
-      You can ignore this warning by setting deprecation_warnings=False in ansible.cfg.
-    - Running in workspace locking mode is supported in this FortiManager module, the top
-      level parameters workspace_locking_adom and workspace_locking_timeout help do the work.
-    - To create or update an object, use state present directive.
-    - To delete an object, use state absent directive.
-    - Normally, running one module can fail when a non-zero rc is returned. you can also override
-      the conditions to fail or succeed with parameters rc_failed and rc_succeeded
+extends_documentation_fragment:
+    - fortinet.fortimanager.general
+    - fortinet.fortimanager.general.full_crud
 options:
-    access_token:
-        description: The token to access FortiManager without using username and password.
-        type: str
-    bypass_validation:
-        description: Only set to True when module schema diffs with FortiManager API structure, module continues to execute without validating parameters.
-        type: bool
-        default: false
-    enable_log:
-        description: Enable/Disable logging for task.
-        type: bool
-        default: false
-    forticloud_access_token:
-        description: Authenticate Ansible client with forticloud API access token.
-        type: str
-    proposed_method:
-        description: The overridden method for the underlying Json RPC request.
-        type: str
-        choices:
-          - update
-          - set
-          - add
-    rc_succeeded:
-        description: The rc codes list with which the conditions to succeed will be overriden.
-        type: list
-        elements: int
-    rc_failed:
-        description: The rc codes list with which the conditions to fail will be overriden.
-        type: list
-        elements: int
-    state:
-        description: The directive to create, update or delete an object.
-        type: str
-        required: true
-        choices:
-          - present
-          - absent
     revision_note:
         description: The change note that can be specified when an object is created or updated.
         type: str
-    workspace_locking_adom:
-        description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
-        type: str
-    workspace_locking_timeout:
-        description: The maximum time in seconds to wait for other user to release the workspace lock.
-        type: int
-        default: 300
     adom:
         description: The parameter (adom) in requested url.
         type: str
@@ -98,46 +37,29 @@ options:
                 aliases: ['dlp-log']
                 type: str
                 description: Enable/disable DLP logging.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             extended_log:
                 aliases: ['extended-log']
                 type: str
                 description: Enable/disable extended logging for data leak prevention.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             feature_set:
                 aliases: ['feature-set']
                 type: str
                 description: Flow/proxy feature set.
-                choices:
-                    - 'flow'
-                    - 'proxy'
+                choices: ['flow', 'proxy']
             full_archive_proto:
                 aliases: ['full-archive-proto']
                 type: list
                 elements: str
                 description: Protocols to always content archive.
-                choices:
-                    - 'smtp'
-                    - 'pop3'
-                    - 'imap'
-                    - 'http-post'
-                    - 'http-get'
-                    - 'ftp'
-                    - 'nntp'
-                    - 'mapi'
-                    - 'ssh'
-                    - 'cifs'
+                choices: ['smtp', 'pop3', 'imap', 'http-post', 'http-get', 'ftp', 'nntp', 'mapi',
+                          'ssh', 'cifs']
             nac_quar_log:
                 aliases: ['nac-quar-log']
                 type: str
                 description: Enable/disable NAC quarantine logging.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             name:
                 type: str
                 description: Name of the DLP profile.
@@ -154,17 +76,11 @@ options:
                     action:
                         type: str
                         description: Action to take with content that this DLP profile matches.
-                        choices:
-                            - 'log-only'
-                            - 'block'
-                            - 'quarantine-ip'
-                            - 'allow'
+                        choices: ['log-only', 'block', 'quarantine-ip', 'allow']
                     archive:
                         type: str
                         description: Enable/disable DLP archiving.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     expiry:
                         type: str
                         description: Quarantine duration in days, hours, minutes
@@ -180,13 +96,7 @@ options:
                         aliases: ['filter-by']
                         type: str
                         description: Select the type of content to match.
-                        choices:
-                            - 'fingerprint'
-                            - 'sensor'
-                            - 'encrypted'
-                            - 'none'
-                            - 'mip'
-                            - 'label'
+                        choices: ['fingerprint', 'sensor', 'encrypted', 'none', 'mip', 'label']
                     id:
                         type: int
                         description: ID.
@@ -204,17 +114,8 @@ options:
                         type: list
                         elements: str
                         description: Check messages or files over one or more of these protocols.
-                        choices:
-                            - 'smtp'
-                            - 'pop3'
-                            - 'imap'
-                            - 'http-post'
-                            - 'http-get'
-                            - 'ftp'
-                            - 'nntp'
-                            - 'mapi'
-                            - 'ssh'
-                            - 'cifs'
+                        choices: ['smtp', 'pop3', 'imap', 'http-post', 'http-get', 'ftp', 'nntp',
+                                  'mapi', 'ssh', 'cifs']
                     sensitivity:
                         type: raw
                         description: (list) Select a DLP file pattern sensitivity to match.
@@ -224,42 +125,23 @@ options:
                     severity:
                         type: str
                         description: Select the severity or threat level that matches this filter.
-                        choices:
-                            - 'info'
-                            - 'low'
-                            - 'medium'
-                            - 'high'
-                            - 'critical'
+                        choices: ['info', 'low', 'medium', 'high', 'critical']
                     type:
                         type: str
                         description: Select whether to check the content of messages
-                        choices:
-                            - 'file'
-                            - 'message'
+                        choices: ['file', 'message']
             summary_proto:
                 aliases: ['summary-proto']
                 type: list
                 elements: str
                 description: Protocols to always log summary.
-                choices:
-                    - 'smtp'
-                    - 'pop3'
-                    - 'imap'
-                    - 'http-post'
-                    - 'http-get'
-                    - 'ftp'
-                    - 'nntp'
-                    - 'mapi'
-                    - 'ssh'
-                    - 'cifs'
+                choices: ['smtp', 'pop3', 'imap', 'http-post', 'http-get', 'ftp', 'nntp', 'mapi',
+                          'ssh', 'cifs']
             fortidata_error_action:
                 aliases: ['fortidata-error-action']
                 type: str
                 description: Action to take if FortiData query fails.
-                choices:
-                    - 'block'
-                    - 'log-only'
-                    - 'ignore'
+                choices: ['block', 'log-only', 'ignore']
 '''
 
 EXAMPLES = '''
@@ -267,18 +149,10 @@ EXAMPLES = '''
   hosts: fortimanagers
   connection: httpapi
   gather_facts: false
-  vars:
-    ansible_httpapi_use_ssl: true
-    ansible_httpapi_validate_certs: false
-    ansible_httpapi_port: 443
   tasks:
     - name: Configure DLP profiles.
       fortinet.fortimanager.fmgr_dlp_profile:
-        # bypass_validation: false
         # workspace_locking_adom: <global or your adom name>
-        # workspace_locking_timeout: 300
-        # rc_succeeded: [0, -2, -3, ...]
-        # rc_failed: [-2, -3, ...]
         adom: <your own value>
         state: present # <value in [present, absent]>
         dlp_profile:
@@ -287,17 +161,8 @@ EXAMPLES = '''
           # dlp_log: <value in [disable, enable]>
           # extended_log: <value in [disable, enable]>
           # feature_set: <value in [flow, proxy]>
-          # full_archive_proto:
-          #   - "smtp"
-          #   - "pop3"
-          #   - "imap"
-          #   - "http-post"
-          #   - "http-get"
-          #   - "ftp"
-          #   - "nntp"
-          #   - "mapi"
-          #   - "ssh"
-          #   - "cifs"
+          # full_archive_proto: ["smtp", "pop3", "imap", "http-post", "http-get", "ftp", "nntp",
+          #                      "mapi", "ssh", "cifs"]
           # nac_quar_log: <value in [disable, enable]>
           # replacemsg_group: <string>
           # rule:
@@ -311,32 +176,14 @@ EXAMPLES = '''
           #     label: <string>
           #     match_percentage: <integer>
           #     name: <string>
-          #     proto:
-          #       - "smtp"
-          #       - "pop3"
-          #       - "imap"
-          #       - "http-post"
-          #       - "http-get"
-          #       - "ftp"
-          #       - "nntp"
-          #       - "mapi"
-          #       - "ssh"
-          #       - "cifs"
+          #     proto: ["smtp", "pop3", "imap", "http-post", "http-get", "ftp", "nntp", "mapi",
+          #             "ssh", "cifs"]
           #     sensitivity: <list or string>
           #     sensor: <list or string>
           #     severity: <value in [info, low, medium, ...]>
           #     type: <value in [file, message]>
-          # summary_proto:
-          #   - "smtp"
-          #   - "pop3"
-          #   - "imap"
-          #   - "http-post"
-          #   - "http-get"
-          #   - "ftp"
-          #   - "nntp"
-          #   - "mapi"
-          #   - "ssh"
-          #   - "cifs"
+          # summary_proto: ["smtp", "pop3", "imap", "http-post", "http-get", "ftp", "nntp",
+          #                 "mapi", "ssh", "cifs"]
           # fortidata_error_action: <value in [block, log-only, ignore]>
 '''
 
@@ -390,14 +237,11 @@ def main():
         '/pm/config/adom/{adom}/obj/dlp/profile',
         '/pm/config/global/obj/dlp/profile'
     ]
-    url_params = ['adom']
-    module_primary_key = 'name'
     module_arg_spec = {
         'adom': {'required': True, 'type': 'str'},
         'revision_note': {'type': 'str'},
         'dlp_profile': {
-            'type': 'dict',
-            'v_range': [['7.2.0', '']],
+            'type': 'dict', 'v_range': [['7.2.0', '']],
             'options': {
                 'comment': {'v_range': [['7.2.0', '']], 'type': 'str'},
                 'dlp-log': {'v_range': [['7.2.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
@@ -456,19 +300,15 @@ def main():
 
     module_option_spec = get_module_arg_spec('full crud')
     module_arg_spec.update(module_option_spec)
-    params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'dlp_profile'),
                            supports_check_mode=True)
-
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
-                       module, connection, top_level_schema_name='data')
-    fmgr.validate_parameters(params_validation_blob)
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list,
+                       'name', 'data', module, connection)
     fmgr.process_crud()
-
     module.exit_json(meta=module.params)
 
 

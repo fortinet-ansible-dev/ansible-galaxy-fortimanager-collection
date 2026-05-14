@@ -13,63 +13,11 @@ DOCUMENTATION = '''
 ---
 module: fmgr_system_sql
 short_description: SQL settings.
-description:
-    - This module is able to configure a FortiManager device.
-    - Examples include all parameters and values which need to be adjusted to data sources before usage.
 version_added: "2.0.0"
-author:
-    - Xinwei Du (@dux-fortinet)
-    - Xing Li (@lix-fortinet)
-    - Jie Xue (@JieX19)
-    - Link Zheng (@chillancezen)
-    - Frank Shen (@fshen01)
-    - Hongbin Lu (@fgtdev-hblu)
-notes:
-    - Starting in version 2.4.0, all input arguments are named using the underscore naming convention (snake_case).
-      Please change the arguments such as "var-name" to "var_name".
-      Old argument names are still available yet you will receive deprecation warnings.
-      You can ignore this warning by setting deprecation_warnings=False in ansible.cfg.
-    - Running in workspace locking mode is supported in this FortiManager module, the top
-      level parameters workspace_locking_adom and workspace_locking_timeout help do the work.
-    - Normally, running one module can fail when a non-zero rc is returned. you can also override
-      the conditions to fail or succeed with parameters rc_failed and rc_succeeded
+extends_documentation_fragment:
+    - fortinet.fortimanager.general
+    - fortinet.fortimanager.general.partial_crud
 options:
-    access_token:
-        description: The token to access FortiManager without using username and password.
-        type: str
-    bypass_validation:
-        description: Only set to True when module schema diffs with FortiManager API structure, module continues to execute without validating parameters.
-        type: bool
-        default: false
-    enable_log:
-        description: Enable/Disable logging for task.
-        type: bool
-        default: false
-    forticloud_access_token:
-        description: Authenticate Ansible client with forticloud API access token.
-        type: str
-    proposed_method:
-        description: The overridden method for the underlying Json RPC request.
-        type: str
-        choices:
-          - update
-          - set
-          - add
-    rc_succeeded:
-        description: The rc codes list with which the conditions to succeed will be overriden.
-        type: list
-        elements: int
-    rc_failed:
-        description: The rc codes list with which the conditions to fail will be overriden.
-        type: list
-        elements: int
-    workspace_locking_adom:
-        description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
-        type: str
-    workspace_locking_timeout:
-        description: The maximum time in seconds to wait for other user to release the workspace lock.
-        type: int
-        default: 300
     system_sql:
         description: The top level parameters set.
         required: false
@@ -82,9 +30,7 @@ options:
                     - Disable/Enable rebuild SQL database in the background.
                     - disable - Rebuild SQL database not in the background.
                     - enable - Rebuild SQL database in the background.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             custom_index:
                 aliases: ['custom-index']
                 type: list
@@ -98,9 +44,7 @@ options:
                             - Disable/Enable case sensitive index.
                             - disable - Build a case insensitive index.
                             - enable - Build a case sensitive index.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     device_type:
                         aliases: ['device-type']
                         type: str
@@ -116,17 +60,9 @@ options:
                             - FortiDDoS - Set device type to FortiDDoS
                             - FortiAuthenticator - Set device type to FortiAuthenticator
                             - FortiProxy - Set device type to FortiProxy
-                        choices:
-                            - 'FortiGate'
-                            - 'FortiManager'
-                            - 'FortiClient'
-                            - 'FortiMail'
-                            - 'FortiWeb'
-                            - 'FortiCache'
-                            - 'FortiSandbox'
-                            - 'FortiDDoS'
-                            - 'FortiAuthenticator'
-                            - 'FortiProxy'
+                        choices: ['FortiGate', 'FortiManager', 'FortiClient', 'FortiMail',
+                                  'FortiWeb', 'FortiCache', 'FortiSandbox', 'FortiDDoS',
+                                  'FortiAuthenticator', 'FortiProxy']
                     id:
                         type: int
                         description: Add or Edit log index fields.
@@ -161,35 +97,11 @@ options:
                             - dns
                             - ssh
                             - ssl
-                        choices:
-                            - 'none'
-                            - 'app-ctrl'
-                            - 'attack'
-                            - 'content'
-                            - 'dlp'
-                            - 'emailfilter'
-                            - 'event'
-                            - 'generic'
-                            - 'history'
-                            - 'traffic'
-                            - 'virus'
-                            - 'voip'
-                            - 'webfilter'
-                            - 'netscan'
-                            - 'fct-event'
-                            - 'fct-traffic'
-                            - 'fct-netscan'
-                            - 'waf'
-                            - 'gtp'
-                            - 'dns'
-                            - 'ssh'
-                            - 'ssl'
-                            - 'file-filter'
-                            - 'asset'
-                            - 'protocol'
-                            - 'siem'
-                            - 'ztna'
-                            - 'security'
+                        choices: ['none', 'app-ctrl', 'attack', 'content', 'dlp', 'emailfilter',
+                                  'event', 'generic', 'history', 'traffic', 'virus', 'voip',
+                                  'webfilter', 'netscan', 'fct-event', 'fct-traffic',
+                                  'fct-netscan', 'waf', 'gtp', 'dns', 'ssh', 'ssl', 'file-filter',
+                                  'asset', 'protocol', 'siem', 'ztna', 'security']
             database_name:
                 aliases: ['database-name']
                 type: str
@@ -201,9 +113,7 @@ options:
                     - Database type.
                     - mysql - MySQL database.
                     - postgres - PostgreSQL local database.
-                choices:
-                    - 'mysql'
-                    - 'postgres'
+                choices: ['mysql', 'postgres']
             device_count_high:
                 aliases: ['device-count-high']
                 type: str
@@ -211,9 +121,7 @@ options:
                     - Must set to enable if the count of registered devices is greater than 8000.
                     - disable - Set to disable if device count is less than 8000.
                     - enable - Set to enable if device count is equal to or greater than 8000.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             event_table_partition_time:
                 aliases: ['event-table-partition-time']
                 type: int
@@ -249,35 +157,11 @@ options:
                     - dns
                     - ssh
                     - ssl
-                choices:
-                    - 'none'
-                    - 'app-ctrl'
-                    - 'attack'
-                    - 'content'
-                    - 'dlp'
-                    - 'emailfilter'
-                    - 'event'
-                    - 'generic'
-                    - 'history'
-                    - 'traffic'
-                    - 'virus'
-                    - 'voip'
-                    - 'webfilter'
-                    - 'netscan'
-                    - 'fct-event'
-                    - 'fct-traffic'
-                    - 'fct-netscan'
-                    - 'waf'
-                    - 'gtp'
-                    - 'dns'
-                    - 'ssh'
-                    - 'ssl'
-                    - 'file-filter'
-                    - 'asset'
-                    - 'protocol'
-                    - 'siem'
-                    - 'ztna'
-                    - 'security'
+                choices: ['none', 'app-ctrl', 'attack', 'content', 'dlp', 'emailfilter', 'event',
+                          'generic', 'history', 'traffic', 'virus', 'voip', 'webfilter',
+                          'netscan', 'fct-event', 'fct-traffic', 'fct-netscan', 'waf', 'gtp',
+                          'dns', 'ssh', 'ssl', 'file-filter', 'asset', 'protocol', 'siem', 'ztna',
+                          'security']
             password:
                 type: raw
                 description: (list) Password for login remote database.
@@ -288,9 +172,7 @@ options:
                     - Prompt to convert log database into SQL database at start time on GUI.
                     - disable - Do not prompt to upgrade log database to SQL database at start time on GUI.
                     - enable - Prompt to upgrade log database to SQL database at start time on GUI.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             rebuild_event:
                 aliases: ['rebuild-event']
                 type: str
@@ -298,9 +180,7 @@ options:
                     - Disable/Enable rebuild event during SQL database rebuilding.
                     - disable - Do not rebuild event during SQL database rebuilding.
                     - enable - Rebuild event during SQL database rebuilding.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             rebuild_event_start_time:
                 aliases: ['rebuild-event-start-time']
                 type: raw
@@ -318,9 +198,7 @@ options:
                     - SQL database status.
                     - disable - Disable SQL database.
                     - local - Enable local database.
-                choices:
-                    - 'disable'
-                    - 'local'
+                choices: ['disable', 'local']
             text_search_index:
                 aliases: ['text-search-index']
                 type: str
@@ -328,9 +206,7 @@ options:
                     - Disable/Enable text search index.
                     - disable - Do not create text search index.
                     - enable - Create text search index.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             traffic_table_partition_time:
                 aliases: ['traffic-table-partition-time']
                 type: int
@@ -372,14 +248,8 @@ options:
                             - FortiWeb - Set device type to FortiWeb.
                             - FortiSandbox - Set device type to FortiSandbox
                             - FortiProxy - Set device type to FortiProxy
-                        choices:
-                            - 'FortiGate'
-                            - 'FortiManager'
-                            - 'FortiClient'
-                            - 'FortiMail'
-                            - 'FortiWeb'
-                            - 'FortiSandbox'
-                            - 'FortiProxy'
+                        choices: ['FortiGate', 'FortiManager', 'FortiClient', 'FortiMail',
+                                  'FortiWeb', 'FortiSandbox', 'FortiProxy']
                     id:
                         type: int
                         description: Add or Edit log index fields.
@@ -415,34 +285,11 @@ options:
                             - ssl
                             - file-filter
                             - asset
-                        choices:
-                            - 'app-ctrl'
-                            - 'attack'
-                            - 'content'
-                            - 'dlp'
-                            - 'emailfilter'
-                            - 'event'
-                            - 'generic'
-                            - 'history'
-                            - 'traffic'
-                            - 'virus'
-                            - 'voip'
-                            - 'webfilter'
-                            - 'netscan'
-                            - 'fct-event'
-                            - 'fct-traffic'
-                            - 'fct-netscan'
-                            - 'waf'
-                            - 'gtp'
-                            - 'dns'
-                            - 'ssh'
-                            - 'ssl'
-                            - 'file-filter'
-                            - 'asset'
-                            - 'protocol'
-                            - 'siem'
-                            - 'ztna'
-                            - 'security'
+                        choices: ['app-ctrl', 'attack', 'content', 'dlp', 'emailfilter', 'event',
+                                  'generic', 'history', 'traffic', 'virus', 'voip', 'webfilter',
+                                  'netscan', 'fct-event', 'fct-traffic', 'fct-netscan', 'waf',
+                                  'gtp', 'dns', 'ssh', 'ssl', 'file-filter', 'asset', 'protocol',
+                                  'siem', 'ztna', 'security']
             compress_table_min_age:
                 aliases: ['compress-table-min-age']
                 type: int
@@ -454,18 +301,10 @@ EXAMPLES = '''
   hosts: fortimanagers
   connection: httpapi
   gather_facts: false
-  vars:
-    ansible_httpapi_use_ssl: true
-    ansible_httpapi_validate_certs: false
-    ansible_httpapi_port: 443
   tasks:
     - name: SQL settings.
       fortinet.fortimanager.fmgr_system_sql:
-        # bypass_validation: false
         # workspace_locking_adom: <global or your adom name>
-        # workspace_locking_timeout: 300
-        # rc_succeeded: [0, -2, -3, ...]
-        # rc_failed: [-2, -3, ...]
         system_sql:
           # background_rebuild: <value in [disable, enable]>
           # custom_index:
@@ -479,35 +318,10 @@ EXAMPLES = '''
           # device_count_high: <value in [disable, enable]>
           # event_table_partition_time: <integer>
           # fct_table_partition_time: <integer>
-          # logtype:
-          #   - "none"
-          #   - "app-ctrl"
-          #   - "attack"
-          #   - "content"
-          #   - "dlp"
-          #   - "emailfilter"
-          #   - "event"
-          #   - "generic"
-          #   - "history"
-          #   - "traffic"
-          #   - "virus"
-          #   - "voip"
-          #   - "webfilter"
-          #   - "netscan"
-          #   - "fct-event"
-          #   - "fct-traffic"
-          #   - "fct-netscan"
-          #   - "waf"
-          #   - "gtp"
-          #   - "dns"
-          #   - "ssh"
-          #   - "ssl"
-          #   - "file-filter"
-          #   - "asset"
-          #   - "protocol"
-          #   - "siem"
-          #   - "ztna"
-          #   - "security"
+          # logtype: ["none", "app-ctrl", "attack", "content", "dlp", "emailfilter", "event",
+          #           "generic", "history", "traffic", "virus", "voip", "webfilter", "netscan",
+          #           "fct-event", "fct-traffic", "fct-netscan", "waf", "gtp", "dns", "ssh",
+          #           "ssl", "file-filter", "asset", "protocol", "siem", "ztna", "security"]
           # password: <list or string>
           # prompt_sql_upgrade: <value in [disable, enable]>
           # rebuild_event: <value in [disable, enable]>
@@ -579,12 +393,9 @@ def main():
     urls_list = [
         '/cli/global/system/sql'
     ]
-    url_params = []
-    module_primary_key = None
     module_arg_spec = {
         'system_sql': {
-            'type': 'dict',
-            'v_range': [['6.0.0', '']],
+            'type': 'dict', 'v_range': [['6.0.0', '']],
             'options': {
                 'background-rebuild': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'custom-index': {
@@ -667,19 +478,15 @@ def main():
 
     module_option_spec = get_module_arg_spec('partial crud')
     module_arg_spec.update(module_option_spec)
-    params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'system_sql'),
                            supports_check_mode=True)
-
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list, module_primary_key, url_params,
-                       module, connection, top_level_schema_name='data')
-    fmgr.validate_parameters(params_validation_blob)
+    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list,
+                       None, 'data', module, connection)
     fmgr.process_partial_crud()
-
     module.exit_json(meta=module.params)
 
 

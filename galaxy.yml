@@ -1,6 +1,6 @@
 namespace: "fortinet"
 name: "fortimanager"
-version: "2.13.0"
+version: "2.14.0"
 readme: "README.md"
 authors:
     - "Xinwei Du (@dux-fortinet)"
@@ -25,3 +25,4 @@ homepage: "https://fortinet.com"
 issues: "https://github.com/fortinet-ansible-dev/ansible-galaxy-fortimanager-collection/issues"
 build_ignore:
     - ".github"
+    - ".ansible-lint"

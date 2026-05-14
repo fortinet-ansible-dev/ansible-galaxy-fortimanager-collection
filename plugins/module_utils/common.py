@@ -44,9 +44,6 @@ class FMGRMethods:
     MOVE = "move"
 
 
-BASE_HEADERS = {"Content-Type": "application/json",
-                "Accept": "application/json"}
-
 COMMON_SCHEMA = {
     'access_token': {'type': 'str', 'no_log': True},
     'bypass_validation': {'type': 'bool', 'default': False},

@@ -13,75 +13,14 @@ DOCUMENTATION = '''
 ---
 module: fmgr_ips_sensor
 short_description: Configure IPS sensor.
-description:
-    - This module is able to configure a FortiManager device.
-    - Examples include all parameters and values which need to be adjusted to data sources before usage.
 version_added: "1.0.0"
-author:
-    - Xinwei Du (@dux-fortinet)
-    - Xing Li (@lix-fortinet)
-    - Jie Xue (@JieX19)
-    - Link Zheng (@chillancezen)
-    - Frank Shen (@fshen01)
-    - Hongbin Lu (@fgtdev-hblu)
-notes:
-    - Starting in version 2.4.0, all input arguments are named using the underscore naming convention (snake_case).
-      Please change the arguments such as "var-name" to "var_name".
-      Old argument names are still available yet you will receive deprecation warnings.
-      You can ignore this warning by setting deprecation_warnings=False in ansible.cfg.
-    - Running in workspace locking mode is supported in this FortiManager module, the top
-      level parameters workspace_locking_adom and workspace_locking_timeout help do the work.
-    - To create or update an object, use state present directive.
-    - To delete an object, use state absent directive.
-    - Normally, running one module can fail when a non-zero rc is returned. you can also override
-      the conditions to fail or succeed with parameters rc_failed and rc_succeeded
+extends_documentation_fragment:
+    - fortinet.fortimanager.general
+    - fortinet.fortimanager.general.full_crud
 options:
-    access_token:
-        description: The token to access FortiManager without using username and password.
-        type: str
-    bypass_validation:
-        description: Only set to True when module schema diffs with FortiManager API structure, module continues to execute without validating parameters.
-        type: bool
-        default: false
-    enable_log:
-        description: Enable/Disable logging for task.
-        type: bool
-        default: false
-    forticloud_access_token:
-        description: Authenticate Ansible client with forticloud API access token.
-        type: str
-    proposed_method:
-        description: The overridden method for the underlying Json RPC request.
-        type: str
-        choices:
-          - update
-          - set
-          - add
-    rc_succeeded:
-        description: The rc codes list with which the conditions to succeed will be overriden.
-        type: list
-        elements: int
-    rc_failed:
-        description: The rc codes list with which the conditions to fail will be overriden.
-        type: list
-        elements: int
-    state:
-        description: The directive to create, update or delete an object.
-        type: str
-        required: true
-        choices:
-          - present
-          - absent
     revision_note:
         description: The change note that can be specified when an object is created or updated.
         type: str
-    workspace_locking_adom:
-        description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
-        type: str
-    workspace_locking_timeout:
-        description: The maximum time in seconds to wait for other user to release the workspace lock.
-        type: int
-        default: 300
     adom:
         description: The parameter (adom) in requested url.
         type: str
@@ -95,9 +34,7 @@ options:
                 aliases: ['block-malicious-url']
                 type: str
                 description: Enable/disable malicious URL blocking.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             comment:
                 type: str
                 description: Comment.
@@ -109,11 +46,7 @@ options:
                     action:
                         type: str
                         description: Action taken with traffic in which signatures are detected.
-                        choices:
-                            - 'pass'
-                            - 'block'
-                            - 'reset'
-                            - 'default'
+                        choices: ['pass', 'block', 'reset', 'default']
                     application:
                         type: raw
                         description: (list) Applications to be protected.
@@ -143,23 +76,17 @@ options:
                     log:
                         type: str
                         description: Enable/disable logging of signatures included in filter.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     log_attack_context:
                         aliases: ['log-attack-context']
                         type: str
                         description: Enable/disable logging of attack context
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     log_packet:
                         aliases: ['log-packet']
                         type: str
                         description: Enable/disable packet logging.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     os:
                         type: raw
                         description: (list) Operating systems to be protected.
@@ -169,11 +96,7 @@ options:
                     quarantine:
                         type: str
                         description: Quarantine method.
-                        choices:
-                            - 'none'
-                            - 'attacker'
-                            - 'both'
-                            - 'interface'
+                        choices: ['none', 'attacker', 'both', 'interface']
                     quarantine_expiry:
                         aliases: ['quarantine-expiry']
                         type: str
@@ -182,9 +105,7 @@ options:
                         aliases: ['quarantine-log']
                         type: str
                         description: Enable/disable quarantine logging.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     rate_count:
                         aliases: ['rate-count']
                         type: int
@@ -197,19 +118,12 @@ options:
                         aliases: ['rate-mode']
                         type: str
                         description: Rate limit mode.
-                        choices:
-                            - 'periodical'
-                            - 'continuous'
+                        choices: ['periodical', 'continuous']
                     rate_track:
                         aliases: ['rate-track']
                         type: str
                         description: Track the packet protocol field.
-                        choices:
-                            - 'none'
-                            - 'src-ip'
-                            - 'dest-ip'
-                            - 'dhcp-client-mac'
-                            - 'dns-domain'
+                        choices: ['none', 'src-ip', 'dest-ip', 'dhcp-client-mac', 'dns-domain']
                     rule:
                         type: raw
                         description: (list or str) Identifies the predefined or custom IPS signatures to add to the sensor.
@@ -219,10 +133,7 @@ options:
                     status:
                         type: str
                         description: Status of the signatures included in filter.
-                        choices:
-                            - 'disable'
-                            - 'enable'
-                            - 'default'
+                        choices: ['disable', 'enable', 'default']
                     tags:
                         type: str
                         description: Assign a custom tag filter to the IPS sensor.
@@ -233,19 +144,12 @@ options:
                         aliases: ['default-action']
                         type: str
                         description: Signature default action filter.
-                        choices:
-                            - 'block'
-                            - 'pass'
-                            - 'all'
-                            - 'drop'
+                        choices: ['block', 'pass', 'all', 'drop']
                     default_status:
                         aliases: ['default-status']
                         type: str
                         description: Signature default status filter.
-                        choices:
-                            - 'disable'
-                            - 'enable'
-                            - 'all'
+                        choices: ['disable', 'enable', 'all']
                     last_modified:
                         aliases: ['last-modified']
                         type: raw
@@ -258,9 +162,7 @@ options:
                 aliases: ['extended-log']
                 type: str
                 description: Enable/disable extended logging.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             filter:
                 type: list
                 elements: dict
@@ -269,11 +171,7 @@ options:
                     action:
                         type: str
                         description: Action of selected rules.
-                        choices:
-                            - 'pass'
-                            - 'block'
-                            - 'default'
-                            - 'reset'
+                        choices: ['pass', 'block', 'default', 'reset']
                     application:
                         type: raw
                         description: (list) Vulnerable application filter.
@@ -283,18 +181,12 @@ options:
                     log:
                         type: str
                         description: Enable/disable logging of selected rules.
-                        choices:
-                            - 'disable'
-                            - 'enable'
-                            - 'default'
+                        choices: ['disable', 'enable', 'default']
                     log_packet:
                         aliases: ['log-packet']
                         type: str
                         description: Enable/disable packet logging of selected rules.
-                        choices:
-                            - 'disable'
-                            - 'enable'
-                            - 'default'
+                        choices: ['disable', 'enable', 'default']
                     name:
                         type: str
                         description: Filter name.
@@ -307,11 +199,7 @@ options:
                     quarantine:
                         type: str
                         description: Quarantine IP or interface.
-                        choices:
-                            - 'none'
-                            - 'attacker'
-                            - 'both'
-                            - 'interface'
+                        choices: ['none', 'attacker', 'both', 'interface']
                     quarantine_expiry:
                         aliases: ['quarantine-expiry']
                         type: int
@@ -320,19 +208,14 @@ options:
                         aliases: ['quarantine-log']
                         type: str
                         description: Enable/disable logging of selected quarantine.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     severity:
                         type: raw
                         description: (list) Vulnerability severity filter.
                     status:
                         type: str
                         description: Selected rules status.
-                        choices:
-                            - 'disable'
-                            - 'enable'
-                            - 'default'
+                        choices: ['disable', 'enable', 'default']
             name:
                 type: str
                 description: Sensor name.
@@ -345,10 +228,7 @@ options:
                     action:
                         type: str
                         description: Action of override rule.
-                        choices:
-                            - 'pass'
-                            - 'block'
-                            - 'reset'
+                        choices: ['pass', 'block', 'reset']
                     exempt_ip:
                         aliases: ['exempt-ip']
                         type: list
@@ -369,24 +249,16 @@ options:
                     log:
                         type: str
                         description: Enable/disable logging.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     log_packet:
                         aliases: ['log-packet']
                         type: str
                         description: Enable/disable packet logging.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     quarantine:
                         type: str
                         description: Quarantine IP or interface.
-                        choices:
-                            - 'none'
-                            - 'attacker'
-                            - 'both'
-                            - 'interface'
+                        choices: ['none', 'attacker', 'both', 'interface']
                     quarantine_expiry:
                         aliases: ['quarantine-expiry']
                         type: int
@@ -395,9 +267,7 @@ options:
                         aliases: ['quarantine-log']
                         type: str
                         description: Enable/disable logging of selected quarantine.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     rule_id:
                         aliases: ['rule-id']
                         type: int
@@ -405,9 +275,7 @@ options:
                     status:
                         type: str
                         description: Enable/disable status of override rule.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
             replacemsg_group:
                 aliases: ['replacemsg-group']
                 type: str
@@ -416,10 +284,7 @@ options:
                 aliases: ['scan-botnet-connections']
                 type: str
                 description: Block or monitor connections to Botnet servers, or disable Botnet scanning.
-                choices:
-                    - 'disable'
-                    - 'block'
-                    - 'monitor'
+                choices: ['disable', 'block', 'monitor']
             _baseline:
                 type: str
                 description: Baseline.
@@ -515,14 +380,11 @@ def main():
         '/pm/config/adom/{adom}/obj/global/ips/sensor',
         '/pm/config/global/obj/global/ips/sensor'
     ]
-    url_params = ['adom']
-    module_primary_key = 'name'
     module_arg_spec = {
         'adom': {'required': True, 'type': 'str'},
         'revision_note': {'type': 'str'},
         'ips_sensor': {
-            'type': 'dict',
-            'v_range': [['6.0.0', '']],
+            'type': 'dict', 'v_range': [['6.0.0', '']],
             'options': {
                 'block-malicious-url': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'comment': {'type': 'str'},
@@ -618,19 +480,15 @@ def main():
 
     module_option_spec = get_module_arg_spec('full crud')
     module_arg_spec.update(module_option_spec)
-    params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'ips_sensor'),
                            supports_check_mode=True)
-
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
-                       module, connection, top_level_schema_name='data')
-    fmgr.validate_parameters(params_validation_blob)
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list,
+                       'name', 'data', module, connection)
     fmgr.process_crud()
-
     module.exit_json(meta=module.params)
 
 

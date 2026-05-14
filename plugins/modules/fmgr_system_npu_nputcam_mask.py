@@ -13,66 +13,14 @@ DOCUMENTATION = '''
 ---
 module: fmgr_system_npu_nputcam_mask
 short_description: Mask fields of TCAM.
-description:
-    - This module is able to configure a FortiManager device.
-    - Examples include all parameters and values which need to be adjusted to data sources before usage.
 version_added: "2.4.0"
-author:
-    - Xinwei Du (@dux-fortinet)
-    - Xing Li (@lix-fortinet)
-    - Jie Xue (@JieX19)
-    - Link Zheng (@chillancezen)
-    - Frank Shen (@fshen01)
-    - Hongbin Lu (@fgtdev-hblu)
-notes:
-    - Starting in version 2.4.0, all input arguments are named using the underscore naming convention (snake_case).
-      Please change the arguments such as "var-name" to "var_name".
-      Old argument names are still available yet you will receive deprecation warnings.
-      You can ignore this warning by setting deprecation_warnings=False in ansible.cfg.
-    - Running in workspace locking mode is supported in this FortiManager module, the top
-      level parameters workspace_locking_adom and workspace_locking_timeout help do the work.
-    - Normally, running one module can fail when a non-zero rc is returned. you can also override
-      the conditions to fail or succeed with parameters rc_failed and rc_succeeded
+extends_documentation_fragment:
+    - fortinet.fortimanager.general
+    - fortinet.fortimanager.general.partial_crud
 options:
-    access_token:
-        description: The token to access FortiManager without using username and password.
-        type: str
-    bypass_validation:
-        description: Only set to True when module schema diffs with FortiManager API structure, module continues to execute without validating parameters.
-        type: bool
-        default: false
-    enable_log:
-        description: Enable/Disable logging for task.
-        type: bool
-        default: false
-    forticloud_access_token:
-        description: Authenticate Ansible client with forticloud API access token.
-        type: str
-    proposed_method:
-        description: The overridden method for the underlying Json RPC request.
-        type: str
-        choices:
-          - update
-          - set
-          - add
-    rc_succeeded:
-        description: The rc codes list with which the conditions to succeed will be overriden.
-        type: list
-        elements: int
-    rc_failed:
-        description: The rc codes list with which the conditions to fail will be overriden.
-        type: list
-        elements: int
     revision_note:
         description: The change note that can be specified when an object is created or updated.
         type: str
-    workspace_locking_adom:
-        description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
-        type: str
-    workspace_locking_timeout:
-        description: The maximum time in seconds to wait for other user to release the workspace lock.
-        type: int
-        default: 300
     adom:
         description: The parameter (adom) in requested url.
         type: str
@@ -91,9 +39,7 @@ options:
             df:
                 type: str
                 description: Tcam mask ip flag df.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             dstip:
                 type: str
                 description: Tcam mask dst ipv4 address.
@@ -113,9 +59,7 @@ options:
                 aliases: ['ext-tag']
                 type: str
                 description: Tcam mask extension tag.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             frag_off:
                 aliases: ['frag-off']
                 type: int
@@ -128,9 +72,7 @@ options:
                 aliases: ['gen-iv']
                 type: str
                 description: Tcam mask gen info iv.
-                choices:
-                    - 'invalid'
-                    - 'valid'
+                choices: ['invalid', 'valid']
             gen_l3_flags:
                 aliases: ['gen-l3-flags']
                 type: int
@@ -151,16 +93,12 @@ options:
                 aliases: ['gen-pri-v']
                 type: str
                 description: Tcam mask gen info priority valid.
-                choices:
-                    - 'invalid'
-                    - 'valid'
+                choices: ['invalid', 'valid']
             gen_tv:
                 aliases: ['gen-tv']
                 type: str
                 description: Tcam mask gen info tv.
-                choices:
-                    - 'invalid'
-                    - 'valid'
+                choices: ['invalid', 'valid']
             ihl:
                 type: int
                 description: Tcam mask ipv4 IHL.
@@ -194,9 +132,7 @@ options:
             mf:
                 type: str
                 description: Tcam mask ip flag mf.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             protocol:
                 type: int
                 description: Tcam mask ip protocol.
@@ -207,9 +143,7 @@ options:
                 aliases: ['smac-change']
                 type: str
                 description: Tcam mask source MAC change.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             sp:
                 type: int
                 description: Tcam mask source port.
@@ -217,9 +151,7 @@ options:
                 aliases: ['src-cfi']
                 type: str
                 description: Tcam mask source cfi.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             src_prio:
                 aliases: ['src-prio']
                 type: int
@@ -228,9 +160,7 @@ options:
                 aliases: ['src-updt']
                 type: str
                 description: Tcam mask source update.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             srcip:
                 type: str
                 description: Tcam mask src ipv4 address.
@@ -250,65 +180,47 @@ options:
                 aliases: ['tcp-ack']
                 type: str
                 description: Tcam mask tcp flag ack.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             tcp_cwr:
                 aliases: ['tcp-cwr']
                 type: str
                 description: Tcam mask tcp flag cwr.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             tcp_ece:
                 aliases: ['tcp-ece']
                 type: str
                 description: Tcam mask tcp flag ece.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             tcp_fin:
                 aliases: ['tcp-fin']
                 type: str
                 description: Tcam mask tcp flag fin.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             tcp_push:
                 aliases: ['tcp-push']
                 type: str
                 description: Tcam mask tcp flag push.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             tcp_rst:
                 aliases: ['tcp-rst']
                 type: str
                 description: Tcam mask tcp flag rst.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             tcp_syn:
                 aliases: ['tcp-syn']
                 type: str
                 description: Tcam mask tcp flag syn.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             tcp_urg:
                 aliases: ['tcp-urg']
                 type: str
                 description: Tcam mask tcp flag urg.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             tgt_cfi:
                 aliases: ['tgt-cfi']
                 type: str
                 description: Tcam mask target cfi.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             tgt_prio:
                 aliases: ['tgt-prio']
                 type: int
@@ -317,16 +229,12 @@ options:
                 aliases: ['tgt-updt']
                 type: str
                 description: Tcam mask target port update.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             tgt_v:
                 aliases: ['tgt-v']
                 type: str
                 description: Tcam mask target valid.
-                choices:
-                    - 'invalid'
-                    - 'valid'
+                choices: ['invalid', 'valid']
             tos:
                 type: int
                 description: Tcam mask ip tos.
@@ -349,18 +257,10 @@ EXAMPLES = '''
   hosts: fortimanagers
   connection: httpapi
   gather_facts: false
-  vars:
-    ansible_httpapi_use_ssl: true
-    ansible_httpapi_validate_certs: false
-    ansible_httpapi_port: 443
   tasks:
     - name: Mask fields of TCAM.
       fortinet.fortimanager.fmgr_system_npu_nputcam_mask:
-        # bypass_validation: false
         # workspace_locking_adom: <global or your adom name>
-        # workspace_locking_timeout: 300
-        # rc_succeeded: [0, -2, -3, ...]
-        # rc_failed: [-2, -3, ...]
         adom: <your own value>
         npu_tcam: <your own value>
         system_npu_nputcam_mask:
@@ -470,16 +370,13 @@ def main():
         '/pm/config/adom/{adom}/obj/system/npu/npu-tcam/{npu-tcam}/mask',
         '/pm/config/global/obj/system/npu/npu-tcam/{npu-tcam}/mask'
     ]
-    url_params = ['adom', 'npu-tcam']
-    module_primary_key = None
     module_arg_spec = {
         'adom': {'required': True, 'type': 'str'},
         'npu-tcam': {'type': 'str', 'api_name': 'npu_tcam'},
         'npu_tcam': {'type': 'str'},
         'revision_note': {'type': 'str'},
         'system_npu_nputcam_mask': {
-            'type': 'dict',
-            'v_range': [['7.4.2', '']],
+            'type': 'dict', 'v_range': [['7.4.2', '']],
             'options': {
                 'df': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'dstip': {'v_range': [['7.4.2', '']], 'type': 'str'},
@@ -541,19 +438,15 @@ def main():
 
     module_option_spec = get_module_arg_spec('partial crud')
     module_arg_spec.update(module_option_spec)
-    params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'system_npu_nputcam_mask'),
                            supports_check_mode=True)
-
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list, module_primary_key, url_params,
-                       module, connection, top_level_schema_name='data')
-    fmgr.validate_parameters(params_validation_blob)
+    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list,
+                       None, 'data', module, connection)
     fmgr.process_partial_crud()
-
     module.exit_json(meta=module.params)
 
 

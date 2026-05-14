@@ -13,63 +13,11 @@ DOCUMENTATION = '''
 ---
 module: fmgr_fmupdate_fdssetting
 short_description: Configure FortiGuard settings.
-description:
-    - This module is able to configure a FortiManager device.
-    - Examples include all parameters and values which need to be adjusted to data sources before usage.
 version_added: "2.0.0"
-author:
-    - Xinwei Du (@dux-fortinet)
-    - Xing Li (@lix-fortinet)
-    - Jie Xue (@JieX19)
-    - Link Zheng (@chillancezen)
-    - Frank Shen (@fshen01)
-    - Hongbin Lu (@fgtdev-hblu)
-notes:
-    - Starting in version 2.4.0, all input arguments are named using the underscore naming convention (snake_case).
-      Please change the arguments such as "var-name" to "var_name".
-      Old argument names are still available yet you will receive deprecation warnings.
-      You can ignore this warning by setting deprecation_warnings=False in ansible.cfg.
-    - Running in workspace locking mode is supported in this FortiManager module, the top
-      level parameters workspace_locking_adom and workspace_locking_timeout help do the work.
-    - Normally, running one module can fail when a non-zero rc is returned. you can also override
-      the conditions to fail or succeed with parameters rc_failed and rc_succeeded
+extends_documentation_fragment:
+    - fortinet.fortimanager.general
+    - fortinet.fortimanager.general.partial_crud
 options:
-    access_token:
-        description: The token to access FortiManager without using username and password.
-        type: str
-    bypass_validation:
-        description: Only set to True when module schema diffs with FortiManager API structure, module continues to execute without validating parameters.
-        type: bool
-        default: false
-    enable_log:
-        description: Enable/Disable logging for task.
-        type: bool
-        default: false
-    forticloud_access_token:
-        description: Authenticate Ansible client with forticloud API access token.
-        type: str
-    proposed_method:
-        description: The overridden method for the underlying Json RPC request.
-        type: str
-        choices:
-          - update
-          - set
-          - add
-    rc_succeeded:
-        description: The rc codes list with which the conditions to succeed will be overriden.
-        type: list
-        elements: int
-    rc_failed:
-        description: The rc codes list with which the conditions to fail will be overriden.
-        type: list
-        elements: int
-    workspace_locking_adom:
-        description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
-        type: str
-    workspace_locking_timeout:
-        description: The maximum time in seconds to wait for other user to release the workspace lock.
-        type: int
-        default: 300
     fmupdate_fdssetting:
         description: The top level parameters set.
         required: false
@@ -88,12 +36,7 @@ options:
                     - tlsv1.
                     - tlsv1.
                     - tlsv1.
-                choices:
-                    - 'sslv3'
-                    - 'tlsv1.0'
-                    - 'tlsv1.1'
-                    - 'tlsv1.2'
-                    - 'tlsv1.3'
+                choices: ['sslv3', 'tlsv1.0', 'tlsv1.1', 'tlsv1.2', 'tlsv1.3']
             fds_ssl_protocol:
                 aliases: ['fds-ssl-protocol']
                 type: str
@@ -103,12 +46,7 @@ options:
                     - tlsv1.
                     - tlsv1.
                     - tlsv1.
-                choices:
-                    - 'sslv3'
-                    - 'tlsv1.0'
-                    - 'tlsv1.1'
-                    - 'tlsv1.2'
-                    - 'tlsv1.3'
+                choices: ['sslv3', 'tlsv1.0', 'tlsv1.1', 'tlsv1.2', 'tlsv1.3']
             fmtr_log:
                 aliases: ['fmtr-log']
                 type: str
@@ -123,16 +61,8 @@ options:
                     - info - Log level - info
                     - debug - Log level - debug
                     - disable - Disable linkd log
-                choices:
-                    - 'emergency'
-                    - 'alert'
-                    - 'critical'
-                    - 'error'
-                    - 'warn'
-                    - 'notice'
-                    - 'info'
-                    - 'debug'
-                    - 'disable'
+                choices: ['emergency', 'alert', 'critical', 'error', 'warn', 'notice', 'info',
+                          'debug', 'disable']
             linkd_log:
                 aliases: ['linkd-log']
                 type: str
@@ -147,16 +77,8 @@ options:
                     - info - Log level - info
                     - debug - Log level - debug
                     - disable - Disable linkd log
-                choices:
-                    - 'emergency'
-                    - 'alert'
-                    - 'critical'
-                    - 'error'
-                    - 'warn'
-                    - 'notice'
-                    - 'info'
-                    - 'debug'
-                    - 'disable'
+                choices: ['emergency', 'alert', 'critical', 'error', 'warn', 'notice', 'info',
+                          'debug', 'disable']
             max_av_ips_version:
                 aliases: ['max-av-ips-version']
                 type: int
@@ -182,9 +104,7 @@ options:
                             - Enable/disable push updates for clients
                             - disable - Disable setting.
                             - enable - Enable setting.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
             push_override_to_client:
                 aliases: ['push-override-to-client']
                 type: dict
@@ -211,27 +131,21 @@ options:
                             - Enable/disable push updates
                             - disable - Disable setting.
                             - enable - Enable setting.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
             send_report:
                 type: str
                 description:
                     - send report/fssi to fds server.
                     - disable - Disable setting.
                     - enable - Enable setting.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             send_setup:
                 type: str
                 description:
                     - forward setup to fds server.
                     - disable - Disable setting.
                     - enable - Enable setting.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             server_override:
                 aliases: ['server-override']
                 type: dict
@@ -262,19 +176,14 @@ options:
                                     - Override service type.
                                     - fds - Server override config for fds
                                     - fct - Server override config for fct
-                                choices:
-                                    - 'fds'
-                                    - 'fct'
-                                    - 'fai'
+                                choices: ['fds', 'fct', 'fai']
                     status:
                         type: str
                         description:
                             - Override status.
                             - disable - Disable setting.
                             - enable - Enable setting.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
             system_support_fct:
                 aliases: ['system-support-fct']
                 type: list
@@ -287,18 +196,8 @@ options:
                     - '5.'
                     - '5.'
                     - '6.'
-                choices:
-                    - '4.x'
-                    - '5.0'
-                    - '5.2'
-                    - '5.4'
-                    - '5.6'
-                    - '6.0'
-                    - '6.2'
-                    - '6.4'
-                    - '7.0'
-                    - '7.2'
-                    - '7.4'
+                choices: ['4.x', '5.0', '5.2', '5.4', '5.6', '6.0', '6.2', '6.4', '7.0', '7.2',
+                          '7.4']
             system_support_fgt:
                 aliases: ['system-support-fgt']
                 type: list
@@ -309,16 +208,7 @@ options:
                     - '5.'
                     - '6.'
                     - '6.'
-                choices:
-                    - '5.4'
-                    - '5.6'
-                    - '6.0'
-                    - '6.2'
-                    - '6.4'
-                    - '7.0'
-                    - '7.2'
-                    - '7.4'
-                    - '7.6'
+                choices: ['5.4', '5.6', '6.0', '6.2', '6.4', '7.0', '7.2', '7.4', '7.6']
             system_support_fml:
                 aliases: ['system-support-fml']
                 type: list
@@ -328,16 +218,7 @@ options:
                     - '4.'
                     - '5.'
                     - '6.'
-                choices:
-                    - '4.x'
-                    - '5.x'
-                    - '6.x'
-                    - '6.0'
-                    - '6.2'
-                    - '6.4'
-                    - '7.0'
-                    - '7.2'
-                    - '7.x'
+                choices: ['4.x', '5.x', '6.x', '6.0', '6.2', '6.4', '7.0', '7.2', '7.x']
             system_support_fsa:
                 aliases: ['system-support-fsa']
                 type: list
@@ -347,15 +228,7 @@ options:
                     - '1.'
                     - '2.'
                     - '3.'
-                choices:
-                    - '1.x'
-                    - '2.x'
-                    - '3.x'
-                    - '4.x'
-                    - '3.0'
-                    - '3.1'
-                    - '3.2'
-                    - '5.x'
+                choices: ['1.x', '2.x', '3.x', '4.x', '3.0', '3.1', '3.2', '5.x']
             system_support_fsw:
                 aliases: ['system-support-fsw']
                 type: list
@@ -366,15 +239,7 @@ options:
                     - '5.'
                     - '6.'
                     - '6.'
-                choices:
-                    - '5.4'
-                    - '5.6'
-                    - '6.0'
-                    - '6.2'
-                    - '4.x'
-                    - '5.0'
-                    - '5.2'
-                    - '6.4'
+                choices: ['5.4', '5.6', '6.0', '6.2', '4.x', '5.0', '5.2', '6.4']
             umsvc_log:
                 aliases: ['umsvc-log']
                 type: str
@@ -389,16 +254,8 @@ options:
                     - info - Log level - info
                     - debug - Log level - debug
                     - disable - Disable linkd log
-                choices:
-                    - 'emergency'
-                    - 'alert'
-                    - 'critical'
-                    - 'error'
-                    - 'warn'
-                    - 'notice'
-                    - 'info'
-                    - 'debug'
-                    - 'disable'
+                choices: ['emergency', 'alert', 'critical', 'error', 'warn', 'notice', 'info',
+                          'debug', 'disable']
             unreg_dev_option:
                 aliases: ['unreg-dev-option']
                 type: str
@@ -407,10 +264,7 @@ options:
                     - ignore - Ignore all unregistered devices.
                     - svc-only - Allow update requests without adding the device.
                     - add-service - Add unregistered devices and allow update request.
-                choices:
-                    - 'ignore'
-                    - 'svc-only'
-                    - 'add-service'
+                choices: ['ignore', 'svc-only', 'add-service']
             update_schedule:
                 aliases: ['update-schedule']
                 type: dict
@@ -427,14 +281,8 @@ options:
                             - Thursday - Update every Thursday.
                             - Friday - Update every Friday.
                             - Saturday - Update every Saturday.
-                        choices:
-                            - 'Sunday'
-                            - 'Monday'
-                            - 'Tuesday'
-                            - 'Wednesday'
-                            - 'Thursday'
-                            - 'Friday'
-                            - 'Saturday'
+                        choices: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday',
+                                  'Friday', 'Saturday']
                     frequency:
                         type: str
                         description:
@@ -442,19 +290,14 @@ options:
                             - every - Time interval.
                             - daily - Every day.
                             - weekly - Every week.
-                        choices:
-                            - 'every'
-                            - 'daily'
-                            - 'weekly'
+                        choices: ['every', 'daily', 'weekly']
                     status:
                         type: str
                         description:
                             - Enable/disable scheduled updates.
                             - disable - Disable setting.
                             - enable - Enable setting.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     time:
                         type: raw
                         description: (list) Time interval between updates, or the hour and minute when the update occurs
@@ -465,9 +308,7 @@ options:
                     - public ip query mode
                     - disable - Do not query public ip
                     - ipify - Get public IP through https
-                choices:
-                    - 'disable'
-                    - 'ipify'
+                choices: ['disable', 'ipify']
             fortiguard_anycast:
                 aliases: ['fortiguard-anycast']
                 type: str
@@ -475,9 +316,7 @@ options:
                     - Enable/disable use of FortiGuards anycast network
                     - disable - Disable setting.
                     - enable - Enable setting.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             fortiguard_anycast_source:
                 aliases: ['fortiguard-anycast-source']
                 type: str
@@ -485,9 +324,7 @@ options:
                     - Configure which of Fortinets servers to provide FortiGuard services in FortiGuards anycast network.
                     - fortinet - Use Fortinets servers to provide FortiGuard services in FortiGuards anycast network.
                     - aws - Use Fortinets AWS servers to provide FortiGuard services in FortiGuards anycast network.
-                choices:
-                    - 'fortinet'
-                    - 'aws'
+                choices: ['fortinet', 'aws']
             system_support_fdc:
                 aliases: ['system-support-fdc']
                 type: list
@@ -496,11 +333,7 @@ options:
                     - Supported FortiDeceptor versions.
                     - '3.'
                     - '4.'
-                choices:
-                    - '3.x'
-                    - '4.x'
-                    - '5.x'
-                    - '6.x'
+                choices: ['3.x', '4.x', '5.x', '6.x']
             system_support_fts:
                 aliases: ['system-support-fts']
                 type: list
@@ -510,10 +343,7 @@ options:
                     - '3.'
                     - '4.'
                     - '7.'
-                choices:
-                    - '3.x'
-                    - '4.x'
-                    - '7.x'
+                choices: ['3.x', '4.x', '7.x']
             system_support_faz:
                 aliases: ['system-support-faz']
                 type: list
@@ -522,9 +352,7 @@ options:
                     - Supported FortiAnalyzer versions.
                     - '6.'
                     - '7.'
-                choices:
-                    - '6.x'
-                    - '7.x'
+                choices: ['6.x', '7.x']
             system_support_fis:
                 aliases: ['system-support-fis']
                 type: list
@@ -533,9 +361,7 @@ options:
                     - Supported FortiIsolator versions.
                     - '1.'
                     - '2.'
-                choices:
-                    - '1.x'
-                    - '2.x'
+                choices: ['1.x', '2.x']
             system_support_fai:
                 aliases: ['system-support-fai']
                 type: list
@@ -543,8 +369,7 @@ options:
                 description:
                     - Supported FortiNDR versions.
                     - '7.'
-                choices:
-                    - '7.x'
+                choices: ['7.x']
 '''
 
 EXAMPLES = '''
@@ -552,18 +377,10 @@ EXAMPLES = '''
   hosts: fortimanagers
   connection: httpapi
   gather_facts: false
-  vars:
-    ansible_httpapi_use_ssl: true
-    ansible_httpapi_validate_certs: false
-    ansible_httpapi_port: 443
   tasks:
     - name: Configure FortiGuard settings.
       fortinet.fortimanager.fmgr_fmupdate_fdssetting:
-        # bypass_validation: false
         # workspace_locking_adom: <global or your adom name>
-        # workspace_locking_timeout: 300
-        # rc_succeeded: [0, -2, -3, ...]
-        # rc_failed: [-2, -3, ...]
         fmupdate_fdssetting:
           # User_Agent: <string>
           # fds_clt_ssl_protocol: <value in [sslv3, tlsv1.0, tlsv1.1, ...]>
@@ -590,61 +407,14 @@ EXAMPLES = '''
           #       ip: <string>
           #       ip6: <string>
           #       port: <integer>
-          #       service_type: # <list or string>
-          #         - "fds"
-          #         - "fct"
-          #         - "fai"
+          #       service_type: ["fds", "fct", "fai"]
           #   status: <value in [disable, enable]>
-          # system_support_fct:
-          #   - "4.x"
-          #   - "5.0"
-          #   - "5.2"
-          #   - "5.4"
-          #   - "5.6"
-          #   - "6.0"
-          #   - "6.2"
-          #   - "6.4"
-          #   - "7.0"
-          #   - "7.2"
-          #   - "7.4"
-          # system_support_fgt:
-          #   - "5.4"
-          #   - "5.6"
-          #   - "6.0"
-          #   - "6.2"
-          #   - "6.4"
-          #   - "7.0"
-          #   - "7.2"
-          #   - "7.4"
-          #   - "7.6"
-          # system_support_fml:
-          #   - "4.x"
-          #   - "5.x"
-          #   - "6.x"
-          #   - "6.0"
-          #   - "6.2"
-          #   - "6.4"
-          #   - "7.0"
-          #   - "7.2"
-          #   - "7.x"
-          # system_support_fsa:
-          #   - "1.x"
-          #   - "2.x"
-          #   - "3.x"
-          #   - "4.x"
-          #   - "3.0"
-          #   - "3.1"
-          #   - "3.2"
-          #   - "5.x"
-          # system_support_fsw:
-          #   - "5.4"
-          #   - "5.6"
-          #   - "6.0"
-          #   - "6.2"
-          #   - "4.x"
-          #   - "5.0"
-          #   - "5.2"
-          #   - "6.4"
+          # system_support_fct: ["4.x", "5.0", "5.2", "5.4", "5.6", "6.0", "6.2", "6.4", "7.0",
+          #                      "7.2", "7.4"]
+          # system_support_fgt: ["5.4", "5.6", "6.0", "6.2", "6.4", "7.0", "7.2", "7.4", "7.6"]
+          # system_support_fml: ["4.x", "5.x", "6.x", "6.0", "6.2", "6.4", "7.0", "7.2", "7.x"]
+          # system_support_fsa: ["1.x", "2.x", "3.x", "4.x", "3.0", "3.1", "3.2", "5.x"]
+          # system_support_fsw: ["5.4", "5.6", "6.0", "6.2", "4.x", "5.0", "5.2", "6.4"]
           # umsvc_log: <value in [emergency, alert, critical, ...]>
           # unreg_dev_option: <value in [ignore, svc-only, add-service]>
           # update_schedule:
@@ -655,23 +425,11 @@ EXAMPLES = '''
           # wanip_query_mode: <value in [disable, ipify]>
           # fortiguard_anycast: <value in [disable, enable]>
           # fortiguard_anycast_source: <value in [fortinet, aws]>
-          # system_support_fdc:
-          #   - "3.x"
-          #   - "4.x"
-          #   - "5.x"
-          #   - "6.x"
-          # system_support_fts:
-          #   - "3.x"
-          #   - "4.x"
-          #   - "7.x"
-          # system_support_faz:
-          #   - "6.x"
-          #   - "7.x"
-          # system_support_fis:
-          #   - "1.x"
-          #   - "2.x"
-          # system_support_fai:
-          #   - "7.x"
+          # system_support_fdc: ["3.x", "4.x", "5.x", "6.x"]
+          # system_support_fts: ["3.x", "4.x", "7.x"]
+          # system_support_faz: ["6.x", "7.x"]
+          # system_support_fis: ["1.x", "2.x"]
+          # system_support_fai: ["7.x"]
 '''
 
 RETURN = '''
@@ -723,12 +481,9 @@ def main():
     urls_list = [
         '/cli/global/fmupdate/fds-setting'
     ]
-    url_params = []
-    module_primary_key = None
     module_arg_spec = {
         'fmupdate_fdssetting': {
-            'type': 'dict',
-            'v_range': [['6.0.0', '']],
+            'type': 'dict', 'v_range': [['6.0.0', '']],
             'options': {
                 'User-Agent': {'type': 'str'},
                 'fds-clt-ssl-protocol': {'choices': ['sslv3', 'tlsv1.0', 'tlsv1.1', 'tlsv1.2', 'tlsv1.3'], 'type': 'str'},
@@ -820,19 +575,15 @@ def main():
 
     module_option_spec = get_module_arg_spec('partial crud')
     module_arg_spec.update(module_option_spec)
-    params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'fmupdate_fdssetting'),
                            supports_check_mode=True)
-
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list, module_primary_key, url_params,
-                       module, connection, top_level_schema_name='data')
-    fmgr.validate_parameters(params_validation_blob)
+    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list,
+                       None, 'data', module, connection)
     fmgr.process_partial_crud()
-
     module.exit_json(meta=module.params)
 
 

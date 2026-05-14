@@ -13,63 +13,11 @@ DOCUMENTATION = '''
 ---
 module: fmgr_system_dm
 short_description: Configure dm.
-description:
-    - This module is able to configure a FortiManager device.
-    - Examples include all parameters and values which need to be adjusted to data sources before usage.
 version_added: "2.0.0"
-author:
-    - Xinwei Du (@dux-fortinet)
-    - Xing Li (@lix-fortinet)
-    - Jie Xue (@JieX19)
-    - Link Zheng (@chillancezen)
-    - Frank Shen (@fshen01)
-    - Hongbin Lu (@fgtdev-hblu)
-notes:
-    - Starting in version 2.4.0, all input arguments are named using the underscore naming convention (snake_case).
-      Please change the arguments such as "var-name" to "var_name".
-      Old argument names are still available yet you will receive deprecation warnings.
-      You can ignore this warning by setting deprecation_warnings=False in ansible.cfg.
-    - Running in workspace locking mode is supported in this FortiManager module, the top
-      level parameters workspace_locking_adom and workspace_locking_timeout help do the work.
-    - Normally, running one module can fail when a non-zero rc is returned. you can also override
-      the conditions to fail or succeed with parameters rc_failed and rc_succeeded
+extends_documentation_fragment:
+    - fortinet.fortimanager.general
+    - fortinet.fortimanager.general.partial_crud
 options:
-    access_token:
-        description: The token to access FortiManager without using username and password.
-        type: str
-    bypass_validation:
-        description: Only set to True when module schema diffs with FortiManager API structure, module continues to execute without validating parameters.
-        type: bool
-        default: false
-    enable_log:
-        description: Enable/Disable logging for task.
-        type: bool
-        default: false
-    forticloud_access_token:
-        description: Authenticate Ansible client with forticloud API access token.
-        type: str
-    proposed_method:
-        description: The overridden method for the underlying Json RPC request.
-        type: str
-        choices:
-          - update
-          - set
-          - add
-    rc_succeeded:
-        description: The rc codes list with which the conditions to succeed will be overriden.
-        type: list
-        elements: int
-    rc_failed:
-        description: The rc codes list with which the conditions to fail will be overriden.
-        type: list
-        elements: int
-    workspace_locking_adom:
-        description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
-        type: str
-    workspace_locking_timeout:
-        description: The maximum time in seconds to wait for other user to release the workspace lock.
-        type: int
-        default: 300
     system_dm:
         description: The top level parameters set.
         required: false
@@ -109,9 +57,7 @@ options:
                     - Always use remote diff when installing.
                     - disable - Disable.
                     - enable - Enable.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             fortiap_refresh_cnt:
                 aliases: ['fortiap-refresh-cnt']
                 type: int
@@ -146,9 +92,7 @@ options:
                     - Enable/disable configuration install retry.
                     - disable - Disable.
                     - enable - Enable.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             retry_intvl:
                 aliases: ['retry-intvl']
                 type: int
@@ -160,9 +104,7 @@ options:
                     - Enable/disable FortiGate reboot to rollback when installing script/config.
                     - disable - Disable.
                     - enable - Enable.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             script_logsize:
                 aliases: ['script-logsize']
                 type: int
@@ -174,9 +116,7 @@ options:
                     - Enable/disable installing scep related objects even if scep url is configured.
                     - disable - Disable.
                     - enable - Enable.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             skip_tunnel_fcp_req:
                 aliases: ['skip-tunnel-fcp-req']
                 type: str
@@ -184,9 +124,7 @@ options:
                     - Enable/disable skip the fcp request sent from fgfm tunnel
                     - disable - Disable.
                     - enable - Enable.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             verify_install:
                 aliases: ['verify-install']
                 type: str
@@ -195,10 +133,7 @@ options:
                     - disable - Disable.
                     - optimal - Verify installation for command errors.
                     - enable - Always verify installation.
-                choices:
-                    - 'disable'
-                    - 'optimal'
-                    - 'enable'
+                choices: ['disable', 'optimal', 'enable']
             fgfm_install_refresh_count:
                 aliases: ['fgfm-install-refresh-count']
                 type: int
@@ -210,9 +145,7 @@ options:
                     - Merge config after run script on remote device, instead of full retrieve.
                     - disable - Disable.
                     - enable - Enable.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             log_autoupdate:
                 aliases: ['log-autoupdate']
                 type: str
@@ -220,9 +153,7 @@ options:
                     - Enable/disable autoupdate debug logging.
                     - disable - Disable.
                     - enable - Enable.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             fgfm_auto_retrieve_timeout:
                 aliases: ['fgfm-auto-retrieve-timeout']
                 type: int
@@ -238,16 +169,12 @@ options:
                     - Enable/disable nonhasync config handling.
                     - disable - Disable.
                     - enable - Enable.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             autoupdate_merge_revision:
                 aliases: ['autoupdate-merge-revision']
                 type: str
                 description: Autoupdate merge revision.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -255,18 +182,10 @@ EXAMPLES = '''
   hosts: fortimanagers
   connection: httpapi
   gather_facts: false
-  vars:
-    ansible_httpapi_use_ssl: true
-    ansible_httpapi_validate_certs: false
-    ansible_httpapi_port: 443
   tasks:
     - name: Configure dm.
       fortinet.fortimanager.fmgr_system_dm:
-        # bypass_validation: false
         # workspace_locking_adom: <global or your adom name>
-        # workspace_locking_timeout: 300
-        # rc_succeeded: [0, -2, -3, ...]
-        # rc_failed: [-2, -3, ...]
         system_dm:
           # concurrent_install_image_limit: <integer>
           # concurrent_install_limit: <integer>
@@ -348,12 +267,9 @@ def main():
     urls_list = [
         '/cli/global/system/dm'
     ]
-    url_params = []
-    module_primary_key = None
     module_arg_spec = {
         'system_dm': {
-            'type': 'dict',
-            'v_range': [['6.0.0', '']],
+            'type': 'dict', 'v_range': [['6.0.0', '']],
             'options': {
                 'concurrent-install-image-limit': {'type': 'int'},
                 'concurrent-install-limit': {'type': 'int'},
@@ -398,19 +314,15 @@ def main():
 
     module_option_spec = get_module_arg_spec('partial crud')
     module_arg_spec.update(module_option_spec)
-    params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'system_dm'),
                            supports_check_mode=True)
-
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list, module_primary_key, url_params,
-                       module, connection, top_level_schema_name='data')
-    fmgr.validate_parameters(params_validation_blob)
+    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list,
+                       None, 'data', module, connection)
     fmgr.process_partial_crud()
-
     module.exit_json(meta=module.params)
 
 

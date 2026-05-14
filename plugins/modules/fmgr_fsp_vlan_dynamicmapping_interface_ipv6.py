@@ -13,66 +13,14 @@ DOCUMENTATION = '''
 ---
 module: fmgr_fsp_vlan_dynamicmapping_interface_ipv6
 short_description: IPv6 of interface.
-description:
-    - This module is able to configure a FortiManager device.
-    - Examples include all parameters and values which need to be adjusted to data sources before usage.
 version_added: "2.1.0"
-author:
-    - Xinwei Du (@dux-fortinet)
-    - Xing Li (@lix-fortinet)
-    - Jie Xue (@JieX19)
-    - Link Zheng (@chillancezen)
-    - Frank Shen (@fshen01)
-    - Hongbin Lu (@fgtdev-hblu)
-notes:
-    - Starting in version 2.4.0, all input arguments are named using the underscore naming convention (snake_case).
-      Please change the arguments such as "var-name" to "var_name".
-      Old argument names are still available yet you will receive deprecation warnings.
-      You can ignore this warning by setting deprecation_warnings=False in ansible.cfg.
-    - Running in workspace locking mode is supported in this FortiManager module, the top
-      level parameters workspace_locking_adom and workspace_locking_timeout help do the work.
-    - Normally, running one module can fail when a non-zero rc is returned. you can also override
-      the conditions to fail or succeed with parameters rc_failed and rc_succeeded
+extends_documentation_fragment:
+    - fortinet.fortimanager.general
+    - fortinet.fortimanager.general.partial_crud
 options:
-    access_token:
-        description: The token to access FortiManager without using username and password.
-        type: str
-    bypass_validation:
-        description: Only set to True when module schema diffs with FortiManager API structure, module continues to execute without validating parameters.
-        type: bool
-        default: false
-    enable_log:
-        description: Enable/Disable logging for task.
-        type: bool
-        default: false
-    forticloud_access_token:
-        description: Authenticate Ansible client with forticloud API access token.
-        type: str
-    proposed_method:
-        description: The overridden method for the underlying Json RPC request.
-        type: str
-        choices:
-          - update
-          - set
-          - add
-    rc_succeeded:
-        description: The rc codes list with which the conditions to succeed will be overriden.
-        type: list
-        elements: int
-    rc_failed:
-        description: The rc codes list with which the conditions to fail will be overriden.
-        type: list
-        elements: int
     revision_note:
         description: The change note that can be specified when an object is created or updated.
         type: str
-    workspace_locking_adom:
-        description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
-        type: str
-    workspace_locking_timeout:
-        description: The maximum time in seconds to wait for other user to release the workspace lock.
-        type: int
-        default: 300
     adom:
         description: The parameter (adom) in requested url.
         type: str
@@ -93,34 +41,23 @@ options:
             autoconf:
                 type: str
                 description: Autoconf.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             dhcp6_client_options:
                 aliases: ['dhcp6-client-options']
                 type: list
                 elements: str
                 description: Dhcp6 client options.
-                choices:
-                    - 'rapid'
-                    - 'iapd'
-                    - 'iana'
-                    - 'dns'
-                    - 'dnsname'
+                choices: ['rapid', 'iapd', 'iana', 'dns', 'dnsname']
             dhcp6_information_request:
                 aliases: ['dhcp6-information-request']
                 type: str
                 description: Dhcp6 information request.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             dhcp6_prefix_delegation:
                 aliases: ['dhcp6-prefix-delegation']
                 type: str
                 description: Dhcp6 prefix delegation.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             dhcp6_prefix_hint:
                 aliases: ['dhcp6-prefix-hint']
                 type: str
@@ -141,15 +78,12 @@ options:
                 aliases: ['dhcp6-relay-service']
                 type: str
                 description: Dhcp6 relay service.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             dhcp6_relay_type:
                 aliases: ['dhcp6-relay-type']
                 type: str
                 description: Dhcp6 relay type.
-                choices:
-                    - 'regular'
+                choices: ['regular']
             ip6_address:
                 aliases: ['ip6-address']
                 type: str
@@ -159,16 +93,8 @@ options:
                 type: list
                 elements: str
                 description: Ip6 allowaccess.
-                choices:
-                    - 'https'
-                    - 'ping'
-                    - 'ssh'
-                    - 'snmp'
-                    - 'http'
-                    - 'telnet'
-                    - 'fgfm'
-                    - 'capwap'
-                    - 'fabric'
+                choices: ['https', 'ping', 'ssh', 'snmp', 'http', 'telnet', 'fgfm', 'capwap',
+                          'fabric']
             ip6_default_life:
                 aliases: ['ip6-default-life']
                 type: int
@@ -183,16 +109,12 @@ options:
                         aliases: ['autonomous-flag']
                         type: str
                         description: Autonomous flag.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     onlink_flag:
                         aliases: ['onlink-flag']
                         type: str
                         description: Onlink flag.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     prefix_id:
                         aliases: ['prefix-id']
                         type: int
@@ -204,10 +126,7 @@ options:
                         aliases: ['rdnss-service']
                         type: str
                         description: Rdnss service.
-                        choices:
-                            - 'delegated'
-                            - 'default'
-                            - 'specify'
+                        choices: ['delegated', 'default', 'specify']
                     subnet:
                         type: str
                         description: Subnet.
@@ -223,9 +142,7 @@ options:
                 aliases: ['ip6-dns-server-override']
                 type: str
                 description: Ip6 dns server override.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             ip6_extra_addr:
                 aliases: ['ip6-extra-addr']
                 type: list
@@ -247,9 +164,7 @@ options:
                 aliases: ['ip6-manage-flag']
                 type: str
                 description: Ip6 manage flag.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             ip6_max_interval:
                 aliases: ['ip6-max-interval']
                 type: int
@@ -262,18 +177,12 @@ options:
                 aliases: ['ip6-mode']
                 type: str
                 description: Ip6 mode.
-                choices:
-                    - 'static'
-                    - 'dhcp'
-                    - 'pppoe'
-                    - 'delegated'
+                choices: ['static', 'dhcp', 'pppoe', 'delegated']
             ip6_other_flag:
                 aliases: ['ip6-other-flag']
                 type: str
                 description: Ip6 other flag.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             ip6_prefix_list:
                 aliases: ['ip6-prefix-list']
                 type: list
@@ -284,9 +193,7 @@ options:
                         aliases: ['autonomous-flag']
                         type: str
                         description: Autonomous flag.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     dnssl:
                         type: raw
                         description: (list) Dnssl.
@@ -294,9 +201,7 @@ options:
                         aliases: ['onlink-flag']
                         type: str
                         description: Onlink flag.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     preferred_life_time:
                         aliases: ['preferred-life-time']
                         type: int
@@ -323,9 +228,7 @@ options:
                 aliases: ['ip6-send-adv']
                 type: str
                 description: Ip6 send adv.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             ip6_subnet:
                 aliases: ['ip6-subnet']
                 type: str
@@ -346,9 +249,7 @@ options:
                 aliases: ['nd-mode']
                 type: str
                 description: Nd mode.
-                choices:
-                    - 'basic'
-                    - 'SEND-compatible'
+                choices: ['basic', 'SEND-compatible']
             nd_security_level:
                 aliases: ['nd-security-level']
                 type: int
@@ -368,9 +269,7 @@ options:
                 aliases: ['vrrp-virtual-mac6']
                 type: str
                 description: Vrrp virtual mac6.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             vrrp6:
                 type: list
                 elements: dict
@@ -380,9 +279,7 @@ options:
                         aliases: ['accept-mode']
                         type: str
                         description: Accept mode.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     adv_interval:
                         aliases: ['adv-interval']
                         type: int
@@ -390,9 +287,7 @@ options:
                     preempt:
                         type: str
                         description: Preempt.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     priority:
                         type: int
                         description: Priority.
@@ -403,9 +298,7 @@ options:
                     status:
                         type: str
                         description: Status.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     vrdst6:
                         type: str
                         description: Vrdst6.
@@ -426,16 +319,12 @@ options:
                 aliases: ['unique-autoconf-addr']
                 type: str
                 description: Unique autoconf addr.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             icmp6_send_redirect:
                 aliases: ['icmp6-send-redirect']
                 type: str
                 description: Enable/disable sending of ICMPv6 redirects.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             cli_conn6_status:
                 aliases: ['cli-conn6-status']
                 type: int
@@ -444,16 +333,12 @@ options:
                 aliases: ['ip6-prefix-mode']
                 type: str
                 description: Assigning a prefix from DHCP or RA.
-                choices:
-                    - 'dhcp6'
-                    - 'ra'
+                choices: ['dhcp6', 'ra']
             ra_send_mtu:
                 aliases: ['ra-send-mtu']
                 type: str
                 description: Enable/disable sending link MTU in RA packet.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             ip6_delegated_prefix_iaid:
                 aliases: ['ip6-delegated-prefix-iaid']
                 type: int
@@ -462,9 +347,7 @@ options:
                 aliases: ['dhcp6-relay-source-interface']
                 type: str
                 description: Enable/disable use of address on this interface as the source address of the relay message.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -472,29 +355,16 @@ EXAMPLES = '''
   hosts: fortimanagers
   connection: httpapi
   gather_facts: false
-  vars:
-    ansible_httpapi_use_ssl: true
-    ansible_httpapi_validate_certs: false
-    ansible_httpapi_port: 443
   tasks:
     - name: IPv6 of interface.
       fortinet.fortimanager.fmgr_fsp_vlan_dynamicmapping_interface_ipv6:
-        # bypass_validation: false
         # workspace_locking_adom: <global or your adom name>
-        # workspace_locking_timeout: 300
-        # rc_succeeded: [0, -2, -3, ...]
-        # rc_failed: [-2, -3, ...]
         adom: <your own value>
         vlan: <your own value>
         dynamic_mapping: <your own value>
         fsp_vlan_dynamicmapping_interface_ipv6:
           # autoconf: <value in [disable, enable]>
-          # dhcp6_client_options:
-          #   - "rapid"
-          #   - "iapd"
-          #   - "iana"
-          #   - "dns"
-          #   - "dnsname"
+          # dhcp6_client_options: ["rapid", "iapd", "iana", "dns", "dnsname"]
           # dhcp6_information_request: <value in [disable, enable]>
           # dhcp6_prefix_delegation: <value in [disable, enable]>
           # dhcp6_prefix_hint: <string>
@@ -504,16 +374,8 @@ EXAMPLES = '''
           # dhcp6_relay_service: <value in [disable, enable]>
           # dhcp6_relay_type: <value in [regular]>
           # ip6_address: <string>
-          # ip6_allowaccess:
-          #   - "https"
-          #   - "ping"
-          #   - "ssh"
-          #   - "snmp"
-          #   - "http"
-          #   - "telnet"
-          #   - "fgfm"
-          #   - "capwap"
-          #   - "fabric"
+          # ip6_allowaccess: ["https", "ping", "ssh", "snmp", "http", "telnet", "fgfm", "capwap",
+          #                   "fabric"]
           # ip6_default_life: <integer>
           # ip6_delegated_prefix_list:
           #   - autonomous_flag: <value in [disable, enable]>
@@ -626,16 +488,13 @@ def main():
         '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/interface/ipv6',
         '/pm/config/global/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/interface/ipv6'
     ]
-    url_params = ['adom', 'vlan', 'dynamic_mapping']
-    module_primary_key = None
     module_arg_spec = {
         'adom': {'required': True, 'type': 'str'},
         'vlan': {'required': True, 'type': 'str'},
         'dynamic_mapping': {'required': True, 'type': 'str'},
         'revision_note': {'type': 'str'},
         'fsp_vlan_dynamicmapping_interface_ipv6': {
-            'type': 'dict',
-            'v_range': [['6.2.2', '7.2.5'], ['7.4.0', '7.4.0']],
+            'type': 'dict', 'v_range': [['6.2.2', '7.2.5'], ['7.4.0', '7.4.0']],
             'options': {
                 'autoconf': {'v_range': [['6.2.2', '7.2.5'], ['7.4.0', '7.4.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'dhcp6-client-options': {
@@ -751,19 +610,15 @@ def main():
 
     module_option_spec = get_module_arg_spec('partial crud')
     module_arg_spec.update(module_option_spec)
-    params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'fsp_vlan_dynamicmapping_interface_ipv6'),
                            supports_check_mode=True)
-
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list, module_primary_key, url_params,
-                       module, connection, top_level_schema_name='data')
-    fmgr.validate_parameters(params_validation_blob)
+    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list,
+                       None, 'data', module, connection)
     fmgr.process_partial_crud()
-
     module.exit_json(meta=module.params)
 
 

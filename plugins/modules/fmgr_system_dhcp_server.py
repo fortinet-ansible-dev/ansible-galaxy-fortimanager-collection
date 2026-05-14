@@ -13,75 +13,14 @@ DOCUMENTATION = '''
 ---
 module: fmgr_system_dhcp_server
 short_description: Configure DHCP servers.
-description:
-    - This module is able to configure a FortiManager device.
-    - Examples include all parameters and values which need to be adjusted to data sources before usage.
 version_added: "2.0.0"
-author:
-    - Xinwei Du (@dux-fortinet)
-    - Xing Li (@lix-fortinet)
-    - Jie Xue (@JieX19)
-    - Link Zheng (@chillancezen)
-    - Frank Shen (@fshen01)
-    - Hongbin Lu (@fgtdev-hblu)
-notes:
-    - Starting in version 2.4.0, all input arguments are named using the underscore naming convention (snake_case).
-      Please change the arguments such as "var-name" to "var_name".
-      Old argument names are still available yet you will receive deprecation warnings.
-      You can ignore this warning by setting deprecation_warnings=False in ansible.cfg.
-    - Running in workspace locking mode is supported in this FortiManager module, the top
-      level parameters workspace_locking_adom and workspace_locking_timeout help do the work.
-    - To create or update an object, use state present directive.
-    - To delete an object, use state absent directive.
-    - Normally, running one module can fail when a non-zero rc is returned. you can also override
-      the conditions to fail or succeed with parameters rc_failed and rc_succeeded
+extends_documentation_fragment:
+    - fortinet.fortimanager.general
+    - fortinet.fortimanager.general.full_crud
 options:
-    access_token:
-        description: The token to access FortiManager without using username and password.
-        type: str
-    bypass_validation:
-        description: Only set to True when module schema diffs with FortiManager API structure, module continues to execute without validating parameters.
-        type: bool
-        default: false
-    enable_log:
-        description: Enable/Disable logging for task.
-        type: bool
-        default: false
-    forticloud_access_token:
-        description: Authenticate Ansible client with forticloud API access token.
-        type: str
-    proposed_method:
-        description: The overridden method for the underlying Json RPC request.
-        type: str
-        choices:
-          - update
-          - set
-          - add
-    rc_succeeded:
-        description: The rc codes list with which the conditions to succeed will be overriden.
-        type: list
-        elements: int
-    rc_failed:
-        description: The rc codes list with which the conditions to fail will be overriden.
-        type: list
-        elements: int
-    state:
-        description: The directive to create, update or delete an object.
-        type: str
-        required: true
-        choices:
-          - present
-          - absent
     revision_note:
         description: The change note that can be specified when an object is created or updated.
         type: str
-    workspace_locking_adom:
-        description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
-        type: str
-    workspace_locking_timeout:
-        description: The maximum time in seconds to wait for other user to release the workspace lock.
-        type: int
-        default: 300
     adom:
         description: The parameter (adom) in requested url.
         type: str
@@ -95,9 +34,7 @@ options:
                 aliases: ['auto-configuration']
                 type: str
                 description: Enable/disable auto configuration.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             conflicted_ip_timeout:
                 aliases: ['conflicted-ip-timeout']
                 type: int
@@ -106,9 +43,7 @@ options:
                 aliases: ['ddns-auth']
                 type: str
                 description: DDNS authentication mode.
-                choices:
-                    - 'disable'
-                    - 'tsig'
+                choices: ['disable', 'tsig']
             ddns_key:
                 aliases: ['ddns-key']
                 type: raw
@@ -129,16 +64,12 @@ options:
                 aliases: ['ddns-update']
                 type: str
                 description: Enable/disable DDNS update for DHCP.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             ddns_update_override:
                 aliases: ['ddns-update-override']
                 type: str
                 description: Enable/disable DDNS update override for DHCP.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             ddns_zone:
                 aliases: ['ddns-zone']
                 type: str
@@ -163,10 +94,7 @@ options:
                 aliases: ['dns-service']
                 type: str
                 description: Options for assigning DNS servers to DHCP clients.
-                choices:
-                    - 'default'
-                    - 'specify'
-                    - 'local'
+                choices: ['default', 'specify', 'local']
             domain:
                 type: str
                 description: Domain name suffix for the IP addresses that the DHCP server assigns to clients.
@@ -191,9 +119,7 @@ options:
                         aliases: ['vci-match']
                         type: str
                         description: Enable/disable vendor class identifier
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     vci_string:
                         aliases: ['vci-string']
                         type: raw
@@ -206,9 +132,7 @@ options:
                         aliases: ['uci-match']
                         type: str
                         description: Enable/disable user class identifier
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     uci_string:
                         aliases: ['uci-string']
                         type: raw
@@ -220,9 +144,7 @@ options:
                 aliases: ['forticlient-on-net-status']
                 type: str
                 description: Enable/disable FortiClient-On-Net service for this DHCP server.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             id:
                 type: int
                 description: ID.
@@ -234,9 +156,7 @@ options:
                 aliases: ['ip-mode']
                 type: str
                 description: Method used to assign client IP.
-                choices:
-                    - 'range'
-                    - 'usrgrp'
+                choices: ['range', 'usrgrp']
             ip_range:
                 aliases: ['ip-range']
                 type: list
@@ -258,9 +178,7 @@ options:
                         aliases: ['vci-match']
                         type: str
                         description: Enable/disable vendor class identifier
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     vci_string:
                         aliases: ['vci-string']
                         type: raw
@@ -273,9 +191,7 @@ options:
                         aliases: ['uci-match']
                         type: str
                         description: Enable/disable user class identifier
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     uci_string:
                         aliases: ['uci-string']
                         type: raw
@@ -292,9 +208,7 @@ options:
                 aliases: ['mac-acl-default-action']
                 type: str
                 description: MAC access control default action
-                choices:
-                    - 'assign'
-                    - 'block'
+                choices: ['assign', 'block']
             netmask:
                 type: str
                 description: Netmask assigned by the DHCP server.
@@ -318,10 +232,7 @@ options:
                 aliases: ['ntp-service']
                 type: str
                 description: Options for assigning Network Time Protocol
-                choices:
-                    - 'default'
-                    - 'specify'
-                    - 'local'
+                choices: ['default', 'specify', 'local']
             options:
                 type: list
                 elements: dict
@@ -339,11 +250,7 @@ options:
                     type:
                         type: str
                         description: DHCP option type.
-                        choices:
-                            - 'hex'
-                            - 'string'
-                            - 'ip'
-                            - 'fqdn'
+                        choices: ['hex', 'string', 'ip', 'fqdn']
                     value:
                         type: str
                         description: DHCP option value.
@@ -351,9 +258,7 @@ options:
                         aliases: ['vci-match']
                         type: str
                         description: Enable/disable vendor class identifier
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     vci_string:
                         aliases: ['vci-string']
                         type: raw
@@ -362,9 +267,7 @@ options:
                         aliases: ['uci-match']
                         type: str
                         description: Enable/disable user class identifier
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     uci_string:
                         aliases: ['uci-string']
                         type: raw
@@ -378,10 +281,7 @@ options:
                     action:
                         type: str
                         description: Options for the DHCP server to configure the client with the reserved MAC address.
-                        choices:
-                            - 'assign'
-                            - 'block'
-                            - 'reserved'
+                        choices: ['assign', 'block', 'reserved']
                     description:
                         type: str
                         description: Description.
@@ -402,9 +302,7 @@ options:
                         aliases: ['circuit-id-type']
                         type: str
                         description: DHCP option type.
-                        choices:
-                            - 'hex'
-                            - 'string'
+                        choices: ['hex', 'string']
                     remote_id:
                         aliases: ['remote-id']
                         type: str
@@ -413,28 +311,20 @@ options:
                         aliases: ['remote-id-type']
                         type: str
                         description: DHCP option type.
-                        choices:
-                            - 'hex'
-                            - 'string'
+                        choices: ['hex', 'string']
                     type:
                         type: str
                         description: DHCP reserved-address type.
-                        choices:
-                            - 'mac'
-                            - 'option82'
+                        choices: ['mac', 'option82']
             server_type:
                 aliases: ['server-type']
                 type: str
                 description: DHCP server can be a normal DHCP server or an IPsec DHCP server.
-                choices:
-                    - 'regular'
-                    - 'ipsec'
+                choices: ['regular', 'ipsec']
             status:
                 type: str
                 description: Enable/disable this DHCP configuration.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             tftp_server:
                 aliases: ['tftp-server']
                 type: raw
@@ -442,110 +332,24 @@ options:
             timezone:
                 type: str
                 description: Select the time zone to be assigned to DHCP clients.
-                choices:
-                    - '00'
-                    - '01'
-                    - '02'
-                    - '03'
-                    - '04'
-                    - '05'
-                    - '06'
-                    - '07'
-                    - '08'
-                    - '09'
-                    - '10'
-                    - '11'
-                    - '12'
-                    - '13'
-                    - '14'
-                    - '15'
-                    - '16'
-                    - '17'
-                    - '18'
-                    - '19'
-                    - '20'
-                    - '21'
-                    - '22'
-                    - '23'
-                    - '24'
-                    - '25'
-                    - '26'
-                    - '27'
-                    - '28'
-                    - '29'
-                    - '30'
-                    - '31'
-                    - '32'
-                    - '33'
-                    - '34'
-                    - '35'
-                    - '36'
-                    - '37'
-                    - '38'
-                    - '39'
-                    - '40'
-                    - '41'
-                    - '42'
-                    - '43'
-                    - '44'
-                    - '45'
-                    - '46'
-                    - '47'
-                    - '48'
-                    - '49'
-                    - '50'
-                    - '51'
-                    - '52'
-                    - '53'
-                    - '54'
-                    - '55'
-                    - '56'
-                    - '57'
-                    - '58'
-                    - '59'
-                    - '60'
-                    - '61'
-                    - '62'
-                    - '63'
-                    - '64'
-                    - '65'
-                    - '66'
-                    - '67'
-                    - '68'
-                    - '69'
-                    - '70'
-                    - '71'
-                    - '72'
-                    - '73'
-                    - '74'
-                    - '75'
-                    - '76'
-                    - '77'
-                    - '78'
-                    - '79'
-                    - '80'
-                    - '81'
-                    - '82'
-                    - '83'
-                    - '84'
-                    - '85'
-                    - '86'
-                    - '87'
+                choices: ['00', '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11',
+                          '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23',
+                          '24', '25', '26', '27', '28', '29', '30', '31', '32', '33', '34', '35',
+                          '36', '37', '38', '39', '40', '41', '42', '43', '44', '45', '46', '47',
+                          '48', '49', '50', '51', '52', '53', '54', '55', '56', '57', '58', '59',
+                          '60', '61', '62', '63', '64', '65', '66', '67', '68', '69', '70', '71',
+                          '72', '73', '74', '75', '76', '77', '78', '79', '80', '81', '82', '83',
+                          '84', '85', '86', '87']
             timezone_option:
                 aliases: ['timezone-option']
                 type: str
                 description: Options for the DHCP server to set the clients time zone.
-                choices:
-                    - 'disable'
-                    - 'default'
-                    - 'specify'
+                choices: ['disable', 'default', 'specify']
             vci_match:
                 aliases: ['vci-match']
                 type: str
                 description: Enable/disable vendor class identifier
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             vci_string:
                 aliases: ['vci-string']
                 type: raw
@@ -578,23 +382,17 @@ options:
                 aliases: ['wifi-ac-service']
                 type: str
                 description: Options for assigning WiFi Access Controllers to DHCP clients
-                choices:
-                    - 'specify'
-                    - 'local'
+                choices: ['specify', 'local']
             auto_managed_status:
                 aliases: ['auto-managed-status']
                 type: str
                 description: Enable/disable use of this DHCP server once this interface has been assigned an IP address from FortiIPAM.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             dhcp_settings_from_fortiipam:
                 aliases: ['dhcp-settings-from-fortiipam']
                 type: str
                 description: Enable/disable populating of DHCP server settings from FortiIPAM.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             relay_agent:
                 aliases: ['relay-agent']
                 type: str
@@ -603,9 +401,7 @@ options:
                 aliases: ['shared-subnet']
                 type: str
                 description: Enable/disable shared subnet.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -706,14 +502,11 @@ def main():
         '/pm/config/adom/{adom}/obj/system/dhcp/server',
         '/pm/config/global/obj/system/dhcp/server'
     ]
-    url_params = ['adom']
-    module_primary_key = 'id'
     module_arg_spec = {
         'adom': {'required': True, 'type': 'str'},
         'revision_note': {'type': 'str'},
         'system_dhcp_server': {
-            'type': 'dict',
-            'v_range': [['6.0.0', '']],
+            'type': 'dict', 'v_range': [['6.0.0', '']],
             'options': {
                 'auto-configuration': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'conflicted-ip-timeout': {'type': 'int'},
@@ -837,19 +630,15 @@ def main():
 
     module_option_spec = get_module_arg_spec('full crud')
     module_arg_spec.update(module_option_spec)
-    params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'system_dhcp_server'),
                            supports_check_mode=True)
-
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
-                       module, connection, top_level_schema_name='data')
-    fmgr.validate_parameters(params_validation_blob)
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list,
+                       'id', 'data', module, connection)
     fmgr.process_crud()
-
     module.exit_json(meta=module.params)
 
 

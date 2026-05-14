@@ -13,66 +13,14 @@ DOCUMENTATION = '''
 ---
 module: fmgr_wtpprofile_radio1
 short_description: Configuration options for radio 1.
-description:
-    - This module is able to configure a FortiManager device.
-    - Examples include all parameters and values which need to be adjusted to data sources before usage.
 version_added: "2.0.0"
-author:
-    - Xinwei Du (@dux-fortinet)
-    - Xing Li (@lix-fortinet)
-    - Jie Xue (@JieX19)
-    - Link Zheng (@chillancezen)
-    - Frank Shen (@fshen01)
-    - Hongbin Lu (@fgtdev-hblu)
-notes:
-    - Starting in version 2.4.0, all input arguments are named using the underscore naming convention (snake_case).
-      Please change the arguments such as "var-name" to "var_name".
-      Old argument names are still available yet you will receive deprecation warnings.
-      You can ignore this warning by setting deprecation_warnings=False in ansible.cfg.
-    - Running in workspace locking mode is supported in this FortiManager module, the top
-      level parameters workspace_locking_adom and workspace_locking_timeout help do the work.
-    - Normally, running one module can fail when a non-zero rc is returned. you can also override
-      the conditions to fail or succeed with parameters rc_failed and rc_succeeded
+extends_documentation_fragment:
+    - fortinet.fortimanager.general
+    - fortinet.fortimanager.general.partial_crud
 options:
-    access_token:
-        description: The token to access FortiManager without using username and password.
-        type: str
-    bypass_validation:
-        description: Only set to True when module schema diffs with FortiManager API structure, module continues to execute without validating parameters.
-        type: bool
-        default: false
-    enable_log:
-        description: Enable/Disable logging for task.
-        type: bool
-        default: false
-    forticloud_access_token:
-        description: Authenticate Ansible client with forticloud API access token.
-        type: str
-    proposed_method:
-        description: The overridden method for the underlying Json RPC request.
-        type: str
-        choices:
-          - update
-          - set
-          - add
-    rc_succeeded:
-        description: The rc codes list with which the conditions to succeed will be overriden.
-        type: list
-        elements: int
-    rc_failed:
-        description: The rc codes list with which the conditions to fail will be overriden.
-        type: list
-        elements: int
     revision_note:
         description: The change note that can be specified when an object is created or updated.
         type: str
-    workspace_locking_adom:
-        description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
-        type: str
-    workspace_locking_timeout:
-        description: The maximum time in seconds to wait for other user to release the workspace lock.
-        type: int
-        default: 300
     adom:
         description: The parameter (adom) in requested url.
         type: str
@@ -91,16 +39,12 @@ options:
             amsdu:
                 type: str
                 description: Enable/disable 802.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             ap_handoff:
                 aliases: ['ap-handoff']
                 type: str
                 description: Enable/disable AP handoff of clients to other APs
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             ap_sniffer_addr:
                 aliases: ['ap-sniffer-addr']
                 type: str
@@ -117,37 +61,27 @@ options:
                 aliases: ['ap-sniffer-ctl']
                 type: str
                 description: Enable/disable sniffer on WiFi control frame
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             ap_sniffer_data:
                 aliases: ['ap-sniffer-data']
                 type: str
                 description: Enable/disable sniffer on WiFi data frame
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             ap_sniffer_mgmt_beacon:
                 aliases: ['ap-sniffer-mgmt-beacon']
                 type: str
                 description: Enable/disable sniffer on WiFi management Beacon frames
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             ap_sniffer_mgmt_other:
                 aliases: ['ap-sniffer-mgmt-other']
                 type: str
                 description: Enable/disable sniffer on WiFi management other frames
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             ap_sniffer_mgmt_probe:
                 aliases: ['ap-sniffer-mgmt-probe']
                 type: str
                 description: Enable/disable sniffer on WiFi management probe frames
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             auto_power_high:
                 aliases: ['auto-power-high']
                 type: int
@@ -156,9 +90,7 @@ options:
                 aliases: ['auto-power-level']
                 type: str
                 description: Enable/disable automatic power-level adjustment to prevent co-channel interference
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             auto_power_low:
                 aliases: ['auto-power-low']
                 type: int
@@ -166,42 +98,18 @@ options:
             band:
                 type: str
                 description: WiFi band that Radio 1 operates on.
-                choices:
-                    - '802.11b'
-                    - '802.11a'
-                    - '802.11g'
-                    - '802.11n'
-                    - '802.11ac'
-                    - '802.11n-5G'
-                    - '802.11g-only'
-                    - '802.11n-only'
-                    - '802.11n,g-only'
-                    - '802.11ac-only'
-                    - '802.11ac,n-only'
-                    - '802.11n-5G-only'
-                    - '802.11ax-5G'
-                    - '802.11ax'
-                    - '802.11ax-5G-only'
-                    - '802.11ax,ac-only'
-                    - '802.11ax,ac,n-only'
-                    - '802.11ax-only'
-                    - '802.11ax,n-only'
-                    - '802.11ax,n,g-only'
-                    - '802.11ac-2G'
-                    - '802.11ax-6G'
-                    - '802.11n-2G'
-                    - '802.11ac-5G'
-                    - '802.11ax-2G'
-                    - '802.11be-2G'
-                    - '802.11be-5G'
-                    - '802.11be-6G'
+                choices: ['802.11b', '802.11a', '802.11g', '802.11n', '802.11ac', '802.11n-5G',
+                          '802.11g-only', '802.11n-only', '802.11n,g-only', '802.11ac-only',
+                          '802.11ac,n-only', '802.11n-5G-only', '802.11ax-5G', '802.11ax',
+                          '802.11ax-5G-only', '802.11ax,ac-only', '802.11ax,ac,n-only',
+                          '802.11ax-only', '802.11ax,n-only', '802.11ax,n,g-only', '802.11ac-2G',
+                          '802.11ax-6G', '802.11n-2G', '802.11ac-5G', '802.11ax-2G',
+                          '802.11be-2G', '802.11be-5G', '802.11be-6G']
             bandwidth_admission_control:
                 aliases: ['bandwidth-admission-control']
                 type: str
                 description: Enable/disable WiFi multimedia
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             bandwidth_capacity:
                 aliases: ['bandwidth-capacity']
                 type: int
@@ -214,9 +122,7 @@ options:
                 aliases: ['call-admission-control']
                 type: str
                 description: Enable/disable WiFi multimedia
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             call_capacity:
                 aliases: ['call-capacity']
                 type: int
@@ -228,34 +134,21 @@ options:
                 aliases: ['channel-bonding']
                 type: str
                 description: Channel bandwidth
-                choices:
-                    - 'disable'
-                    - 'enable'
-                    - '80MHz'
-                    - '40MHz'
-                    - '20MHz'
-                    - '160MHz'
-                    - '320MHz'
-                    - '240MHz'
+                choices: ['disable', 'enable', '80MHz', '40MHz', '20MHz', '160MHz', '320MHz',
+                          '240MHz']
             channel_utilization:
                 aliases: ['channel-utilization']
                 type: str
                 description: Enable/disable measuring channel utilization.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             coexistence:
                 type: str
                 description: Enable/disable allowing both HT20 and HT40 on the same radio
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             darrp:
                 type: str
                 description: Enable/disable Distributed Automatic Radio Resource Provisioning
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             dtim:
                 type: int
                 description: DTIM interval.
@@ -267,9 +160,7 @@ options:
                 aliases: ['frequency-handoff']
                 type: str
                 description: Enable/disable frequency handoff of clients to other channels
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             max_clients:
                 aliases: ['max-clients']
                 type: int
@@ -281,12 +172,7 @@ options:
             mode:
                 type: str
                 description: Mode of radio 1.
-                choices:
-                    - 'disabled'
-                    - 'ap'
-                    - 'monitor'
-                    - 'sniffer'
-                    - 'sam'
+                choices: ['disabled', 'ap', 'monitor', 'sniffer', 'sam']
             power_level:
                 aliases: ['power-level']
                 type: int
@@ -296,20 +182,12 @@ options:
                 type: list
                 elements: str
                 description: Enable client power-saving features such as TIM, AC VO, and OBSS etc.
-                choices:
-                    - 'tim'
-                    - 'ac-vo'
-                    - 'no-obss-scan'
-                    - 'no-11b-rate'
-                    - 'client-rate-follow'
+                choices: ['tim', 'ac-vo', 'no-obss-scan', 'no-11b-rate', 'client-rate-follow']
             protection_mode:
                 aliases: ['protection-mode']
                 type: str
                 description: Enable/disable 802.
-                choices:
-                    - 'rtscts'
-                    - 'ctsonly'
-                    - 'disable'
+                choices: ['rtscts', 'ctsonly', 'disable']
             radio_id:
                 aliases: ['radio-id']
                 type: int
@@ -322,38 +200,23 @@ options:
                 aliases: ['short-guard-interval']
                 type: str
                 description: Use either the short guard interval
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             spectrum_analysis:
                 aliases: ['spectrum-analysis']
                 type: str
                 description: Enable/disable spectrum analysis to find interference that would negatively impact wireless performance.
-                choices:
-                    - 'disable'
-                    - 'enable'
-                    - 'scan-only'
+                choices: ['disable', 'enable', 'scan-only']
             transmit_optimize:
                 aliases: ['transmit-optimize']
                 type: list
                 elements: str
                 description: Packet transmission optimization options including power saving, aggregation limiting, retry limiting, etc.
-                choices:
-                    - 'disable'
-                    - 'power-save'
-                    - 'aggr-limit'
-                    - 'retry-limit'
-                    - 'send-bar'
+                choices: ['disable', 'power-save', 'aggr-limit', 'retry-limit', 'send-bar']
             vap_all:
                 aliases: ['vap-all']
                 type: str
                 description: Enable/disable the automatic inheritance of all Virtual Access Points
-                choices:
-                    - 'disable'
-                    - 'enable'
-                    - 'tunnel'
-                    - 'bridge'
-                    - 'manual'
+                choices: ['disable', 'enable', 'tunnel', 'bridge', 'manual']
             vaps:
                 type: raw
                 description: (list or str) Manually selected list of Virtual Access Points
@@ -365,24 +228,17 @@ options:
                 aliases: ['airtime-fairness']
                 type: str
                 description: Enable/disable airtime fairness
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             band_5g_type:
                 aliases: ['band-5g-type']
                 type: str
                 description: WiFi 5G band type.
-                choices:
-                    - '5g-full'
-                    - '5g-high'
-                    - '5g-low'
+                choices: ['5g-full', '5g-high', '5g-low']
             zero_wait_dfs:
                 aliases: ['zero-wait-dfs']
                 type: str
                 description: Enable/disable zero wait DFS on radio
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             vap1:
                 type: str
                 description: Virtual Access Point
@@ -418,24 +274,17 @@ options:
             drma:
                 type: str
                 description: Enable/disable dynamic radio mode assignment
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             drma_sensitivity:
                 aliases: ['drma-sensitivity']
                 type: str
                 description: Network Coverage Factor
-                choices:
-                    - 'low'
-                    - 'medium'
-                    - 'high'
+                choices: ['low', 'medium', 'high']
             iperf_protocol:
                 aliases: ['iperf-protocol']
                 type: str
                 description: Iperf test protocol
-                choices:
-                    - 'udp'
-                    - 'tcp'
+                choices: ['udp', 'tcp']
             iperf_server_port:
                 aliases: ['iperf-server-port']
                 type: int
@@ -444,9 +293,7 @@ options:
                 aliases: ['power-mode']
                 type: str
                 description: Set radio effective isotropic radiated power
-                choices:
-                    - 'dBm'
-                    - 'percentage'
+                choices: ['dBm', 'percentage']
             power_value:
                 aliases: ['power-value']
                 type: int
@@ -459,9 +306,7 @@ options:
                 aliases: ['sam-captive-portal']
                 type: str
                 description: Enable/disable Captive Portal Authentication
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             sam_password:
                 aliases: ['sam-password']
                 type: raw
@@ -474,12 +319,7 @@ options:
                 aliases: ['sam-security-type']
                 type: str
                 description: Select WiFi network security type
-                choices:
-                    - 'open'
-                    - 'wpa-personal'
-                    - 'wpa-enterprise'
-                    - 'owe'
-                    - 'wpa3-sae'
+                choices: ['open', 'wpa-personal', 'wpa-enterprise', 'owe', 'wpa3-sae']
             sam_server:
                 aliases: ['sam-server']
                 type: str
@@ -492,9 +332,7 @@ options:
                 aliases: ['sam-test']
                 type: str
                 description: Select SAM test type
-                choices:
-                    - 'ping'
-                    - 'iperf'
+                choices: ['ping', 'iperf']
             sam_username:
                 aliases: ['sam-username']
                 type: str
@@ -507,9 +345,7 @@ options:
                 aliases: ['bss-color-mode']
                 type: str
                 description: BSS color mode for this 11ax radio
-                choices:
-                    - 'auto'
-                    - 'static'
+                choices: ['auto', 'static']
             sam_cwp_failure_string:
                 aliases: ['sam-cwp-failure-string']
                 type: str
@@ -546,42 +382,25 @@ options:
                 aliases: ['sam-server-type']
                 type: str
                 description: Select SAM server type
-                choices:
-                    - 'ip'
-                    - 'fqdn'
+                choices: ['ip', 'fqdn']
             d80211d:
                 aliases: ['80211d']
                 type: str
                 description: Enable/disable 802.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             optional_antenna:
                 aliases: ['optional-antenna']
                 type: str
                 description: Optional antenna used on FAP
-                choices:
-                    - 'none'
-                    - 'FANT-04ABGN-0606-O-N'
-                    - 'FANT-04ABGN-1414-P-N'
-                    - 'FANT-04ABGN-8065-P-N'
-                    - 'FANT-04ABGN-0606-O-R'
-                    - 'FANT-04ABGN-0606-P-R'
-                    - 'FANT-10ACAX-1213-D-N'
-                    - 'FANT-08ABGN-1213-D-R'
-                    - 'custom'
-                    - 'FANT-04BEAX-0606-P-R'
+                choices: ['none', 'FANT-04ABGN-0606-O-N', 'FANT-04ABGN-1414-P-N',
+                          'FANT-04ABGN-8065-P-N', 'FANT-04ABGN-0606-O-R', 'FANT-04ABGN-0606-P-R',
+                          'FANT-10ACAX-1213-D-N', 'FANT-08ABGN-1213-D-R', 'custom',
+                          'FANT-04BEAX-0606-P-R']
             mimo_mode:
                 aliases: ['mimo-mode']
                 type: str
                 description: Configure radio MIMO mode
-                choices:
-                    - 'default'
-                    - '1x1'
-                    - '2x2'
-                    - '3x3'
-                    - '4x4'
-                    - '8x8'
+                choices: ['default', '1x1', '2x2', '3x3', '4x4', '8x8']
             optional_antenna_gain:
                 aliases: ['optional-antenna-gain']
                 type: str
@@ -598,10 +417,7 @@ options:
                 aliases: ['sam-eap-method']
                 type: str
                 description: Select WPA2/WPA3-ENTERPRISE EAP Method
-                choices:
-                    - 'tls'
-                    - 'peap'
-                    - 'both'
+                choices: ['tls', 'peap', 'both']
             sam_private_key:
                 aliases: ['sam-private-key']
                 type: str
@@ -614,34 +430,22 @@ options:
                 aliases: ['channel-bonding-ext']
                 type: str
                 description: Channel bandwidth extension
-                choices:
-                    - '320MHz-1'
-                    - '320MHz-2'
+                choices: ['320MHz-1', '320MHz-2']
             d80211mc:
                 aliases: ['80211mc']
                 type: str
                 description: Enable/disable 802.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             ap_sniffer_chan_width:
                 aliases: ['ap-sniffer-chan-width']
                 type: str
                 description: Channel bandwidth for sniffer.
-                choices:
-                    - '320MHz'
-                    - '240MHz'
-                    - '160MHz'
-                    - '80MHz'
-                    - '40MHz'
-                    - '20MHz'
+                choices: ['320MHz', '240MHz', '160MHz', '80MHz', '40MHz', '20MHz']
             ai_darrp_support:
                 aliases: ['ai-darrp-support']
                 type: str
                 description: Enable/disable support for FortiAIOps to retrieve Distributed Automatic Radio Resource Provisioning
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -649,18 +453,10 @@ EXAMPLES = '''
   hosts: fortimanagers
   connection: httpapi
   gather_facts: false
-  vars:
-    ansible_httpapi_use_ssl: true
-    ansible_httpapi_validate_certs: false
-    ansible_httpapi_port: 443
   tasks:
     - name: Configuration options for radio 1.
       fortinet.fortimanager.fmgr_wtpprofile_radio1:
-        # bypass_validation: false
         # workspace_locking_adom: <global or your adom name>
-        # workspace_locking_timeout: 300
-        # rc_succeeded: [0, -2, -3, ...]
-        # rc_failed: [-2, -3, ...]
         adom: <your own value>
         wtp_profile: <your own value>
         wtpprofile_radio1:
@@ -695,23 +491,14 @@ EXAMPLES = '''
           # max_distance: <integer>
           # mode: <value in [disabled, ap, monitor, ...]>
           # power_level: <integer>
-          # powersave_optimize:
-          #   - "tim"
-          #   - "ac-vo"
-          #   - "no-obss-scan"
-          #   - "no-11b-rate"
-          #   - "client-rate-follow"
+          # powersave_optimize: ["tim", "ac-vo", "no-obss-scan", "no-11b-rate",
+          #                      "client-rate-follow"]
           # protection_mode: <value in [rtscts, ctsonly, disable]>
           # radio_id: <integer>
           # rts_threshold: <integer>
           # short_guard_interval: <value in [disable, enable]>
           # spectrum_analysis: <value in [disable, enable, scan-only]>
-          # transmit_optimize:
-          #   - "disable"
-          #   - "power-save"
-          #   - "aggr-limit"
-          #   - "retry-limit"
-          #   - "send-bar"
+          # transmit_optimize: ["disable", "power-save", "aggr-limit", "retry-limit", "send-bar"]
           # vap_all: <value in [disable, enable, tunnel, ...]>
           # vaps: <list or string>
           # wids_profile: <string>
@@ -819,16 +606,13 @@ def main():
         '/pm/config/adom/{adom}/obj/wireless-controller/wtp-profile/{wtp-profile}/radio-1',
         '/pm/config/global/obj/wireless-controller/wtp-profile/{wtp-profile}/radio-1'
     ]
-    url_params = ['adom', 'wtp-profile']
-    module_primary_key = None
     module_arg_spec = {
         'adom': {'required': True, 'type': 'str'},
         'wtp-profile': {'type': 'str', 'api_name': 'wtp_profile'},
         'wtp_profile': {'type': 'str'},
         'revision_note': {'type': 'str'},
         'wtpprofile_radio1': {
-            'type': 'dict',
-            'v_range': [['6.0.0', '']],
+            'type': 'dict', 'v_range': [['6.0.0', '']],
             'options': {
                 'amsdu': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'ap-handoff': {'v_range': [['6.0.0', '7.6.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
@@ -948,19 +732,15 @@ def main():
 
     module_option_spec = get_module_arg_spec('partial crud')
     module_arg_spec.update(module_option_spec)
-    params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'wtpprofile_radio1'),
                            supports_check_mode=True)
-
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list, module_primary_key, url_params,
-                       module, connection, top_level_schema_name='data')
-    fmgr.validate_parameters(params_validation_blob)
+    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list,
+                       None, 'data', module, connection)
     fmgr.process_partial_crud()
-
     module.exit_json(meta=module.params)
 
 

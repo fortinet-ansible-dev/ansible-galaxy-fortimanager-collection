@@ -13,72 +13,11 @@ DOCUMENTATION = '''
 ---
 module: fmgr_system_interface
 short_description: Interface configuration.
-description:
-    - This module is able to configure a FortiManager device.
-    - Examples include all parameters and values which need to be adjusted to data sources before usage.
 version_added: "1.0.0"
-author:
-    - Xinwei Du (@dux-fortinet)
-    - Xing Li (@lix-fortinet)
-    - Jie Xue (@JieX19)
-    - Link Zheng (@chillancezen)
-    - Frank Shen (@fshen01)
-    - Hongbin Lu (@fgtdev-hblu)
-notes:
-    - Starting in version 2.4.0, all input arguments are named using the underscore naming convention (snake_case).
-      Please change the arguments such as "var-name" to "var_name".
-      Old argument names are still available yet you will receive deprecation warnings.
-      You can ignore this warning by setting deprecation_warnings=False in ansible.cfg.
-    - Running in workspace locking mode is supported in this FortiManager module, the top
-      level parameters workspace_locking_adom and workspace_locking_timeout help do the work.
-    - To create or update an object, use state present directive.
-    - To delete an object, use state absent directive.
-    - Normally, running one module can fail when a non-zero rc is returned. you can also override
-      the conditions to fail or succeed with parameters rc_failed and rc_succeeded
+extends_documentation_fragment:
+    - fortinet.fortimanager.general
+    - fortinet.fortimanager.general.full_crud
 options:
-    access_token:
-        description: The token to access FortiManager without using username and password.
-        type: str
-    bypass_validation:
-        description: Only set to True when module schema diffs with FortiManager API structure, module continues to execute without validating parameters.
-        type: bool
-        default: false
-    enable_log:
-        description: Enable/Disable logging for task.
-        type: bool
-        default: false
-    forticloud_access_token:
-        description: Authenticate Ansible client with forticloud API access token.
-        type: str
-    proposed_method:
-        description: The overridden method for the underlying Json RPC request.
-        type: str
-        choices:
-          - update
-          - set
-          - add
-    rc_succeeded:
-        description: The rc codes list with which the conditions to succeed will be overriden.
-        type: list
-        elements: int
-    rc_failed:
-        description: The rc codes list with which the conditions to fail will be overriden.
-        type: list
-        elements: int
-    state:
-        description: The directive to create, update or delete an object.
-        type: str
-        required: true
-        choices:
-          - present
-          - absent
-    workspace_locking_adom:
-        description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
-        type: str
-    workspace_locking_timeout:
-        description: The maximum time in seconds to wait for other user to release the workspace lock.
-        type: int
-        default: 300
     system_interface:
         description: The top level parameters set.
         required: false
@@ -99,16 +38,8 @@ options:
                     - http - HTTP access.
                     - webservice - Web service access.
                     - https-logging - Logging over HTTPS access.
-                choices:
-                    - 'ping'
-                    - 'https'
-                    - 'ssh'
-                    - 'snmp'
-                    - 'http'
-                    - 'webservice'
-                    - 'https-logging'
-                    - 'soc-fabric'
-                    - 'fabric'
+                choices: ['ping', 'https', 'ssh', 'snmp', 'http', 'webservice', 'https-logging',
+                          'soc-fabric', 'fabric']
             description:
                 type: str
                 description: Description.
@@ -136,15 +67,8 @@ options:
                             - http - HTTP access.
                             - webservice - Web service access.
                             - https-logging - Logging over HTTPS access.
-                        choices:
-                            - 'ping'
-                            - 'https'
-                            - 'ssh'
-                            - 'snmp'
-                            - 'http'
-                            - 'webservice'
-                            - 'https-logging'
-                            - 'fabric'
+                        choices: ['ping', 'https', 'ssh', 'snmp', 'http', 'webservice',
+                                  'https-logging', 'fabric']
                     ip6_autoconf:
                         aliases: ['ip6-autoconf']
                         type: str
@@ -152,9 +76,7 @@ options:
                             - Enable/disable address auto config
                             - disable - Disable setting.
                             - enable - Enable setting.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
             mtu:
                 type: int
                 description: Maximum transportation unit
@@ -170,10 +92,7 @@ options:
                     - fgtupdates - FortiGate updates access.
                     - fclupdates - FortiClient updates access.
                     - webfilter-antispam - Web filtering and antispam access.
-                choices:
-                    - 'fgtupdates'
-                    - 'fclupdates'
-                    - 'webfilter-antispam'
+                choices: ['fgtupdates', 'fclupdates', 'webfilter-antispam']
             speed:
                 type: str
                 description:
@@ -185,39 +104,17 @@ options:
                     - 100half - 100M half-duplex.
                     - 1000full - 1000M full-duplex.
                     - 10000full - 10000M full-duplex.
-                choices:
-                    - 'auto'
-                    - '10full'
-                    - '10half'
-                    - '100full'
-                    - '100half'
-                    - '1000full'
-                    - '10000full'
-                    - '1g/full'
-                    - '2.5g/full'
-                    - '5g/full'
-                    - '10g/full'
-                    - '14g/full'
-                    - '20g/full'
-                    - '25g/full'
-                    - '40g/full'
-                    - '50g/full'
-                    - '56g/full'
-                    - '100g/full'
-                    - '1g/half'
-                    - '200g/full'
-                    - '400g/full'
+                choices: ['auto', '10full', '10half', '100full', '100half', '1000full',
+                          '10000full', '1g/full', '2.5g/full', '5g/full', '10g/full', '14g/full',
+                          '20g/full', '25g/full', '40g/full', '50g/full', '56g/full', '100g/full',
+                          '1g/half', '200g/full', '400g/full']
             status:
                 type: str
                 description:
                     - Interface status.
                     - down - Interface down.
                     - up - Interface up.
-                choices:
-                    - 'down'
-                    - 'up'
-                    - 'disable'
-                    - 'enable'
+                choices: ['down', 'up', 'disable', 'enable']
             rating_service_ip:
                 aliases: ['rating-service-ip']
                 type: str
@@ -238,8 +135,7 @@ options:
                 description:
                     - LACP mode.
                     - active - Actively use LACP to negotiate 802.
-                choices:
-                    - 'active'
+                choices: ['active']
             lacp_speed:
                 aliases: ['lacp-speed']
                 type: str
@@ -247,9 +143,7 @@ options:
                     - How often the interface sends LACP messages.
                     - slow - Send LACP message every 30 seconds.
                     - fast - Send LACP message every second.
-                choices:
-                    - 'slow'
-                    - 'fast'
+                choices: ['slow', 'fast']
             link_up_delay:
                 aliases: ['link-up-delay']
                 type: int
@@ -274,9 +168,7 @@ options:
                     - Action to take when less than the configured minimum number of links are active.
                     - operational - Set the aggregate operationally down.
                     - administrative - Set the aggregate administratively down.
-                choices:
-                    - 'operational'
-                    - 'administrative'
+                choices: ['operational', 'administrative']
             type:
                 type: str
                 description:
@@ -284,10 +176,7 @@ options:
                     - vlan - VLAN interface.
                     - physical - Physical interface.
                     - aggregate - Aggregate interface.
-                choices:
-                    - 'vlan'
-                    - 'physical'
-                    - 'aggregate'
+                choices: ['vlan', 'physical', 'aggregate']
             vlan_protocol:
                 aliases: ['vlan-protocol']
                 type: str
@@ -295,9 +184,7 @@ options:
                     - Ethernet protocol of VLAN.
                     - 8021q - IEEE 802.
                     - 8021ad - IEEE 802.
-                choices:
-                    - '8021q'
-                    - '8021ad'
+                choices: ['8021q', '8021ad']
             vlanid:
                 type: int
                 description: VLAN ID
@@ -307,18 +194,14 @@ options:
                     - Enable/disable LLDP
                     - disable - Disable setting.
                     - enable - Enable setting.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             defaultgw:
                 type: str
                 description:
                     - Enable/disable default gateway.
                     - disable - Disable setting.
                     - enable - Enable setting.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             dhcp_client_identifier:
                 aliases: ['dhcp-client-identifier']
                 type: str
@@ -330,18 +213,14 @@ options:
                     - Enable/disable use DNS acquired by DHCP or PPPoE.
                     - disable - Disable setting.
                     - enable - Enable setting.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             mode:
                 type: str
                 description:
                     - Addressing mode
                     - static - Static setting.
                     - dhcp - External DHCP client mode.
-                choices:
-                    - 'static'
-                    - 'dhcp'
+                choices: ['static', 'dhcp']
             mtu_override:
                 aliases: ['mtu-override']
                 type: str
@@ -349,9 +228,7 @@ options:
                     - Enable/disable use MTU acquired by DHCP or PPPoE.
                     - disable - Disable setting.
                     - enable - Enable setting.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -445,12 +322,9 @@ def main():
     urls_list = [
         '/cli/global/system/interface'
     ]
-    url_params = []
-    module_primary_key = 'name'
     module_arg_spec = {
         'system_interface': {
-            'type': 'dict',
-            'v_range': [['6.0.0', '']],
+            'type': 'dict', 'v_range': [['6.0.0', '']],
             'options': {
                 'alias': {'type': 'str'},
                 'allowaccess': {
@@ -513,19 +387,15 @@ def main():
 
     module_option_spec = get_module_arg_spec('full crud')
     module_arg_spec.update(module_option_spec)
-    params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'system_interface'),
                            supports_check_mode=True)
-
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
-                       module, connection, top_level_schema_name='data')
-    fmgr.validate_parameters(params_validation_blob)
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list,
+                       'name', 'data', module, connection)
     fmgr.process_crud()
-
     module.exit_json(meta=module.params)
 
 

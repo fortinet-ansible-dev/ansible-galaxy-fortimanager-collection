@@ -35,7 +35,6 @@ description:
     - the payload doesn't include session, the httpapi plugin will automatically
       fill the session later.
     - the username and password is not managed by the module, but by the plugin.
-
 version_added: "2.0.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -100,7 +99,6 @@ options:
             - the raw json-formatted payload to send to fortimanager
         type: str
         required: false
-
 """
 
 EXAMPLES = """

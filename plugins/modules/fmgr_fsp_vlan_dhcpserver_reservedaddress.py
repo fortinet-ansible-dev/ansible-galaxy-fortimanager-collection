@@ -13,75 +13,14 @@ DOCUMENTATION = '''
 ---
 module: fmgr_fsp_vlan_dhcpserver_reservedaddress
 short_description: Options for the DHCP server to assign IP settings to specific MAC addresses.
-description:
-    - This module is able to configure a FortiManager device.
-    - Examples include all parameters and values which need to be adjusted to data sources before usage.
 version_added: "2.0.0"
-author:
-    - Xinwei Du (@dux-fortinet)
-    - Xing Li (@lix-fortinet)
-    - Jie Xue (@JieX19)
-    - Link Zheng (@chillancezen)
-    - Frank Shen (@fshen01)
-    - Hongbin Lu (@fgtdev-hblu)
-notes:
-    - Starting in version 2.4.0, all input arguments are named using the underscore naming convention (snake_case).
-      Please change the arguments such as "var-name" to "var_name".
-      Old argument names are still available yet you will receive deprecation warnings.
-      You can ignore this warning by setting deprecation_warnings=False in ansible.cfg.
-    - Running in workspace locking mode is supported in this FortiManager module, the top
-      level parameters workspace_locking_adom and workspace_locking_timeout help do the work.
-    - To create or update an object, use state present directive.
-    - To delete an object, use state absent directive.
-    - Normally, running one module can fail when a non-zero rc is returned. you can also override
-      the conditions to fail or succeed with parameters rc_failed and rc_succeeded
+extends_documentation_fragment:
+    - fortinet.fortimanager.general
+    - fortinet.fortimanager.general.full_crud
 options:
-    access_token:
-        description: The token to access FortiManager without using username and password.
-        type: str
-    bypass_validation:
-        description: Only set to True when module schema diffs with FortiManager API structure, module continues to execute without validating parameters.
-        type: bool
-        default: false
-    enable_log:
-        description: Enable/Disable logging for task.
-        type: bool
-        default: false
-    forticloud_access_token:
-        description: Authenticate Ansible client with forticloud API access token.
-        type: str
-    proposed_method:
-        description: The overridden method for the underlying Json RPC request.
-        type: str
-        choices:
-          - update
-          - set
-          - add
-    rc_succeeded:
-        description: The rc codes list with which the conditions to succeed will be overriden.
-        type: list
-        elements: int
-    rc_failed:
-        description: The rc codes list with which the conditions to fail will be overriden.
-        type: list
-        elements: int
-    state:
-        description: The directive to create, update or delete an object.
-        type: str
-        required: true
-        choices:
-          - present
-          - absent
     revision_note:
         description: The change note that can be specified when an object is created or updated.
         type: str
-    workspace_locking_adom:
-        description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
-        type: str
-    workspace_locking_timeout:
-        description: The maximum time in seconds to wait for other user to release the workspace lock.
-        type: int
-        default: 300
     adom:
         description: The parameter (adom) in requested url.
         type: str
@@ -98,10 +37,7 @@ options:
             action:
                 type: str
                 description: Action.
-                choices:
-                    - 'assign'
-                    - 'block'
-                    - 'reserved'
+                choices: ['assign', 'block', 'reserved']
             circuit_id:
                 aliases: ['circuit-id']
                 type: str
@@ -110,9 +46,7 @@ options:
                 aliases: ['circuit-id-type']
                 type: str
                 description: Circuit id type.
-                choices:
-                    - 'hex'
-                    - 'string'
+                choices: ['hex', 'string']
             description:
                 type: str
                 description: Description.
@@ -134,15 +68,11 @@ options:
                 aliases: ['remote-id-type']
                 type: str
                 description: Remote id type.
-                choices:
-                    - 'hex'
-                    - 'string'
+                choices: ['hex', 'string']
             type:
                 type: str
                 description: Type.
-                choices:
-                    - 'mac'
-                    - 'option82'
+                choices: ['mac', 'option82']
 '''
 
 EXAMPLES = '''
@@ -150,18 +80,10 @@ EXAMPLES = '''
   hosts: fortimanagers
   connection: httpapi
   gather_facts: false
-  vars:
-    ansible_httpapi_use_ssl: true
-    ansible_httpapi_validate_certs: false
-    ansible_httpapi_port: 443
   tasks:
     - name: Options for the DHCP server to assign IP settings to specific MAC addresses.
       fortinet.fortimanager.fmgr_fsp_vlan_dhcpserver_reservedaddress:
-        # bypass_validation: false
         # workspace_locking_adom: <global or your adom name>
-        # workspace_locking_timeout: 300
-        # rc_succeeded: [0, -2, -3, ...]
-        # rc_failed: [-2, -3, ...]
         adom: <your own value>
         vlan: <your own value>
         state: present # <value in [present, absent]>
@@ -228,15 +150,12 @@ def main():
         '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/dhcp-server/reserved-address',
         '/pm/config/global/obj/fsp/vlan/{vlan}/dhcp-server/reserved-address'
     ]
-    url_params = ['adom', 'vlan']
-    module_primary_key = 'id'
     module_arg_spec = {
         'adom': {'required': True, 'type': 'str'},
         'vlan': {'required': True, 'type': 'str'},
         'revision_note': {'type': 'str'},
         'fsp_vlan_dhcpserver_reservedaddress': {
-            'type': 'dict',
-            'v_range': [['6.0.0', '']],
+            'type': 'dict', 'v_range': [['6.0.0', '']],
             'options': {
                 'action': {'choices': ['assign', 'block', 'reserved'], 'type': 'str'},
                 'circuit-id': {'type': 'str'},
@@ -254,19 +173,15 @@ def main():
 
     module_option_spec = get_module_arg_spec('full crud')
     module_arg_spec.update(module_option_spec)
-    params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'fsp_vlan_dhcpserver_reservedaddress'),
                            supports_check_mode=True)
-
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
-                       module, connection, top_level_schema_name='data')
-    fmgr.validate_parameters(params_validation_blob)
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list,
+                       'id', 'data', module, connection)
     fmgr.process_crud()
-
     module.exit_json(meta=module.params)
 
 

@@ -13,66 +13,14 @@ DOCUMENTATION = '''
 ---
 module: fmgr_fsp_vlan_interface
 short_description: Configure interfaces.
-description:
-    - This module is able to configure a FortiManager device.
-    - Examples include all parameters and values which need to be adjusted to data sources before usage.
 version_added: "2.0.0"
-author:
-    - Xinwei Du (@dux-fortinet)
-    - Xing Li (@lix-fortinet)
-    - Jie Xue (@JieX19)
-    - Link Zheng (@chillancezen)
-    - Frank Shen (@fshen01)
-    - Hongbin Lu (@fgtdev-hblu)
-notes:
-    - Starting in version 2.4.0, all input arguments are named using the underscore naming convention (snake_case).
-      Please change the arguments such as "var-name" to "var_name".
-      Old argument names are still available yet you will receive deprecation warnings.
-      You can ignore this warning by setting deprecation_warnings=False in ansible.cfg.
-    - Running in workspace locking mode is supported in this FortiManager module, the top
-      level parameters workspace_locking_adom and workspace_locking_timeout help do the work.
-    - Normally, running one module can fail when a non-zero rc is returned. you can also override
-      the conditions to fail or succeed with parameters rc_failed and rc_succeeded
+extends_documentation_fragment:
+    - fortinet.fortimanager.general
+    - fortinet.fortimanager.general.partial_crud
 options:
-    access_token:
-        description: The token to access FortiManager without using username and password.
-        type: str
-    bypass_validation:
-        description: Only set to True when module schema diffs with FortiManager API structure, module continues to execute without validating parameters.
-        type: bool
-        default: false
-    enable_log:
-        description: Enable/Disable logging for task.
-        type: bool
-        default: false
-    forticloud_access_token:
-        description: Authenticate Ansible client with forticloud API access token.
-        type: str
-    proposed_method:
-        description: The overridden method for the underlying Json RPC request.
-        type: str
-        choices:
-          - update
-          - set
-          - add
-    rc_succeeded:
-        description: The rc codes list with which the conditions to succeed will be overriden.
-        type: list
-        elements: int
-    rc_failed:
-        description: The rc codes list with which the conditions to fail will be overriden.
-        type: list
-        elements: int
     revision_note:
         description: The change note that can be specified when an object is created or updated.
         type: str
-    workspace_locking_adom:
-        description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
-        type: str
-    workspace_locking_timeout:
-        description: The maximum time in seconds to wait for other user to release the workspace lock.
-        type: int
-        default: 300
     adom:
         description: The parameter (adom) in requested url.
         type: str
@@ -96,13 +44,7 @@ options:
             algorithm:
                 type: str
                 description: Algorithm.
-                choices:
-                    - 'L2'
-                    - 'L3'
-                    - 'L4'
-                    - 'LB'
-                    - 'Source-MAC'
-                    - 'NPU-GRE'
+                choices: ['L2', 'L3', 'L4', 'LB', 'Source-MAC', 'NPU-GRE']
             alias:
                 type: str
                 description: Alias.
@@ -110,66 +52,37 @@ options:
                 type: list
                 elements: str
                 description: Allowaccess.
-                choices:
-                    - 'https'
-                    - 'ping'
-                    - 'ssh'
-                    - 'snmp'
-                    - 'http'
-                    - 'telnet'
-                    - 'fgfm'
-                    - 'auto-ipsec'
-                    - 'radius-acct'
-                    - 'probe-response'
-                    - 'capwap'
-                    - 'dnp'
-                    - 'ftm'
-                    - 'fabric'
-                    - 'speed-test'
+                choices: ['https', 'ping', 'ssh', 'snmp', 'http', 'telnet', 'fgfm', 'auto-ipsec',
+                          'radius-acct', 'probe-response', 'capwap', 'dnp', 'ftm', 'fabric',
+                          'speed-test']
             ap_discover:
                 aliases: ['ap-discover']
                 type: str
                 description: Ap discover.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             arpforward:
                 type: str
                 description: Arpforward.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             atm_protocol:
                 aliases: ['atm-protocol']
                 type: str
                 description: Atm protocol.
-                choices:
-                    - 'none'
-                    - 'ipoa'
+                choices: ['none', 'ipoa']
             auth_type:
                 aliases: ['auth-type']
                 type: str
                 description: Auth type.
-                choices:
-                    - 'auto'
-                    - 'pap'
-                    - 'chap'
-                    - 'mschapv1'
-                    - 'mschapv2'
+                choices: ['auto', 'pap', 'chap', 'mschapv1', 'mschapv2']
             auto_auth_extension_device:
                 aliases: ['auto-auth-extension-device']
                 type: str
                 description: Auto auth extension device.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             bfd:
                 type: str
                 description: Bfd.
-                choices:
-                    - 'global'
-                    - 'enable'
-                    - 'disable'
+                choices: ['global', 'enable', 'disable']
             bfd_desired_min_tx:
                 aliases: ['bfd-desired-min-tx']
                 type: int
@@ -186,16 +99,12 @@ options:
                 aliases: ['broadcast-forticlient-discovery']
                 type: str
                 description: Broadcast forticlient discovery.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             broadcast_forward:
                 aliases: ['broadcast-forward']
                 type: str
                 description: Broadcast forward.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             captive_portal:
                 aliases: ['captive-portal']
                 type: int
@@ -210,16 +119,12 @@ options:
             ddns:
                 type: str
                 description: Ddns.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             ddns_auth:
                 aliases: ['ddns-auth']
                 type: str
                 description: Ddns auth.
-                choices:
-                    - 'disable'
-                    - 'tsig'
+                choices: ['disable', 'tsig']
             ddns_domain:
                 aliases: ['ddns-domain']
                 type: str
@@ -240,17 +145,8 @@ options:
                 aliases: ['ddns-server']
                 type: str
                 description: Ddns server.
-                choices:
-                    - 'dhs.org'
-                    - 'dyndns.org'
-                    - 'dyns.net'
-                    - 'tzo.com'
-                    - 'ods.org'
-                    - 'vavic.com'
-                    - 'now.net.cn'
-                    - 'dipdns.net'
-                    - 'easydns.com'
-                    - 'genericDDNS'
+                choices: ['dhs.org', 'dyndns.org', 'dyns.net', 'tzo.com', 'ods.org', 'vavic.com',
+                          'now.net.cn', 'dipdns.net', 'easydns.com', 'genericDDNS']
             ddns_server_ip:
                 aliases: ['ddns-server-ip']
                 type: str
@@ -275,15 +171,11 @@ options:
                 aliases: ['dedicated-to']
                 type: str
                 description: Dedicated to.
-                choices:
-                    - 'none'
-                    - 'management'
+                choices: ['none', 'management']
             defaultgw:
                 type: str
                 description: Defaultgw.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             description:
                 type: str
                 description: Description.
@@ -295,10 +187,7 @@ options:
                 type: list
                 elements: str
                 description: Detectprotocol.
-                choices:
-                    - 'ping'
-                    - 'tcp-echo'
-                    - 'udp-echo'
+                choices: ['ping', 'tcp-echo', 'udp-echo']
             detectserver:
                 type: str
                 description: Detectserver.
@@ -310,30 +199,22 @@ options:
                 aliases: ['device-identification']
                 type: str
                 description: Device identification.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             device_identification_active_scan:
                 aliases: ['device-identification-active-scan']
                 type: str
                 description: Device identification active scan.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             device_netscan:
                 aliases: ['device-netscan']
                 type: str
                 description: Device netscan.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             device_user_identification:
                 aliases: ['device-user-identification']
                 type: str
                 description: Device user identification.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             devindex:
                 type: int
                 description: Devindex.
@@ -345,9 +226,7 @@ options:
                 aliases: ['dhcp-relay-agent-option']
                 type: str
                 description: Dhcp relay agent option.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             dhcp_relay_ip:
                 aliases: ['dhcp-relay-ip']
                 type: raw
@@ -356,16 +235,12 @@ options:
                 aliases: ['dhcp-relay-service']
                 type: str
                 description: Dhcp relay service.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             dhcp_relay_type:
                 aliases: ['dhcp-relay-type']
                 type: str
                 description: Dhcp relay type.
-                choices:
-                    - 'regular'
-                    - 'ipsec'
+                choices: ['regular', 'ipsec']
             dhcp_renew_time:
                 aliases: ['dhcp-renew-time']
                 type: int
@@ -385,45 +260,27 @@ options:
                 aliases: ['dns-query']
                 type: str
                 description: Dns query.
-                choices:
-                    - 'disable'
-                    - 'recursive'
-                    - 'non-recursive'
+                choices: ['disable', 'recursive', 'non-recursive']
             dns_server_override:
                 aliases: ['dns-server-override']
                 type: str
                 description: Dns server override.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             drop_fragment:
                 aliases: ['drop-fragment']
                 type: str
                 description: Drop fragment.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             drop_overlapped_fragment:
                 aliases: ['drop-overlapped-fragment']
                 type: str
                 description: Drop overlapped fragment.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             egress_cos:
                 aliases: ['egress-cos']
                 type: str
                 description: Egress cos.
-                choices:
-                    - 'disable'
-                    - 'cos0'
-                    - 'cos1'
-                    - 'cos2'
-                    - 'cos3'
-                    - 'cos4'
-                    - 'cos5'
-                    - 'cos6'
-                    - 'cos7'
+                choices: ['disable', 'cos0', 'cos1', 'cos2', 'cos3', 'cos4', 'cos5', 'cos6', 'cos7']
             egress_shaping_profile:
                 aliases: ['egress-shaping-profile']
                 type: str
@@ -432,9 +289,7 @@ options:
                 aliases: ['endpoint-compliance']
                 type: str
                 description: Endpoint compliance.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             estimated_downstream_bandwidth:
                 aliases: ['estimated-downstream-bandwidth']
                 type: int
@@ -447,30 +302,21 @@ options:
                 aliases: ['explicit-ftp-proxy']
                 type: str
                 description: Explicit ftp proxy.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             explicit_web_proxy:
                 aliases: ['explicit-web-proxy']
                 type: str
                 description: Explicit web proxy.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             external:
                 type: str
                 description: External.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             fail_action_on_extender:
                 aliases: ['fail-action-on-extender']
                 type: str
                 description: Fail action on extender.
-                choices:
-                    - 'soft-restart'
-                    - 'hard-restart'
-                    - 'reboot'
+                choices: ['soft-restart', 'hard-restart', 'reboot']
             fail_alert_interfaces:
                 aliases: ['fail-alert-interfaces']
                 type: raw
@@ -479,42 +325,30 @@ options:
                 aliases: ['fail-alert-method']
                 type: str
                 description: Fail alert method.
-                choices:
-                    - 'link-failed-signal'
-                    - 'link-down'
+                choices: ['link-failed-signal', 'link-down']
             fail_detect:
                 aliases: ['fail-detect']
                 type: str
                 description: Fail detect.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             fail_detect_option:
                 aliases: ['fail-detect-option']
                 type: list
                 elements: str
                 description: Fail detect option.
-                choices:
-                    - 'detectserver'
-                    - 'link-down'
+                choices: ['detectserver', 'link-down']
             fdp:
                 type: str
                 description: Fdp.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             fortiheartbeat:
                 type: str
                 description: Fortiheartbeat.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             fortilink:
                 type: str
                 description: Fortilink.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             fortilink_backup_link:
                 aliases: ['fortilink-backup-link']
                 type: int
@@ -523,16 +357,12 @@ options:
                 aliases: ['fortilink-split-interface']
                 type: str
                 description: Fortilink split interface.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             fortilink_stacking:
                 aliases: ['fortilink-stacking']
                 type: str
                 description: Fortilink stacking.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             forward_domain:
                 aliases: ['forward-domain']
                 type: int
@@ -541,66 +371,28 @@ options:
                 aliases: ['forward-error-correction']
                 type: str
                 description: Forward error correction.
-                choices:
-                    - 'disable'
-                    - 'enable'
-                    - 'rs-fec'
-                    - 'base-r-fec'
-                    - 'fec-cl91'
-                    - 'fec-cl74'
-                    - 'rs-544'
-                    - 'none'
-                    - 'cl91-rs-fec'
-                    - 'cl74-fc-fec'
-                    - 'auto'
-                    - 'rs-fec544'
+                choices: ['disable', 'enable', 'rs-fec', 'base-r-fec', 'fec-cl91', 'fec-cl74',
+                          'rs-544', 'none', 'cl91-rs-fec', 'cl74-fc-fec', 'auto', 'rs-fec544']
             fp_anomaly:
                 aliases: ['fp-anomaly']
                 type: list
                 elements: str
                 description: Fp anomaly.
-                choices:
-                    - 'drop_tcp_fin_noack'
-                    - 'pass_winnuke'
-                    - 'pass_tcpland'
-                    - 'pass_udpland'
-                    - 'pass_icmpland'
-                    - 'pass_ipland'
-                    - 'pass_iprr'
-                    - 'pass_ipssrr'
-                    - 'pass_iplsrr'
-                    - 'pass_ipstream'
-                    - 'pass_ipsecurity'
-                    - 'pass_iptimestamp'
-                    - 'pass_ipunknown_option'
-                    - 'pass_ipunknown_prot'
-                    - 'pass_icmp_frag'
-                    - 'pass_tcp_no_flag'
-                    - 'pass_tcp_fin_noack'
-                    - 'drop_winnuke'
-                    - 'drop_tcpland'
-                    - 'drop_udpland'
-                    - 'drop_icmpland'
-                    - 'drop_ipland'
-                    - 'drop_iprr'
-                    - 'drop_ipssrr'
-                    - 'drop_iplsrr'
-                    - 'drop_ipstream'
-                    - 'drop_ipsecurity'
-                    - 'drop_iptimestamp'
-                    - 'drop_ipunknown_option'
-                    - 'drop_ipunknown_prot'
-                    - 'drop_icmp_frag'
-                    - 'drop_tcp_no_flag'
+                choices: ['drop_tcp_fin_noack', 'pass_winnuke', 'pass_tcpland', 'pass_udpland',
+                          'pass_icmpland', 'pass_ipland', 'pass_iprr', 'pass_ipssrr',
+                          'pass_iplsrr', 'pass_ipstream', 'pass_ipsecurity', 'pass_iptimestamp',
+                          'pass_ipunknown_option', 'pass_ipunknown_prot', 'pass_icmp_frag',
+                          'pass_tcp_no_flag', 'pass_tcp_fin_noack', 'drop_winnuke',
+                          'drop_tcpland', 'drop_udpland', 'drop_icmpland', 'drop_ipland',
+                          'drop_iprr', 'drop_ipssrr', 'drop_iplsrr', 'drop_ipstream',
+                          'drop_ipsecurity', 'drop_iptimestamp', 'drop_ipunknown_option',
+                          'drop_ipunknown_prot', 'drop_icmp_frag', 'drop_tcp_no_flag']
             fp_disable:
                 aliases: ['fp-disable']
                 type: list
                 elements: str
                 description: Fp disable.
-                choices:
-                    - 'all'
-                    - 'ipsec'
-                    - 'none'
+                choices: ['all', 'ipsec', 'none']
             gateway_address:
                 aliases: ['gateway-address']
                 type: str
@@ -609,18 +401,14 @@ options:
                 aliases: ['gi-gk']
                 type: str
                 description: Gi gk.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             gwaddr:
                 type: str
                 description: Gwaddr.
             gwdetect:
                 type: str
                 description: Gwdetect.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             ha_priority:
                 aliases: ['ha-priority']
                 type: int
@@ -629,30 +417,22 @@ options:
                 aliases: ['icmp-accept-redirect']
                 type: str
                 description: Icmp accept redirect.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             icmp_redirect:
                 aliases: ['icmp-redirect']
                 type: str
                 description: Icmp redirect.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             icmp_send_redirect:
                 aliases: ['icmp-send-redirect']
                 type: str
                 description: Icmp send redirect.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             ident_accept:
                 aliases: ['ident-accept']
                 type: str
                 description: Ident accept.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             idle_timeout:
                 aliases: ['idle-timeout']
                 type: int
@@ -661,18 +441,12 @@ options:
                 aliases: ['if-mdix']
                 type: str
                 description: If mdix.
-                choices:
-                    - 'auto'
-                    - 'normal'
-                    - 'crossover'
+                choices: ['auto', 'normal', 'crossover']
             if_media:
                 aliases: ['if-media']
                 type: str
                 description: If media.
-                choices:
-                    - 'auto'
-                    - 'copper'
-                    - 'fiber'
+                choices: ['auto', 'copper', 'fiber']
             in_force_vlan_cos:
                 aliases: ['in-force-vlan-cos']
                 type: int
@@ -684,16 +458,7 @@ options:
                 aliases: ['ingress-cos']
                 type: str
                 description: Ingress cos.
-                choices:
-                    - 'disable'
-                    - 'cos0'
-                    - 'cos1'
-                    - 'cos2'
-                    - 'cos3'
-                    - 'cos4'
-                    - 'cos5'
-                    - 'cos6'
-                    - 'cos7'
+                choices: ['disable', 'cos0', 'cos1', 'cos2', 'cos3', 'cos4', 'cos5', 'cos6', 'cos7']
             ingress_spillover_threshold:
                 aliases: ['ingress-spillover-threshold']
                 type: int
@@ -707,16 +472,12 @@ options:
             ipmac:
                 type: str
                 description: Ipmac.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             ips_sniffer_mode:
                 aliases: ['ips-sniffer-mode']
                 type: str
                 description: Ips sniffer mode.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             ipunnumbered:
                 type: str
                 description: Ipunnumbered.
@@ -727,34 +488,23 @@ options:
                     autoconf:
                         type: str
                         description: Autoconf.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     dhcp6_client_options:
                         aliases: ['dhcp6-client-options']
                         type: list
                         elements: str
                         description: Dhcp6 client options.
-                        choices:
-                            - 'rapid'
-                            - 'iapd'
-                            - 'iana'
-                            - 'dns'
-                            - 'dnsname'
+                        choices: ['rapid', 'iapd', 'iana', 'dns', 'dnsname']
                     dhcp6_information_request:
                         aliases: ['dhcp6-information-request']
                         type: str
                         description: Dhcp6 information request.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     dhcp6_prefix_delegation:
                         aliases: ['dhcp6-prefix-delegation']
                         type: str
                         description: Dhcp6 prefix delegation.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     dhcp6_prefix_hint:
                         aliases: ['dhcp6-prefix-hint']
                         type: str
@@ -775,15 +525,12 @@ options:
                         aliases: ['dhcp6-relay-service']
                         type: str
                         description: Dhcp6 relay service.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     dhcp6_relay_type:
                         aliases: ['dhcp6-relay-type']
                         type: str
                         description: Dhcp6 relay type.
-                        choices:
-                            - 'regular'
+                        choices: ['regular']
                     ip6_address:
                         aliases: ['ip6-address']
                         type: str
@@ -793,16 +540,8 @@ options:
                         type: list
                         elements: str
                         description: Ip6 allowaccess.
-                        choices:
-                            - 'https'
-                            - 'ping'
-                            - 'ssh'
-                            - 'snmp'
-                            - 'http'
-                            - 'telnet'
-                            - 'fgfm'
-                            - 'capwap'
-                            - 'fabric'
+                        choices: ['https', 'ping', 'ssh', 'snmp', 'http', 'telnet', 'fgfm',
+                                  'capwap', 'fabric']
                     ip6_default_life:
                         aliases: ['ip6-default-life']
                         type: int
@@ -811,9 +550,7 @@ options:
                         aliases: ['ip6-dns-server-override']
                         type: str
                         description: Ip6 dns server override.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     ip6_hop_limit:
                         aliases: ['ip6-hop-limit']
                         type: int
@@ -826,9 +563,7 @@ options:
                         aliases: ['ip6-manage-flag']
                         type: str
                         description: Ip6 manage flag.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     ip6_max_interval:
                         aliases: ['ip6-max-interval']
                         type: int
@@ -841,18 +576,12 @@ options:
                         aliases: ['ip6-mode']
                         type: str
                         description: Ip6 mode.
-                        choices:
-                            - 'static'
-                            - 'dhcp'
-                            - 'pppoe'
-                            - 'delegated'
+                        choices: ['static', 'dhcp', 'pppoe', 'delegated']
                     ip6_other_flag:
                         aliases: ['ip6-other-flag']
                         type: str
                         description: Ip6 other flag.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     ip6_reachable_time:
                         aliases: ['ip6-reachable-time']
                         type: int
@@ -865,9 +594,7 @@ options:
                         aliases: ['ip6-send-adv']
                         type: str
                         description: Ip6 send adv.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     ip6_subnet:
                         aliases: ['ip6-subnet']
                         type: str
@@ -888,9 +615,7 @@ options:
                         aliases: ['nd-mode']
                         type: str
                         description: Nd mode.
-                        choices:
-                            - 'basic'
-                            - 'SEND-compatible'
+                        choices: ['basic', 'SEND-compatible']
                     nd_security_level:
                         aliases: ['nd-security-level']
                         type: int
@@ -910,9 +635,7 @@ options:
                         aliases: ['vrrp-virtual-mac6']
                         type: str
                         description: Vrrp virtual mac6.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     ip6_delegated_prefix_list:
                         aliases: ['ip6-delegated-prefix-list']
                         type: list
@@ -923,16 +646,12 @@ options:
                                 aliases: ['autonomous-flag']
                                 type: str
                                 description: Autonomous flag.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             onlink_flag:
                                 aliases: ['onlink-flag']
                                 type: str
                                 description: Onlink flag.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             prefix_id:
                                 aliases: ['prefix-id']
                                 type: int
@@ -944,10 +663,7 @@ options:
                                 aliases: ['rdnss-service']
                                 type: str
                                 description: Rdnss service.
-                                choices:
-                                    - 'delegated'
-                                    - 'default'
-                                    - 'specify'
+                                choices: ['delegated', 'default', 'specify']
                             subnet:
                                 type: str
                                 description: Subnet.
@@ -963,9 +679,7 @@ options:
                                 aliases: ['dnssl-service']
                                 type: str
                                 description: Enable/disable use of domain from delegated prefix for DNSSL.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                     ip6_extra_addr:
                         aliases: ['ip6-extra-addr']
                         type: list
@@ -985,9 +699,7 @@ options:
                                 aliases: ['autonomous-flag']
                                 type: str
                                 description: Autonomous flag.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             dnssl:
                                 type: raw
                                 description: (list) Dnssl.
@@ -995,9 +707,7 @@ options:
                                 aliases: ['onlink-flag']
                                 type: str
                                 description: Onlink flag.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             preferred_life_time:
                                 aliases: ['preferred-life-time']
                                 type: int
@@ -1021,9 +731,7 @@ options:
                                 aliases: ['accept-mode']
                                 type: str
                                 description: Accept mode.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             adv_interval:
                                 aliases: ['adv-interval']
                                 type: int
@@ -1031,9 +739,7 @@ options:
                             preempt:
                                 type: str
                                 description: Preempt.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             priority:
                                 type: int
                                 description: Priority.
@@ -1044,9 +750,7 @@ options:
                             status:
                                 type: str
                                 description: Status.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             vrdst6:
                                 type: str
                                 description: Vrdst6.
@@ -1063,9 +767,7 @@ options:
                                 aliases: ['ignore-default-route']
                                 type: str
                                 description: Enable/disable ignoring of default route when checking destination.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             vrdst_priority:
                                 aliases: ['vrdst-priority']
                                 type: int
@@ -1078,16 +780,12 @@ options:
                         aliases: ['unique-autoconf-addr']
                         type: str
                         description: Unique autoconf addr.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     icmp6_send_redirect:
                         aliases: ['icmp6-send-redirect']
                         type: str
                         description: Enable/disable sending of ICMPv6 redirects.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     cli_conn6_status:
                         aliases: ['cli-conn6-status']
                         type: int
@@ -1096,16 +794,12 @@ options:
                         aliases: ['ip6-prefix-mode']
                         type: str
                         description: Assigning a prefix from DHCP or RA.
-                        choices:
-                            - 'dhcp6'
-                            - 'ra'
+                        choices: ['dhcp6', 'ra']
                     ra_send_mtu:
                         aliases: ['ra-send-mtu']
                         type: str
                         description: Enable/disable sending link MTU in RA packet.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     ip6_delegated_prefix_iaid:
                         aliases: ['ip6-delegated-prefix-iaid']
                         type: int
@@ -1114,9 +808,7 @@ options:
                         aliases: ['dhcp6-relay-source-interface']
                         type: str
                         description: Enable/disable use of address on this interface as the source address of the relay message.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     dhcp6_relay_interface_id:
                         aliases: ['dhcp6-relay-interface-id']
                         type: str
@@ -1129,52 +821,36 @@ options:
                         aliases: ['ip6-adv-rio']
                         type: str
                         description: Enable/disable sending advertisements with route information option.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     ip6_route_pref:
                         aliases: ['ip6-route-pref']
                         type: str
                         description: Set route preference to the interface
-                        choices:
-                            - 'medium'
-                            - 'high'
-                            - 'low'
+                        choices: ['medium', 'high', 'low']
             l2forward:
                 type: str
                 description: L2forward.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             l2tp_client:
                 aliases: ['l2tp-client']
                 type: str
                 description: L2tp client.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             lacp_ha_slave:
                 aliases: ['lacp-ha-slave']
                 type: str
                 description: Lacp ha slave.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             lacp_mode:
                 aliases: ['lacp-mode']
                 type: str
                 description: Lacp mode.
-                choices:
-                    - 'static'
-                    - 'passive'
-                    - 'active'
+                choices: ['static', 'passive', 'active']
             lacp_speed:
                 aliases: ['lacp-speed']
                 type: str
                 description: Lacp speed.
-                choices:
-                    - 'slow'
-                    - 'fast'
+                choices: ['slow', 'fast']
             lcp_echo_interval:
                 aliases: ['lcp-echo-interval']
                 type: int
@@ -1191,9 +867,7 @@ options:
                 aliases: ['listen-forticlient-connection']
                 type: str
                 description: Listen forticlient connection.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             lldp_network_policy:
                 aliases: ['lldp-network-policy']
                 type: str
@@ -1202,24 +876,16 @@ options:
                 aliases: ['lldp-reception']
                 type: str
                 description: Lldp reception.
-                choices:
-                    - 'disable'
-                    - 'enable'
-                    - 'vdom'
+                choices: ['disable', 'enable', 'vdom']
             lldp_transmission:
                 aliases: ['lldp-transmission']
                 type: str
                 description: Lldp transmission.
-                choices:
-                    - 'enable'
-                    - 'disable'
-                    - 'vdom'
+                choices: ['enable', 'disable', 'vdom']
             log:
                 type: str
                 description: Log.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             macaddr:
                 type: str
                 description: Macaddr.
@@ -1238,33 +904,10 @@ options:
             mediatype:
                 type: str
                 description: Mediatype.
-                choices:
-                    - 'serdes-sfp'
-                    - 'sgmii-sfp'
-                    - 'cfp2-sr10'
-                    - 'cfp2-lr4'
-                    - 'serdes-copper-sfp'
-                    - 'sr'
-                    - 'cr'
-                    - 'lr'
-                    - 'qsfp28-sr4'
-                    - 'qsfp28-lr4'
-                    - 'qsfp28-cr4'
-                    - 'sr4'
-                    - 'cr4'
-                    - 'lr4'
-                    - 'none'
-                    - 'gmii'
-                    - 'sgmii'
-                    - 'sr2'
-                    - 'lr2'
-                    - 'cr2'
-                    - 'sr8'
-                    - 'lr8'
-                    - 'cr8'
-                    - 'dr'
-                    - 'sr-lr'
-                    - 'kr'
+                choices: ['serdes-sfp', 'sgmii-sfp', 'cfp2-sr10', 'cfp2-lr4', 'serdes-copper-sfp',
+                          'sr', 'cr', 'lr', 'qsfp28-sr4', 'qsfp28-lr4', 'qsfp28-cr4', 'sr4',
+                          'cr4', 'lr4', 'none', 'gmii', 'sgmii', 'sr2', 'lr2', 'cr2', 'sr8',
+                          'lr8', 'cr8', 'dr', 'sr-lr', 'kr']
             member:
                 type: raw
                 description: (list or str) Member.
@@ -1276,19 +919,11 @@ options:
                 aliases: ['min-links-down']
                 type: str
                 description: Min links down.
-                choices:
-                    - 'operational'
-                    - 'administrative'
+                choices: ['operational', 'administrative']
             mode:
                 type: str
                 description: Mode.
-                choices:
-                    - 'static'
-                    - 'dhcp'
-                    - 'pppoe'
-                    - 'pppoa'
-                    - 'ipoa'
-                    - 'eoa'
+                choices: ['static', 'dhcp', 'pppoe', 'pppoa', 'ipoa', 'eoa']
             mtu:
                 type: int
                 description: Mtu.
@@ -1296,54 +931,38 @@ options:
                 aliases: ['mtu-override']
                 type: str
                 description: Mtu override.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             mux_type:
                 aliases: ['mux-type']
                 type: str
                 description: Mux type.
-                choices:
-                    - 'llc-encaps'
-                    - 'vc-encaps'
+                choices: ['llc-encaps', 'vc-encaps']
             name:
                 type: str
                 description: Name.
             ndiscforward:
                 type: str
                 description: Ndiscforward.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             netbios_forward:
                 aliases: ['netbios-forward']
                 type: str
                 description: Netbios forward.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             netflow_sampler:
                 aliases: ['netflow-sampler']
                 type: str
                 description: Netflow sampler.
-                choices:
-                    - 'disable'
-                    - 'tx'
-                    - 'rx'
-                    - 'both'
+                choices: ['disable', 'tx', 'rx', 'both']
             npu_fastpath:
                 aliases: ['npu-fastpath']
                 type: str
                 description: Npu fastpath.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             nst:
                 type: str
                 description: Nst.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             out_force_vlan_cos:
                 aliases: ['out-force-vlan-cos']
                 type: int
@@ -1366,20 +985,8 @@ options:
                 aliases: ['phy-mode']
                 type: str
                 description: Phy mode.
-                choices:
-                    - 'auto'
-                    - 'adsl'
-                    - 'vdsl'
-                    - 'adsl-auto'
-                    - 'vdsl2'
-                    - 'adsl2+'
-                    - 'adsl2'
-                    - 'g.dmt'
-                    - 't1.413'
-                    - 'g.lite'
-                    - 'g-dmt'
-                    - 't1-413'
-                    - 'g-lite'
+                choices: ['auto', 'adsl', 'vdsl', 'adsl-auto', 'vdsl2', 'adsl2+', 'adsl2',
+                          'g.dmt', 't1.413', 'g.lite', 'g-dmt', 't1-413', 'g-lite']
             ping_serv_status:
                 aliases: ['ping-serv-status']
                 type: int
@@ -1387,9 +994,7 @@ options:
             poe:
                 type: str
                 description: Poe.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             polling_interval:
                 aliases: ['polling-interval']
                 type: int
@@ -1398,26 +1003,17 @@ options:
                 aliases: ['pppoe-unnumbered-negotiate']
                 type: str
                 description: Pppoe unnumbered negotiate.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             pptp_auth_type:
                 aliases: ['pptp-auth-type']
                 type: str
                 description: Pptp auth type.
-                choices:
-                    - 'auto'
-                    - 'pap'
-                    - 'chap'
-                    - 'mschapv1'
-                    - 'mschapv2'
+                choices: ['auto', 'pap', 'chap', 'mschapv1', 'mschapv2']
             pptp_client:
                 aliases: ['pptp-client']
                 type: str
                 description: Pptp client.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             pptp_password:
                 aliases: ['pptp-password']
                 type: raw
@@ -1438,9 +1034,7 @@ options:
                 aliases: ['preserve-session-route']
                 type: str
                 description: Preserve session route.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             priority:
                 type: int
                 description: Priority.
@@ -1448,16 +1042,12 @@ options:
                 aliases: ['priority-override']
                 type: str
                 description: Priority override.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             proxy_captive_portal:
                 aliases: ['proxy-captive-portal']
                 type: str
                 description: Proxy captive portal.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             redundant_interface:
                 aliases: ['redundant-interface']
                 type: str
@@ -1473,25 +1063,16 @@ options:
             retransmission:
                 type: str
                 description: Retransmission.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             role:
                 type: str
                 description: Role.
-                choices:
-                    - 'lan'
-                    - 'wan'
-                    - 'dmz'
-                    - 'undefined'
+                choices: ['lan', 'wan', 'dmz', 'undefined']
             sample_direction:
                 aliases: ['sample-direction']
                 type: str
                 description: Sample direction.
-                choices:
-                    - 'rx'
-                    - 'tx'
-                    - 'both'
+                choices: ['rx', 'tx', 'both']
             sample_rate:
                 aliases: ['sample-rate']
                 type: int
@@ -1500,17 +1081,12 @@ options:
                 aliases: ['scan-botnet-connections']
                 type: str
                 description: Scan botnet connections.
-                choices:
-                    - 'disable'
-                    - 'block'
-                    - 'monitor'
+                choices: ['disable', 'block', 'monitor']
             secondary_IP:
                 aliases: ['secondary-IP']
                 type: str
                 description: Secondary IP.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             secondaryip:
                 type: list
                 elements: dict
@@ -1520,41 +1096,21 @@ options:
                         type: list
                         elements: str
                         description: Allowaccess.
-                        choices:
-                            - 'https'
-                            - 'ping'
-                            - 'ssh'
-                            - 'snmp'
-                            - 'http'
-                            - 'telnet'
-                            - 'fgfm'
-                            - 'auto-ipsec'
-                            - 'radius-acct'
-                            - 'probe-response'
-                            - 'capwap'
-                            - 'dnp'
-                            - 'ftm'
-                            - 'fabric'
-                            - 'speed-test'
-                            - 'icond'
-                            - 'scim'
+                        choices: ['https', 'ping', 'ssh', 'snmp', 'http', 'telnet', 'fgfm',
+                                  'auto-ipsec', 'radius-acct', 'probe-response', 'capwap', 'dnp',
+                                  'ftm', 'fabric', 'speed-test', 'icond', 'scim']
                     detectprotocol:
                         type: list
                         elements: str
                         description: Detectprotocol.
-                        choices:
-                            - 'ping'
-                            - 'tcp-echo'
-                            - 'udp-echo'
+                        choices: ['ping', 'tcp-echo', 'udp-echo']
                     detectserver:
                         type: str
                         description: Detectserver.
                     gwdetect:
                         type: str
                         description: Gwdetect.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     ha_priority:
                         aliases: ['ha-priority']
                         type: int
@@ -1588,11 +1144,7 @@ options:
                 aliases: ['security-8021x-mode']
                 type: str
                 description: Security 8021x mode.
-                choices:
-                    - 'default'
-                    - 'dynamic-vlan'
-                    - 'fallback'
-                    - 'slave'
+                choices: ['default', 'dynamic-vlan', 'fallback', 'slave']
             security_exempt_list:
                 aliases: ['security-exempt-list']
                 type: str
@@ -1613,18 +1165,12 @@ options:
                 aliases: ['security-mac-auth-bypass']
                 type: str
                 description: Security mac auth bypass.
-                choices:
-                    - 'disable'
-                    - 'enable'
-                    - 'mac-auth-only'
+                choices: ['disable', 'enable', 'mac-auth-only']
             security_mode:
                 aliases: ['security-mode']
                 type: str
                 description: Security mode.
-                choices:
-                    - 'none'
-                    - 'captive-portal'
-                    - '802.1X'
+                choices: ['none', 'captive-portal', '802.1X']
             security_redirect_url:
                 aliases: ['security-redirect-url']
                 type: str
@@ -1637,38 +1183,15 @@ options:
                 aliases: ['sflow-sampler']
                 type: str
                 description: Sflow sampler.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             speed:
                 type: str
                 description: Speed.
-                choices:
-                    - 'auto'
-                    - '10full'
-                    - '10half'
-                    - '100full'
-                    - '100half'
-                    - '1000full'
-                    - '1000half'
-                    - '10000full'
-                    - '1000auto'
-                    - '10000auto'
-                    - '40000full'
-                    - '100Gfull'
-                    - '25000full'
-                    - '40000auto'
-                    - '25000auto'
-                    - '100Gauto'
-                    - '400Gfull'
-                    - '400Gauto'
-                    - '50000full'
-                    - '2500auto'
-                    - '5000auto'
-                    - '50000auto'
-                    - '200Gfull'
-                    - '200Gauto'
-                    - '100auto'
+                choices: ['auto', '10full', '10half', '100full', '100half', '1000full',
+                          '1000half', '10000full', '1000auto', '10000auto', '40000full',
+                          '100Gfull', '25000full', '40000auto', '25000auto', '100Gauto',
+                          '400Gfull', '400Gauto', '50000full', '2500auto', '5000auto',
+                          '50000auto', '200Gfull', '200Gauto', '100auto']
             spillover_threshold:
                 aliases: ['spillover-threshold']
                 type: int
@@ -1677,56 +1200,38 @@ options:
                 aliases: ['src-check']
                 type: str
                 description: Src check.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             status:
                 type: str
                 description: Status.
-                choices:
-                    - 'down'
-                    - 'up'
+                choices: ['down', 'up']
             stp:
                 type: str
                 description: Stp.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             stp_ha_slave:
                 aliases: ['stp-ha-slave']
                 type: str
                 description: Stp ha slave.
-                choices:
-                    - 'disable'
-                    - 'enable'
-                    - 'priority-adjust'
+                choices: ['disable', 'enable', 'priority-adjust']
             stpforward:
                 type: str
                 description: Stpforward.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             stpforward_mode:
                 aliases: ['stpforward-mode']
                 type: str
                 description: Stpforward mode.
-                choices:
-                    - 'rpl-all-ext-id'
-                    - 'rpl-bridge-ext-id'
-                    - 'rpl-nothing'
+                choices: ['rpl-all-ext-id', 'rpl-bridge-ext-id', 'rpl-nothing']
             strip_priority_vlan_tag:
                 aliases: ['strip-priority-vlan-tag']
                 type: str
                 description: Strip priority vlan tag.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             subst:
                 type: str
                 description: Subst.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             substitute_dst_mac:
                 aliases: ['substitute-dst-mac']
                 type: str
@@ -1738,52 +1243,37 @@ options:
                 aliases: ['switch-controller-access-vlan']
                 type: str
                 description: Switch controller access vlan.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             switch_controller_arp_inspection:
                 aliases: ['switch-controller-arp-inspection']
                 type: str
                 description: Switch controller arp inspection.
-                choices:
-                    - 'disable'
-                    - 'enable'
-                    - 'monitor'
+                choices: ['disable', 'enable', 'monitor']
             switch_controller_auth:
                 aliases: ['switch-controller-auth']
                 type: str
                 description: Switch controller auth.
-                choices:
-                    - 'radius'
-                    - 'usergroup'
+                choices: ['radius', 'usergroup']
             switch_controller_dhcp_snooping:
                 aliases: ['switch-controller-dhcp-snooping']
                 type: str
                 description: Switch controller dhcp snooping.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             switch_controller_dhcp_snooping_option82:
                 aliases: ['switch-controller-dhcp-snooping-option82']
                 type: str
                 description: Switch controller dhcp snooping option82.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             switch_controller_dhcp_snooping_verify_mac:
                 aliases: ['switch-controller-dhcp-snooping-verify-mac']
                 type: str
                 description: Switch controller dhcp snooping verify mac.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             switch_controller_igmp_snooping:
                 aliases: ['switch-controller-igmp-snooping']
                 type: str
                 description: Switch controller igmp snooping.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             switch_controller_learning_limit:
                 aliases: ['switch-controller-learning-limit']
                 type: int
@@ -1800,9 +1290,7 @@ options:
                 aliases: ['tc-mode']
                 type: str
                 description: Tc mode.
-                choices:
-                    - 'ptm'
-                    - 'atm'
+                choices: ['ptm', 'atm']
             tcp_mss:
                 aliases: ['tcp-mss']
                 type: int
@@ -1810,9 +1298,7 @@ options:
             trunk:
                 type: str
                 description: Trunk.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             trust_ip_1:
                 aliases: ['trust-ip-1']
                 type: str
@@ -1840,30 +1326,10 @@ options:
             type:
                 type: str
                 description: Type.
-                choices:
-                    - 'physical'
-                    - 'vlan'
-                    - 'aggregate'
-                    - 'redundant'
-                    - 'tunnel'
-                    - 'wireless'
-                    - 'vdom-link'
-                    - 'loopback'
-                    - 'switch'
-                    - 'hard-switch'
-                    - 'hdlc'
-                    - 'vap-switch'
-                    - 'wl-mesh'
-                    - 'fortilink'
-                    - 'switch-vlan'
-                    - 'fctrl-trunk'
-                    - 'tdm'
-                    - 'fext-wan'
-                    - 'vxlan'
-                    - 'emac-vlan'
-                    - 'geneve'
-                    - 'ssl'
-                    - 'lan-extension'
+                choices: ['physical', 'vlan', 'aggregate', 'redundant', 'tunnel', 'wireless',
+                          'vdom-link', 'loopback', 'switch', 'hard-switch', 'hdlc', 'vap-switch',
+                          'wl-mesh', 'fortilink', 'switch-vlan', 'fctrl-trunk', 'tdm', 'fext-wan',
+                          'vxlan', 'emac-vlan', 'geneve', 'ssl', 'lan-extension']
             username:
                 type: str
                 description: Username.
@@ -1873,18 +1339,14 @@ options:
             vectoring:
                 type: str
                 description: Vectoring.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             vindex:
                 type: int
                 description: Vindex.
             vlanforward:
                 type: str
                 description: Vlanforward.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             vlanid:
                 type: int
                 description: Vlanid.
@@ -1903,9 +1365,7 @@ options:
                         aliases: ['accept-mode']
                         type: str
                         description: Accept mode.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     adv_interval:
                         aliases: ['adv-interval']
                         type: int
@@ -1914,15 +1374,11 @@ options:
                         aliases: ['ignore-default-route']
                         type: str
                         description: Ignore default route.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     preempt:
                         type: str
                         description: Preempt.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     priority:
                         type: int
                         description: Priority.
@@ -1933,15 +1389,11 @@ options:
                     status:
                         type: str
                         description: Status.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     version:
                         type: str
                         description: Version.
-                        choices:
-                            - '2'
-                            - '3'
+                        choices: ['2', '3']
                     vrdst:
                         type: raw
                         description: (list) Vrdst.
@@ -1974,15 +1426,11 @@ options:
                 aliases: ['vrrp-virtual-mac']
                 type: str
                 description: Vrrp virtual mac.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             wccp:
                 type: str
                 description: Wccp.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             weight:
                 type: int
                 description: Weight.
@@ -1994,54 +1442,37 @@ options:
                 aliases: ['wifi-acl']
                 type: str
                 description: Wifi acl.
-                choices:
-                    - 'deny'
-                    - 'allow'
+                choices: ['deny', 'allow']
             wifi_ap_band:
                 aliases: ['wifi-ap-band']
                 type: str
                 description: Wifi ap band.
-                choices:
-                    - 'any'
-                    - '5g-preferred'
-                    - '5g-only'
+                choices: ['any', '5g-preferred', '5g-only']
             wifi_auth:
                 aliases: ['wifi-auth']
                 type: str
                 description: Wifi auth.
-                choices:
-                    - 'PSK'
-                    - 'RADIUS'
-                    - 'radius'
-                    - 'usergroup'
+                choices: ['PSK', 'RADIUS', 'radius', 'usergroup']
             wifi_auto_connect:
                 aliases: ['wifi-auto-connect']
                 type: str
                 description: Wifi auto connect.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             wifi_auto_save:
                 aliases: ['wifi-auto-save']
                 type: str
                 description: Wifi auto save.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             wifi_broadcast_ssid:
                 aliases: ['wifi-broadcast-ssid']
                 type: str
                 description: Wifi broadcast ssid.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             wifi_encrypt:
                 aliases: ['wifi-encrypt']
                 type: str
                 description: Wifi encrypt.
-                choices:
-                    - 'TKIP'
-                    - 'AES'
+                choices: ['TKIP', 'AES']
             wifi_fragment_threshold:
                 aliases: ['wifi-fragment-threshold']
                 type: int
@@ -2058,9 +1489,7 @@ options:
                 aliases: ['wifi-mac-filter']
                 type: str
                 description: Wifi mac filter.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             wifi_passphrase:
                 aliases: ['wifi-passphrase']
                 type: raw
@@ -2077,24 +1506,10 @@ options:
                 aliases: ['wifi-security']
                 type: str
                 description: Wifi security.
-                choices:
-                    - 'None'
-                    - 'WEP64'
-                    - 'wep64'
-                    - 'WEP128'
-                    - 'wep128'
-                    - 'WPA_PSK'
-                    - 'WPA_RADIUS'
-                    - 'WPA'
-                    - 'WPA2'
-                    - 'WPA2_AUTO'
-                    - 'open'
-                    - 'wpa-personal'
-                    - 'wpa-enterprise'
-                    - 'wpa-only-personal'
-                    - 'wpa-only-enterprise'
-                    - 'wpa2-only-personal'
-                    - 'wpa2-only-enterprise'
+                choices: ['None', 'WEP64', 'wep64', 'WEP128', 'wep128', 'WPA_PSK', 'WPA_RADIUS',
+                          'WPA', 'WPA2', 'WPA2_AUTO', 'open', 'wpa-personal', 'wpa-enterprise',
+                          'wpa-only-personal', 'wpa-only-enterprise', 'wpa2-only-personal',
+                          'wpa2-only-enterprise']
             wifi_ssid:
                 aliases: ['wifi-ssid']
                 type: str
@@ -2114,9 +1529,7 @@ options:
                 aliases: ['fortilink-neighbor-detect']
                 type: str
                 description: Fortilink neighbor detect.
-                choices:
-                    - 'lldp'
-                    - 'fortilink'
+                choices: ['lldp', 'fortilink']
             ingress_shaping_profile:
                 aliases: ['ingress-shaping-profile']
                 type: str
@@ -2133,23 +1546,17 @@ options:
                 aliases: ['switch-controller-igmp-snooping-fast-leave']
                 type: str
                 description: Switch controller igmp snooping fast leave.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             switch_controller_igmp_snooping_proxy:
                 aliases: ['switch-controller-igmp-snooping-proxy']
                 type: str
                 description: Switch controller igmp snooping proxy.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             switch_controller_rspan_mode:
                 aliases: ['switch-controller-rspan-mode']
                 type: str
                 description: Switch controller rspan mode.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             bandwidth_measure_time:
                 aliases: ['bandwidth-measure-time']
                 type: int
@@ -2158,38 +1565,14 @@ options:
                 aliases: ['ip-managed-by-fortiipam']
                 type: str
                 description: Ip managed by fortiipam.
-                choices:
-                    - 'disable'
-                    - 'enable'
-                    - 'inherit-global'
+                choices: ['disable', 'enable', 'inherit-global']
             managed_subnetwork_size:
                 aliases: ['managed-subnetwork-size']
                 type: str
                 description: Managed subnetwork size.
-                choices:
-                    - '256'
-                    - '512'
-                    - '1024'
-                    - '2048'
-                    - '4096'
-                    - '8192'
-                    - '16384'
-                    - '32768'
-                    - '65536'
-                    - '32'
-                    - '64'
-                    - '128'
-                    - '4'
-                    - '8'
-                    - '16'
-                    - '131072'
-                    - '262144'
-                    - '524288'
-                    - '1048576'
-                    - '2097152'
-                    - '4194304'
-                    - '8388608'
-                    - '16777216'
+                choices: ['256', '512', '1024', '2048', '4096', '8192', '16384', '32768', '65536',
+                          '32', '64', '128', '4', '8', '16', '131072', '262144', '524288',
+                          '1048576', '2097152', '4194304', '8388608', '16777216']
             measured_downstream_bandwidth:
                 aliases: ['measured-downstream-bandwidth']
                 type: int
@@ -2202,9 +1585,7 @@ options:
                 aliases: ['monitor-bandwidth']
                 type: str
                 description: Monitor bandwidth.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             swc_vlan:
                 aliases: ['swc-vlan']
                 type: int
@@ -2213,17 +1594,8 @@ options:
                 aliases: ['switch-controller-feature']
                 type: str
                 description: Switch controller feature.
-                choices:
-                    - 'none'
-                    - 'default-vlan'
-                    - 'quarantine'
-                    - 'sniffer'
-                    - 'voice'
-                    - 'camera'
-                    - 'rspan'
-                    - 'video'
-                    - 'nac'
-                    - 'nac-segment'
+                choices: ['none', 'default-vlan', 'quarantine', 'sniffer', 'voice', 'camera',
+                          'rspan', 'video', 'nac', 'nac-segment']
             switch_controller_mgmt_vlan:
                 aliases: ['switch-controller-mgmt-vlan']
                 type: int
@@ -2236,9 +1608,7 @@ options:
                 aliases: ['vlan-protocol']
                 type: str
                 description: Vlan protocol.
-                choices:
-                    - '8021q'
-                    - '8021ad'
+                choices: ['8021q', '8021ad']
             dhcp_relay_interface:
                 aliases: ['dhcp-relay-interface']
                 type: str
@@ -2247,10 +1617,7 @@ options:
                 aliases: ['dhcp-relay-interface-select-method']
                 type: str
                 description: Dhcp relay interface select method.
-                choices:
-                    - 'auto'
-                    - 'sdwan'
-                    - 'specify'
+                choices: ['auto', 'sdwan', 'specify']
             np_qos_profile:
                 aliases: ['np-qos-profile']
                 type: int
@@ -2263,31 +1630,22 @@ options:
                 aliases: ['switch-controller-iot-scanning']
                 type: str
                 description: Enable/disable managed FortiSwitch IoT scanning.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             switch_controller_source_ip:
                 aliases: ['switch-controller-source-ip']
                 type: str
                 description: Source IP address used in FortiLink over L3 connections.
-                choices:
-                    - 'outbound'
-                    - 'fixed'
+                choices: ['outbound', 'fixed']
             dhcp_relay_request_all_server:
                 aliases: ['dhcp-relay-request-all-server']
                 type: str
                 description: Enable/disable sending of DHCP requests to all servers.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             stp_ha_secondary:
                 aliases: ['stp-ha-secondary']
                 type: str
                 description: Control STP behaviour on HA secondary.
-                choices:
-                    - 'disable'
-                    - 'enable'
-                    - 'priority-adjust'
+                choices: ['disable', 'enable', 'priority-adjust']
             switch_controller_dynamic:
                 aliases: ['switch-controller-dynamic']
                 type: str
@@ -2304,9 +1662,7 @@ options:
                 aliases: ['dhcp-classless-route-addition']
                 type: str
                 description: Enable/disable addition of classless static routes retrieved from DHCP server.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             dhcp_relay_link_selection:
                 aliases: ['dhcp-relay-link-selection']
                 type: str
@@ -2316,10 +1672,7 @@ options:
                 type: list
                 elements: str
                 description: DNS transport protocols.
-                choices:
-                    - 'cleartext'
-                    - 'dot'
-                    - 'doh'
+                choices: ['cleartext', 'dot', 'doh']
             eap_ca_cert:
                 aliases: ['eap-ca-cert']
                 type: str
@@ -2332,9 +1685,7 @@ options:
                 aliases: ['eap-method']
                 type: str
                 description: EAP method.
-                choices:
-                    - 'tls'
-                    - 'peap'
+                choices: ['tls', 'peap']
             eap_password:
                 aliases: ['eap-password']
                 type: raw
@@ -2343,9 +1694,7 @@ options:
                 aliases: ['eap-supplicant']
                 type: str
                 description: Enable/disable EAP-Supplicant.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             eap_user_cert:
                 aliases: ['eap-user-cert']
                 type: str
@@ -2358,18 +1707,12 @@ options:
                 aliases: ['lacp-ha-secondary']
                 type: str
                 description: Lacp ha secondary.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             pvc_atm_qos:
                 aliases: ['pvc-atm-qos']
                 type: str
                 description: SFP-DSL ADSL Fallback PVC ATM QoS.
-                choices:
-                    - 'cbr'
-                    - 'rt-vbr'
-                    - 'nrt-vbr'
-                    - 'ubr'
+                choices: ['cbr', 'rt-vbr', 'nrt-vbr', 'ubr']
             pvc_chan:
                 aliases: ['pvc-chan']
                 type: int
@@ -2398,10 +1741,7 @@ options:
                 aliases: ['pvc-vlan-rx-op']
                 type: str
                 description: SFP-DSL ADSL Fallback PVC VLAN RX op.
-                choices:
-                    - 'pass-through'
-                    - 'replace'
-                    - 'remove'
+                choices: ['pass-through', 'replace', 'remove']
             pvc_vlan_tx_id:
                 aliases: ['pvc-vlan-tx-id']
                 type: int
@@ -2410,10 +1750,7 @@ options:
                 aliases: ['pvc-vlan-tx-op']
                 type: str
                 description: SFP-DSL ADSL Fallback PVC VLAN TX op.
-                choices:
-                    - 'pass-through'
-                    - 'replace'
-                    - 'remove'
+                choices: ['pass-through', 'replace', 'remove']
             reachable_time:
                 aliases: ['reachable-time']
                 type: int
@@ -2422,32 +1759,22 @@ options:
                 aliases: ['select-profile-30a-35b']
                 type: str
                 description: Select VDSL Profile 30a or 35b.
-                choices:
-                    - '30A'
-                    - '35B'
-                    - '30a'
-                    - '35b'
+                choices: ['30A', '35B', '30a', '35b']
             sfp_dsl:
                 aliases: ['sfp-dsl']
                 type: str
                 description: Enable/disable SFP DSL.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             sfp_dsl_adsl_fallback:
                 aliases: ['sfp-dsl-adsl-fallback']
                 type: str
                 description: Enable/disable SFP DSL ADSL fallback.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             sfp_dsl_autodetect:
                 aliases: ['sfp-dsl-autodetect']
                 type: str
                 description: Enable/disable SFP DSL MAC address autodetect.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             sfp_dsl_mac:
                 aliases: ['sfp-dsl-mac']
                 type: str
@@ -2456,11 +1783,7 @@ options:
                 aliases: ['sw-algorithm']
                 type: str
                 description: Frame distribution algorithm for switch.
-                choices:
-                    - 'l2'
-                    - 'l3'
-                    - 'eh'
-                    - 'default'
+                choices: ['l2', 'l3', 'eh', 'default']
             system_id:
                 aliases: ['system-id']
                 type: str
@@ -2469,9 +1792,7 @@ options:
                 aliases: ['system-id-type']
                 type: str
                 description: Method in which system ID is generated.
-                choices:
-                    - 'auto'
-                    - 'user'
+                choices: ['auto', 'user']
             vlan_id:
                 aliases: ['vlan-id']
                 type: int
@@ -2480,59 +1801,36 @@ options:
                 aliases: ['vlan-op-mode']
                 type: str
                 description: Configure DSL 802.
-                choices:
-                    - 'tag'
-                    - 'untag'
-                    - 'passthrough'
+                choices: ['tag', 'untag', 'passthrough']
             generic_receive_offload:
                 aliases: ['generic-receive-offload']
                 type: str
                 description: Generic receive offload.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             interconnect_profile:
                 aliases: ['interconnect-profile']
                 type: str
                 description: Set interconnect profile.
-                choices:
-                    - 'default'
-                    - 'profile1'
-                    - 'profile2'
+                choices: ['default', 'profile1', 'profile2']
             large_receive_offload:
                 aliases: ['large-receive-offload']
                 type: str
                 description: Large receive offload.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             annex:
                 type: str
                 description: Set xDSL annex type.
-                choices:
-                    - 'a'
-                    - 'b'
-                    - 'j'
-                    - 'bjm'
-                    - 'i'
-                    - 'al'
-                    - 'm'
-                    - 'aijlm'
-                    - 'bj'
+                choices: ['a', 'b', 'j', 'bjm', 'i', 'al', 'm', 'aijlm', 'bj']
             aggregate_type:
                 aliases: ['aggregate-type']
                 type: str
                 description: Type of aggregation.
-                choices:
-                    - 'physical'
-                    - 'vxlan'
+                choices: ['physical', 'vxlan']
             switch_controller_netflow_collect:
                 aliases: ['switch-controller-netflow-collect']
                 type: str
                 description: NetFlow collection and processing.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             wifi_dns_server1:
                 aliases: ['wifi-dns-server1']
                 type: str
@@ -2549,44 +1847,27 @@ options:
                 aliases: ['default-purdue-level']
                 type: str
                 description: Default purdue level of device detected on this interface.
-                choices:
-                    - '1'
-                    - '2'
-                    - '3'
-                    - '4'
-                    - '5'
-                    - '1.5'
-                    - '2.5'
-                    - '3.5'
-                    - '5.5'
+                choices: ['1', '2', '3', '4', '5', '1.5', '2.5', '3.5', '5.5']
             dhcp_broadcast_flag:
                 aliases: ['dhcp-broadcast-flag']
                 type: str
                 description: Enable/disable setting of the broadcast flag in messages sent by the DHCP client
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             dhcp_smart_relay:
                 aliases: ['dhcp-smart-relay']
                 type: str
                 description: Enable/disable DHCP smart relay.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             switch_controller_offloading:
                 aliases: ['switch-controller-offloading']
                 type: str
                 description: Switch controller offloading.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             switch_controller_offloading_gw:
                 aliases: ['switch-controller-offloading-gw']
                 type: str
                 description: Switch controller offloading gw.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             switch_controller_offloading_ip:
                 aliases: ['switch-controller-offloading-ip']
                 type: str
@@ -2603,16 +1884,12 @@ options:
                 aliases: ['switch-controller-offload']
                 type: str
                 description: Enable/disable managed FortiSwitch routing offload.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             switch_controller_offload_gw:
                 aliases: ['switch-controller-offload-gw']
                 type: str
                 description: Enable/disable managed FortiSwitch routing offload gateway.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             switch_controller_offload_ip:
                 aliases: ['switch-controller-offload-ip']
                 type: str
@@ -2621,10 +1898,7 @@ options:
                 aliases: ['mirroring-direction']
                 type: str
                 description: Port mirroring direction.
-                choices:
-                    - 'rx'
-                    - 'tx'
-                    - 'both'
+                choices: ['rx', 'tx', 'both']
             mirroring_port:
                 aliases: ['mirroring-port']
                 type: str
@@ -2633,30 +1907,22 @@ options:
                 aliases: ['port-mirroring']
                 type: str
                 description: Enable/disable NP port mirroring.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             security_8021x_member_mode:
                 aliases: ['security-8021x-member-mode']
                 type: str
                 description: '802.'
-                choices:
-                    - 'disable'
-                    - 'switch'
+                choices: ['disable', 'switch']
             stp_edge:
                 aliases: ['stp-edge']
                 type: str
                 description: Enable/disable as STP edge port.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             dhcp_relay_allow_no_end_option:
                 aliases: ['dhcp-relay-allow-no-end-option']
                 type: str
                 description: Enable/disable relaying DHCP messages with no end option.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             netflow_sample_rate:
                 aliases: ['netflow-sample-rate']
                 type: int
@@ -2669,22 +1935,12 @@ options:
                 aliases: ['pppoe-egress-cos']
                 type: str
                 description: CoS in VLAN tag for outgoing PPPoE/PPP packets.
-                choices:
-                    - 'cos0'
-                    - 'cos1'
-                    - 'cos2'
-                    - 'cos3'
-                    - 'cos4'
-                    - 'cos5'
-                    - 'cos6'
-                    - 'cos7'
+                choices: ['cos0', 'cos1', 'cos2', 'cos3', 'cos4', 'cos5', 'cos6', 'cos7']
             security_ip_auth_bypass:
                 aliases: ['security-ip-auth-bypass']
                 type: str
                 description: Enable/disable IP authentication bypass.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             virtual_mac:
                 aliases: ['virtual-mac']
                 type: str
@@ -2698,39 +1954,24 @@ options:
                 type: list
                 elements: str
                 description: Exclude IOT or OT application signatures.
-                choices:
-                    - 'iot'
-                    - 'ot'
+                choices: ['iot', 'ot']
             profiles:
                 type: list
                 elements: str
                 description: Set allowed VDSL profiles.
-                choices:
-                    - '8a'
-                    - '8b'
-                    - '8c'
-                    - '8d'
-                    - '12a'
-                    - '12b'
-                    - '17a'
-                    - '30a'
-                    - '35b'
+                choices: ['8a', '8b', '8c', '8d', '12a', '12b', '17a', '30a', '35b']
             telemetry_discover:
                 aliases: ['telemetry-discover']
                 type: str
                 description: Enable/disable automatic registration of unknown FortiTelemetry agents.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             mrru:
                 type: int
                 description: PPP MRRU
             multilink:
                 type: str
                 description: Enable/disable PPP multilink support.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -2738,18 +1979,10 @@ EXAMPLES = '''
   hosts: fortimanagers
   connection: httpapi
   gather_facts: false
-  vars:
-    ansible_httpapi_use_ssl: true
-    ansible_httpapi_validate_certs: false
-    ansible_httpapi_port: 443
   tasks:
     - name: Configure interfaces.
       fortinet.fortimanager.fmgr_fsp_vlan_interface:
-        # bypass_validation: false
         # workspace_locking_adom: <global or your adom name>
-        # workspace_locking_timeout: 300
-        # rc_succeeded: [0, -2, -3, ...]
-        # rc_failed: [-2, -3, ...]
         adom: <your own value>
         vlan: <your own value>
         fsp_vlan_interface:
@@ -2757,22 +1990,9 @@ EXAMPLES = '''
           # aggregate: <string>
           # algorithm: <value in [L2, L3, L4, ...]>
           # alias: <string>
-          # allowaccess:
-          #   - "https"
-          #   - "ping"
-          #   - "ssh"
-          #   - "snmp"
-          #   - "http"
-          #   - "telnet"
-          #   - "fgfm"
-          #   - "auto-ipsec"
-          #   - "radius-acct"
-          #   - "probe-response"
-          #   - "capwap"
-          #   - "dnp"
-          #   - "ftm"
-          #   - "fabric"
-          #   - "speed-test"
+          # allowaccess: ["https", "ping", "ssh", "snmp", "http", "telnet", "fgfm", "auto-ipsec",
+          #               "radius-acct", "probe-response", "capwap", "dnp", "ftm", "fabric",
+          #               "speed-test"]
           # ap_discover: <value in [disable, enable]>
           # arpforward: <value in [disable, enable]>
           # atm_protocol: <value in [none, ipoa]>
@@ -2803,10 +2023,7 @@ EXAMPLES = '''
           # defaultgw: <value in [disable, enable]>
           # description: <string>
           # detected_peer_mtu: <integer>
-          # detectprotocol:
-          #   - "ping"
-          #   - "tcp-echo"
-          #   - "udp-echo"
+          # detectprotocol: ["ping", "tcp-echo", "udp-echo"]
           # detectserver: <string>
           # device_access_list: <list or string>
           # device_identification: <value in [disable, enable]>
@@ -2839,9 +2056,7 @@ EXAMPLES = '''
           # fail_alert_interfaces: <list or string>
           # fail_alert_method: <value in [link-failed-signal, link-down]>
           # fail_detect: <value in [disable, enable]>
-          # fail_detect_option:
-          #   - "detectserver"
-          #   - "link-down"
+          # fail_detect_option: ["detectserver", "link-down"]
           # fdp: <value in [disable, enable]>
           # fortiheartbeat: <value in [disable, enable]>
           # fortilink: <value in [disable, enable]>
@@ -2850,43 +2065,16 @@ EXAMPLES = '''
           # fortilink_stacking: <value in [disable, enable]>
           # forward_domain: <integer>
           # forward_error_correction: <value in [disable, enable, rs-fec, ...]>
-          # fp_anomaly:
-          #   - "drop_tcp_fin_noack"
-          #   - "pass_winnuke"
-          #   - "pass_tcpland"
-          #   - "pass_udpland"
-          #   - "pass_icmpland"
-          #   - "pass_ipland"
-          #   - "pass_iprr"
-          #   - "pass_ipssrr"
-          #   - "pass_iplsrr"
-          #   - "pass_ipstream"
-          #   - "pass_ipsecurity"
-          #   - "pass_iptimestamp"
-          #   - "pass_ipunknown_option"
-          #   - "pass_ipunknown_prot"
-          #   - "pass_icmp_frag"
-          #   - "pass_tcp_no_flag"
-          #   - "pass_tcp_fin_noack"
-          #   - "drop_winnuke"
-          #   - "drop_tcpland"
-          #   - "drop_udpland"
-          #   - "drop_icmpland"
-          #   - "drop_ipland"
-          #   - "drop_iprr"
-          #   - "drop_ipssrr"
-          #   - "drop_iplsrr"
-          #   - "drop_ipstream"
-          #   - "drop_ipsecurity"
-          #   - "drop_iptimestamp"
-          #   - "drop_ipunknown_option"
-          #   - "drop_ipunknown_prot"
-          #   - "drop_icmp_frag"
-          #   - "drop_tcp_no_flag"
-          # fp_disable:
-          #   - "all"
-          #   - "ipsec"
-          #   - "none"
+          # fp_anomaly: ["drop_tcp_fin_noack", "pass_winnuke", "pass_tcpland", "pass_udpland",
+          #              "pass_icmpland", "pass_ipland", "pass_iprr", "pass_ipssrr",
+          #              "pass_iplsrr", "pass_ipstream", "pass_ipsecurity", "pass_iptimestamp",
+          #              "pass_ipunknown_option", "pass_ipunknown_prot", "pass_icmp_frag",
+          #              "pass_tcp_no_flag", "pass_tcp_fin_noack", "drop_winnuke", "drop_tcpland",
+          #              "drop_udpland", "drop_icmpland", "drop_ipland", "drop_iprr",
+          #              "drop_ipssrr", "drop_iplsrr", "drop_ipstream", "drop_ipsecurity",
+          #              "drop_iptimestamp", "drop_ipunknown_option", "drop_ipunknown_prot",
+          #              "drop_icmp_frag", "drop_tcp_no_flag"]
+          # fp_disable: ["all", "ipsec", "none"]
           # gateway_address: <string>
           # gi_gk: <value in [disable, enable]>
           # gwaddr: <string>
@@ -2910,12 +2098,7 @@ EXAMPLES = '''
           # ipunnumbered: <string>
           # ipv6:
           #   autoconf: <value in [disable, enable]>
-          #   dhcp6_client_options:
-          #     - "rapid"
-          #     - "iapd"
-          #     - "iana"
-          #     - "dns"
-          #     - "dnsname"
+          #   dhcp6_client_options: ["rapid", "iapd", "iana", "dns", "dnsname"]
           #   dhcp6_information_request: <value in [disable, enable]>
           #   dhcp6_prefix_delegation: <value in [disable, enable]>
           #   dhcp6_prefix_hint: <string>
@@ -2925,16 +2108,8 @@ EXAMPLES = '''
           #   dhcp6_relay_service: <value in [disable, enable]>
           #   dhcp6_relay_type: <value in [regular]>
           #   ip6_address: <string>
-          #   ip6_allowaccess:
-          #     - "https"
-          #     - "ping"
-          #     - "ssh"
-          #     - "snmp"
-          #     - "http"
-          #     - "telnet"
-          #     - "fgfm"
-          #     - "capwap"
-          #     - "fabric"
+          #   ip6_allowaccess: ["https", "ping", "ssh", "snmp", "http", "telnet", "fgfm",
+          #                     "capwap", "fabric"]
           #   ip6_default_life: <integer>
           #   ip6_dns_server_override: <value in [disable, enable]>
           #   ip6_hop_limit: <integer>
@@ -3063,28 +2238,10 @@ EXAMPLES = '''
           # scan_botnet_connections: <value in [disable, block, monitor]>
           # secondary_IP: <value in [disable, enable]>
           # secondaryip:
-          #   - allowaccess:
-          #       - "https"
-          #       - "ping"
-          #       - "ssh"
-          #       - "snmp"
-          #       - "http"
-          #       - "telnet"
-          #       - "fgfm"
-          #       - "auto-ipsec"
-          #       - "radius-acct"
-          #       - "probe-response"
-          #       - "capwap"
-          #       - "dnp"
-          #       - "ftm"
-          #       - "fabric"
-          #       - "speed-test"
-          #       - "icond"
-          #       - "scim"
-          #     detectprotocol:
-          #       - "ping"
-          #       - "tcp-echo"
-          #       - "udp-echo"
+          #   - allowaccess: ["https", "ping", "ssh", "snmp", "http", "telnet", "fgfm",
+          #                   "auto-ipsec", "radius-acct", "probe-response", "capwap", "dnp",
+          #                   "ftm", "fabric", "speed-test", "icond", "scim"]
+          #     detectprotocol: ["ping", "tcp-echo", "udp-echo"]
           #     detectserver: <string>
           #     gwdetect: <value in [disable, enable]>
           #     ha_priority: <integer>
@@ -3216,10 +2373,7 @@ EXAMPLES = '''
           # auth_portal_addr: <string>
           # dhcp_classless_route_addition: <value in [disable, enable]>
           # dhcp_relay_link_selection: <string>
-          # dns_server_protocol:
-          #   - "cleartext"
-          #   - "dot"
-          #   - "doh"
+          # dns_server_protocol: ["cleartext", "dot", "doh"]
           # eap_ca_cert: <string>
           # eap_identity: <string>
           # eap_method: <value in [tls, peap]>
@@ -3281,19 +2435,8 @@ EXAMPLES = '''
           # security_ip_auth_bypass: <value in [disable, enable]>
           # virtual_mac: <string>
           # dhcp_relay_vrf_select: <integer>
-          # exclude_signatures:
-          #   - "iot"
-          #   - "ot"
-          # profiles:
-          #   - "8a"
-          #   - "8b"
-          #   - "8c"
-          #   - "8d"
-          #   - "12a"
-          #   - "12b"
-          #   - "17a"
-          #   - "30a"
-          #   - "35b"
+          # exclude_signatures: ["iot", "ot"]
+          # profiles: ["8a", "8b", "8c", "8d", "12a", "12b", "17a", "30a", "35b"]
           # telemetry_discover: <value in [disable, enable]>
           # mrru: <integer>
           # multilink: <value in [disable, enable]>
@@ -3349,15 +2492,12 @@ def main():
         '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/interface',
         '/pm/config/global/obj/fsp/vlan/{vlan}/interface'
     ]
-    url_params = ['adom', 'vlan']
-    module_primary_key = None
     module_arg_spec = {
         'adom': {'required': True, 'type': 'str'},
         'vlan': {'required': True, 'type': 'str'},
         'revision_note': {'type': 'str'},
         'fsp_vlan_interface': {
-            'type': 'dict',
-            'v_range': [['6.0.0', '']],
+            'type': 'dict', 'v_range': [['6.0.0', '']],
             'options': {
                 'ac-name': {'type': 'str'},
                 'aggregate': {'type': 'str'},
@@ -3954,19 +3094,15 @@ def main():
 
     module_option_spec = get_module_arg_spec('partial crud')
     module_arg_spec.update(module_option_spec)
-    params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'fsp_vlan_interface'),
                            supports_check_mode=True)
-
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list, module_primary_key, url_params,
-                       module, connection, top_level_schema_name='data')
-    fmgr.validate_parameters(params_validation_blob)
+    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list,
+                       None, 'data', module, connection)
     fmgr.process_partial_crud()
-
     module.exit_json(meta=module.params)
 
 

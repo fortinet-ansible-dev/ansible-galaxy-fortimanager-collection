@@ -13,63 +13,11 @@ DOCUMENTATION = '''
 ---
 module: fmgr_dvmdb_device
 short_description: Device table, most attributes are read-only and can only be changed internally.
-description:
-    - This module is able to configure a FortiManager device.
-    - Examples include all parameters and values which need to be adjusted to data sources before usage.
 version_added: "1.0.0"
-author:
-    - Xinwei Du (@dux-fortinet)
-    - Xing Li (@lix-fortinet)
-    - Jie Xue (@JieX19)
-    - Link Zheng (@chillancezen)
-    - Frank Shen (@fshen01)
-    - Hongbin Lu (@fgtdev-hblu)
-notes:
-    - Starting in version 2.4.0, all input arguments are named using the underscore naming convention (snake_case).
-      Please change the arguments such as "var-name" to "var_name".
-      Old argument names are still available yet you will receive deprecation warnings.
-      You can ignore this warning by setting deprecation_warnings=False in ansible.cfg.
-    - Running in workspace locking mode is supported in this FortiManager module, the top
-      level parameters workspace_locking_adom and workspace_locking_timeout help do the work.
-    - Normally, running one module can fail when a non-zero rc is returned. you can also override
-      the conditions to fail or succeed with parameters rc_failed and rc_succeeded
+extends_documentation_fragment:
+    - fortinet.fortimanager.general
+    - fortinet.fortimanager.general.partial_crud
 options:
-    access_token:
-        description: The token to access FortiManager without using username and password.
-        type: str
-    bypass_validation:
-        description: Only set to True when module schema diffs with FortiManager API structure, module continues to execute without validating parameters.
-        type: bool
-        default: false
-    enable_log:
-        description: Enable/Disable logging for task.
-        type: bool
-        default: false
-    forticloud_access_token:
-        description: Authenticate Ansible client with forticloud API access token.
-        type: str
-    proposed_method:
-        description: The overridden method for the underlying Json RPC request.
-        type: str
-        choices:
-          - update
-          - set
-          - add
-    rc_succeeded:
-        description: The rc codes list with which the conditions to succeed will be overriden.
-        type: list
-        elements: int
-    rc_failed:
-        description: The rc codes list with which the conditions to fail will be overriden.
-        type: list
-        elements: int
-    workspace_locking_adom:
-        description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
-        type: str
-    workspace_locking_timeout:
-        description: The maximum time in seconds to wait for other user to release the workspace lock.
-        type: int
-        default: 300
     adom:
         description: The parameter (adom) in requested url.
         type: str
@@ -110,53 +58,28 @@ options:
             conf_status:
                 type: str
                 description: Conf status.
-                choices:
-                    - 'unknown'
-                    - 'insync'
-                    - 'outofsync'
+                choices: ['unknown', 'insync', 'outofsync']
             conn_mode:
                 type: str
                 description: Conn mode.
-                choices:
-                    - 'active'
-                    - 'passive'
+                choices: ['active', 'passive']
             conn_status:
                 type: str
                 description: Conn status.
-                choices:
-                    - 'UNKNOWN'
-                    - 'up'
-                    - 'down'
+                choices: ['UNKNOWN', 'up', 'down']
             db_status:
                 type: str
                 description: Db status.
-                choices:
-                    - 'unknown'
-                    - 'nomod'
-                    - 'mod'
+                choices: ['unknown', 'nomod', 'mod']
             desc:
                 type: str
                 description: Desc.
             dev_status:
                 type: str
                 description: Dev status.
-                choices:
-                    - 'none'
-                    - 'unknown'
-                    - 'checkedin'
-                    - 'inprogress'
-                    - 'installed'
-                    - 'aborted'
-                    - 'sched'
-                    - 'retry'
-                    - 'canceled'
-                    - 'pending'
-                    - 'retrieved'
-                    - 'changed_conf'
-                    - 'sync_fail'
-                    - 'timeout'
-                    - 'rev_revert'
-                    - 'auto_updated'
+                choices: ['none', 'unknown', 'checkedin', 'inprogress', 'installed', 'aborted',
+                          'sched', 'retry', 'canceled', 'pending', 'retrieved', 'changed_conf',
+                          'sync_fail', 'timeout', 'rev_revert', 'auto_updated']
             fap_cnt:
                 type: int
                 description: Fap cnt.
@@ -183,36 +106,18 @@ options:
                 type: list
                 elements: str
                 description: Flags.
-                choices:
-                    - 'has_hdd'
-                    - 'vdom_enabled'
-                    - 'discover'
-                    - 'reload'
-                    - 'interim_build'
-                    - 'offline_mode'
-                    - 'is_model'
-                    - 'fips_mode'
-                    - 'linked_to_model'
-                    - 'ip-conflict'
-                    - 'faz-autosync'
-                    - 'need_reset'
-                    - 'backup_mode'
-                    - 'azure_vwan_nva'
-                    - 'fgsp_configured'
-                    - 'cnf_mode'
-                    - 'sase_managed'
-                    - 'override_management_intf'
-                    - 'sdwan_management'
-                    - 'deny_api_access'
+                choices: ['has_hdd', 'vdom_enabled', 'discover', 'reload', 'interim_build',
+                          'offline_mode', 'is_model', 'fips_mode', 'linked_to_model',
+                          'ip-conflict', 'faz-autosync', 'need_reset', 'backup_mode',
+                          'azure_vwan_nva', 'fgsp_configured', 'cnf_mode', 'sase_managed',
+                          'override_management_intf', 'sdwan_management', 'deny_api_access']
             foslic_cpu:
                 type: int
                 description: VM Meter vCPU count.
             foslic_dr_site:
                 type: str
                 description: VM Meter DR Site status.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             foslic_inst_time:
                 type: int
                 description: VM Meter first deployment time
@@ -225,11 +130,7 @@ options:
             foslic_type:
                 type: str
                 description: VM Meter license type.
-                choices:
-                    - 'temporary'
-                    - 'trial'
-                    - 'regular'
-                    - 'trial_expired'
+                choices: ['temporary', 'trial', 'regular', 'trial_expired']
             foslic_utm:
                 type: list
                 elements: str
@@ -242,14 +143,7 @@ options:
                     - url - Web filter
                     - utm - Full UTM
                     - fwb - FortiWeb
-                choices:
-                    - 'fw'
-                    - 'av'
-                    - 'ips'
-                    - 'app'
-                    - 'url'
-                    - 'utm'
-                    - 'fwb'
+                choices: ['fw', 'av', 'ips', 'app', 'url', 'utm', 'fwb']
             fsw_cnt:
                 type: int
                 description: Fsw cnt.
@@ -262,16 +156,8 @@ options:
             ha_mode:
                 type: str
                 description: Enabled - Value reserved for non-FOS HA devices.
-                choices:
-                    - 'standalone'
-                    - 'AP'
-                    - 'AA'
-                    - 'ELBC'
-                    - 'DUAL'
-                    - 'enabled'
-                    - 'unknown'
-                    - 'fmg-enabled'
-                    - 'autoscale'
+                choices: ['standalone', 'AP', 'AA', 'ELBC', 'DUAL', 'enabled', 'unknown',
+                          'fmg-enabled', 'autoscale']
             ha_slave:
                 type: list
                 elements: dict
@@ -289,9 +175,7 @@ options:
                     role:
                         type: str
                         description: Role.
-                        choices:
-                            - 'slave'
-                            - 'master'
+                        choices: ['slave', 'master']
                     sn:
                         type: str
                         description: Sn.
@@ -362,11 +246,7 @@ options:
             mgmt_mode:
                 type: str
                 description: Mgmt mode.
-                choices:
-                    - 'unreg'
-                    - 'fmg'
-                    - 'faz'
-                    - 'fmgfaz'
+                choices: ['unreg', 'fmg', 'faz', 'fmgfaz']
             mgt_vdom:
                 type: str
                 description: Mgt vdom.
@@ -379,55 +259,15 @@ options:
             os_type:
                 type: str
                 description: Os type.
-                choices:
-                    - 'unknown'
-                    - 'fos'
-                    - 'fsw'
-                    - 'foc'
-                    - 'fml'
-                    - 'faz'
-                    - 'fwb'
-                    - 'fch'
-                    - 'fct'
-                    - 'log'
-                    - 'fmg'
-                    - 'fsa'
-                    - 'fdd'
-                    - 'fac'
-                    - 'fpx'
-                    - 'fna'
-                    - 'fdc'
-                    - 'ffw'
-                    - 'fsr'
-                    - 'fad'
-                    - 'fap'
-                    - 'fxt'
-                    - 'fts'
-                    - 'fai'
-                    - 'fwc'
-                    - 'fis'
-                    - 'fed'
-                    - 'fpa'
-                    - 'fca'
-                    - 'ftc'
-                    - 'fss'
-                    - 'fra'
-                    - 'sim'
+                choices: ['unknown', 'fos', 'fsw', 'foc', 'fml', 'faz', 'fwb', 'fch', 'fct',
+                          'log', 'fmg', 'fsa', 'fdd', 'fac', 'fpx', 'fna', 'fdc', 'ffw', 'fsr',
+                          'fad', 'fap', 'fxt', 'fts', 'fai', 'fwc', 'fis', 'fed', 'fpa', 'fca',
+                          'ftc', 'fss', 'fra', 'sim']
             os_ver:
                 type: str
                 description: Os ver.
-                choices:
-                    - 'unknown'
-                    - '0.0'
-                    - '1.0'
-                    - '2.0'
-                    - '3.0'
-                    - '4.0'
-                    - '5.0'
-                    - '6.0'
-                    - '7.0'
-                    - '8.0'
-                    - '9.0'
+                choices: ['unknown', '0.0', '1.0', '2.0', '3.0', '4.0', '5.0', '6.0', '7.0',
+                          '8.0', '9.0']
             patch:
                 type: int
                 description: Patch.
@@ -454,9 +294,7 @@ options:
                     opmode:
                         type: str
                         description: Opmode.
-                        choices:
-                            - 'nat'
-                            - 'transparent'
+                        choices: ['nat', 'transparent']
                     rtm_prof_id:
                         type: int
                         description: Rtm prof id.
@@ -473,9 +311,7 @@ options:
                     vdom_type:
                         type: str
                         description: Vdom type.
-                        choices:
-                            - 'traffic'
-                            - 'admin'
+                        choices: ['traffic', 'admin']
             version:
                 type: int
                 description: Version.
@@ -509,10 +345,7 @@ options:
             role:
                 type: str
                 description: Role.
-                choices:
-                    - 'master'
-                    - 'ha-slave'
-                    - 'autoscale-slave'
+                choices: ['master', 'ha-slave', 'autoscale-slave']
             hyperscale:
                 type: int
                 description: Hyperscale.
@@ -663,14 +496,11 @@ def main():
         '/dvmdb/adom/{adom}/device/{device}',
         '/dvmdb/device/{device}'
     ]
-    url_params = ['adom', 'device']
-    module_primary_key = None
     module_arg_spec = {
         'adom': {'required': True, 'type': 'str'},
         'device': {'required': True, 'type': 'str'},
         'dvmdb_device': {
-            'type': 'dict',
-            'v_range': [['6.0.0', '']],
+            'type': 'dict', 'v_range': [['6.0.0', '']],
             'options': {
                 'adm_pass': {'no_log': True, 'type': 'raw'},
                 'adm_usr': {'type': 'str'},
@@ -813,19 +643,15 @@ def main():
 
     module_option_spec = get_module_arg_spec('partial crud')
     module_arg_spec.update(module_option_spec)
-    params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'dvmdb_device'),
                            supports_check_mode=True)
-
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list, module_primary_key, url_params,
-                       module, connection, top_level_schema_name='data')
-    fmgr.validate_parameters(params_validation_blob)
+    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list,
+                       None, 'data', module, connection)
     fmgr.process_partial_crud()
-
     module.exit_json(meta=module.params)
 
 

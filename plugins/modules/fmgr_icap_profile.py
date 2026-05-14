@@ -13,75 +13,14 @@ DOCUMENTATION = '''
 ---
 module: fmgr_icap_profile
 short_description: Configure ICAP profiles.
-description:
-    - This module is able to configure a FortiManager device.
-    - Examples include all parameters and values which need to be adjusted to data sources before usage.
 version_added: "2.0.0"
-author:
-    - Xinwei Du (@dux-fortinet)
-    - Xing Li (@lix-fortinet)
-    - Jie Xue (@JieX19)
-    - Link Zheng (@chillancezen)
-    - Frank Shen (@fshen01)
-    - Hongbin Lu (@fgtdev-hblu)
-notes:
-    - Starting in version 2.4.0, all input arguments are named using the underscore naming convention (snake_case).
-      Please change the arguments such as "var-name" to "var_name".
-      Old argument names are still available yet you will receive deprecation warnings.
-      You can ignore this warning by setting deprecation_warnings=False in ansible.cfg.
-    - Running in workspace locking mode is supported in this FortiManager module, the top
-      level parameters workspace_locking_adom and workspace_locking_timeout help do the work.
-    - To create or update an object, use state present directive.
-    - To delete an object, use state absent directive.
-    - Normally, running one module can fail when a non-zero rc is returned. you can also override
-      the conditions to fail or succeed with parameters rc_failed and rc_succeeded
+extends_documentation_fragment:
+    - fortinet.fortimanager.general
+    - fortinet.fortimanager.general.full_crud
 options:
-    access_token:
-        description: The token to access FortiManager without using username and password.
-        type: str
-    bypass_validation:
-        description: Only set to True when module schema diffs with FortiManager API structure, module continues to execute without validating parameters.
-        type: bool
-        default: false
-    enable_log:
-        description: Enable/Disable logging for task.
-        type: bool
-        default: false
-    forticloud_access_token:
-        description: Authenticate Ansible client with forticloud API access token.
-        type: str
-    proposed_method:
-        description: The overridden method for the underlying Json RPC request.
-        type: str
-        choices:
-          - update
-          - set
-          - add
-    rc_succeeded:
-        description: The rc codes list with which the conditions to succeed will be overriden.
-        type: list
-        elements: int
-    rc_failed:
-        description: The rc codes list with which the conditions to fail will be overriden.
-        type: list
-        elements: int
-    state:
-        description: The directive to create, update or delete an object.
-        type: str
-        required: true
-        choices:
-          - present
-          - absent
     revision_note:
         description: The change note that can be specified when an object is created or updated.
         type: str
-    workspace_locking_adom:
-        description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
-        type: str
-    workspace_locking_timeout:
-        description: The maximum time in seconds to wait for other user to release the workspace lock.
-        type: int
-        default: 300
     adom:
         description: The parameter (adom) in requested url.
         type: str
@@ -95,16 +34,8 @@ options:
                 type: list
                 elements: str
                 description: The allowed HTTP methods that will be sent to ICAP server for further processing.
-                choices:
-                    - 'delete'
-                    - 'get'
-                    - 'head'
-                    - 'options'
-                    - 'post'
-                    - 'put'
-                    - 'trace'
-                    - 'other'
-                    - 'connect'
+                choices: ['delete', 'get', 'head', 'options', 'post', 'put', 'trace', 'other',
+                          'connect']
             name:
                 type: str
                 description: ICAP profile name.
@@ -116,16 +47,12 @@ options:
             request:
                 type: str
                 description: Enable/disable whether an HTTP request is passed to an ICAP server.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             request_failure:
                 aliases: ['request-failure']
                 type: str
                 description: Action to take if the ICAP server cannot be contacted when processing an HTTP request.
-                choices:
-                    - 'error'
-                    - 'bypass'
+                choices: ['error', 'bypass']
             request_path:
                 aliases: ['request-path']
                 type: str
@@ -137,16 +64,12 @@ options:
             response:
                 type: str
                 description: Enable/disable whether an HTTP response is passed to an ICAP server.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             response_failure:
                 aliases: ['response-failure']
                 type: str
                 description: Action to take if the ICAP server cannot be contacted when processing an HTTP response.
-                choices:
-                    - 'error'
-                    - 'bypass'
+                choices: ['error', 'bypass']
             response_path:
                 aliases: ['response-path']
                 type: str
@@ -159,9 +82,7 @@ options:
                 aliases: ['streaming-content-bypass']
                 type: str
                 description: Enable/disable bypassing of ICAP server for streaming content.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             icap_headers:
                 aliases: ['icap-headers']
                 type: list
@@ -172,9 +93,7 @@ options:
                         aliases: ['base64-encoding']
                         type: str
                         description: Enable/disable use of base64 encoding of HTTP content.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     content:
                         type: str
                         description: HTTP header content.
@@ -192,29 +111,16 @@ options:
                         aliases: ['sesson-info-type']
                         type: str
                         description: Sesson info type.
-                        choices:
-                            - 'client-ip'
-                            - 'user'
-                            - 'upn'
-                            - 'domain'
-                            - 'local-grp'
-                            - 'remote-grp'
-                            - 'proxy-name'
-                            - 'auth-user-uri'
-                            - 'auth-group-uri'
+                        choices: ['client-ip', 'user', 'upn', 'domain', 'local-grp', 'remote-grp',
+                                  'proxy-name', 'auth-user-uri', 'auth-group-uri']
                     source:
                         type: str
                         description: Source.
-                        choices:
-                            - 'content'
-                            - 'http-header'
-                            - 'session'
+                        choices: ['content', 'http-header', 'session']
             preview:
                 type: str
                 description: Enable/disable preview of data to ICAP server.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             preview_data_length:
                 aliases: ['preview-data-length']
                 type: int
@@ -223,16 +129,12 @@ options:
                 aliases: ['response-req-hdr']
                 type: str
                 description: Enable/disable addition of req-hdr for ICAP response modification
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             respmod_default_action:
                 aliases: ['respmod-default-action']
                 type: str
                 description: Default action to ICAP response modification
-                choices:
-                    - 'bypass'
-                    - 'forward'
+                choices: ['bypass', 'forward']
             respmod_forward_rules:
                 aliases: ['respmod-forward-rules']
                 type: list
@@ -242,9 +144,7 @@ options:
                     action:
                         type: str
                         description: Action to be taken for ICAP server.
-                        choices:
-                            - 'bypass'
-                            - 'forward'
+                        choices: ['bypass', 'forward']
                     header_group:
                         aliases: ['header-group']
                         type: list
@@ -255,9 +155,7 @@ options:
                                 aliases: ['case-sensitivity']
                                 type: str
                                 description: Enable/disable case sensitivity when matching header.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             header:
                                 type: str
                                 description: HTTP header regular expression.
@@ -282,9 +180,7 @@ options:
                 aliases: ['204-response']
                 type: str
                 description: Enable/disable allowance of 204 response from ICAP server.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             204_size_limit:
                 aliases: ['204-size-limit']
                 type: int
@@ -293,31 +189,24 @@ options:
                 aliases: ['chunk-encap']
                 type: str
                 description: Enable/disable chunked encapsulation
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             extension_feature:
                 aliases: ['extension-feature']
                 type: list
                 elements: str
                 description: Enable/disable ICAP extension features.
-                choices:
-                    - 'scan-progress'
+                choices: ['scan-progress']
             file_transfer:
                 aliases: ['file-transfer']
                 type: list
                 elements: str
                 description: Configure the file transfer protocols to pass transferred files to an ICAP server as REQMOD.
-                choices:
-                    - 'ssh'
-                    - 'ftp'
+                choices: ['ssh', 'ftp']
             file_transfer_failure:
                 aliases: ['file-transfer-failure']
                 type: str
                 description: Action to take if the ICAP server cannot be contacted when processing a file transfer.
-                choices:
-                    - 'error'
-                    - 'bypass'
+                choices: ['error', 'bypass']
             file_transfer_path:
                 aliases: ['file-transfer-path']
                 type: str
@@ -330,9 +219,7 @@ options:
                 aliases: ['icap-block-log']
                 type: str
                 description: Enable/disable UTM log when infection found
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             scan_progress_interval:
                 aliases: ['scan-progress-interval']
                 type: int
@@ -346,22 +233,16 @@ options:
             ocr-only:
                 type: str
                 description: Deprecated, please rename it to ocr_only. Enable/disable this FortiGate unit to submit only OCR interested content to the ...
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             ocr_only:
                 type: str
                 description: Ocr only.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             scan_oversize_log:
                 aliases: ['scan-oversize-log']
                 type: str
                 description: Scan oversize log.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             scan_size_limit:
                 aliases: ['scan-size-limit']
                 type: int
@@ -370,9 +251,7 @@ options:
                 aliases: ['allow-204-response']
                 type: str
                 description: Enable/disable allowing of 204 response from icap server.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -380,32 +259,16 @@ EXAMPLES = '''
   hosts: fortimanagers
   connection: httpapi
   gather_facts: false
-  vars:
-    ansible_httpapi_use_ssl: true
-    ansible_httpapi_validate_certs: false
-    ansible_httpapi_port: 443
   tasks:
     - name: Configure ICAP profiles.
       fortinet.fortimanager.fmgr_icap_profile:
-        # bypass_validation: false
         # workspace_locking_adom: <global or your adom name>
-        # workspace_locking_timeout: 300
-        # rc_succeeded: [0, -2, -3, ...]
-        # rc_failed: [-2, -3, ...]
         adom: <your own value>
         state: present # <value in [present, absent]>
         icap_profile:
           name: "your value" # Required variable, string
-          # methods:
-          #   - "delete"
-          #   - "get"
-          #   - "head"
-          #   - "options"
-          #   - "post"
-          #   - "put"
-          #   - "trace"
-          #   - "other"
-          #   - "connect"
+          # methods: ["delete", "get", "head", "options", "post", "put", "trace", "other",
+          #           "connect"]
           # replacemsg_group: <string>
           # request: <value in [disable, enable]>
           # request_failure: <value in [error, bypass]>
@@ -441,11 +304,8 @@ EXAMPLES = '''
           # 204_response: <value in [disable, enable]>
           # 204_size_limit: <integer>
           # chunk_encap: <value in [disable, enable]>
-          # extension_feature:
-          #   - "scan-progress"
-          # file_transfer:
-          #   - "ssh"
-          #   - "ftp"
+          # extension_feature: ["scan-progress"]
+          # file_transfer: ["ssh", "ftp"]
           # file_transfer_failure: <value in [error, bypass]>
           # file_transfer_path: <string>
           # file_transfer_server: <string>
@@ -510,14 +370,11 @@ def main():
         '/pm/config/adom/{adom}/obj/icap/profile',
         '/pm/config/global/obj/icap/profile'
     ]
-    url_params = ['adom']
-    module_primary_key = 'name'
     module_arg_spec = {
         'adom': {'required': True, 'type': 'str'},
         'revision_note': {'type': 'str'},
         'icap_profile': {
-            'type': 'dict',
-            'v_range': [['6.0.0', '']],
+            'type': 'dict', 'v_range': [['6.0.0', '']],
             'options': {
                 'methods': {
                     'type': 'list',
@@ -602,19 +459,15 @@ def main():
 
     module_option_spec = get_module_arg_spec('full crud')
     module_arg_spec.update(module_option_spec)
-    params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'icap_profile'),
                            supports_check_mode=True)
-
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
-                       module, connection, top_level_schema_name='data')
-    fmgr.validate_parameters(params_validation_blob)
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list,
+                       'name', 'data', module, connection)
     fmgr.process_crud()
-
     module.exit_json(meta=module.params)
 
 

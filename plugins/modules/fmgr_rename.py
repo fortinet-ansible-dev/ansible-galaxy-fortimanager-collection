@@ -103,14 +103,19 @@ options:
                     - 'casb_profile'
                     - 'casb_profile_saasapplication'
                     - 'casb_profile_saasapplication_accessrule'
+                    - 'casb_profile_saasapplication_advancedtenantcontrol'
+                    - 'casb_profile_saasapplication_advancedtenantcontrol_attribute'
                     - 'casb_profile_saasapplication_customcontrol'
                     - 'casb_profile_saasapplication_customcontrol_option'
                     - 'casb_saasapplication'
+                    - 'casb_saasapplication_inputattributes'
+                    - 'casb_saasapplication_outputattributes'
                     - 'casb_useractivity'
                     - 'casb_useractivity_controloptions'
                     - 'casb_useractivity_controloptions_operations'
                     - 'casb_useractivity_match'
                     - 'casb_useractivity_match_rules'
+                    - 'casb_useractivity_match_tenantextraction_filters'
                     - 'certificate_template'
                     - 'cifs_profile'
                     - 'cloud_orchestaws'
@@ -203,6 +208,8 @@ options:
                     - 'extensioncontroller_extenderprofile'
                     - 'extensioncontroller_extenderprofile_cellular_smsnotification_receiver'
                     - 'extensioncontroller_extenderprofile_lanextension_backhaul'
+                    - 'extensioncontroller_extenderprofile_lanextension_downlinks'
+                    - 'extensioncontroller_extenderprofile_lanextension_trafficsplitservices'
                     - 'extensioncontroller_extendervap'
                     - 'filefilter_profile'
                     - 'filefilter_profile_rules'
@@ -541,6 +548,7 @@ options:
                     - 'switchcontroller_managedswitch_snmpcommunity_hosts'
                     - 'switchcontroller_managedswitch_snmpuser'
                     - 'switchcontroller_managedswitch_systemdhcpserver'
+                    - 'switchcontroller_managedswitch_systemdhcpserver_iprange'
                     - 'switchcontroller_managedswitch_systemdhcpserver_options'
                     - 'switchcontroller_managedswitch_systeminterface'
                     - 'switchcontroller_ptp_profile'
@@ -769,6 +777,7 @@ options:
                     - 'vpn_ipsec_phase1_ipv6excluderange'
                     - 'vpn_kmipserver'
                     - 'vpn_kmipserver_serverlist'
+                    - 'vpn_qkd'
                     - 'vpn_ssl_settings_authenticationrule'
                     - 'vpnmgr_node'
                     - 'vpnmgr_node_iprange'
@@ -803,6 +812,7 @@ options:
                     - 'wanprof_system_sdwan_duplication'
                     - 'wanprof_system_sdwan_healthcheck'
                     - 'wanprof_system_sdwan_healthcheck_sla'
+                    - 'wanprof_system_sdwan_healthcheckfortiguard_sla'
                     - 'wanprof_system_sdwan_members'
                     - 'wanprof_system_sdwan_service'
                     - 'wanprof_system_sdwan_service_sla'
@@ -824,6 +834,7 @@ options:
                     - 'webfilter_profile_antiphish_inspectionentries'
                     - 'webfilter_profile_ftgdwf_filters'
                     - 'webfilter_profile_ftgdwf_quota'
+                    - 'webfilter_profile_ftgdwf_risk'
                     - 'webfilter_profile_youtubechannelfilter'
                     - 'webfilter_urlfilter'
                     - 'webfilter_urlfilter_entries'
@@ -832,6 +843,7 @@ options:
                     - 'webproxy_forwardserver'
                     - 'webproxy_forwardservergroup'
                     - 'webproxy_forwardservergroup_serverlist'
+                    - 'webproxy_isolatorserver'
                     - 'webproxy_profile'
                     - 'webproxy_profile_headers'
                     - 'webproxy_redirectprofile'
@@ -1182,6 +1194,24 @@ def main():
             ],
             'mkey': 'name', 'v_range': [['7.4.1', '']]
         },
+        'casb_profile_saasapplication_advancedtenantcontrol': {
+            'params': ['adom', 'profile', 'saas-application', 'advanced-tenant-control'],
+            'urls': [
+                '/pm/config/adom/{adom}/obj/casb/profile/{profile}/saas-application/{saas-application}/advanced-tenant-control/{advanced-tenant-control}',
+                '/pm/config/global/obj/casb/profile/{profile}/saas-application/{saas-application}/advanced-tenant-control/{advanced-tenant-control}'
+            ],
+            'mkey': 'name', 'v_range': [['7.6.2', '']]
+        },
+        'casb_profile_saasapplication_advancedtenantcontrol_attribute': {
+            'params': ['adom', 'profile', 'saas-application', 'advanced-tenant-control', 'attribute'],
+            'urls': [
+                '/pm/config/adom/{adom}/obj/casb/profile/{profile}/saas-application/{saas-application}/advanced-tenant-control/{advanced-tenant-control}/attr'
+                'ibute/{attribute}',
+                '/pm/config/global/obj/casb/profile/{profile}/saas-application/{saas-application}/advanced-tenant-control/{advanced-tenant-control}/attribute'
+                '/{attribute}'
+            ],
+            'mkey': 'name', 'v_range': [['7.6.2', '']]
+        },
         'casb_profile_saasapplication_customcontrol': {
             'params': ['adom', 'profile', 'saas-application', 'custom-control'],
             'urls': [
@@ -1205,6 +1235,22 @@ def main():
                 '/pm/config/global/obj/casb/saas-application/{saas-application}'
             ],
             'mkey': 'name', 'v_range': [['7.4.1', '']]
+        },
+        'casb_saasapplication_inputattributes': {
+            'params': ['adom', 'saas-application', 'input-attributes'],
+            'urls': [
+                '/pm/config/adom/{adom}/obj/casb/saas-application/{saas-application}/input-attributes/{input-attributes}',
+                '/pm/config/global/obj/casb/saas-application/{saas-application}/input-attributes/{input-attributes}'
+            ],
+            'mkey': 'name', 'v_range': [['7.6.2', '']]
+        },
+        'casb_saasapplication_outputattributes': {
+            'params': ['adom', 'saas-application', 'output-attributes'],
+            'urls': [
+                '/pm/config/adom/{adom}/obj/casb/saas-application/{saas-application}/output-attributes/{output-attributes}',
+                '/pm/config/global/obj/casb/saas-application/{saas-application}/output-attributes/{output-attributes}'
+            ],
+            'mkey': 'name', 'v_range': [['7.6.2', '']]
         },
         'casb_useractivity': {
             'params': ['adom', 'user-activity'],
@@ -1245,6 +1291,14 @@ def main():
                 '/pm/config/global/obj/casb/user-activity/{user-activity}/match/{match}/rules/{rules}'
             ],
             'mkey': 'id', 'v_range': [['7.4.1', '']]
+        },
+        'casb_useractivity_match_tenantextraction_filters': {
+            'params': ['adom', 'user-activity', 'match', 'filters'],
+            'urls': [
+                '/pm/config/adom/{adom}/obj/casb/user-activity/{user-activity}/match/{match}/tenant-extraction/filters/{filters}',
+                '/pm/config/global/obj/casb/user-activity/{user-activity}/match/{match}/tenant-extraction/filters/{filters}'
+            ],
+            'mkey': 'id', 'v_range': [['7.6.2', '']]
         },
         'certificate_template': {
             'params': ['adom', 'template'],
@@ -1971,6 +2025,23 @@ def main():
                 '/pm/config/global/obj/extension-controller/extender-profile/{extender-profile}/lan-extension/backhaul/{backhaul}'
             ],
             'mkey': 'name', 'v_range': [['7.2.1', '']]
+        },
+        'extensioncontroller_extenderprofile_lanextension_downlinks': {
+            'params': ['adom', 'extender-profile', 'downlinks'],
+            'urls': [
+                '/pm/config/adom/{adom}/obj/extension-controller/extender-profile/{extender-profile}/lan-extension/downlinks/{downlinks}',
+                '/pm/config/global/obj/extension-controller/extender-profile/{extender-profile}/lan-extension/downlinks/{downlinks}'
+            ],
+            'mkey': 'name', 'v_range': [['7.6.0', '']]
+        },
+        'extensioncontroller_extenderprofile_lanextension_trafficsplitservices': {
+            'params': ['adom', 'extender-profile', 'traffic-split-services'],
+            'urls': [
+                '/pm/config/adom/{adom}/obj/extension-controller/extender-profile/{extender-profile}/lan-extension/traffic-split-services/{traffic-split-serv'
+                'ices}',
+                '/pm/config/global/obj/extension-controller/extender-profile/{extender-profile}/lan-extension/traffic-split-services/{traffic-split-services}'
+            ],
+            'mkey': 'name', 'v_range': [['7.6.2', '']]
         },
         'extensioncontroller_extendervap': {
             'params': ['adom', 'extender-vap'],
@@ -4636,6 +4707,13 @@ def main():
             ],
             'mkey': 'id', 'v_range': [['7.6.4', '']]
         },
+        'switchcontroller_managedswitch_systemdhcpserver_iprange': {
+            'params': ['adom', 'managed-switch', 'system-dhcp-server', 'ip-range'],
+            'urls': [
+                '/pm/config/adom/{adom}/obj/switch-controller/managed-switch/{managed-switch}/system-dhcp-server/{system-dhcp-server}/ip-range/{ip-range}'
+            ],
+            'mkey': 'id', 'v_range': [['7.6.4', '']]
+        },
         'switchcontroller_managedswitch_systemdhcpserver_options': {
             'params': ['adom', 'managed-switch', 'system-dhcp-server', 'options'],
             'urls': [
@@ -6398,6 +6476,14 @@ def main():
             ],
             'mkey': 'id', 'v_range': [['7.6.4', '']]
         },
+        'vpn_qkd': {
+            'params': ['adom', 'qkd'],
+            'urls': [
+                '/pm/config/adom/{adom}/obj/vpn/qkd/{qkd}',
+                '/pm/config/global/obj/vpn/qkd/{qkd}'
+            ],
+            'mkey': 'id', 'v_range': [['7.6.4', '']]
+        },
         'vpn_ssl_settings_authenticationrule': {
             'params': ['device', 'vdom', 'authentication-rule'],
             'urls': [
@@ -6666,6 +6752,13 @@ def main():
             ],
             'mkey': 'id', 'v_range': [['6.4.1', '']]
         },
+        'wanprof_system_sdwan_healthcheckfortiguard_sla': {
+            'params': ['adom', 'wanprof', 'health-check-fortiguard', 'sla'],
+            'urls': [
+                '/pm/config/adom/{adom}/wanprof/{wanprof}/system/sdwan/health-check-fortiguard/{health-check-fortiguard}/sla/{sla}'
+            ],
+            'mkey': 'id', 'v_range': [['7.6.0', '']]
+        },
         'wanprof_system_sdwan_members': {
             'params': ['adom', 'wanprof', 'members'],
             'urls': [
@@ -6825,6 +6918,14 @@ def main():
             ],
             'mkey': 'id'
         },
+        'webfilter_profile_ftgdwf_risk': {
+            'params': ['adom', 'profile', 'risk'],
+            'urls': [
+                '/pm/config/adom/{adom}/obj/webfilter/profile/{profile}/ftgd-wf/risk/{risk}',
+                '/pm/config/global/obj/webfilter/profile/{profile}/ftgd-wf/risk/{risk}'
+            ],
+            'mkey': 'id', 'v_range': [['7.4.8', '7.4.10'], ['7.6.2', '']]
+        },
         'webfilter_profile_youtubechannelfilter': {
             'params': ['adom', 'profile', 'youtube-channel-filter'],
             'urls': [
@@ -6888,6 +6989,14 @@ def main():
                 '/pm/config/global/obj/web-proxy/forward-server-group/{forward-server-group}/server-list/{server-list}'
             ],
             'mkey': 'name'
+        },
+        'webproxy_isolatorserver': {
+            'params': ['adom', 'isolator-server'],
+            'urls': [
+                '/pm/config/adom/{adom}/obj/web-proxy/isolator-server/{isolator-server}',
+                '/pm/config/global/obj/web-proxy/isolator-server/{isolator-server}'
+            ],
+            'mkey': 'name', 'v_range': [['7.4.8', '7.4.10'], ['7.6.2', '']]
         },
         'webproxy_profile': {
             'params': ['adom', 'profile'],

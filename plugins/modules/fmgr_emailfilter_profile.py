@@ -13,75 +13,14 @@ DOCUMENTATION = '''
 ---
 module: fmgr_emailfilter_profile
 short_description: Configure Email Filter profiles.
-description:
-    - This module is able to configure a FortiManager device.
-    - Examples include all parameters and values which need to be adjusted to data sources before usage.
 version_added: "2.1.0"
-author:
-    - Xinwei Du (@dux-fortinet)
-    - Xing Li (@lix-fortinet)
-    - Jie Xue (@JieX19)
-    - Link Zheng (@chillancezen)
-    - Frank Shen (@fshen01)
-    - Hongbin Lu (@fgtdev-hblu)
-notes:
-    - Starting in version 2.4.0, all input arguments are named using the underscore naming convention (snake_case).
-      Please change the arguments such as "var-name" to "var_name".
-      Old argument names are still available yet you will receive deprecation warnings.
-      You can ignore this warning by setting deprecation_warnings=False in ansible.cfg.
-    - Running in workspace locking mode is supported in this FortiManager module, the top
-      level parameters workspace_locking_adom and workspace_locking_timeout help do the work.
-    - To create or update an object, use state present directive.
-    - To delete an object, use state absent directive.
-    - Normally, running one module can fail when a non-zero rc is returned. you can also override
-      the conditions to fail or succeed with parameters rc_failed and rc_succeeded
+extends_documentation_fragment:
+    - fortinet.fortimanager.general
+    - fortinet.fortimanager.general.full_crud
 options:
-    access_token:
-        description: The token to access FortiManager without using username and password.
-        type: str
-    bypass_validation:
-        description: Only set to True when module schema diffs with FortiManager API structure, module continues to execute without validating parameters.
-        type: bool
-        default: false
-    enable_log:
-        description: Enable/Disable logging for task.
-        type: bool
-        default: false
-    forticloud_access_token:
-        description: Authenticate Ansible client with forticloud API access token.
-        type: str
-    proposed_method:
-        description: The overridden method for the underlying Json RPC request.
-        type: str
-        choices:
-          - update
-          - set
-          - add
-    rc_succeeded:
-        description: The rc codes list with which the conditions to succeed will be overriden.
-        type: list
-        elements: int
-    rc_failed:
-        description: The rc codes list with which the conditions to fail will be overriden.
-        type: list
-        elements: int
-    state:
-        description: The directive to create, update or delete an object.
-        type: str
-        required: true
-        choices:
-          - present
-          - absent
     revision_note:
         description: The change note that can be specified when an object is created or updated.
         type: str
-    workspace_locking_adom:
-        description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
-        type: str
-    workspace_locking_timeout:
-        description: The maximum time in seconds to wait for other user to release the workspace lock.
-        type: int
-        default: 300
     adom:
         description: The parameter (adom) in requested url.
         type: str
@@ -97,9 +36,7 @@ options:
             external:
                 type: str
                 description: Enable/disable external Email inspection.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             name:
                 type: str
                 description: Profile name.
@@ -108,24 +45,10 @@ options:
                 type: list
                 elements: str
                 description: Options.
-                choices:
-                    - 'bannedword'
-                    - 'spambwl'
-                    - 'spamfsip'
-                    - 'spamfssubmit'
-                    - 'spamfschksum'
-                    - 'spamfsurl'
-                    - 'spamhelodns'
-                    - 'spamraddrdns'
-                    - 'spamrbl'
-                    - 'spamhdrcheck'
-                    - 'spamfsphish'
-                    - 'spambal'
-                    - 'spamfgip'
-                    - 'spamfgsubmit'
-                    - 'spamfgchksum'
-                    - 'spamfgurl'
-                    - 'spamfgphish'
+                choices: ['bannedword', 'spambwl', 'spamfsip', 'spamfssubmit', 'spamfschksum',
+                          'spamfsurl', 'spamhelodns', 'spamraddrdns', 'spamrbl', 'spamhdrcheck',
+                          'spamfsphish', 'spambal', 'spamfgip', 'spamfgsubmit', 'spamfgchksum',
+                          'spamfgurl', 'spamfgphish']
             replacemsg_group:
                 aliases: ['replacemsg-group']
                 type: str
@@ -146,9 +69,7 @@ options:
                 aliases: ['spam-filtering']
                 type: str
                 description: Enable/disable spam filtering.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             spam_iptrust_table:
                 aliases: ['spam-iptrust-table']
                 type: str
@@ -157,16 +78,12 @@ options:
                 aliases: ['spam-log']
                 type: str
                 description: Enable/disable spam logging for email filtering.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             spam_log_fortiguard_response:
                 aliases: ['spam-log-fortiguard-response']
                 type: str
                 description: Enable/disable logging FortiGuard spam response.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             spam_mheader_table:
                 aliases: ['spam-mheader-table']
                 type: str
@@ -179,9 +96,7 @@ options:
                 aliases: ['feature-set']
                 type: str
                 description: Flow/proxy feature set.
-                choices:
-                    - 'proxy'
-                    - 'flow'
+                choices: ['proxy', 'flow']
             gmail:
                 type: dict
                 description: Gmail.
@@ -189,16 +104,12 @@ options:
                     log:
                         type: str
                         description: Enable/disable logging.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     log_all:
                         aliases: ['log-all']
                         type: str
                         description: Enable/disable logging of all email traffic.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
             imap:
                 type: dict
                 description: Imap.
@@ -206,22 +117,16 @@ options:
                     action:
                         type: str
                         description: Action for spam email.
-                        choices:
-                            - 'pass'
-                            - 'tag'
+                        choices: ['pass', 'tag']
                     log:
                         type: str
                         description: Enable/disable logging.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     log_all:
                         aliases: ['log-all']
                         type: str
                         description: Enable/disable logging of all email traffic.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     tag_msg:
                         aliases: ['tag-msg']
                         type: str
@@ -231,10 +136,7 @@ options:
                         type: list
                         elements: str
                         description: Tag subject or header for spam email.
-                        choices:
-                            - 'subject'
-                            - 'header'
-                            - 'spaminfo'
+                        choices: ['subject', 'header', 'spaminfo']
             mapi:
                 type: dict
                 description: Mapi.
@@ -242,22 +144,16 @@ options:
                     action:
                         type: str
                         description: Action for spam email.
-                        choices:
-                            - 'pass'
-                            - 'discard'
+                        choices: ['pass', 'discard']
                     log:
                         type: str
                         description: Enable/disable logging.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     log_all:
                         aliases: ['log-all']
                         type: str
                         description: Enable/disable logging of all email traffic.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
             msn_hotmail:
                 aliases: ['msn-hotmail']
                 type: dict
@@ -266,16 +162,12 @@ options:
                     log:
                         type: str
                         description: Enable/disable logging.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     log_all:
                         aliases: ['log-all']
                         type: str
                         description: Enable/disable logging of all email traffic.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
             other_webmails:
                 aliases: ['other-webmails']
                 type: dict
@@ -285,9 +177,7 @@ options:
                         aliases: ['log-all']
                         type: str
                         description: Enable/disable logging of all email traffic.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
             pop3:
                 type: dict
                 description: Pop3.
@@ -295,22 +185,16 @@ options:
                     action:
                         type: str
                         description: Action for spam email.
-                        choices:
-                            - 'pass'
-                            - 'tag'
+                        choices: ['pass', 'tag']
                     log:
                         type: str
                         description: Enable/disable logging.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     log_all:
                         aliases: ['log-all']
                         type: str
                         description: Enable/disable logging of all email traffic.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     tag_msg:
                         aliases: ['tag-msg']
                         type: str
@@ -320,10 +204,7 @@ options:
                         type: list
                         elements: str
                         description: Tag subject or header for spam email.
-                        choices:
-                            - 'subject'
-                            - 'header'
-                            - 'spaminfo'
+                        choices: ['subject', 'header', 'spaminfo']
             smtp:
                 type: dict
                 description: Smtp.
@@ -331,36 +212,25 @@ options:
                     action:
                         type: str
                         description: Action for spam email.
-                        choices:
-                            - 'pass'
-                            - 'tag'
-                            - 'discard'
+                        choices: ['pass', 'tag', 'discard']
                     hdrip:
                         type: str
                         description: Enable/disable SMTP email header IP checks for spamfsip, spamrbl and spambwl filters.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     local_override:
                         aliases: ['local-override']
                         type: str
                         description: Enable/disable local filter to override SMTP remote check result.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     log:
                         type: str
                         description: Enable/disable logging.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     log_all:
                         aliases: ['log-all']
                         type: str
                         description: Enable/disable logging of all email traffic.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     tag_msg:
                         aliases: ['tag-msg']
                         type: str
@@ -370,10 +240,7 @@ options:
                         type: list
                         elements: str
                         description: Tag subject or header for spam email.
-                        choices:
-                            - 'subject'
-                            - 'header'
-                            - 'spaminfo'
+                        choices: ['subject', 'header', 'spaminfo']
             file_filter:
                 aliases: ['file-filter']
                 type: dict
@@ -387,18 +254,14 @@ options:
                             action:
                                 type: str
                                 description: Action taken for matched file.
-                                choices:
-                                    - 'log'
-                                    - 'block'
+                                choices: ['log', 'block']
                             comment:
                                 type: str
                                 description: Comment.
                             encryption:
                                 type: str
                                 description: Encryption.
-                                choices:
-                                    - 'any'
-                                    - 'yes'
+                                choices: ['any', 'yes']
                             file_type:
                                 aliases: ['file-type']
                                 type: raw
@@ -410,36 +273,25 @@ options:
                                 aliases: ['password-protected']
                                 type: str
                                 description: Match password-protected files.
-                                choices:
-                                    - 'any'
-                                    - 'yes'
+                                choices: ['any', 'yes']
                             protocol:
                                 type: list
                                 elements: str
                                 description: Protocols to apply with.
-                                choices:
-                                    - 'smtp'
-                                    - 'imap'
-                                    - 'pop3'
+                                choices: ['smtp', 'imap', 'pop3']
                     log:
                         type: str
                         description: Enable/disable file filter logging.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     scan_archive_contents:
                         aliases: ['scan-archive-contents']
                         type: str
                         description: Enable/disable file filter archive contents scan.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     status:
                         type: str
                         description: Enable/disable file filter.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
             spam_bal_table:
                 aliases: ['spam-bal-table']
                 type: str
@@ -451,42 +303,20 @@ EXAMPLES = '''
   hosts: fortimanagers
   connection: httpapi
   gather_facts: false
-  vars:
-    ansible_httpapi_use_ssl: true
-    ansible_httpapi_validate_certs: false
-    ansible_httpapi_port: 443
   tasks:
     - name: Configure Email Filter profiles.
       fortinet.fortimanager.fmgr_emailfilter_profile:
-        # bypass_validation: false
         # workspace_locking_adom: <global or your adom name>
-        # workspace_locking_timeout: 300
-        # rc_succeeded: [0, -2, -3, ...]
-        # rc_failed: [-2, -3, ...]
         adom: <your own value>
         state: present # <value in [present, absent]>
         emailfilter_profile:
           name: "your value" # Required variable, string
           # comment: <string>
           # external: <value in [disable, enable]>
-          # options:
-          #   - "bannedword"
-          #   - "spambwl"
-          #   - "spamfsip"
-          #   - "spamfssubmit"
-          #   - "spamfschksum"
-          #   - "spamfsurl"
-          #   - "spamhelodns"
-          #   - "spamraddrdns"
-          #   - "spamrbl"
-          #   - "spamhdrcheck"
-          #   - "spamfsphish"
-          #   - "spambal"
-          #   - "spamfgip"
-          #   - "spamfgsubmit"
-          #   - "spamfgchksum"
-          #   - "spamfgurl"
-          #   - "spamfgphish"
+          # options: ["bannedword", "spambwl", "spamfsip", "spamfssubmit", "spamfschksum",
+          #           "spamfsurl", "spamhelodns", "spamraddrdns", "spamrbl", "spamhdrcheck",
+          #           "spamfsphish", "spambal", "spamfgip", "spamfgsubmit", "spamfgchksum",
+          #           "spamfgurl", "spamfgphish"]
           # replacemsg_group: <string>
           # spam_bwl_table: <string>
           # spam_bword_table: <string>
@@ -506,10 +336,7 @@ EXAMPLES = '''
           #   log: <value in [disable, enable]>
           #   log_all: <value in [disable, enable]>
           #   tag_msg: <string>
-          #   tag_type:
-          #     - "subject"
-          #     - "header"
-          #     - "spaminfo"
+          #   tag_type: ["subject", "header", "spaminfo"]
           # mapi:
           #   action: <value in [pass, discard]>
           #   log: <value in [disable, enable]>
@@ -524,10 +351,7 @@ EXAMPLES = '''
           #   log: <value in [disable, enable]>
           #   log_all: <value in [disable, enable]>
           #   tag_msg: <string>
-          #   tag_type:
-          #     - "subject"
-          #     - "header"
-          #     - "spaminfo"
+          #   tag_type: ["subject", "header", "spaminfo"]
           # smtp:
           #   action: <value in [pass, tag, discard]>
           #   hdrip: <value in [disable, enable]>
@@ -535,10 +359,7 @@ EXAMPLES = '''
           #   log: <value in [disable, enable]>
           #   log_all: <value in [disable, enable]>
           #   tag_msg: <string>
-          #   tag_type:
-          #     - "subject"
-          #     - "header"
-          #     - "spaminfo"
+          #   tag_type: ["subject", "header", "spaminfo"]
           # file_filter:
           #   entries:
           #     - action: <value in [log, block]>
@@ -547,10 +368,7 @@ EXAMPLES = '''
           #       file_type: <list or string>
           #       filter: <string>
           #       password_protected: <value in [any, yes]>
-          #       protocol:
-          #         - "smtp"
-          #         - "imap"
-          #         - "pop3"
+          #       protocol: ["smtp", "imap", "pop3"]
           #   log: <value in [disable, enable]>
           #   scan_archive_contents: <value in [disable, enable]>
           #   status: <value in [disable, enable]>
@@ -607,14 +425,11 @@ def main():
         '/pm/config/adom/{adom}/obj/emailfilter/profile',
         '/pm/config/global/obj/emailfilter/profile'
     ]
-    url_params = ['adom']
-    module_primary_key = 'name'
     module_arg_spec = {
         'adom': {'required': True, 'type': 'str'},
         'revision_note': {'type': 'str'},
         'emailfilter_profile': {
-            'type': 'dict',
-            'v_range': [['6.2.0', '']],
+            'type': 'dict', 'v_range': [['6.2.0', '']],
             'options': {
                 'comment': {'v_range': [['6.2.0', '']], 'type': 'str'},
                 'external': {'v_range': [['6.2.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
@@ -754,19 +569,15 @@ def main():
 
     module_option_spec = get_module_arg_spec('full crud')
     module_arg_spec.update(module_option_spec)
-    params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'emailfilter_profile'),
                            supports_check_mode=True)
-
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
-                       module, connection, top_level_schema_name='data')
-    fmgr.validate_parameters(params_validation_blob)
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list,
+                       'name', 'data', module, connection)
     fmgr.process_crud()
-
     module.exit_json(meta=module.params)
 
 

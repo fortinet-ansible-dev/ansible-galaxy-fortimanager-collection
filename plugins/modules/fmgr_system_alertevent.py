@@ -13,72 +13,11 @@ DOCUMENTATION = '''
 ---
 module: fmgr_system_alertevent
 short_description: Alert events.
-description:
-    - This module is able to configure a FortiManager device.
-    - Examples include all parameters and values which need to be adjusted to data sources before usage.
 version_added: "2.0.0"
-author:
-    - Xinwei Du (@dux-fortinet)
-    - Xing Li (@lix-fortinet)
-    - Jie Xue (@JieX19)
-    - Link Zheng (@chillancezen)
-    - Frank Shen (@fshen01)
-    - Hongbin Lu (@fgtdev-hblu)
-notes:
-    - Starting in version 2.4.0, all input arguments are named using the underscore naming convention (snake_case).
-      Please change the arguments such as "var-name" to "var_name".
-      Old argument names are still available yet you will receive deprecation warnings.
-      You can ignore this warning by setting deprecation_warnings=False in ansible.cfg.
-    - Running in workspace locking mode is supported in this FortiManager module, the top
-      level parameters workspace_locking_adom and workspace_locking_timeout help do the work.
-    - To create or update an object, use state present directive.
-    - To delete an object, use state absent directive.
-    - Normally, running one module can fail when a non-zero rc is returned. you can also override
-      the conditions to fail or succeed with parameters rc_failed and rc_succeeded
+extends_documentation_fragment:
+    - fortinet.fortimanager.general
+    - fortinet.fortimanager.general.full_crud
 options:
-    access_token:
-        description: The token to access FortiManager without using username and password.
-        type: str
-    bypass_validation:
-        description: Only set to True when module schema diffs with FortiManager API structure, module continues to execute without validating parameters.
-        type: bool
-        default: false
-    enable_log:
-        description: Enable/Disable logging for task.
-        type: bool
-        default: false
-    forticloud_access_token:
-        description: Authenticate Ansible client with forticloud API access token.
-        type: str
-    proposed_method:
-        description: The overridden method for the underlying Json RPC request.
-        type: str
-        choices:
-          - update
-          - set
-          - add
-    rc_succeeded:
-        description: The rc codes list with which the conditions to succeed will be overriden.
-        type: list
-        elements: int
-    rc_failed:
-        description: The rc codes list with which the conditions to fail will be overriden.
-        type: list
-        elements: int
-    state:
-        description: The directive to create, update or delete an object.
-        type: str
-        required: true
-        choices:
-          - present
-          - absent
-    workspace_locking_adom:
-        description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
-        type: str
-    workspace_locking_timeout:
-        description: The maximum time in seconds to wait for other user to release the workspace lock.
-        type: int
-        default: 300
     system_alertevent:
         description: The top level parameters set.
         required: false
@@ -115,10 +54,7 @@ options:
                             - mail - Send email alert.
                             - snmp - Send SNMP trap.
                             - syslog - Send syslog message.
-                        choices:
-                            - 'mail'
-                            - 'snmp'
-                            - 'syslog'
+                        choices: ['mail', 'snmp', 'syslog']
             enable_generic_text:
                 aliases: ['enable-generic-text']
                 type: list
@@ -127,9 +63,7 @@ options:
                     - Enable/disable generic text match.
                     - enable - Enable setting.
                     - disable - Disable setting.
-                choices:
-                    - 'enable'
-                    - 'disable'
+                choices: ['enable', 'disable']
             enable_severity_filter:
                 aliases: ['enable-severity-filter']
                 type: list
@@ -138,9 +72,7 @@ options:
                     - Enable/disable alert severity filter.
                     - enable - Enable setting.
                     - disable - Disable setting.
-                choices:
-                    - 'enable'
-                    - 'disable'
+                choices: ['enable', 'disable']
             event_time_period:
                 aliases: ['event-time-period']
                 type: str
@@ -154,15 +86,7 @@ options:
                     - 24 - 1 day.
                     - 72 - 3 days.
                     - 168 - 1 week.
-                choices:
-                    - '0.5'
-                    - '1'
-                    - '3'
-                    - '6'
-                    - '12'
-                    - '24'
-                    - '72'
-                    - '168'
+                choices: ['0.5', '1', '3', '6', '12', '24', '72', '168']
             generic_text:
                 aliases: ['generic-text']
                 type: str
@@ -181,12 +105,7 @@ options:
                     - 10 - 10 events.
                     - 50 - 50 events.
                     - 100 - 100 events.
-                choices:
-                    - '1'
-                    - '5'
-                    - '10'
-                    - '50'
-                    - '100'
+                choices: ['1', '5', '10', '50', '100']
             severity_filter:
                 aliases: ['severity-filter']
                 type: str
@@ -197,21 +116,13 @@ options:
                     - medium - Medium level alert.
                     - medium-low - Medium-low level alert.
                     - low - Low level alert.
-                choices:
-                    - 'high'
-                    - 'medium-high'
-                    - 'medium'
-                    - 'medium-low'
-                    - 'low'
+                choices: ['high', 'medium-high', 'medium', 'medium-low', 'low']
             severity_level_comp:
                 aliases: ['severity-level-comp']
                 type: list
                 elements: str
                 description: Log severity threshold comparison criterion.
-                choices:
-                    - '>='
-                    - '='
-                    - '<='
+                choices: ['>=', '=', '<=']
             severity_level_logs:
                 aliases: ['severity-level-logs']
                 type: list
@@ -226,15 +137,8 @@ options:
                     - critical - Critical level.
                     - alert - Alert level.
                     - emergency - Emergency level.
-                choices:
-                    - 'no-check'
-                    - 'information'
-                    - 'notify'
-                    - 'warning'
-                    - 'error'
-                    - 'critical'
-                    - 'alert'
-                    - 'emergency'
+                choices: ['no-check', 'information', 'notify', 'warning', 'error', 'critical',
+                          'alert', 'emergency']
 '''
 
 EXAMPLES = '''
@@ -340,12 +244,9 @@ def main():
     urls_list = [
         '/cli/global/system/alert-event'
     ]
-    url_params = []
-    module_primary_key = 'name'
     module_arg_spec = {
         'system_alertevent': {
-            'type': 'dict',
-            'v_range': [['6.0.0', '']],
+            'type': 'dict', 'v_range': [['6.0.0', '']],
             'options': {
                 'alert-destination': {
                     'type': 'list',
@@ -378,19 +279,15 @@ def main():
 
     module_option_spec = get_module_arg_spec('full crud')
     module_arg_spec.update(module_option_spec)
-    params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'system_alertevent'),
                            supports_check_mode=True)
-
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
-                       module, connection, top_level_schema_name='data')
-    fmgr.validate_parameters(params_validation_blob)
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list,
+                       'name', 'data', module, connection)
     fmgr.process_crud()
-
     module.exit_json(meta=module.params)
 
 

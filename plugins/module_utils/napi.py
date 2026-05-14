@@ -190,19 +190,17 @@ def is_basic_data_format(data):
 
 
 class NAPIManager(object):
-    def __init__(self, task_type, metadata, urls_list, module_primary_key,
-                 url_params, module, conn, top_level_schema_name=None):
+    def __init__(self, task_type, metadata, urls_list, module_primary_key, top_level_schema_name,
+                 module, conn):
         self.urls_list = urls_list
         self.module_primary_key = module_primary_key
-        self.url_params = url_params
         self.module = module
         self.conn = conn
-        self._process_workspace_lock()
         self.module_name = self.module._name
         self.module_level2_name = self.module_name.split(".")[-1][5:]
         self.top_level_schema_name = top_level_schema_name
         self._set_connection_options()
-        self.system_status = self.get_system_status()
+        self._process_workspace_lock()
         self.version_check_warnings = list()
         self._nr_exported_playbooks = 0
         self._nr_valid_selectors = 0
@@ -213,6 +211,7 @@ class NAPIManager(object):
         self.diff_data = {"before": {}, "after": {}}
         self.allow_diff = False
         self.extra_params = self._init_extra_params()
+        self.system_status = self.get_system_status()
         if YAML_IMPORT_ERROR:
             raise Exception("YAML must be installed to use this plugin")
 
@@ -224,7 +223,7 @@ class NAPIManager(object):
         return extra_params
 
     def _set_connection_options(self):
-        for key in ['access_token', 'enable_log', 'forticloud_access_token']:
+        for key in ["access_token", "enable_log", "forticloud_access_token"]:
             if key in self.module.params:
                 self.conn.set_customer_option(key, self.module.params[key])
 
@@ -298,11 +297,11 @@ class NAPIManager(object):
             if url_params not in unique_url_params:
                 unique_url_params.append(url_params)
         if len(url_with_specified_param) == 0:
-            error_message = 'Expect required params: '
+            error_message = "Expect required params: "
             for i, url_params in enumerate(unique_url_params):
                 if i:
-                    error_message += ', or '
-                error_message += '%s' % ([get_ansible_format_name(key) for key in url_params])
+                    error_message += ", or "
+                error_message += "%s" % ([get_ansible_format_name(key) for key in url_params])
             self.module.fail_json(msg=error_message)
         adom_value = specified_url_param.get("adom", None)
         target_url = self.get_target_url_template(adom_value, url_with_specified_param)
@@ -393,13 +392,13 @@ class NAPIManager(object):
         argument_specs = self.metadata
         params = self.module.params
         module_name = self.module_level2_name
-        version_check = params.get('version_check', VERSION_CHECK)
-        bypass_valid = params.get('bypass_validation', False)
+        version_check = params.get("version_check", VERSION_CHECK)
+        bypass_valid = params.get("bypass_validation", False)
         if version_check and not bypass_valid:
             track = [module_name]
             self.check_versioning_mismatch(track, argument_specs.get(module_name, None), params.get(module_name, None))
         response = (-1, {})
-        state = params['state']
+        state = params["state"]
         if self.module_primary_key and isinstance(params.get(module_name, None), dict):
             mvalue = self.get_mvalue()
             if state == "present":
@@ -435,7 +434,7 @@ class NAPIManager(object):
         argument_specs = self.metadata
         module_name = self.module_level2_name
         params = self.module.params
-        version_check = params.get('version_check', VERSION_CHECK)
+        version_check = params.get("version_check", VERSION_CHECK)
         bypass_valid = params.get("bypass_validation", False)
         if version_check and not bypass_valid:
             track = [module_name]
@@ -503,7 +502,7 @@ class NAPIManager(object):
                 or "adom" not in params["export_playbooks"]["params"]["all"]
             ):
                 self.module.fail_json("required parameters for selector %s: %s" % ("all", ["adom"]))
-        # process specific selector and 'all'
+        # process specific selector and "all"
         selectors_to_process = dict()
         for selector in export_selectors:
             if selector == "all":
@@ -571,8 +570,8 @@ class NAPIManager(object):
 
     def get_system_status(self):
         status_code, response = self.conn.get_system_status()
-        if status_code == 0 and 'data' in response:
-            return response['data']
+        if status_code == 0 and "data" in response:
+            return response["data"]
         return {}
 
     def get_propose_method(self, default_method):
@@ -584,8 +583,8 @@ class NAPIManager(object):
         return default_method
 
     def get_params_in_url(self, s):
-        '''Find contents in {}'''
-        pattern = r'\{(.*?)\}'
+        """Find contents in {}"""
+        pattern = r"\{(.*?)\}"
         result = re.findall(pattern, s)
         return result
 
@@ -614,9 +613,9 @@ class NAPIManager(object):
             self.module.fail_json(msg="Please check the value of params: adom")
         return target_url
 
-    def get_replaced_url(self, url_template):
-        target_url = url_template
-        for param in self.url_params:
+    def get_replaced_url(self, target_url):
+        url_params = self.get_params_in_url(target_url)
+        for param in url_params:
             token_hint = "{%s}" % (param)
             token = ""
             modified_name = get_ansible_format_name(param)
@@ -632,7 +631,7 @@ class NAPIManager(object):
         return target_url
 
     def get_target_url(self, mvalue=""):
-        adom_value = self.module.params.get('adom', None)
+        adom_value = self.module.params.get("adom", None)
         target_url_template = self.get_target_url_template(adom_value, self.urls_list)
         target_url = self.get_replaced_url(target_url_template)
         # If has mvalue and not full crud {pkg_path}, add mvalue
@@ -715,7 +714,7 @@ class NAPIManager(object):
                     if isinstance(remote_value, list):
                         if str(sorted(remote_value)) == str(sorted(local_value)):
                             continue
-                    # Won't update if remote = 'var' and local = ['var']
+                    # Won't update if remote = "var" and local = ["var"]
                     elif len(local_value) == 1:
                         if str(remote_value) == str(local_value[0]):
                             continue
@@ -734,7 +733,7 @@ class NAPIManager(object):
                         continue
                     if " ".join(remote_value) == str(value_string):
                         continue
-                    # Won't update if remote = ['var'] and local = 'var'
+                    # Won't update if remote = ["var"] and local = "var"
                     elif len(remote_value) != 1 or str(remote_value[0]) != value_string:
                         return True
                 elif str(remote_value) != value_string:
@@ -749,17 +748,17 @@ class NAPIManager(object):
         return self.is_object_difference(object_remote, object_local)
 
     def ignore_special_param(self, param_name, remote_data, user_data):
-        if param_name in ['ca', 'certificate', 'cert']:
+        if param_name in ["ca", "certificate", "cert"]:
             if isinstance(remote_data, list) and len(remote_data):
                 remote_data = remote_data[0]
             if isinstance(user_data, list) and len(user_data):
                 user_data = user_data[0]
             if remote_data == '"' + str(user_data) + '"':
                 return True
-        if param_name in ['TTL']:
+        if param_name in ["TTL"]:
             remote_data = str(remote_data)
             user_data = str(user_data)
-            if remote_data.split(' ', maxsplit=1)[0] == user_data:
+            if remote_data.split(" ", maxsplit=1)[0] == user_data:
                 return True
         return False
 
@@ -865,7 +864,6 @@ class NAPIManager(object):
                 if "fail_action" not in blob or blob["fail_action"] == "warn":
                     self.module.warn(blob["hint_message"])
                 else:
-                    # assert blob['fail_action'] == 'quit':
                     self.module.fail_json(msg=blob["hint_message"])
 
     def diff_save_after_based_on_playbook(self):
@@ -885,11 +883,11 @@ class NAPIManager(object):
                 if isinstance(user_data, dict):
                     after_data = {}
                     for param_name in before_data:
-                        possible_meta_name = param_name.replace('_', '-')
+                        possible_meta_name = param_name.replace("_", "-")
                         # Mask sensitive data
                         is_sensitive_data = False
                         for var_name in [param_name, possible_meta_name]:
-                            if var_name in metadata and isinstance(metadata[var_name], dict) and metadata[var_name].get('no_log', False):
+                            if var_name in metadata and isinstance(metadata[var_name], dict) and metadata[var_name].get("no_log", False):
                                 before_data[param_name] = "<SENSITIVE_DATA>"
                                 after_data[param_name] = "<SENSITIVE_DATA>"
                                 is_sensitive_data = True
@@ -904,24 +902,24 @@ class NAPIManager(object):
                                 metadata_next = metadata[param_name]
                             elif possible_meta_name in metadata:
                                 metadata_next = metadata[possible_meta_name]
-                            if isinstance(metadata_next, dict) and 'options' in metadata_next:
-                                metadata_next = metadata_next['options']
+                            if isinstance(metadata_next, dict) and "options" in metadata_next:
+                                metadata_next = metadata_next["options"]
                             after_data[param_name] = get_diff_after(before_data[param_name], user_data.get(param_name, None), metadata_next)
                     for param_name in user_data:
-                        possible_meta_name = param_name.replace('_', '-')
+                        possible_meta_name = param_name.replace("_", "-")
                         if param_name not in after_data and possible_meta_name not in after_data:
                             after_data[param_name] = user_data[param_name]
                     return after_data
                 return user_data
             elif isinstance(before_data, list):
                 if is_basic_data_format(user_data):
-                    # ignore ['1.2.3.4', '255.255.255.0'] and '1.2.3.4/24'
+                    # ignore ["1.2.3.4", "255.255.255.0"] and "1.2.3.4/24"
                     if self.is_same_subnet(before_data, str(user_data)):
                         return before_data
-                    # ignore ['1.2.3.4', '255.255.255.0'] and '1.2.3.4 255.255.255.0'
+                    # ignore ["1.2.3.4", "255.255.255.0"] and "1.2.3.4 255.255.255.0"
                     if " ".join(before_data) == str(user_data):
                         return before_data
-                    # ignore ['var'] and 'var'
+                    # ignore ["var"] and "var"
                     if len(before_data) == 1 and str(before_data[0]) == str(user_data):
                         return before_data
                 elif isinstance(user_data, list):
@@ -929,7 +927,7 @@ class NAPIManager(object):
                         return []
                     elif len(before_data) == 0:
                         return user_data
-                    # ignore ['1', '2'] and ['2', '1']
+                    # ignore ["1", "2"] and ["2", "1"]
                     try:
                         if str(sorted(before_data)) == str(sorted(user_data)):
                             return before_data
@@ -947,16 +945,16 @@ class NAPIManager(object):
 
         if not (self.allow_diff and (self.module._diff or self.module.check_mode)):
             return
-        before_data = self.diff_data['before']
-        bypass_valid = self.module.params.get('bypass_validation', False)
+        before_data = self.diff_data["before"]
+        bypass_valid = self.module.params.get("bypass_validation", False)
         api_format_params = remove_aliases(self.module.params, self.metadata, bypass_valid)
         api_format_params = api_format_params.get(self.module_level2_name, {})
         ansible_format_params = get_ansible_format_params(api_format_params)
-        metadata = self.metadata.get(self.module_level2_name, {}).get('options', {})
+        metadata = self.metadata.get(self.module_level2_name, {}).get("options", {})
         if isinstance(before_data, list) and len(before_data) > 0 and isinstance(before_data[0], dict):
             if isinstance(ansible_format_params, dict):
                 ansible_format_params = [ansible_format_params]
-        self.diff_data['after'] = get_diff_after(before_data, ansible_format_params, metadata)
+        self.diff_data["after"] = get_diff_after(before_data, ansible_format_params, metadata)
 
     def diff_save_data_from_response(self, state, response):
         if self.allow_diff and (self.module._diff or self.module.check_mode):
@@ -970,8 +968,8 @@ class NAPIManager(object):
         if self.allow_diff and (self.module._diff or self.module.check_mode):
             mvalue = self.get_mvalue()  # If this module doesn't have mvalue, it will be ""
             target_url = self.get_target_url(mvalue)
-            api_params = [{'url': target_url}]
-            rc, response = self.conn.send_request('get', api_params)
+            api_params = [{"url": target_url}]
+            rc, response = self.conn.send_request("get", api_params)
             self.diff_save_data_from_response(state, response)
 
     def __fix_remote_object_internal(self, robject, module_schema, log):

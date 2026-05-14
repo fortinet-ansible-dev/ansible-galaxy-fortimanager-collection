@@ -13,75 +13,14 @@ DOCUMENTATION = '''
 ---
 module: fmgr_pkg_footer_policy
 short_description: Configure IPv4/IPv6 policies.
-description:
-    - This module is able to configure a FortiManager device.
-    - Examples include all parameters and values which need to be adjusted to data sources before usage.
 version_added: "2.0.0"
-author:
-    - Xinwei Du (@dux-fortinet)
-    - Xing Li (@lix-fortinet)
-    - Jie Xue (@JieX19)
-    - Link Zheng (@chillancezen)
-    - Frank Shen (@fshen01)
-    - Hongbin Lu (@fgtdev-hblu)
-notes:
-    - Starting in version 2.4.0, all input arguments are named using the underscore naming convention (snake_case).
-      Please change the arguments such as "var-name" to "var_name".
-      Old argument names are still available yet you will receive deprecation warnings.
-      You can ignore this warning by setting deprecation_warnings=False in ansible.cfg.
-    - Running in workspace locking mode is supported in this FortiManager module, the top
-      level parameters workspace_locking_adom and workspace_locking_timeout help do the work.
-    - To create or update an object, use state present directive.
-    - To delete an object, use state absent directive.
-    - Normally, running one module can fail when a non-zero rc is returned. you can also override
-      the conditions to fail or succeed with parameters rc_failed and rc_succeeded
+extends_documentation_fragment:
+    - fortinet.fortimanager.general
+    - fortinet.fortimanager.general.full_crud
 options:
-    access_token:
-        description: The token to access FortiManager without using username and password.
-        type: str
-    bypass_validation:
-        description: Only set to True when module schema diffs with FortiManager API structure, module continues to execute without validating parameters.
-        type: bool
-        default: false
-    enable_log:
-        description: Enable/Disable logging for task.
-        type: bool
-        default: false
-    forticloud_access_token:
-        description: Authenticate Ansible client with forticloud API access token.
-        type: str
-    proposed_method:
-        description: The overridden method for the underlying Json RPC request.
-        type: str
-        choices:
-          - update
-          - set
-          - add
-    rc_succeeded:
-        description: The rc codes list with which the conditions to succeed will be overriden.
-        type: list
-        elements: int
-    rc_failed:
-        description: The rc codes list with which the conditions to fail will be overriden.
-        type: list
-        elements: int
-    state:
-        description: The directive to create, update or delete an object.
-        type: str
-        required: true
-        choices:
-          - present
-          - absent
     revision_note:
         description: The change note that can be specified when an object is created or updated.
         type: str
-    workspace_locking_adom:
-        description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
-        type: str
-    workspace_locking_timeout:
-        description: The maximum time in seconds to wait for other user to release the workspace lock.
-        type: int
-        default: 300
     pkg:
         description: The parameter (pkg) in requested url.
         type: str
@@ -94,29 +33,17 @@ options:
             action:
                 type: str
                 description: Action.
-                choices:
-                    - 'deny'
-                    - 'accept'
-                    - 'ipsec'
-                    - 'ssl-vpn'
-                    - 'redirect'
-                    - 'isolate'
+                choices: ['deny', 'accept', 'ipsec', 'ssl-vpn', 'redirect', 'isolate']
             active_auth_method:
                 aliases: ['active-auth-method']
                 type: str
                 description: Active auth method.
-                choices:
-                    - 'ntlm'
-                    - 'basic'
-                    - 'digest'
-                    - 'form'
+                choices: ['ntlm', 'basic', 'digest', 'form']
             anti_replay:
                 aliases: ['anti-replay']
                 type: str
                 description: Anti replay.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             app_category:
                 aliases: ['app-category']
                 type: raw
@@ -133,10 +60,7 @@ options:
                 type: list
                 elements: str
                 description: Application charts.
-                choices:
-                    - 'top10-app'
-                    - 'top10-p2p-user'
-                    - 'top10-media-user'
+                choices: ['top10-app', 'top10-p2p-user', 'top10-media-user']
             application_list:
                 aliases: ['application-list']
                 type: str
@@ -149,28 +73,17 @@ options:
                 aliases: ['auth-method']
                 type: str
                 description: Auth method.
-                choices:
-                    - 'basic'
-                    - 'digest'
-                    - 'ntlm'
-                    - 'fsae'
-                    - 'form'
-                    - 'fsso'
-                    - 'rsso'
+                choices: ['basic', 'digest', 'ntlm', 'fsae', 'form', 'fsso', 'rsso']
             auth_path:
                 aliases: ['auth-path']
                 type: str
                 description: Auth path.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             auth_portal:
                 aliases: ['auth-portal']
                 type: str
                 description: Auth portal.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             auth_redirect_addr:
                 aliases: ['auth-redirect-addr']
                 type: str
@@ -179,9 +92,7 @@ options:
                 aliases: ['auto-asic-offload']
                 type: str
                 description: Auto asic offload.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             av_profile:
                 aliases: ['av-profile']
                 type: str
@@ -189,30 +100,22 @@ options:
             bandwidth:
                 type: str
                 description: Bandwidth.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             block_notification:
                 aliases: ['block-notification']
                 type: str
                 description: Block notification.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             captive_portal_exempt:
                 aliases: ['captive-portal-exempt']
                 type: str
                 description: Captive portal exempt.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             capture_packet:
                 aliases: ['capture-packet']
                 type: str
                 description: Capture packet.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             casi_profile:
                 aliases: ['casi-profile']
                 type: raw
@@ -221,9 +124,7 @@ options:
                 aliases: ['central-nat']
                 type: str
                 description: Central nat.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             cifs_profile:
                 aliases: ['cifs-profile']
                 type: str
@@ -232,16 +133,12 @@ options:
                 aliases: ['client-reputation']
                 type: str
                 description: Client reputation.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             client_reputation_mode:
                 aliases: ['client-reputation-mode']
                 type: str
                 description: Client reputation mode.
-                choices:
-                    - 'learning'
-                    - 'monitoring'
+                choices: ['learning', 'monitoring']
             comments:
                 type: raw
                 description: (dict or str) Comments.
@@ -257,23 +154,17 @@ options:
                 aliases: ['delay-tcp-npu-session']
                 type: str
                 description: Delay tcp npu session.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             delay_tcp_npu_sessoin:
                 aliases: ['delay-tcp-npu-sessoin']
                 type: str
                 description: Delay tcp npu sessoin.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             device_detection_portal:
                 aliases: ['device-detection-portal']
                 type: str
                 description: Device detection portal.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             devices:
                 type: raw
                 description: (list or str) Devices.
@@ -281,16 +172,12 @@ options:
                 aliases: ['diffserv-forward']
                 type: str
                 description: Diffserv forward.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             diffserv_reverse:
                 aliases: ['diffserv-reverse']
                 type: str
                 description: Diffserv reverse.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             diffservcode_forward:
                 aliases: ['diffservcode-forward']
                 type: str
@@ -302,12 +189,7 @@ options:
             disclaimer:
                 type: str
                 description: Disclaimer.
-                choices:
-                    - 'disable'
-                    - 'enable'
-                    - 'user'
-                    - 'domain'
-                    - 'policy'
+                choices: ['disable', 'enable', 'user', 'domain', 'policy']
             dlp_sensor:
                 aliases: ['dlp-sensor']
                 type: raw
@@ -319,23 +201,17 @@ options:
             dponly:
                 type: str
                 description: Dponly.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             dscp_match:
                 aliases: ['dscp-match']
                 type: str
                 description: Dscp match.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             dscp_negate:
                 aliases: ['dscp-negate']
                 type: str
                 description: Dscp negate.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             dscp_value:
                 aliases: ['dscp-value']
                 type: str
@@ -343,9 +219,7 @@ options:
             dsri:
                 type: str
                 description: Dsri.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             dstaddr:
                 type: raw
                 description: (list or str) Dstaddr.
@@ -353,9 +227,7 @@ options:
                 aliases: ['dstaddr-negate']
                 type: str
                 description: Dstaddr negate.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             dstaddr6:
                 type: raw
                 description: (list or str) Dstaddr6.
@@ -366,35 +238,19 @@ options:
                 aliases: ['dynamic-profile']
                 type: str
                 description: Dynamic profile.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             dynamic_profile_access:
                 aliases: ['dynamic-profile-access']
                 type: list
                 elements: str
                 description: Dynamic profile access.
-                choices:
-                    - 'imap'
-                    - 'smtp'
-                    - 'pop3'
-                    - 'http'
-                    - 'ftp'
-                    - 'im'
-                    - 'nntp'
-                    - 'imaps'
-                    - 'smtps'
-                    - 'pop3s'
-                    - 'https'
-                    - 'ftps'
-                    - 'ssh'
+                choices: ['imap', 'smtp', 'pop3', 'http', 'ftp', 'im', 'nntp', 'imaps', 'smtps',
+                          'pop3s', 'https', 'ftps', 'ssh']
             dynamic_profile_fallthrough:
                 aliases: ['dynamic-profile-fallthrough']
                 type: str
                 description: Dynamic profile fallthrough.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             dynamic_profile_group:
                 aliases: ['dynamic-profile-group']
                 type: raw
@@ -403,16 +259,12 @@ options:
                 aliases: ['email-collect']
                 type: str
                 description: Email collect.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             email_collection_portal:
                 aliases: ['email-collection-portal']
                 type: str
                 description: Email collection portal.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             emailfilter_profile:
                 aliases: ['emailfilter-profile']
                 type: str
@@ -421,16 +273,12 @@ options:
                 aliases: ['endpoint-check']
                 type: str
                 description: Endpoint check.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             endpoint_compliance:
                 aliases: ['endpoint-compliance']
                 type: str
                 description: Endpoint compliance.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             endpoint_keepalive_interface:
                 aliases: ['endpoint-keepalive-interface']
                 type: raw
@@ -443,52 +291,36 @@ options:
                 aliases: ['failed-connection']
                 type: str
                 description: Failed connection.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             fall_through_unauthenticated:
                 aliases: ['fall-through-unauthenticated']
                 type: str
                 description: Fall through unauthenticated.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             firewall_session_dirty:
                 aliases: ['firewall-session-dirty']
                 type: str
                 description: Firewall session dirty.
-                choices:
-                    - 'check-all'
-                    - 'check-new'
+                choices: ['check-all', 'check-new']
             fixedport:
                 type: str
                 description: Fixedport.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             forticlient_compliance_devices:
                 aliases: ['forticlient-compliance-devices']
                 type: list
                 elements: str
                 description: Forticlient compliance devices.
-                choices:
-                    - 'windows-pc'
-                    - 'mac'
-                    - 'iphone-ipad'
-                    - 'android'
+                choices: ['windows-pc', 'mac', 'iphone-ipad', 'android']
             forticlient_compliance_enforcement_portal:
                 aliases: ['forticlient-compliance-enforcement-portal']
                 type: str
                 description: Forticlient compliance enforcement portal.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             fsae:
                 type: str
                 description: Fsae.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             fsae_server_for_ntlm:
                 aliases: ['fsae-server-for-ntlm']
                 type: raw
@@ -496,9 +328,7 @@ options:
             fsso:
                 type: str
                 description: Fsso.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             fsso_agent_for_ntlm:
                 aliases: ['fsso-agent-for-ntlm']
                 type: str
@@ -507,16 +337,12 @@ options:
                 aliases: ['geo-location']
                 type: str
                 description: Geo location.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             geoip_anycast:
                 aliases: ['geoip-anycast']
                 type: str
                 description: Geoip anycast.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             global_label:
                 aliases: ['global-label']
                 type: str
@@ -532,10 +358,7 @@ options:
                 aliases: ['http-policy-redirect']
                 type: str
                 description: Http policy redirect.
-                choices:
-                    - 'disable'
-                    - 'enable'
-                    - 'legacy'
+                choices: ['disable', 'enable', 'legacy']
             icap_profile:
                 aliases: ['icap-profile']
                 type: str
@@ -544,9 +367,7 @@ options:
                 aliases: ['identity-based']
                 type: str
                 description: Identity based.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             identity_based_policy:
                 aliases: ['identity-based-policy']
                 type: list
@@ -556,18 +377,13 @@ options:
                     action:
                         type: str
                         description: Action.
-                        choices:
-                            - 'deny'
-                            - 'accept'
+                        choices: ['deny', 'accept']
                     application_charts:
                         aliases: ['application-charts']
                         type: list
                         elements: str
                         description: Application charts.
-                        choices:
-                            - 'top10-app'
-                            - 'top10-p2p-user'
-                            - 'top10-media-user'
+                        choices: ['top10-app', 'top10-p2p-user', 'top10-media-user']
                     application_list:
                         aliases: ['application-list']
                         type: str
@@ -580,9 +396,7 @@ options:
                         aliases: ['capture-packet']
                         type: str
                         description: Capture packet.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     deep_inspection_options:
                         aliases: ['deep-inspection-options']
                         type: str
@@ -601,16 +415,12 @@ options:
                         aliases: ['dstaddr-negate']
                         type: str
                         description: Dstaddr negate.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     endpoint_compliance:
                         aliases: ['endpoint-compliance']
                         type: str
                         description: Endpoint compliance.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     groups:
                         type: str
                         description: Groups.
@@ -628,25 +438,17 @@ options:
                     logtraffic:
                         type: str
                         description: Logtraffic.
-                        choices:
-                            - 'disable'
-                            - 'enable'
-                            - 'all'
-                            - 'utm'
+                        choices: ['disable', 'enable', 'all', 'utm']
                     logtraffic_app:
                         aliases: ['logtraffic-app']
                         type: str
                         description: Logtraffic app.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     logtraffic_start:
                         aliases: ['logtraffic-start']
                         type: str
                         description: Logtraffic start.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     mms_profile:
                         aliases: ['mms-profile']
                         type: str
@@ -667,9 +469,7 @@ options:
                         aliases: ['profile-type']
                         type: str
                         description: Profile type.
-                        choices:
-                            - 'single'
-                            - 'group'
+                        choices: ['single', 'group']
                     replacemsg_group:
                         aliases: ['replacemsg-group']
                         type: str
@@ -681,9 +481,7 @@ options:
                         aliases: ['send-deny-packet']
                         type: str
                         description: Send deny packet.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     service:
                         type: str
                         description: Service.
@@ -691,9 +489,7 @@ options:
                         aliases: ['service-negate']
                         type: str
                         description: Service negate.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     spamfilter_profile:
                         aliases: ['spamfilter-profile']
                         type: str
@@ -721,9 +517,7 @@ options:
                         aliases: ['utm-status']
                         type: str
                         description: Utm status.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     voip_profile:
                         aliases: ['voip-profile']
                         type: str
@@ -740,29 +534,21 @@ options:
                 aliases: ['identity-from']
                 type: str
                 description: Identity from.
-                choices:
-                    - 'auth'
-                    - 'device'
+                choices: ['auth', 'device']
             inbound:
                 type: str
                 description: Inbound.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             inspection_mode:
                 aliases: ['inspection-mode']
                 type: str
                 description: Inspection mode.
-                choices:
-                    - 'proxy'
-                    - 'flow'
+                choices: ['proxy', 'flow']
             internet_service:
                 aliases: ['internet-service']
                 type: str
                 description: Internet service.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             internet_service_custom:
                 aliases: ['internet-service-custom']
                 type: raw
@@ -783,16 +569,12 @@ options:
                 aliases: ['internet-service-negate']
                 type: str
                 description: Internet service negate.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             internet_service_src:
                 aliases: ['internet-service-src']
                 type: str
                 description: Internet service src.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             internet_service_src_custom:
                 aliases: ['internet-service-src-custom']
                 type: raw
@@ -813,22 +595,16 @@ options:
                 aliases: ['internet-service-src-negate']
                 type: str
                 description: Internet service src negate.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             ip_based:
                 aliases: ['ip-based']
                 type: str
                 description: Ip based.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             ippool:
                 type: str
                 description: Ippool.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             ips_sensor:
                 aliases: ['ips-sensor']
                 type: str
@@ -840,45 +616,31 @@ options:
                 aliases: ['learning-mode']
                 type: str
                 description: Learning mode.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             log_unmatched_traffic:
                 aliases: ['log-unmatched-traffic']
                 type: str
                 description: Log unmatched traffic.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             logtraffic:
                 type: str
                 description: Logtraffic.
-                choices:
-                    - 'disable'
-                    - 'enable'
-                    - 'all'
-                    - 'utm'
+                choices: ['disable', 'enable', 'all', 'utm']
             logtraffic_app:
                 aliases: ['logtraffic-app']
                 type: str
                 description: Logtraffic app.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             logtraffic_start:
                 aliases: ['logtraffic-start']
                 type: str
                 description: Logtraffic start.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             match_vip:
                 aliases: ['match-vip']
                 type: str
                 description: Match vip.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             mms_profile:
                 aliases: ['mms-profile']
                 type: raw
@@ -889,37 +651,27 @@ options:
             nat:
                 type: str
                 description: Nat.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             natinbound:
                 type: str
                 description: Natinbound.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             natip:
                 type: str
                 description: Natip.
             natoutbound:
                 type: str
                 description: Natoutbound.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             np_acceleration:
                 aliases: ['np-acceleration']
                 type: str
                 description: Np acceleration.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             ntlm:
                 type: str
                 description: Ntlm.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             ntlm_enabled_browsers:
                 aliases: ['ntlm-enabled-browsers']
                 type: raw
@@ -928,15 +680,11 @@ options:
                 aliases: ['ntlm-guest']
                 type: str
                 description: Ntlm guest.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             outbound:
                 type: str
                 description: Outbound.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             per_ip_shaper:
                 aliases: ['per-ip-shaper']
                 type: str
@@ -945,16 +693,12 @@ options:
                 aliases: ['permit-any-host']
                 type: str
                 description: Permit any host.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             permit_stun_host:
                 aliases: ['permit-stun-host']
                 type: str
                 description: Permit stun host.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             policyid:
                 type: int
                 description: Policyid.
@@ -974,16 +718,12 @@ options:
                 aliases: ['profile-type']
                 type: str
                 description: Profile type.
-                choices:
-                    - 'single'
-                    - 'group'
+                choices: ['single', 'group']
             radius_mac_auth_bypass:
                 aliases: ['radius-mac-auth-bypass']
                 type: str
                 description: Radius mac auth bypass.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             redirect_url:
                 aliases: ['redirect-url']
                 type: str
@@ -1000,9 +740,7 @@ options:
                 aliases: ['reputation-direction']
                 type: str
                 description: Reputation direction.
-                choices:
-                    - 'source'
-                    - 'destination'
+                choices: ['source', 'destination']
             reputation_minimum:
                 aliases: ['reputation-minimum']
                 type: int
@@ -1011,15 +749,11 @@ options:
                 aliases: ['require-tfa']
                 type: str
                 description: Require tfa.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             rsso:
                 type: str
                 description: Rsso.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             rtp_addr:
                 aliases: ['rtp-addr']
                 type: raw
@@ -1028,17 +762,12 @@ options:
                 aliases: ['rtp-nat']
                 type: str
                 description: Rtp nat.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             scan_botnet_connections:
                 aliases: ['scan-botnet-connections']
                 type: str
                 description: Scan botnet connections.
-                choices:
-                    - 'disable'
-                    - 'block'
-                    - 'monitor'
+                choices: ['disable', 'block', 'monitor']
             schedule:
                 type: str
                 description: Schedule.
@@ -1046,16 +775,12 @@ options:
                 aliases: ['schedule-timeout']
                 type: str
                 description: Schedule timeout.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             send_deny_packet:
                 aliases: ['send-deny-packet']
                 type: str
                 description: Send deny packet.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             service:
                 type: raw
                 description: (list or str) Service.
@@ -1063,9 +788,7 @@ options:
                 aliases: ['service-negate']
                 type: str
                 description: Service negate.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             session_ttl:
                 aliases: ['session-ttl']
                 type: raw
@@ -1073,9 +796,7 @@ options:
             sessions:
                 type: str
                 description: Sessions.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             spamfilter_profile:
                 aliases: ['spamfilter-profile']
                 type: raw
@@ -1087,9 +808,7 @@ options:
                 aliases: ['srcaddr-negate']
                 type: str
                 description: Srcaddr negate.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             srcaddr6:
                 type: raw
                 description: (list or str) Srcaddr6.
@@ -1104,16 +823,12 @@ options:
                 aliases: ['ssh-policy-redirect']
                 type: str
                 description: Ssh policy redirect.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             ssl_mirror:
                 aliases: ['ssl-mirror']
                 type: str
                 description: Ssl mirror.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             ssl_mirror_intf:
                 aliases: ['ssl-mirror-intf']
                 type: raw
@@ -1126,40 +841,26 @@ options:
                 aliases: ['sslvpn-auth']
                 type: str
                 description: Sslvpn auth.
-                choices:
-                    - 'any'
-                    - 'local'
-                    - 'radius'
-                    - 'ldap'
-                    - 'tacacs+'
+                choices: ['any', 'local', 'radius', 'ldap', 'tacacs+']
             sslvpn_ccert:
                 aliases: ['sslvpn-ccert']
                 type: str
                 description: Sslvpn ccert.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             sslvpn_cipher:
                 aliases: ['sslvpn-cipher']
                 type: str
                 description: Sslvpn cipher.
-                choices:
-                    - 'any'
-                    - 'high'
-                    - 'medium'
+                choices: ['any', 'high', 'medium']
             sso_auth_method:
                 aliases: ['sso-auth-method']
                 type: str
                 description: Sso auth method.
-                choices:
-                    - 'fsso'
-                    - 'rsso'
+                choices: ['fsso', 'rsso']
             status:
                 type: str
                 description: Status.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             tags:
                 type: raw
                 description: (list or str) Tags.
@@ -1175,24 +876,17 @@ options:
                 aliases: ['tcp-reset']
                 type: str
                 description: Tcp reset.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             tcp_session_without_syn:
                 aliases: ['tcp-session-without-syn']
                 type: str
                 description: Tcp session without syn.
-                choices:
-                    - 'all'
-                    - 'data-only'
-                    - 'disable'
+                choices: ['all', 'data-only', 'disable']
             timeout_send_rst:
                 aliases: ['timeout-send-rst']
                 type: str
                 description: Timeout send rst.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             tos:
                 type: str
                 description: Tos.
@@ -1204,9 +898,7 @@ options:
                 aliases: ['tos-negate']
                 type: str
                 description: Tos negate.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             traffic_shaper:
                 aliases: ['traffic-shaper']
                 type: str
@@ -1219,9 +911,7 @@ options:
                 aliases: ['transaction-based']
                 type: str
                 description: Transaction based.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             url_category:
                 aliases: ['url-category']
                 type: raw
@@ -1233,16 +923,12 @@ options:
                 aliases: ['utm-inspection-mode']
                 type: str
                 description: Utm inspection mode.
-                choices:
-                    - 'proxy'
-                    - 'flow'
+                choices: ['proxy', 'flow']
             utm_status:
                 aliases: ['utm-status']
                 type: str
                 description: Utm status.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             uuid:
                 type: str
                 description: Uuid.
@@ -1272,25 +958,17 @@ options:
             wanopt:
                 type: str
                 description: Wanopt.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             wanopt_detection:
                 aliases: ['wanopt-detection']
                 type: str
                 description: Wanopt detection.
-                choices:
-                    - 'active'
-                    - 'passive'
-                    - 'off'
+                choices: ['active', 'passive', 'off']
             wanopt_passive_opt:
                 aliases: ['wanopt-passive-opt']
                 type: str
                 description: Wanopt passive opt.
-                choices:
-                    - 'default'
-                    - 'transparent'
-                    - 'non-transparent'
+                choices: ['default', 'transparent', 'non-transparent']
             wanopt_peer:
                 aliases: ['wanopt-peer']
                 type: str
@@ -1302,31 +980,21 @@ options:
             wccp:
                 type: str
                 description: Wccp.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             web_auth_cookie:
                 aliases: ['web-auth-cookie']
                 type: str
                 description: Web auth cookie.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             webcache:
                 type: str
                 description: Webcache.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             webcache_https:
                 aliases: ['webcache-https']
                 type: str
                 description: Webcache https.
-                choices:
-                    - 'disable'
-                    - 'ssl-server'
-                    - 'any'
-                    - 'enable'
+                choices: ['disable', 'ssl-server', 'any', 'enable']
             webfilter_profile:
                 aliases: ['webfilter-profile']
                 type: str
@@ -1342,9 +1010,7 @@ options:
             wsso:
                 type: str
                 description: Wsso.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             fsso_groups:
                 aliases: ['fsso-groups']
                 type: raw
@@ -1353,23 +1019,17 @@ options:
                 aliases: ['match-vip-only']
                 type: str
                 description: Match vip only.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             np_accelation:
                 aliases: ['np-accelation']
                 type: str
                 description: Np accelation.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             best_route:
                 aliases: ['best-route']
                 type: str
                 description: Best route.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             decrypted_traffic_mirror:
                 aliases: ['decrypted-traffic-mirror']
                 type: str
@@ -1378,9 +1038,7 @@ options:
                 aliases: ['geoip-match']
                 type: str
                 description: Geoip match.
-                choices:
-                    - 'physical-location'
-                    - 'registered-location'
+                choices: ['physical-location', 'registered-location']
             internet_service_name:
                 aliases: ['internet-service-name']
                 type: raw
@@ -1408,16 +1066,12 @@ options:
                 aliases: ['cgn-eif']
                 type: str
                 description: Enable/Disable CGN endpoint independent filtering.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             cgn_eim:
                 aliases: ['cgn-eim']
                 type: str
                 description: Enable/Disable CGN endpoint independent mapping
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             cgn_log_server_grp:
                 aliases: ['cgn-log-server-grp']
                 type: raw
@@ -1434,23 +1088,17 @@ options:
                 aliases: ['policy-offload']
                 type: str
                 description: Enable/Disable hardware session setup for CGNAT.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             dynamic_shaping:
                 aliases: ['dynamic-shaping']
                 type: str
                 description: Enable/disable dynamic RADIUS defined traffic shaping.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             passive_wan_health_measurement:
                 aliases: ['passive-wan-health-measurement']
                 type: str
                 description: Enable/disable passive WAN health measurement.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             videofilter_profile:
                 aliases: ['videofilter-profile']
                 type: str
@@ -1467,9 +1115,7 @@ options:
                 aliases: ['ztna-status']
                 type: str
                 description: Enable/disable zero trust access.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             access_proxy:
                 aliases: ['access-proxy']
                 type: raw
@@ -1482,29 +1128,21 @@ options:
                 aliases: ['dynamic-bypass']
                 type: str
                 description: Dynamic bypass.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             fec:
                 type: str
                 description: Enable/disable Forward Error Correction on traffic matching this policy on a FEC device.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             force_proxy:
                 aliases: ['force-proxy']
                 type: str
                 description: Force proxy.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             http_tunnel_auth:
                 aliases: ['http-tunnel-auth']
                 type: str
                 description: Http tunnel auth.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             ia_profile:
                 aliases: ['ia-profile']
                 type: raw
@@ -1517,11 +1155,7 @@ options:
                 aliases: ['log-http-transaction']
                 type: str
                 description: Log http transaction.
-                choices:
-                    - 'disable'
-                    - 'enable'
-                    - 'all'
-                    - 'utm'
+                choices: ['disable', 'enable', 'all', 'utm']
             max_session_per_user:
                 aliases: ['max-session-per-user']
                 type: int
@@ -1529,22 +1163,16 @@ options:
             nat46:
                 type: str
                 description: Enable/disable NAT46.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             nat64:
                 type: str
                 description: Enable/disable NAT64.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             pass_through:
                 aliases: ['pass-through']
                 type: str
                 description: Pass through.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             pfcp_profile:
                 aliases: ['pfcp-profile']
                 type: str
@@ -1553,9 +1181,7 @@ options:
                 aliases: ['policy-expiry']
                 type: str
                 description: Enable/disable policy expiry.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             policy_expiry_date:
                 aliases: ['policy-expiry-date']
                 type: str
@@ -1564,9 +1190,7 @@ options:
                 aliases: ['reverse-cache']
                 type: str
                 description: Reverse cache.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             sctp_filter_profile:
                 aliases: ['sctp-filter-profile']
                 type: str
@@ -1578,9 +1202,7 @@ options:
                 aliases: ['sgt-check']
                 type: str
                 description: Enable/disable security group tags
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             tcp_timeout_pid:
                 aliases: ['tcp-timeout-pid']
                 type: raw
@@ -1588,24 +1210,13 @@ options:
             transparent:
                 type: str
                 description: Transparent.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             type:
                 type: str
                 description: Type.
-                choices:
-                    - 'explicit-web'
-                    - 'transparent'
-                    - 'explicit-ftp'
-                    - 'ssh-tunnel'
-                    - 'ssh'
-                    - 'wanopt'
-                    - 'access-proxy'
-                    - 'ztna-proxy'
-                    - 'explicit-web-connect'
-                    - 'transparent-connect'
-                    - 'llm-proxy'
+                choices: ['explicit-web', 'transparent', 'explicit-ftp', 'ssh-tunnel', 'ssh',
+                          'wanopt', 'access-proxy', 'ztna-proxy', 'explicit-web-connect',
+                          'transparent-connect', 'llm-proxy']
             udp_timeout_pid:
                 aliases: ['udp-timeout-pid']
                 type: raw
@@ -1614,9 +1225,7 @@ options:
                 aliases: ['ztna-tags-match-logic']
                 type: str
                 description: Ztna tags match logic.
-                choices:
-                    - 'or'
-                    - 'and'
+                choices: ['or', 'and']
             uuid_idx:
                 aliases: ['uuid-idx']
                 type: int
@@ -1625,44 +1234,32 @@ options:
                 aliases: ['device-ownership']
                 type: str
                 description: Device ownership.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             ssh_policy_check:
                 aliases: ['ssh-policy-check']
                 type: str
                 description: Ssh policy check.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             extended_log:
                 aliases: ['extended-log']
                 type: str
                 description: Extended log.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             diffserv_copy:
                 aliases: ['diffserv-copy']
                 type: str
                 description: Enable to copy packets DiffServ values from sessions original direction to its reply direction.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             dstaddr6_negate:
                 aliases: ['dstaddr6-negate']
                 type: str
                 description: When enabled dstaddr6 specifies what the destination address must NOT be.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             internet_service6:
                 aliases: ['internet-service6']
                 type: str
                 description: Enable/disable use of IPv6 Internet Services for this policy.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             internet_service6_custom:
                 aliases: ['internet-service6-custom']
                 type: raw
@@ -1683,16 +1280,12 @@ options:
                 aliases: ['internet-service6-negate']
                 type: str
                 description: When enabled internet-service6 specifies what the service must NOT be.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             internet_service6_src:
                 aliases: ['internet-service6-src']
                 type: str
                 description: Enable/disable use of IPv6 Internet Services in source for this policy.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             internet_service6_src_custom:
                 aliases: ['internet-service6-src-custom']
                 type: raw
@@ -1713,9 +1306,7 @@ options:
                 aliases: ['internet-service6-src-negate']
                 type: str
                 description: When enabled internet-service6-src specifies what the service must NOT be.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             network_service_dynamic:
                 aliases: ['network-service-dynamic']
                 type: raw
@@ -1728,9 +1319,7 @@ options:
                 aliases: ['reputation-direction6']
                 type: str
                 description: Direction of the initial traffic for IPv6 reputation to take effect.
-                choices:
-                    - 'source'
-                    - 'destination'
+                choices: ['source', 'destination']
             reputation_minimum6:
                 aliases: ['reputation-minimum6']
                 type: int
@@ -1739,9 +1328,7 @@ options:
                 aliases: ['srcaddr6-negate']
                 type: str
                 description: When enabled srcaddr6 specifies what the source address must NOT be.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             _policy_block:
                 type: int
                 description: Assigned policy block.
@@ -1757,16 +1344,12 @@ options:
                 aliases: ['ztna-device-ownership']
                 type: str
                 description: Enable/disable zero trust device ownership.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             ztna_policy_redirect:
                 aliases: ['ztna-policy-redirect']
                 type: str
                 description: Redirect ZTNA traffic to matching Access-Proxy proxy-policy.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             ip_version_type:
                 aliases: ['ip-version-type']
                 type: str
@@ -1783,16 +1366,12 @@ options:
                 aliases: ['pcp-inbound']
                 type: str
                 description: Enable/disable PCP inbound DNAT.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             pcp_outbound:
                 aliases: ['pcp-outbound']
                 type: str
                 description: Enable/disable PCP outbound SNAT.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             pcp_poolname:
                 aliases: ['pcp-poolname']
                 type: raw
@@ -1809,9 +1388,7 @@ options:
                 aliases: ['implicit-proxy-detection']
                 type: str
                 description: Implicit proxy detection.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             virtual_patch_profile:
                 aliases: ['virtual-patch-profile']
                 type: str
@@ -1820,9 +1397,7 @@ options:
                 aliases: ['detect-https-in-http-request']
                 type: str
                 description: Detect https in http request.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             diameter_filter_profile:
                 aliases: ['diameter-filter-profile']
                 type: str
@@ -1835,37 +1410,27 @@ options:
                 aliases: ['port-preserve']
                 type: str
                 description: Enable/disable preservation of the original source port from source NAT if it has not been used.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             cgn_sw_eif_ctrl:
                 aliases: ['cgn-sw-eif-ctrl']
                 type: str
                 description: Enable/disable software endpoint independent filtering control.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             eif_check:
                 aliases: ['eif-check']
                 type: str
                 description: Enable/Disable check endpoint-independent-filtering pinhole.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             eif_learn:
                 aliases: ['eif-learn']
                 type: str
                 description: Enable/Disable learning of end-point-independent filtering pinhole.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             radius_ip_auth_bypass:
                 aliases: ['radius-ip-auth-bypass']
                 type: str
                 description: Enable IP authentication bypass.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             url_risk:
                 aliases: ['url-risk']
                 type: raw
@@ -1874,30 +1439,22 @@ options:
                 aliases: ['app-monitor']
                 type: str
                 description: Enable/disable application TCP metrics in session logs.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             port_random:
                 aliases: ['port-random']
                 type: str
                 description: Enable/disable random source port selection for source NAT.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             ztna_ems_tag_negate:
                 aliases: ['ztna-ems-tag-negate']
                 type: str
                 description: When enabled ztna-ems-tag specifies what the tags must NOT be.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             https_sub_category:
                 aliases: ['https-sub-category']
                 type: str
                 description: Https sub category.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             service_connector:
                 aliases: ['service-connector']
                 type: raw
@@ -1937,9 +1494,7 @@ options:
             scim:
                 type: str
                 description: Enable/disable SCIM
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             scim_groups:
                 aliases: ['scim-groups']
                 type: raw
@@ -2048,14 +1603,11 @@ def main():
     urls_list = [
         '/pm/config/global/pkg/{pkg}/global/footer/policy'
     ]
-    url_params = ['pkg']
-    module_primary_key = 'policyid'
     module_arg_spec = {
         'pkg': {'required': True, 'type': 'str'},
         'revision_note': {'type': 'str'},
         'pkg_footer_policy': {
-            'type': 'dict',
-            'v_range': [['6.0.0', '']],
+            'type': 'dict', 'v_range': [['6.0.0', '']],
             'options': {
                 'action': {'choices': ['deny', 'accept', 'ipsec', 'ssl-vpn', 'redirect', 'isolate'], 'type': 'str'},
                 'active-auth-method': {'choices': ['ntlm', 'basic', 'digest', 'form'], 'type': 'str'},
@@ -2426,6 +1978,14 @@ def main():
 
     module_option_spec = get_module_arg_spec('full crud')
     module_arg_spec.update(module_option_spec)
+    check_galaxy_version(module_arg_spec)
+    module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'pkg_footer_policy'),
+                           supports_check_mode=True)
+    if not module._socket_path:
+        module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
+    connection = Connection(module._socket_path)
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list,
+                       'policyid', 'data', module, connection)
     params_validation_blob = [
         {
             'attribute_path': ['pkg_footer_policy', 'policyid'],
@@ -2435,18 +1995,8 @@ def main():
         }
     ]
 
-    check_galaxy_version(module_arg_spec)
-    module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'pkg_footer_policy'),
-                           supports_check_mode=True)
-
-    if not module._socket_path:
-        module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
-    connection = Connection(module._socket_path)
-    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
-                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_crud()
-
     module.exit_json(meta=module.params)
 
 

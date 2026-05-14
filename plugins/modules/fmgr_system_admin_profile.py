@@ -13,72 +13,11 @@ DOCUMENTATION = '''
 ---
 module: fmgr_system_admin_profile
 short_description: Admin profile.
-description:
-    - This module is able to configure a FortiManager device.
-    - Examples include all parameters and values which need to be adjusted to data sources before usage.
 version_added: "2.0.0"
-author:
-    - Xinwei Du (@dux-fortinet)
-    - Xing Li (@lix-fortinet)
-    - Jie Xue (@JieX19)
-    - Link Zheng (@chillancezen)
-    - Frank Shen (@fshen01)
-    - Hongbin Lu (@fgtdev-hblu)
-notes:
-    - Starting in version 2.4.0, all input arguments are named using the underscore naming convention (snake_case).
-      Please change the arguments such as "var-name" to "var_name".
-      Old argument names are still available yet you will receive deprecation warnings.
-      You can ignore this warning by setting deprecation_warnings=False in ansible.cfg.
-    - Running in workspace locking mode is supported in this FortiManager module, the top
-      level parameters workspace_locking_adom and workspace_locking_timeout help do the work.
-    - To create or update an object, use state present directive.
-    - To delete an object, use state absent directive.
-    - Normally, running one module can fail when a non-zero rc is returned. you can also override
-      the conditions to fail or succeed with parameters rc_failed and rc_succeeded
+extends_documentation_fragment:
+    - fortinet.fortimanager.general
+    - fortinet.fortimanager.general.full_crud
 options:
-    access_token:
-        description: The token to access FortiManager without using username and password.
-        type: str
-    bypass_validation:
-        description: Only set to True when module schema diffs with FortiManager API structure, module continues to execute without validating parameters.
-        type: bool
-        default: false
-    enable_log:
-        description: Enable/Disable logging for task.
-        type: bool
-        default: false
-    forticloud_access_token:
-        description: Authenticate Ansible client with forticloud API access token.
-        type: str
-    proposed_method:
-        description: The overridden method for the underlying Json RPC request.
-        type: str
-        choices:
-          - update
-          - set
-          - add
-    rc_succeeded:
-        description: The rc codes list with which the conditions to succeed will be overriden.
-        type: list
-        elements: int
-    rc_failed:
-        description: The rc codes list with which the conditions to fail will be overriden.
-        type: list
-        elements: int
-    state:
-        description: The directive to create, update or delete an object.
-        type: str
-        required: true
-        choices:
-          - present
-          - absent
-    workspace_locking_adom:
-        description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
-        type: str
-    workspace_locking_timeout:
-        description: The maximum time in seconds to wait for other user to release the workspace lock.
-        type: int
-        default: 300
     system_admin_profile:
         description: The top level parameters set.
         required: false
@@ -92,10 +31,7 @@ options:
                     - none - No permission.
                     - read - Read permission.
                     - read-write - Read-write permission.
-                choices:
-                    - 'none'
-                    - 'read'
-                    - 'read-write'
+                choices: ['none', 'read', 'read-write']
             adom_policy_packages:
                 aliases: ['adom-policy-packages']
                 type: str
@@ -104,10 +40,7 @@ options:
                     - none - No permission.
                     - read - Read permission.
                     - read-write - Read-write permission.
-                choices:
-                    - 'none'
-                    - 'read'
-                    - 'read-write'
+                choices: ['none', 'read', 'read-write']
             adom_switch:
                 aliases: ['adom-switch']
                 type: str
@@ -116,10 +49,7 @@ options:
                     - none - No permission.
                     - read - Read permission.
                     - read-write - Read-write permission.
-                choices:
-                    - 'none'
-                    - 'read'
-                    - 'read-write'
+                choices: ['none', 'read', 'read-write']
             app_filter:
                 aliases: ['app-filter']
                 type: str
@@ -127,9 +57,7 @@ options:
                     - App filter.
                     - disable - Disable setting.
                     - enable - Enable setting.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             assignment:
                 type: str
                 description:
@@ -137,10 +65,7 @@ options:
                     - none - No permission.
                     - read - Read permission.
                     - read-write - Read-write permission.
-                choices:
-                    - 'none'
-                    - 'read'
-                    - 'read-write'
+                choices: ['none', 'read', 'read-write']
             change_password:
                 aliases: ['change-password']
                 type: str
@@ -148,9 +73,7 @@ options:
                     - Enable/disable restricted user to change self password.
                     - disable - Disable setting.
                     - enable - Enable setting.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             config_retrieve:
                 aliases: ['config-retrieve']
                 type: str
@@ -159,10 +82,7 @@ options:
                     - none - No permission.
                     - read - Read permission.
                     - read-write - Read-write permission.
-                choices:
-                    - 'none'
-                    - 'read'
-                    - 'read-write'
+                choices: ['none', 'read', 'read-write']
             config_revert:
                 aliases: ['config-revert']
                 type: str
@@ -171,10 +91,7 @@ options:
                     - none - No permission.
                     - read - Read permission.
                     - read-write - Read-write permission.
-                choices:
-                    - 'none'
-                    - 'read'
-                    - 'read-write'
+                choices: ['none', 'read', 'read-write']
             consistency_check:
                 aliases: ['consistency-check']
                 type: str
@@ -183,19 +100,14 @@ options:
                     - none - No permission.
                     - read - Read permission.
                     - read-write - Read-write permission.
-                choices:
-                    - 'none'
-                    - 'read'
-                    - 'read-write'
+                choices: ['none', 'read', 'read-write']
             datamask:
                 type: str
                 description:
                     - Enable/disable data masking.
                     - disable - Disable data masking.
                     - enable - Enable data masking.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             datamask_custom_fields:
                 aliases: ['datamask-custom-fields']
                 type: list
@@ -213,12 +125,7 @@ options:
                             - alert - Event management.
                             - ueba - UEBA.
                             - all - All.
-                        choices:
-                            - 'log'
-                            - 'fortiview'
-                            - 'alert'
-                            - 'ueba'
-                            - 'all'
+                        choices: ['log', 'fortiview', 'alert', 'ueba', 'all']
                     field_name:
                         aliases: ['field-name']
                         type: str
@@ -230,9 +137,7 @@ options:
                             - Field status.
                             - disable - Disable field.
                             - enable - Enable field.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     field_type:
                         aliases: ['field-type']
                         type: str
@@ -243,12 +148,7 @@ options:
                             - mac - MAC address.
                             - email - Email address.
                             - unknown - Unknown.
-                        choices:
-                            - 'string'
-                            - 'ip'
-                            - 'mac'
-                            - 'email'
-                            - 'unknown'
+                        choices: ['string', 'ip', 'mac', 'email', 'unknown']
             datamask_custom_priority:
                 aliases: ['datamask-custom-priority']
                 type: str
@@ -256,9 +156,7 @@ options:
                     - Prioritize custom fields.
                     - disable - Disable custom field search priority.
                     - enable - Enable custom field search priority.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             datamask_fields:
                 aliases: ['datamask-fields']
                 type: list
@@ -274,16 +172,8 @@ options:
                     - email - Email.
                     - message - Message.
                     - domain - Domain.
-                choices:
-                    - 'user'
-                    - 'srcip'
-                    - 'srcname'
-                    - 'srcmac'
-                    - 'dstip'
-                    - 'dstname'
-                    - 'email'
-                    - 'message'
-                    - 'domain'
+                choices: ['user', 'srcip', 'srcname', 'srcmac', 'dstip', 'dstname', 'email',
+                          'message', 'domain']
             datamask_key:
                 aliases: ['datamask-key']
                 type: raw
@@ -296,10 +186,7 @@ options:
                     - none - No permission.
                     - read - Read permission.
                     - read-write - Read-write permission.
-                choices:
-                    - 'none'
-                    - 'read'
-                    - 'read-write'
+                choices: ['none', 'read', 'read-write']
             description:
                 type: str
                 description: Description.
@@ -311,10 +198,7 @@ options:
                     - none - No permission.
                     - read - Read permission.
                     - read-write - Read-write permission.
-                choices:
-                    - 'none'
-                    - 'read'
-                    - 'read-write'
+                choices: ['none', 'read', 'read-write']
             device_config:
                 aliases: ['device-config']
                 type: str
@@ -323,10 +207,7 @@ options:
                     - none - No permission.
                     - read - Read permission.
                     - read-write - Read-write permission.
-                choices:
-                    - 'none'
-                    - 'read'
-                    - 'read-write'
+                choices: ['none', 'read', 'read-write']
             device_forticlient:
                 aliases: ['device-forticlient']
                 type: str
@@ -335,10 +216,7 @@ options:
                     - none - No permission.
                     - read - Read permission.
                     - read-write - Read-write permission.
-                choices:
-                    - 'none'
-                    - 'read'
-                    - 'read-write'
+                choices: ['none', 'read', 'read-write']
             device_fortiswitch:
                 aliases: ['device-fortiswitch']
                 type: str
@@ -347,10 +225,7 @@ options:
                     - none - No permission.
                     - read - Read permission.
                     - read-write - Read-write permission.
-                choices:
-                    - 'none'
-                    - 'read'
-                    - 'read-write'
+                choices: ['none', 'read', 'read-write']
             device_manager:
                 aliases: ['device-manager']
                 type: str
@@ -359,10 +234,7 @@ options:
                     - none - No permission.
                     - read - Read permission.
                     - read-write - Read-write permission.
-                choices:
-                    - 'none'
-                    - 'read'
-                    - 'read-write'
+                choices: ['none', 'read', 'read-write']
             device_op:
                 aliases: ['device-op']
                 type: str
@@ -371,10 +243,7 @@ options:
                     - none - No permission.
                     - read - Read permission.
                     - read-write - Read-write permission.
-                choices:
-                    - 'none'
-                    - 'read'
-                    - 'read-write'
+                choices: ['none', 'read', 'read-write']
             device_policy_package_lock:
                 aliases: ['device-policy-package-lock']
                 type: str
@@ -383,10 +252,7 @@ options:
                     - none - No permission.
                     - read - Read permission.
                     - read-write - Read-write permission.
-                choices:
-                    - 'none'
-                    - 'read'
-                    - 'read-write'
+                choices: ['none', 'read', 'read-write']
             device_profile:
                 aliases: ['device-profile']
                 type: str
@@ -395,10 +261,7 @@ options:
                     - none - No permission.
                     - read - Read permission.
                     - read-write - Read-write permission.
-                choices:
-                    - 'none'
-                    - 'read'
-                    - 'read-write'
+                choices: ['none', 'read', 'read-write']
             device_revision_deletion:
                 aliases: ['device-revision-deletion']
                 type: str
@@ -407,10 +270,7 @@ options:
                     - none - No permission.
                     - read - Read permission.
                     - read-write - Read-write permission.
-                choices:
-                    - 'none'
-                    - 'read'
-                    - 'read-write'
+                choices: ['none', 'read', 'read-write']
             device_wan_link_load_balance:
                 aliases: ['device-wan-link-load-balance']
                 type: str
@@ -419,10 +279,7 @@ options:
                     - none - No permission.
                     - read - Read permission.
                     - read-write - Read-write permission.
-                choices:
-                    - 'none'
-                    - 'read'
-                    - 'read-write'
+                choices: ['none', 'read', 'read-write']
             event_management:
                 aliases: ['event-management']
                 type: str
@@ -431,10 +288,7 @@ options:
                     - none - No permission.
                     - read - Read permission.
                     - read-write - Read-write permission.
-                choices:
-                    - 'none'
-                    - 'read'
-                    - 'read-write'
+                choices: ['none', 'read', 'read-write']
             fgd_center_advanced:
                 aliases: ['fgd-center-advanced']
                 type: str
@@ -443,10 +297,7 @@ options:
                     - none - No permission.
                     - read - Read permission.
                     - read-write - Read-write permission.
-                choices:
-                    - 'none'
-                    - 'read'
-                    - 'read-write'
+                choices: ['none', 'read', 'read-write']
             fgd_center_fmw_mgmt:
                 aliases: ['fgd-center-fmw-mgmt']
                 type: str
@@ -455,10 +306,7 @@ options:
                     - none - No permission.
                     - read - Read permission.
                     - read-write - Read-write permission.
-                choices:
-                    - 'none'
-                    - 'read'
-                    - 'read-write'
+                choices: ['none', 'read', 'read-write']
             fgd_center_licensing:
                 aliases: ['fgd-center-licensing']
                 type: str
@@ -467,10 +315,7 @@ options:
                     - none - No permission.
                     - read - Read permission.
                     - read-write - Read-write permission.
-                choices:
-                    - 'none'
-                    - 'read'
-                    - 'read-write'
+                choices: ['none', 'read', 'read-write']
             fgd_center:
                 type: str
                 description:
@@ -478,10 +323,7 @@ options:
                     - none - No permission.
                     - read - Read permission.
                     - read-write - Read-write permission.
-                choices:
-                    - 'none'
-                    - 'read'
-                    - 'read-write'
+                choices: ['none', 'read', 'read-write']
             global_policy_packages:
                 aliases: ['global-policy-packages']
                 type: str
@@ -490,10 +332,7 @@ options:
                     - none - No permission.
                     - read - Read permission.
                     - read-write - Read-write permission.
-                choices:
-                    - 'none'
-                    - 'read'
-                    - 'read-write'
+                choices: ['none', 'read', 'read-write']
             import_policy_packages:
                 aliases: ['import-policy-packages']
                 type: str
@@ -502,10 +341,7 @@ options:
                     - none - No permission.
                     - read - Read permission.
                     - read-write - Read-write permission.
-                choices:
-                    - 'none'
-                    - 'read'
-                    - 'read-write'
+                choices: ['none', 'read', 'read-write']
             intf_mapping:
                 aliases: ['intf-mapping']
                 type: str
@@ -514,10 +350,7 @@ options:
                     - none - No permission.
                     - read - Read permission.
                     - read-write - Read-write permission.
-                choices:
-                    - 'none'
-                    - 'read'
-                    - 'read-write'
+                choices: ['none', 'read', 'read-write']
             ips_filter:
                 aliases: ['ips-filter']
                 type: str
@@ -525,9 +358,7 @@ options:
                     - IPS filter.
                     - disable - Disable setting.
                     - enable - Enable setting.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             log_viewer:
                 aliases: ['log-viewer']
                 type: str
@@ -536,10 +367,7 @@ options:
                     - none - No permission.
                     - read - Read permission.
                     - read-write - Read-write permission.
-                choices:
-                    - 'none'
-                    - 'read'
-                    - 'read-write'
+                choices: ['none', 'read', 'read-write']
             policy_objects:
                 aliases: ['policy-objects']
                 type: str
@@ -548,10 +376,7 @@ options:
                     - none - No permission.
                     - read - Read permission.
                     - read-write - Read-write permission.
-                choices:
-                    - 'none'
-                    - 'read'
-                    - 'read-write'
+                choices: ['none', 'read', 'read-write']
             profileid:
                 type: str
                 description: Profile ID.
@@ -564,10 +389,7 @@ options:
                     - none - No permission.
                     - read - Read permission.
                     - read-write - Read-write permission.
-                choices:
-                    - 'none'
-                    - 'read'
-                    - 'read-write'
+                choices: ['none', 'read', 'read-write']
             realtime_monitor:
                 aliases: ['realtime-monitor']
                 type: str
@@ -576,10 +398,7 @@ options:
                     - none - No permission.
                     - read - Read permission.
                     - read-write - Read-write permission.
-                choices:
-                    - 'none'
-                    - 'read'
-                    - 'read-write'
+                choices: ['none', 'read', 'read-write']
             report_viewer:
                 aliases: ['report-viewer']
                 type: str
@@ -588,19 +407,14 @@ options:
                     - none - No permission.
                     - read - Read permission.
                     - read-write - Read-write permission.
-                choices:
-                    - 'none'
-                    - 'read'
-                    - 'read-write'
+                choices: ['none', 'read', 'read-write']
             scope:
                 type: str
                 description:
                     - Scope.
                     - global - Global scope.
                     - adom - ADOM scope.
-                choices:
-                    - 'global'
-                    - 'adom'
+                choices: ['global', 'adom']
             set_install_targets:
                 aliases: ['set-install-targets']
                 type: str
@@ -609,10 +423,7 @@ options:
                     - none - No permission.
                     - read - Read permission.
                     - read-write - Read-write permission.
-                choices:
-                    - 'none'
-                    - 'read'
-                    - 'read-write'
+                choices: ['none', 'read', 'read-write']
             system_setting:
                 aliases: ['system-setting']
                 type: str
@@ -621,10 +432,7 @@ options:
                     - none - No permission.
                     - read - Read permission.
                     - read-write - Read-write permission.
-                choices:
-                    - 'none'
-                    - 'read'
-                    - 'read-write'
+                choices: ['none', 'read', 'read-write']
             term_access:
                 aliases: ['term-access']
                 type: str
@@ -633,19 +441,14 @@ options:
                     - none - No permission.
                     - read - Read permission.
                     - read-write - Read-write permission.
-                choices:
-                    - 'none'
-                    - 'read'
-                    - 'read-write'
+                choices: ['none', 'read', 'read-write']
             type:
                 type: str
                 description:
                     - profile type.
                     - system - System admin.
                     - restricted - Restricted admin.
-                choices:
-                    - 'system'
-                    - 'restricted'
+                choices: ['system', 'restricted']
             vpn_manager:
                 aliases: ['vpn-manager']
                 type: str
@@ -654,10 +457,7 @@ options:
                     - none - No permission.
                     - read - Read permission.
                     - read-write - Read-write permission.
-                choices:
-                    - 'none'
-                    - 'read'
-                    - 'read-write'
+                choices: ['none', 'read', 'read-write']
             web_filter:
                 aliases: ['web-filter']
                 type: str
@@ -665,9 +465,7 @@ options:
                     - Web filter.
                     - disable - Disable setting.
                     - enable - Enable setting.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             datamask_unmasked_time:
                 aliases: ['datamask-unmasked-time']
                 type: int
@@ -679,9 +477,7 @@ options:
                     - Enable/disable super user profile
                     - disable - Disable super user profile
                     - enable - Enable super user profile
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             allow_to_install:
                 aliases: ['allow-to-install']
                 type: str
@@ -689,9 +485,7 @@ options:
                     - Enable/disable the restricted user to install objects to the devices.
                     - disable - Disable setting.
                     - enable - Enable setting.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             extension_access:
                 aliases: ['extension-access']
                 type: str
@@ -700,10 +494,7 @@ options:
                     - none - No permission.
                     - read - Read permission.
                     - read-write - Read-write permission.
-                choices:
-                    - 'none'
-                    - 'read'
-                    - 'read-write'
+                choices: ['none', 'read', 'read-write']
             fabric_viewer:
                 aliases: ['fabric-viewer']
                 type: str
@@ -712,10 +503,7 @@ options:
                     - none - No permission.
                     - read - Read permission.
                     - read-write - Read-write permission.
-                choices:
-                    - 'none'
-                    - 'read'
-                    - 'read-write'
+                choices: ['none', 'read', 'read-write']
             run_report:
                 aliases: ['run-report']
                 type: str
@@ -724,10 +512,7 @@ options:
                     - none - No permission.
                     - read - Read permission.
                     - read-write - Read-write permission.
-                choices:
-                    - 'none'
-                    - 'read'
-                    - 'read-write'
+                choices: ['none', 'read', 'read-write']
             script_access:
                 aliases: ['script-access']
                 type: str
@@ -736,10 +521,7 @@ options:
                     - none - No permission.
                     - read - Read permission.
                     - read-write - Read-write permission.
-                choices:
-                    - 'none'
-                    - 'read'
-                    - 'read-write'
+                choices: ['none', 'read', 'read-write']
             triage_events:
                 aliases: ['triage-events']
                 type: str
@@ -748,10 +530,7 @@ options:
                     - none - No permission.
                     - read - Read permission.
                     - read-write - Read-write permission.
-                choices:
-                    - 'none'
-                    - 'read'
-                    - 'read-write'
+                choices: ['none', 'read', 'read-write']
             update_incidents:
                 aliases: ['update-incidents']
                 type: str
@@ -760,10 +539,7 @@ options:
                     - none - No permission.
                     - read - Read permission.
                     - read-write - Read-write permission.
-                choices:
-                    - 'none'
-                    - 'read'
-                    - 'read-write'
+                choices: ['none', 'read', 'read-write']
             ips_objects:
                 aliases: ['ips-objects']
                 type: str
@@ -772,10 +548,7 @@ options:
                     - none - No permission.
                     - read - Read permission.
                     - read-write - Read-write permission.
-                choices:
-                    - 'none'
-                    - 'read'
-                    - 'read-write'
+                choices: ['none', 'read', 'read-write']
             ipv6_trusthost1:
                 type: str
                 description: Admin user trusted host IPv6, default
@@ -814,10 +587,7 @@ options:
                     - read-write - Read-write permission.
                     - none - No permission.
                     - read - Read-only permission.
-                choices:
-                    - 'read-write'
-                    - 'none'
-                    - 'read'
+                choices: ['read-write', 'none', 'read']
             trusthost1:
                 type: str
                 description: Admin user trusted host IP, default 0.
@@ -856,10 +626,7 @@ options:
                     - none - No permission.
                     - read - Read permission.
                     - read-write - Read-write permission.
-                choices:
-                    - 'none'
-                    - 'read'
-                    - 'read-write'
+                choices: ['none', 'read', 'read-write']
             ips_baseline_ovrd:
                 aliases: ['ips-baseline-ovrd']
                 type: str
@@ -867,9 +634,7 @@ options:
                     - Enable/disable override baseline ips sensor.
                     - disable - Disable setting.
                     - enable - Enable setting.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             device_fortiextender:
                 aliases: ['device-fortiextender']
                 type: str
@@ -878,10 +643,7 @@ options:
                     - none - No permission.
                     - read - Read permission.
                     - read-write - Read-write permission.
-                choices:
-                    - 'none'
-                    - 'read'
-                    - 'read-write'
+                choices: ['none', 'read', 'read-write']
             ips_lock:
                 aliases: ['ips-lock']
                 type: str
@@ -890,10 +652,7 @@ options:
                     - none - No permission.
                     - read - Read permission.
                     - read-write - Read-write permission.
-                choices:
-                    - 'none'
-                    - 'read'
-                    - 'read-write'
+                choices: ['none', 'read', 'read-write']
             fgt_gui_proxy:
                 aliases: ['fgt-gui-proxy']
                 type: str
@@ -901,9 +660,7 @@ options:
                     - FortiGate GUI proxy.
                     - disable - No permission.
                     - enable - With permission.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             policy_ips_attrs:
                 aliases: ['policy-ips-attrs']
                 type: str
@@ -912,10 +669,7 @@ options:
                     - none - No permission.
                     - read - Read permission.
                     - read-write - Read-write permission.
-                choices:
-                    - 'none'
-                    - 'read'
-                    - 'read-write'
+                choices: ['none', 'read', 'read-write']
             write_passwd_access:
                 aliases: ['write-passwd-access']
                 type: str
@@ -924,10 +678,7 @@ options:
                     - all - All except super users.
                     - specify-by-user - Specify by user.
                     - specify-by-profile - Specify by profile.
-                choices:
-                    - 'all'
-                    - 'specify-by-user'
-                    - 'specify-by-profile'
+                choices: ['all', 'specify-by-user', 'specify-by-profile']
             write_passwd_profiles:
                 aliases: ['write-passwd-profiles']
                 type: list
@@ -953,9 +704,7 @@ options:
                     - Enable Adom Admin.
                     - disable - Disable setting.
                     - enable - Enable setting.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             device_fwm_profile:
                 aliases: ['device-fwm-profile']
                 type: str
@@ -964,26 +713,17 @@ options:
                     - none - No permission.
                     - read - Read permission.
                     - read-write - Read-write permission.
-                choices:
-                    - 'none'
-                    - 'read'
-                    - 'read-write'
+                choices: ['none', 'read', 'read-write']
             device_assignment:
                 aliases: ['device-assignment']
                 type: str
                 description: Device assignment.
-                choices:
-                    - 'none'
-                    - 'read'
-                    - 'read-write'
+                choices: ['none', 'read', 'read-write']
             script_run:
                 aliases: ['script-run']
                 type: str
                 description: Script run.
-                choices:
-                    - 'none'
-                    - 'read'
-                    - 'read-write'
+                choices: ['none', 'read', 'read-write']
 '''
 
 EXAMPLES = '''
@@ -1072,12 +812,9 @@ def main():
     urls_list = [
         '/cli/global/system/admin/profile'
     ]
-    url_params = []
-    module_primary_key = 'profileid'
     module_arg_spec = {
         'system_admin_profile': {
-            'type': 'dict',
-            'v_range': [['6.0.0', '']],
+            'type': 'dict', 'v_range': [['6.0.0', '']],
             'options': {
                 'adom-lock': {'choices': ['none', 'read', 'read-write'], 'type': 'str'},
                 'adom-policy-packages': {'choices': ['none', 'read', 'read-write'], 'type': 'str'},
@@ -1206,19 +943,15 @@ def main():
 
     module_option_spec = get_module_arg_spec('full crud')
     module_arg_spec.update(module_option_spec)
-    params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'system_admin_profile'),
                            supports_check_mode=True)
-
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
-                       module, connection, top_level_schema_name='data')
-    fmgr.validate_parameters(params_validation_blob)
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list,
+                       'profileid', 'data', module, connection)
     fmgr.process_crud()
-
     module.exit_json(meta=module.params)
 
 

@@ -13,72 +13,11 @@ DOCUMENTATION = '''
 ---
 module: fmgr_dvmdb_script
 short_description: Script table.
-description:
-    - This module is able to configure a FortiManager device.
-    - Examples include all parameters and values which need to be adjusted to data sources before usage.
 version_added: "1.0.0"
-author:
-    - Xinwei Du (@dux-fortinet)
-    - Xing Li (@lix-fortinet)
-    - Jie Xue (@JieX19)
-    - Link Zheng (@chillancezen)
-    - Frank Shen (@fshen01)
-    - Hongbin Lu (@fgtdev-hblu)
-notes:
-    - Starting in version 2.4.0, all input arguments are named using the underscore naming convention (snake_case).
-      Please change the arguments such as "var-name" to "var_name".
-      Old argument names are still available yet you will receive deprecation warnings.
-      You can ignore this warning by setting deprecation_warnings=False in ansible.cfg.
-    - Running in workspace locking mode is supported in this FortiManager module, the top
-      level parameters workspace_locking_adom and workspace_locking_timeout help do the work.
-    - To create or update an object, use state present directive.
-    - To delete an object, use state absent directive.
-    - Normally, running one module can fail when a non-zero rc is returned. you can also override
-      the conditions to fail or succeed with parameters rc_failed and rc_succeeded
+extends_documentation_fragment:
+    - fortinet.fortimanager.general
+    - fortinet.fortimanager.general.full_crud
 options:
-    access_token:
-        description: The token to access FortiManager without using username and password.
-        type: str
-    bypass_validation:
-        description: Only set to True when module schema diffs with FortiManager API structure, module continues to execute without validating parameters.
-        type: bool
-        default: false
-    enable_log:
-        description: Enable/Disable logging for task.
-        type: bool
-        default: false
-    forticloud_access_token:
-        description: Authenticate Ansible client with forticloud API access token.
-        type: str
-    proposed_method:
-        description: The overridden method for the underlying Json RPC request.
-        type: str
-        choices:
-          - update
-          - set
-          - add
-    rc_succeeded:
-        description: The rc codes list with which the conditions to succeed will be overriden.
-        type: list
-        elements: int
-    rc_failed:
-        description: The rc codes list with which the conditions to fail will be overriden.
-        type: list
-        elements: int
-    state:
-        description: The directive to create, update or delete an object.
-        type: str
-        required: true
-        choices:
-          - present
-          - absent
-    workspace_locking_adom:
-        description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
-        type: str
-    workspace_locking_timeout:
-        description: The maximum time in seconds to wait for other user to release the workspace lock.
-        type: int
-        default: 300
     adom:
         description: The parameter (adom) in requested url.
         type: str
@@ -106,17 +45,11 @@ options:
             filter_ostype:
                 type: str
                 description: The value has no effect if target is adom_database.
-                choices:
-                    - 'unknown'
-                    - 'fos'
+                choices: ['unknown', 'fos']
             filter_osver:
                 type: str
                 description: The value will be ignored in add/set/update requests if filter_ostype is not set.
-                choices:
-                    - 'unknown'
-                    - '4.00'
-                    - '5.00'
-                    - '6.00'
+                choices: ['unknown', '4.00', '5.00', '6.00']
             filter_platform:
                 type: str
                 description: The value will be ignored in add/set/update requests if filter_ostype is not set.
@@ -146,15 +79,7 @@ options:
                     day_of_week:
                         type: str
                         description: Day of week.
-                        choices:
-                            - 'unknown'
-                            - 'sun'
-                            - 'mon'
-                            - 'tue'
-                            - 'wed'
-                            - 'thu'
-                            - 'fri'
-                            - 'sat'
+                        choices: ['unknown', 'sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat']
                     device:
                         type: int
                         description: Name or id of an existing device in the database.
@@ -164,38 +89,23 @@ options:
                     run_on_db:
                         type: str
                         description: Indicates if the scheduled script should be executed on device database.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     type:
                         type: str
                         description: Type.
-                        choices:
-                            - 'auto'
-                            - 'onetime'
-                            - 'daily'
-                            - 'weekly'
-                            - 'monthly'
+                        choices: ['auto', 'onetime', 'daily', 'weekly', 'monthly']
             target:
                 type: str
                 description: Target.
-                choices:
-                    - 'device_database'
-                    - 'remote_device'
-                    - 'adom_database'
+                choices: ['device_database', 'remote_device', 'adom_database']
             type:
                 type: str
                 description: Type.
-                choices:
-                    - 'cli'
-                    - 'tcl'
-                    - 'cligrp'
-                    - 'tclgrp'
-                    - 'jinja'
+                choices: ['cli', 'tcl', 'cligrp', 'tclgrp', 'jinja']
 '''
 
 EXAMPLES = '''
-- name: Apply a script to device
+- name: Apply a script to device (For FMG <= 7.6.4)
   hosts: fortimanagers
   gather_facts: false
   connection: httpapi
@@ -208,6 +118,8 @@ EXAMPLES = '''
     device_name: "CustomHostName"
     device_vdom: "root"
   tasks:
+    # For FMG 7.6.4 and earlier, use fmgr_dvmdb_script.
+    # For FMG 7.6.5 and later, use fmgr_fmg_script.
     - name: Create a Script to later execute
       fortinet.fortimanager.fmgr_dvmdb_script:
         adom: "{{ device_adom }}"
@@ -374,13 +286,10 @@ def main():
         '/dvmdb/global/script',
         '/dvmdb/script'
     ]
-    url_params = ['adom']
-    module_primary_key = 'name'
     module_arg_spec = {
         'adom': {'required': True, 'type': 'str'},
         'dvmdb_script': {
-            'type': 'dict',
-            'v_range': [['6.0.0', '']],
+            'type': 'dict', 'v_range': [['6.0.0', '']],
             'options': {
                 'content': {'type': 'str'},
                 'desc': {'type': 'str'},
@@ -413,19 +322,15 @@ def main():
 
     module_option_spec = get_module_arg_spec('full crud')
     module_arg_spec.update(module_option_spec)
-    params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'dvmdb_script'),
                            supports_check_mode=True)
-
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
-                       module, connection, top_level_schema_name='data')
-    fmgr.validate_parameters(params_validation_blob)
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list,
+                       'name', 'data', module, connection)
     fmgr.process_crud()
-
     module.exit_json(meta=module.params)
 
 

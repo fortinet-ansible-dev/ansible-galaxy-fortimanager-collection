@@ -13,75 +13,14 @@ DOCUMENTATION = '''
 ---
 module: fmgr_firewall_address6
 short_description: Configure IPv6 firewall addresses.
-description:
-    - This module is able to configure a FortiManager device.
-    - Examples include all parameters and values which need to be adjusted to data sources before usage.
 version_added: "1.0.0"
-author:
-    - Xinwei Du (@dux-fortinet)
-    - Xing Li (@lix-fortinet)
-    - Jie Xue (@JieX19)
-    - Link Zheng (@chillancezen)
-    - Frank Shen (@fshen01)
-    - Hongbin Lu (@fgtdev-hblu)
-notes:
-    - Starting in version 2.4.0, all input arguments are named using the underscore naming convention (snake_case).
-      Please change the arguments such as "var-name" to "var_name".
-      Old argument names are still available yet you will receive deprecation warnings.
-      You can ignore this warning by setting deprecation_warnings=False in ansible.cfg.
-    - Running in workspace locking mode is supported in this FortiManager module, the top
-      level parameters workspace_locking_adom and workspace_locking_timeout help do the work.
-    - To create or update an object, use state present directive.
-    - To delete an object, use state absent directive.
-    - Normally, running one module can fail when a non-zero rc is returned. you can also override
-      the conditions to fail or succeed with parameters rc_failed and rc_succeeded
+extends_documentation_fragment:
+    - fortinet.fortimanager.general
+    - fortinet.fortimanager.general.full_crud
 options:
-    access_token:
-        description: The token to access FortiManager without using username and password.
-        type: str
-    bypass_validation:
-        description: Only set to True when module schema diffs with FortiManager API structure, module continues to execute without validating parameters.
-        type: bool
-        default: false
-    enable_log:
-        description: Enable/Disable logging for task.
-        type: bool
-        default: false
-    forticloud_access_token:
-        description: Authenticate Ansible client with forticloud API access token.
-        type: str
-    proposed_method:
-        description: The overridden method for the underlying Json RPC request.
-        type: str
-        choices:
-          - update
-          - set
-          - add
-    rc_succeeded:
-        description: The rc codes list with which the conditions to succeed will be overriden.
-        type: list
-        elements: int
-    rc_failed:
-        description: The rc codes list with which the conditions to fail will be overriden.
-        type: list
-        elements: int
-    state:
-        description: The directive to create, update or delete an object.
-        type: str
-        required: true
-        choices:
-          - present
-          - absent
     revision_note:
         description: The change note that can be specified when an object is created or updated.
         type: str
-    workspace_locking_adom:
-        description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
-        type: str
-    workspace_locking_timeout:
-        description: The maximum time in seconds to wait for other user to release the workspace lock.
-        type: int
-        default: 300
     adom:
         description: The parameter (adom) in requested url.
         type: str
@@ -141,9 +80,7 @@ options:
                         aliases: ['host-type']
                         type: str
                         description: Host type.
-                        choices:
-                            - 'any'
-                            - 'specific'
+                        choices: ['any', 'specific']
                     ip6:
                         type: str
                         description: Ip6.
@@ -154,8 +91,7 @@ options:
                     sdn:
                         type: str
                         description: Sdn.
-                        choices:
-                            - 'nsx'
+                        choices: ['nsx']
                     start_ip:
                         aliases: ['start-ip']
                         type: str
@@ -169,26 +105,15 @@ options:
                     type:
                         type: str
                         description: Type.
-                        choices:
-                            - 'ipprefix'
-                            - 'iprange'
-                            - 'nsx'
-                            - 'dynamic'
-                            - 'fqdn'
-                            - 'template'
-                            - 'mac'
-                            - 'geography'
-                            - 'route-tag'
-                            - 'wildcard'
+                        choices: ['ipprefix', 'iprange', 'nsx', 'dynamic', 'fqdn', 'template',
+                                  'mac', 'geography', 'route-tag', 'wildcard']
                     uuid:
                         type: str
                         description: Uuid.
                     visibility:
                         type: str
                         description: Visibility.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     subnet_segment:
                         aliases: ['subnet-segment']
                         type: list
@@ -201,9 +126,7 @@ options:
                             type:
                                 type: str
                                 description: Type.
-                                choices:
-                                    - 'any'
-                                    - 'specific'
+                                choices: ['any', 'specific']
                             value:
                                 type: str
                                 description: Value.
@@ -230,9 +153,7 @@ options:
                         aliases: ['fabric-object']
                         type: str
                         description: Security Fabric global object setting.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     macaddr:
                         type: raw
                         description: (list) Multiple MAC address ranges.
@@ -258,10 +179,7 @@ options:
                         aliases: ['sdn-addr-type']
                         type: str
                         description: Type of addresses to collect.
-                        choices:
-                            - 'all'
-                            - 'private'
-                            - 'public'
+                        choices: ['all', 'private', 'public']
                     wildcard:
                         type: str
                         description: IPv6 address and wildcard netmask.
@@ -269,9 +187,7 @@ options:
                         aliases: ['passive-fqdn-learning']
                         type: str
                         description: Enable/disable passive learning of FQDNs.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
             end_ip:
                 aliases: ['end-ip']
                 type: str
@@ -286,9 +202,7 @@ options:
                 aliases: ['host-type']
                 type: str
                 description: Host type.
-                choices:
-                    - 'any'
-                    - 'specific'
+                choices: ['any', 'specific']
             ip6:
                 type: str
                 description: IPv6 address prefix
@@ -319,8 +233,7 @@ options:
             sdn:
                 type: str
                 description: SDN.
-                choices:
-                    - 'nsx'
+                choices: ['nsx']
             start_ip:
                 aliases: ['start-ip']
                 type: str
@@ -337,9 +250,7 @@ options:
                     type:
                         type: str
                         description: Subnet segment type.
-                        choices:
-                            - 'any'
-                            - 'specific'
+                        choices: ['any', 'specific']
                     value:
                         type: str
                         description: Subnet segment value.
@@ -363,26 +274,15 @@ options:
             type:
                 type: str
                 description: Type of IPv6 address object
-                choices:
-                    - 'ipprefix'
-                    - 'iprange'
-                    - 'nsx'
-                    - 'dynamic'
-                    - 'fqdn'
-                    - 'template'
-                    - 'mac'
-                    - 'geography'
-                    - 'route-tag'
-                    - 'wildcard'
+                choices: ['ipprefix', 'iprange', 'nsx', 'dynamic', 'fqdn', 'template', 'mac',
+                          'geography', 'route-tag', 'wildcard']
             uuid:
                 type: str
                 description: Universally Unique Identifier
             visibility:
                 type: str
                 description: Enable/disable the visibility of the object in the GUI.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             tags:
                 type: str
                 description: Names of object-tags applied to address.
@@ -419,9 +319,7 @@ options:
                 aliases: ['fabric-object']
                 type: str
                 description: Security Fabric global object setting.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             macaddr:
                 type: raw
                 description: (list) Multiple MAC address ranges.
@@ -447,10 +345,7 @@ options:
                 aliases: ['sdn-addr-type']
                 type: str
                 description: Type of addresses to collect.
-                choices:
-                    - 'all'
-                    - 'private'
-                    - 'public'
+                choices: ['all', 'private', 'public']
             wildcard:
                 type: str
                 description: IPv6 address and wildcard netmask.
@@ -458,9 +353,7 @@ options:
                 aliases: ['passive-fqdn-learning']
                 type: str
                 description: Enable/disable passive learning of FQDNs.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -552,14 +445,11 @@ def main():
         '/pm/config/adom/{adom}/obj/firewall/address6',
         '/pm/config/global/obj/firewall/address6'
     ]
-    url_params = ['adom']
-    module_primary_key = 'name'
     module_arg_spec = {
         'adom': {'required': True, 'type': 'str'},
         'revision_note': {'type': 'str'},
         'firewall_address6': {
-            'type': 'dict',
-            'v_range': [['6.0.0', '']],
+            'type': 'dict', 'v_range': [['6.0.0', '']],
             'options': {
                 'cache-ttl': {'type': 'int'},
                 'color': {'type': 'int'},
@@ -678,19 +568,15 @@ def main():
 
     module_option_spec = get_module_arg_spec('full crud')
     module_arg_spec.update(module_option_spec)
-    params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'firewall_address6'),
                            supports_check_mode=True)
-
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
-                       module, connection, top_level_schema_name='data')
-    fmgr.validate_parameters(params_validation_blob)
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list,
+                       'name', 'data', module, connection)
     fmgr.process_crud()
-
     module.exit_json(meta=module.params)
 
 

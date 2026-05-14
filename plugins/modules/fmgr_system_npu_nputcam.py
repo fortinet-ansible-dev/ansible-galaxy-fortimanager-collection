@@ -13,75 +13,14 @@ DOCUMENTATION = '''
 ---
 module: fmgr_system_npu_nputcam
 short_description: Configure NPU TCAM policies.
-description:
-    - This module is able to configure a FortiManager device.
-    - Examples include all parameters and values which need to be adjusted to data sources before usage.
 version_added: "2.4.0"
-author:
-    - Xinwei Du (@dux-fortinet)
-    - Xing Li (@lix-fortinet)
-    - Jie Xue (@JieX19)
-    - Link Zheng (@chillancezen)
-    - Frank Shen (@fshen01)
-    - Hongbin Lu (@fgtdev-hblu)
-notes:
-    - Starting in version 2.4.0, all input arguments are named using the underscore naming convention (snake_case).
-      Please change the arguments such as "var-name" to "var_name".
-      Old argument names are still available yet you will receive deprecation warnings.
-      You can ignore this warning by setting deprecation_warnings=False in ansible.cfg.
-    - Running in workspace locking mode is supported in this FortiManager module, the top
-      level parameters workspace_locking_adom and workspace_locking_timeout help do the work.
-    - To create or update an object, use state present directive.
-    - To delete an object, use state absent directive.
-    - Normally, running one module can fail when a non-zero rc is returned. you can also override
-      the conditions to fail or succeed with parameters rc_failed and rc_succeeded
+extends_documentation_fragment:
+    - fortinet.fortimanager.general
+    - fortinet.fortimanager.general.full_crud
 options:
-    access_token:
-        description: The token to access FortiManager without using username and password.
-        type: str
-    bypass_validation:
-        description: Only set to True when module schema diffs with FortiManager API structure, module continues to execute without validating parameters.
-        type: bool
-        default: false
-    enable_log:
-        description: Enable/Disable logging for task.
-        type: bool
-        default: false
-    forticloud_access_token:
-        description: Authenticate Ansible client with forticloud API access token.
-        type: str
-    proposed_method:
-        description: The overridden method for the underlying Json RPC request.
-        type: str
-        choices:
-          - update
-          - set
-          - add
-    rc_succeeded:
-        description: The rc codes list with which the conditions to succeed will be overriden.
-        type: list
-        elements: int
-    rc_failed:
-        description: The rc codes list with which the conditions to fail will be overriden.
-        type: list
-        elements: int
-    state:
-        description: The directive to create, update or delete an object.
-        type: str
-        required: true
-        choices:
-          - present
-          - absent
     revision_note:
         description: The change note that can be specified when an object is created or updated.
         type: str
-    workspace_locking_adom:
-        description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
-        type: str
-    workspace_locking_timeout:
-        description: The maximum time in seconds to wait for other user to release the workspace lock.
-        type: int
-        default: 300
     adom:
         description: The parameter (adom) in requested url.
         type: str
@@ -98,9 +37,7 @@ options:
                     df:
                         type: str
                         description: Tcam data ip flag df.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     dstip:
                         type: str
                         description: Tcam data dst ipv4 address.
@@ -120,9 +57,7 @@ options:
                         aliases: ['ext-tag']
                         type: str
                         description: Tcam data extension tag.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     frag_off:
                         aliases: ['frag-off']
                         type: int
@@ -135,9 +70,7 @@ options:
                         aliases: ['gen-iv']
                         type: str
                         description: Tcam data gen info iv.
-                        choices:
-                            - 'invalid'
-                            - 'valid'
+                        choices: ['invalid', 'valid']
                     gen_l3_flags:
                         aliases: ['gen-l3-flags']
                         type: int
@@ -158,16 +91,12 @@ options:
                         aliases: ['gen-pri-v']
                         type: str
                         description: Tcam data gen info priority valid.
-                        choices:
-                            - 'invalid'
-                            - 'valid'
+                        choices: ['invalid', 'valid']
                     gen_tv:
                         aliases: ['gen-tv']
                         type: str
                         description: Tcam data gen info tv.
-                        choices:
-                            - 'invalid'
-                            - 'valid'
+                        choices: ['invalid', 'valid']
                     ihl:
                         type: int
                         description: Tcam data ipv4 IHL.
@@ -201,9 +130,7 @@ options:
                     mf:
                         type: str
                         description: Tcam data ip flag mf.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     protocol:
                         type: int
                         description: Tcam data ip protocol.
@@ -214,9 +141,7 @@ options:
                         aliases: ['smac-change']
                         type: str
                         description: Tcam data source MAC change.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     sp:
                         type: int
                         description: Tcam data source port.
@@ -224,9 +149,7 @@ options:
                         aliases: ['src-cfi']
                         type: str
                         description: Tcam data source cfi.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     src_prio:
                         aliases: ['src-prio']
                         type: int
@@ -235,9 +158,7 @@ options:
                         aliases: ['src-updt']
                         type: str
                         description: Tcam data source update.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     srcip:
                         type: str
                         description: Tcam data src ipv4 address.
@@ -257,65 +178,47 @@ options:
                         aliases: ['tcp-ack']
                         type: str
                         description: Tcam data tcp flag ack.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     tcp_cwr:
                         aliases: ['tcp-cwr']
                         type: str
                         description: Tcam data tcp flag cwr.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     tcp_ece:
                         aliases: ['tcp-ece']
                         type: str
                         description: Tcam data tcp flag ece.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     tcp_fin:
                         aliases: ['tcp-fin']
                         type: str
                         description: Tcam data tcp flag fin.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     tcp_push:
                         aliases: ['tcp-push']
                         type: str
                         description: Tcam data tcp flag push.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     tcp_rst:
                         aliases: ['tcp-rst']
                         type: str
                         description: Tcam data tcp flag rst.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     tcp_syn:
                         aliases: ['tcp-syn']
                         type: str
                         description: Tcam data tcp flag syn.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     tcp_urg:
                         aliases: ['tcp-urg']
                         type: str
                         description: Tcam data tcp flag urg.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     tgt_cfi:
                         aliases: ['tgt-cfi']
                         type: str
                         description: Tcam data target cfi.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     tgt_prio:
                         aliases: ['tgt-prio']
                         type: int
@@ -324,16 +227,12 @@ options:
                         aliases: ['tgt-updt']
                         type: str
                         description: Tcam data target port update.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     tgt_v:
                         aliases: ['tgt-v']
                         type: str
                         description: Tcam data target valid.
-                        choices:
-                            - 'invalid'
-                            - 'valid'
+                        choices: ['invalid', 'valid']
                     tos:
                         type: int
                         description: Tcam data ip tos.
@@ -360,9 +259,7 @@ options:
                     df:
                         type: str
                         description: Tcam mask ip flag df.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     dstip:
                         type: str
                         description: Tcam mask dst ipv4 address.
@@ -382,9 +279,7 @@ options:
                         aliases: ['ext-tag']
                         type: str
                         description: Tcam mask extension tag.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     frag_off:
                         aliases: ['frag-off']
                         type: int
@@ -397,9 +292,7 @@ options:
                         aliases: ['gen-iv']
                         type: str
                         description: Tcam mask gen info iv.
-                        choices:
-                            - 'invalid'
-                            - 'valid'
+                        choices: ['invalid', 'valid']
                     gen_l3_flags:
                         aliases: ['gen-l3-flags']
                         type: int
@@ -420,16 +313,12 @@ options:
                         aliases: ['gen-pri-v']
                         type: str
                         description: Tcam mask gen info priority valid.
-                        choices:
-                            - 'invalid'
-                            - 'valid'
+                        choices: ['invalid', 'valid']
                     gen_tv:
                         aliases: ['gen-tv']
                         type: str
                         description: Tcam mask gen info tv.
-                        choices:
-                            - 'invalid'
-                            - 'valid'
+                        choices: ['invalid', 'valid']
                     ihl:
                         type: int
                         description: Tcam mask ipv4 IHL.
@@ -463,9 +352,7 @@ options:
                     mf:
                         type: str
                         description: Tcam mask ip flag mf.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     protocol:
                         type: int
                         description: Tcam mask ip protocol.
@@ -476,9 +363,7 @@ options:
                         aliases: ['smac-change']
                         type: str
                         description: Tcam mask source MAC change.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     sp:
                         type: int
                         description: Tcam mask source port.
@@ -486,9 +371,7 @@ options:
                         aliases: ['src-cfi']
                         type: str
                         description: Tcam mask source cfi.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     src_prio:
                         aliases: ['src-prio']
                         type: int
@@ -497,9 +380,7 @@ options:
                         aliases: ['src-updt']
                         type: str
                         description: Tcam mask source update.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     srcip:
                         type: str
                         description: Tcam mask src ipv4 address.
@@ -519,65 +400,47 @@ options:
                         aliases: ['tcp-ack']
                         type: str
                         description: Tcam mask tcp flag ack.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     tcp_cwr:
                         aliases: ['tcp-cwr']
                         type: str
                         description: Tcam mask tcp flag cwr.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     tcp_ece:
                         aliases: ['tcp-ece']
                         type: str
                         description: Tcam mask tcp flag ece.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     tcp_fin:
                         aliases: ['tcp-fin']
                         type: str
                         description: Tcam mask tcp flag fin.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     tcp_push:
                         aliases: ['tcp-push']
                         type: str
                         description: Tcam mask tcp flag push.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     tcp_rst:
                         aliases: ['tcp-rst']
                         type: str
                         description: Tcam mask tcp flag rst.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     tcp_syn:
                         aliases: ['tcp-syn']
                         type: str
                         description: Tcam mask tcp flag syn.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     tcp_urg:
                         aliases: ['tcp-urg']
                         type: str
                         description: Tcam mask tcp flag urg.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     tgt_cfi:
                         aliases: ['tgt-cfi']
                         type: str
                         description: Tcam mask target cfi.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     tgt_prio:
                         aliases: ['tgt-prio']
                         type: int
@@ -586,16 +449,12 @@ options:
                         aliases: ['tgt-updt']
                         type: str
                         description: Tcam mask target port update.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     tgt_v:
                         aliases: ['tgt-v']
                         type: str
                         description: Tcam mask target valid.
-                        choices:
-                            - 'invalid'
-                            - 'valid'
+                        choices: ['invalid', 'valid']
                     tos:
                         type: int
                         description: Tcam mask ip tos.
@@ -648,9 +507,7 @@ options:
                         aliases: ['act-v']
                         type: str
                         description: Enable to set sact act.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     bmproc:
                         type: int
                         description: Tcam sact bmproc.
@@ -658,9 +515,7 @@ options:
                         aliases: ['bmproc-v']
                         type: str
                         description: Enable to set sact bmproc.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     df_lif:
                         aliases: ['df-lif']
                         type: int
@@ -669,9 +524,7 @@ options:
                         aliases: ['df-lif-v']
                         type: str
                         description: Enable to set sact df-lif.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     dfr:
                         type: int
                         description: Tcam sact dfr.
@@ -679,9 +532,7 @@ options:
                         aliases: ['dfr-v']
                         type: str
                         description: Enable to set sact dfr.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     dmac_skip:
                         aliases: ['dmac-skip']
                         type: int
@@ -690,9 +541,7 @@ options:
                         aliases: ['dmac-skip-v']
                         type: str
                         description: Enable to set sact dmac-skip.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     dosen:
                         type: int
                         description: Tcam sact dosen.
@@ -700,9 +549,7 @@ options:
                         aliases: ['dosen-v']
                         type: str
                         description: Enable to set sact dosen.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     espff_proc:
                         aliases: ['espff-proc']
                         type: int
@@ -711,9 +558,7 @@ options:
                         aliases: ['espff-proc-v']
                         type: str
                         description: Enable to set sact espff-proc.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     etype_pid:
                         aliases: ['etype-pid']
                         type: int
@@ -722,9 +567,7 @@ options:
                         aliases: ['etype-pid-v']
                         type: str
                         description: Enable to set sact etype-pid.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     frag_proc:
                         aliases: ['frag-proc']
                         type: int
@@ -733,9 +576,7 @@ options:
                         aliases: ['frag-proc-v']
                         type: str
                         description: Enable to set sact frag-proc.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     fwd:
                         type: int
                         description: Tcam sact fwd.
@@ -747,9 +588,7 @@ options:
                         aliases: ['fwd-lif-v']
                         type: str
                         description: Enable to set sact fwd-lif.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     fwd_tvid:
                         aliases: ['fwd-tvid']
                         type: int
@@ -758,16 +597,12 @@ options:
                         aliases: ['fwd-tvid-v']
                         type: str
                         description: Enable to set sact fwd-vid.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     fwd_v:
                         aliases: ['fwd-v']
                         type: str
                         description: Enable to set sact fwd.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     icpen:
                         type: int
                         description: Tcam sact icpen.
@@ -775,9 +610,7 @@ options:
                         aliases: ['icpen-v']
                         type: str
                         description: Enable to set sact icpen.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     igmp_mld_snp:
                         aliases: ['igmp-mld-snp']
                         type: int
@@ -786,9 +619,7 @@ options:
                         aliases: ['igmp-mld-snp-v']
                         type: str
                         description: Enable to set sact igmp-mld-snp.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     learn:
                         type: int
                         description: Tcam sact learn.
@@ -796,9 +627,7 @@ options:
                         aliases: ['learn-v']
                         type: str
                         description: Enable to set sact learn.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     m_srh_ctrl:
                         aliases: ['m-srh-ctrl']
                         type: int
@@ -807,9 +636,7 @@ options:
                         aliases: ['m-srh-ctrl-v']
                         type: str
                         description: Enable to set sact m-srh-ctrl.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     mac_id:
                         aliases: ['mac-id']
                         type: int
@@ -818,9 +645,7 @@ options:
                         aliases: ['mac-id-v']
                         type: str
                         description: Enable to set sact mac-id.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     mss:
                         type: int
                         description: Tcam sact mss.
@@ -828,9 +653,7 @@ options:
                         aliases: ['mss-v']
                         type: str
                         description: Enable to set sact mss.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     pleen:
                         type: int
                         description: Tcam sact pleen.
@@ -838,9 +661,7 @@ options:
                         aliases: ['pleen-v']
                         type: str
                         description: Enable to set sact pleen.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     prio_pid:
                         aliases: ['prio-pid']
                         type: int
@@ -849,9 +670,7 @@ options:
                         aliases: ['prio-pid-v']
                         type: str
                         description: Enable to set sact prio-pid.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     promis:
                         type: int
                         description: Tcam sact promis.
@@ -859,9 +678,7 @@ options:
                         aliases: ['promis-v']
                         type: str
                         description: Enable to set sact promis.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     rfsh:
                         type: int
                         description: Tcam sact rfsh.
@@ -869,9 +686,7 @@ options:
                         aliases: ['rfsh-v']
                         type: str
                         description: Enable to set sact rfsh.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     smac_skip:
                         aliases: ['smac-skip']
                         type: int
@@ -880,16 +695,12 @@ options:
                         aliases: ['smac-skip-v']
                         type: str
                         description: Enable to set sact smac-skip.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     tp_smchk_v:
                         aliases: ['tp-smchk-v']
                         type: str
                         description: Enable to set sact tp mode.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     tp_smchk:
                         type: int
                         description: Tcam sact tp mode.
@@ -901,9 +712,7 @@ options:
                         aliases: ['tpe-id-v']
                         type: str
                         description: Enable to set sact tpe-id.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     vdm:
                         type: int
                         description: Tcam sact vdm.
@@ -911,9 +720,7 @@ options:
                         aliases: ['vdm-v']
                         type: str
                         description: Enable to set sact vdm.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     vdom_id:
                         aliases: ['vdom-id']
                         type: int
@@ -922,9 +729,7 @@ options:
                         aliases: ['vdom-id-v']
                         type: str
                         description: Enable to set sact vdom-id.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     x_mode:
                         aliases: ['x-mode']
                         type: int
@@ -933,9 +738,7 @@ options:
                         aliases: ['x-mode-v']
                         type: str
                         description: Enable to set sact x-mode.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
             tact:
                 type: dict
                 description: Tact.
@@ -947,9 +750,7 @@ options:
                         aliases: ['act-v']
                         type: str
                         description: Enable to set tact act.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     fmtuv4_s:
                         aliases: ['fmtuv4-s']
                         type: int
@@ -958,9 +759,7 @@ options:
                         aliases: ['fmtuv4-s-v']
                         type: str
                         description: Enable to set tact fmtuv4-s.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     fmtuv6_s:
                         aliases: ['fmtuv6-s']
                         type: int
@@ -969,9 +768,7 @@ options:
                         aliases: ['fmtuv6-s-v']
                         type: str
                         description: Enable to set tact fmtuv6-s.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     lnkid:
                         type: int
                         description: Tcam tact lnkid.
@@ -979,9 +776,7 @@ options:
                         aliases: ['lnkid-v']
                         type: str
                         description: Enable to set tact lnkid.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     mac_id:
                         aliases: ['mac-id']
                         type: int
@@ -990,9 +785,7 @@ options:
                         aliases: ['mac-id-v']
                         type: str
                         description: Enable to set tact mac-id.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     mss_t:
                         aliases: ['mss-t']
                         type: int
@@ -1001,9 +794,7 @@ options:
                         aliases: ['mss-t-v']
                         type: str
                         description: Enable to set tact mss.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     mtuv4:
                         type: int
                         description: Tcam tact mtuv4.
@@ -1011,9 +802,7 @@ options:
                         aliases: ['mtuv4-v']
                         type: str
                         description: Enable to set tact mtuv4.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     mtuv6:
                         type: int
                         description: Tcam tact mtuv6.
@@ -1021,9 +810,7 @@ options:
                         aliases: ['mtuv6-v']
                         type: str
                         description: Enable to set tact mtuv6.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     slif_act:
                         aliases: ['slif-act']
                         type: int
@@ -1032,9 +819,7 @@ options:
                         aliases: ['slif-act-v']
                         type: str
                         description: Enable to set tact slif-act.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     sublnkid:
                         type: int
                         description: Tcam tact sublnkid.
@@ -1042,9 +827,7 @@ options:
                         aliases: ['sublnkid-v']
                         type: str
                         description: Enable to set tact sublnkid.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     tgtv_act:
                         aliases: ['tgtv-act']
                         type: int
@@ -1053,9 +836,7 @@ options:
                         aliases: ['tgtv-act-v']
                         type: str
                         description: Enable to set tact tgtv-act.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     tlif_act:
                         aliases: ['tlif-act']
                         type: int
@@ -1064,9 +845,7 @@ options:
                         aliases: ['tlif-act-v']
                         type: str
                         description: Enable to set tact tlif-act.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     tpeid:
                         type: int
                         description: Tcam tact tpeid.
@@ -1074,9 +853,7 @@ options:
                         aliases: ['tpeid-v']
                         type: str
                         description: Enable to set tact tpeid.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     v6fe:
                         type: int
                         description: Tcam tact v6fe.
@@ -1084,16 +861,12 @@ options:
                         aliases: ['v6fe-v']
                         type: str
                         description: Enable to set tact v6fe.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     vep_en_v:
                         aliases: ['vep-en-v']
                         type: str
                         description: Enable to set tact vep-en.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     vep_slid:
                         aliases: ['vep-slid']
                         type: int
@@ -1102,9 +875,7 @@ options:
                         aliases: ['vep-slid-v']
                         type: str
                         description: Enable to set tact vep-slid.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     vep_en:
                         type: int
                         description: Tcam tact vep_en.
@@ -1116,9 +887,7 @@ options:
                         aliases: ['xlt-lif-v']
                         type: str
                         description: Enable to set tact xlt-lif.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     xlt_vid:
                         aliases: ['xlt-vid']
                         type: int
@@ -1127,31 +896,15 @@ options:
                         aliases: ['xlt-vid-v']
                         type: str
                         description: Enable to set tact xlt-vid.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
             type:
                 type: str
                 description: TCAM policy type.
-                choices:
-                    - 'L2_src_tc'
-                    - 'L2_tgt_tc'
-                    - 'L2_src_mir'
-                    - 'L2_tgt_mir'
-                    - 'L2_src_act'
-                    - 'L2_tgt_act'
-                    - 'IPv4_src_tc'
-                    - 'IPv4_tgt_tc'
-                    - 'IPv4_src_mir'
-                    - 'IPv4_tgt_mir'
-                    - 'IPv4_src_act'
-                    - 'IPv4_tgt_act'
-                    - 'IPv6_src_tc'
-                    - 'IPv6_tgt_tc'
-                    - 'IPv6_src_mir'
-                    - 'IPv6_tgt_mir'
-                    - 'IPv6_src_act'
-                    - 'IPv6_tgt_act'
+                choices: ['L2_src_tc', 'L2_tgt_tc', 'L2_src_mir', 'L2_tgt_mir', 'L2_src_act',
+                          'L2_tgt_act', 'IPv4_src_tc', 'IPv4_tgt_tc', 'IPv4_src_mir',
+                          'IPv4_tgt_mir', 'IPv4_src_act', 'IPv4_tgt_act', 'IPv6_src_tc',
+                          'IPv6_tgt_tc', 'IPv6_src_mir', 'IPv6_tgt_mir', 'IPv6_src_act',
+                          'IPv6_tgt_act']
             vid:
                 type: int
                 description: NPU TCAM VID.
@@ -1162,18 +915,10 @@ EXAMPLES = '''
   hosts: fortimanagers
   connection: httpapi
   gather_facts: false
-  vars:
-    ansible_httpapi_use_ssl: true
-    ansible_httpapi_validate_certs: false
-    ansible_httpapi_port: 443
   tasks:
     - name: Configure NPU TCAM policies.
       fortinet.fortimanager.fmgr_system_npu_nputcam:
-        # bypass_validation: false
         # workspace_locking_adom: <global or your adom name>
-        # workspace_locking_timeout: 300
-        # rc_succeeded: [0, -2, -3, ...]
-        # rc_failed: [-2, -3, ...]
         adom: <your own value>
         state: present # <value in [present, absent]>
         system_npu_nputcam:
@@ -1443,14 +1188,11 @@ def main():
         '/pm/config/adom/{adom}/obj/system/npu/npu-tcam',
         '/pm/config/global/obj/system/npu/npu-tcam'
     ]
-    url_params = ['adom']
-    module_primary_key = 'name'
     module_arg_spec = {
         'adom': {'required': True, 'type': 'str'},
         'revision_note': {'type': 'str'},
         'system_npu_nputcam': {
-            'type': 'dict',
-            'v_range': [['7.4.2', '']],
+            'type': 'dict', 'v_range': [['7.4.2', '']],
             'options': {
                 'data': {
                     'v_range': [['7.4.2', '']],
@@ -1701,19 +1443,15 @@ def main():
 
     module_option_spec = get_module_arg_spec('full crud')
     module_arg_spec.update(module_option_spec)
-    params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'system_npu_nputcam'),
                            supports_check_mode=True)
-
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
-                       module, connection, top_level_schema_name='data')
-    fmgr.validate_parameters(params_validation_blob)
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list,
+                       'name', 'data', module, connection)
     fmgr.process_crud()
-
     module.exit_json(meta=module.params)
 
 

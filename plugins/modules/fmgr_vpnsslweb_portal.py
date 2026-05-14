@@ -13,75 +13,14 @@ DOCUMENTATION = '''
 ---
 module: fmgr_vpnsslweb_portal
 short_description: Portal.
-description:
-    - This module is able to configure a FortiManager device.
-    - Examples include all parameters and values which need to be adjusted to data sources before usage.
 version_added: "2.0.0"
-author:
-    - Xinwei Du (@dux-fortinet)
-    - Xing Li (@lix-fortinet)
-    - Jie Xue (@JieX19)
-    - Link Zheng (@chillancezen)
-    - Frank Shen (@fshen01)
-    - Hongbin Lu (@fgtdev-hblu)
-notes:
-    - Starting in version 2.4.0, all input arguments are named using the underscore naming convention (snake_case).
-      Please change the arguments such as "var-name" to "var_name".
-      Old argument names are still available yet you will receive deprecation warnings.
-      You can ignore this warning by setting deprecation_warnings=False in ansible.cfg.
-    - Running in workspace locking mode is supported in this FortiManager module, the top
-      level parameters workspace_locking_adom and workspace_locking_timeout help do the work.
-    - To create or update an object, use state present directive.
-    - To delete an object, use state absent directive.
-    - Normally, running one module can fail when a non-zero rc is returned. you can also override
-      the conditions to fail or succeed with parameters rc_failed and rc_succeeded
+extends_documentation_fragment:
+    - fortinet.fortimanager.general
+    - fortinet.fortimanager.general.full_crud
 options:
-    access_token:
-        description: The token to access FortiManager without using username and password.
-        type: str
-    bypass_validation:
-        description: Only set to True when module schema diffs with FortiManager API structure, module continues to execute without validating parameters.
-        type: bool
-        default: false
-    enable_log:
-        description: Enable/Disable logging for task.
-        type: bool
-        default: false
-    forticloud_access_token:
-        description: Authenticate Ansible client with forticloud API access token.
-        type: str
-    proposed_method:
-        description: The overridden method for the underlying Json RPC request.
-        type: str
-        choices:
-          - update
-          - set
-          - add
-    rc_succeeded:
-        description: The rc codes list with which the conditions to succeed will be overriden.
-        type: list
-        elements: int
-    rc_failed:
-        description: The rc codes list with which the conditions to fail will be overriden.
-        type: list
-        elements: int
-    state:
-        description: The directive to create, update or delete an object.
-        type: str
-        required: true
-        choices:
-          - present
-          - absent
     revision_note:
         description: The change note that can be specified when an object is created or updated.
         type: str
-    workspace_locking_adom:
-        description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
-        type: str
-    workspace_locking_timeout:
-        description: The maximum time in seconds to wait for other user to release the workspace lock.
-        type: int
-        default: 300
     adom:
         description: The parameter (adom) in requested url.
         type: str
@@ -96,25 +35,13 @@ options:
                 type: list
                 elements: str
                 description: Allow user access to SSL-VPN applications.
-                choices:
-                    - 'web'
-                    - 'ftp'
-                    - 'telnet'
-                    - 'smb'
-                    - 'vnc'
-                    - 'rdp'
-                    - 'ssh'
-                    - 'ping'
-                    - 'citrix'
-                    - 'portforward'
-                    - 'sftp'
+                choices: ['web', 'ftp', 'telnet', 'smb', 'vnc', 'rdp', 'ssh', 'ping', 'citrix',
+                          'portforward', 'sftp']
             auto_connect:
                 aliases: ['auto-connect']
                 type: str
                 description: Enable/disable automatic connect by client when system is up.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             bookmark_group:
                 aliases: ['bookmark-group']
                 type: list
@@ -133,18 +60,8 @@ options:
                             apptype:
                                 type: str
                                 description: Application type.
-                                choices:
-                                    - 'web'
-                                    - 'telnet'
-                                    - 'ssh'
-                                    - 'ftp'
-                                    - 'smb'
-                                    - 'vnc'
-                                    - 'rdp'
-                                    - 'citrix'
-                                    - 'rdpnative'
-                                    - 'portforward'
-                                    - 'sftp'
+                                choices: ['web', 'telnet', 'ssh', 'ftp', 'smb', 'vnc', 'rdp',
+                                          'citrix', 'rdpnative', 'portforward', 'sftp']
                             description:
                                 type: str
                                 description: Description.
@@ -203,57 +120,35 @@ options:
                             security:
                                 type: str
                                 description: Security mode for RDP connection.
-                                choices:
-                                    - 'rdp'
-                                    - 'nla'
-                                    - 'tls'
-                                    - 'any'
+                                choices: ['rdp', 'nla', 'tls', 'any']
                             server_layout:
                                 aliases: ['server-layout']
                                 type: str
                                 description: Server side keyboard layout.
-                                choices:
-                                    - 'en-us-qwerty'
-                                    - 'de-de-qwertz'
-                                    - 'fr-fr-azerty'
-                                    - 'it-it-qwerty'
-                                    - 'sv-se-qwerty'
-                                    - 'failsafe'
-                                    - 'en-gb-qwerty'
-                                    - 'es-es-qwerty'
-                                    - 'fr-ch-qwertz'
-                                    - 'ja-jp-qwerty'
-                                    - 'pt-br-qwerty'
-                                    - 'tr-tr-qwerty'
-                                    - 'fr-ca-qwerty'
+                                choices: ['en-us-qwerty', 'de-de-qwertz', 'fr-fr-azerty',
+                                          'it-it-qwerty', 'sv-se-qwerty', 'failsafe',
+                                          'en-gb-qwerty', 'es-es-qwerty', 'fr-ch-qwertz',
+                                          'ja-jp-qwerty', 'pt-br-qwerty', 'tr-tr-qwerty',
+                                          'fr-ca-qwerty']
                             show_status_window:
                                 aliases: ['show-status-window']
                                 type: str
                                 description: Enable/disable showing of status window.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             sso:
                                 type: str
                                 description: Single Sign-On.
-                                choices:
-                                    - 'disable'
-                                    - 'static'
-                                    - 'auto'
+                                choices: ['disable', 'static', 'auto']
                             sso_credential:
                                 aliases: ['sso-credential']
                                 type: str
                                 description: Single sign-on credentials.
-                                choices:
-                                    - 'sslvpn-login'
-                                    - 'alternative'
+                                choices: ['sslvpn-login', 'alternative']
                             sso_credential_sent_once:
                                 aliases: ['sso-credential-sent-once']
                                 type: str
                                 description: Single sign-on credentials are only sent once to remote server.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             sso_password:
                                 aliases: ['sso-password']
                                 type: raw
@@ -272,10 +167,7 @@ options:
                                 aliases: ['color-depth']
                                 type: str
                                 description: Color depth per pixel.
-                                choices:
-                                    - '8'
-                                    - '16'
-                                    - '32'
+                                choices: ['8', '16', '32']
                             height:
                                 type: int
                                 description: Screen height
@@ -283,91 +175,28 @@ options:
                                 aliases: ['keyboard-layout']
                                 type: str
                                 description: Keyboard layout.
-                                choices:
-                                    - 'ar'
-                                    - 'da'
-                                    - 'de'
-                                    - 'de-ch'
-                                    - 'en-gb'
-                                    - 'en-uk'
-                                    - 'en-us'
-                                    - 'es'
-                                    - 'fi'
-                                    - 'fr'
-                                    - 'fr-be'
-                                    - 'fr-ca'
-                                    - 'fr-ch'
-                                    - 'hr'
-                                    - 'hu'
-                                    - 'it'
-                                    - 'ja'
-                                    - 'lt'
-                                    - 'lv'
-                                    - 'mk'
-                                    - 'no'
-                                    - 'pl'
-                                    - 'pt'
-                                    - 'pt-br'
-                                    - 'ru'
-                                    - 'sl'
-                                    - 'sv'
-                                    - 'tk'
-                                    - 'tr'
-                                    - 'fr-ca-m'
-                                    - 'wg'
-                                    - 'ar-101'
-                                    - 'ar-102'
-                                    - 'ar-102-azerty'
-                                    - 'can-mul'
-                                    - 'cz'
-                                    - 'cz-qwerty'
-                                    - 'cz-pr'
-                                    - 'nl'
-                                    - 'de-ibm'
-                                    - 'en-uk-ext'
-                                    - 'en-us-dvorak'
-                                    - 'es-var'
-                                    - 'fi-sami'
-                                    - 'hu-101'
-                                    - 'it-142'
-                                    - 'ko'
-                                    - 'lt-ibm'
-                                    - 'lt-std'
-                                    - 'lav-std'
-                                    - 'lav-leg'
-                                    - 'mk-std'
-                                    - 'no-sami'
-                                    - 'pol-214'
-                                    - 'pol-pr'
-                                    - 'pt-br-abnt2'
-                                    - 'ru-mne'
-                                    - 'ru-t'
-                                    - 'sv-sami'
-                                    - 'tuk'
-                                    - 'tur-f'
-                                    - 'tur-q'
-                                    - 'zh-sym-sg-us'
-                                    - 'zh-sym-us'
-                                    - 'zh-tr-hk'
-                                    - 'zh-tr-mo'
-                                    - 'zh-tr-us'
-                                    - 'fr-apple'
-                                    - 'la-am'
-                                    - 'ja-106'
+                                choices: ['ar', 'da', 'de', 'de-ch', 'en-gb', 'en-uk', 'en-us',
+                                          'es', 'fi', 'fr', 'fr-be', 'fr-ca', 'fr-ch', 'hr', 'hu',
+                                          'it', 'ja', 'lt', 'lv', 'mk', 'no', 'pl', 'pt', 'pt-br',
+                                          'ru', 'sl', 'sv', 'tk', 'tr', 'fr-ca-m', 'wg', 'ar-101',
+                                          'ar-102', 'ar-102-azerty', 'can-mul', 'cz', 'cz-qwerty',
+                                          'cz-pr', 'nl', 'de-ibm', 'en-uk-ext', 'en-us-dvorak',
+                                          'es-var', 'fi-sami', 'hu-101', 'it-142', 'ko', 'lt-ibm',
+                                          'lt-std', 'lav-std', 'lav-leg', 'mk-std', 'no-sami',
+                                          'pol-214', 'pol-pr', 'pt-br-abnt2', 'ru-mne', 'ru-t',
+                                          'sv-sami', 'tuk', 'tur-f', 'tur-q', 'zh-sym-sg-us',
+                                          'zh-sym-us', 'zh-tr-hk', 'zh-tr-mo', 'zh-tr-us',
+                                          'fr-apple', 'la-am', 'ja-106']
                             restricted_admin:
                                 aliases: ['restricted-admin']
                                 type: str
                                 description: Enable/disable restricted admin mode for RDP.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             send_preconnection_id:
                                 aliases: ['send-preconnection-id']
                                 type: str
                                 description: Enable/disable sending of preconnection ID.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             width:
                                 type: int
                                 description: Screen width
@@ -375,27 +204,9 @@ options:
                                 aliases: ['vnc-keyboard-layout']
                                 type: str
                                 description: Keyboard layout.
-                                choices:
-                                    - 'da'
-                                    - 'de'
-                                    - 'de-ch'
-                                    - 'en-uk'
-                                    - 'es'
-                                    - 'fi'
-                                    - 'fr'
-                                    - 'fr-be'
-                                    - 'it'
-                                    - 'no'
-                                    - 'pt'
-                                    - 'sv'
-                                    - 'nl'
-                                    - 'en-uk-ext'
-                                    - 'it-142'
-                                    - 'pt-br-abnt2'
-                                    - 'default'
-                                    - 'fr-ca-mul'
-                                    - 'gd'
-                                    - 'us-intl'
+                                choices: ['da', 'de', 'de-ch', 'en-uk', 'es', 'fi', 'fr', 'fr-be',
+                                          'it', 'no', 'pt', 'sv', 'nl', 'en-uk-ext', 'it-142',
+                                          'pt-br-abnt2', 'default', 'fr-ca-mul', 'gd', 'us-intl']
                     name:
                         type: str
                         description: Bookmark group name.
@@ -407,37 +218,27 @@ options:
                 aliases: ['customize-forticlient-download-url']
                 type: str
                 description: Enable support of customized download URL for FortiClient.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             display_bookmark:
                 aliases: ['display-bookmark']
                 type: str
                 description: Enable to display the web portal bookmark widget.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             display_connection_tools:
                 aliases: ['display-connection-tools']
                 type: str
                 description: Enable to display the web portal connection tools widget.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             display_history:
                 aliases: ['display-history']
                 type: str
                 description: Enable to display the web portal user login history widget.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             display_status:
                 aliases: ['display-status']
                 type: str
                 description: Enable to display the web portal status widget.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             dns_server1:
                 aliases: ['dns-server1']
                 type: str
@@ -454,23 +255,17 @@ options:
                 aliases: ['exclusive-routing']
                 type: str
                 description: Enable/disable all traffic go through tunnel only.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             forticlient_download:
                 aliases: ['forticlient-download']
                 type: str
                 description: Enable/disable download option for FortiClient.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             forticlient_download_method:
                 aliases: ['forticlient-download-method']
                 type: str
                 description: FortiClient download method.
-                choices:
-                    - 'direct'
-                    - 'ssl-vpn'
+                choices: ['direct', 'ssl-vpn']
             heading:
                 type: str
                 description: Web portal heading message.
@@ -478,19 +273,12 @@ options:
                 aliases: ['hide-sso-credential']
                 type: str
                 description: Enable to prevent SSO credential being sent to client.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             host_check:
                 aliases: ['host-check']
                 type: str
                 description: Type of host checking performed on endpoints.
-                choices:
-                    - 'none'
-                    - 'av'
-                    - 'fw'
-                    - 'av-fw'
-                    - 'custom'
+                choices: ['none', 'av', 'fw', 'av-fw', 'custom']
             host_check_interval:
                 aliases: ['host-check-interval']
                 type: int
@@ -503,11 +291,7 @@ options:
                 aliases: ['ip-mode']
                 type: str
                 description: Method by which users of this SSL-VPN tunnel obtain IP addresses.
-                choices:
-                    - 'range'
-                    - 'user-group'
-                    - 'dhcp'
-                    - 'no-ip'
+                choices: ['range', 'user-group', 'dhcp', 'no-ip']
             ip_pools:
                 aliases: ['ip-pools']
                 type: raw
@@ -524,9 +308,7 @@ options:
                 aliases: ['ipv6-exclusive-routing']
                 type: str
                 description: Enable/disable all IPv6 traffic go through tunnel only.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             ipv6_pools:
                 aliases: ['ipv6-pools']
                 type: raw
@@ -535,16 +317,12 @@ options:
                 aliases: ['ipv6-service-restriction']
                 type: str
                 description: Enable/disable IPv6 tunnel service restriction.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             ipv6_split_tunneling:
                 aliases: ['ipv6-split-tunneling']
                 type: str
                 description: Enable/disable IPv6 split tunneling.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             ipv6_split_tunneling_routing_address:
                 aliases: ['ipv6-split-tunneling-routing-address']
                 type: raw
@@ -553,9 +331,7 @@ options:
                 aliases: ['ipv6-tunnel-mode']
                 type: str
                 description: Enable/disable IPv6 SSL-VPN tunnel mode.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             ipv6_wins_server1:
                 aliases: ['ipv6-wins-server1']
                 type: str
@@ -568,30 +344,22 @@ options:
                 aliases: ['keep-alive']
                 type: str
                 description: Enable/disable automatic reconnect for FortiClient connections.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             limit_user_logins:
                 aliases: ['limit-user-logins']
                 type: str
                 description: Enable to limit each user to one SSL-VPN session at a time.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             mac_addr_action:
                 aliases: ['mac-addr-action']
                 type: str
                 description: Client MAC address action.
-                choices:
-                    - 'deny'
-                    - 'allow'
+                choices: ['deny', 'allow']
             mac_addr_check:
                 aliases: ['mac-addr-check']
                 type: str
                 description: Enable/disable MAC address host checking.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             mac_addr_check_rule:
                 aliases: ['mac-addr-check-rule']
                 type: list
@@ -621,9 +389,7 @@ options:
                 aliases: ['os-check']
                 type: str
                 description: Enable to let the FortiGate decide action based on client OS.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             redir_url:
                 aliases: ['redir-url']
                 type: str
@@ -632,43 +398,31 @@ options:
                 aliases: ['save-password']
                 type: str
                 description: Enable/disable FortiClient saving the users password.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             service_restriction:
                 aliases: ['service-restriction']
                 type: str
                 description: Enable/disable tunnel service restriction.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             skip_check_for_unsupported_browser:
                 aliases: ['skip-check-for-unsupported-browser']
                 type: str
                 description: Enable to skip host check if browser does not support it.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             skip_check_for_unsupported_os:
                 aliases: ['skip-check-for-unsupported-os']
                 type: str
                 description: Enable to skip host check if client OS does not support it.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             smb_ntlmv1_auth:
                 aliases: ['smb-ntlmv1-auth']
                 type: str
                 description: Enable support of NTLMv1 for Samba authentication.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             smbv1:
                 type: str
                 description: Enable/disable support of SMBv1 for Samba.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             split_dns:
                 aliases: ['split-dns']
                 type: list
@@ -701,9 +455,7 @@ options:
                 aliases: ['split-tunneling']
                 type: str
                 description: Enable/disable IPv4 split tunneling.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             split_tunneling_routing_address:
                 aliases: ['split-tunneling-routing-address']
                 type: raw
@@ -711,53 +463,29 @@ options:
             theme:
                 type: str
                 description: Web portal color scheme.
-                choices:
-                    - 'gray'
-                    - 'blue'
-                    - 'orange'
-                    - 'crimson'
-                    - 'steelblue'
-                    - 'darkgrey'
-                    - 'green'
-                    - 'melongene'
-                    - 'red'
-                    - 'mariner'
-                    - 'neutrino'
-                    - 'jade'
-                    - 'graphite'
-                    - 'dark-matter'
-                    - 'onyx'
-                    - 'eclipse'
-                    - 'jet-stream'
-                    - 'security-fabric'
+                choices: ['gray', 'blue', 'orange', 'crimson', 'steelblue', 'darkgrey', 'green',
+                          'melongene', 'red', 'mariner', 'neutrino', 'jade', 'graphite',
+                          'dark-matter', 'onyx', 'eclipse', 'jet-stream', 'security-fabric']
             tunnel_mode:
                 aliases: ['tunnel-mode']
                 type: str
                 description: Enable/disable IPv4 SSL-VPN tunnel mode.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             user_bookmark:
                 aliases: ['user-bookmark']
                 type: str
                 description: Enable to allow web portal users to create their own bookmarks.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             user_group_bookmark:
                 aliases: ['user-group-bookmark']
                 type: str
                 description: Enable to allow web portal users to create bookmarks for all users in the same user group.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             web_mode:
                 aliases: ['web-mode']
                 type: str
                 description: Enable/disable SSL VPN web mode.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             windows_forticlient_download_url:
                 aliases: ['windows-forticlient-download-url']
                 type: str
@@ -774,67 +502,47 @@ options:
                 aliases: ['skip-check-for-browser']
                 type: str
                 description: Enable to skip host check for browser support.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             smb_max_version:
                 aliases: ['smb-max-version']
                 type: str
                 description: SMB maximum client protocol version.
-                choices:
-                    - 'smbv1'
-                    - 'smbv2'
-                    - 'smbv3'
+                choices: ['smbv1', 'smbv2', 'smbv3']
             smb_min_version:
                 aliases: ['smb-min-version']
                 type: str
                 description: SMB minimum client protocol version.
-                choices:
-                    - 'smbv1'
-                    - 'smbv2'
-                    - 'smbv3'
+                choices: ['smbv1', 'smbv2', 'smbv3']
             virtual_desktop_logout_when_browser_close:
                 aliases: ['virtual-desktop-logout-when-browser-close']
                 type: str
                 description: Enable/disable logout when browser is close in virtual desktop.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             virtual_desktop_clipboard_share:
                 aliases: ['virtual-desktop-clipboard-share']
                 type: str
                 description: Enable/disable sharing of clipboard in virtual desktop.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             virtual_desktop_desktop_switch:
                 aliases: ['virtual-desktop-desktop-switch']
                 type: str
                 description: Enable/disable switch to virtual desktop.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             virtual_desktop:
                 aliases: ['virtual-desktop']
                 type: str
                 description: Enable/disable SSL VPN virtual desktop.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             virtual_desktop_network_share_access:
                 aliases: ['virtual-desktop-network-share-access']
                 type: str
                 description: Enable/disable network share access in virtual desktop.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             virtual_desktop_printing:
                 aliases: ['virtual-desktop-printing']
                 type: str
                 description: Enable/disable printing in virtual desktop.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             virtual_desktop_app_list:
                 aliases: ['virtual-desktop-app-list']
                 type: str
@@ -843,30 +551,22 @@ options:
                 aliases: ['virtual-desktop-removable-media-access']
                 type: str
                 description: Enable/disable access to removable media in virtual desktop.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             transform_backward_slashes:
                 aliases: ['transform-backward-slashes']
                 type: str
                 description: Transform backward slashes to forward slashes in URLs.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             ipv6_split_tunneling_routing_negate:
                 aliases: ['ipv6-split-tunneling-routing-negate']
                 type: str
                 description: Enable to negate IPv6 split tunneling routing address.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             split_tunneling_routing_negate:
                 aliases: ['split-tunneling-routing-negate']
                 type: str
                 description: Enable to negate split tunneling routing address.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             os_check_list:
                 aliases: ['os-check-list']
                 type: dict
@@ -875,10 +575,7 @@ options:
                     action:
                         type: str
                         description: OS check options.
-                        choices:
-                            - 'allow'
-                            - 'check-up-to-date'
-                            - 'deny'
+                        choices: ['allow', 'check-up-to-date', 'deny']
                     latest_patch_level:
                         aliases: ['latest-patch-level']
                         type: str
@@ -897,29 +594,21 @@ options:
                 aliases: ['use-sdwan']
                 type: str
                 description: Use SD-WAN rules to get output interface.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             prefer_ipv6_dns:
                 aliases: ['prefer-ipv6-dns']
                 type: str
                 description: Prefer to query IPv6 dns first if enabled.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             rewrite_ip_uri_ui:
                 aliases: ['rewrite-ip-uri-ui']
                 type: str
                 description: Rewrite contents for URI contains IP and /ui/.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             clipboard:
                 type: str
                 description: Enable to support RDP/VPC clipboard functionality.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             default_window_height:
                 aliases: ['default-window-height']
                 type: int
@@ -932,16 +621,12 @@ options:
                 aliases: ['dhcp-ip-overlap']
                 type: str
                 description: Configure overlapping DHCP IP allocation assignment.
-                choices:
-                    - 'use-old'
-                    - 'use-new'
+                choices: ['use-old', 'use-new']
             client_src_range:
                 aliases: ['client-src-range']
                 type: str
                 description: Allow client to add source range for the tunnel traffic.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             dhcp_ra_giaddr:
                 aliases: ['dhcp-ra-giaddr']
                 type: str
@@ -974,17 +659,12 @@ options:
                     sso:
                         type: str
                         description: Single sign-on.
-                        choices:
-                            - 'disable'
-                            - 'static'
-                            - 'auto'
+                        choices: ['disable', 'static', 'auto']
                     sso_credential:
                         aliases: ['sso-credential']
                         type: str
                         description: Single sign-on credentials.
-                        choices:
-                            - 'sslvpn-login'
-                            - 'alternative'
+                        choices: ['sslvpn-login', 'alternative']
                     sso_password:
                         aliases: ['sso-password']
                         type: raw
@@ -1000,36 +680,22 @@ options:
                 aliases: ['landing-page-mode']
                 type: str
                 description: Enable/disable SSL-VPN landing page mode.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             default_protocol:
                 aliases: ['default-protocol']
                 type: str
                 description: Application type that is set by default.
-                choices:
-                    - 'web'
-                    - 'ftp'
-                    - 'telnet'
-                    - 'smb'
-                    - 'vnc'
-                    - 'rdp'
-                    - 'ssh'
-                    - 'sftp'
+                choices: ['web', 'ftp', 'telnet', 'smb', 'vnc', 'rdp', 'ssh', 'sftp']
             focus_bookmark:
                 aliases: ['focus-bookmark']
                 type: str
                 description: Enable to prioritize the placement of the bookmark section over the quick-connection section in the SSL-VPN application.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             dhcp_reservation:
                 aliases: ['dhcp-reservation']
                 type: str
                 description: Enable/disable dhcp reservation.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -1037,34 +703,16 @@ EXAMPLES = '''
   hosts: fortimanagers
   connection: httpapi
   gather_facts: false
-  vars:
-    ansible_httpapi_use_ssl: true
-    ansible_httpapi_validate_certs: false
-    ansible_httpapi_port: 443
   tasks:
     - name: Portal.
       fortinet.fortimanager.fmgr_vpnsslweb_portal:
-        # bypass_validation: false
         # workspace_locking_adom: <global or your adom name>
-        # workspace_locking_timeout: 300
-        # rc_succeeded: [0, -2, -3, ...]
-        # rc_failed: [-2, -3, ...]
         adom: <your own value>
         state: present # <value in [present, absent]>
         vpnsslweb_portal:
           name: "your value" # Required variable, string
-          # allow_user_access:
-          #   - "web"
-          #   - "ftp"
-          #   - "telnet"
-          #   - "smb"
-          #   - "vnc"
-          #   - "rdp"
-          #   - "ssh"
-          #   - "ping"
-          #   - "citrix"
-          #   - "portforward"
-          #   - "sftp"
+          # allow_user_access: ["web", "ftp", "telnet", "smb", "vnc", "rdp", "ssh", "ping",
+          #                     "citrix", "portforward", "sftp"]
           # auto_connect: <value in [disable, enable]>
           # bookmark_group:
           #   - bookmarks:
@@ -1262,14 +910,11 @@ def main():
         '/pm/config/adom/{adom}/obj/vpn/ssl/web/portal',
         '/pm/config/global/obj/vpn/ssl/web/portal'
     ]
-    url_params = ['adom']
-    module_primary_key = 'name'
     module_arg_spec = {
         'adom': {'required': True, 'type': 'str'},
         'revision_note': {'type': 'str'},
         'vpnsslweb_portal': {
-            'type': 'dict',
-            'v_range': [['6.0.0', '']],
+            'type': 'dict', 'v_range': [['6.0.0', '']],
             'options': {
                 'allow-user-access': {
                     'type': 'list',
@@ -1496,19 +1141,15 @@ def main():
 
     module_option_spec = get_module_arg_spec('full crud')
     module_arg_spec.update(module_option_spec)
-    params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'vpnsslweb_portal'),
                            supports_check_mode=True)
-
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
-                       module, connection, top_level_schema_name='data')
-    fmgr.validate_parameters(params_validation_blob)
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list,
+                       'name', 'data', module, connection)
     fmgr.process_crud()
-
     module.exit_json(meta=module.params)
 
 

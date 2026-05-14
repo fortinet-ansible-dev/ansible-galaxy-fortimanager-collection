@@ -13,75 +13,14 @@ DOCUMENTATION = '''
 ---
 module: fmgr_casb_useractivity
 short_description: Configure CASB user activity.
-description:
-    - This module is able to configure a FortiManager device.
-    - Examples include all parameters and values which need to be adjusted to data sources before usage.
 version_added: "2.3.0"
-author:
-    - Xinwei Du (@dux-fortinet)
-    - Xing Li (@lix-fortinet)
-    - Jie Xue (@JieX19)
-    - Link Zheng (@chillancezen)
-    - Frank Shen (@fshen01)
-    - Hongbin Lu (@fgtdev-hblu)
-notes:
-    - Starting in version 2.4.0, all input arguments are named using the underscore naming convention (snake_case).
-      Please change the arguments such as "var-name" to "var_name".
-      Old argument names are still available yet you will receive deprecation warnings.
-      You can ignore this warning by setting deprecation_warnings=False in ansible.cfg.
-    - Running in workspace locking mode is supported in this FortiManager module, the top
-      level parameters workspace_locking_adom and workspace_locking_timeout help do the work.
-    - To create or update an object, use state present directive.
-    - To delete an object, use state absent directive.
-    - Normally, running one module can fail when a non-zero rc is returned. you can also override
-      the conditions to fail or succeed with parameters rc_failed and rc_succeeded
+extends_documentation_fragment:
+    - fortinet.fortimanager.general
+    - fortinet.fortimanager.general.full_crud
 options:
-    access_token:
-        description: The token to access FortiManager without using username and password.
-        type: str
-    bypass_validation:
-        description: Only set to True when module schema diffs with FortiManager API structure, module continues to execute without validating parameters.
-        type: bool
-        default: false
-    enable_log:
-        description: Enable/Disable logging for task.
-        type: bool
-        default: false
-    forticloud_access_token:
-        description: Authenticate Ansible client with forticloud API access token.
-        type: str
-    proposed_method:
-        description: The overridden method for the underlying Json RPC request.
-        type: str
-        choices:
-          - update
-          - set
-          - add
-    rc_succeeded:
-        description: The rc codes list with which the conditions to succeed will be overriden.
-        type: list
-        elements: int
-    rc_failed:
-        description: The rc codes list with which the conditions to fail will be overriden.
-        type: list
-        elements: int
-    state:
-        description: The directive to create, update or delete an object.
-        type: str
-        required: true
-        choices:
-          - present
-          - absent
     revision_note:
         description: The change note that can be specified when an object is created or updated.
         type: str
-    workspace_locking_adom:
-        description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
-        type: str
-    workspace_locking_timeout:
-        description: The maximum time in seconds to wait for other user to release the workspace lock.
-        type: int
-        default: 300
     adom:
         description: The parameter (adom) in requested url.
         type: str
@@ -101,13 +40,8 @@ options:
             category:
                 type: str
                 description: CASB user activity category.
-                choices:
-                    - 'activity-control'
-                    - 'tenant-control'
-                    - 'domain-control'
-                    - 'safe-search-control'
-                    - 'other'
-                    - 'advanced-tenant-control'
+                choices: ['activity-control', 'tenant-control', 'domain-control',
+                          'safe-search-control', 'other', 'advanced-tenant-control']
             control_options:
                 aliases: ['control-options']
                 type: list
@@ -125,26 +59,17 @@ options:
                             action:
                                 type: str
                                 description: CASB operation action.
-                                choices:
-                                    - 'append'
-                                    - 'prepend'
-                                    - 'replace'
-                                    - 'new'
-                                    - 'new-on-not-found'
-                                    - 'delete'
+                                choices: ['append', 'prepend', 'replace', 'new',
+                                          'new-on-not-found', 'delete']
                             case_sensitive:
                                 aliases: ['case-sensitive']
                                 type: str
                                 description: CASB operation search case sensitive.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             direction:
                                 type: str
                                 description: CASB operation direction.
-                                choices:
-                                    - 'request'
-                                    - 'response'
+                                choices: ['request', 'response']
                             header_name:
                                 aliases: ['header-name']
                                 type: str
@@ -160,24 +85,16 @@ options:
                                 aliases: ['search-pattern']
                                 type: str
                                 description: CASB operation search pattern.
-                                choices:
-                                    - 'simple'
-                                    - 'substr'
-                                    - 'regexp'
+                                choices: ['simple', 'substr', 'regexp']
                             target:
                                 type: str
                                 description: CASB operation target.
-                                choices:
-                                    - 'header'
-                                    - 'path'
-                                    - 'body'
+                                choices: ['header', 'path', 'body']
                             value_from_input:
                                 aliases: ['value-from-input']
                                 type: str
                                 description: Enable/disable value from user input.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             values:
                                 type: list
                                 elements: str
@@ -189,9 +106,7 @@ options:
                     status:
                         type: str
                         description: CASB control option status.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
             description:
                 type: str
                 description: CASB user activity description.
@@ -212,9 +127,7 @@ options:
                                 aliases: ['case-sensitive']
                                 type: str
                                 description: CASB user activity match case sensitive.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             domains:
                                 type: list
                                 elements: str
@@ -230,10 +143,7 @@ options:
                                 aliases: ['match-pattern']
                                 type: str
                                 description: CASB user activity rule match pattern.
-                                choices:
-                                    - 'simple'
-                                    - 'substr'
-                                    - 'regexp'
+                                choices: ['simple', 'substr', 'regexp']
                             match_value:
                                 aliases: ['match-value']
                                 type: str
@@ -245,35 +155,24 @@ options:
                             negate:
                                 type: str
                                 description: Enable/disable what the matching strategy must not be.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             type:
                                 type: str
                                 description: CASB user activity rule type.
-                                choices:
-                                    - 'domains'
-                                    - 'host'
-                                    - 'path'
-                                    - 'header'
-                                    - 'header-value'
-                                    - 'method'
-                                    - 'body'
+                                choices: ['domains', 'host', 'path', 'header', 'header-value',
+                                          'method', 'body']
                             body_type:
                                 aliases: ['body-type']
                                 type: str
                                 description: CASB user activity match rule body type.
-                                choices:
-                                    - 'json'
+                                choices: ['json']
                             jq:
                                 type: str
                                 description: CASB user activity rule match jq script.
                     strategy:
                         type: str
                         description: CASB user activity rules strategy.
-                        choices:
-                            - 'or'
-                            - 'and'
+                        choices: ['or', 'and']
                     tenant_extraction:
                         aliases: ['tenant-extraction']
                         type: dict
@@ -288,14 +187,11 @@ options:
                                         aliases: ['body-type']
                                         type: str
                                         description: CASB tenant extraction filter body type.
-                                        choices:
-                                            - 'json'
+                                        choices: ['json']
                                     direction:
                                         type: str
                                         description: CASB tenant extraction filter direction.
-                                        choices:
-                                            - 'request'
-                                            - 'response'
+                                        choices: ['request', 'response']
                                     header_name:
                                         aliases: ['header-name']
                                         type: str
@@ -306,31 +202,23 @@ options:
                                     place:
                                         type: str
                                         description: CASB tenant extraction filter place type.
-                                        choices:
-                                            - 'path'
-                                            - 'header'
-                                            - 'body'
+                                        choices: ['path', 'header', 'body']
                             jq:
                                 type: str
                                 description: CASB user activity tenant extraction jq script.
                             status:
                                 type: str
                                 description: Enable/disable CASB tenant extraction.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             type:
                                 type: str
                                 description: CASB user activity tenant extraction type.
-                                choices:
-                                    - 'json-query'
+                                choices: ['json-query']
             match_strategy:
                 aliases: ['match-strategy']
                 type: str
                 description: CASB user activity match strategy.
-                choices:
-                    - 'or'
-                    - 'and'
+                choices: ['or', 'and']
             name:
                 type: str
                 description: CASB user activity name.
@@ -338,18 +226,14 @@ options:
             type:
                 type: str
                 description: CASB user activity type.
-                choices:
-                    - 'built-in'
-                    - 'customized'
+                choices: ['built-in', 'customized']
             uuid:
                 type: str
                 description: Universally Unique Identifier
             status:
                 type: str
                 description: CASB user activity status.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -357,18 +241,10 @@ EXAMPLES = '''
   hosts: fortimanagers
   connection: httpapi
   gather_facts: false
-  vars:
-    ansible_httpapi_use_ssl: true
-    ansible_httpapi_validate_certs: false
-    ansible_httpapi_port: 443
   tasks:
     - name: Configure CASB user activity.
       fortinet.fortimanager.fmgr_casb_useractivity:
-        # bypass_validation: false
         # workspace_locking_adom: <global or your adom name>
-        # workspace_locking_timeout: 300
-        # rc_succeeded: [0, -2, -3, ...]
-        # rc_failed: [-2, -3, ...]
         adom: <your own value>
         state: present # <value in [present, absent]>
         casb_useractivity:
@@ -473,14 +349,11 @@ def main():
         '/pm/config/adom/{adom}/obj/casb/user-activity',
         '/pm/config/global/obj/casb/user-activity'
     ]
-    url_params = ['adom']
-    module_primary_key = 'name'
     module_arg_spec = {
         'adom': {'required': True, 'type': 'str'},
         'revision_note': {'type': 'str'},
         'casb_useractivity': {
-            'type': 'dict',
-            'v_range': [['7.4.1', '']],
+            'type': 'dict', 'v_range': [['7.4.1', '']],
             'options': {
                 'application': {'v_range': [['7.4.1', '']], 'type': 'str'},
                 'casb-name': {'v_range': [['7.4.1', '']], 'type': 'str'},
@@ -584,19 +457,15 @@ def main():
 
     module_option_spec = get_module_arg_spec('full crud')
     module_arg_spec.update(module_option_spec)
-    params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'casb_useractivity'),
                            supports_check_mode=True)
-
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
-                       module, connection, top_level_schema_name='data')
-    fmgr.validate_parameters(params_validation_blob)
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list,
+                       'name', 'data', module, connection)
     fmgr.process_crud()
-
     module.exit_json(meta=module.params)
 
 

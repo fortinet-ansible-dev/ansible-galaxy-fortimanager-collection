@@ -13,63 +13,11 @@ DOCUMENTATION = '''
 ---
 module: fmgr_system_locallog_disk_setting
 short_description: Settings for local disk logging.
-description:
-    - This module is able to configure a FortiManager device.
-    - Examples include all parameters and values which need to be adjusted to data sources before usage.
 version_added: "2.0.0"
-author:
-    - Xinwei Du (@dux-fortinet)
-    - Xing Li (@lix-fortinet)
-    - Jie Xue (@JieX19)
-    - Link Zheng (@chillancezen)
-    - Frank Shen (@fshen01)
-    - Hongbin Lu (@fgtdev-hblu)
-notes:
-    - Starting in version 2.4.0, all input arguments are named using the underscore naming convention (snake_case).
-      Please change the arguments such as "var-name" to "var_name".
-      Old argument names are still available yet you will receive deprecation warnings.
-      You can ignore this warning by setting deprecation_warnings=False in ansible.cfg.
-    - Running in workspace locking mode is supported in this FortiManager module, the top
-      level parameters workspace_locking_adom and workspace_locking_timeout help do the work.
-    - Normally, running one module can fail when a non-zero rc is returned. you can also override
-      the conditions to fail or succeed with parameters rc_failed and rc_succeeded
+extends_documentation_fragment:
+    - fortinet.fortimanager.general
+    - fortinet.fortimanager.general.partial_crud
 options:
-    access_token:
-        description: The token to access FortiManager without using username and password.
-        type: str
-    bypass_validation:
-        description: Only set to True when module schema diffs with FortiManager API structure, module continues to execute without validating parameters.
-        type: bool
-        default: false
-    enable_log:
-        description: Enable/Disable logging for task.
-        type: bool
-        default: false
-    forticloud_access_token:
-        description: Authenticate Ansible client with forticloud API access token.
-        type: str
-    proposed_method:
-        description: The overridden method for the underlying Json RPC request.
-        type: str
-        choices:
-          - update
-          - set
-          - add
-    rc_succeeded:
-        description: The rc codes list with which the conditions to succeed will be overriden.
-        type: list
-        elements: int
-    rc_failed:
-        description: The rc codes list with which the conditions to fail will be overriden.
-        type: list
-        elements: int
-    workspace_locking_adom:
-        description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
-        type: str
-    workspace_locking_timeout:
-        description: The maximum time in seconds to wait for other user to release the workspace lock.
-        type: int
-        default: 300
     system_locallog_disk_setting:
         description: The top level parameters set.
         required: false
@@ -81,9 +29,7 @@ options:
                     - Policy to apply when disk is full.
                     - overwrite - Overwrite oldest log when disk is full.
                     - nolog - Stop logging when disk is full.
-                choices:
-                    - 'overwrite'
-                    - 'nolog'
+                choices: ['overwrite', 'nolog']
             log_disk_full_percentage:
                 aliases: ['log-disk-full-percentage']
                 type: int
@@ -105,14 +51,8 @@ options:
                     - thursday - Thursday.
                     - friday - Friday.
                     - saturday - Saturday.
-                choices:
-                    - 'sunday'
-                    - 'monday'
-                    - 'tuesday'
-                    - 'wednesday'
-                    - 'thursday'
-                    - 'friday'
-                    - 'saturday'
+                choices: ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday',
+                          'saturday']
             roll_schedule:
                 aliases: ['roll-schedule']
                 type: str
@@ -121,10 +61,7 @@ options:
                     - none - Not scheduled.
                     - daily - Every day.
                     - weekly - Every week.
-                choices:
-                    - 'none'
-                    - 'daily'
-                    - 'weekly'
+                choices: ['none', 'daily', 'weekly']
             roll_time:
                 aliases: ['roll-time']
                 type: raw
@@ -137,10 +74,7 @@ options:
                     - FTP - Upload via FTP.
                     - SFTP - Upload via SFTP.
                     - SCP - Upload via SCP.
-                choices:
-                    - 'FTP'
-                    - 'SFTP'
-                    - 'SCP'
+                choices: ['FTP', 'SFTP', 'SCP']
             severity:
                 type: str
                 description:
@@ -153,33 +87,22 @@ options:
                     - notification - Notification level.
                     - information - Information level.
                     - debug - Debug level.
-                choices:
-                    - 'emergency'
-                    - 'alert'
-                    - 'critical'
-                    - 'error'
-                    - 'warning'
-                    - 'notification'
-                    - 'information'
-                    - 'debug'
+                choices: ['emergency', 'alert', 'critical', 'error', 'warning', 'notification',
+                          'information', 'debug']
             status:
                 type: str
                 description:
                     - Enable/disable local disk log.
                     - disable - Do not log to local disk.
                     - enable - Log to local disk.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             upload:
                 type: str
                 description:
                     - Upload log file when rolling.
                     - disable - Disable uploading when rolling log file.
                     - enable - Enable uploading when rolling log file.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             upload_delete_files:
                 aliases: ['upload-delete-files']
                 type: str
@@ -187,9 +110,7 @@ options:
                     - Delete log files after uploading
                     - disable - Do not delete log files after uploading.
                     - enable - Delete log files after uploading.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             upload_time:
                 aliases: ['upload-time']
                 type: raw
@@ -212,17 +133,14 @@ options:
                     - Scheduled upload
                     - disable - Upload when rolling.
                     - enable - Scheduled upload.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             uploadtype:
                 type: list
                 elements: str
                 description:
                     - Types of log files that need to be uploaded.
                     - event - Upload event log.
-                choices:
-                    - 'event'
+                choices: ['event']
             uploaduser:
                 type: str
                 description: User account in upload server.
@@ -232,9 +150,7 @@ options:
                     - Compress upload logs.
                     - disable - Upload log files as plain text.
                     - enable - Upload log files compressed.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             log_disk_quota:
                 aliases: ['log-disk-quota']
                 type: int
@@ -250,30 +166,16 @@ EXAMPLES = '''
   hosts: fortimanagers
   connection: httpapi
   gather_facts: false
-  vars:
-    ansible_httpapi_use_ssl: true
-    ansible_httpapi_validate_certs: false
-    ansible_httpapi_port: 443
   tasks:
     - name: Settings for local disk logging.
       fortinet.fortimanager.fmgr_system_locallog_disk_setting:
-        # bypass_validation: false
         # workspace_locking_adom: <global or your adom name>
-        # workspace_locking_timeout: 300
-        # rc_succeeded: [0, -2, -3, ...]
-        # rc_failed: [-2, -3, ...]
         system_locallog_disk_setting:
           # diskfull: <value in [overwrite, nolog]>
           # log_disk_full_percentage: <integer>
           # max_log_file_size: <integer>
-          # roll_day:
-          #   - "sunday"
-          #   - "monday"
-          #   - "tuesday"
-          #   - "wednesday"
-          #   - "thursday"
-          #   - "friday"
-          #   - "saturday"
+          # roll_day: ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday",
+          #            "saturday"]
           # roll_schedule: <value in [none, daily, weekly]>
           # roll_time: <list or string>
           # server_type: <value in [FTP, SFTP, SCP]>
@@ -287,8 +189,7 @@ EXAMPLES = '''
           # uploadpass: <list or string>
           # uploadport: <integer>
           # uploadsched: <value in [disable, enable]>
-          # uploadtype:
-          #   - "event"
+          # uploadtype: ["event"]
           # uploaduser: <string>
           # uploadzip: <value in [disable, enable]>
           # log_disk_quota: <integer>
@@ -344,12 +245,9 @@ def main():
     urls_list = [
         '/cli/global/system/locallog/disk/setting'
     ]
-    url_params = []
-    module_primary_key = None
     module_arg_spec = {
         'system_locallog_disk_setting': {
-            'type': 'dict',
-            'v_range': [['6.0.0', '']],
+            'type': 'dict', 'v_range': [['6.0.0', '']],
             'options': {
                 'diskfull': {'choices': ['overwrite', 'nolog'], 'type': 'str'},
                 'log-disk-full-percentage': {'type': 'int'},
@@ -379,19 +277,15 @@ def main():
 
     module_option_spec = get_module_arg_spec('partial crud')
     module_arg_spec.update(module_option_spec)
-    params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'system_locallog_disk_setting'),
                            supports_check_mode=True)
-
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list, module_primary_key, url_params,
-                       module, connection, top_level_schema_name='data')
-    fmgr.validate_parameters(params_validation_blob)
+    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list,
+                       None, 'data', module, connection)
     fmgr.process_partial_crud()
-
     module.exit_json(meta=module.params)
 
 

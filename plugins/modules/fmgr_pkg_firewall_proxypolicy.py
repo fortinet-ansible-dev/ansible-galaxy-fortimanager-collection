@@ -13,75 +13,14 @@ DOCUMENTATION = '''
 ---
 module: fmgr_pkg_firewall_proxypolicy
 short_description: Configure proxy policies.
-description:
-    - This module is able to configure a FortiManager device.
-    - Examples include all parameters and values which need to be adjusted to data sources before usage.
 version_added: "2.0.0"
-author:
-    - Xinwei Du (@dux-fortinet)
-    - Xing Li (@lix-fortinet)
-    - Jie Xue (@JieX19)
-    - Link Zheng (@chillancezen)
-    - Frank Shen (@fshen01)
-    - Hongbin Lu (@fgtdev-hblu)
-notes:
-    - Starting in version 2.4.0, all input arguments are named using the underscore naming convention (snake_case).
-      Please change the arguments such as "var-name" to "var_name".
-      Old argument names are still available yet you will receive deprecation warnings.
-      You can ignore this warning by setting deprecation_warnings=False in ansible.cfg.
-    - Running in workspace locking mode is supported in this FortiManager module, the top
-      level parameters workspace_locking_adom and workspace_locking_timeout help do the work.
-    - To create or update an object, use state present directive.
-    - To delete an object, use state absent directive.
-    - Normally, running one module can fail when a non-zero rc is returned. you can also override
-      the conditions to fail or succeed with parameters rc_failed and rc_succeeded
+extends_documentation_fragment:
+    - fortinet.fortimanager.general
+    - fortinet.fortimanager.general.full_crud
 options:
-    access_token:
-        description: The token to access FortiManager without using username and password.
-        type: str
-    bypass_validation:
-        description: Only set to True when module schema diffs with FortiManager API structure, module continues to execute without validating parameters.
-        type: bool
-        default: false
-    enable_log:
-        description: Enable/Disable logging for task.
-        type: bool
-        default: false
-    forticloud_access_token:
-        description: Authenticate Ansible client with forticloud API access token.
-        type: str
-    proposed_method:
-        description: The overridden method for the underlying Json RPC request.
-        type: str
-        choices:
-          - update
-          - set
-          - add
-    rc_succeeded:
-        description: The rc codes list with which the conditions to succeed will be overriden.
-        type: list
-        elements: int
-    rc_failed:
-        description: The rc codes list with which the conditions to fail will be overriden.
-        type: list
-        elements: int
-    state:
-        description: The directive to create, update or delete an object.
-        type: str
-        required: true
-        choices:
-          - present
-          - absent
     revision_note:
         description: The change note that can be specified when an object is created or updated.
         type: str
-    workspace_locking_adom:
-        description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
-        type: str
-    workspace_locking_timeout:
-        description: The maximum time in seconds to wait for other user to release the workspace lock.
-        type: int
-        default: 300
     adom:
         description: The parameter (adom) in requested url.
         type: str
@@ -98,11 +37,7 @@ options:
             action:
                 type: str
                 description: Accept or deny traffic matching the policy parameters.
-                choices:
-                    - 'accept'
-                    - 'deny'
-                    - 'redirect'
-                    - 'isolate'
+                choices: ['accept', 'deny', 'redirect', 'isolate']
             application_list:
                 aliases: ['application-list']
                 type: str
@@ -117,11 +52,7 @@ options:
             disclaimer:
                 type: str
                 description: Web proxy disclaimer setting
-                choices:
-                    - 'disable'
-                    - 'domain'
-                    - 'policy'
-                    - 'user'
+                choices: ['disable', 'domain', 'policy', 'user']
             dlp_sensor:
                 aliases: ['dlp-sensor']
                 type: str
@@ -133,9 +64,7 @@ options:
                 aliases: ['dstaddr-negate']
                 type: str
                 description: When enabled, destination addresses match against any address EXCEPT the specified destination addresses.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             dstaddr6:
                 type: raw
                 description: (list or str) IPv6 destination address objects.
@@ -153,9 +82,7 @@ options:
                 aliases: ['http-tunnel-auth']
                 type: str
                 description: Enable/disable HTTP tunnel authentication.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             icap_profile:
                 aliases: ['icap-profile']
                 type: str
@@ -164,9 +91,7 @@ options:
                 aliases: ['internet-service']
                 type: str
                 description: Enable/disable use of Internet Services for this policy.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             internet_service_custom:
                 aliases: ['internet-service-custom']
                 type: raw
@@ -179,9 +104,7 @@ options:
                 aliases: ['internet-service-negate']
                 type: str
                 description: When enabled, Internet Services match against any internet service EXCEPT the selected Internet Service.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             ips_sensor:
                 aliases: ['ips-sensor']
                 type: str
@@ -192,17 +115,12 @@ options:
             logtraffic:
                 type: str
                 description: Enable/disable logging traffic through the policy.
-                choices:
-                    - 'disable'
-                    - 'all'
-                    - 'utm'
+                choices: ['disable', 'all', 'utm']
             logtraffic_start:
                 aliases: ['logtraffic-start']
                 type: str
                 description: Enable/disable policy log traffic start.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             mms_profile:
                 aliases: ['mms-profile']
                 type: str
@@ -226,21 +144,12 @@ options:
                 aliases: ['profile-type']
                 type: str
                 description: Determine whether the firewall policy allows security profile groups or single profiles only.
-                choices:
-                    - 'single'
-                    - 'group'
+                choices: ['single', 'group']
             proxy:
                 type: str
                 description: Type of explicit proxy.
-                choices:
-                    - 'explicit-web'
-                    - 'transparent-web'
-                    - 'ftp'
-                    - 'wanopt'
-                    - 'ssh'
-                    - 'ssh-tunnel'
-                    - 'access-proxy'
-                    - 'ztna-proxy'
+                choices: ['explicit-web', 'transparent-web', 'ftp', 'wanopt', 'ssh', 'ssh-tunnel',
+                          'access-proxy', 'ztna-proxy']
             redirect_url:
                 aliases: ['redirect-url']
                 type: str
@@ -253,10 +162,7 @@ options:
                 aliases: ['scan-botnet-connections']
                 type: str
                 description: Enable/disable scanning of connections to Botnet servers.
-                choices:
-                    - 'disable'
-                    - 'block'
-                    - 'monitor'
+                choices: ['disable', 'block', 'monitor']
             schedule:
                 type: str
                 description: Name of schedule object.
@@ -267,9 +173,7 @@ options:
                 aliases: ['service-negate']
                 type: str
                 description: When enabled, services match against any service EXCEPT the specified destination services.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             spamfilter_profile:
                 aliases: ['spamfilter-profile']
                 type: str
@@ -281,9 +185,7 @@ options:
                 aliases: ['srcaddr-negate']
                 type: str
                 description: When enabled, source addresses match against any address EXCEPT the specified source addresses.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             srcaddr6:
                 type: raw
                 description: (list or str) IPv6 source address objects.
@@ -297,18 +199,14 @@ options:
             status:
                 type: str
                 description: Enable/disable the active status of the policy.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             tags:
                 type: str
                 description: Names of object-tags applied to address.
             transparent:
                 type: str
                 description: Enable to use the IP address of the client to connect to the server.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             users:
                 type: raw
                 description: (list or str) Names of user objects.
@@ -316,9 +214,7 @@ options:
                 aliases: ['utm-status']
                 type: str
                 description: Enable the use of UTM profiles/sensors/lists.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             uuid:
                 type: str
                 description: Universally Unique Identifier
@@ -329,16 +225,12 @@ options:
             webcache:
                 type: str
                 description: Enable/disable web caching.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             webcache_https:
                 aliases: ['webcache-https']
                 type: str
                 description: Enable/disable web caching for HTTPS
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             webfilter_profile:
                 aliases: ['webfilter-profile']
                 type: str
@@ -379,9 +271,7 @@ options:
                 aliases: ['ssh-policy-redirect']
                 type: str
                 description: Redirect SSH traffic to matching transparent proxy policy.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             decrypted_traffic_mirror:
                 aliases: ['decrypted-traffic-mirror']
                 type: str
@@ -405,9 +295,7 @@ options:
                 aliases: ['device-ownership']
                 type: str
                 description: When enabled, the ownership enforcement will be done at policy level.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             videofilter_profile:
                 aliases: ['videofilter-profile']
                 type: str
@@ -428,9 +316,7 @@ options:
                 aliases: ['block-notification']
                 type: str
                 description: Enable/disable block notification.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             dlp_profile:
                 aliases: ['dlp-profile']
                 type: str
@@ -443,9 +329,7 @@ options:
                 aliases: ['ztna-tags-match-logic']
                 type: str
                 description: ZTNA tag matching logic.
-                choices:
-                    - 'or'
-                    - 'and'
+                choices: ['or', 'and']
             casb_profile:
                 aliases: ['casb-profile']
                 type: str
@@ -454,9 +338,7 @@ options:
                 aliases: ['detect-https-in-http-request']
                 type: str
                 description: Enable/disable detection of HTTPS in HTTP request.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             diameter_filter_profile:
                 aliases: ['diameter-filter-profile']
                 type: str
@@ -465,9 +347,7 @@ options:
                 aliases: ['internet-service6']
                 type: str
                 description: Enable/disable use of Internet Services IPv6 for this policy.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             internet_service6_custom:
                 aliases: ['internet-service6-custom']
                 type: raw
@@ -488,9 +368,7 @@ options:
                 aliases: ['internet-service6-negate']
                 type: str
                 description: When enabled, Internet Services match against any internet service IPv6 EXCEPT the selected Internet Service IPv6.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             ips_voip_filter:
                 aliases: ['ips-voip-filter']
                 type: str
@@ -510,9 +388,7 @@ options:
                 aliases: ['log-http-transaction']
                 type: str
                 description: Enable/disable HTTP transaction log.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             ztna_proxy:
                 aliases: ['ztna-proxy']
                 type: raw
@@ -529,16 +405,12 @@ options:
                 aliases: ['ztna-ems-tag-negate']
                 type: str
                 description: When enabled, ZTNA EMS tags match against any tag EXCEPT the specified ZTNA EMS tags.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             https_sub_category:
                 aliases: ['https-sub-category']
                 type: str
                 description: Enable/disable HTTPS sub-category policy matching.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             telemetry_profile:
                 aliases: ['telemetry-profile']
                 type: raw
@@ -652,15 +524,12 @@ def main():
     urls_list = [
         '/pm/config/adom/{adom}/pkg/{pkg}/firewall/proxy-policy'
     ]
-    url_params = ['adom', 'pkg']
-    module_primary_key = 'policyid'
     module_arg_spec = {
         'adom': {'required': True, 'type': 'str'},
         'pkg': {'required': True, 'type': 'str'},
         'revision_note': {'type': 'str'},
         'pkg_firewall_proxypolicy': {
-            'type': 'dict',
-            'v_range': [['6.0.0', '']],
+            'type': 'dict', 'v_range': [['6.0.0', '']],
             'options': {
                 'action': {'choices': ['accept', 'deny', 'redirect', 'isolate'], 'type': 'str'},
                 'application-list': {'type': 'str'},
@@ -780,19 +649,15 @@ def main():
 
     module_option_spec = get_module_arg_spec('full crud')
     module_arg_spec.update(module_option_spec)
-    params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'pkg_firewall_proxypolicy'),
                            supports_check_mode=True)
-
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
-                       module, connection, top_level_schema_name='data')
-    fmgr.validate_parameters(params_validation_blob)
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list,
+                       'policyid', 'data', module, connection)
     fmgr.process_crud()
-
     module.exit_json(meta=module.params)
 
 

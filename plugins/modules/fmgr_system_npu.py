@@ -13,66 +13,14 @@ DOCUMENTATION = '''
 ---
 module: fmgr_system_npu
 short_description: Configure NPU attributes.
-description:
-    - This module is able to configure a FortiManager device.
-    - Examples include all parameters and values which need to be adjusted to data sources before usage.
 version_added: "2.1.0"
-author:
-    - Xinwei Du (@dux-fortinet)
-    - Xing Li (@lix-fortinet)
-    - Jie Xue (@JieX19)
-    - Link Zheng (@chillancezen)
-    - Frank Shen (@fshen01)
-    - Hongbin Lu (@fgtdev-hblu)
-notes:
-    - Starting in version 2.4.0, all input arguments are named using the underscore naming convention (snake_case).
-      Please change the arguments such as "var-name" to "var_name".
-      Old argument names are still available yet you will receive deprecation warnings.
-      You can ignore this warning by setting deprecation_warnings=False in ansible.cfg.
-    - Running in workspace locking mode is supported in this FortiManager module, the top
-      level parameters workspace_locking_adom and workspace_locking_timeout help do the work.
-    - Normally, running one module can fail when a non-zero rc is returned. you can also override
-      the conditions to fail or succeed with parameters rc_failed and rc_succeeded
+extends_documentation_fragment:
+    - fortinet.fortimanager.general
+    - fortinet.fortimanager.general.partial_crud
 options:
-    access_token:
-        description: The token to access FortiManager without using username and password.
-        type: str
-    bypass_validation:
-        description: Only set to True when module schema diffs with FortiManager API structure, module continues to execute without validating parameters.
-        type: bool
-        default: false
-    enable_log:
-        description: Enable/Disable logging for task.
-        type: bool
-        default: false
-    forticloud_access_token:
-        description: Authenticate Ansible client with forticloud API access token.
-        type: str
-    proposed_method:
-        description: The overridden method for the underlying Json RPC request.
-        type: str
-        choices:
-          - update
-          - set
-          - add
-    rc_succeeded:
-        description: The rc codes list with which the conditions to succeed will be overriden.
-        type: list
-        elements: int
-    rc_failed:
-        description: The rc codes list with which the conditions to fail will be overriden.
-        type: list
-        elements: int
     revision_note:
         description: The change note that can be specified when an object is created or updated.
         type: str
-    workspace_locking_adom:
-        description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
-        type: str
-    workspace_locking_timeout:
-        description: The maximum time in seconds to wait for other user to release the workspace lock.
-        type: int
-        default: 300
     adom:
         description: The parameter (adom) in requested url.
         type: str
@@ -86,9 +34,7 @@ options:
                 aliases: ['capwap-offload']
                 type: str
                 description: Enable/disable offloading managed FortiAP and FortiLink CAPWAP sessions.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             dedicated_management_affinity:
                 aliases: ['dedicated-management-affinity']
                 type: str
@@ -97,15 +43,11 @@ options:
                 aliases: ['dedicated-management-cpu']
                 type: str
                 description: Enable to dedicate one CPU for GUI and CLI connections when NPs are busy.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             fastpath:
                 type: str
                 description: Enable/disable NP6 offloading
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             fp_anomaly:
                 aliases: ['fp-anomaly']
                 type: dict
@@ -115,553 +57,364 @@ options:
                         aliases: ['esp-minlen-err']
                         type: str
                         description: Invalid IPv4 ESP short packet anomalies.
-                        choices:
-                            - 'drop'
-                            - 'trap-to-host'
+                        choices: ['drop', 'trap-to-host']
                     icmp_csum_err:
                         aliases: ['icmp-csum-err']
                         type: str
                         description: Invalid IPv4 ICMP packet checksum anomalies.
-                        choices:
-                            - 'drop'
-                            - 'trap-to-host'
+                        choices: ['drop', 'trap-to-host']
                     icmp_minlen_err:
                         aliases: ['icmp-minlen-err']
                         type: str
                         description: Invalid IPv4 ICMP short packet anomalies.
-                        choices:
-                            - 'drop'
-                            - 'trap-to-host'
+                        choices: ['drop', 'trap-to-host']
                     ipv4_csum_err:
                         aliases: ['ipv4-csum-err']
                         type: str
                         description: Invalid IPv4 packet checksum anomalies.
-                        choices:
-                            - 'drop'
-                            - 'trap-to-host'
+                        choices: ['drop', 'trap-to-host']
                     ipv4_ihl_err:
                         aliases: ['ipv4-ihl-err']
                         type: str
                         description: Invalid IPv4 header length anomalies.
-                        choices:
-                            - 'drop'
-                            - 'trap-to-host'
+                        choices: ['drop', 'trap-to-host']
                     ipv4_len_err:
                         aliases: ['ipv4-len-err']
                         type: str
                         description: Invalid IPv4 packet length anomalies.
-                        choices:
-                            - 'drop'
-                            - 'trap-to-host'
+                        choices: ['drop', 'trap-to-host']
                     ipv4_opt_err:
                         aliases: ['ipv4-opt-err']
                         type: str
                         description: Invalid IPv4 option parsing anomalies.
-                        choices:
-                            - 'drop'
-                            - 'trap-to-host'
+                        choices: ['drop', 'trap-to-host']
                     ipv4_ttlzero_err:
                         aliases: ['ipv4-ttlzero-err']
                         type: str
                         description: Invalid IPv4 TTL field zero anomalies.
-                        choices:
-                            - 'drop'
-                            - 'trap-to-host'
+                        choices: ['drop', 'trap-to-host']
                     ipv4_ver_err:
                         aliases: ['ipv4-ver-err']
                         type: str
                         description: Invalid IPv4 header version anomalies.
-                        choices:
-                            - 'drop'
-                            - 'trap-to-host'
+                        choices: ['drop', 'trap-to-host']
                     ipv6_exthdr_len_err:
                         aliases: ['ipv6-exthdr-len-err']
                         type: str
                         description: Invalid IPv6 packet chain extension header total length anomalies.
-                        choices:
-                            - 'drop'
-                            - 'trap-to-host'
+                        choices: ['drop', 'trap-to-host']
                     ipv6_exthdr_order_err:
                         aliases: ['ipv6-exthdr-order-err']
                         type: str
                         description: Invalid IPv6 packet extension header ordering anomalies.
-                        choices:
-                            - 'drop'
-                            - 'trap-to-host'
+                        choices: ['drop', 'trap-to-host']
                     ipv6_ihl_err:
                         aliases: ['ipv6-ihl-err']
                         type: str
                         description: Invalid IPv6 packet length anomalies.
-                        choices:
-                            - 'drop'
-                            - 'trap-to-host'
+                        choices: ['drop', 'trap-to-host']
                     ipv6_plen_zero:
                         aliases: ['ipv6-plen-zero']
                         type: str
                         description: Invalid IPv6 packet payload length zero anomalies.
-                        choices:
-                            - 'drop'
-                            - 'trap-to-host'
+                        choices: ['drop', 'trap-to-host']
                     ipv6_ver_err:
                         aliases: ['ipv6-ver-err']
                         type: str
                         description: Invalid IPv6 packet version anomalies.
-                        choices:
-                            - 'drop'
-                            - 'trap-to-host'
+                        choices: ['drop', 'trap-to-host']
                     tcp_csum_err:
                         aliases: ['tcp-csum-err']
                         type: str
                         description: Invalid IPv4 TCP packet checksum anomalies.
-                        choices:
-                            - 'drop'
-                            - 'trap-to-host'
+                        choices: ['drop', 'trap-to-host']
                     tcp_hlen_err:
                         aliases: ['tcp-hlen-err']
                         type: str
                         description: Invalid IPv4 TCP header length anomalies.
-                        choices:
-                            - 'drop'
-                            - 'trap-to-host'
+                        choices: ['drop', 'trap-to-host']
                     tcp_plen_err:
                         aliases: ['tcp-plen-err']
                         type: str
                         description: Invalid IPv4 TCP packet length anomalies.
-                        choices:
-                            - 'drop'
-                            - 'trap-to-host'
+                        choices: ['drop', 'trap-to-host']
                     udp_csum_err:
                         aliases: ['udp-csum-err']
                         type: str
                         description: Invalid IPv4 UDP packet checksum anomalies.
-                        choices:
-                            - 'drop'
-                            - 'trap-to-host'
+                        choices: ['drop', 'trap-to-host']
                     udp_hlen_err:
                         aliases: ['udp-hlen-err']
                         type: str
                         description: Invalid IPv4 UDP packet header length anomalies.
-                        choices:
-                            - 'drop'
-                            - 'trap-to-host'
+                        choices: ['drop', 'trap-to-host']
                     udp_len_err:
                         aliases: ['udp-len-err']
                         type: str
                         description: Invalid IPv4 UDP packet length anomalies.
-                        choices:
-                            - 'drop'
-                            - 'trap-to-host'
+                        choices: ['drop', 'trap-to-host']
                     udp_plen_err:
                         aliases: ['udp-plen-err']
                         type: str
                         description: Invalid IPv4 UDP packet minimum length anomalies.
-                        choices:
-                            - 'drop'
-                            - 'trap-to-host'
+                        choices: ['drop', 'trap-to-host']
                     udplite_cover_err:
                         aliases: ['udplite-cover-err']
                         type: str
                         description: Invalid IPv4 UDP-Lite packet coverage anomalies.
-                        choices:
-                            - 'drop'
-                            - 'trap-to-host'
+                        choices: ['drop', 'trap-to-host']
                     udplite_csum_err:
                         aliases: ['udplite-csum-err']
                         type: str
                         description: Invalid IPv4 UDP-Lite packet checksum anomalies.
-                        choices:
-                            - 'drop'
-                            - 'trap-to-host'
-                            - 'allow'
+                        choices: ['drop', 'trap-to-host', 'allow']
                     unknproto_minlen_err:
                         aliases: ['unknproto-minlen-err']
                         type: str
                         description: Invalid IPv4 L4 unknown protocol short packet anomalies.
-                        choices:
-                            - 'drop'
-                            - 'trap-to-host'
+                        choices: ['drop', 'trap-to-host']
                     tcp_fin_only:
                         aliases: ['tcp-fin-only']
                         type: str
                         description: TCP SYN flood with only FIN flag set anomalies.
-                        choices:
-                            - 'allow'
-                            - 'drop'
-                            - 'trap-to-host'
+                        choices: ['allow', 'drop', 'trap-to-host']
                     ipv4_optsecurity:
                         aliases: ['ipv4-optsecurity']
                         type: str
                         description: Security option anomalies.
-                        choices:
-                            - 'allow'
-                            - 'drop'
-                            - 'trap-to-host'
+                        choices: ['allow', 'drop', 'trap-to-host']
                     ipv6_optralert:
                         aliases: ['ipv6-optralert']
                         type: str
                         description: Router alert option anomalies.
-                        choices:
-                            - 'allow'
-                            - 'drop'
-                            - 'trap-to-host'
+                        choices: ['allow', 'drop', 'trap-to-host']
                     tcp_syn_fin:
                         aliases: ['tcp-syn-fin']
                         type: str
                         description: TCP SYN flood SYN/FIN flag set anomalies.
-                        choices:
-                            - 'allow'
-                            - 'drop'
-                            - 'trap-to-host'
+                        choices: ['allow', 'drop', 'trap-to-host']
                     ipv4_proto_err:
                         aliases: ['ipv4-proto-err']
                         type: str
                         description: Invalid layer 4 protocol anomalies.
-                        choices:
-                            - 'allow'
-                            - 'drop'
-                            - 'trap-to-host'
+                        choices: ['allow', 'drop', 'trap-to-host']
                     ipv6_saddr_err:
                         aliases: ['ipv6-saddr-err']
                         type: str
                         description: Source address as multicast anomalies.
-                        choices:
-                            - 'allow'
-                            - 'drop'
-                            - 'trap-to-host'
+                        choices: ['allow', 'drop', 'trap-to-host']
                     icmp_frag:
                         aliases: ['icmp-frag']
                         type: str
                         description: Layer 3 fragmented packets that could be part of layer 4 ICMP anomalies.
-                        choices:
-                            - 'allow'
-                            - 'drop'
-                            - 'trap-to-host'
+                        choices: ['allow', 'drop', 'trap-to-host']
                     ipv4_optssrr:
                         aliases: ['ipv4-optssrr']
                         type: str
                         description: Strict source record route option anomalies.
-                        choices:
-                            - 'allow'
-                            - 'drop'
-                            - 'trap-to-host'
+                        choices: ['allow', 'drop', 'trap-to-host']
                     ipv6_opthomeaddr:
                         aliases: ['ipv6-opthomeaddr']
                         type: str
                         description: Home address option anomalies.
-                        choices:
-                            - 'allow'
-                            - 'drop'
-                            - 'trap-to-host'
+                        choices: ['allow', 'drop', 'trap-to-host']
                     udp_land:
                         aliases: ['udp-land']
                         type: str
                         description: UDP land anomalies.
-                        choices:
-                            - 'allow'
-                            - 'drop'
-                            - 'trap-to-host'
+                        choices: ['allow', 'drop', 'trap-to-host']
                     ipv6_optinvld:
                         aliases: ['ipv6-optinvld']
                         type: str
                         description: Invalid option anomalies.
-                        choices:
-                            - 'allow'
-                            - 'drop'
-                            - 'trap-to-host'
+                        choices: ['allow', 'drop', 'trap-to-host']
                     tcp_fin_noack:
                         aliases: ['tcp-fin-noack']
                         type: str
                         description: TCP SYN flood with FIN flag set without ACK setting anomalies.
-                        choices:
-                            - 'allow'
-                            - 'drop'
-                            - 'trap-to-host'
+                        choices: ['allow', 'drop', 'trap-to-host']
                     ipv6_proto_err:
                         aliases: ['ipv6-proto-err']
                         type: str
                         description: Layer 4 invalid protocol anomalies.
-                        choices:
-                            - 'allow'
-                            - 'drop'
-                            - 'trap-to-host'
+                        choices: ['allow', 'drop', 'trap-to-host']
                     tcp_land:
                         aliases: ['tcp-land']
                         type: str
                         description: TCP land anomalies.
-                        choices:
-                            - 'allow'
-                            - 'drop'
-                            - 'trap-to-host'
+                        choices: ['allow', 'drop', 'trap-to-host']
                     ipv4_unknopt:
                         aliases: ['ipv4-unknopt']
                         type: str
                         description: Unknown option anomalies.
-                        choices:
-                            - 'allow'
-                            - 'drop'
-                            - 'trap-to-host'
+                        choices: ['allow', 'drop', 'trap-to-host']
                     ipv4_optstream:
                         aliases: ['ipv4-optstream']
                         type: str
                         description: Stream option anomalies.
-                        choices:
-                            - 'allow'
-                            - 'drop'
-                            - 'trap-to-host'
+                        choices: ['allow', 'drop', 'trap-to-host']
                     ipv6_optjumbo:
                         aliases: ['ipv6-optjumbo']
                         type: str
                         description: Jumbo options anomalies.
-                        choices:
-                            - 'allow'
-                            - 'drop'
-                            - 'trap-to-host'
+                        choices: ['allow', 'drop', 'trap-to-host']
                     icmp_land:
                         aliases: ['icmp-land']
                         type: str
                         description: ICMP land anomalies.
-                        choices:
-                            - 'allow'
-                            - 'drop'
-                            - 'trap-to-host'
+                        choices: ['allow', 'drop', 'trap-to-host']
                     tcp_winnuke:
                         aliases: ['tcp-winnuke']
                         type: str
                         description: TCP WinNuke anomalies.
-                        choices:
-                            - 'allow'
-                            - 'drop'
-                            - 'trap-to-host'
+                        choices: ['allow', 'drop', 'trap-to-host']
                     ipv6_daddr_err:
                         aliases: ['ipv6-daddr-err']
                         type: str
                         description: Destination address as unspecified or loopback address anomalies.
-                        choices:
-                            - 'allow'
-                            - 'drop'
-                            - 'trap-to-host'
+                        choices: ['allow', 'drop', 'trap-to-host']
                     ipv4_land:
                         aliases: ['ipv4-land']
                         type: str
                         description: Land anomalies.
-                        choices:
-                            - 'allow'
-                            - 'drop'
-                            - 'trap-to-host'
+                        choices: ['allow', 'drop', 'trap-to-host']
                     ipv6_opttunnel:
                         aliases: ['ipv6-opttunnel']
                         type: str
                         description: Tunnel encapsulation limit option anomalies.
-                        choices:
-                            - 'allow'
-                            - 'drop'
-                            - 'trap-to-host'
+                        choices: ['allow', 'drop', 'trap-to-host']
                     tcp_no_flag:
                         aliases: ['tcp-no-flag']
                         type: str
                         description: TCP SYN flood with no flag set anomalies.
-                        choices:
-                            - 'allow'
-                            - 'drop'
-                            - 'trap-to-host'
+                        choices: ['allow', 'drop', 'trap-to-host']
                     ipv6_land:
                         aliases: ['ipv6-land']
                         type: str
                         description: Land anomalies.
-                        choices:
-                            - 'allow'
-                            - 'drop'
-                            - 'trap-to-host'
+                        choices: ['allow', 'drop', 'trap-to-host']
                     ipv4_optlsrr:
                         aliases: ['ipv4-optlsrr']
                         type: str
                         description: Loose source record route option anomalies.
-                        choices:
-                            - 'allow'
-                            - 'drop'
-                            - 'trap-to-host'
+                        choices: ['allow', 'drop', 'trap-to-host']
                     ipv4_opttimestamp:
                         aliases: ['ipv4-opttimestamp']
                         type: str
                         description: Timestamp option anomalies.
-                        choices:
-                            - 'allow'
-                            - 'drop'
-                            - 'trap-to-host'
+                        choices: ['allow', 'drop', 'trap-to-host']
                     ipv4_optrr:
                         aliases: ['ipv4-optrr']
                         type: str
                         description: Record route option anomalies.
-                        choices:
-                            - 'allow'
-                            - 'drop'
-                            - 'trap-to-host'
+                        choices: ['allow', 'drop', 'trap-to-host']
                     ipv6_optnsap:
                         aliases: ['ipv6-optnsap']
                         type: str
                         description: Network service access point address option anomalies.
-                        choices:
-                            - 'allow'
-                            - 'drop'
-                            - 'trap-to-host'
+                        choices: ['allow', 'drop', 'trap-to-host']
                     ipv6_unknopt:
                         aliases: ['ipv6-unknopt']
                         type: str
                         description: Unknown option anomalies.
-                        choices:
-                            - 'allow'
-                            - 'drop'
-                            - 'trap-to-host'
+                        choices: ['allow', 'drop', 'trap-to-host']
                     tcp_syn_data:
                         aliases: ['tcp-syn-data']
                         type: str
                         description: TCP SYN flood packets with data anomalies.
-                        choices:
-                            - 'allow'
-                            - 'drop'
-                            - 'trap-to-host'
+                        choices: ['allow', 'drop', 'trap-to-host']
                     ipv6_optendpid:
                         aliases: ['ipv6-optendpid']
                         type: str
                         description: End point identification anomalies.
-                        choices:
-                            - 'allow'
-                            - 'drop'
-                            - 'trap-to-host'
+                        choices: ['allow', 'drop', 'trap-to-host']
                     gtpu_plen_err:
                         aliases: ['gtpu-plen-err']
                         type: str
                         description: Gtpu plen err.
-                        choices:
-                            - 'drop'
-                            - 'trap-to-host'
+                        choices: ['drop', 'trap-to-host']
                     vxlan_minlen_err:
                         aliases: ['vxlan-minlen-err']
                         type: str
                         description: Vxlan minlen err.
-                        choices:
-                            - 'drop'
-                            - 'trap-to-host'
+                        choices: ['drop', 'trap-to-host']
                     capwap_minlen_err:
                         aliases: ['capwap-minlen-err']
                         type: str
                         description: Capwap minlen err.
-                        choices:
-                            - 'drop'
-                            - 'trap-to-host'
+                        choices: ['drop', 'trap-to-host']
                     gre_csum_err:
                         aliases: ['gre-csum-err']
                         type: str
                         description: Gre csum err.
-                        choices:
-                            - 'drop'
-                            - 'trap-to-host'
-                            - 'allow'
+                        choices: ['drop', 'trap-to-host', 'allow']
                     nvgre_minlen_err:
                         aliases: ['nvgre-minlen-err']
                         type: str
                         description: Nvgre minlen err.
-                        choices:
-                            - 'drop'
-                            - 'trap-to-host'
+                        choices: ['drop', 'trap-to-host']
                     sctp_l4len_err:
                         aliases: ['sctp-l4len-err']
                         type: str
                         description: Sctp l4len err.
-                        choices:
-                            - 'drop'
-                            - 'trap-to-host'
+                        choices: ['drop', 'trap-to-host']
                     tcp_hlenvsl4len_err:
                         aliases: ['tcp-hlenvsl4len-err']
                         type: str
                         description: Tcp hlenvsl4len err.
-                        choices:
-                            - 'drop'
-                            - 'trap-to-host'
+                        choices: ['drop', 'trap-to-host']
                     sctp_crc_err:
                         aliases: ['sctp-crc-err']
                         type: str
                         description: Sctp crc err.
-                        choices:
-                            - 'drop'
-                            - 'trap-to-host'
+                        choices: ['drop', 'trap-to-host']
                     sctp_clen_err:
                         aliases: ['sctp-clen-err']
                         type: str
                         description: Sctp clen err.
-                        choices:
-                            - 'drop'
-                            - 'trap-to-host'
+                        choices: ['drop', 'trap-to-host']
                     uesp_minlen_err:
                         aliases: ['uesp-minlen-err']
                         type: str
                         description: Uesp minlen err.
-                        choices:
-                            - 'drop'
-                            - 'trap-to-host'
+                        choices: ['drop', 'trap-to-host']
                     sctp_csum_err:
                         aliases: ['sctp-csum-err']
                         type: str
                         description: Invalid IPv4 SCTP checksum anomalies.
-                        choices:
-                            - 'allow'
-                            - 'drop'
-                            - 'trap-to-host'
+                        choices: ['allow', 'drop', 'trap-to-host']
             gtp_enhanced_cpu_range:
                 aliases: ['gtp-enhanced-cpu-range']
                 type: str
                 description: GTP enhanced CPU range option.
-                choices:
-                    - '0'
-                    - '1'
-                    - '2'
+                choices: ['0', '1', '2']
             gtp_enhanced_mode:
                 aliases: ['gtp-enhanced-mode']
                 type: str
                 description: Enable/disable GTP enhanced mode.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             host_shortcut_mode:
                 aliases: ['host-shortcut-mode']
                 type: str
                 description: Set np6 host shortcut mode.
-                choices:
-                    - 'bi-directional'
-                    - 'host-shortcut'
+                choices: ['bi-directional', 'host-shortcut']
             htx_gtse_quota:
                 aliases: ['htx-gtse-quota']
                 type: str
                 description: Configure HTX GTSE quota.
-                choices:
-                    - '100Mbps'
-                    - '200Mbps'
-                    - '300Mbps'
-                    - '400Mbps'
-                    - '500Mbps'
-                    - '600Mbps'
-                    - '700Mbps'
-                    - '800Mbps'
-                    - '900Mbps'
-                    - '1Gbps'
-                    - '2Gbps'
-                    - '4Gbps'
-                    - '8Gbps'
-                    - '10Gbps'
+                choices: ['100Mbps', '200Mbps', '300Mbps', '400Mbps', '500Mbps', '600Mbps',
+                          '700Mbps', '800Mbps', '900Mbps', '1Gbps', '2Gbps', '4Gbps', '8Gbps',
+                          '10Gbps']
             intf_shaping_offload:
                 aliases: ['intf-shaping-offload']
                 type: str
                 description: Enable/disable NPU offload when doing interface-based traffic shaping according to the egress-shaping-profile.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             iph_rsvd_re_cksum:
                 aliases: ['iph-rsvd-re-cksum']
                 type: str
                 description: Enable/disable IP checksum re-calculation for packets with iph.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             ipsec_dec_subengine_mask:
                 aliases: ['ipsec-dec-subengine-mask']
                 type: str
@@ -674,23 +427,17 @@ options:
                 aliases: ['ipsec-inbound-cache']
                 type: str
                 description: Enable/disable IPsec inbound cache for anti-replay.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             ipsec_mtu_override:
                 aliases: ['ipsec-mtu-override']
                 type: str
                 description: Enable/disable NP6 IPsec MTU override.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             ipsec_over_vlink:
                 aliases: ['ipsec-over-vlink']
                 type: str
                 description: Enable/disable IPSEC over vlink.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             isf_np_queues:
                 aliases: ['isf-np-queues']
                 type: dict
@@ -724,34 +471,22 @@ options:
                 aliases: ['lag-out-port-select']
                 type: str
                 description: Enable/disable LAG outgoing port selection based on incoming traffic port.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             mcast_session_accounting:
                 aliases: ['mcast-session-accounting']
                 type: str
                 description: Enable/disable traffic accounting for each multicast session through TAE counter.
-                choices:
-                    - 'disable'
-                    - 'session-based'
-                    - 'tpe-based'
+                choices: ['disable', 'session-based', 'tpe-based']
             np6_cps_optimization_mode:
                 aliases: ['np6-cps-optimization-mode']
                 type: str
                 description: Enable/disable NP6 connection per second
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             per_session_accounting:
                 aliases: ['per-session-accounting']
                 type: str
                 description: Enable/disable per-session accounting.
-                choices:
-                    - 'enable'
-                    - 'disable'
-                    - 'enable-by-log'
-                    - 'all-enable'
-                    - 'traffic-log-only'
+                choices: ['enable', 'disable', 'enable-by-log', 'all-enable', 'traffic-log-only']
             port_cpu_map:
                 aliases: ['port-cpu-map']
                 type: list
@@ -786,71 +521,50 @@ options:
                     bfd:
                         type: str
                         description: Enable/disable NPU BFD priority protocol.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     bgp:
                         type: str
                         description: Enable/disable NPU BGP priority protocol.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     slbc:
                         type: str
                         description: Enable/disable NPU SLBC priority protocol.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
             qos_mode:
                 aliases: ['qos-mode']
                 type: str
                 description: QoS mode on switch and NP.
-                choices:
-                    - 'disable'
-                    - 'priority'
-                    - 'round-robin'
+                choices: ['disable', 'priority', 'round-robin']
             rdp_offload:
                 aliases: ['rdp-offload']
                 type: str
                 description: Enable/disable rdp offload.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             recover_np6_link:
                 aliases: ['recover-np6-link']
                 type: str
                 description: Enable/disable internal link failure check and recovery after boot up.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             session_denied_offload:
                 aliases: ['session-denied-offload']
                 type: str
                 description: Enable/disable offloading of denied sessions.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             sse_backpressure:
                 aliases: ['sse-backpressure']
                 type: str
                 description: Enable/disable sse backpressure.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             strip_clear_text_padding:
                 aliases: ['strip-clear-text-padding']
                 type: str
                 description: Enable/disable stripping clear text padding.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             strip_esp_padding:
                 aliases: ['strip-esp-padding']
                 type: str
                 description: Enable/disable stripping ESP padding.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             sw_eh_hash:
                 aliases: ['sw-eh-hash']
                 type: dict
@@ -859,39 +573,27 @@ options:
                     computation:
                         type: str
                         description: Set hashing computation.
-                        choices:
-                            - 'xor16'
-                            - 'xor8'
-                            - 'xor4'
-                            - 'crc16'
+                        choices: ['xor16', 'xor8', 'xor4', 'crc16']
                     destination_ip_lower_16:
                         aliases: ['destination-ip-lower-16']
                         type: str
                         description: Include/exclude destination IP address lower 16 bits.
-                        choices:
-                            - 'include'
-                            - 'exclude'
+                        choices: ['include', 'exclude']
                     destination_ip_upper_16:
                         aliases: ['destination-ip-upper-16']
                         type: str
                         description: Include/exclude destination IP address upper 16 bits.
-                        choices:
-                            - 'include'
-                            - 'exclude'
+                        choices: ['include', 'exclude']
                     destination_port:
                         aliases: ['destination-port']
                         type: str
                         description: Include/exclude destination port if TCP/UDP.
-                        choices:
-                            - 'include'
-                            - 'exclude'
+                        choices: ['include', 'exclude']
                     ip_protocol:
                         aliases: ['ip-protocol']
                         type: str
                         description: Include/exclude IP protocol.
-                        choices:
-                            - 'include'
-                            - 'exclude'
+                        choices: ['include', 'exclude']
                     netmask_length:
                         aliases: ['netmask-length']
                         type: int
@@ -900,51 +602,32 @@ options:
                         aliases: ['source-ip-lower-16']
                         type: str
                         description: Include/exclude source IP address lower 16 bits.
-                        choices:
-                            - 'include'
-                            - 'exclude'
+                        choices: ['include', 'exclude']
                     source_ip_upper_16:
                         aliases: ['source-ip-upper-16']
                         type: str
                         description: Include/exclude source IP address upper 16 bits.
-                        choices:
-                            - 'include'
-                            - 'exclude'
+                        choices: ['include', 'exclude']
                     source_port:
                         aliases: ['source-port']
                         type: str
                         description: Include/exclude source port if TCP/UDP.
-                        choices:
-                            - 'include'
-                            - 'exclude'
+                        choices: ['include', 'exclude']
             sw_np_bandwidth:
                 aliases: ['sw-np-bandwidth']
                 type: str
                 description: Bandwidth from switch to NP.
-                choices:
-                    - '0G'
-                    - '2G'
-                    - '4G'
-                    - '5G'
-                    - '6G'
-                    - '7G'
-                    - '8G'
-                    - '9G'
+                choices: ['0G', '2G', '4G', '5G', '6G', '7G', '8G', '9G']
             switch_np_hash:
                 aliases: ['switch-np-hash']
                 type: str
                 description: Switch-NP trunk port selection Criteria.
-                choices:
-                    - 'src-ip'
-                    - 'dst-ip'
-                    - 'src-dst-ip'
+                choices: ['src-ip', 'dst-ip', 'src-dst-ip']
             uesp_offload:
                 aliases: ['uesp-offload']
                 type: str
                 description: Enable/disable UDP-encapsulated ESP offload
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             np_queues:
                 aliases: ['np-queues']
                 type: dict
@@ -1018,876 +701,370 @@ options:
                             cos0:
                                 type: str
                                 description: Queue number of CoS 0.
-                                choices:
-                                    - 'queue0'
-                                    - 'queue1'
-                                    - 'queue2'
-                                    - 'queue3'
-                                    - 'queue4'
-                                    - 'queue5'
-                                    - 'queue6'
-                                    - 'queue7'
+                                choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4',
+                                          'queue5', 'queue6', 'queue7']
                             cos1:
                                 type: str
                                 description: Queue number of CoS 1.
-                                choices:
-                                    - 'queue0'
-                                    - 'queue1'
-                                    - 'queue2'
-                                    - 'queue3'
-                                    - 'queue4'
-                                    - 'queue5'
-                                    - 'queue6'
-                                    - 'queue7'
+                                choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4',
+                                          'queue5', 'queue6', 'queue7']
                             cos2:
                                 type: str
                                 description: Queue number of CoS 2.
-                                choices:
-                                    - 'queue0'
-                                    - 'queue1'
-                                    - 'queue2'
-                                    - 'queue3'
-                                    - 'queue4'
-                                    - 'queue5'
-                                    - 'queue6'
-                                    - 'queue7'
+                                choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4',
+                                          'queue5', 'queue6', 'queue7']
                             cos3:
                                 type: str
                                 description: Queue number of CoS 3.
-                                choices:
-                                    - 'queue0'
-                                    - 'queue1'
-                                    - 'queue2'
-                                    - 'queue3'
-                                    - 'queue4'
-                                    - 'queue5'
-                                    - 'queue6'
-                                    - 'queue7'
+                                choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4',
+                                          'queue5', 'queue6', 'queue7']
                             cos4:
                                 type: str
                                 description: Queue number of CoS 4.
-                                choices:
-                                    - 'queue0'
-                                    - 'queue1'
-                                    - 'queue2'
-                                    - 'queue3'
-                                    - 'queue4'
-                                    - 'queue5'
-                                    - 'queue6'
-                                    - 'queue7'
+                                choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4',
+                                          'queue5', 'queue6', 'queue7']
                             cos5:
                                 type: str
                                 description: Queue number of CoS 5.
-                                choices:
-                                    - 'queue0'
-                                    - 'queue1'
-                                    - 'queue2'
-                                    - 'queue3'
-                                    - 'queue4'
-                                    - 'queue5'
-                                    - 'queue6'
-                                    - 'queue7'
+                                choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4',
+                                          'queue5', 'queue6', 'queue7']
                             cos6:
                                 type: str
                                 description: Queue number of CoS 6.
-                                choices:
-                                    - 'queue0'
-                                    - 'queue1'
-                                    - 'queue2'
-                                    - 'queue3'
-                                    - 'queue4'
-                                    - 'queue5'
-                                    - 'queue6'
-                                    - 'queue7'
+                                choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4',
+                                          'queue5', 'queue6', 'queue7']
                             cos7:
                                 type: str
                                 description: Queue number of CoS 7.
-                                choices:
-                                    - 'queue0'
-                                    - 'queue1'
-                                    - 'queue2'
-                                    - 'queue3'
-                                    - 'queue4'
-                                    - 'queue5'
-                                    - 'queue6'
-                                    - 'queue7'
+                                choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4',
+                                          'queue5', 'queue6', 'queue7']
                             dscp0:
                                 type: str
                                 description: Queue number of DSCP 0.
-                                choices:
-                                    - 'queue0'
-                                    - 'queue1'
-                                    - 'queue2'
-                                    - 'queue3'
-                                    - 'queue4'
-                                    - 'queue5'
-                                    - 'queue6'
-                                    - 'queue7'
+                                choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4',
+                                          'queue5', 'queue6', 'queue7']
                             dscp1:
                                 type: str
                                 description: Queue number of DSCP 1.
-                                choices:
-                                    - 'queue0'
-                                    - 'queue1'
-                                    - 'queue2'
-                                    - 'queue3'
-                                    - 'queue4'
-                                    - 'queue5'
-                                    - 'queue6'
-                                    - 'queue7'
+                                choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4',
+                                          'queue5', 'queue6', 'queue7']
                             dscp10:
                                 type: str
                                 description: Queue number of DSCP 10.
-                                choices:
-                                    - 'queue0'
-                                    - 'queue1'
-                                    - 'queue2'
-                                    - 'queue3'
-                                    - 'queue4'
-                                    - 'queue5'
-                                    - 'queue6'
-                                    - 'queue7'
+                                choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4',
+                                          'queue5', 'queue6', 'queue7']
                             dscp11:
                                 type: str
                                 description: Queue number of DSCP 11.
-                                choices:
-                                    - 'queue0'
-                                    - 'queue1'
-                                    - 'queue2'
-                                    - 'queue3'
-                                    - 'queue4'
-                                    - 'queue5'
-                                    - 'queue6'
-                                    - 'queue7'
+                                choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4',
+                                          'queue5', 'queue6', 'queue7']
                             dscp12:
                                 type: str
                                 description: Queue number of DSCP 12.
-                                choices:
-                                    - 'queue0'
-                                    - 'queue1'
-                                    - 'queue2'
-                                    - 'queue3'
-                                    - 'queue4'
-                                    - 'queue5'
-                                    - 'queue6'
-                                    - 'queue7'
+                                choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4',
+                                          'queue5', 'queue6', 'queue7']
                             dscp13:
                                 type: str
                                 description: Queue number of DSCP 13.
-                                choices:
-                                    - 'queue0'
-                                    - 'queue1'
-                                    - 'queue2'
-                                    - 'queue3'
-                                    - 'queue4'
-                                    - 'queue5'
-                                    - 'queue6'
-                                    - 'queue7'
+                                choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4',
+                                          'queue5', 'queue6', 'queue7']
                             dscp14:
                                 type: str
                                 description: Queue number of DSCP 14.
-                                choices:
-                                    - 'queue0'
-                                    - 'queue1'
-                                    - 'queue2'
-                                    - 'queue3'
-                                    - 'queue4'
-                                    - 'queue5'
-                                    - 'queue6'
-                                    - 'queue7'
+                                choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4',
+                                          'queue5', 'queue6', 'queue7']
                             dscp15:
                                 type: str
                                 description: Queue number of DSCP 15.
-                                choices:
-                                    - 'queue0'
-                                    - 'queue1'
-                                    - 'queue2'
-                                    - 'queue3'
-                                    - 'queue4'
-                                    - 'queue5'
-                                    - 'queue6'
-                                    - 'queue7'
+                                choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4',
+                                          'queue5', 'queue6', 'queue7']
                             dscp16:
                                 type: str
                                 description: Queue number of DSCP 16.
-                                choices:
-                                    - 'queue0'
-                                    - 'queue1'
-                                    - 'queue2'
-                                    - 'queue3'
-                                    - 'queue4'
-                                    - 'queue5'
-                                    - 'queue6'
-                                    - 'queue7'
+                                choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4',
+                                          'queue5', 'queue6', 'queue7']
                             dscp17:
                                 type: str
                                 description: Queue number of DSCP 17.
-                                choices:
-                                    - 'queue0'
-                                    - 'queue1'
-                                    - 'queue2'
-                                    - 'queue3'
-                                    - 'queue4'
-                                    - 'queue5'
-                                    - 'queue6'
-                                    - 'queue7'
+                                choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4',
+                                          'queue5', 'queue6', 'queue7']
                             dscp18:
                                 type: str
                                 description: Queue number of DSCP 18.
-                                choices:
-                                    - 'queue0'
-                                    - 'queue1'
-                                    - 'queue2'
-                                    - 'queue3'
-                                    - 'queue4'
-                                    - 'queue5'
-                                    - 'queue6'
-                                    - 'queue7'
+                                choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4',
+                                          'queue5', 'queue6', 'queue7']
                             dscp19:
                                 type: str
                                 description: Queue number of DSCP 19.
-                                choices:
-                                    - 'queue0'
-                                    - 'queue1'
-                                    - 'queue2'
-                                    - 'queue3'
-                                    - 'queue4'
-                                    - 'queue5'
-                                    - 'queue6'
-                                    - 'queue7'
+                                choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4',
+                                          'queue5', 'queue6', 'queue7']
                             dscp2:
                                 type: str
                                 description: Queue number of DSCP 2.
-                                choices:
-                                    - 'queue0'
-                                    - 'queue1'
-                                    - 'queue2'
-                                    - 'queue3'
-                                    - 'queue4'
-                                    - 'queue5'
-                                    - 'queue6'
-                                    - 'queue7'
+                                choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4',
+                                          'queue5', 'queue6', 'queue7']
                             dscp20:
                                 type: str
                                 description: Queue number of DSCP 20.
-                                choices:
-                                    - 'queue0'
-                                    - 'queue1'
-                                    - 'queue2'
-                                    - 'queue3'
-                                    - 'queue4'
-                                    - 'queue5'
-                                    - 'queue6'
-                                    - 'queue7'
+                                choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4',
+                                          'queue5', 'queue6', 'queue7']
                             dscp21:
                                 type: str
                                 description: Queue number of DSCP 21.
-                                choices:
-                                    - 'queue0'
-                                    - 'queue1'
-                                    - 'queue2'
-                                    - 'queue3'
-                                    - 'queue4'
-                                    - 'queue5'
-                                    - 'queue6'
-                                    - 'queue7'
+                                choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4',
+                                          'queue5', 'queue6', 'queue7']
                             dscp22:
                                 type: str
                                 description: Queue number of DSCP 22.
-                                choices:
-                                    - 'queue0'
-                                    - 'queue1'
-                                    - 'queue2'
-                                    - 'queue3'
-                                    - 'queue4'
-                                    - 'queue5'
-                                    - 'queue6'
-                                    - 'queue7'
+                                choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4',
+                                          'queue5', 'queue6', 'queue7']
                             dscp23:
                                 type: str
                                 description: Queue number of DSCP 23.
-                                choices:
-                                    - 'queue0'
-                                    - 'queue1'
-                                    - 'queue2'
-                                    - 'queue3'
-                                    - 'queue4'
-                                    - 'queue5'
-                                    - 'queue6'
-                                    - 'queue7'
+                                choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4',
+                                          'queue5', 'queue6', 'queue7']
                             dscp24:
                                 type: str
                                 description: Queue number of DSCP 24.
-                                choices:
-                                    - 'queue0'
-                                    - 'queue1'
-                                    - 'queue2'
-                                    - 'queue3'
-                                    - 'queue4'
-                                    - 'queue5'
-                                    - 'queue6'
-                                    - 'queue7'
+                                choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4',
+                                          'queue5', 'queue6', 'queue7']
                             dscp25:
                                 type: str
                                 description: Queue number of DSCP 25.
-                                choices:
-                                    - 'queue0'
-                                    - 'queue1'
-                                    - 'queue2'
-                                    - 'queue3'
-                                    - 'queue4'
-                                    - 'queue5'
-                                    - 'queue6'
-                                    - 'queue7'
+                                choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4',
+                                          'queue5', 'queue6', 'queue7']
                             dscp26:
                                 type: str
                                 description: Queue number of DSCP 26.
-                                choices:
-                                    - 'queue0'
-                                    - 'queue1'
-                                    - 'queue2'
-                                    - 'queue3'
-                                    - 'queue4'
-                                    - 'queue5'
-                                    - 'queue6'
-                                    - 'queue7'
+                                choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4',
+                                          'queue5', 'queue6', 'queue7']
                             dscp27:
                                 type: str
                                 description: Queue number of DSCP 27.
-                                choices:
-                                    - 'queue0'
-                                    - 'queue1'
-                                    - 'queue2'
-                                    - 'queue3'
-                                    - 'queue4'
-                                    - 'queue5'
-                                    - 'queue6'
-                                    - 'queue7'
+                                choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4',
+                                          'queue5', 'queue6', 'queue7']
                             dscp28:
                                 type: str
                                 description: Queue number of DSCP 28.
-                                choices:
-                                    - 'queue0'
-                                    - 'queue1'
-                                    - 'queue2'
-                                    - 'queue3'
-                                    - 'queue4'
-                                    - 'queue5'
-                                    - 'queue6'
-                                    - 'queue7'
+                                choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4',
+                                          'queue5', 'queue6', 'queue7']
                             dscp29:
                                 type: str
                                 description: Queue number of DSCP 29.
-                                choices:
-                                    - 'queue0'
-                                    - 'queue1'
-                                    - 'queue2'
-                                    - 'queue3'
-                                    - 'queue4'
-                                    - 'queue5'
-                                    - 'queue6'
-                                    - 'queue7'
+                                choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4',
+                                          'queue5', 'queue6', 'queue7']
                             dscp3:
                                 type: str
                                 description: Queue number of DSCP 3.
-                                choices:
-                                    - 'queue0'
-                                    - 'queue1'
-                                    - 'queue2'
-                                    - 'queue3'
-                                    - 'queue4'
-                                    - 'queue5'
-                                    - 'queue6'
-                                    - 'queue7'
+                                choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4',
+                                          'queue5', 'queue6', 'queue7']
                             dscp30:
                                 type: str
                                 description: Queue number of DSCP 30.
-                                choices:
-                                    - 'queue0'
-                                    - 'queue1'
-                                    - 'queue2'
-                                    - 'queue3'
-                                    - 'queue4'
-                                    - 'queue5'
-                                    - 'queue6'
-                                    - 'queue7'
+                                choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4',
+                                          'queue5', 'queue6', 'queue7']
                             dscp31:
                                 type: str
                                 description: Queue number of DSCP 31.
-                                choices:
-                                    - 'queue0'
-                                    - 'queue1'
-                                    - 'queue2'
-                                    - 'queue3'
-                                    - 'queue4'
-                                    - 'queue5'
-                                    - 'queue6'
-                                    - 'queue7'
+                                choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4',
+                                          'queue5', 'queue6', 'queue7']
                             dscp32:
                                 type: str
                                 description: Queue number of DSCP 32.
-                                choices:
-                                    - 'queue0'
-                                    - 'queue1'
-                                    - 'queue2'
-                                    - 'queue3'
-                                    - 'queue4'
-                                    - 'queue5'
-                                    - 'queue6'
-                                    - 'queue7'
+                                choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4',
+                                          'queue5', 'queue6', 'queue7']
                             dscp33:
                                 type: str
                                 description: Queue number of DSCP 33.
-                                choices:
-                                    - 'queue0'
-                                    - 'queue1'
-                                    - 'queue2'
-                                    - 'queue3'
-                                    - 'queue4'
-                                    - 'queue5'
-                                    - 'queue6'
-                                    - 'queue7'
+                                choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4',
+                                          'queue5', 'queue6', 'queue7']
                             dscp34:
                                 type: str
                                 description: Queue number of DSCP 34.
-                                choices:
-                                    - 'queue0'
-                                    - 'queue1'
-                                    - 'queue2'
-                                    - 'queue3'
-                                    - 'queue4'
-                                    - 'queue5'
-                                    - 'queue6'
-                                    - 'queue7'
+                                choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4',
+                                          'queue5', 'queue6', 'queue7']
                             dscp35:
                                 type: str
                                 description: Queue number of DSCP 35.
-                                choices:
-                                    - 'queue0'
-                                    - 'queue1'
-                                    - 'queue2'
-                                    - 'queue3'
-                                    - 'queue4'
-                                    - 'queue5'
-                                    - 'queue6'
-                                    - 'queue7'
+                                choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4',
+                                          'queue5', 'queue6', 'queue7']
                             dscp36:
                                 type: str
                                 description: Queue number of DSCP 36.
-                                choices:
-                                    - 'queue0'
-                                    - 'queue1'
-                                    - 'queue2'
-                                    - 'queue3'
-                                    - 'queue4'
-                                    - 'queue5'
-                                    - 'queue6'
-                                    - 'queue7'
+                                choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4',
+                                          'queue5', 'queue6', 'queue7']
                             dscp37:
                                 type: str
                                 description: Queue number of DSCP 37.
-                                choices:
-                                    - 'queue0'
-                                    - 'queue1'
-                                    - 'queue2'
-                                    - 'queue3'
-                                    - 'queue4'
-                                    - 'queue5'
-                                    - 'queue6'
-                                    - 'queue7'
+                                choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4',
+                                          'queue5', 'queue6', 'queue7']
                             dscp38:
                                 type: str
                                 description: Queue number of DSCP 38.
-                                choices:
-                                    - 'queue0'
-                                    - 'queue1'
-                                    - 'queue2'
-                                    - 'queue3'
-                                    - 'queue4'
-                                    - 'queue5'
-                                    - 'queue6'
-                                    - 'queue7'
+                                choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4',
+                                          'queue5', 'queue6', 'queue7']
                             dscp39:
                                 type: str
                                 description: Queue number of DSCP 39.
-                                choices:
-                                    - 'queue0'
-                                    - 'queue1'
-                                    - 'queue2'
-                                    - 'queue3'
-                                    - 'queue4'
-                                    - 'queue5'
-                                    - 'queue6'
-                                    - 'queue7'
+                                choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4',
+                                          'queue5', 'queue6', 'queue7']
                             dscp4:
                                 type: str
                                 description: Queue number of DSCP 4.
-                                choices:
-                                    - 'queue0'
-                                    - 'queue1'
-                                    - 'queue2'
-                                    - 'queue3'
-                                    - 'queue4'
-                                    - 'queue5'
-                                    - 'queue6'
-                                    - 'queue7'
+                                choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4',
+                                          'queue5', 'queue6', 'queue7']
                             dscp40:
                                 type: str
                                 description: Queue number of DSCP 40.
-                                choices:
-                                    - 'queue0'
-                                    - 'queue1'
-                                    - 'queue2'
-                                    - 'queue3'
-                                    - 'queue4'
-                                    - 'queue5'
-                                    - 'queue6'
-                                    - 'queue7'
+                                choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4',
+                                          'queue5', 'queue6', 'queue7']
                             dscp41:
                                 type: str
                                 description: Queue number of DSCP 41.
-                                choices:
-                                    - 'queue0'
-                                    - 'queue1'
-                                    - 'queue2'
-                                    - 'queue3'
-                                    - 'queue4'
-                                    - 'queue5'
-                                    - 'queue6'
-                                    - 'queue7'
+                                choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4',
+                                          'queue5', 'queue6', 'queue7']
                             dscp42:
                                 type: str
                                 description: Queue number of DSCP 42.
-                                choices:
-                                    - 'queue0'
-                                    - 'queue1'
-                                    - 'queue2'
-                                    - 'queue3'
-                                    - 'queue4'
-                                    - 'queue5'
-                                    - 'queue6'
-                                    - 'queue7'
+                                choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4',
+                                          'queue5', 'queue6', 'queue7']
                             dscp43:
                                 type: str
                                 description: Queue number of DSCP 43.
-                                choices:
-                                    - 'queue0'
-                                    - 'queue1'
-                                    - 'queue2'
-                                    - 'queue3'
-                                    - 'queue4'
-                                    - 'queue5'
-                                    - 'queue6'
-                                    - 'queue7'
+                                choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4',
+                                          'queue5', 'queue6', 'queue7']
                             dscp44:
                                 type: str
                                 description: Queue number of DSCP 44.
-                                choices:
-                                    - 'queue0'
-                                    - 'queue1'
-                                    - 'queue2'
-                                    - 'queue3'
-                                    - 'queue4'
-                                    - 'queue5'
-                                    - 'queue6'
-                                    - 'queue7'
+                                choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4',
+                                          'queue5', 'queue6', 'queue7']
                             dscp45:
                                 type: str
                                 description: Queue number of DSCP 45.
-                                choices:
-                                    - 'queue0'
-                                    - 'queue1'
-                                    - 'queue2'
-                                    - 'queue3'
-                                    - 'queue4'
-                                    - 'queue5'
-                                    - 'queue6'
-                                    - 'queue7'
+                                choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4',
+                                          'queue5', 'queue6', 'queue7']
                             dscp46:
                                 type: str
                                 description: Queue number of DSCP 46.
-                                choices:
-                                    - 'queue0'
-                                    - 'queue1'
-                                    - 'queue2'
-                                    - 'queue3'
-                                    - 'queue4'
-                                    - 'queue5'
-                                    - 'queue6'
-                                    - 'queue7'
+                                choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4',
+                                          'queue5', 'queue6', 'queue7']
                             dscp47:
                                 type: str
                                 description: Queue number of DSCP 47.
-                                choices:
-                                    - 'queue0'
-                                    - 'queue1'
-                                    - 'queue2'
-                                    - 'queue3'
-                                    - 'queue4'
-                                    - 'queue5'
-                                    - 'queue6'
-                                    - 'queue7'
+                                choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4',
+                                          'queue5', 'queue6', 'queue7']
                             dscp48:
                                 type: str
                                 description: Queue number of DSCP 48.
-                                choices:
-                                    - 'queue0'
-                                    - 'queue1'
-                                    - 'queue2'
-                                    - 'queue3'
-                                    - 'queue4'
-                                    - 'queue5'
-                                    - 'queue6'
-                                    - 'queue7'
+                                choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4',
+                                          'queue5', 'queue6', 'queue7']
                             dscp49:
                                 type: str
                                 description: Queue number of DSCP 49.
-                                choices:
-                                    - 'queue0'
-                                    - 'queue1'
-                                    - 'queue2'
-                                    - 'queue3'
-                                    - 'queue4'
-                                    - 'queue5'
-                                    - 'queue6'
-                                    - 'queue7'
+                                choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4',
+                                          'queue5', 'queue6', 'queue7']
                             dscp5:
                                 type: str
                                 description: Queue number of DSCP 5.
-                                choices:
-                                    - 'queue0'
-                                    - 'queue1'
-                                    - 'queue2'
-                                    - 'queue3'
-                                    - 'queue4'
-                                    - 'queue5'
-                                    - 'queue6'
-                                    - 'queue7'
+                                choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4',
+                                          'queue5', 'queue6', 'queue7']
                             dscp50:
                                 type: str
                                 description: Queue number of DSCP 50.
-                                choices:
-                                    - 'queue0'
-                                    - 'queue1'
-                                    - 'queue2'
-                                    - 'queue3'
-                                    - 'queue4'
-                                    - 'queue5'
-                                    - 'queue6'
-                                    - 'queue7'
+                                choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4',
+                                          'queue5', 'queue6', 'queue7']
                             dscp51:
                                 type: str
                                 description: Queue number of DSCP 51.
-                                choices:
-                                    - 'queue0'
-                                    - 'queue1'
-                                    - 'queue2'
-                                    - 'queue3'
-                                    - 'queue4'
-                                    - 'queue5'
-                                    - 'queue6'
-                                    - 'queue7'
+                                choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4',
+                                          'queue5', 'queue6', 'queue7']
                             dscp52:
                                 type: str
                                 description: Queue number of DSCP 52.
-                                choices:
-                                    - 'queue0'
-                                    - 'queue1'
-                                    - 'queue2'
-                                    - 'queue3'
-                                    - 'queue4'
-                                    - 'queue5'
-                                    - 'queue6'
-                                    - 'queue7'
+                                choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4',
+                                          'queue5', 'queue6', 'queue7']
                             dscp53:
                                 type: str
                                 description: Queue number of DSCP 53.
-                                choices:
-                                    - 'queue0'
-                                    - 'queue1'
-                                    - 'queue2'
-                                    - 'queue3'
-                                    - 'queue4'
-                                    - 'queue5'
-                                    - 'queue6'
-                                    - 'queue7'
+                                choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4',
+                                          'queue5', 'queue6', 'queue7']
                             dscp54:
                                 type: str
                                 description: Queue number of DSCP 54.
-                                choices:
-                                    - 'queue0'
-                                    - 'queue1'
-                                    - 'queue2'
-                                    - 'queue3'
-                                    - 'queue4'
-                                    - 'queue5'
-                                    - 'queue6'
-                                    - 'queue7'
+                                choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4',
+                                          'queue5', 'queue6', 'queue7']
                             dscp55:
                                 type: str
                                 description: Queue number of DSCP 55.
-                                choices:
-                                    - 'queue0'
-                                    - 'queue1'
-                                    - 'queue2'
-                                    - 'queue3'
-                                    - 'queue4'
-                                    - 'queue5'
-                                    - 'queue6'
-                                    - 'queue7'
+                                choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4',
+                                          'queue5', 'queue6', 'queue7']
                             dscp56:
                                 type: str
                                 description: Queue number of DSCP 56.
-                                choices:
-                                    - 'queue0'
-                                    - 'queue1'
-                                    - 'queue2'
-                                    - 'queue3'
-                                    - 'queue4'
-                                    - 'queue5'
-                                    - 'queue6'
-                                    - 'queue7'
+                                choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4',
+                                          'queue5', 'queue6', 'queue7']
                             dscp57:
                                 type: str
                                 description: Queue number of DSCP 57.
-                                choices:
-                                    - 'queue0'
-                                    - 'queue1'
-                                    - 'queue2'
-                                    - 'queue3'
-                                    - 'queue4'
-                                    - 'queue5'
-                                    - 'queue6'
-                                    - 'queue7'
+                                choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4',
+                                          'queue5', 'queue6', 'queue7']
                             dscp58:
                                 type: str
                                 description: Queue number of DSCP 58.
-                                choices:
-                                    - 'queue0'
-                                    - 'queue1'
-                                    - 'queue2'
-                                    - 'queue3'
-                                    - 'queue4'
-                                    - 'queue5'
-                                    - 'queue6'
-                                    - 'queue7'
+                                choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4',
+                                          'queue5', 'queue6', 'queue7']
                             dscp59:
                                 type: str
                                 description: Queue number of DSCP 59.
-                                choices:
-                                    - 'queue0'
-                                    - 'queue1'
-                                    - 'queue2'
-                                    - 'queue3'
-                                    - 'queue4'
-                                    - 'queue5'
-                                    - 'queue6'
-                                    - 'queue7'
+                                choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4',
+                                          'queue5', 'queue6', 'queue7']
                             dscp6:
                                 type: str
                                 description: Queue number of DSCP 6.
-                                choices:
-                                    - 'queue0'
-                                    - 'queue1'
-                                    - 'queue2'
-                                    - 'queue3'
-                                    - 'queue4'
-                                    - 'queue5'
-                                    - 'queue6'
-                                    - 'queue7'
+                                choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4',
+                                          'queue5', 'queue6', 'queue7']
                             dscp60:
                                 type: str
                                 description: Queue number of DSCP 60.
-                                choices:
-                                    - 'queue0'
-                                    - 'queue1'
-                                    - 'queue2'
-                                    - 'queue3'
-                                    - 'queue4'
-                                    - 'queue5'
-                                    - 'queue6'
-                                    - 'queue7'
+                                choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4',
+                                          'queue5', 'queue6', 'queue7']
                             dscp61:
                                 type: str
                                 description: Queue number of DSCP 61.
-                                choices:
-                                    - 'queue0'
-                                    - 'queue1'
-                                    - 'queue2'
-                                    - 'queue3'
-                                    - 'queue4'
-                                    - 'queue5'
-                                    - 'queue6'
-                                    - 'queue7'
+                                choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4',
+                                          'queue5', 'queue6', 'queue7']
                             dscp62:
                                 type: str
                                 description: Queue number of DSCP 62.
-                                choices:
-                                    - 'queue0'
-                                    - 'queue1'
-                                    - 'queue2'
-                                    - 'queue3'
-                                    - 'queue4'
-                                    - 'queue5'
-                                    - 'queue6'
-                                    - 'queue7'
+                                choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4',
+                                          'queue5', 'queue6', 'queue7']
                             dscp63:
                                 type: str
                                 description: Queue number of DSCP 63.
-                                choices:
-                                    - 'queue0'
-                                    - 'queue1'
-                                    - 'queue2'
-                                    - 'queue3'
-                                    - 'queue4'
-                                    - 'queue5'
-                                    - 'queue6'
-                                    - 'queue7'
+                                choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4',
+                                          'queue5', 'queue6', 'queue7']
                             dscp7:
                                 type: str
                                 description: Queue number of DSCP 7.
-                                choices:
-                                    - 'queue0'
-                                    - 'queue1'
-                                    - 'queue2'
-                                    - 'queue3'
-                                    - 'queue4'
-                                    - 'queue5'
-                                    - 'queue6'
-                                    - 'queue7'
+                                choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4',
+                                          'queue5', 'queue6', 'queue7']
                             dscp8:
                                 type: str
                                 description: Queue number of DSCP 8.
-                                choices:
-                                    - 'queue0'
-                                    - 'queue1'
-                                    - 'queue2'
-                                    - 'queue3'
-                                    - 'queue4'
-                                    - 'queue5'
-                                    - 'queue6'
-                                    - 'queue7'
+                                choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4',
+                                          'queue5', 'queue6', 'queue7']
                             dscp9:
                                 type: str
                                 description: Queue number of DSCP 9.
-                                choices:
-                                    - 'queue0'
-                                    - 'queue1'
-                                    - 'queue2'
-                                    - 'queue3'
-                                    - 'queue4'
-                                    - 'queue5'
-                                    - 'queue6'
-                                    - 'queue7'
+                                choices: ['queue0', 'queue1', 'queue2', 'queue3', 'queue4',
+                                          'queue5', 'queue6', 'queue7']
                             id:
                                 type: int
                                 description: Profile ID.
                             type:
                                 type: str
                                 description: Profile type.
-                                choices:
-                                    - 'cos'
-                                    - 'dscp'
+                                choices: ['cos', 'dscp']
                             weight:
                                 type: int
                                 description: Class weight.
@@ -1899,10 +1076,7 @@ options:
                             mode:
                                 type: str
                                 description: Scheduler mode.
-                                choices:
-                                    - 'none'
-                                    - 'priority'
-                                    - 'round-robin'
+                                choices: ['none', 'priority', 'round-robin']
                             name:
                                 type: str
                                 description: Scheduler name.
@@ -1910,9 +1084,7 @@ options:
                         aliases: ['custom-etype-lookup']
                         type: str
                         description: Enable/Disable np-queue lookup for custom Ethernet Types.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
             udp_timeout_profile:
                 aliases: ['udp-timeout-profile']
                 type: list
@@ -1930,17 +1102,12 @@ options:
                 aliases: ['qtm-buf-mode']
                 type: str
                 description: QTM channel configuration for packet buffer.
-                choices:
-                    - '6ch'
-                    - '4ch'
+                choices: ['6ch', '4ch']
             default_qos_type:
                 aliases: ['default-qos-type']
                 type: str
                 description: Set default QoS type.
-                choices:
-                    - 'policing'
-                    - 'shaping'
-                    - 'policing-enhanced'
+                choices: ['policing', 'shaping', 'policing-enhanced']
             tcp_rst_timeout:
                 aliases: ['tcp-rst-timeout']
                 type: int
@@ -1957,9 +1124,7 @@ options:
                 aliases: ['double-level-mcast-offload']
                 type: str
                 description: Enable double level mcast offload.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             dse_timeout:
                 aliases: ['dse-timeout']
                 type: int
@@ -1972,17 +1137,12 @@ options:
                 aliases: ['pba-eim']
                 type: str
                 description: Configure option for PBA
-                choices:
-                    - 'disallow'
-                    - 'allow'
+                choices: ['disallow', 'allow']
             policy_offload_level:
                 aliases: ['policy-offload-level']
                 type: str
                 description: Configure firewall policy offload level
-                choices:
-                    - 'disable'
-                    - 'dos-offload'
-                    - 'full-offload'
+                choices: ['disable', 'dos-offload', 'full-offload']
             max_session_timeout:
                 aliases: ['max-session-timeout']
                 type: int
@@ -2000,9 +1160,7 @@ options:
                 aliases: ['vlan-lookup-cache']
                 type: str
                 description: Enable/disable vlan lookup cache
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             dos_options:
                 aliases: ['dos-options']
                 type: dict
@@ -2012,30 +1170,22 @@ options:
                         aliases: ['npu-dos-meter-mode']
                         type: str
                         description: Set DoS meter NPU offloading mode.
-                        choices:
-                            - 'local'
-                            - 'global'
+                        choices: ['local', 'global']
                     npu_dos_synproxy_mode:
                         aliases: ['npu-dos-synproxy-mode']
                         type: str
                         description: Set NPU DoS SYNPROXY mode.
-                        choices:
-                            - 'synack2ack'
-                            - 'pass-synack'
+                        choices: ['synack2ack', 'pass-synack']
                     npu_dos_tpe_mode:
                         aliases: ['npu-dos-tpe-mode']
                         type: str
                         description: Enable/disable insertion of DoS meter ID to session table.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
             hash_tbl_spread:
                 aliases: ['hash-tbl-spread']
                 type: str
                 description: Enable/disable hash table entry spread
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             tcp_timeout_profile:
                 aliases: ['tcp-timeout-profile']
                 type: list
@@ -2085,23 +1235,17 @@ options:
                     status:
                         type: str
                         description: Set IP reassembly processing status.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
             gtp_support:
                 aliases: ['gtp-support']
                 type: str
                 description: Enable/Disable NP7 GTP support
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             htx_icmp_csum_chk:
                 aliases: ['htx-icmp-csum-chk']
                 type: str
                 description: Set HTX icmp csum checking mode.
-                choices:
-                    - 'pass'
-                    - 'drop'
+                choices: ['pass', 'drop']
             hpe:
                 type: dict
                 description: Hpe.
@@ -2118,9 +1262,7 @@ options:
                         aliases: ['enable-shaper']
                         type: str
                         description: Enable/Disable NPU Host Protection Engine
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     esp_max:
                         aliases: ['esp-max']
                         type: int
@@ -2177,9 +1319,7 @@ options:
                         aliases: ['enable-queue-shaper']
                         type: str
                         description: Enable/Disable NPU host protection engine
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     exception_code:
                         aliases: ['exception-code']
                         type: int
@@ -2205,14 +1345,8 @@ options:
                     action:
                         type: str
                         description: Set NPU DSW DTS profile action.
-                        choices:
-                            - 'wait'
-                            - 'drop'
-                            - 'drop_tmr_0'
-                            - 'drop_tmr_1'
-                            - 'enque'
-                            - 'enque_0'
-                            - 'enque_1'
+                        choices: ['wait', 'drop', 'drop_tmr_0', 'drop_tmr_1', 'enque', 'enque_0',
+                                  'enque_1']
                     min_limit:
                         aliases: ['min-limit']
                         type: int
@@ -2228,19 +1362,12 @@ options:
                 aliases: ['hash-config']
                 type: str
                 description: Configure NPU trunk hash.
-                choices:
-                    - '5-tuple'
-                    - 'src-ip'
-                    - 'src-dst-ip'
+                choices: ['5-tuple', 'src-ip', 'src-dst-ip']
             ipsec_ob_np_sel:
                 aliases: ['ipsec-ob-np-sel']
                 type: str
                 description: IPsec NP selection for OB SA offloading.
-                choices:
-                    - 'RR'
-                    - 'rr'
-                    - 'Packet'
-                    - 'Hash'
+                choices: ['RR', 'rr', 'Packet', 'Hash']
             napi_break_interval:
                 aliases: ['napi-break-interval']
                 type: int
@@ -2253,9 +1380,7 @@ options:
                     scan:
                         type: str
                         description: Enable/disable background SSE scan by driver thread
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     stats_update_interval:
                         aliases: ['stats-update-interval']
                         type: int
@@ -2300,10 +1425,7 @@ options:
                 aliases: ['htab-msg-queue']
                 type: str
                 description: Set hash table message queue mode.
-                choices:
-                    - 'idle'
-                    - 'data'
-                    - 'dedicated'
+                choices: ['idle', 'data', 'dedicated']
             dsw_queue_dts_profile:
                 aliases: ['dsw-queue-dts-profile']
                 type: list
@@ -2313,141 +1435,29 @@ options:
                     iport:
                         type: str
                         description: Set NPU DSW DTS in port.
-                        choices:
-                            - 'EIF0'
-                            - 'eif0'
-                            - 'EIF1'
-                            - 'eif1'
-                            - 'EIF2'
-                            - 'eif2'
-                            - 'EIF3'
-                            - 'eif3'
-                            - 'EIF4'
-                            - 'eif4'
-                            - 'EIF5'
-                            - 'eif5'
-                            - 'EIF6'
-                            - 'eif6'
-                            - 'EIF7'
-                            - 'eif7'
-                            - 'HTX0'
-                            - 'htx0'
-                            - 'HTX1'
-                            - 'htx1'
-                            - 'SSE0'
-                            - 'sse0'
-                            - 'SSE1'
-                            - 'sse1'
-                            - 'SSE2'
-                            - 'sse2'
-                            - 'SSE3'
-                            - 'sse3'
-                            - 'RLT'
-                            - 'rlt'
-                            - 'DFR'
-                            - 'dfr'
-                            - 'IPSECI'
-                            - 'ipseci'
-                            - 'IPSECO'
-                            - 'ipseco'
-                            - 'IPTI'
-                            - 'ipti'
-                            - 'IPTO'
-                            - 'ipto'
-                            - 'VEP0'
-                            - 'vep0'
-                            - 'VEP2'
-                            - 'vep2'
-                            - 'VEP4'
-                            - 'vep4'
-                            - 'VEP6'
-                            - 'vep6'
-                            - 'IVS'
-                            - 'ivs'
-                            - 'L2TI1'
-                            - 'l2ti1'
-                            - 'L2TO'
-                            - 'l2to'
-                            - 'L2TI0'
-                            - 'l2ti0'
-                            - 'PLE'
-                            - 'ple'
-                            - 'SPATH'
-                            - 'spath'
-                            - 'QTM'
-                            - 'qtm'
+                        choices: ['EIF0', 'eif0', 'EIF1', 'eif1', 'EIF2', 'eif2', 'EIF3', 'eif3',
+                                  'EIF4', 'eif4', 'EIF5', 'eif5', 'EIF6', 'eif6', 'EIF7', 'eif7',
+                                  'HTX0', 'htx0', 'HTX1', 'htx1', 'SSE0', 'sse0', 'SSE1', 'sse1',
+                                  'SSE2', 'sse2', 'SSE3', 'sse3', 'RLT', 'rlt', 'DFR', 'dfr',
+                                  'IPSECI', 'ipseci', 'IPSECO', 'ipseco', 'IPTI', 'ipti', 'IPTO',
+                                  'ipto', 'VEP0', 'vep0', 'VEP2', 'vep2', 'VEP4', 'vep4', 'VEP6',
+                                  'vep6', 'IVS', 'ivs', 'L2TI1', 'l2ti1', 'L2TO', 'l2to', 'L2TI0',
+                                  'l2ti0', 'PLE', 'ple', 'SPATH', 'spath', 'QTM', 'qtm']
                     name:
                         type: str
                         description: Name.
                     oport:
                         type: str
                         description: Set NPU DSW DTS out port.
-                        choices:
-                            - 'EIF0'
-                            - 'eif0'
-                            - 'EIF1'
-                            - 'eif1'
-                            - 'EIF2'
-                            - 'eif2'
-                            - 'EIF3'
-                            - 'eif3'
-                            - 'EIF4'
-                            - 'eif4'
-                            - 'EIF5'
-                            - 'eif5'
-                            - 'EIF6'
-                            - 'eif6'
-                            - 'EIF7'
-                            - 'eif7'
-                            - 'HRX'
-                            - 'hrx'
-                            - 'SSE0'
-                            - 'sse0'
-                            - 'SSE1'
-                            - 'sse1'
-                            - 'SSE2'
-                            - 'sse2'
-                            - 'SSE3'
-                            - 'sse3'
-                            - 'RLT'
-                            - 'rlt'
-                            - 'DFR'
-                            - 'dfr'
-                            - 'IPSECI'
-                            - 'ipseci'
-                            - 'IPSECO'
-                            - 'ipseco'
-                            - 'IPTI'
-                            - 'ipti'
-                            - 'IPTO'
-                            - 'ipto'
-                            - 'VEP0'
-                            - 'vep0'
-                            - 'VEP2'
-                            - 'vep2'
-                            - 'VEP4'
-                            - 'vep4'
-                            - 'VEP6'
-                            - 'vep6'
-                            - 'IVS'
-                            - 'ivs'
-                            - 'L2TI1'
-                            - 'l2ti1'
-                            - 'L2TO'
-                            - 'l2to'
-                            - 'L2TI0'
-                            - 'l2ti0'
-                            - 'PLE'
-                            - 'ple'
-                            - 'SYNK'
-                            - 'sync'
-                            - 'NSS'
-                            - 'nss'
-                            - 'TSK'
-                            - 'tsk'
-                            - 'QTM'
-                            - 'qtm'
-                            - 'l2tO'
+                        choices: ['EIF0', 'eif0', 'EIF1', 'eif1', 'EIF2', 'eif2', 'EIF3', 'eif3',
+                                  'EIF4', 'eif4', 'EIF5', 'eif5', 'EIF6', 'eif6', 'EIF7', 'eif7',
+                                  'HRX', 'hrx', 'SSE0', 'sse0', 'SSE1', 'sse1', 'SSE2', 'sse2',
+                                  'SSE3', 'sse3', 'RLT', 'rlt', 'DFR', 'dfr', 'IPSECI', 'ipseci',
+                                  'IPSECO', 'ipseco', 'IPTI', 'ipti', 'IPTO', 'ipto', 'VEP0',
+                                  'vep0', 'VEP2', 'vep2', 'VEP4', 'vep4', 'VEP6', 'vep6', 'IVS',
+                                  'ivs', 'L2TI1', 'l2ti1', 'L2TO', 'l2to', 'L2TI0', 'l2ti0',
+                                  'PLE', 'ple', 'SYNK', 'sync', 'NSS', 'nss', 'TSK', 'tsk', 'QTM',
+                                  'qtm', 'l2tO']
                     profile_id:
                         aliases: ['profile-id']
                         type: int
@@ -2468,9 +1478,7 @@ options:
                 aliases: ['nat46-force-ipv4-packet-forwarding']
                 type: str
                 description: Enable/disable mandatory IPv4 packet forwarding in nat46.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             prp_port_out:
                 aliases: ['prp-port-out']
                 type: raw
@@ -2479,19 +1487,12 @@ options:
                 aliases: ['isf-np-rx-tr-distr']
                 type: str
                 description: Select ISF NP Rx trunk distribution
-                choices:
-                    - 'port-flow'
-                    - 'round-robin'
-                    - 'randomized'
+                choices: ['port-flow', 'round-robin', 'randomized']
             mcast_session_counting6:
                 aliases: ['mcast-session-counting6']
                 type: str
                 description: Enable/disable traffic accounting for each multicast session6 through TAE counter.
-                choices:
-                    - 'disable'
-                    - 'enable'
-                    - 'session-based'
-                    - 'tpe-based'
+                choices: ['disable', 'enable', 'session-based', 'tpe-based']
             prp_port_in:
                 aliases: ['prp-port-in']
                 type: raw
@@ -2500,60 +1501,42 @@ options:
                 aliases: ['rps-mode']
                 type: str
                 description: Enable/disable receive packet steering
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             per_policy_accounting:
                 aliases: ['per-policy-accounting']
                 type: str
                 description: Set per-policy accounting.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             mcast_session_counting:
                 aliases: ['mcast-session-counting']
                 type: str
                 description: Mcast session counting.
-                choices:
-                    - 'disable'
-                    - 'enable'
-                    - 'session-based'
-                    - 'tpe-based'
+                choices: ['disable', 'enable', 'session-based', 'tpe-based']
             inbound_dscp_copy:
                 aliases: ['inbound-dscp-copy']
                 type: str
                 description: Enable/disable copying the DSCP field from outer IP header to inner IP Header.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             ipsec_host_dfclr:
                 aliases: ['ipsec-host-dfclr']
                 type: str
                 description: Enable/disable DF clearing of NP4lite host IPsec offload.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             process_icmp_by_host:
                 aliases: ['process-icmp-by-host']
                 type: str
                 description: Enable/disable process ICMP by host when received from IPsec tunnel and payload size
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             dedicated_tx_npu:
                 aliases: ['dedicated-tx-npu']
                 type: str
                 description: Enable/disable dedication of 3rd NPU for slow path TX.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             ull_port_mode:
                 aliases: ['ull-port-mode']
                 type: str
                 description: Set ULL ports speed to 10G/25G
-                choices:
-                    - '10G'
-                    - '25G'
+                choices: ['10G', '25G']
             sse_ha_scan:
                 aliases: ['sse-ha-scan']
                 type: dict
@@ -2578,16 +1561,12 @@ options:
                 aliases: ['ip-fragment-offload']
                 type: str
                 description: Enable/disable NP7 NPU IP fragment offload.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             ple_non_syn_tcp_action:
                 aliases: ['ple-non-syn-tcp-action']
                 type: str
                 description: Configure action for the PLE to take on TCP packets that have the SYN field unset.
-                choices:
-                    - 'forward'
-                    - 'drop'
+                choices: ['forward', 'drop']
             npu_group_effective_scope:
                 aliases: ['npu-group-effective-scope']
                 type: int
@@ -2596,115 +1575,49 @@ options:
                 aliases: ['ipsec-STS-timeout']
                 type: str
                 description: Set NP7Lite IPsec STS msg timeout.
-                choices:
-                    - '1'
-                    - '2'
-                    - '3'
-                    - '4'
-                    - '5'
-                    - '6'
-                    - '7'
-                    - '8'
-                    - '9'
-                    - '10'
+                choices: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
             ipsec_throughput_msg_frequency:
                 aliases: ['ipsec-throughput-msg-frequency']
                 type: str
                 description: Set NP7Lite IPsec throughput msg frequency
-                choices:
-                    - 'disable'
-                    - '32KB'
-                    - '64KB'
-                    - '128KB'
-                    - '256KB'
-                    - '512KB'
-                    - '1MB'
-                    - '2MB'
-                    - '4MB'
-                    - '8MB'
-                    - '16MB'
-                    - '32MB'
-                    - '64MB'
-                    - '128MB'
-                    - '256MB'
-                    - '512MB'
-                    - '1GB'
+                choices: ['disable', '32KB', '64KB', '128KB', '256KB', '512KB', '1MB', '2MB',
+                          '4MB', '8MB', '16MB', '32MB', '64MB', '128MB', '256MB', '512MB', '1GB']
             ipt_STS_timeout:
                 aliases: ['ipt-STS-timeout']
                 type: str
                 description: Set NP7Lite IPT STS msg timeout.
-                choices:
-                    - '1'
-                    - '2'
-                    - '3'
-                    - '4'
-                    - '5'
-                    - '6'
-                    - '7'
-                    - '8'
-                    - '9'
-                    - '10'
+                choices: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
             ipt_throughput_msg_frequency:
                 aliases: ['ipt-throughput-msg-frequency']
                 type: str
                 description: Set NP7Lite IPT throughput msg frequency
-                choices:
-                    - 'disable'
-                    - '32KB'
-                    - '64KB'
-                    - '128KB'
-                    - '256KB'
-                    - '512KB'
-                    - '1MB'
-                    - '2MB'
-                    - '4MB'
-                    - '8MB'
-                    - '16MB'
-                    - '32MB'
-                    - '64MB'
-                    - '128MB'
-                    - '256MB'
-                    - '512MB'
-                    - '1GB'
+                choices: ['disable', '32KB', '64KB', '128KB', '256KB', '512KB', '1MB', '2MB',
+                          '4MB', '8MB', '16MB', '32MB', '64MB', '128MB', '256MB', '512MB', '1GB']
             default_tcp_refresh_dir:
                 aliases: ['default-tcp-refresh-dir']
                 type: str
                 description: Default SSE timeout TCP refresh direction.
-                choices:
-                    - 'both'
-                    - 'outgoing'
-                    - 'incoming'
+                choices: ['both', 'outgoing', 'incoming']
             default_udp_refresh_dir:
                 aliases: ['default-udp-refresh-dir']
                 type: str
                 description: Default SSE timeout UDP refresh direction.
-                choices:
-                    - 'both'
-                    - 'outgoing'
-                    - 'incoming'
+                choices: ['both', 'outgoing', 'incoming']
             nss_threads_option:
                 aliases: ['nss-threads-option']
                 type: str
                 description: Configure thread options for the NP7s NSS module.
-                choices:
-                    - '4t-eif'
-                    - '4t-noeif'
-                    - '2t'
+                choices: ['4t-eif', '4t-noeif', '2t']
             prp_session_clear_mode:
                 aliases: ['prp-session-clear-mode']
                 type: str
                 description: PRP session clear mode for excluded ip sessions.
-                choices:
-                    - 'blocking'
-                    - 'non-blocking'
-                    - 'do-not-clear'
+                choices: ['blocking', 'non-blocking', 'do-not-clear']
             shaping_stats:
                 aliases: ['shaping-stats']
                 type: str
                 description: Enable/disable NP7 traffic shaping statistics
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             sw_tr_hash:
                 aliases: ['sw-tr-hash']
                 type: dict
@@ -2713,44 +1626,32 @@ options:
                     draco15:
                         type: str
                         description: Enable/disable DRACO15 hashing.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     tcp_udp_port:
                         aliases: ['tcp-udp-port']
                         type: str
                         description: Include/exclude TCP/UDP source and destination port for unicast trunk traffic.
-                        choices:
-                            - 'include'
-                            - 'exclude'
+                        choices: ['include', 'exclude']
             pba_port_select_mode:
                 aliases: ['pba-port-select-mode']
                 type: str
                 description: Port selection mode for PBA IP pool.
-                choices:
-                    - 'random'
-                    - 'direct'
+                choices: ['random', 'direct']
             spa_port_select_mode:
                 aliases: ['spa-port-select-mode']
                 type: str
                 description: Port selection mode for SPA IP pool.
-                choices:
-                    - 'random'
-                    - 'direct'
+                choices: ['random', 'direct']
             split_ipsec_engines:
                 aliases: ['split-ipsec-engines']
                 type: str
                 description: Enable/disable Split IPsec Engines.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             tunnel_over_vlink:
                 aliases: ['tunnel-over-vlink']
                 type: str
                 description: Enable/disable selection of which NP6 chip the tunnel uses
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             max_receive_unit:
                 aliases: ['max-receive-unit']
                 type: int
@@ -2768,9 +1669,7 @@ options:
                             df:
                                 type: str
                                 description: Tcam data ip flag df.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             dstip:
                                 type: str
                                 description: Tcam data dst ipv4 address.
@@ -2790,9 +1689,7 @@ options:
                                 aliases: ['ext-tag']
                                 type: str
                                 description: Tcam data extension tag.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             frag_off:
                                 aliases: ['frag-off']
                                 type: int
@@ -2805,9 +1702,7 @@ options:
                                 aliases: ['gen-iv']
                                 type: str
                                 description: Tcam data gen info iv.
-                                choices:
-                                    - 'invalid'
-                                    - 'valid'
+                                choices: ['invalid', 'valid']
                             gen_l3_flags:
                                 aliases: ['gen-l3-flags']
                                 type: int
@@ -2828,16 +1723,12 @@ options:
                                 aliases: ['gen-pri-v']
                                 type: str
                                 description: Tcam data gen info priority valid.
-                                choices:
-                                    - 'invalid'
-                                    - 'valid'
+                                choices: ['invalid', 'valid']
                             gen_tv:
                                 aliases: ['gen-tv']
                                 type: str
                                 description: Tcam data gen info tv.
-                                choices:
-                                    - 'invalid'
-                                    - 'valid'
+                                choices: ['invalid', 'valid']
                             ihl:
                                 type: int
                                 description: Tcam data ipv4 IHL.
@@ -2871,9 +1762,7 @@ options:
                             mf:
                                 type: str
                                 description: Tcam data ip flag mf.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             protocol:
                                 type: int
                                 description: Tcam data ip protocol.
@@ -2884,9 +1773,7 @@ options:
                                 aliases: ['smac-change']
                                 type: str
                                 description: Tcam data source MAC change.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             sp:
                                 type: int
                                 description: Tcam data source port.
@@ -2894,9 +1781,7 @@ options:
                                 aliases: ['src-cfi']
                                 type: str
                                 description: Tcam data source cfi.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             src_prio:
                                 aliases: ['src-prio']
                                 type: int
@@ -2905,9 +1790,7 @@ options:
                                 aliases: ['src-updt']
                                 type: str
                                 description: Tcam data source update.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             srcip:
                                 type: str
                                 description: Tcam data src ipv4 address.
@@ -2927,65 +1810,47 @@ options:
                                 aliases: ['tcp-ack']
                                 type: str
                                 description: Tcam data tcp flag ack.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             tcp_cwr:
                                 aliases: ['tcp-cwr']
                                 type: str
                                 description: Tcam data tcp flag cwr.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             tcp_ece:
                                 aliases: ['tcp-ece']
                                 type: str
                                 description: Tcam data tcp flag ece.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             tcp_fin:
                                 aliases: ['tcp-fin']
                                 type: str
                                 description: Tcam data tcp flag fin.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             tcp_push:
                                 aliases: ['tcp-push']
                                 type: str
                                 description: Tcam data tcp flag push.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             tcp_rst:
                                 aliases: ['tcp-rst']
                                 type: str
                                 description: Tcam data tcp flag rst.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             tcp_syn:
                                 aliases: ['tcp-syn']
                                 type: str
                                 description: Tcam data tcp flag syn.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             tcp_urg:
                                 aliases: ['tcp-urg']
                                 type: str
                                 description: Tcam data tcp flag urg.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             tgt_cfi:
                                 aliases: ['tgt-cfi']
                                 type: str
                                 description: Tcam data target cfi.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             tgt_prio:
                                 aliases: ['tgt-prio']
                                 type: int
@@ -2994,16 +1859,12 @@ options:
                                 aliases: ['tgt-updt']
                                 type: str
                                 description: Tcam data target port update.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             tgt_v:
                                 aliases: ['tgt-v']
                                 type: str
                                 description: Tcam data target valid.
-                                choices:
-                                    - 'invalid'
-                                    - 'valid'
+                                choices: ['invalid', 'valid']
                             tos:
                                 type: int
                                 description: Tcam data ip tos.
@@ -3030,9 +1891,7 @@ options:
                             df:
                                 type: str
                                 description: Tcam mask ip flag df.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             dstip:
                                 type: str
                                 description: Tcam mask dst ipv4 address.
@@ -3052,9 +1911,7 @@ options:
                                 aliases: ['ext-tag']
                                 type: str
                                 description: Tcam mask extension tag.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             frag_off:
                                 aliases: ['frag-off']
                                 type: int
@@ -3067,9 +1924,7 @@ options:
                                 aliases: ['gen-iv']
                                 type: str
                                 description: Tcam mask gen info iv.
-                                choices:
-                                    - 'invalid'
-                                    - 'valid'
+                                choices: ['invalid', 'valid']
                             gen_l3_flags:
                                 aliases: ['gen-l3-flags']
                                 type: int
@@ -3090,16 +1945,12 @@ options:
                                 aliases: ['gen-pri-v']
                                 type: str
                                 description: Tcam mask gen info priority valid.
-                                choices:
-                                    - 'invalid'
-                                    - 'valid'
+                                choices: ['invalid', 'valid']
                             gen_tv:
                                 aliases: ['gen-tv']
                                 type: str
                                 description: Tcam mask gen info tv.
-                                choices:
-                                    - 'invalid'
-                                    - 'valid'
+                                choices: ['invalid', 'valid']
                             ihl:
                                 type: int
                                 description: Tcam mask ipv4 IHL.
@@ -3133,9 +1984,7 @@ options:
                             mf:
                                 type: str
                                 description: Tcam mask ip flag mf.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             protocol:
                                 type: int
                                 description: Tcam mask ip protocol.
@@ -3146,9 +1995,7 @@ options:
                                 aliases: ['smac-change']
                                 type: str
                                 description: Tcam mask source MAC change.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             sp:
                                 type: int
                                 description: Tcam mask source port.
@@ -3156,9 +2003,7 @@ options:
                                 aliases: ['src-cfi']
                                 type: str
                                 description: Tcam mask source cfi.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             src_prio:
                                 aliases: ['src-prio']
                                 type: int
@@ -3167,9 +2012,7 @@ options:
                                 aliases: ['src-updt']
                                 type: str
                                 description: Tcam mask source update.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             srcip:
                                 type: str
                                 description: Tcam mask src ipv4 address.
@@ -3189,65 +2032,47 @@ options:
                                 aliases: ['tcp-ack']
                                 type: str
                                 description: Tcam mask tcp flag ack.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             tcp_cwr:
                                 aliases: ['tcp-cwr']
                                 type: str
                                 description: Tcam mask tcp flag cwr.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             tcp_ece:
                                 aliases: ['tcp-ece']
                                 type: str
                                 description: Tcam mask tcp flag ece.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             tcp_fin:
                                 aliases: ['tcp-fin']
                                 type: str
                                 description: Tcam mask tcp flag fin.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             tcp_push:
                                 aliases: ['tcp-push']
                                 type: str
                                 description: Tcam mask tcp flag push.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             tcp_rst:
                                 aliases: ['tcp-rst']
                                 type: str
                                 description: Tcam mask tcp flag rst.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             tcp_syn:
                                 aliases: ['tcp-syn']
                                 type: str
                                 description: Tcam mask tcp flag syn.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             tcp_urg:
                                 aliases: ['tcp-urg']
                                 type: str
                                 description: Tcam mask tcp flag urg.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             tgt_cfi:
                                 aliases: ['tgt-cfi']
                                 type: str
                                 description: Tcam mask target cfi.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             tgt_prio:
                                 aliases: ['tgt-prio']
                                 type: int
@@ -3256,16 +2081,12 @@ options:
                                 aliases: ['tgt-updt']
                                 type: str
                                 description: Tcam mask target port update.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             tgt_v:
                                 aliases: ['tgt-v']
                                 type: str
                                 description: Tcam mask target valid.
-                                choices:
-                                    - 'invalid'
-                                    - 'valid'
+                                choices: ['invalid', 'valid']
                             tos:
                                 type: int
                                 description: Tcam mask ip tos.
@@ -3317,9 +2138,7 @@ options:
                                 aliases: ['act-v']
                                 type: str
                                 description: Enable to set sact act.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             bmproc:
                                 type: int
                                 description: Tcam sact bmproc.
@@ -3327,9 +2146,7 @@ options:
                                 aliases: ['bmproc-v']
                                 type: str
                                 description: Enable to set sact bmproc.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             df_lif:
                                 aliases: ['df-lif']
                                 type: int
@@ -3338,9 +2155,7 @@ options:
                                 aliases: ['df-lif-v']
                                 type: str
                                 description: Enable to set sact df-lif.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             dfr:
                                 type: int
                                 description: Tcam sact dfr.
@@ -3348,9 +2163,7 @@ options:
                                 aliases: ['dfr-v']
                                 type: str
                                 description: Enable to set sact dfr.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             dmac_skip:
                                 aliases: ['dmac-skip']
                                 type: int
@@ -3359,9 +2172,7 @@ options:
                                 aliases: ['dmac-skip-v']
                                 type: str
                                 description: Enable to set sact dmac-skip.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             dosen:
                                 type: int
                                 description: Tcam sact dosen.
@@ -3369,9 +2180,7 @@ options:
                                 aliases: ['dosen-v']
                                 type: str
                                 description: Enable to set sact dosen.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             espff_proc:
                                 aliases: ['espff-proc']
                                 type: int
@@ -3380,9 +2189,7 @@ options:
                                 aliases: ['espff-proc-v']
                                 type: str
                                 description: Enable to set sact espff-proc.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             etype_pid:
                                 aliases: ['etype-pid']
                                 type: int
@@ -3391,9 +2198,7 @@ options:
                                 aliases: ['etype-pid-v']
                                 type: str
                                 description: Enable to set sact etype-pid.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             frag_proc:
                                 aliases: ['frag-proc']
                                 type: int
@@ -3402,9 +2207,7 @@ options:
                                 aliases: ['frag-proc-v']
                                 type: str
                                 description: Enable to set sact frag-proc.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             fwd:
                                 type: int
                                 description: Tcam sact fwd.
@@ -3416,9 +2219,7 @@ options:
                                 aliases: ['fwd-lif-v']
                                 type: str
                                 description: Enable to set sact fwd-lif.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             fwd_tvid:
                                 aliases: ['fwd-tvid']
                                 type: int
@@ -3427,16 +2228,12 @@ options:
                                 aliases: ['fwd-tvid-v']
                                 type: str
                                 description: Enable to set sact fwd-vid.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             fwd_v:
                                 aliases: ['fwd-v']
                                 type: str
                                 description: Enable to set sact fwd.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             icpen:
                                 type: int
                                 description: Tcam sact icpen.
@@ -3444,9 +2241,7 @@ options:
                                 aliases: ['icpen-v']
                                 type: str
                                 description: Enable to set sact icpen.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             igmp_mld_snp:
                                 aliases: ['igmp-mld-snp']
                                 type: int
@@ -3455,9 +2250,7 @@ options:
                                 aliases: ['igmp-mld-snp-v']
                                 type: str
                                 description: Enable to set sact igmp-mld-snp.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             learn:
                                 type: int
                                 description: Tcam sact learn.
@@ -3465,9 +2258,7 @@ options:
                                 aliases: ['learn-v']
                                 type: str
                                 description: Enable to set sact learn.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             m_srh_ctrl:
                                 aliases: ['m-srh-ctrl']
                                 type: int
@@ -3476,9 +2267,7 @@ options:
                                 aliases: ['m-srh-ctrl-v']
                                 type: str
                                 description: Enable to set sact m-srh-ctrl.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             mac_id:
                                 aliases: ['mac-id']
                                 type: int
@@ -3487,9 +2276,7 @@ options:
                                 aliases: ['mac-id-v']
                                 type: str
                                 description: Enable to set sact mac-id.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             mss:
                                 type: int
                                 description: Tcam sact mss.
@@ -3497,9 +2284,7 @@ options:
                                 aliases: ['mss-v']
                                 type: str
                                 description: Enable to set sact mss.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             pleen:
                                 type: int
                                 description: Tcam sact pleen.
@@ -3507,9 +2292,7 @@ options:
                                 aliases: ['pleen-v']
                                 type: str
                                 description: Enable to set sact pleen.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             prio_pid:
                                 aliases: ['prio-pid']
                                 type: int
@@ -3518,9 +2301,7 @@ options:
                                 aliases: ['prio-pid-v']
                                 type: str
                                 description: Enable to set sact prio-pid.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             promis:
                                 type: int
                                 description: Tcam sact promis.
@@ -3528,9 +2309,7 @@ options:
                                 aliases: ['promis-v']
                                 type: str
                                 description: Enable to set sact promis.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             rfsh:
                                 type: int
                                 description: Tcam sact rfsh.
@@ -3538,9 +2317,7 @@ options:
                                 aliases: ['rfsh-v']
                                 type: str
                                 description: Enable to set sact rfsh.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             smac_skip:
                                 aliases: ['smac-skip']
                                 type: int
@@ -3549,16 +2326,12 @@ options:
                                 aliases: ['smac-skip-v']
                                 type: str
                                 description: Enable to set sact smac-skip.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             tp_smchk_v:
                                 aliases: ['tp-smchk-v']
                                 type: str
                                 description: Enable to set sact tp mode.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             tp_smchk:
                                 type: int
                                 description: Tcam sact tp mode.
@@ -3570,9 +2343,7 @@ options:
                                 aliases: ['tpe-id-v']
                                 type: str
                                 description: Enable to set sact tpe-id.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             vdm:
                                 type: int
                                 description: Tcam sact vdm.
@@ -3580,9 +2351,7 @@ options:
                                 aliases: ['vdm-v']
                                 type: str
                                 description: Enable to set sact vdm.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             vdom_id:
                                 aliases: ['vdom-id']
                                 type: int
@@ -3591,9 +2360,7 @@ options:
                                 aliases: ['vdom-id-v']
                                 type: str
                                 description: Enable to set sact vdom-id.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             x_mode:
                                 aliases: ['x-mode']
                                 type: int
@@ -3602,9 +2369,7 @@ options:
                                 aliases: ['x-mode-v']
                                 type: str
                                 description: Enable to set sact x-mode.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                     tact:
                         type: dict
                         description: Tact.
@@ -3616,9 +2381,7 @@ options:
                                 aliases: ['act-v']
                                 type: str
                                 description: Enable to set tact act.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             fmtuv4_s:
                                 aliases: ['fmtuv4-s']
                                 type: int
@@ -3627,9 +2390,7 @@ options:
                                 aliases: ['fmtuv4-s-v']
                                 type: str
                                 description: Enable to set tact fmtuv4-s.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             fmtuv6_s:
                                 aliases: ['fmtuv6-s']
                                 type: int
@@ -3638,9 +2399,7 @@ options:
                                 aliases: ['fmtuv6-s-v']
                                 type: str
                                 description: Enable to set tact fmtuv6-s.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             lnkid:
                                 type: int
                                 description: Tcam tact lnkid.
@@ -3648,9 +2407,7 @@ options:
                                 aliases: ['lnkid-v']
                                 type: str
                                 description: Enable to set tact lnkid.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             mac_id:
                                 aliases: ['mac-id']
                                 type: int
@@ -3659,9 +2416,7 @@ options:
                                 aliases: ['mac-id-v']
                                 type: str
                                 description: Enable to set tact mac-id.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             mss_t:
                                 aliases: ['mss-t']
                                 type: int
@@ -3670,9 +2425,7 @@ options:
                                 aliases: ['mss-t-v']
                                 type: str
                                 description: Enable to set tact mss.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             mtuv4:
                                 type: int
                                 description: Tcam tact mtuv4.
@@ -3680,9 +2433,7 @@ options:
                                 aliases: ['mtuv4-v']
                                 type: str
                                 description: Enable to set tact mtuv4.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             mtuv6:
                                 type: int
                                 description: Tcam tact mtuv6.
@@ -3690,9 +2441,7 @@ options:
                                 aliases: ['mtuv6-v']
                                 type: str
                                 description: Enable to set tact mtuv6.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             slif_act:
                                 aliases: ['slif-act']
                                 type: int
@@ -3701,9 +2450,7 @@ options:
                                 aliases: ['slif-act-v']
                                 type: str
                                 description: Enable to set tact slif-act.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             sublnkid:
                                 type: int
                                 description: Tcam tact sublnkid.
@@ -3711,9 +2458,7 @@ options:
                                 aliases: ['sublnkid-v']
                                 type: str
                                 description: Enable to set tact sublnkid.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             tgtv_act:
                                 aliases: ['tgtv-act']
                                 type: int
@@ -3722,9 +2467,7 @@ options:
                                 aliases: ['tgtv-act-v']
                                 type: str
                                 description: Enable to set tact tgtv-act.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             tlif_act:
                                 aliases: ['tlif-act']
                                 type: int
@@ -3733,9 +2476,7 @@ options:
                                 aliases: ['tlif-act-v']
                                 type: str
                                 description: Enable to set tact tlif-act.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             tpeid:
                                 type: int
                                 description: Tcam tact tpeid.
@@ -3743,9 +2484,7 @@ options:
                                 aliases: ['tpeid-v']
                                 type: str
                                 description: Enable to set tact tpeid.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             v6fe:
                                 type: int
                                 description: Tcam tact v6fe.
@@ -3753,16 +2492,12 @@ options:
                                 aliases: ['v6fe-v']
                                 type: str
                                 description: Enable to set tact v6fe.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             vep_en_v:
                                 aliases: ['vep-en-v']
                                 type: str
                                 description: Enable to set tact vep-en.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             vep_slid:
                                 aliases: ['vep-slid']
                                 type: int
@@ -3771,9 +2506,7 @@ options:
                                 aliases: ['vep-slid-v']
                                 type: str
                                 description: Enable to set tact vep-slid.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             vep_en:
                                 type: int
                                 description: Tcam tact vep_en.
@@ -3785,9 +2518,7 @@ options:
                                 aliases: ['xlt-lif-v']
                                 type: str
                                 description: Enable to set tact xlt-lif.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                             xlt_vid:
                                 aliases: ['xlt-vid']
                                 type: int
@@ -3796,31 +2527,15 @@ options:
                                 aliases: ['xlt-vid-v']
                                 type: str
                                 description: Enable to set tact xlt-vid.
-                                choices:
-                                    - 'disable'
-                                    - 'enable'
+                                choices: ['disable', 'enable']
                     type:
                         type: str
                         description: TCAM policy type.
-                        choices:
-                            - 'L2_src_tc'
-                            - 'L2_tgt_tc'
-                            - 'L2_src_mir'
-                            - 'L2_tgt_mir'
-                            - 'L2_src_act'
-                            - 'L2_tgt_act'
-                            - 'IPv4_src_tc'
-                            - 'IPv4_tgt_tc'
-                            - 'IPv4_src_mir'
-                            - 'IPv4_tgt_mir'
-                            - 'IPv4_src_act'
-                            - 'IPv4_tgt_act'
-                            - 'IPv6_src_tc'
-                            - 'IPv6_tgt_tc'
-                            - 'IPv6_src_mir'
-                            - 'IPv6_tgt_mir'
-                            - 'IPv6_src_act'
-                            - 'IPv6_tgt_act'
+                        choices: ['L2_src_tc', 'L2_tgt_tc', 'L2_src_mir', 'L2_tgt_mir',
+                                  'L2_src_act', 'L2_tgt_act', 'IPv4_src_tc', 'IPv4_tgt_tc',
+                                  'IPv4_src_mir', 'IPv4_tgt_mir', 'IPv4_src_act', 'IPv4_tgt_act',
+                                  'IPv6_src_tc', 'IPv6_tgt_tc', 'IPv6_src_mir', 'IPv6_tgt_mir',
+                                  'IPv6_src_act', 'IPv6_tgt_act']
                     vid:
                         type: int
                         description: NPU TCAM VID.
@@ -3849,9 +2564,7 @@ options:
                 aliases: ['vxlan-offload']
                 type: str
                 description: Enable/disable offloading vxlan.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             icmp_error_rate_ctrl:
                 aliases: ['icmp-error-rate-ctrl']
                 type: dict
@@ -3869,9 +2582,7 @@ options:
                         aliases: ['icmpv4-error-rate-limit']
                         type: str
                         description: Enable to limit the ICMPv4 error packets generated by this FortiGate.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     icmpv6_error_bucket_size:
                         aliases: ['icmpv6-error-bucket-size']
                         type: int
@@ -3884,16 +2595,12 @@ options:
                         aliases: ['icmpv6-error-rate-limit']
                         type: str
                         description: Enable to limit the ICMPv6 error packets generated by this FortiGate.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
             ipv4_session_quota:
                 aliases: ['ipv4-session-quota']
                 type: str
                 description: Enable/Disable NoNAT IPv4 session quota for hyperscale VDOMs.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             ipv4_session_quota_high:
                 aliases: ['ipv4-session-quota-high']
                 type: int
@@ -3906,9 +2613,7 @@ options:
                 aliases: ['ipv6-prefix-session-quota']
                 type: str
                 description: Enable/Disable hardware IPv6 /64 prefix session quota for hyperscale VDOMs.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             ipv6_prefix_session_quota_high:
                 aliases: ['ipv6-prefix-session-quota-high']
                 type: int
@@ -3921,23 +2626,17 @@ options:
                 aliases: ['dedicated-lacp-queue']
                 type: str
                 description: Enable to dedicate one HIF queue for LACP.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             ipsec_ordering:
                 aliases: ['ipsec-ordering']
                 type: str
                 description: Enable/disable IPsec ordering.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             sw_np_pause:
                 aliases: ['sw-np-pause']
                 type: str
                 description: Enable SP5 tx pause and marvell rx receive pause, for sw uplink only.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             sw_np_rate:
                 aliases: ['sw-np-rate']
                 type: int
@@ -3946,32 +2645,22 @@ options:
                 aliases: ['sw-np-rate-unit']
                 type: str
                 description: Unit for bandwidth from switch to NP, for sw uplink port.
-                choices:
-                    - 'mbps'
-                    - 'pps'
+                choices: ['mbps', 'pps']
             lag_hash_gre:
                 aliases: ['lag-hash-gre']
                 type: str
                 description: Set LAG hash for standard GRE.
-                choices:
-                    - 'disable'
-                    - 'gre_inner_l3'
-                    - 'gre_inner_l4'
-                    - 'gre_inner_l3l4'
+                choices: ['disable', 'gre_inner_l3', 'gre_inner_l4', 'gre_inner_l3l4']
             use_mse_oft:
                 aliases: ['use-mse-oft']
                 type: str
                 description: Enable/disable use of MSE OFT.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             hif_queue_customize:
                 aliases: ['hif-queue-customize']
                 type: str
                 description: Customize HIF queue settings.
-                choices:
-                    - 'numa-affinity'
-                    - 'all-cpus'
+                choices: ['numa-affinity', 'all-cpus']
             ike_port:
                 aliases: ['ike-port']
                 type: raw
@@ -3980,30 +2669,22 @@ options:
                 aliases: ['mcast-denied-ses-offload']
                 type: str
                 description: Enable/disable offloading of multicast denied sessions.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             shadow_virtual_switch:
                 aliases: ['shadow-virtual-switch']
                 type: str
                 description: Enable/disable shadow virtual switch.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             use_ixgbe_tx:
                 aliases: ['use-ixgbe-tx']
                 type: str
                 description: Enable/disable use of the ixgbe NIC for transmitting packets
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             vxlan_mac_flapping_guard:
                 aliases: ['vxlan-mac-flapping-guard']
                 type: str
                 description: Enable/disable VxLAN MAC flapping guard.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -4011,18 +2692,10 @@ EXAMPLES = '''
   hosts: fortimanagers
   connection: httpapi
   gather_facts: false
-  vars:
-    ansible_httpapi_use_ssl: true
-    ansible_httpapi_validate_certs: false
-    ansible_httpapi_port: 443
   tasks:
     - name: Configure NPU attributes.
       fortinet.fortimanager.fmgr_system_npu:
-        # bypass_validation: false
         # workspace_locking_adom: <global or your adom name>
-        # workspace_locking_timeout: 300
-        # rc_succeeded: [0, -2, -3, ...]
-        # rc_failed: [-2, -3, ...]
         adom: <your own value>
         system_npu:
           # capwap_offload: <value in [disable, enable]>
@@ -4672,14 +3345,11 @@ def main():
         '/pm/config/adom/{adom}/obj/system/npu',
         '/pm/config/global/obj/system/npu'
     ]
-    url_params = ['adom']
-    module_primary_key = None
     module_arg_spec = {
         'adom': {'required': True, 'type': 'str'},
         'revision_note': {'type': 'str'},
         'system_npu': {
-            'type': 'dict',
-            'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
+            'type': 'dict', 'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
             'options': {
                 'capwap-offload': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'dedicated-management-affinity': {'v_range': [['7.0.1', '']], 'type': 'str'},
@@ -5852,19 +4522,15 @@ def main():
 
     module_option_spec = get_module_arg_spec('partial crud')
     module_arg_spec.update(module_option_spec)
-    params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'system_npu'),
                            supports_check_mode=True)
-
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list, module_primary_key, url_params,
-                       module, connection, top_level_schema_name='data')
-    fmgr.validate_parameters(params_validation_blob)
+    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list,
+                       None, 'data', module, connection)
     fmgr.process_partial_crud()
-
     module.exit_json(meta=module.params)
 
 

@@ -41,8 +41,7 @@ import time
 import json
 import os
 from ansible.plugins.httpapi import HttpApiBase
-from ansible.module_utils.basic import to_text
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import BASE_HEADERS
+from ansible.module_utils.common.text.converters import to_text
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import FMGBaseException
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import FMGRCommon
 from datetime import datetime
@@ -57,41 +56,51 @@ class HttpApi(HttpApiBase):
         self._sid = None
         self._url = "/jsonrpc"
         self._tools = FMGRCommon
-        self._connected_fmgr = None
-        self._last_response_msg = None
-        self._last_response_code = None
-        self._last_data_payload = None
-        self._last_url = None
-        self._last_response_raw = None
-        self._locked_adom_list = list()
-        self._locked_adoms_by_user = dict()
+        self._adoms_locked_by_user = []
         self._uses_workspace = False
         self._uses_adoms = False
-        self._adom_list = list()
-        self._logged_in_user = None
-        self._logged = False
-        self._log = None
-        self._prelocking_user_params = list()
-        self._access_token = None
+        self._inspected_fmgr = False
+        self._log_file = None
         self._login_method = None
         self._status = {}
-        self.customer_options = {}
+        self._customer_options = {}
 
     def set_customer_option(self, key, value):
-        self.customer_options[key] = value
+        self._customer_options[key] = value
+
+    def get_customer_option(self, key, default=None):
+        return self._customer_options.get(key, default)
 
     def log(self, msg):
-        log_enabled = self.customer_options.get("enable_log", False)
-        if ENABLE_LOG:
-            log_enabled = True
-        if not log_enabled:
+        if not (self.get_customer_option("enable_log", False) or ENABLE_LOG):
             return
-        if not self._log:
-            self._log = open("/tmp/fortimanager.ansible.log", "a")
-        log_message = str(datetime.now())
-        log_message += ": " + str(msg) + "\n"
-        self._log.write(log_message)
-        self._log.flush()
+        if not self._log_file:
+            self._log_file = open("/tmp/fortimanager.ansible.log", "a")
+        log_message = to_text(datetime.now())
+        log_message += ": " + to_text(msg) + "\n"
+        self._log_file.write(log_message)
+        self._log_file.flush()
+
+    def log_request(self, json_request):
+        if not (self.get_customer_option("enable_log", False) or ENABLE_LOG):
+            return
+        params = json_request["params"]
+        # Don't log sensitive information
+        if params[0]["url"] == "sys/login/user" and "data" in params[0] and "passwd" in params[0]["data"]:
+            params[0]["data"]["passwd"] = "******"
+        if "session" in params[0]:
+            params[0]["session"] = "******"
+        log_data = json.dumps(json_request, ensure_ascii=False)
+        self.log("request: %s" % (log_data))
+
+    def log_response(self, response):
+        if not (self.get_customer_option("enable_log", False) or ENABLE_LOG):
+            return
+        log_data = self._jsonize(response)
+        if log_data:
+            self.log("response: %s" % (log_data))
+        else:
+            self.log("response: %s" % (to_text(response)))
 
     def set_become(self, become_context):
         """
@@ -111,15 +120,15 @@ class HttpApi(HttpApiBase):
         return None
 
     def forticloud_login(self):
-        login_data = '{"access_token": "%s"}' % (self.customer_options.get("forticloud_access_token", None))
+        login_data = '{"access_token": "%s"}' % (self.get_customer_option("forticloud_access_token", None))
         try:
             response, response_data = self.connection.send(
-                path=to_text("/p/forticloud_jsonrpc_login/"),
-                data=to_text(login_data),
-                headers=BASE_HEADERS,
+                path="/p/forticloud_jsonrpc_login/",
+                data=login_data,
+                headers={"Content-Type": "application/json", "Accept": "application/json"},
             )
             result = json.loads(to_text(response_data.getvalue()))
-            self.log("forticloud login response: %s" % (str(self._jsonize(result))))
+            self.log("forticloud login response: %s" % (self._jsonize(result)))
             return self._set_sid(result)
         except Exception as e:
             raise FMGBaseException(e)
@@ -133,33 +142,49 @@ class HttpApi(HttpApiBase):
         :return: Dictionary of status, if it logged in or not.
         """
         self.log("login begin, user: %s" % (username))
-        self._logged_in_user = username
-        forticloud_access_token = self.customer_options.get("forticloud_access_token", None)
-        self._access_token = self.customer_options.get("access_token", None)
+        forticloud_access_token = self.get_customer_option("forticloud_access_token", None)
+        access_token = self.get_customer_option("access_token", None)
         if username is not None and password is not None:
-            self._login_method = 'username_password'
-            self.send_request("exec", self._tools.format_request("exec", "sys/login/user", passwd=password, user=username))
-        elif self._access_token:
-            self._login_method = 'access_token'
+            self._login_method = "username_password"
+            json_request = {
+                "method": "exec",
+                "params": [{"url": "sys/login/user", "data": {"passwd": to_text(password), "user": to_text(username)}}],
+                "session": self._sid,
+                "id": self._update_request_id(),
+                "verbose": 1,
+            }
+            data = json.dumps(json_request, ensure_ascii=False)
+            self.log_request(json_request)
+            header_data = {"Content-Type": "application/json", "Accept": "application/json"}
+            response, response_data = self.connection.send(
+                path=self._url, data=data, headers=header_data
+            )
+            response_text = to_text(response_data.getvalue())
+            result = ""
+            try:
+                result = json.loads(response_text)
+            except Exception as e:
+                raise FMGBaseException(msg="Got unexpected result: %s" % (response_text))
+            self.log_response(result)
+            self._set_sid(result)
+            self._handle_response(result)
+        elif access_token:
+            self._login_method = "access_token"
+            self.connection._auth = {'Authorization': f'Bearer {access_token}'}
         elif forticloud_access_token:
-            self._login_method = 'forticloud'
+            self._login_method = "forticloud"
             self.forticloud_login()
         else:
             err_msg = "Please check whether you provide the correct information."
             raise AssertionError(err_msg)
-        self.log('login method: ' + self._login_method)
-        if (self.sid or self._access_token) and self.connection._url is not None:
-            # If Login worked, then inspect the FortiManager for Workspace Mode, and it's system information.
-            self.inspect_fmgr()
-            self._logged = True
-            for param in self._prelocking_user_params:
-                self.process_workspace_locking_internal(param)
-        else:
+        self.log("login method: " + self._login_method)
+        if (not self._sid and not access_token) or self.connection._url is None:
             err_msg = "Can't login. Your login method is %s. " % (self._login_method)
             err_msg += "Please check whether you provide the correct information or have necessary permissions."
             raise FMGBaseException(msg=err_msg)
 
     def inspect_fmgr(self):
+        self._inspected_fmgr = True
         # CHECK FOR WORKSPACE MODE TO SEE IF WE HAVE TO ENABLE ADOM LOCKS
         rc, status = self.get_system_status()
         if rc == -11:
@@ -169,11 +194,6 @@ class HttpApi(HttpApiBase):
         elif rc == 0:
             try:
                 self.check_mode()
-                if self._uses_adoms:
-                    self.get_adom_list()
-                if self._uses_workspace:
-                    self.get_locked_adom_list()
-                self._connected_fmgr = status
             except Exception as e:
                 self.log("inspect_fmgr exception: %s" % (e))
 
@@ -182,15 +202,15 @@ class HttpApi(HttpApiBase):
         This function will logout of the FortiManager.
         """
         self.log(
-            "log out, using workspace:%s user: %s sid: %s"
-            % (self._uses_workspace, self._logged_in_user, self.sid)
+            "log out, using workspace:%s sid: %s"
+            % (self._uses_workspace, self._sid)
         )
         # IF WE WERE USING WORKSPACES, THEN CLEAN UP OUR LOCKS IF THEY STILL EXIST
         if self._uses_workspace:
             self.run_unlock()
-        if self.sid:
+        if self._sid:
             rc, response = self.send_request("exec", self._tools.format_request("exec", "sys/logout"))
-            self.sid = None
+            self._sid = None
             return rc, response
 
     def send_request(self, method, params):
@@ -203,47 +223,32 @@ class HttpApi(HttpApiBase):
 
         :return: Dictionary of status, if it logged in or not.
         """
-        if self.sid is None and params[0]["url"] != "sys/login/user":
-            if not self.connection._connected:
-                self.connection._connect()
-        if params[0]["url"] == "sys/login/user" and "data" in params[0] and "passwd" in params[0]["data"]:
-            params[0]["data"]["passwd"] = str(params[0]["data"]["passwd"])
-        self._update_request_id()
+        # Must do a connection check here to get _sid before sending request
+        if not self.connection._connected:
+            self.connection._connect()
+        if not self._inspected_fmgr:
+            self.inspect_fmgr()
         json_request = {
             "method": method,
             "params": params,
-            "session": self.sid,
-            "id": self.req_id,
+            "session": self._sid,
+            "id": self._update_request_id(),
             "verbose": 1,
         }
         data = json.dumps(json_request, ensure_ascii=False)
 
-        # Don't log sensitive information
-        if params[0]["url"] == "sys/login/user" and "data" in params[0] and "passwd" in params[0]["data"]:
-            json_request["params"][0]["data"]["passwd"] = "******"
-        if "session" in params[0]:
-            json_request["params"][0]["session"] = "******"
-        log_data = json.dumps(json_request, ensure_ascii=False)
-        self.log("request: %s" % (log_data))
-
-        # Sending URL and Data in Unicode, per Ansible Specifications for Connection Plugins
-        access_token_str = ''
-        header_data = BASE_HEADERS
-        if self._login_method == "access_token":
-            access_token_str = '?access_token=' + self._access_token
-            header_data["Authorization"] = "Bearer " + self._access_token
+        header_data = {"Content-Type": "application/json", "Accept": "application/json"}
         response, response_data = self.connection.send(
-            path=to_text(self._url) + access_token_str, data=to_text(data), headers=header_data
+            path=self._url, data=data, headers=header_data
         )
-        # Get Unicode Response - Must convert from StringIO to unicode first so we can do a replace function below
+        self.log_request(json_request)
         response_text = to_text(response_data.getvalue())
         result = ""
         try:
             result = json.loads(response_text)
         except Exception as e:
             raise FMGBaseException(msg="Got unexpected result: %s" % (response_text))
-        self.log("response: %s" % (self._jsonize(result)))
-        self._update_self_from_response(result, self._url, data)
+        self.log_response(result)
         return self._handle_response(result)
 
     def _jsonize(self, data):
@@ -255,36 +260,21 @@ class HttpApi(HttpApiBase):
         return ret
 
     def _handle_response(self, response):
-        self._set_sid(response)
         if isinstance(response["result"], list):
             result = response["result"][0]
         else:
             result = response["result"]
         return result["status"]["code"], result
 
-    def _update_self_from_response(self, response, url, data):
-        self._last_response_raw = response
-        if isinstance(response["result"], list):
-            result = response["result"][0]
-        else:
-            result = response["result"]
-        if "status" in result:
-            self._last_response_code = result["status"]["code"]
-            self._last_response_msg = result["status"]["message"]
-            self._last_url = url
-            self._last_data_payload = data
-
     def _set_sid(self, response):
-        if self.sid is None and "session" in response:
-            self.sid = response["session"]
+        if self._sid is None and "session" in response:
+            self._sid = response["session"]
 
     def get_system_status(self):
         """
         Returns the system status page from the FortiManager, for logging and other uses.
         return: status
         """
-        if not self.connection._connected:
-            self.connection._connect()
         if self._status:
             return 0, self._status
         rc, self._status = self.send_request("get", self._tools.format_request("get", "/sys/status"))
@@ -292,96 +282,46 @@ class HttpApi(HttpApiBase):
             rc, self._status = self.send_request("get", self._tools.format_request("get", "/cli/global/system/status"))
         return rc, self._status
 
-    def process_workspace_locking_internal(self, param):
-        if not self._uses_workspace or not self._logged:
+    def process_workspace_locking(self, param):
+        if not self._inspected_fmgr:
+            self.inspect_fmgr()
+        if not self._uses_workspace:
             return
         if "workspace_locking_adom" not in param or not param["workspace_locking_adom"]:
-            # The FortiManager is running in workspace mode, please `workspace_locking_adom` in your playbook
+            # The FortiManager is running in workspace mode, please specify `workspace_locking_adom` in your playbook
             # FIXME:by default, users have to know whether their fmg devices are running in worksapce mode and
-            # specify the paramters in plaubook, we will find a better way to notify the users of this error
+            # specify the paramters in playbook, we will find a better way to notify the users of this error
             return
         adom_to_lock = param["workspace_locking_adom"]
-        adom_to_lock_timeout = param["workspace_locking_timeout"]
-        self.log(
-            "trying to acquire lock for adom: %s within %s seconds by user: %s"
-            % (adom_to_lock, adom_to_lock_timeout, self._logged_in_user)
-        )
-        if adom_to_lock in self._locked_adoms_by_user:
-            if self._locked_adoms_by_user[adom_to_lock] == self._logged_in_user:
-                # XXX: here is a situation where user can still has no permission to access resources:
-                # indeed the worksapce lock is acquired by the user himself, but the lock is not
-                # associated with this session.
-                self.log(
-                    "adom: %s has already been acquired by user: %s"
-                    % (adom_to_lock, self._logged_in_user)
-                )
-            else:
-                total_wait_time = 0
-                while total_wait_time < adom_to_lock_timeout:
-                    code, resp_obj = self.lock_adom(adom_to_lock)
-                    self.log(
-                        "waiting adom:%s lock to be released by %s, total time spent:%s seconds status:%s"
-                        % (adom_to_lock, self._locked_adoms_by_user[adom_to_lock],
-                           total_wait_time, "success" if code == 0 else "failure")
-                    )
-                    if code == 0:
-                        self._locked_adoms_by_user[adom_to_lock] = self._logged_in_user
-                        break
-                    time.sleep(5)
-                    total_wait_time += 5
-        else:
+        if adom_to_lock in self._adoms_locked_by_user:
+            self.log("adom: %s has already been acquired by the user" % (adom_to_lock))
+            return
+        total_wait_time = 0
+        while total_wait_time < param["workspace_locking_timeout"]:
             code, resp_obj = self.lock_adom(adom_to_lock)
-            self.log(
-                "adom:%s locked by user: %s status:%s"
-                % (adom_to_lock, self._logged_in_user, "success" if code == 0 else "failure")
-            )
             if code == 0:
-                self._locked_adoms_by_user[adom_to_lock] = self._logged_in_user
-
-    def process_workspace_locking(self, param):
-        # XXX:defer the lock acquisition process after login is done
-        # it requires that the first task specify the workspace locking adom
-        # if it's really executed in lock context
-        if not self._logged:
-            self._prelocking_user_params.append(param)
-        else:
-            self.process_workspace_locking_internal(param)
-
-    @property
-    def req_id(self):
-        return self._req_id
-
-    @req_id.setter
-    def req_id(self, val):
-        self._req_id = val
+                self.log("adom:%s locked status: success" % (adom_to_lock))
+                self._adoms_locked_by_user.append(adom_to_lock)
+                return
+            self.log(
+                "waiting adom:%s lock to be released by other user, total time spent:%s seconds status:%s"
+                % (adom_to_lock, total_wait_time, "success" if code == 0 else "failure")
+            )
+            time.sleep(5)
+            total_wait_time += 5
 
     def _update_request_id(self, reqid=0):
-        self.req_id = reqid if reqid != 0 else self.req_id + 1
-
-    @property
-    def sid(self):
-        return self._sid
-
-    @sid.setter
-    def sid(self, val):
-        self._sid = val
+        self._req_id = reqid if reqid != 0 else self._req_id + 1
+        return self._req_id
 
     def __str__(self):
-        if (self.sid or self._access_token) and self.connection._url is not None:
-            return "FortiManager object connected to FortiManager: " + to_text(self.connection._url)
+        if self.connection._url is not None:
+            return "FortiManager object connected to FortiManager: " + self.connection._url
         return "FortiManager object with no valid connection to a FortiManager appliance."
 
     ##################################
     # BEGIN DATABASE LOCK CONTEXT CODE
     ##################################
-
-    def add_adom_to_lock_list(self, adom):
-        if adom not in self._locked_adom_list:
-            self._locked_adom_list.append(adom)
-
-    def remove_adom_from_lock_list(self, adom):
-        if adom in self._locked_adom_list:
-            self._locked_adom_list.remove(adom)
 
     def check_mode(self):
         """
@@ -403,12 +343,10 @@ class HttpApi(HttpApiBase):
         """
         Checks for ADOM status, if locked, it will unlock
         """
-        for adom_locked in self._locked_adoms_by_user:
-            locked_user = self._locked_adoms_by_user[adom_locked]
-            if locked_user == self._logged_in_user:
-                self.commit_changes(adom_locked)
-                self.unlock_adom(adom_locked)
-                self.log("unlock adom: %s with session_id:%s" % (adom_locked, self.sid))
+        for adom_locked in self._adoms_locked_by_user:
+            self.commit_changes(adom_locked)
+            self.unlock_adom(adom_locked)
+            self.log("unlock adom: %s with session_id:%s" % (adom_locked, self._sid))
 
     def lock_adom(self, adom=None):
         """
@@ -423,7 +361,7 @@ class HttpApi(HttpApiBase):
             url = "/dvmdb/adom/root/workspace/lock"
         code, respobj = self.send_request("exec", self._tools.format_request("exec", url))
         if code == 0 and respobj["status"]["message"].lower() == "ok":
-            self.add_adom_to_lock_list(adom)
+            pass
         return code, respobj
 
     def unlock_adom(self, adom=None):
@@ -439,7 +377,7 @@ class HttpApi(HttpApiBase):
             url = "/dvmdb/adom/root/workspace/unlock"
         code, respobj = self.send_request("exec", self._tools.format_request("exec", url))
         if code == 0 and respobj["status"]["message"].lower() == "ok":
-            self.remove_adom_from_lock_list(adom)
+            pass
         return code, respobj
 
     def commit_changes(self, adom=None, aux=False):
@@ -464,67 +402,27 @@ class HttpApi(HttpApiBase):
         for some reason, then unlock it.
         """
         url = "/dvmdb/adom/root/workspace/lockinfo"
-        if adom and adom != "root":
+        if adom:
             if adom.lower() == "global":
                 url = "/dvmdb/global/workspace/lockinfo"
             else:
-                url = "/dvmdb/adom/{adom}/workspace/lockinfo/".format(adom=adom)
+                url = "/dvmdb/adom/{adom}/workspace/lockinfo".format(adom=adom)
         rc, resp_obj = self.send_request("get", self._tools.format_request("get", url))
         # rc=-9: current adom is not in the workspace mode.
         return rc, resp_obj
 
-    def get_adom_list(self):
-        """
-        Gets the list of ADOMs for the FortiManager
-        """
-        if self._uses_adoms:
-            url = "/dvmdb/adom"
-            rc, resp_obj = self.send_request("get", self._tools.format_request("get", url))
-            if rc != 0:
-                err_msg = "An error occurred trying to get the ADOM Info. Error %s: %s" % (rc, to_text(resp_obj))
-                raise FMGBaseException(msg=err_msg)
-            else:
-                append_list = ["root", "global"]
-                for adom in resp_obj["data"]:
-                    if adom["tab_status"] != "":
-                        append_list.append(to_text(adom["name"]))
-                self._adom_list = append_list
-            self.log("adom list: %s" % (str(self._adom_list)))
-            return rc, resp_obj
-
-    def get_locked_adom_list(self):
-        """
-        Gets the list of locked adoms
-        """
-        try:
-            locked_list = list()
-            locked_by_user_list = dict()
-            for adom in self._adom_list:
-                self.log("lockinfo for adom:%s" % (adom))
-                rc, adom_lock_info = self.get_lock_info(adom=adom)
-                if adom_lock_info["status"]["code"] != 0:
-                    continue
-                # if 'data' is not in the response, the adom is locked by no one
-                if "data" not in adom_lock_info:
-                    continue
-                lock_data = adom_lock_info["data"]
-                if isinstance(lock_data, list):
-                    lock_data = lock_data[0]
-                locked_list.append(adom)
-                locked_by_user_list[adom] = lock_data["lock_user"]
-
-            self._locked_adom_list = locked_list
-            self._locked_adoms_by_user = locked_by_user_list
-            self.log("locked adom list: %s" % (self._locked_adom_list))
-            self.log("locked adom and user list: %s" % (self._locked_adoms_by_user))
-
-        except Exception as err:
-            raise FMGBaseException(
-                msg=(
-                    "An error occurred while trying to get the locked adom list. Error: "
-                    + to_text(err)
-                )
-            )
+    def get_adom_lock_user(self, adom):
+        self.log("lockinfo for adom:%s" % (adom))
+        rc, adom_lock_info = self.get_lock_info(adom=adom)
+        if adom_lock_info["status"]["code"] != 0:
+            return None
+        # if "data" is not in the response, the adom is locked by no one
+        if "data" not in adom_lock_info:
+            return None
+        lock_data = adom_lock_info["data"]
+        if isinstance(lock_data, list):
+            lock_data = lock_data[0]
+        return lock_data["lock_user"]
 
     ################################
     # END DATABASE LOCK CONTEXT CODE

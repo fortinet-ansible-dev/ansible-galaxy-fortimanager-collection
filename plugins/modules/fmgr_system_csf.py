@@ -13,63 +13,11 @@ DOCUMENTATION = '''
 ---
 module: fmgr_system_csf
 short_description: Add this device to a Security Fabric or set up a new Security Fabric on this device.
-description:
-    - This module is able to configure a FortiManager device.
-    - Examples include all parameters and values which need to be adjusted to data sources before usage.
 version_added: "2.3.0"
-author:
-    - Xinwei Du (@dux-fortinet)
-    - Xing Li (@lix-fortinet)
-    - Jie Xue (@JieX19)
-    - Link Zheng (@chillancezen)
-    - Frank Shen (@fshen01)
-    - Hongbin Lu (@fgtdev-hblu)
-notes:
-    - Starting in version 2.4.0, all input arguments are named using the underscore naming convention (snake_case).
-      Please change the arguments such as "var-name" to "var_name".
-      Old argument names are still available yet you will receive deprecation warnings.
-      You can ignore this warning by setting deprecation_warnings=False in ansible.cfg.
-    - Running in workspace locking mode is supported in this FortiManager module, the top
-      level parameters workspace_locking_adom and workspace_locking_timeout help do the work.
-    - Normally, running one module can fail when a non-zero rc is returned. you can also override
-      the conditions to fail or succeed with parameters rc_failed and rc_succeeded
+extends_documentation_fragment:
+    - fortinet.fortimanager.general
+    - fortinet.fortimanager.general.partial_crud
 options:
-    access_token:
-        description: The token to access FortiManager without using username and password.
-        type: str
-    bypass_validation:
-        description: Only set to True when module schema diffs with FortiManager API structure, module continues to execute without validating parameters.
-        type: bool
-        default: false
-    enable_log:
-        description: Enable/Disable logging for task.
-        type: bool
-        default: false
-    forticloud_access_token:
-        description: Authenticate Ansible client with forticloud API access token.
-        type: str
-    proposed_method:
-        description: The overridden method for the underlying Json RPC request.
-        type: str
-        choices:
-          - update
-          - set
-          - add
-    rc_succeeded:
-        description: The rc codes list with which the conditions to succeed will be overriden.
-        type: list
-        elements: int
-    rc_failed:
-        description: The rc codes list with which the conditions to fail will be overriden.
-        type: list
-        elements: int
-    workspace_locking_adom:
-        description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
-        type: str
-    workspace_locking_timeout:
-        description: The maximum time in seconds to wait for other user to release the workspace lock.
-        type: int
-        default: 300
     system_csf:
         description: The top level parameters set.
         required: false
@@ -82,9 +30,7 @@ options:
                     - Accept connections with unknown certificates and ask admin for approval.
                     - disable - Do not accept SSL connections with unknown certificates.
                     - enable - Accept SSL connections without automatic certificate verification.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             authorization_request_type:
                 aliases: ['authorization-request-type']
                 type: str
@@ -92,9 +38,7 @@ options:
                     - Authorization request type.
                     - certificate - Request verification by certificate.
                     - serial - Request verification by serial number.
-                choices:
-                    - 'certificate'
-                    - 'serial'
+                choices: ['certificate', 'serial']
             certificate:
                 type: str
                 description: Certificate.
@@ -105,9 +49,7 @@ options:
                     - Configuration sync mode.
                     - default - Synchronize configuration for IPAM, FortiAnalyzer, FortiSandbox, and Central Management to root node.
                     - local - Do not synchronize configuration with root node.
-                choices:
-                    - 'default'
-                    - 'local'
+                choices: ['default', 'local']
             downstream_access:
                 aliases: ['downstream-access']
                 type: str
@@ -115,9 +57,7 @@ options:
                     - Enable/disable downstream device access to this device&apos;s configuration and data.
                     - disable - Disable downstream device access to this device&apos;s configuration and data.
                     - enable - Enable downstream device access to this device&apos;s configuration and data.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             downstream_accprofile:
                 aliases: ['downstream-accprofile']
                 type: str
@@ -138,9 +78,7 @@ options:
                             - Enable/disable downstream device write access to configuration.
                             - disable - Disable downstream device write access to configuration.
                             - enable - Enable downstream device write access to configuration.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     serial:
                         type: str
                         description: Serial.
@@ -151,9 +89,7 @@ options:
                     - Fabric CMDB Object Unification.
                     - local - Global CMDB objects will not be synchronized to and from this device.
                     - default - Global CMDB objects will be synchronized in Security Fabric.
-                choices:
-                    - 'local'
-                    - 'default'
+                choices: ['local', 'default']
             fabric_workers:
                 aliases: ['fabric-workers']
                 type: int
@@ -165,9 +101,7 @@ options:
                     - Enable/disable Security Fabric daemon file management.
                     - disable - Disable daemon file management.
                     - enable - Enable daemon file management.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             file_quota:
                 aliases: ['file-quota']
                 type: int
@@ -188,9 +122,7 @@ options:
                     - Fabric FortiCloud account unification.
                     - disable - Disable FortiCloud accound ID matching for Security Fabric.
                     - enable - Enable FortiCloud account ID matching for Security Fabric.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             group_name:
                 aliases: ['group-name']
                 type: str
@@ -207,9 +139,7 @@ options:
                     - Enable/disable broadcast of discovery messages for log unification.
                     - disable - Disable broadcast of discovery messages for log unification.
                     - enable - Enable broadcast of discovery messages for log unification.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             saml_configuration_sync:
                 aliases: ['saml-configuration-sync']
                 type: str
@@ -217,18 +147,14 @@ options:
                     - SAML setting configuration synchronization.
                     - local - Do not apply SAML configuration generated by root.
                     - default - SAML setting for fabric members is created by fabric root.
-                choices:
-                    - 'local'
-                    - 'default'
+                choices: ['local', 'default']
             status:
                 type: str
                 description:
                     - Enable/disable Security Fabric.
                     - disable - Disable Security Fabric.
                     - enable - Enable Security Fabric.
-                choices:
-                    - 'disable'
-                    - 'enable'
+                choices: ['disable', 'enable']
             trusted_list:
                 aliases: ['trusted-list']
                 type: list
@@ -241,9 +167,7 @@ options:
                             - Security fabric authorization action.
                             - accept - Accept authorization request.
                             - deny - Deny authorization request.
-                        choices:
-                            - 'accept'
-                            - 'deny'
+                        choices: ['accept', 'deny']
                     authorization_type:
                         aliases: ['authorization-type']
                         type: str
@@ -251,9 +175,7 @@ options:
                             - Authorization type.
                             - serial - Verify downstream by serial number.
                             - certificate - Verify downstream by certificate.
-                        choices:
-                            - 'serial'
-                            - 'certificate'
+                        choices: ['serial', 'certificate']
                     certificate:
                         type: str
                         description: Certificate.
@@ -264,9 +186,7 @@ options:
                             - Trust authorizations by this node&apos;s administrator.
                             - disable - Disable downstream authorization.
                             - enable - Enable downstream authorization.
-                        choices:
-                            - 'disable'
-                            - 'enable'
+                        choices: ['disable', 'enable']
                     ha_members:
                         aliases: ['ha-members']
                         type: str
@@ -294,9 +214,7 @@ options:
                     - Upstream authorization confirm.
                     - discover - Discover upstream device&apos;s info.
                     - confirm - Confirm upstream device&apos;s access.
-                choices:
-                    - 'discover'
-                    - 'confirm'
+                choices: ['discover', 'confirm']
             ssl_protocol:
                 aliases: ['ssl-protocol']
                 type: str
@@ -308,13 +226,8 @@ options:
                     - tlsv1.
                     - tlsv1.
                     - tlsv1.
-                choices:
-                    - 'follow-global-ssl-protocol'
-                    - 'sslv3'
-                    - 'tlsv1.0'
-                    - 'tlsv1.1'
-                    - 'tlsv1.2'
-                    - 'tlsv1.3'
+                choices: ['follow-global-ssl-protocol', 'sslv3', 'tlsv1.0', 'tlsv1.1', 'tlsv1.2',
+                          'tlsv1.3']
 '''
 
 EXAMPLES = '''
@@ -322,18 +235,10 @@ EXAMPLES = '''
   hosts: fortimanagers
   connection: httpapi
   gather_facts: false
-  vars:
-    ansible_httpapi_use_ssl: true
-    ansible_httpapi_validate_certs: false
-    ansible_httpapi_port: 443
   tasks:
     - name: Add this device to a Security Fabric or set up a new Security Fabric on this device.
       fortinet.fortimanager.fmgr_system_csf:
-        # bypass_validation: false
         # workspace_locking_adom: <global or your adom name>
-        # workspace_locking_timeout: 300
-        # rc_succeeded: [0, -2, -3, ...]
-        # rc_failed: [-2, -3, ...]
         system_csf:
           # accept_auth_by_cert: <value in [disable, enable]>
           # authorization_request_type: <value in [certificate, serial]>
@@ -421,12 +326,9 @@ def main():
     urls_list = [
         '/cli/global/system/csf'
     ]
-    url_params = []
-    module_primary_key = None
     module_arg_spec = {
         'system_csf': {
-            'type': 'dict',
-            'v_range': [['7.4.1', '']],
+            'type': 'dict', 'v_range': [['7.4.1', '']],
             'options': {
                 'accept-auth-by-cert': {'v_range': [['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'authorization-request-type': {'v_range': [['7.4.1', '']], 'choices': ['certificate', 'serial'], 'type': 'str'},
@@ -485,19 +387,15 @@ def main():
 
     module_option_spec = get_module_arg_spec('partial crud')
     module_arg_spec.update(module_option_spec)
-    params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'system_csf'),
                            supports_check_mode=True)
-
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list, module_primary_key, url_params,
-                       module, connection, top_level_schema_name='data')
-    fmgr.validate_parameters(params_validation_blob)
+    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list,
+                       None, 'data', module, connection)
     fmgr.process_partial_crud()
-
     module.exit_json(meta=module.params)
 
 
