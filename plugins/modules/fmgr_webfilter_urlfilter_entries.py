@@ -15,71 +15,71 @@ module: fmgr_webfilter_urlfilter_entries
 short_description: URL filter entries.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  urlfilter:
+    description: The parameter (urlfilter) in requested url.
+    type: str
+    required: true
+  webfilter_urlfilter_entries:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      action:
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Action to take for URL filter matches.
+        choices: ['exempt', 'block', 'allow', 'monitor', 'pass']
+      dns_address_family:
+        aliases: ['dns-address-family']
         type: str
+        description: Resolve IPv4 address, IPv6 address, or both from DNS server.
+        choices: ['ipv4', 'ipv6', 'both']
+      exempt:
+        type: list
+        elements: str
+        description: If action is set to exempt, select the security profile operations that exempt URLs skip.
+        choices: ['av', 'web-content', 'activex-java-cookie', 'dlp', 'fortiguard', 'all',
+                  'filepattern', 'pass', 'range-block', 'antiphish']
+      id:
+        type: int
+        description: Id.
         required: true
-    urlfilter:
-        description: The parameter (urlfilter) in requested url.
+      referrer_host:
+        aliases: ['referrer-host']
         type: str
-        required: true
-    webfilter_urlfilter_entries:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            action:
-                type: str
-                description: Action to take for URL filter matches.
-                choices: ['exempt', 'block', 'allow', 'monitor', 'pass']
-            dns_address_family:
-                aliases: ['dns-address-family']
-                type: str
-                description: Resolve IPv4 address, IPv6 address, or both from DNS server.
-                choices: ['ipv4', 'ipv6', 'both']
-            exempt:
-                type: list
-                elements: str
-                description: If action is set to exempt, select the security profile operations that exempt URLs skip.
-                choices: ['av', 'web-content', 'activex-java-cookie', 'dlp', 'fortiguard', 'all',
-                          'filepattern', 'pass', 'range-block', 'antiphish']
-            id:
-                type: int
-                description: Id.
-                required: true
-            referrer_host:
-                aliases: ['referrer-host']
-                type: str
-                description: Referrer host name.
-            status:
-                type: str
-                description: Enable/disable this URL filter.
-                choices: ['disable', 'enable']
-            type:
-                type: str
-                description: Filter type
-                choices: ['simple', 'regex', 'wildcard']
-            url:
-                type: str
-                description: URL to be filtered.
-            web_proxy_profile:
-                aliases: ['web-proxy-profile']
-                type: str
-                description: Web proxy profile.
-            antiphish_action:
-                aliases: ['antiphish-action']
-                type: str
-                description: Action to take for AntiPhishing matches.
-                choices: ['block', 'log']
-            comment:
-                type: str
-                description: Comment.
+        description: Referrer host name.
+      status:
+        type: str
+        description: Enable/disable this URL filter.
+        choices: ['disable', 'enable']
+      type:
+        type: str
+        description: Filter type
+        choices: ['simple', 'regex', 'wildcard']
+      url:
+        type: str
+        description: URL to be filtered.
+      web_proxy_profile:
+        aliases: ['web-proxy-profile']
+        type: str
+        description: Web proxy profile.
+      antiphish_action:
+        aliases: ['antiphish-action']
+        type: str
+        description: Action to take for AntiPhishing matches.
+        choices: ['block', 'log']
+      comment:
+        type: str
+        description: Comment.
 '''
 
 EXAMPLES = '''
@@ -111,42 +111,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

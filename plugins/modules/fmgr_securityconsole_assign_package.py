@@ -15,41 +15,41 @@ module: fmgr_securityconsole_assign_package
 short_description: Assign or unassign global policy package to ADOM packages.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
+  - fortinet.fortimanager.general
 options:
-    securityconsole_assign_package:
-        description: The top level parameters set.
-        required: false
-        type: dict
+  securityconsole_assign_package:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      flags:
+        type: list
+        elements: str
+        description:
+          - cp_all_objs - Assign all objects during global policy assignment.
+          - copy_assigned_pkg - For global policy assignment - copy assigned package from ADOM to device.
+          - unassign - Remove global policy from ADOM.
+        choices: ['none', 'cp_all_objs', 'copy_assigned_pkg', 'unassign']
+      pkg:
+        type: str
+        description: Source package path and name.
+      target:
+        type: list
+        elements: dict
+        description: Target.
         suboptions:
-            flags:
-                type: list
-                elements: str
-                description:
-                    - cp_all_objs - Assign all objects during global policy assignment.
-                    - copy_assigned_pkg - For global policy assignment - copy assigned package from ADOM to device.
-                    - unassign - Remove global policy from ADOM.
-                choices: ['none', 'cp_all_objs', 'copy_assigned_pkg', 'unassign']
-            pkg:
-                type: str
-                description: Source package path and name.
-            target:
-                type: list
-                elements: dict
-                description: Target.
-                suboptions:
-                    adom:
-                        type: str
-                        description: Destination ADOM.
-                    excluded:
-                        type: str
-                        description:
-                            - disable - Only include the packages listed in the pkg list.
-                            - enable - Exclude the package listed in the pkg list, and assign to all other packages in the ADOM.
-                        choices: ['disable', 'enable']
-                    pkg:
-                        type: str
-                        description: Destination ADOM policy package path and name.
+          adom:
+            type: str
+            description: Destination ADOM.
+          excluded:
+            type: str
+            description:
+              - disable - Only include the packages listed in the pkg list.
+              - enable - Exclude the package listed in the pkg list, and assign to all other packages in the ADOM.
+            choices: ['disable', 'enable']
+          pkg:
+            type: str
+            description: Destination ADOM policy package path and name.
 '''
 
 EXAMPLES = '''
@@ -72,42 +72,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

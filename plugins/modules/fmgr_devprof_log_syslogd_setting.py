@@ -15,137 +15,140 @@ module: fmgr_devprof_log_syslogd_setting
 short_description: Global settings for remote syslog server.
 version_added: "1.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.partial_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.partial_crud
 options:
-    adom:
-        description: The parameter (adom) in requested url.
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  devprof:
+    description: The parameter (devprof) in requested url.
+    type: str
+    required: true
+  devprof_log_syslogd_setting:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      certificate:
         type: str
-        required: true
-    devprof:
-        description: The parameter (devprof) in requested url.
+        description: Certificate used to communicate with Syslog server.
+      enc_algorithm:
+        aliases: ['enc-algorithm']
         type: str
-        required: true
-    devprof_log_syslogd_setting:
-        description: The top level parameters set.
-        required: false
-        type: dict
+        description: Enable/disable reliable syslogging with TLS encryption.
+        choices: ['high', 'low', 'disable', 'high-medium']
+      facility:
+        type: str
+        description: Remote syslog facility.
+        choices: ['kernel', 'user', 'mail', 'daemon', 'auth', 'syslog', 'lpr', 'news', 'uucp',
+                  'cron', 'authpriv', 'ftp', 'ntp', 'audit', 'alert', 'clock', 'local0', 'local1',
+                  'local2', 'local3', 'local4', 'local5', 'local6', 'local7']
+      mode:
+        type: str
+        description: Remote syslog logging over UDP/Reliable TCP.
+        choices: ['udp', 'legacy-reliable', 'reliable']
+      port:
+        type: int
+        description: Server listen port.
+      server:
+        type: str
+        description: Address of remote syslog server.
+      ssl_min_proto_version:
+        aliases: ['ssl-min-proto-version']
+        type: str
+        description: Minimum supported protocol version for SSL/TLS connections
+        choices: ['default', 'TLSv1-1', 'TLSv1-2', 'SSLv3', 'TLSv1', 'TLSv1-3']
+      status:
+        type: str
+        description: Enable/disable remote syslog logging.
+        choices: ['disable', 'enable']
+      reliable:
+        type: str
+        description: Enable/disable reliable logging
+        choices: ['disable', 'enable']
+      csv:
+        type: str
+        description: Enable/disable CSV formatting of logs.
+        choices: ['disable', 'enable']
+      max_log_rate:
+        aliases: ['max-log-rate']
+        type: int
+        description: Syslog maximum log rate in MBps
+      priority:
+        type: str
+        description: Set log transmission priority.
+        choices: ['low', 'default']
+      interface:
+        type: str
+        description: Specify outgoing interface to reach server.
+      interface_select_method:
+        aliases: ['interface-select-method']
+        type: str
+        description: Specify how to select outgoing interface to reach server.
+        choices: ['auto', 'sdwan', 'specify']
+      format:
+        type: str
+        description: Log format.
+        choices: ['default', 'csv', 'cef', 'rfc5424', 'json', 'custom']
+      syslog_type:
+        aliases: ['syslog-type']
+        type: int
+        description: Syslog type.
+      custom_field_name:
+        aliases: ['custom-field-name']
+        type: list
+        elements: dict
+        description: Custom field name.
         suboptions:
-            certificate:
-                type: str
-                description: Certificate used to communicate with Syslog server.
-            enc_algorithm:
-                aliases: ['enc-algorithm']
-                type: str
-                description: Enable/disable reliable syslogging with TLS encryption.
-                choices: ['high', 'low', 'disable', 'high-medium']
-            facility:
-                type: str
-                description: Remote syslog facility.
-                choices: ['kernel', 'user', 'mail', 'daemon', 'auth', 'syslog', 'lpr', 'news',
-                          'uucp', 'cron', 'authpriv', 'ftp', 'ntp', 'audit', 'alert', 'clock',
-                          'local0', 'local1', 'local2', 'local3', 'local4', 'local5', 'local6',
-                          'local7']
-            mode:
-                type: str
-                description: Remote syslog logging over UDP/Reliable TCP.
-                choices: ['udp', 'legacy-reliable', 'reliable']
-            port:
-                type: int
-                description: Server listen port.
-            server:
-                type: str
-                description: Address of remote syslog server.
-            ssl_min_proto_version:
-                aliases: ['ssl-min-proto-version']
-                type: str
-                description: Minimum supported protocol version for SSL/TLS connections
-                choices: ['default', 'TLSv1-1', 'TLSv1-2', 'SSLv3', 'TLSv1', 'TLSv1-3']
-            status:
-                type: str
-                description: Enable/disable remote syslog logging.
-                choices: ['disable', 'enable']
-            reliable:
-                type: str
-                description: Enable/disable reliable logging
-                choices: ['disable', 'enable']
-            csv:
-                type: str
-                description: Enable/disable CSV formatting of logs.
-                choices: ['disable', 'enable']
-            max_log_rate:
-                aliases: ['max-log-rate']
-                type: int
-                description: Syslog maximum log rate in MBps
-            priority:
-                type: str
-                description: Set log transmission priority.
-                choices: ['low', 'default']
-            interface:
-                type: str
-                description: Specify outgoing interface to reach server.
-            interface_select_method:
-                aliases: ['interface-select-method']
-                type: str
-                description: Specify how to select outgoing interface to reach server.
-                choices: ['auto', 'sdwan', 'specify']
-            format:
-                type: str
-                description: Log format.
-                choices: ['default', 'csv', 'cef', 'rfc5424', 'json', 'custom']
-            syslog_type:
-                aliases: ['syslog-type']
-                type: int
-                description: Syslog type.
-            custom_field_name:
-                aliases: ['custom-field-name']
-                type: list
-                elements: dict
-                description: Custom field name.
-                suboptions:
-                    custom:
-                        type: str
-                        description: Field custom name.
-                    id:
-                        type: int
-                        description: Entry ID.
-                    name:
-                        type: str
-                        description: Field name.
-            source_ip:
-                aliases: ['source-ip']
-                type: str
-                description: Source IP address of syslog.
-            source_ip_interface:
-                aliases: ['source-ip-interface']
-                type: raw
-                description: (list) Source interface of syslog.
-            vrf_select:
-                aliases: ['vrf-select']
-                type: int
-                description: VRF ID used for connection to server.
-            log_templates:
-                aliases: ['log-templates']
-                type: list
-                elements: dict
-                description: Log templates.
-                suboptions:
-                    category:
-                        type: str
-                        description: Category.
-                        choices: ['app-ctrl', 'attack', 'dlp', 'event', 'traffic', 'virus',
-                                  'voip', 'webfilter', 'spam', 'anomaly', 'waf', 'dns', 'ssh',
-                                  'ssl', 'file-filter', 'icap', 'virtual-patch']
-                    empty_value_indicator:
-                        aliases: ['empty-value-indicator']
-                        type: str
-                        description: Empty value indicator.
-                    id:
-                        type: int
-                        description: Id.
-                    template:
-                        type: str
-                        description: Template.
+          custom:
+            type: str
+            description: Field custom name.
+          id:
+            type: int
+            description: Entry ID.
+          name:
+            type: str
+            description: Field name.
+      source_ip:
+        aliases: ['source-ip']
+        type: str
+        description: Source IP address of syslog.
+      source_ip_interface:
+        aliases: ['source-ip-interface']
+        type: raw
+        description: (list) Source interface of syslog.
+      vrf_select:
+        aliases: ['vrf-select']
+        type: int
+        description: VRF ID used for connection to server.
+      log_templates:
+        aliases: ['log-templates']
+        type: list
+        elements: dict
+        description: Log templates.
+        suboptions:
+          category:
+            type: str
+            description: Category.
+            choices: ['app-ctrl', 'attack', 'dlp', 'event', 'traffic', 'virus', 'voip',
+                      'webfilter', 'spam', 'anomaly', 'waf', 'dns', 'ssh', 'ssl', 'file-filter',
+                      'icap', 'virtual-patch']
+          empty_value_indicator:
+            aliases: ['empty-value-indicator']
+            type: str
+            description: Empty value indicator.
+          id:
+            type: int
+            description: Id.
+          template:
+            type: str
+            description: Template.
+      custom_log_format:
+        aliases: ['custom-log-format']
+        type: raw
+        description: (list) Customized format for logs.
 '''
 
 EXAMPLES = '''
@@ -188,46 +191,47 @@ EXAMPLES = '''
           #     empty_value_indicator: <string>
           #     id: <integer>
           #     template: <string>
+          # custom_log_format: <list or string>
 '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -273,7 +277,7 @@ def main():
                 },
                 'status': {'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'reliable': {
-                    'v_range': [['6.2.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '6.4.15'], ['7.4.8', '7.4.10']],
+                    'v_range': [['6.2.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '6.4.15'], ['7.4.8', '7.4.11']],
                     'choices': ['disable', 'enable'],
                     'type': 'str'
                 },
@@ -302,23 +306,24 @@ def main():
                 'source-ip-interface': {'v_range': [['7.6.0', '']], 'type': 'raw'},
                 'vrf-select': {'v_range': [['7.6.2', '']], 'type': 'int'},
                 'log-templates': {
-                    'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']],
+                    'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']],
                     'type': 'list',
                     'options': {
                         'category': {
-                            'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']],
+                            'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']],
                             'choices': [
                                 'app-ctrl', 'attack', 'dlp', 'event', 'traffic', 'virus', 'voip', 'webfilter', 'spam', 'anomaly', 'waf', 'dns', 'ssh',
                                 'ssl', 'file-filter', 'icap', 'virtual-patch'
                             ],
                             'type': 'str'
                         },
-                        'empty-value-indicator': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'str'},
-                        'id': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'int'},
-                        'template': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'str'}
+                        'empty-value-indicator': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'type': 'str'},
+                        'id': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'type': 'int'},
+                        'template': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'type': 'str'}
                     },
                     'elements': 'dict'
-                }
+                },
+                'custom-log-format': {'v_range': [['8.0.0', '']], 'type': 'raw'}
             }
         }
     }

@@ -15,64 +15,64 @@ module: fmgr_wireless_syslogprofile
 short_description: Configure Wireless Termination Points
 version_added: "2.2.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  wireless_syslogprofile:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      comment:
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Comment.
+      log_level:
+        aliases: ['log-level']
         type: str
+        description: Lowest level of log messages that FortiAP units send to this server
+        choices: ['emergency', 'alert', 'critical', 'error', 'warning', 'notification',
+                  'information', 'debugging']
+      name:
+        type: str
+        description: WTP system log server profile name.
         required: true
-    wireless_syslogprofile:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            comment:
-                type: str
-                description: Comment.
-            log_level:
-                aliases: ['log-level']
-                type: str
-                description: Lowest level of log messages that FortiAP units send to this server
-                choices: ['emergency', 'alert', 'critical', 'error', 'warning', 'notification',
-                          'information', 'debugging']
-            name:
-                type: str
-                description: WTP system log server profile name.
-                required: true
-            server_addr_type:
-                aliases: ['server-addr-type']
-                type: str
-                description: Syslog server address type
-                choices: ['fqdn', 'ip']
-            server_fqdn:
-                aliases: ['server-fqdn']
-                type: str
-                description: FQDN of syslog server that FortiAP units send log messages to.
-            server_ip:
-                aliases: ['server-ip']
-                type: str
-                description: IP address of syslog server that FortiAP units send log messages to.
-            server_port:
-                aliases: ['server-port']
-                type: int
-                description: Port number of syslog server that FortiAP units send log messages to
-            server_status:
-                aliases: ['server-status']
-                type: str
-                description: Enable/disable FortiAP units to send log messages to a syslog server
-                choices: ['disable', 'enable']
-            server_type:
-                aliases: ['server-type']
-                type: str
-                description: Configure syslog server type
-                choices: ['standard', 'fortianalyzer']
-            server:
-                type: str
-                description: Syslog server CN domain name or IP address.
+      server_addr_type:
+        aliases: ['server-addr-type']
+        type: str
+        description: Syslog server address type
+        choices: ['fqdn', 'ip']
+      server_fqdn:
+        aliases: ['server-fqdn']
+        type: str
+        description: FQDN of syslog server that FortiAP units send log messages to.
+      server_ip:
+        aliases: ['server-ip']
+        type: str
+        description: IP address of syslog server that FortiAP units send log messages to.
+      server_port:
+        aliases: ['server-port']
+        type: int
+        description: Port number of syslog server that FortiAP units send log messages to
+      server_status:
+        aliases: ['server-status']
+        type: str
+        description: Enable/disable FortiAP units to send log messages to a syslog server
+        choices: ['disable', 'enable']
+      server_type:
+        aliases: ['server-type']
+        type: str
+        description: Configure syslog server type
+        choices: ['standard', 'fortianalyzer']
+      server:
+        type: str
+        description: Syslog server CN domain name or IP address.
 '''
 
 EXAMPLES = '''
@@ -101,42 +101,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

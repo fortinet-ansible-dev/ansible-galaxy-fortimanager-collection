@@ -15,149 +15,149 @@ module: fmgr_user_tacacs
 short_description: Configure TACACS+ server entries.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  user_tacacs:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      authen_type:
+        aliases: ['authen-type']
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Allowed authentication protocols/methods.
+        choices: ['auto', 'ascii', 'pap', 'chap', 'mschap']
+      authorization:
         type: str
-        required: true
-    user_tacacs:
-        description: The top level parameters set.
-        required: false
-        type: dict
+        description: Enable/disable TACACS+ authorization.
+        choices: ['disable', 'enable']
+      dynamic_mapping:
+        type: list
+        elements: dict
+        description: Dynamic mapping.
         suboptions:
-            authen_type:
-                aliases: ['authen-type']
+          _scope:
+            type: list
+            elements: dict
+            description: Scope.
+            suboptions:
+              name:
                 type: str
-                description: Allowed authentication protocols/methods.
-                choices: ['auto', 'ascii', 'pap', 'chap', 'mschap']
-            authorization:
+                description: Name.
+              vdom:
                 type: str
-                description: Enable/disable TACACS+ authorization.
-                choices: ['disable', 'enable']
-            dynamic_mapping:
-                type: list
-                elements: dict
-                description: Dynamic mapping.
-                suboptions:
-                    _scope:
-                        type: list
-                        elements: dict
-                        description: Scope.
-                        suboptions:
-                            name:
-                                type: str
-                                description: Name.
-                            vdom:
-                                type: str
-                                description: Vdom.
-                    authen_type:
-                        aliases: ['authen-type']
-                        type: str
-                        description: Authen type.
-                        choices: ['auto', 'ascii', 'pap', 'chap', 'mschap']
-                    authorization:
-                        type: str
-                        description: Authorization.
-                        choices: ['disable', 'enable']
-                    key:
-                        type: raw
-                        description: (list) Key.
-                    port:
-                        type: int
-                        description: Port.
-                    secondary_key:
-                        aliases: ['secondary-key']
-                        type: raw
-                        description: (list) Secondary key.
-                    secondary_server:
-                        aliases: ['secondary-server']
-                        type: str
-                        description: Secondary server.
-                    server:
-                        type: str
-                        description: Server.
-                    source_ip:
-                        aliases: ['source-ip']
-                        type: str
-                        description: Source ip.
-                    tertiary_key:
-                        aliases: ['tertiary-key']
-                        type: raw
-                        description: (list) Tertiary key.
-                    tertiary_server:
-                        aliases: ['tertiary-server']
-                        type: str
-                        description: Tertiary server.
-                    interface:
-                        type: str
-                        description: Interface.
-                    interface_select_method:
-                        aliases: ['interface-select-method']
-                        type: str
-                        description: Interface select method.
-                        choices: ['auto', 'sdwan', 'specify']
-                    status_ttl:
-                        aliases: ['status-ttl']
-                        type: int
-                        description: Time for which server reachability is cached so that when a server is unreachable, it will not be retried for at l...
-                    vrf_select:
-                        aliases: ['vrf-select']
-                        type: int
-                        description: VRF ID used for connection to server.
-            key:
-                type: raw
-                description: (list) Key to access the primary server.
-            name:
-                type: str
-                description: TACACS+ server entry name.
-                required: true
-            port:
-                type: int
-                description: Port number of the TACACS+ server.
-            secondary_key:
-                aliases: ['secondary-key']
-                type: raw
-                description: (list) Key to access the secondary server.
-            secondary_server:
-                aliases: ['secondary-server']
-                type: str
-                description: Secondary TACACS+ server CN domain name or IP address.
-            server:
-                type: str
-                description: Primary TACACS+ server CN domain name or IP address.
-            source_ip:
-                aliases: ['source-ip']
-                type: str
-                description: Source IP for communications to TACACS+ server.
-            tertiary_key:
-                aliases: ['tertiary-key']
-                type: raw
-                description: (list) Key to access the tertiary server.
-            tertiary_server:
-                aliases: ['tertiary-server']
-                type: str
-                description: Tertiary TACACS+ server CN domain name or IP address.
-            interface:
-                type: str
-                description: Specify outgoing interface to reach server.
-            interface_select_method:
-                aliases: ['interface-select-method']
-                type: str
-                description: Specify how to select outgoing interface to reach server.
-                choices: ['auto', 'sdwan', 'specify']
-            status_ttl:
-                aliases: ['status-ttl']
-                type: int
-                description: Time for which server reachability is cached so that when a server is unreachable, it will not be retried for at least thi...
-            vrf_select:
-                aliases: ['vrf-select']
-                type: int
-                description: VRF ID used for connection to server.
+                description: Vdom.
+          authen_type:
+            aliases: ['authen-type']
+            type: str
+            description: Authen type.
+            choices: ['auto', 'ascii', 'pap', 'chap', 'mschap']
+          authorization:
+            type: str
+            description: Authorization.
+            choices: ['disable', 'enable']
+          key:
+            type: raw
+            description: (list) Key.
+          port:
+            type: int
+            description: Port.
+          secondary_key:
+            aliases: ['secondary-key']
+            type: raw
+            description: (list) Secondary key.
+          secondary_server:
+            aliases: ['secondary-server']
+            type: str
+            description: Secondary server.
+          server:
+            type: str
+            description: Server.
+          source_ip:
+            aliases: ['source-ip']
+            type: str
+            description: Source ip.
+          tertiary_key:
+            aliases: ['tertiary-key']
+            type: raw
+            description: (list) Tertiary key.
+          tertiary_server:
+            aliases: ['tertiary-server']
+            type: str
+            description: Tertiary server.
+          interface:
+            type: str
+            description: Interface.
+          interface_select_method:
+            aliases: ['interface-select-method']
+            type: str
+            description: Interface select method.
+            choices: ['auto', 'sdwan', 'specify']
+          status_ttl:
+            aliases: ['status-ttl']
+            type: int
+            description: Time for which server reachability is cached so that when a server is unreachable, it will not be retried for at least this pe...
+          vrf_select:
+            aliases: ['vrf-select']
+            type: int
+            description: VRF ID used for connection to server.
+      key:
+        type: raw
+        description: (list) Key to access the primary server.
+      name:
+        type: str
+        description: TACACS+ server entry name.
+        required: true
+      port:
+        type: int
+        description: Port number of the TACACS+ server.
+      secondary_key:
+        aliases: ['secondary-key']
+        type: raw
+        description: (list) Key to access the secondary server.
+      secondary_server:
+        aliases: ['secondary-server']
+        type: str
+        description: Secondary TACACS+ server CN domain name or IP address.
+      server:
+        type: str
+        description: Primary TACACS+ server CN domain name or IP address.
+      source_ip:
+        aliases: ['source-ip']
+        type: str
+        description: Source IP for communications to TACACS+ server.
+      tertiary_key:
+        aliases: ['tertiary-key']
+        type: raw
+        description: (list) Key to access the tertiary server.
+      tertiary_server:
+        aliases: ['tertiary-server']
+        type: str
+        description: Tertiary TACACS+ server CN domain name or IP address.
+      interface:
+        type: str
+        description: Specify outgoing interface to reach server.
+      interface_select_method:
+        aliases: ['interface-select-method']
+        type: str
+        description: Specify how to select outgoing interface to reach server.
+        choices: ['auto', 'sdwan', 'specify']
+      status_ttl:
+        aliases: ['status-ttl']
+        type: int
+        description: Time for which server reachability is cached so that when a server is unreachable, it will not be retried for at least this period...
+      vrf_select:
+        aliases: ['vrf-select']
+        type: int
+        description: VRF ID used for connection to server.
 '''
 
 EXAMPLES = '''
@@ -209,42 +209,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

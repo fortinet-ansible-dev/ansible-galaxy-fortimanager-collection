@@ -15,43 +15,43 @@ module: fmgr_firewall_internetserviceextension_entry_portrange
 short_description: Port ranges in the custom entry.
 version_added: "2.10.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
-        type: str
-    adom:
-        description: The parameter (adom) in requested url.
-        type: str
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  internet-service-extension:
+    description: Deprecated, please use "internet_service_extension"
+    type: str
+  internet_service_extension:
+    description: The parameter (internet-service-extension) in requested url.
+    type: str
+  entry:
+    description: The parameter (entry) in requested url.
+    type: str
+    required: true
+  firewall_internetserviceextension_entry_portrange:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      end_port:
+        aliases: ['end-port']
+        type: int
+        description: Integer value for ending TCP/UDP/SCTP destination port in range
+      id:
+        type: int
+        description: Custom entry port range ID.
         required: true
-    internet-service-extension:
-        description: Deprecated, please use "internet_service_extension"
-        type: str
-    internet_service_extension:
-        description: The parameter (internet-service-extension) in requested url.
-        type: str
-    entry:
-        description: The parameter (entry) in requested url.
-        type: str
-        required: true
-    firewall_internetserviceextension_entry_portrange:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            end_port:
-                aliases: ['end-port']
-                type: int
-                description: Integer value for ending TCP/UDP/SCTP destination port in range
-            id:
-                type: int
-                description: Custom entry port range ID.
-                required: true
-            start_port:
-                aliases: ['start-port']
-                type: int
-                description: Integer value for starting TCP/UDP/SCTP destination port in range
+      start_port:
+        aliases: ['start-port']
+        type: int
+        description: Integer value for starting TCP/UDP/SCTP destination port in range
 '''
 
 EXAMPLES = '''
@@ -75,42 +75,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -130,11 +130,11 @@ def main():
         'entry': {'required': True, 'type': 'str'},
         'revision_note': {'type': 'str'},
         'firewall_internetserviceextension_entry_portrange': {
-            'type': 'dict', 'v_range': [['7.4.7', '7.4.10'], ['7.6.4', '']],
+            'type': 'dict', 'v_range': [['7.4.7', '7.4.11'], ['7.6.4', '']],
             'options': {
-                'end-port': {'v_range': [['7.4.7', '7.4.10'], ['7.6.4', '']], 'type': 'int'},
-                'id': {'v_range': [['7.4.7', '7.4.10'], ['7.6.4', '']], 'required': True, 'type': 'int'},
-                'start-port': {'v_range': [['7.4.7', '7.4.10'], ['7.6.4', '']], 'type': 'int'}
+                'end-port': {'v_range': [['7.4.7', '7.4.11'], ['7.6.4', '']], 'type': 'int'},
+                'id': {'v_range': [['7.4.7', '7.4.11'], ['7.6.4', '']], 'required': True, 'type': 'int'},
+                'start-port': {'v_range': [['7.4.7', '7.4.11'], ['7.6.4', '']], 'type': 'int'}
             }
         }
     }

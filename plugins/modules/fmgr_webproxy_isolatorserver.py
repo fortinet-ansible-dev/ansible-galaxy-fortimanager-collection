@@ -15,71 +15,93 @@ module: fmgr_webproxy_isolatorserver
 short_description: Configure forward-server addresses.
 version_added: "2.14.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  webproxy_isolatorserver:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      addr_type:
+        aliases: ['addr-type']
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Address type of the forwarding proxy server
+        choices: ['fqdn', 'ipv6', 'ip']
+      comment:
         type: str
+        description: Comment.
+      fqdn:
+        type: str
+        description: Forward server Fully Qualified Domain Name
+      interface:
+        type: list
+        elements: str
+        description: Specify outgoing interface to reach server.
+      interface_select_method:
+        aliases: ['interface-select-method']
+        type: str
+        description: Specify how to select outgoing interface to reach server.
+        choices: ['auto', 'sdwan', 'specify']
+      ip:
+        type: str
+        description: Forward proxy server IP address.
+      ipv6:
+        type: str
+        description: Forward proxy server IPv6 address.
+      name:
+        type: str
+        description: Server name.
         required: true
-    webproxy_isolatorserver:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            addr_type:
-                aliases: ['addr-type']
-                type: str
-                description: Address type of the forwarding proxy server
-                choices: ['fqdn', 'ipv6', 'ip']
-            comment:
-                type: str
-                description: Comment.
-            fqdn:
-                type: str
-                description: Forward server Fully Qualified Domain Name
-            interface:
-                type: list
-                elements: str
-                description: Specify outgoing interface to reach server.
-            interface_select_method:
-                aliases: ['interface-select-method']
-                type: str
-                description: Specify how to select outgoing interface to reach server.
-                choices: ['auto', 'sdwan', 'specify']
-            ip:
-                type: str
-                description: Forward proxy server IP address.
-            ipv6:
-                type: str
-                description: Forward proxy server IPv6 address.
-            name:
-                type: str
-                description: Server name.
-                required: true
-            port:
-                type: int
-                description: Port number that the forwarding server expects to receive HTTP sessions on
-            vrf_select:
-                aliases: ['vrf-select']
-                type: int
-                description: VRF ID used for connection to server.
-            masquerade:
-                type: str
-                description: Enable/disable use of the of the IP address of the outgoing interface as the client IP address
-                choices: ['disable', 'enable']
-            ippool:
-                type: list
-                elements: str
-                description: Ippool.
-            protocol:
-                type: list
-                elements: str
-                description: Protocol.
-                choices: ['http', 'ftp', 'socks']
+      port:
+        type: int
+        description: Port number that the forwarding server expects to receive HTTP sessions on
+      vrf_select:
+        aliases: ['vrf-select']
+        type: int
+        description: VRF ID used for connection to server.
+      masquerade:
+        type: str
+        description: Enable/disable use of the of the IP address of the outgoing interface as the client IP address
+        choices: ['disable', 'enable']
+      ippool:
+        type: list
+        elements: str
+        description: Ippool.
+      protocol:
+        type: list
+        elements: str
+        description: Protocol.
+        choices: ['http', 'ftp', 'socks']
+      ippool6:
+        type: list
+        elements: str
+        description: Ippool6.
+      fabric_force_sync:
+        aliases: ['fabric-force-sync']
+        type: str
+        description: Enable/disable forced synchronization of configuration objects from the root FortiGate unit to the downstream devices.
+        choices: ['disable', 'enable']
+      fabric_object:
+        aliases: ['fabric-object']
+        type: str
+        description: Security Fabric global object setting.
+        choices: ['disable', 'enable']
+      fabric_object_source:
+        aliases: ['fabric-object-source']
+        type: str
+        description: Source of truth for fabric object.
+        choices: ['member', 'local', 'root']
+      uuid:
+        type: str
+        description: Universally Unique Identifier
 '''
 
 EXAMPLES = '''
@@ -107,46 +129,51 @@ EXAMPLES = '''
           # masquerade: <value in [disable, enable]>
           # ippool: <list or string>
           # protocol: ["http", "ftp", "socks"]
+          # ippool6: <list or string>
+          # fabric_force_sync: <value in [disable, enable]>
+          # fabric_object: <value in [disable, enable]>
+          # fabric_object_source: <value in [member, local, root]>
+          # uuid: <string>
 '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -163,21 +190,26 @@ def main():
         'adom': {'required': True, 'type': 'str'},
         'revision_note': {'type': 'str'},
         'webproxy_isolatorserver': {
-            'type': 'dict', 'v_range': [['7.4.8', '7.4.10'], ['7.6.2', '']],
+            'type': 'dict', 'v_range': [['7.4.8', '7.4.11'], ['7.6.2', '']],
             'options': {
-                'addr-type': {'v_range': [['7.4.8', '7.4.10'], ['7.6.2', '']], 'choices': ['fqdn', 'ipv6', 'ip'], 'type': 'str'},
-                'comment': {'v_range': [['7.4.8', '7.4.10'], ['7.6.2', '']], 'type': 'str'},
-                'fqdn': {'v_range': [['7.4.8', '7.4.10'], ['7.6.2', '']], 'type': 'str'},
+                'addr-type': {'v_range': [['7.4.8', '7.4.11'], ['7.6.2', '']], 'choices': ['fqdn', 'ipv6', 'ip'], 'type': 'str'},
+                'comment': {'v_range': [['7.4.8', '7.4.11'], ['7.6.2', '']], 'type': 'str'},
+                'fqdn': {'v_range': [['7.4.8', '7.4.11'], ['7.6.2', '']], 'type': 'str'},
                 'interface': {'v_range': [['7.6.2', '']], 'type': 'list', 'elements': 'str'},
                 'interface-select-method': {'v_range': [['7.6.2', '']], 'choices': ['auto', 'sdwan', 'specify'], 'type': 'str'},
-                'ip': {'v_range': [['7.4.8', '7.4.10'], ['7.6.2', '']], 'type': 'str'},
-                'ipv6': {'v_range': [['7.4.8', '7.4.10'], ['7.6.2', '']], 'type': 'str'},
-                'name': {'v_range': [['7.4.8', '7.4.10'], ['7.6.2', '']], 'required': True, 'type': 'str'},
-                'port': {'v_range': [['7.4.8', '7.4.10'], ['7.6.2', '']], 'type': 'int'},
+                'ip': {'v_range': [['7.4.8', '7.4.11'], ['7.6.2', '']], 'type': 'str'},
+                'ipv6': {'v_range': [['7.4.8', '7.4.11'], ['7.6.2', '']], 'type': 'str'},
+                'name': {'v_range': [['7.4.8', '7.4.11'], ['7.6.2', '']], 'required': True, 'type': 'str'},
+                'port': {'v_range': [['7.4.8', '7.4.11'], ['7.6.2', '']], 'type': 'int'},
                 'vrf-select': {'v_range': [['7.6.2', '']], 'type': 'int'},
-                'masquerade': {'v_range': [['7.4.8', '7.4.10'], ['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'ippool': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'list', 'elements': 'str'},
-                'protocol': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'list', 'choices': ['http', 'ftp', 'socks'], 'elements': 'str'}
+                'masquerade': {'v_range': [['7.4.8', '7.4.11'], ['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'ippool': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'type': 'list', 'elements': 'str'},
+                'protocol': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'type': 'list', 'choices': ['http', 'ftp', 'socks'], 'elements': 'str'},
+                'ippool6': {'v_range': [['7.6.7', '']], 'type': 'list', 'elements': 'str'},
+                'fabric-force-sync': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'fabric-object': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'fabric-object-source': {'v_range': [['8.0.0', '']], 'choices': ['member', 'local', 'root'], 'type': 'str'},
+                'uuid': {'v_range': [['8.0.0', '']], 'type': 'str'}
             }
         }
     }

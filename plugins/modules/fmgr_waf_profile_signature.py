@@ -15,105 +15,105 @@ module: fmgr_waf_profile_signature
 short_description: WAF signatures.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.partial_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.partial_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
-        type: str
-    adom:
-        description: The parameter (adom) in requested url.
-        type: str
-        required: true
-    profile:
-        description: The parameter (profile) in requested url.
-        type: str
-        required: true
-    waf_profile_signature:
-        description: The top level parameters set.
-        required: false
-        type: dict
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  profile:
+    description: The parameter (profile) in requested url.
+    type: str
+    required: true
+  waf_profile_signature:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      credit_card_detection_threshold:
+        aliases: ['credit-card-detection-threshold']
+        type: int
+        description: The minimum number of Credit cards to detect violation.
+      custom_signature:
+        aliases: ['custom-signature']
+        type: list
+        elements: dict
+        description: Custom signature.
         suboptions:
-            credit_card_detection_threshold:
-                aliases: ['credit-card-detection-threshold']
-                type: int
-                description: The minimum number of Credit cards to detect violation.
-            custom_signature:
-                aliases: ['custom-signature']
-                type: list
-                elements: dict
-                description: Custom signature.
-                suboptions:
-                    action:
-                        type: str
-                        description: Action.
-                        choices: ['allow', 'block', 'erase']
-                    case_sensitivity:
-                        aliases: ['case-sensitivity']
-                        type: str
-                        description: Case sensitivity in pattern.
-                        choices: ['disable', 'enable']
-                    direction:
-                        type: str
-                        description: Traffic direction.
-                        choices: ['request', 'response']
-                    log:
-                        type: str
-                        description: Enable/disable logging.
-                        choices: ['disable', 'enable']
-                    name:
-                        type: str
-                        description: Signature name.
-                    pattern:
-                        type: str
-                        description: Match pattern.
-                    severity:
-                        type: str
-                        description: Severity.
-                        choices: ['low', 'medium', 'high']
-                    status:
-                        type: str
-                        description: Status.
-                        choices: ['disable', 'enable']
-                    target:
-                        type: list
-                        elements: str
-                        description: Match HTTP target.
-                        choices: ['arg', 'arg-name', 'req-body', 'req-cookie', 'req-cookie-name',
-                                  'req-filename', 'req-header', 'req-header-name', 'req-raw-uri',
-                                  'req-uri', 'resp-body', 'resp-hdr', 'resp-status']
-            disabled_signature:
-                aliases: ['disabled-signature']
-                type: raw
-                description: (list or str) Disabled signatures
-            disabled_sub_class:
-                aliases: ['disabled-sub-class']
-                type: raw
-                description: (list or str) Disabled signature subclasses.
-            main_class:
-                aliases: ['main-class']
-                type: dict
-                description: Main class.
-                suboptions:
-                    action:
-                        type: str
-                        description: Action.
-                        choices: ['allow', 'block', 'erase']
-                    id:
-                        type: int
-                        description: Main signature class ID.
-                    log:
-                        type: str
-                        description: Enable/disable logging.
-                        choices: ['disable', 'enable']
-                    severity:
-                        type: str
-                        description: Severity.
-                        choices: ['low', 'medium', 'high']
-                    status:
-                        type: str
-                        description: Status.
-                        choices: ['disable', 'enable']
+          action:
+            type: str
+            description: Action.
+            choices: ['allow', 'block', 'erase']
+          case_sensitivity:
+            aliases: ['case-sensitivity']
+            type: str
+            description: Case sensitivity in pattern.
+            choices: ['disable', 'enable']
+          direction:
+            type: str
+            description: Traffic direction.
+            choices: ['request', 'response']
+          log:
+            type: str
+            description: Enable/disable logging.
+            choices: ['disable', 'enable']
+          name:
+            type: str
+            description: Signature name.
+          pattern:
+            type: str
+            description: Match pattern.
+          severity:
+            type: str
+            description: Severity.
+            choices: ['low', 'medium', 'high']
+          status:
+            type: str
+            description: Status.
+            choices: ['disable', 'enable']
+          target:
+            type: list
+            elements: str
+            description: Match HTTP target.
+            choices: ['arg', 'arg-name', 'req-body', 'req-cookie', 'req-cookie-name',
+                      'req-filename', 'req-header', 'req-header-name', 'req-raw-uri', 'req-uri',
+                      'resp-body', 'resp-hdr', 'resp-status']
+      disabled_signature:
+        aliases: ['disabled-signature']
+        type: raw
+        description: (list or str) Disabled signatures
+      disabled_sub_class:
+        aliases: ['disabled-sub-class']
+        type: raw
+        description: (list or str) Disabled signature subclasses.
+      main_class:
+        aliases: ['main-class']
+        type: dict
+        description: Main class.
+        suboptions:
+          action:
+            type: str
+            description: Action.
+            choices: ['allow', 'block', 'erase']
+          id:
+            type: int
+            description: Main signature class ID.
+          log:
+            type: str
+            description: Enable/disable logging.
+            choices: ['disable', 'enable']
+          severity:
+            type: str
+            description: Severity.
+            choices: ['low', 'medium', 'high']
+          status:
+            type: str
+            description: Status.
+            choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -153,42 +153,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

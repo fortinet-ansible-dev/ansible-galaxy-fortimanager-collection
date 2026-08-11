@@ -15,62 +15,62 @@ module: fmgr_log_npuserver_servergroup
 short_description: create server group.
 version_added: "2.2.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  log_npuserver_servergroup:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      group_name:
+        aliases: ['group-name']
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Server group name.
+      log_format:
+        aliases: ['log-format']
         type: str
-        required: true
-    log_npuserver_servergroup:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            group_name:
-                aliases: ['group-name']
-                type: str
-                description: Server group name.
-            log_format:
-                aliases: ['log-format']
-                type: str
-                description: Set the log format
-                choices: ['syslog', 'netflow']
-            log_mode:
-                aliases: ['log-mode']
-                type: str
-                description: Set the log mode
-                choices: ['per-session', 'per-nat-mapping', 'per-session-ending']
-            log_tx_mode:
-                aliases: ['log-tx-mode']
-                type: str
-                description: Configure log transmit mode.
-                choices: ['multicast', 'roundrobin']
-            server_number:
-                aliases: ['server-number']
-                type: int
-                description: Server number in this group.
-            server_start_id:
-                aliases: ['server-start-id']
-                type: int
-                description: The start id of the continuous server series in this group,[1,16].
-            sw_log_flags:
-                aliases: ['sw-log-flags']
-                type: raw
-                description: (int or str) Set flags for software logging via driver.
-            log_gen_event:
-                aliases: ['log-gen-event']
-                type: str
-                description: Enable/disbale generating event for Per-Mapping log
-                choices: ['disable', 'enable']
-            log_user_info:
-                aliases: ['log-user-info']
-                type: str
-                description: Enable/disbale logging user information.
-                choices: ['disable', 'enable']
+        description: Set the log format
+        choices: ['syslog', 'netflow']
+      log_mode:
+        aliases: ['log-mode']
+        type: str
+        description: Set the log mode
+        choices: ['per-session', 'per-nat-mapping', 'per-session-ending']
+      log_tx_mode:
+        aliases: ['log-tx-mode']
+        type: str
+        description: Configure log transmit mode.
+        choices: ['multicast', 'roundrobin']
+      server_number:
+        aliases: ['server-number']
+        type: int
+        description: Server number in this group.
+      server_start_id:
+        aliases: ['server-start-id']
+        type: int
+        description: The start id of the continuous server series in this group,[1,16].
+      sw_log_flags:
+        aliases: ['sw-log-flags']
+        type: raw
+        description: (int or str) Set flags for software logging via driver.
+      log_gen_event:
+        aliases: ['log-gen-event']
+        type: str
+        description: Enable/disbale generating event for Per-Mapping log
+        choices: ['disable', 'enable']
+      log_user_info:
+        aliases: ['log-user-info']
+        type: str
+        description: Enable/disbale logging user information.
+        choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -98,42 +98,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

@@ -15,32 +15,35 @@ module: fmgr_securityconsole_package_commit
 short_description: Install policies to device from preview cache.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
+  - fortinet.fortimanager.general
 options:
-    securityconsole_package_commit:
-        description: The top level parameters set.
-        required: false
-        type: dict
+  securityconsole_package_commit:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      adom:
+        type: str
+        description: Source ADOM name.
+      scope:
+        type: list
+        elements: dict
+        description: Scope.
         suboptions:
-            adom:
-                type: str
-                description: Source ADOM name.
-            scope:
-                type: list
-                elements: dict
-                description: Scope.
-                suboptions:
-                    name:
-                        type: str
-                        description: Name.
-                    vdom:
-                        type: str
-                        description: Vdom.
-            flags:
-                type: list
-                elements: str
-                description: Auto_lock_ws - Automatically lock and unlock workspace when performing security console task.
-                choices: ['auto_lock_ws']
+          name:
+            type: str
+            description: Name.
+          vdom:
+            type: str
+            description: Vdom.
+      flags:
+        type: list
+        elements: str
+        description: Auto_lock_ws - Automatically lock and unlock workspace when performing security console task.
+        choices: ['auto_lock_ws']
+      preview_taskid:
+        type: int
+        description: Preview taskid.
 '''
 
 EXAMPLES = '''
@@ -58,46 +61,47 @@ EXAMPLES = '''
           #   - name: <string>
           #     vdom: <string>
           # flags: ["auto_lock_ws"]
+          # preview_taskid: <integer>
 '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -115,7 +119,8 @@ def main():
             'options': {
                 'adom': {'type': 'str'},
                 'scope': {'type': 'list', 'options': {'name': {'type': 'str'}, 'vdom': {'type': 'str'}}, 'elements': 'dict'},
-                'flags': {'v_range': [['7.4.6', '7.4.10'], ['7.6.2', '']], 'type': 'list', 'choices': ['auto_lock_ws'], 'elements': 'str'}
+                'flags': {'v_range': [['7.4.6', '7.4.11'], ['7.6.2', '']], 'type': 'list', 'choices': ['auto_lock_ws'], 'elements': 'str'},
+                'preview_taskid': {'v_range': [['7.6.7', '7.6.7']], 'type': 'int'}
             }
         }
     }

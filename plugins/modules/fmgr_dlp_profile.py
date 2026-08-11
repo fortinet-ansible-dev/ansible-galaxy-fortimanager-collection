@@ -15,133 +15,155 @@ module: fmgr_dlp_profile
 short_description: Configure DLP profiles.
 version_added: "2.1.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  dlp_profile:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      comment:
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Comment.
+      dlp_log:
+        aliases: ['dlp-log']
         type: str
+        description: Enable/disable DLP logging.
+        choices: ['disable', 'enable']
+      extended_log:
+        aliases: ['extended-log']
+        type: str
+        description: Enable/disable extended logging for data leak prevention.
+        choices: ['disable', 'enable']
+      feature_set:
+        aliases: ['feature-set']
+        type: str
+        description: Flow/proxy feature set.
+        choices: ['flow', 'proxy']
+      full_archive_proto:
+        aliases: ['full-archive-proto']
+        type: list
+        elements: str
+        description: Protocols to always content archive.
+        choices: ['smtp', 'pop3', 'imap', 'http-post', 'http-get', 'ftp', 'nntp', 'mapi', 'ssh',
+                  'cifs', 'websocket']
+      nac_quar_log:
+        aliases: ['nac-quar-log']
+        type: str
+        description: Enable/disable NAC quarantine logging.
+        choices: ['disable', 'enable']
+      name:
+        type: str
+        description: Name of the DLP profile.
         required: true
-    dlp_profile:
-        description: The top level parameters set.
-        required: false
-        type: dict
+      replacemsg_group:
+        aliases: ['replacemsg-group']
+        type: str
+        description: Replacement message group used by this DLP profile.
+      rule:
+        type: list
+        elements: dict
+        description: Rule.
         suboptions:
-            comment:
-                type: str
-                description: Comment.
-            dlp_log:
-                aliases: ['dlp-log']
-                type: str
-                description: Enable/disable DLP logging.
-                choices: ['disable', 'enable']
-            extended_log:
-                aliases: ['extended-log']
-                type: str
-                description: Enable/disable extended logging for data leak prevention.
-                choices: ['disable', 'enable']
-            feature_set:
-                aliases: ['feature-set']
-                type: str
-                description: Flow/proxy feature set.
-                choices: ['flow', 'proxy']
-            full_archive_proto:
-                aliases: ['full-archive-proto']
-                type: list
-                elements: str
-                description: Protocols to always content archive.
-                choices: ['smtp', 'pop3', 'imap', 'http-post', 'http-get', 'ftp', 'nntp', 'mapi',
-                          'ssh', 'cifs']
-            nac_quar_log:
-                aliases: ['nac-quar-log']
-                type: str
-                description: Enable/disable NAC quarantine logging.
-                choices: ['disable', 'enable']
-            name:
-                type: str
-                description: Name of the DLP profile.
-                required: true
-            replacemsg_group:
-                aliases: ['replacemsg-group']
-                type: str
-                description: Replacement message group used by this DLP profile.
-            rule:
-                type: list
-                elements: dict
-                description: Rule.
-                suboptions:
-                    action:
-                        type: str
-                        description: Action to take with content that this DLP profile matches.
-                        choices: ['log-only', 'block', 'quarantine-ip', 'allow']
-                    archive:
-                        type: str
-                        description: Enable/disable DLP archiving.
-                        choices: ['disable', 'enable']
-                    expiry:
-                        type: str
-                        description: Quarantine duration in days, hours, minutes
-                    file_size:
-                        aliases: ['file-size']
-                        type: int
-                        description: Match files this size or larger
-                    file_type:
-                        aliases: ['file-type']
-                        type: str
-                        description: Select the number of a DLP file pattern table to match.
-                    filter_by:
-                        aliases: ['filter-by']
-                        type: str
-                        description: Select the type of content to match.
-                        choices: ['fingerprint', 'sensor', 'encrypted', 'none', 'mip', 'label']
-                    id:
-                        type: int
-                        description: ID.
-                    label:
-                        type: str
-                        description: MIP label dictionary.
-                    match_percentage:
-                        aliases: ['match-percentage']
-                        type: int
-                        description: Percentage of fingerprints in the fingerprint databases designated with the selected sensitivity to match.
-                    name:
-                        type: str
-                        description: Filter name.
-                    proto:
-                        type: list
-                        elements: str
-                        description: Check messages or files over one or more of these protocols.
-                        choices: ['smtp', 'pop3', 'imap', 'http-post', 'http-get', 'ftp', 'nntp',
-                                  'mapi', 'ssh', 'cifs']
-                    sensitivity:
-                        type: raw
-                        description: (list) Select a DLP file pattern sensitivity to match.
-                    sensor:
-                        type: raw
-                        description: (list) Select DLP sensors.
-                    severity:
-                        type: str
-                        description: Select the severity or threat level that matches this filter.
-                        choices: ['info', 'low', 'medium', 'high', 'critical']
-                    type:
-                        type: str
-                        description: Select whether to check the content of messages
-                        choices: ['file', 'message']
-            summary_proto:
-                aliases: ['summary-proto']
-                type: list
-                elements: str
-                description: Protocols to always log summary.
-                choices: ['smtp', 'pop3', 'imap', 'http-post', 'http-get', 'ftp', 'nntp', 'mapi',
-                          'ssh', 'cifs']
-            fortidata_error_action:
-                aliases: ['fortidata-error-action']
-                type: str
-                description: Action to take if FortiData query fails.
-                choices: ['block', 'log-only', 'ignore']
+          action:
+            type: str
+            description: Action to take with content that this DLP profile matches.
+            choices: ['log-only', 'block', 'quarantine-ip', 'allow']
+          archive:
+            type: str
+            description: Enable/disable DLP archiving.
+            choices: ['disable', 'enable']
+          expiry:
+            type: str
+            description: Quarantine duration in days, hours, minutes
+          file_size:
+            aliases: ['file-size']
+            type: int
+            description: Match files this size or larger
+          file_type:
+            aliases: ['file-type']
+            type: str
+            description: Select the number of a DLP file pattern table to match.
+          filter_by:
+            aliases: ['filter-by']
+            type: str
+            description: Select the type of content to match.
+            choices: ['fingerprint', 'sensor', 'encrypted', 'none', 'mip', 'label']
+          id:
+            type: int
+            description: ID.
+          label:
+            type: str
+            description: MIP label dictionary.
+          match_percentage:
+            aliases: ['match-percentage']
+            type: int
+            description: Percentage of fingerprints in the fingerprint databases designated with the selected sensitivity to match.
+          name:
+            type: str
+            description: Filter name.
+          proto:
+            type: list
+            elements: str
+            description: Check messages or files over one or more of these protocols.
+            choices: ['smtp', 'pop3', 'imap', 'http-post', 'http-get', 'ftp', 'nntp', 'mapi',
+                      'ssh', 'cifs', 'websocket']
+          sensitivity:
+            type: raw
+            description: (list) Select a DLP file pattern sensitivity to match.
+          sensor:
+            type: raw
+            description: (list) Select DLP sensors.
+          severity:
+            type: str
+            description: Select the severity or threat level that matches this filter.
+            choices: ['info', 'low', 'medium', 'high', 'critical']
+          type:
+            type: str
+            description: Select whether to check the content of messages
+            choices: ['file', 'message']
+      summary_proto:
+        aliases: ['summary-proto']
+        type: list
+        elements: str
+        description: Protocols to always log summary.
+        choices: ['smtp', 'pop3', 'imap', 'http-post', 'http-get', 'ftp', 'nntp', 'mapi', 'ssh',
+                  'cifs', 'websocket']
+      fortidata_error_action:
+        aliases: ['fortidata-error-action']
+        type: str
+        description: Action to take if FortiData query fails.
+        choices: ['block', 'log-only', 'ignore']
+      fabric_force_sync:
+        aliases: ['fabric-force-sync']
+        type: str
+        description: Enable/disable forced synchronization of configuration objects from the root FortiGate unit to the downstream devices.
+        choices: ['disable', 'enable']
+      fabric_object:
+        aliases: ['fabric-object']
+        type: str
+        description: Security Fabric global object setting.
+        choices: ['disable', 'enable']
+      fabric_object_source:
+        aliases: ['fabric-object-source']
+        type: str
+        description: Source of truth for fabric object.
+        choices: ['member', 'local', 'root']
+      fortidata_scan_timeout:
+        aliases: ['fortidata-scan-timeout']
+        type: int
+        description: FortiData inline scan timeout in seconds
+      uuid:
+        type: str
+        description: Universally Unique Identifier
 '''
 
 EXAMPLES = '''
@@ -162,7 +184,7 @@ EXAMPLES = '''
           # extended_log: <value in [disable, enable]>
           # feature_set: <value in [flow, proxy]>
           # full_archive_proto: ["smtp", "pop3", "imap", "http-post", "http-get", "ftp", "nntp",
-          #                      "mapi", "ssh", "cifs"]
+          #                      "mapi", "ssh", "cifs", "websocket"]
           # nac_quar_log: <value in [disable, enable]>
           # replacemsg_group: <string>
           # rule:
@@ -177,54 +199,59 @@ EXAMPLES = '''
           #     match_percentage: <integer>
           #     name: <string>
           #     proto: ["smtp", "pop3", "imap", "http-post", "http-get", "ftp", "nntp", "mapi",
-          #             "ssh", "cifs"]
+          #             "ssh", "cifs", "websocket"]
           #     sensitivity: <list or string>
           #     sensor: <list or string>
           #     severity: <value in [info, low, medium, ...]>
           #     type: <value in [file, message]>
           # summary_proto: ["smtp", "pop3", "imap", "http-post", "http-get", "ftp", "nntp",
-          #                 "mapi", "ssh", "cifs"]
+          #                 "mapi", "ssh", "cifs", "websocket"]
           # fortidata_error_action: <value in [block, log-only, ignore]>
+          # fabric_force_sync: <value in [disable, enable]>
+          # fabric_object: <value in [disable, enable]>
+          # fabric_object_source: <value in [member, local, root]>
+          # fortidata_scan_timeout: <integer>
+          # uuid: <string>
 '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -250,7 +277,7 @@ def main():
                 'full-archive-proto': {
                     'v_range': [['7.2.0', '']],
                     'type': 'list',
-                    'choices': ['smtp', 'pop3', 'imap', 'http-post', 'http-get', 'ftp', 'nntp', 'mapi', 'ssh', 'cifs'],
+                    'choices': ['smtp', 'pop3', 'imap', 'http-post', 'http-get', 'ftp', 'nntp', 'mapi', 'ssh', 'cifs', 'websocket'],
                     'elements': 'str'
                 },
                 'nac-quar-log': {'v_range': [['7.2.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
@@ -277,7 +304,7 @@ def main():
                         'proto': {
                             'v_range': [['7.2.0', '']],
                             'type': 'list',
-                            'choices': ['smtp', 'pop3', 'imap', 'http-post', 'http-get', 'ftp', 'nntp', 'mapi', 'ssh', 'cifs'],
+                            'choices': ['smtp', 'pop3', 'imap', 'http-post', 'http-get', 'ftp', 'nntp', 'mapi', 'ssh', 'cifs', 'websocket'],
                             'elements': 'str'
                         },
                         'sensitivity': {'v_range': [['7.2.0', '']], 'type': 'raw'},
@@ -290,10 +317,15 @@ def main():
                 'summary-proto': {
                     'v_range': [['7.2.0', '']],
                     'type': 'list',
-                    'choices': ['smtp', 'pop3', 'imap', 'http-post', 'http-get', 'ftp', 'nntp', 'mapi', 'ssh', 'cifs'],
+                    'choices': ['smtp', 'pop3', 'imap', 'http-post', 'http-get', 'ftp', 'nntp', 'mapi', 'ssh', 'cifs', 'websocket'],
                     'elements': 'str'
                 },
-                'fortidata-error-action': {'v_range': [['7.6.4', '']], 'choices': ['block', 'log-only', 'ignore'], 'type': 'str'}
+                'fortidata-error-action': {'v_range': [['7.6.4', '']], 'choices': ['block', 'log-only', 'ignore'], 'type': 'str'},
+                'fabric-force-sync': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'fabric-object': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'fabric-object-source': {'v_range': [['8.0.0', '']], 'choices': ['member', 'local', 'root'], 'type': 'str'},
+                'fortidata-scan-timeout': {'v_range': [['8.0.0', '']], 'type': 'int'},
+                'uuid': {'v_range': [['8.0.0', '']], 'type': 'str'}
             }
         }
     }

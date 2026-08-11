@@ -15,991 +15,1009 @@ module: fmgr_firewall_sslsshprofile
 short_description: Configure SSL/SSH protocol options.
 version_added: "1.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  firewall_sslsshprofile:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      caname:
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: CA certificate used by SSL Inspection.
+      comment:
         type: str
+        description: Optional comments.
+      mapi_over_https:
+        aliases: ['mapi-over-https']
+        type: str
+        description: Enable/disable inspection of MAPI over HTTPS.
+        choices: ['disable', 'enable']
+      name:
+        type: str
+        description: Name.
         required: true
-    firewall_sslsshprofile:
-        description: The top level parameters set.
-        required: false
-        type: dict
+      rpc_over_https:
+        aliases: ['rpc-over-https']
+        type: str
+        description: Enable/disable inspection of RPC over HTTPS.
+        choices: ['disable', 'enable']
+      server_cert:
+        aliases: ['server-cert']
+        type: raw
+        description: (list or str) Certificate used by SSL Inspection to replace server certificate.
+      server_cert_mode:
+        aliases: ['server-cert-mode']
+        type: str
+        description: Re-sign or replace the servers certificate.
+        choices: ['re-sign', 'replace']
+      ssl_anomalies_log:
+        aliases: ['ssl-anomalies-log']
+        type: str
+        description: Enable/disable logging SSL anomalies.
+        choices: ['disable', 'enable']
+      ssl_exempt:
+        aliases: ['ssl-exempt']
+        type: list
+        elements: dict
+        description: Ssl exempt.
         suboptions:
-            caname:
-                type: str
-                description: CA certificate used by SSL Inspection.
-            comment:
-                type: str
-                description: Optional comments.
-            mapi_over_https:
-                aliases: ['mapi-over-https']
-                type: str
-                description: Enable/disable inspection of MAPI over HTTPS.
-                choices: ['disable', 'enable']
-            name:
-                type: str
-                description: Name.
-                required: true
-            rpc_over_https:
-                aliases: ['rpc-over-https']
-                type: str
-                description: Enable/disable inspection of RPC over HTTPS.
-                choices: ['disable', 'enable']
-            server_cert:
-                aliases: ['server-cert']
-                type: raw
-                description: (list or str) Certificate used by SSL Inspection to replace server certificate.
-            server_cert_mode:
-                aliases: ['server-cert-mode']
-                type: str
-                description: Re-sign or replace the servers certificate.
-                choices: ['re-sign', 'replace']
-            ssl_anomalies_log:
-                aliases: ['ssl-anomalies-log']
-                type: str
-                description: Enable/disable logging SSL anomalies.
-                choices: ['disable', 'enable']
-            ssl_exempt:
-                aliases: ['ssl-exempt']
-                type: list
-                elements: dict
-                description: Ssl exempt.
-                suboptions:
-                    address:
-                        type: str
-                        description: IPv4 address object.
-                    address6:
-                        type: str
-                        description: IPv6 address object.
-                    fortiguard_category:
-                        aliases: ['fortiguard-category']
-                        type: str
-                        description: FortiGuard category ID.
-                    id:
-                        type: int
-                        description: ID number.
-                    regex:
-                        type: str
-                        description: Exempt servers by regular expression.
-                    type:
-                        type: str
-                        description: Type of address object
-                        choices: ['fortiguard-category', 'address', 'address6', 'wildcard-fqdn',
-                                  'regex', 'finger-print']
-                    wildcard_fqdn:
-                        aliases: ['wildcard-fqdn']
-                        type: str
-                        description: Exempt servers by wildcard FQDN.
-                    finger_print_category:
-                        aliases: ['finger-print-category']
-                        type: str
-                        description: Finger print platform.
-                        choices: ['unknown', 'firefox', 'chrome', 'safari', 'edge', 'ie',
-                                  'android', 'ios', 'windows']
-            ssl_exemptions_log:
-                aliases: ['ssl-exemptions-log']
-                type: str
-                description: Enable/disable logging SSL exemptions.
-                choices: ['disable', 'enable']
-            ssl_server:
-                aliases: ['ssl-server']
-                type: list
-                elements: dict
-                description: Ssl server.
-                suboptions:
-                    ftps_client_cert_request:
-                        aliases: ['ftps-client-cert-request']
-                        type: str
-                        description: Action based on client certificate request during the FTPS handshake.
-                        choices: ['bypass', 'inspect', 'block']
-                    https_client_cert_request:
-                        aliases: ['https-client-cert-request']
-                        type: str
-                        description: Action based on client certificate request during the HTTPS handshake.
-                        choices: ['bypass', 'inspect', 'block']
-                    id:
-                        type: int
-                        description: SSL server ID.
-                    imaps_client_cert_request:
-                        aliases: ['imaps-client-cert-request']
-                        type: str
-                        description: Action based on client certificate request during the IMAPS handshake.
-                        choices: ['bypass', 'inspect', 'block']
-                    ip:
-                        type: str
-                        description: IPv4 address of the SSL server.
-                    pop3s_client_cert_request:
-                        aliases: ['pop3s-client-cert-request']
-                        type: str
-                        description: Action based on client certificate request during the POP3S handshake.
-                        choices: ['bypass', 'inspect', 'block']
-                    smtps_client_cert_request:
-                        aliases: ['smtps-client-cert-request']
-                        type: str
-                        description: Action based on client certificate request during the SMTPS handshake.
-                        choices: ['bypass', 'inspect', 'block']
-                    ssl_other_client_cert_request:
-                        aliases: ['ssl-other-client-cert-request']
-                        type: str
-                        description: Action based on client certificate request during an SSL protocol handshake.
-                        choices: ['bypass', 'inspect', 'block']
-                    ftps_client_certificate:
-                        aliases: ['ftps-client-certificate']
-                        type: str
-                        description: Action based on received client certificate during the FTPS handshake.
-                        choices: ['bypass', 'inspect', 'block']
-                    https_client_certificate:
-                        aliases: ['https-client-certificate']
-                        type: str
-                        description: Action based on received client certificate during the HTTPS handshake.
-                        choices: ['bypass', 'inspect', 'block']
-                    imaps_client_certificate:
-                        aliases: ['imaps-client-certificate']
-                        type: str
-                        description: Action based on received client certificate during the IMAPS handshake.
-                        choices: ['bypass', 'inspect', 'block']
-                    pop3s_client_certificate:
-                        aliases: ['pop3s-client-certificate']
-                        type: str
-                        description: Action based on received client certificate during the POP3S handshake.
-                        choices: ['bypass', 'inspect', 'block']
-                    smtps_client_certificate:
-                        aliases: ['smtps-client-certificate']
-                        type: str
-                        description: Action based on received client certificate during the SMTPS handshake.
-                        choices: ['bypass', 'inspect', 'block']
-                    ssl_other_client_certificate:
-                        aliases: ['ssl-other-client-certificate']
-                        type: str
-                        description: Action based on received client certificate during an SSL protocol handshake.
-                        choices: ['bypass', 'inspect', 'block']
-            untrusted_caname:
-                aliases: ['untrusted-caname']
-                type: str
-                description: Untrusted CA certificate used by SSL Inspection.
-            use_ssl_server:
-                aliases: ['use-ssl-server']
-                type: str
-                description: Enable/disable the use of SSL server table for SSL offloading.
-                choices: ['disable', 'enable']
-            whitelist:
-                type: str
-                description: Enable/disable exempting servers by FortiGuard whitelist.
-                choices: ['disable', 'enable']
-            block_blacklisted_certificates:
-                aliases: ['block-blacklisted-certificates']
-                type: str
-                description: Enable/disable blocking SSL-based botnet communication by FortiGuard certificate blacklist.
-                choices: ['disable', 'enable']
-            certname:
-                type: str
-                description: Certificate containing the key to use when re-signing server certificates for SSL inspection.
-            ssl_invalid_server_cert_log:
-                aliases: ['ssl-invalid-server-cert-log']
-                type: str
-                description: Enable/disable SSL server certificate validation logging.
-                choices: ['disable', 'enable']
-            ssl_negotiation_log:
-                aliases: ['ssl-negotiation-log']
-                type: str
-                description: Enable/disable logging SSL negotiation.
-                choices: ['disable', 'enable']
-            ftps:
-                type: dict
-                description: Ftps.
-                suboptions:
-                    cert_validation_failure:
-                        aliases: ['cert-validation-failure']
-                        type: str
-                        description: Action based on certificate validation failure.
-                        choices: ['allow', 'block', 'ignore']
-                    cert_validation_timeout:
-                        aliases: ['cert-validation-timeout']
-                        type: str
-                        description: Action based on certificate validation timeout.
-                        choices: ['allow', 'block', 'ignore']
-                    client_certificate:
-                        aliases: ['client-certificate']
-                        type: str
-                        description: Action based on received client certificate.
-                        choices: ['bypass', 'inspect', 'block', 'bypass-on-cert-req']
-                    expired_server_cert:
-                        aliases: ['expired-server-cert']
-                        type: str
-                        description: Action based on server certificate is expired.
-                        choices: ['allow', 'block', 'ignore']
-                    ports:
-                        type: raw
-                        description: (list) Ports to use for scanning
-                    revoked_server_cert:
-                        aliases: ['revoked-server-cert']
-                        type: str
-                        description: Action based on server certificate is revoked.
-                        choices: ['allow', 'block', 'ignore']
-                    sni_server_cert_check:
-                        aliases: ['sni-server-cert-check']
-                        type: str
-                        description: Check the SNI in the client hello message with the CN or SAN fields in the returned server certificate.
-                        choices: ['disable', 'enable', 'strict']
-                    status:
-                        type: str
-                        description: Configure protocol inspection status.
-                        choices: ['disable', 'deep-inspection']
-                    unsupported_ssl_cipher:
-                        aliases: ['unsupported-ssl-cipher']
-                        type: str
-                        description: Action based on the SSL cipher used being unsupported.
-                        choices: ['allow', 'block']
-                    unsupported_ssl_negotiation:
-                        aliases: ['unsupported-ssl-negotiation']
-                        type: str
-                        description: Action based on the SSL negotiation used being unsupported.
-                        choices: ['allow', 'block']
-                    untrusted_server_cert:
-                        aliases: ['untrusted-server-cert']
-                        type: str
-                        description: Action based on server certificate is not issued by a trusted CA.
-                        choices: ['allow', 'block', 'ignore']
-                    unsupported_ssl:
-                        aliases: ['unsupported-ssl']
-                        type: str
-                        description: Action based on the SSL encryption used being unsupported.
-                        choices: ['bypass', 'inspect', 'block']
-                    client_cert_request:
-                        aliases: ['client-cert-request']
-                        type: str
-                        description: Action based on client certificate request.
-                        choices: ['bypass', 'inspect', 'block']
-                    invalid_server_cert:
-                        aliases: ['invalid-server-cert']
-                        type: str
-                        description: Allow or block the invalid SSL session server certificate.
-                        choices: ['allow', 'block']
-                    allow_invalid_server_cert:
-                        aliases: ['allow-invalid-server-cert']
-                        type: str
-                        description: When enabled, allows SSL sessions whose server certificate validation failed.
-                        choices: ['disable', 'enable']
-                    untrusted_cert:
-                        aliases: ['untrusted-cert']
-                        type: str
-                        description: Allow, ignore, or block the untrusted SSL session server certificate.
-                        choices: ['allow', 'block', 'ignore']
-                    min_allowed_ssl_version:
-                        aliases: ['min-allowed-ssl-version']
-                        type: str
-                        description: Minimum SSL version to be allowed.
-                        choices: ['ssl-3.0', 'tls-1.0', 'tls-1.1', 'tls-1.2', 'tls-1.3']
-                    unsupported_ssl_version:
-                        aliases: ['unsupported-ssl-version']
-                        type: str
-                        description: Action based on the SSL version used being unsupported.
-                        choices: ['block', 'allow', 'inspect']
-            https:
-                type: dict
-                description: Https.
-                suboptions:
-                    cert_validation_failure:
-                        aliases: ['cert-validation-failure']
-                        type: str
-                        description: Action based on certificate validation failure.
-                        choices: ['allow', 'block', 'ignore']
-                    cert_validation_timeout:
-                        aliases: ['cert-validation-timeout']
-                        type: str
-                        description: Action based on certificate validation timeout.
-                        choices: ['allow', 'block', 'ignore']
-                    client_certificate:
-                        aliases: ['client-certificate']
-                        type: str
-                        description: Action based on received client certificate.
-                        choices: ['bypass', 'inspect', 'block', 'bypass-on-cert-req']
-                    expired_server_cert:
-                        aliases: ['expired-server-cert']
-                        type: str
-                        description: Action based on server certificate is expired.
-                        choices: ['allow', 'block', 'ignore']
-                    ports:
-                        type: raw
-                        description: (list) Ports to use for scanning
-                    proxy_after_tcp_handshake:
-                        aliases: ['proxy-after-tcp-handshake']
-                        type: str
-                        description: Proxy traffic after the TCP 3-way handshake has been established
-                        choices: ['disable', 'enable']
-                    revoked_server_cert:
-                        aliases: ['revoked-server-cert']
-                        type: str
-                        description: Action based on server certificate is revoked.
-                        choices: ['allow', 'block', 'ignore']
-                    sni_server_cert_check:
-                        aliases: ['sni-server-cert-check']
-                        type: str
-                        description: Check the SNI in the client hello message with the CN or SAN fields in the returned server certificate.
-                        choices: ['disable', 'enable', 'strict']
-                    status:
-                        type: str
-                        description: Configure protocol inspection status.
-                        choices: ['disable', 'certificate-inspection', 'deep-inspection']
-                    unsupported_ssl_cipher:
-                        aliases: ['unsupported-ssl-cipher']
-                        type: str
-                        description: Action based on the SSL cipher used being unsupported.
-                        choices: ['allow', 'block']
-                    unsupported_ssl_negotiation:
-                        aliases: ['unsupported-ssl-negotiation']
-                        type: str
-                        description: Action based on the SSL negotiation used being unsupported.
-                        choices: ['allow', 'block']
-                    untrusted_server_cert:
-                        aliases: ['untrusted-server-cert']
-                        type: str
-                        description: Action based on server certificate is not issued by a trusted CA.
-                        choices: ['allow', 'block', 'ignore']
-                    unsupported_ssl:
-                        aliases: ['unsupported-ssl']
-                        type: str
-                        description: Action based on the SSL encryption used being unsupported.
-                        choices: ['bypass', 'inspect', 'block']
-                    client_cert_request:
-                        aliases: ['client-cert-request']
-                        type: str
-                        description: Action based on client certificate request.
-                        choices: ['bypass', 'inspect', 'block']
-                    invalid_server_cert:
-                        aliases: ['invalid-server-cert']
-                        type: str
-                        description: Allow or block the invalid SSL session server certificate.
-                        choices: ['allow', 'block']
-                    allow_invalid_server_cert:
-                        aliases: ['allow-invalid-server-cert']
-                        type: str
-                        description: When enabled, allows SSL sessions whose server certificate validation failed.
-                        choices: ['disable', 'enable']
-                    untrusted_cert:
-                        aliases: ['untrusted-cert']
-                        type: str
-                        description: Allow, ignore, or block the untrusted SSL session server certificate.
-                        choices: ['allow', 'block', 'ignore']
-                    cert_probe_failure:
-                        aliases: ['cert-probe-failure']
-                        type: str
-                        description: Action based on certificate probe failure.
-                        choices: ['block', 'allow']
-                    min_allowed_ssl_version:
-                        aliases: ['min-allowed-ssl-version']
-                        type: str
-                        description: Minimum SSL version to be allowed.
-                        choices: ['ssl-3.0', 'tls-1.0', 'tls-1.1', 'tls-1.2', 'tls-1.3']
-                    unsupported_ssl_version:
-                        aliases: ['unsupported-ssl-version']
-                        type: str
-                        description: Action based on the SSL version used being unsupported.
-                        choices: ['block', 'allow', 'inspect']
-                    quic:
-                        type: str
-                        description: Enable/disable QUIC inspection
-                        choices: ['disable', 'enable', 'bypass', 'block', 'inspect']
-                    encrypted_client_hello:
-                        aliases: ['encrypted-client-hello']
-                        type: str
-                        description: Block/allow session based on existence of encrypted-client-hello.
-                        choices: ['block', 'allow']
-                    udp_not_quic:
-                        aliases: ['udp-not-quic']
-                        type: str
-                        description: Action to be taken when matched UDP packet is not QUIC.
-                        choices: ['block', 'allow']
-            imaps:
-                type: dict
-                description: Imaps.
-                suboptions:
-                    cert_validation_failure:
-                        aliases: ['cert-validation-failure']
-                        type: str
-                        description: Action based on certificate validation failure.
-                        choices: ['allow', 'block', 'ignore']
-                    cert_validation_timeout:
-                        aliases: ['cert-validation-timeout']
-                        type: str
-                        description: Action based on certificate validation timeout.
-                        choices: ['allow', 'block', 'ignore']
-                    client_certificate:
-                        aliases: ['client-certificate']
-                        type: str
-                        description: Action based on received client certificate.
-                        choices: ['bypass', 'inspect', 'block', 'bypass-on-cert-req']
-                    expired_server_cert:
-                        aliases: ['expired-server-cert']
-                        type: str
-                        description: Action based on server certificate is expired.
-                        choices: ['allow', 'block', 'ignore']
-                    ports:
-                        type: raw
-                        description: (list) Ports to use for scanning
-                    proxy_after_tcp_handshake:
-                        aliases: ['proxy-after-tcp-handshake']
-                        type: str
-                        description: Proxy traffic after the TCP 3-way handshake has been established
-                        choices: ['disable', 'enable']
-                    revoked_server_cert:
-                        aliases: ['revoked-server-cert']
-                        type: str
-                        description: Action based on server certificate is revoked.
-                        choices: ['allow', 'block', 'ignore']
-                    sni_server_cert_check:
-                        aliases: ['sni-server-cert-check']
-                        type: str
-                        description: Check the SNI in the client hello message with the CN or SAN fields in the returned server certificate.
-                        choices: ['disable', 'enable', 'strict']
-                    status:
-                        type: str
-                        description: Configure protocol inspection status.
-                        choices: ['disable', 'deep-inspection']
-                    unsupported_ssl_cipher:
-                        aliases: ['unsupported-ssl-cipher']
-                        type: str
-                        description: Action based on the SSL cipher used being unsupported.
-                        choices: ['allow', 'block']
-                    unsupported_ssl_negotiation:
-                        aliases: ['unsupported-ssl-negotiation']
-                        type: str
-                        description: Action based on the SSL negotiation used being unsupported.
-                        choices: ['allow', 'block']
-                    untrusted_server_cert:
-                        aliases: ['untrusted-server-cert']
-                        type: str
-                        description: Action based on server certificate is not issued by a trusted CA.
-                        choices: ['allow', 'block', 'ignore']
-                    unsupported_ssl:
-                        aliases: ['unsupported-ssl']
-                        type: str
-                        description: Action based on the SSL encryption used being unsupported.
-                        choices: ['bypass', 'inspect', 'block']
-                    client_cert_request:
-                        aliases: ['client-cert-request']
-                        type: str
-                        description: Action based on client certificate request.
-                        choices: ['bypass', 'inspect', 'block']
-                    invalid_server_cert:
-                        aliases: ['invalid-server-cert']
-                        type: str
-                        description: Allow or block the invalid SSL session server certificate.
-                        choices: ['allow', 'block']
-                    allow_invalid_server_cert:
-                        aliases: ['allow-invalid-server-cert']
-                        type: str
-                        description: When enabled, allows SSL sessions whose server certificate validation failed.
-                        choices: ['disable', 'enable']
-                    untrusted_cert:
-                        aliases: ['untrusted-cert']
-                        type: str
-                        description: Allow, ignore, or block the untrusted SSL session server certificate.
-                        choices: ['allow', 'block', 'ignore']
-                    unsupported_ssl_version:
-                        aliases: ['unsupported-ssl-version']
-                        type: str
-                        description: Action based on the SSL version used being unsupported.
-                        choices: ['block', 'allow', 'inspect']
-                    min_allowed_ssl_version:
-                        aliases: ['min-allowed-ssl-version']
-                        type: str
-                        description: Min allowed ssl version.
-                        choices: ['ssl-3.0', 'tls-1.0', 'tls-1.1', 'tls-1.2', 'tls-1.3']
-            pop3s:
-                type: dict
-                description: Pop3s.
-                suboptions:
-                    cert_validation_failure:
-                        aliases: ['cert-validation-failure']
-                        type: str
-                        description: Action based on certificate validation failure.
-                        choices: ['allow', 'block', 'ignore']
-                    cert_validation_timeout:
-                        aliases: ['cert-validation-timeout']
-                        type: str
-                        description: Action based on certificate validation timeout.
-                        choices: ['allow', 'block', 'ignore']
-                    client_certificate:
-                        aliases: ['client-certificate']
-                        type: str
-                        description: Action based on received client certificate.
-                        choices: ['bypass', 'inspect', 'block', 'bypass-on-cert-req']
-                    expired_server_cert:
-                        aliases: ['expired-server-cert']
-                        type: str
-                        description: Action based on server certificate is expired.
-                        choices: ['allow', 'block', 'ignore']
-                    ports:
-                        type: raw
-                        description: (list) Ports to use for scanning
-                    proxy_after_tcp_handshake:
-                        aliases: ['proxy-after-tcp-handshake']
-                        type: str
-                        description: Proxy traffic after the TCP 3-way handshake has been established
-                        choices: ['disable', 'enable']
-                    revoked_server_cert:
-                        aliases: ['revoked-server-cert']
-                        type: str
-                        description: Action based on server certificate is revoked.
-                        choices: ['allow', 'block', 'ignore']
-                    sni_server_cert_check:
-                        aliases: ['sni-server-cert-check']
-                        type: str
-                        description: Check the SNI in the client hello message with the CN or SAN fields in the returned server certificate.
-                        choices: ['disable', 'enable', 'strict']
-                    status:
-                        type: str
-                        description: Configure protocol inspection status.
-                        choices: ['disable', 'deep-inspection']
-                    unsupported_ssl_cipher:
-                        aliases: ['unsupported-ssl-cipher']
-                        type: str
-                        description: Action based on the SSL cipher used being unsupported.
-                        choices: ['allow', 'block']
-                    unsupported_ssl_negotiation:
-                        aliases: ['unsupported-ssl-negotiation']
-                        type: str
-                        description: Action based on the SSL negotiation used being unsupported.
-                        choices: ['allow', 'block']
-                    untrusted_server_cert:
-                        aliases: ['untrusted-server-cert']
-                        type: str
-                        description: Action based on server certificate is not issued by a trusted CA.
-                        choices: ['allow', 'block', 'ignore']
-                    unsupported_ssl:
-                        aliases: ['unsupported-ssl']
-                        type: str
-                        description: Action based on the SSL encryption used being unsupported.
-                        choices: ['bypass', 'inspect', 'block']
-                    client_cert_request:
-                        aliases: ['client-cert-request']
-                        type: str
-                        description: Action based on client certificate request.
-                        choices: ['bypass', 'inspect', 'block']
-                    invalid_server_cert:
-                        aliases: ['invalid-server-cert']
-                        type: str
-                        description: Allow or block the invalid SSL session server certificate.
-                        choices: ['allow', 'block']
-                    allow_invalid_server_cert:
-                        aliases: ['allow-invalid-server-cert']
-                        type: str
-                        description: When enabled, allows SSL sessions whose server certificate validation failed.
-                        choices: ['disable', 'enable']
-                    untrusted_cert:
-                        aliases: ['untrusted-cert']
-                        type: str
-                        description: Allow, ignore, or block the untrusted SSL session server certificate.
-                        choices: ['allow', 'block', 'ignore']
-                    unsupported_ssl_version:
-                        aliases: ['unsupported-ssl-version']
-                        type: str
-                        description: Action based on the SSL version used being unsupported.
-                        choices: ['block', 'allow', 'inspect']
-                    min_allowed_ssl_version:
-                        aliases: ['min-allowed-ssl-version']
-                        type: str
-                        description: Min allowed ssl version.
-                        choices: ['ssl-3.0', 'tls-1.0', 'tls-1.1', 'tls-1.2', 'tls-1.3']
-            smtps:
-                type: dict
-                description: Smtps.
-                suboptions:
-                    cert_validation_failure:
-                        aliases: ['cert-validation-failure']
-                        type: str
-                        description: Action based on certificate validation failure.
-                        choices: ['allow', 'block', 'ignore']
-                    cert_validation_timeout:
-                        aliases: ['cert-validation-timeout']
-                        type: str
-                        description: Action based on certificate validation timeout.
-                        choices: ['allow', 'block', 'ignore']
-                    client_certificate:
-                        aliases: ['client-certificate']
-                        type: str
-                        description: Action based on received client certificate.
-                        choices: ['bypass', 'inspect', 'block', 'bypass-on-cert-req']
-                    expired_server_cert:
-                        aliases: ['expired-server-cert']
-                        type: str
-                        description: Action based on server certificate is expired.
-                        choices: ['allow', 'block', 'ignore']
-                    ports:
-                        type: raw
-                        description: (list) Ports to use for scanning
-                    proxy_after_tcp_handshake:
-                        aliases: ['proxy-after-tcp-handshake']
-                        type: str
-                        description: Proxy traffic after the TCP 3-way handshake has been established
-                        choices: ['disable', 'enable']
-                    revoked_server_cert:
-                        aliases: ['revoked-server-cert']
-                        type: str
-                        description: Action based on server certificate is revoked.
-                        choices: ['allow', 'block', 'ignore']
-                    sni_server_cert_check:
-                        aliases: ['sni-server-cert-check']
-                        type: str
-                        description: Check the SNI in the client hello message with the CN or SAN fields in the returned server certificate.
-                        choices: ['disable', 'enable', 'strict']
-                    status:
-                        type: str
-                        description: Configure protocol inspection status.
-                        choices: ['disable', 'deep-inspection']
-                    unsupported_ssl_cipher:
-                        aliases: ['unsupported-ssl-cipher']
-                        type: str
-                        description: Action based on the SSL cipher used being unsupported.
-                        choices: ['allow', 'block']
-                    unsupported_ssl_negotiation:
-                        aliases: ['unsupported-ssl-negotiation']
-                        type: str
-                        description: Action based on the SSL negotiation used being unsupported.
-                        choices: ['allow', 'block']
-                    untrusted_server_cert:
-                        aliases: ['untrusted-server-cert']
-                        type: str
-                        description: Action based on server certificate is not issued by a trusted CA.
-                        choices: ['allow', 'block', 'ignore']
-                    unsupported_ssl:
-                        aliases: ['unsupported-ssl']
-                        type: str
-                        description: Action based on the SSL encryption used being unsupported.
-                        choices: ['bypass', 'inspect', 'block']
-                    client_cert_request:
-                        aliases: ['client-cert-request']
-                        type: str
-                        description: Action based on client certificate request.
-                        choices: ['bypass', 'inspect', 'block']
-                    invalid_server_cert:
-                        aliases: ['invalid-server-cert']
-                        type: str
-                        description: Allow or block the invalid SSL session server certificate.
-                        choices: ['allow', 'block']
-                    allow_invalid_server_cert:
-                        aliases: ['allow-invalid-server-cert']
-                        type: str
-                        description: When enabled, allows SSL sessions whose server certificate validation failed.
-                        choices: ['disable', 'enable']
-                    untrusted_cert:
-                        aliases: ['untrusted-cert']
-                        type: str
-                        description: Allow, ignore, or block the untrusted SSL session server certificate.
-                        choices: ['allow', 'block', 'ignore']
-                    unsupported_ssl_version:
-                        aliases: ['unsupported-ssl-version']
-                        type: str
-                        description: Action based on the SSL version used being unsupported.
-                        choices: ['block', 'allow', 'inspect']
-                    min_allowed_ssl_version:
-                        aliases: ['min-allowed-ssl-version']
-                        type: str
-                        description: Min allowed ssl version.
-                        choices: ['ssl-3.0', 'tls-1.0', 'tls-1.1', 'tls-1.2', 'tls-1.3']
-            ssh:
-                type: dict
-                description: Ssh.
-                suboptions:
-                    inspect_all:
-                        aliases: ['inspect-all']
-                        type: str
-                        description: Level of SSL inspection.
-                        choices: ['disable', 'deep-inspection']
-                    ports:
-                        type: raw
-                        description: (list) Ports to use for scanning
-                    proxy_after_tcp_handshake:
-                        aliases: ['proxy-after-tcp-handshake']
-                        type: str
-                        description: Proxy traffic after the TCP 3-way handshake has been established
-                        choices: ['disable', 'enable']
-                    ssh_algorithm:
-                        aliases: ['ssh-algorithm']
-                        type: str
-                        description: Relative strength of encryption algorithms accepted during negotiation.
-                        choices: ['compatible', 'high-encryption']
-                    ssh_tun_policy_check:
-                        aliases: ['ssh-tun-policy-check']
-                        type: str
-                        description: Enable/disable SSH tunnel policy check.
-                        choices: ['disable', 'enable']
-                    status:
-                        type: str
-                        description: Configure protocol inspection status.
-                        choices: ['disable', 'deep-inspection']
-                    unsupported_version:
-                        aliases: ['unsupported-version']
-                        type: str
-                        description: Action based on SSH version being unsupported.
-                        choices: ['block', 'bypass']
-                    ssh_policy_check:
-                        aliases: ['ssh-policy-check']
-                        type: str
-                        description: Enable/disable SSH policy check.
-                        choices: ['disable', 'enable']
-                    block:
-                        type: list
-                        elements: str
-                        description: SSH blocking options.
-                        choices: ['x11-filter', 'ssh-shell', 'exec', 'port-forward']
-                    log:
-                        type: list
-                        elements: str
-                        description: SSH logging options.
-                        choices: ['x11-filter', 'ssh-shell', 'exec', 'port-forward']
-            ssl:
-                type: dict
-                description: Ssl.
-                suboptions:
-                    cert_validation_failure:
-                        aliases: ['cert-validation-failure']
-                        type: str
-                        description: Action based on certificate validation failure.
-                        choices: ['allow', 'block', 'ignore']
-                    cert_validation_timeout:
-                        aliases: ['cert-validation-timeout']
-                        type: str
-                        description: Action based on certificate validation timeout.
-                        choices: ['allow', 'block', 'ignore']
-                    client_certificate:
-                        aliases: ['client-certificate']
-                        type: str
-                        description: Action based on received client certificate.
-                        choices: ['bypass', 'inspect', 'block', 'bypass-on-cert-req']
-                    expired_server_cert:
-                        aliases: ['expired-server-cert']
-                        type: str
-                        description: Action based on server certificate is expired.
-                        choices: ['allow', 'block', 'ignore']
-                    inspect_all:
-                        aliases: ['inspect-all']
-                        type: str
-                        description: Level of SSL inspection.
-                        choices: ['disable', 'certificate-inspection', 'deep-inspection']
-                    revoked_server_cert:
-                        aliases: ['revoked-server-cert']
-                        type: str
-                        description: Action based on server certificate is revoked.
-                        choices: ['allow', 'block', 'ignore']
-                    sni_server_cert_check:
-                        aliases: ['sni-server-cert-check']
-                        type: str
-                        description: Check the SNI in the client hello message with the CN or SAN fields in the returned server certificate.
-                        choices: ['disable', 'enable', 'strict']
-                    unsupported_ssl_cipher:
-                        aliases: ['unsupported-ssl-cipher']
-                        type: str
-                        description: Action based on the SSL cipher used being unsupported.
-                        choices: ['allow', 'block']
-                    unsupported_ssl_negotiation:
-                        aliases: ['unsupported-ssl-negotiation']
-                        type: str
-                        description: Action based on the SSL negotiation used being unsupported.
-                        choices: ['allow', 'block']
-                    untrusted_server_cert:
-                        aliases: ['untrusted-server-cert']
-                        type: str
-                        description: Action based on server certificate is not issued by a trusted CA.
-                        choices: ['allow', 'block', 'ignore']
-                    unsupported_ssl:
-                        aliases: ['unsupported-ssl']
-                        type: str
-                        description: Action based on the SSL encryption used being unsupported.
-                        choices: ['bypass', 'inspect', 'block']
-                    client_cert_request:
-                        aliases: ['client-cert-request']
-                        type: str
-                        description: Action based on client certificate request.
-                        choices: ['bypass', 'inspect', 'block']
-                    invalid_server_cert:
-                        aliases: ['invalid-server-cert']
-                        type: str
-                        description: Allow or block the invalid SSL session server certificate.
-                        choices: ['allow', 'block']
-                    allow_invalid_server_cert:
-                        aliases: ['allow-invalid-server-cert']
-                        type: str
-                        description: When enabled, allows SSL sessions whose server certificate validation failed.
-                        choices: ['disable', 'enable']
-                    untrusted_cert:
-                        aliases: ['untrusted-cert']
-                        type: str
-                        description: Allow, ignore, or block the untrusted SSL session server certificate.
-                        choices: ['allow', 'block', 'ignore']
-                    cert_probe_failure:
-                        aliases: ['cert-probe-failure']
-                        type: str
-                        description: Action based on certificate probe failure.
-                        choices: ['block', 'allow']
-                    min_allowed_ssl_version:
-                        aliases: ['min-allowed-ssl-version']
-                        type: str
-                        description: Minimum SSL version to be allowed.
-                        choices: ['ssl-3.0', 'tls-1.0', 'tls-1.1', 'tls-1.2', 'tls-1.3']
-                    unsupported_ssl_version:
-                        aliases: ['unsupported-ssl-version']
-                        type: str
-                        description: Action based on the SSL version used being unsupported.
-                        choices: ['block', 'allow', 'inspect']
-                    encrypted_client_hello:
-                        aliases: ['encrypted-client-hello']
-                        type: str
-                        description: Block/allow session based on existence of encrypted-client-hello.
-                        choices: ['block', 'allow']
-            allowlist:
-                type: str
-                description: Enable/disable exempting servers by FortiGuard allowlist.
-                choices: ['disable', 'enable']
-            block_blocklisted_certificates:
-                aliases: ['block-blocklisted-certificates']
-                type: str
-                description: Enable/disable blocking SSL-based botnet communication by FortiGuard certificate blocklist.
-                choices: ['disable', 'enable']
-            dot:
-                type: dict
-                description: Dot.
-                suboptions:
-                    cert_validation_failure:
-                        aliases: ['cert-validation-failure']
-                        type: str
-                        description: Action based on certificate validation failure.
-                        choices: ['allow', 'block', 'ignore']
-                    cert_validation_timeout:
-                        aliases: ['cert-validation-timeout']
-                        type: str
-                        description: Action based on certificate validation timeout.
-                        choices: ['allow', 'block', 'ignore']
-                    client_certificate:
-                        aliases: ['client-certificate']
-                        type: str
-                        description: Action based on received client certificate.
-                        choices: ['bypass', 'inspect', 'block', 'bypass-on-cert-req']
-                    expired_server_cert:
-                        aliases: ['expired-server-cert']
-                        type: str
-                        description: Action based on server certificate is expired.
-                        choices: ['allow', 'block', 'ignore']
-                    proxy_after_tcp_handshake:
-                        aliases: ['proxy-after-tcp-handshake']
-                        type: str
-                        description: Proxy traffic after the TCP 3-way handshake has been established
-                        choices: ['disable', 'enable']
-                    revoked_server_cert:
-                        aliases: ['revoked-server-cert']
-                        type: str
-                        description: Action based on server certificate is revoked.
-                        choices: ['allow', 'block', 'ignore']
-                    sni_server_cert_check:
-                        aliases: ['sni-server-cert-check']
-                        type: str
-                        description: Check the SNI in the client hello message with the CN or SAN fields in the returned server certificate.
-                        choices: ['enable', 'strict', 'disable']
-                    status:
-                        type: str
-                        description: Configure protocol inspection status.
-                        choices: ['disable', 'deep-inspection']
-                    unsupported_ssl_cipher:
-                        aliases: ['unsupported-ssl-cipher']
-                        type: str
-                        description: Action based on the SSL cipher used being unsupported.
-                        choices: ['block', 'allow']
-                    unsupported_ssl_negotiation:
-                        aliases: ['unsupported-ssl-negotiation']
-                        type: str
-                        description: Action based on the SSL negotiation used being unsupported.
-                        choices: ['block', 'allow']
-                    untrusted_server_cert:
-                        aliases: ['untrusted-server-cert']
-                        type: str
-                        description: Action based on server certificate is not issued by a trusted CA.
-                        choices: ['allow', 'block', 'ignore']
-                    unsupported_ssl_version:
-                        aliases: ['unsupported-ssl-version']
-                        type: str
-                        description: Action based on the SSL version used being unsupported.
-                        choices: ['block', 'allow', 'inspect']
-                    min_allowed_ssl_version:
-                        aliases: ['min-allowed-ssl-version']
-                        type: str
-                        description: Min allowed ssl version.
-                        choices: ['ssl-3.0', 'tls-1.0', 'tls-1.1', 'tls-1.2', 'tls-1.3']
-                    quic:
-                        type: str
-                        description: Enable/disable QUIC inspection
-                        choices: ['disable', 'enable', 'bypass', 'block', 'inspect']
-                    udp_not_quic:
-                        aliases: ['udp-not-quic']
-                        type: str
-                        description: Action to be taken when matched UDP packet is not QUIC.
-                        choices: ['block', 'allow']
-            supported_alpn:
-                aliases: ['supported-alpn']
-                type: str
-                description: Configure ALPN option.
-                choices: ['none', 'http1-1', 'http2', 'all']
-            ssl_anomaly_log:
-                aliases: ['ssl-anomaly-log']
-                type: str
-                description: Enable/disable logging of SSL anomalies.
-                choices: ['disable', 'enable']
-            ssl_exemption_ip_rating:
-                aliases: ['ssl-exemption-ip-rating']
-                type: str
-                description: Enable/disable IP based URL rating.
-                choices: ['disable', 'enable']
-            ssl_exemption_log:
-                aliases: ['ssl-exemption-log']
-                type: str
-                description: Enable/disable logging SSL exemptions.
-                choices: ['disable', 'enable']
-            ssl_handshake_log:
-                aliases: ['ssl-handshake-log']
-                type: str
-                description: Enable/disable logging of TLS handshakes.
-                choices: ['disable', 'enable']
-            ssl_server_cert_log:
-                aliases: ['ssl-server-cert-log']
-                type: str
-                description: Enable/disable logging of server certificate information.
-                choices: ['disable', 'enable']
-            ech_outer_sni:
-                aliases: ['ech-outer-sni']
-                type: list
-                elements: dict
-                description: Ech outer sni.
-                suboptions:
-                    name:
-                        type: str
-                        description: ClientHelloOuter SNI name.
-                    sni:
-                        type: str
-                        description: ClientHelloOuter SNI to be blocked.
-            ssl_client_certificate:
-                aliases: ['ssl-client-certificate']
-                type: dict
-                description: Ssl client certificate.
-                suboptions:
-                    caname:
-                        type: raw
-                        description: (list) Caname.
-                    cert:
-                        type: raw
-                        description: (list) Cert.
-                    keyring_list:
-                        aliases: ['keyring-list']
-                        type: raw
-                        description: (list) Keyring list.
-                    status:
-                        type: str
-                        description: Status.
-                        choices: ['do-not-offer', 'keyring-list', 'ca-sign', 'static']
+          address:
+            type: str
+            description: IPv4 address object.
+          address6:
+            type: str
+            description: IPv6 address object.
+          fortiguard_category:
+            aliases: ['fortiguard-category']
+            type: str
+            description: FortiGuard category ID.
+          id:
+            type: int
+            description: ID number.
+          regex:
+            type: str
+            description: Exempt servers by regular expression.
+          type:
+            type: str
+            description: Type of address object
+            choices: ['fortiguard-category', 'address', 'address6', 'wildcard-fqdn', 'regex',
+                      'finger-print']
+          wildcard_fqdn:
+            aliases: ['wildcard-fqdn']
+            type: str
+            description: Exempt servers by wildcard FQDN.
+          finger_print_category:
+            aliases: ['finger-print-category']
+            type: str
+            description: Finger print platform.
+            choices: ['unknown', 'firefox', 'chrome', 'safari', 'edge', 'ie', 'android', 'ios',
+                      'windows']
+      ssl_exemptions_log:
+        aliases: ['ssl-exemptions-log']
+        type: str
+        description: Enable/disable logging SSL exemptions.
+        choices: ['disable', 'enable']
+      ssl_server:
+        aliases: ['ssl-server']
+        type: list
+        elements: dict
+        description: Ssl server.
+        suboptions:
+          ftps_client_cert_request:
+            aliases: ['ftps-client-cert-request']
+            type: str
+            description: Action based on client certificate request during the FTPS handshake.
+            choices: ['bypass', 'inspect', 'block']
+          https_client_cert_request:
+            aliases: ['https-client-cert-request']
+            type: str
+            description: Action based on client certificate request during the HTTPS handshake.
+            choices: ['bypass', 'inspect', 'block']
+          id:
+            type: int
+            description: SSL server ID.
+          imaps_client_cert_request:
+            aliases: ['imaps-client-cert-request']
+            type: str
+            description: Action based on client certificate request during the IMAPS handshake.
+            choices: ['bypass', 'inspect', 'block']
+          ip:
+            type: str
+            description: IPv4 address of the SSL server.
+          pop3s_client_cert_request:
+            aliases: ['pop3s-client-cert-request']
+            type: str
+            description: Action based on client certificate request during the POP3S handshake.
+            choices: ['bypass', 'inspect', 'block']
+          smtps_client_cert_request:
+            aliases: ['smtps-client-cert-request']
+            type: str
+            description: Action based on client certificate request during the SMTPS handshake.
+            choices: ['bypass', 'inspect', 'block']
+          ssl_other_client_cert_request:
+            aliases: ['ssl-other-client-cert-request']
+            type: str
+            description: Action based on client certificate request during an SSL protocol handshake.
+            choices: ['bypass', 'inspect', 'block']
+          ftps_client_certificate:
+            aliases: ['ftps-client-certificate']
+            type: str
+            description: Action based on received client certificate during the FTPS handshake.
+            choices: ['bypass', 'inspect', 'block']
+          https_client_certificate:
+            aliases: ['https-client-certificate']
+            type: str
+            description: Action based on received client certificate during the HTTPS handshake.
+            choices: ['bypass', 'inspect', 'block']
+          imaps_client_certificate:
+            aliases: ['imaps-client-certificate']
+            type: str
+            description: Action based on received client certificate during the IMAPS handshake.
+            choices: ['bypass', 'inspect', 'block']
+          pop3s_client_certificate:
+            aliases: ['pop3s-client-certificate']
+            type: str
+            description: Action based on received client certificate during the POP3S handshake.
+            choices: ['bypass', 'inspect', 'block']
+          smtps_client_certificate:
+            aliases: ['smtps-client-certificate']
+            type: str
+            description: Action based on received client certificate during the SMTPS handshake.
+            choices: ['bypass', 'inspect', 'block']
+          ssl_other_client_certificate:
+            aliases: ['ssl-other-client-certificate']
+            type: str
+            description: Action based on received client certificate during an SSL protocol handshake.
+            choices: ['bypass', 'inspect', 'block']
+      untrusted_caname:
+        aliases: ['untrusted-caname']
+        type: str
+        description: Untrusted CA certificate used by SSL Inspection.
+      use_ssl_server:
+        aliases: ['use-ssl-server']
+        type: str
+        description: Enable/disable the use of SSL server table for SSL offloading.
+        choices: ['disable', 'enable']
+      whitelist:
+        type: str
+        description: Enable/disable exempting servers by FortiGuard whitelist.
+        choices: ['disable', 'enable']
+      block_blacklisted_certificates:
+        aliases: ['block-blacklisted-certificates']
+        type: str
+        description: Enable/disable blocking SSL-based botnet communication by FortiGuard certificate blacklist.
+        choices: ['disable', 'enable']
+      certname:
+        type: str
+        description: Certificate containing the key to use when re-signing server certificates for SSL inspection.
+      ssl_invalid_server_cert_log:
+        aliases: ['ssl-invalid-server-cert-log']
+        type: str
+        description: Enable/disable SSL server certificate validation logging.
+        choices: ['disable', 'enable']
+      ssl_negotiation_log:
+        aliases: ['ssl-negotiation-log']
+        type: str
+        description: Enable/disable logging SSL negotiation.
+        choices: ['disable', 'enable']
+      ftps:
+        type: dict
+        description: Ftps.
+        suboptions:
+          cert_validation_failure:
+            aliases: ['cert-validation-failure']
+            type: str
+            description: Action based on certificate validation failure.
+            choices: ['allow', 'block', 'ignore']
+          cert_validation_timeout:
+            aliases: ['cert-validation-timeout']
+            type: str
+            description: Action based on certificate validation timeout.
+            choices: ['allow', 'block', 'ignore']
+          client_certificate:
+            aliases: ['client-certificate']
+            type: str
+            description: Action based on received client certificate.
+            choices: ['bypass', 'inspect', 'block', 'bypass-on-cert-req']
+          expired_server_cert:
+            aliases: ['expired-server-cert']
+            type: str
+            description: Action based on server certificate is expired.
+            choices: ['allow', 'block', 'ignore']
+          ports:
+            type: raw
+            description: (list) Ports to use for scanning
+          revoked_server_cert:
+            aliases: ['revoked-server-cert']
+            type: str
+            description: Action based on server certificate is revoked.
+            choices: ['allow', 'block', 'ignore']
+          sni_server_cert_check:
+            aliases: ['sni-server-cert-check']
+            type: str
+            description: Check the SNI in the client hello message with the CN or SAN fields in the returned server certificate.
+            choices: ['disable', 'enable', 'strict']
+          status:
+            type: str
+            description: Configure protocol inspection status.
+            choices: ['disable', 'deep-inspection']
+          unsupported_ssl_cipher:
+            aliases: ['unsupported-ssl-cipher']
+            type: str
+            description: Action based on the SSL cipher used being unsupported.
+            choices: ['allow', 'block']
+          unsupported_ssl_negotiation:
+            aliases: ['unsupported-ssl-negotiation']
+            type: str
+            description: Action based on the SSL negotiation used being unsupported.
+            choices: ['allow', 'block']
+          untrusted_server_cert:
+            aliases: ['untrusted-server-cert']
+            type: str
+            description: Action based on server certificate is not issued by a trusted CA.
+            choices: ['allow', 'block', 'ignore']
+          unsupported_ssl:
+            aliases: ['unsupported-ssl']
+            type: str
+            description: Action based on the SSL encryption used being unsupported.
+            choices: ['bypass', 'inspect', 'block']
+          client_cert_request:
+            aliases: ['client-cert-request']
+            type: str
+            description: Action based on client certificate request.
+            choices: ['bypass', 'inspect', 'block']
+          invalid_server_cert:
+            aliases: ['invalid-server-cert']
+            type: str
+            description: Allow or block the invalid SSL session server certificate.
+            choices: ['allow', 'block']
+          allow_invalid_server_cert:
+            aliases: ['allow-invalid-server-cert']
+            type: str
+            description: When enabled, allows SSL sessions whose server certificate validation failed.
+            choices: ['disable', 'enable']
+          untrusted_cert:
+            aliases: ['untrusted-cert']
+            type: str
+            description: Allow, ignore, or block the untrusted SSL session server certificate.
+            choices: ['allow', 'block', 'ignore']
+          min_allowed_ssl_version:
+            aliases: ['min-allowed-ssl-version']
+            type: str
+            description: Minimum SSL version to be allowed.
+            choices: ['ssl-3.0', 'tls-1.0', 'tls-1.1', 'tls-1.2', 'tls-1.3']
+          unsupported_ssl_version:
+            aliases: ['unsupported-ssl-version']
+            type: str
+            description: Action based on the SSL version used being unsupported.
+            choices: ['block', 'allow', 'inspect']
+      https:
+        type: dict
+        description: Https.
+        suboptions:
+          cert_validation_failure:
+            aliases: ['cert-validation-failure']
+            type: str
+            description: Action based on certificate validation failure.
+            choices: ['allow', 'block', 'ignore']
+          cert_validation_timeout:
+            aliases: ['cert-validation-timeout']
+            type: str
+            description: Action based on certificate validation timeout.
+            choices: ['allow', 'block', 'ignore']
+          client_certificate:
+            aliases: ['client-certificate']
+            type: str
+            description: Action based on received client certificate.
+            choices: ['bypass', 'inspect', 'block', 'bypass-on-cert-req']
+          expired_server_cert:
+            aliases: ['expired-server-cert']
+            type: str
+            description: Action based on server certificate is expired.
+            choices: ['allow', 'block', 'ignore']
+          ports:
+            type: raw
+            description: (list) Ports to use for scanning
+          proxy_after_tcp_handshake:
+            aliases: ['proxy-after-tcp-handshake']
+            type: str
+            description: Proxy traffic after the TCP 3-way handshake has been established
+            choices: ['disable', 'enable']
+          revoked_server_cert:
+            aliases: ['revoked-server-cert']
+            type: str
+            description: Action based on server certificate is revoked.
+            choices: ['allow', 'block', 'ignore']
+          sni_server_cert_check:
+            aliases: ['sni-server-cert-check']
+            type: str
+            description: Check the SNI in the client hello message with the CN or SAN fields in the returned server certificate.
+            choices: ['disable', 'enable', 'strict']
+          status:
+            type: str
+            description: Configure protocol inspection status.
+            choices: ['disable', 'certificate-inspection', 'deep-inspection']
+          unsupported_ssl_cipher:
+            aliases: ['unsupported-ssl-cipher']
+            type: str
+            description: Action based on the SSL cipher used being unsupported.
+            choices: ['allow', 'block']
+          unsupported_ssl_negotiation:
+            aliases: ['unsupported-ssl-negotiation']
+            type: str
+            description: Action based on the SSL negotiation used being unsupported.
+            choices: ['allow', 'block']
+          untrusted_server_cert:
+            aliases: ['untrusted-server-cert']
+            type: str
+            description: Action based on server certificate is not issued by a trusted CA.
+            choices: ['allow', 'block', 'ignore']
+          unsupported_ssl:
+            aliases: ['unsupported-ssl']
+            type: str
+            description: Action based on the SSL encryption used being unsupported.
+            choices: ['bypass', 'inspect', 'block']
+          client_cert_request:
+            aliases: ['client-cert-request']
+            type: str
+            description: Action based on client certificate request.
+            choices: ['bypass', 'inspect', 'block']
+          invalid_server_cert:
+            aliases: ['invalid-server-cert']
+            type: str
+            description: Allow or block the invalid SSL session server certificate.
+            choices: ['allow', 'block']
+          allow_invalid_server_cert:
+            aliases: ['allow-invalid-server-cert']
+            type: str
+            description: When enabled, allows SSL sessions whose server certificate validation failed.
+            choices: ['disable', 'enable']
+          untrusted_cert:
+            aliases: ['untrusted-cert']
+            type: str
+            description: Allow, ignore, or block the untrusted SSL session server certificate.
+            choices: ['allow', 'block', 'ignore']
+          cert_probe_failure:
+            aliases: ['cert-probe-failure']
+            type: str
+            description: Action based on certificate probe failure.
+            choices: ['block', 'allow']
+          min_allowed_ssl_version:
+            aliases: ['min-allowed-ssl-version']
+            type: str
+            description: Minimum SSL version to be allowed.
+            choices: ['ssl-3.0', 'tls-1.0', 'tls-1.1', 'tls-1.2', 'tls-1.3']
+          unsupported_ssl_version:
+            aliases: ['unsupported-ssl-version']
+            type: str
+            description: Action based on the SSL version used being unsupported.
+            choices: ['block', 'allow', 'inspect']
+          quic:
+            type: str
+            description: Enable/disable QUIC inspection
+            choices: ['disable', 'enable', 'bypass', 'block', 'inspect']
+          encrypted_client_hello:
+            aliases: ['encrypted-client-hello']
+            type: str
+            description: Block/allow session based on existence of encrypted-client-hello.
+            choices: ['block', 'allow']
+          udp_not_quic:
+            aliases: ['udp-not-quic']
+            type: str
+            description: Action to be taken when matched UDP packet is not QUIC.
+            choices: ['block', 'allow']
+      imaps:
+        type: dict
+        description: Imaps.
+        suboptions:
+          cert_validation_failure:
+            aliases: ['cert-validation-failure']
+            type: str
+            description: Action based on certificate validation failure.
+            choices: ['allow', 'block', 'ignore']
+          cert_validation_timeout:
+            aliases: ['cert-validation-timeout']
+            type: str
+            description: Action based on certificate validation timeout.
+            choices: ['allow', 'block', 'ignore']
+          client_certificate:
+            aliases: ['client-certificate']
+            type: str
+            description: Action based on received client certificate.
+            choices: ['bypass', 'inspect', 'block', 'bypass-on-cert-req']
+          expired_server_cert:
+            aliases: ['expired-server-cert']
+            type: str
+            description: Action based on server certificate is expired.
+            choices: ['allow', 'block', 'ignore']
+          ports:
+            type: raw
+            description: (list) Ports to use for scanning
+          proxy_after_tcp_handshake:
+            aliases: ['proxy-after-tcp-handshake']
+            type: str
+            description: Proxy traffic after the TCP 3-way handshake has been established
+            choices: ['disable', 'enable']
+          revoked_server_cert:
+            aliases: ['revoked-server-cert']
+            type: str
+            description: Action based on server certificate is revoked.
+            choices: ['allow', 'block', 'ignore']
+          sni_server_cert_check:
+            aliases: ['sni-server-cert-check']
+            type: str
+            description: Check the SNI in the client hello message with the CN or SAN fields in the returned server certificate.
+            choices: ['disable', 'enable', 'strict']
+          status:
+            type: str
+            description: Configure protocol inspection status.
+            choices: ['disable', 'deep-inspection']
+          unsupported_ssl_cipher:
+            aliases: ['unsupported-ssl-cipher']
+            type: str
+            description: Action based on the SSL cipher used being unsupported.
+            choices: ['allow', 'block']
+          unsupported_ssl_negotiation:
+            aliases: ['unsupported-ssl-negotiation']
+            type: str
+            description: Action based on the SSL negotiation used being unsupported.
+            choices: ['allow', 'block']
+          untrusted_server_cert:
+            aliases: ['untrusted-server-cert']
+            type: str
+            description: Action based on server certificate is not issued by a trusted CA.
+            choices: ['allow', 'block', 'ignore']
+          unsupported_ssl:
+            aliases: ['unsupported-ssl']
+            type: str
+            description: Action based on the SSL encryption used being unsupported.
+            choices: ['bypass', 'inspect', 'block']
+          client_cert_request:
+            aliases: ['client-cert-request']
+            type: str
+            description: Action based on client certificate request.
+            choices: ['bypass', 'inspect', 'block']
+          invalid_server_cert:
+            aliases: ['invalid-server-cert']
+            type: str
+            description: Allow or block the invalid SSL session server certificate.
+            choices: ['allow', 'block']
+          allow_invalid_server_cert:
+            aliases: ['allow-invalid-server-cert']
+            type: str
+            description: When enabled, allows SSL sessions whose server certificate validation failed.
+            choices: ['disable', 'enable']
+          untrusted_cert:
+            aliases: ['untrusted-cert']
+            type: str
+            description: Allow, ignore, or block the untrusted SSL session server certificate.
+            choices: ['allow', 'block', 'ignore']
+          unsupported_ssl_version:
+            aliases: ['unsupported-ssl-version']
+            type: str
+            description: Action based on the SSL version used being unsupported.
+            choices: ['block', 'allow', 'inspect']
+          min_allowed_ssl_version:
+            aliases: ['min-allowed-ssl-version']
+            type: str
+            description: Min allowed ssl version.
+            choices: ['ssl-3.0', 'tls-1.0', 'tls-1.1', 'tls-1.2', 'tls-1.3']
+      pop3s:
+        type: dict
+        description: Pop3s.
+        suboptions:
+          cert_validation_failure:
+            aliases: ['cert-validation-failure']
+            type: str
+            description: Action based on certificate validation failure.
+            choices: ['allow', 'block', 'ignore']
+          cert_validation_timeout:
+            aliases: ['cert-validation-timeout']
+            type: str
+            description: Action based on certificate validation timeout.
+            choices: ['allow', 'block', 'ignore']
+          client_certificate:
+            aliases: ['client-certificate']
+            type: str
+            description: Action based on received client certificate.
+            choices: ['bypass', 'inspect', 'block', 'bypass-on-cert-req']
+          expired_server_cert:
+            aliases: ['expired-server-cert']
+            type: str
+            description: Action based on server certificate is expired.
+            choices: ['allow', 'block', 'ignore']
+          ports:
+            type: raw
+            description: (list) Ports to use for scanning
+          proxy_after_tcp_handshake:
+            aliases: ['proxy-after-tcp-handshake']
+            type: str
+            description: Proxy traffic after the TCP 3-way handshake has been established
+            choices: ['disable', 'enable']
+          revoked_server_cert:
+            aliases: ['revoked-server-cert']
+            type: str
+            description: Action based on server certificate is revoked.
+            choices: ['allow', 'block', 'ignore']
+          sni_server_cert_check:
+            aliases: ['sni-server-cert-check']
+            type: str
+            description: Check the SNI in the client hello message with the CN or SAN fields in the returned server certificate.
+            choices: ['disable', 'enable', 'strict']
+          status:
+            type: str
+            description: Configure protocol inspection status.
+            choices: ['disable', 'deep-inspection']
+          unsupported_ssl_cipher:
+            aliases: ['unsupported-ssl-cipher']
+            type: str
+            description: Action based on the SSL cipher used being unsupported.
+            choices: ['allow', 'block']
+          unsupported_ssl_negotiation:
+            aliases: ['unsupported-ssl-negotiation']
+            type: str
+            description: Action based on the SSL negotiation used being unsupported.
+            choices: ['allow', 'block']
+          untrusted_server_cert:
+            aliases: ['untrusted-server-cert']
+            type: str
+            description: Action based on server certificate is not issued by a trusted CA.
+            choices: ['allow', 'block', 'ignore']
+          unsupported_ssl:
+            aliases: ['unsupported-ssl']
+            type: str
+            description: Action based on the SSL encryption used being unsupported.
+            choices: ['bypass', 'inspect', 'block']
+          client_cert_request:
+            aliases: ['client-cert-request']
+            type: str
+            description: Action based on client certificate request.
+            choices: ['bypass', 'inspect', 'block']
+          invalid_server_cert:
+            aliases: ['invalid-server-cert']
+            type: str
+            description: Allow or block the invalid SSL session server certificate.
+            choices: ['allow', 'block']
+          allow_invalid_server_cert:
+            aliases: ['allow-invalid-server-cert']
+            type: str
+            description: When enabled, allows SSL sessions whose server certificate validation failed.
+            choices: ['disable', 'enable']
+          untrusted_cert:
+            aliases: ['untrusted-cert']
+            type: str
+            description: Allow, ignore, or block the untrusted SSL session server certificate.
+            choices: ['allow', 'block', 'ignore']
+          unsupported_ssl_version:
+            aliases: ['unsupported-ssl-version']
+            type: str
+            description: Action based on the SSL version used being unsupported.
+            choices: ['block', 'allow', 'inspect']
+          min_allowed_ssl_version:
+            aliases: ['min-allowed-ssl-version']
+            type: str
+            description: Min allowed ssl version.
+            choices: ['ssl-3.0', 'tls-1.0', 'tls-1.1', 'tls-1.2', 'tls-1.3']
+      smtps:
+        type: dict
+        description: Smtps.
+        suboptions:
+          cert_validation_failure:
+            aliases: ['cert-validation-failure']
+            type: str
+            description: Action based on certificate validation failure.
+            choices: ['allow', 'block', 'ignore']
+          cert_validation_timeout:
+            aliases: ['cert-validation-timeout']
+            type: str
+            description: Action based on certificate validation timeout.
+            choices: ['allow', 'block', 'ignore']
+          client_certificate:
+            aliases: ['client-certificate']
+            type: str
+            description: Action based on received client certificate.
+            choices: ['bypass', 'inspect', 'block', 'bypass-on-cert-req']
+          expired_server_cert:
+            aliases: ['expired-server-cert']
+            type: str
+            description: Action based on server certificate is expired.
+            choices: ['allow', 'block', 'ignore']
+          ports:
+            type: raw
+            description: (list) Ports to use for scanning
+          proxy_after_tcp_handshake:
+            aliases: ['proxy-after-tcp-handshake']
+            type: str
+            description: Proxy traffic after the TCP 3-way handshake has been established
+            choices: ['disable', 'enable']
+          revoked_server_cert:
+            aliases: ['revoked-server-cert']
+            type: str
+            description: Action based on server certificate is revoked.
+            choices: ['allow', 'block', 'ignore']
+          sni_server_cert_check:
+            aliases: ['sni-server-cert-check']
+            type: str
+            description: Check the SNI in the client hello message with the CN or SAN fields in the returned server certificate.
+            choices: ['disable', 'enable', 'strict']
+          status:
+            type: str
+            description: Configure protocol inspection status.
+            choices: ['disable', 'deep-inspection']
+          unsupported_ssl_cipher:
+            aliases: ['unsupported-ssl-cipher']
+            type: str
+            description: Action based on the SSL cipher used being unsupported.
+            choices: ['allow', 'block']
+          unsupported_ssl_negotiation:
+            aliases: ['unsupported-ssl-negotiation']
+            type: str
+            description: Action based on the SSL negotiation used being unsupported.
+            choices: ['allow', 'block']
+          untrusted_server_cert:
+            aliases: ['untrusted-server-cert']
+            type: str
+            description: Action based on server certificate is not issued by a trusted CA.
+            choices: ['allow', 'block', 'ignore']
+          unsupported_ssl:
+            aliases: ['unsupported-ssl']
+            type: str
+            description: Action based on the SSL encryption used being unsupported.
+            choices: ['bypass', 'inspect', 'block']
+          client_cert_request:
+            aliases: ['client-cert-request']
+            type: str
+            description: Action based on client certificate request.
+            choices: ['bypass', 'inspect', 'block']
+          invalid_server_cert:
+            aliases: ['invalid-server-cert']
+            type: str
+            description: Allow or block the invalid SSL session server certificate.
+            choices: ['allow', 'block']
+          allow_invalid_server_cert:
+            aliases: ['allow-invalid-server-cert']
+            type: str
+            description: When enabled, allows SSL sessions whose server certificate validation failed.
+            choices: ['disable', 'enable']
+          untrusted_cert:
+            aliases: ['untrusted-cert']
+            type: str
+            description: Allow, ignore, or block the untrusted SSL session server certificate.
+            choices: ['allow', 'block', 'ignore']
+          unsupported_ssl_version:
+            aliases: ['unsupported-ssl-version']
+            type: str
+            description: Action based on the SSL version used being unsupported.
+            choices: ['block', 'allow', 'inspect']
+          min_allowed_ssl_version:
+            aliases: ['min-allowed-ssl-version']
+            type: str
+            description: Min allowed ssl version.
+            choices: ['ssl-3.0', 'tls-1.0', 'tls-1.1', 'tls-1.2', 'tls-1.3']
+      ssh:
+        type: dict
+        description: Ssh.
+        suboptions:
+          inspect_all:
+            aliases: ['inspect-all']
+            type: str
+            description: Level of SSL inspection.
+            choices: ['disable', 'deep-inspection']
+          ports:
+            type: raw
+            description: (list) Ports to use for scanning
+          proxy_after_tcp_handshake:
+            aliases: ['proxy-after-tcp-handshake']
+            type: str
+            description: Proxy traffic after the TCP 3-way handshake has been established
+            choices: ['disable', 'enable']
+          ssh_algorithm:
+            aliases: ['ssh-algorithm']
+            type: str
+            description: Relative strength of encryption algorithms accepted during negotiation.
+            choices: ['compatible', 'high-encryption']
+          ssh_tun_policy_check:
+            aliases: ['ssh-tun-policy-check']
+            type: str
+            description: Enable/disable SSH tunnel policy check.
+            choices: ['disable', 'enable']
+          status:
+            type: str
+            description: Configure protocol inspection status.
+            choices: ['disable', 'deep-inspection']
+          unsupported_version:
+            aliases: ['unsupported-version']
+            type: str
+            description: Action based on SSH version being unsupported.
+            choices: ['block', 'bypass']
+          ssh_policy_check:
+            aliases: ['ssh-policy-check']
+            type: str
+            description: Enable/disable SSH policy check.
+            choices: ['disable', 'enable']
+          block:
+            type: list
+            elements: str
+            description: SSH blocking options.
+            choices: ['x11-filter', 'ssh-shell', 'exec', 'port-forward']
+          log:
+            type: list
+            elements: str
+            description: SSH logging options.
+            choices: ['x11-filter', 'ssh-shell', 'exec', 'port-forward']
+      ssl:
+        type: dict
+        description: Ssl.
+        suboptions:
+          cert_validation_failure:
+            aliases: ['cert-validation-failure']
+            type: str
+            description: Action based on certificate validation failure.
+            choices: ['allow', 'block', 'ignore']
+          cert_validation_timeout:
+            aliases: ['cert-validation-timeout']
+            type: str
+            description: Action based on certificate validation timeout.
+            choices: ['allow', 'block', 'ignore']
+          client_certificate:
+            aliases: ['client-certificate']
+            type: str
+            description: Action based on received client certificate.
+            choices: ['bypass', 'inspect', 'block', 'bypass-on-cert-req']
+          expired_server_cert:
+            aliases: ['expired-server-cert']
+            type: str
+            description: Action based on server certificate is expired.
+            choices: ['allow', 'block', 'ignore']
+          inspect_all:
+            aliases: ['inspect-all']
+            type: str
+            description: Level of SSL inspection.
+            choices: ['disable', 'certificate-inspection', 'deep-inspection']
+          revoked_server_cert:
+            aliases: ['revoked-server-cert']
+            type: str
+            description: Action based on server certificate is revoked.
+            choices: ['allow', 'block', 'ignore']
+          sni_server_cert_check:
+            aliases: ['sni-server-cert-check']
+            type: str
+            description: Check the SNI in the client hello message with the CN or SAN fields in the returned server certificate.
+            choices: ['disable', 'enable', 'strict']
+          unsupported_ssl_cipher:
+            aliases: ['unsupported-ssl-cipher']
+            type: str
+            description: Action based on the SSL cipher used being unsupported.
+            choices: ['allow', 'block']
+          unsupported_ssl_negotiation:
+            aliases: ['unsupported-ssl-negotiation']
+            type: str
+            description: Action based on the SSL negotiation used being unsupported.
+            choices: ['allow', 'block']
+          untrusted_server_cert:
+            aliases: ['untrusted-server-cert']
+            type: str
+            description: Action based on server certificate is not issued by a trusted CA.
+            choices: ['allow', 'block', 'ignore']
+          unsupported_ssl:
+            aliases: ['unsupported-ssl']
+            type: str
+            description: Action based on the SSL encryption used being unsupported.
+            choices: ['bypass', 'inspect', 'block']
+          client_cert_request:
+            aliases: ['client-cert-request']
+            type: str
+            description: Action based on client certificate request.
+            choices: ['bypass', 'inspect', 'block']
+          invalid_server_cert:
+            aliases: ['invalid-server-cert']
+            type: str
+            description: Allow or block the invalid SSL session server certificate.
+            choices: ['allow', 'block']
+          allow_invalid_server_cert:
+            aliases: ['allow-invalid-server-cert']
+            type: str
+            description: When enabled, allows SSL sessions whose server certificate validation failed.
+            choices: ['disable', 'enable']
+          untrusted_cert:
+            aliases: ['untrusted-cert']
+            type: str
+            description: Allow, ignore, or block the untrusted SSL session server certificate.
+            choices: ['allow', 'block', 'ignore']
+          cert_probe_failure:
+            aliases: ['cert-probe-failure']
+            type: str
+            description: Action based on certificate probe failure.
+            choices: ['block', 'allow']
+          min_allowed_ssl_version:
+            aliases: ['min-allowed-ssl-version']
+            type: str
+            description: Minimum SSL version to be allowed.
+            choices: ['ssl-3.0', 'tls-1.0', 'tls-1.1', 'tls-1.2', 'tls-1.3']
+          unsupported_ssl_version:
+            aliases: ['unsupported-ssl-version']
+            type: str
+            description: Action based on the SSL version used being unsupported.
+            choices: ['block', 'allow', 'inspect']
+          encrypted_client_hello:
+            aliases: ['encrypted-client-hello']
+            type: str
+            description: Block/allow session based on existence of encrypted-client-hello.
+            choices: ['block', 'allow']
+      allowlist:
+        type: str
+        description: Enable/disable exempting servers by FortiGuard allowlist.
+        choices: ['disable', 'enable']
+      block_blocklisted_certificates:
+        aliases: ['block-blocklisted-certificates']
+        type: str
+        description: Enable/disable blocking SSL-based botnet communication by FortiGuard certificate blocklist.
+        choices: ['disable', 'enable']
+      dot:
+        type: dict
+        description: Dot.
+        suboptions:
+          cert_validation_failure:
+            aliases: ['cert-validation-failure']
+            type: str
+            description: Action based on certificate validation failure.
+            choices: ['allow', 'block', 'ignore']
+          cert_validation_timeout:
+            aliases: ['cert-validation-timeout']
+            type: str
+            description: Action based on certificate validation timeout.
+            choices: ['allow', 'block', 'ignore']
+          client_certificate:
+            aliases: ['client-certificate']
+            type: str
+            description: Action based on received client certificate.
+            choices: ['bypass', 'inspect', 'block', 'bypass-on-cert-req']
+          expired_server_cert:
+            aliases: ['expired-server-cert']
+            type: str
+            description: Action based on server certificate is expired.
+            choices: ['allow', 'block', 'ignore']
+          proxy_after_tcp_handshake:
+            aliases: ['proxy-after-tcp-handshake']
+            type: str
+            description: Proxy traffic after the TCP 3-way handshake has been established
+            choices: ['disable', 'enable']
+          revoked_server_cert:
+            aliases: ['revoked-server-cert']
+            type: str
+            description: Action based on server certificate is revoked.
+            choices: ['allow', 'block', 'ignore']
+          sni_server_cert_check:
+            aliases: ['sni-server-cert-check']
+            type: str
+            description: Check the SNI in the client hello message with the CN or SAN fields in the returned server certificate.
+            choices: ['enable', 'strict', 'disable']
+          status:
+            type: str
+            description: Configure protocol inspection status.
+            choices: ['disable', 'deep-inspection']
+          unsupported_ssl_cipher:
+            aliases: ['unsupported-ssl-cipher']
+            type: str
+            description: Action based on the SSL cipher used being unsupported.
+            choices: ['block', 'allow']
+          unsupported_ssl_negotiation:
+            aliases: ['unsupported-ssl-negotiation']
+            type: str
+            description: Action based on the SSL negotiation used being unsupported.
+            choices: ['block', 'allow']
+          untrusted_server_cert:
+            aliases: ['untrusted-server-cert']
+            type: str
+            description: Action based on server certificate is not issued by a trusted CA.
+            choices: ['allow', 'block', 'ignore']
+          unsupported_ssl_version:
+            aliases: ['unsupported-ssl-version']
+            type: str
+            description: Action based on the SSL version used being unsupported.
+            choices: ['block', 'allow', 'inspect']
+          min_allowed_ssl_version:
+            aliases: ['min-allowed-ssl-version']
+            type: str
+            description: Min allowed ssl version.
+            choices: ['ssl-3.0', 'tls-1.0', 'tls-1.1', 'tls-1.2', 'tls-1.3']
+          quic:
+            type: str
+            description: Enable/disable QUIC inspection
+            choices: ['disable', 'enable', 'bypass', 'block', 'inspect']
+          udp_not_quic:
+            aliases: ['udp-not-quic']
+            type: str
+            description: Action to be taken when matched UDP packet is not QUIC.
+            choices: ['block', 'allow']
+      supported_alpn:
+        aliases: ['supported-alpn']
+        type: str
+        description: Configure ALPN option.
+        choices: ['none', 'http1-1', 'http2', 'all']
+      ssl_anomaly_log:
+        aliases: ['ssl-anomaly-log']
+        type: str
+        description: Enable/disable logging of SSL anomalies.
+        choices: ['disable', 'enable']
+      ssl_exemption_ip_rating:
+        aliases: ['ssl-exemption-ip-rating']
+        type: str
+        description: Enable/disable IP based URL rating.
+        choices: ['disable', 'enable']
+      ssl_exemption_log:
+        aliases: ['ssl-exemption-log']
+        type: str
+        description: Enable/disable logging SSL exemptions.
+        choices: ['disable', 'enable']
+      ssl_handshake_log:
+        aliases: ['ssl-handshake-log']
+        type: str
+        description: Enable/disable logging of TLS handshakes.
+        choices: ['disable', 'enable']
+      ssl_server_cert_log:
+        aliases: ['ssl-server-cert-log']
+        type: str
+        description: Enable/disable logging of server certificate information.
+        choices: ['disable', 'enable']
+      ech_outer_sni:
+        aliases: ['ech-outer-sni']
+        type: list
+        elements: dict
+        description: Ech outer sni.
+        suboptions:
+          name:
+            type: str
+            description: ClientHelloOuter SNI name.
+          sni:
+            type: str
+            description: ClientHelloOuter SNI to be blocked.
+      ssl_client_certificate:
+        aliases: ['ssl-client-certificate']
+        type: dict
+        description: Ssl client certificate.
+        suboptions:
+          caname:
+            type: raw
+            description: (list) Caname.
+          cert:
+            type: raw
+            description: (list) Cert.
+          keyring_list:
+            aliases: ['keyring-list']
+            type: raw
+            description: (list) Keyring list.
+          status:
+            type: str
+            description: Status.
+            choices: ['do-not-offer', 'keyring-list', 'ca-sign', 'static']
+      fabric_force_sync:
+        aliases: ['fabric-force-sync']
+        type: str
+        description: Enable/disable forced synchronization of configuration objects from the root FortiGate unit to the downstream devices.
+        choices: ['disable', 'enable']
+      fabric_object:
+        aliases: ['fabric-object']
+        type: str
+        description: Security Fabric global object setting.
+        choices: ['disable', 'enable']
+      fabric_object_source:
+        aliases: ['fabric-object-source']
+        type: str
+        description: Source of truth for fabric object.
+        choices: ['member', 'local', 'root']
+      uuid:
+        type: str
+        description: Universally Unique Identifier
 '''
 
 EXAMPLES = '''
@@ -1044,42 +1062,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -1117,7 +1135,7 @@ def main():
                         'type': {'choices': ['fortiguard-category', 'address', 'address6', 'wildcard-fqdn', 'regex', 'finger-print'], 'type': 'str'},
                         'wildcard-fqdn': {'type': 'str'},
                         'finger-print-category': {
-                            'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']],
+                            'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']],
                             'choices': ['unknown', 'firefox', 'chrome', 'safari', 'edge', 'ie', 'android', 'ios', 'windows'],
                             'type': 'str'
                         }
@@ -1147,8 +1165,8 @@ def main():
                 },
                 'untrusted-caname': {'type': 'str'},
                 'use-ssl-server': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'whitelist': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'block-blacklisted-certificates': {'v_range': [['6.2.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'whitelist': {'v_range': [['6.0.0', '7.6.7']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'block-blacklisted-certificates': {'v_range': [['6.2.0', '7.6.7']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'certname': {'v_range': [['6.2.0', '6.2.13']], 'type': 'str'},
                 'ssl-invalid-server-cert-log': {'v_range': [['6.2.0', '6.2.13']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'ssl-negotiation-log': {'v_range': [['6.4.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
@@ -1183,12 +1201,12 @@ def main():
                         },
                         'invalid-server-cert': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.6.2']], 'choices': ['allow', 'block'], 'type': 'str'},
                         'allow-invalid-server-cert': {
-                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1'], ['7.4.8', '7.4.10']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1'], ['7.4.8', '7.4.11']],
                             'choices': ['disable', 'enable'],
                             'type': 'str'
                         },
                         'untrusted-cert': {
-                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1'], ['7.4.8', '7.4.10']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1'], ['7.4.8', '7.4.11']],
                             'choices': ['allow', 'block', 'ignore'],
                             'type': 'str'
                         },
@@ -1236,12 +1254,12 @@ def main():
                         },
                         'invalid-server-cert': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.6.2']], 'choices': ['allow', 'block'], 'type': 'str'},
                         'allow-invalid-server-cert': {
-                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1'], ['7.4.8', '7.4.10']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1'], ['7.4.8', '7.4.11']],
                             'choices': ['disable', 'enable'],
                             'type': 'str'
                         },
                         'untrusted-cert': {
-                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1'], ['7.4.8', '7.4.10']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1'], ['7.4.8', '7.4.11']],
                             'choices': ['allow', 'block', 'ignore'],
                             'type': 'str'
                         },
@@ -1289,12 +1307,12 @@ def main():
                         },
                         'invalid-server-cert': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.6.2']], 'choices': ['allow', 'block'], 'type': 'str'},
                         'allow-invalid-server-cert': {
-                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1'], ['7.4.8', '7.4.10']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1'], ['7.4.8', '7.4.11']],
                             'choices': ['disable', 'enable'],
                             'type': 'str'
                         },
                         'untrusted-cert': {
-                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1'], ['7.4.8', '7.4.10']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1'], ['7.4.8', '7.4.11']],
                             'choices': ['allow', 'block', 'ignore'],
                             'type': 'str'
                         },
@@ -1338,12 +1356,12 @@ def main():
                         },
                         'invalid-server-cert': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.6.2']], 'choices': ['allow', 'block'], 'type': 'str'},
                         'allow-invalid-server-cert': {
-                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1'], ['7.4.8', '7.4.10']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1'], ['7.4.8', '7.4.11']],
                             'choices': ['disable', 'enable'],
                             'type': 'str'
                         },
                         'untrusted-cert': {
-                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1'], ['7.4.8', '7.4.10']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1'], ['7.4.8', '7.4.11']],
                             'choices': ['allow', 'block', 'ignore'],
                             'type': 'str'
                         },
@@ -1387,12 +1405,12 @@ def main():
                         },
                         'invalid-server-cert': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.6.2']], 'choices': ['allow', 'block'], 'type': 'str'},
                         'allow-invalid-server-cert': {
-                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1'], ['7.4.8', '7.4.10']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1'], ['7.4.8', '7.4.11']],
                             'choices': ['disable', 'enable'],
                             'type': 'str'
                         },
                         'untrusted-cert': {
-                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1'], ['7.4.8', '7.4.10']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1'], ['7.4.8', '7.4.11']],
                             'choices': ['allow', 'block', 'ignore'],
                             'type': 'str'
                         },
@@ -1464,12 +1482,12 @@ def main():
                         },
                         'invalid-server-cert': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.6.2']], 'choices': ['allow', 'block'], 'type': 'str'},
                         'allow-invalid-server-cert': {
-                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1'], ['7.4.8', '7.4.10']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1'], ['7.4.8', '7.4.11']],
                             'choices': ['disable', 'enable'],
                             'type': 'str'
                         },
                         'untrusted-cert': {
-                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1'], ['7.4.8', '7.4.10']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1'], ['7.4.8', '7.4.11']],
                             'choices': ['allow', 'block', 'ignore'],
                             'type': 'str'
                         },
@@ -1523,19 +1541,23 @@ def main():
                     'elements': 'dict'
                 },
                 'ssl-client-certificate': {
-                    'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']],
+                    'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']],
                     'type': 'dict',
                     'options': {
-                        'caname': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'raw'},
-                        'cert': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'raw'},
-                        'keyring-list': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'no_log': True, 'type': 'raw'},
+                        'caname': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'type': 'raw'},
+                        'cert': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'type': 'raw'},
+                        'keyring-list': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'no_log': True, 'type': 'raw'},
                         'status': {
-                            'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']],
+                            'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']],
                             'choices': ['do-not-offer', 'keyring-list', 'ca-sign', 'static'],
                             'type': 'str'
                         }
                     }
-                }
+                },
+                'fabric-force-sync': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'fabric-object': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'fabric-object-source': {'v_range': [['8.0.0', '']], 'choices': ['member', 'local', 'root'], 'type': 'str'},
+                'uuid': {'v_range': [['8.0.0', '']], 'type': 'str'}
             }
         }
     }

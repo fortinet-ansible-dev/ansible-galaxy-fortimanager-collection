@@ -15,63 +15,63 @@ module: fmgr_emailfilter_bwl_entries
 short_description: Anti-spam black/white list entries.
 version_added: "2.1.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  bwl:
+    description: The parameter (bwl) in requested url.
+    type: str
+    required: true
+  emailfilter_bwl_entries:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      action:
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Reject, mark as spam or good email.
+        choices: ['spam', 'clear', 'reject']
+      addr_type:
+        aliases: ['addr-type']
         type: str
+        description: IP address type.
+        choices: ['ipv4', 'ipv6']
+      email_pattern:
+        aliases: ['email-pattern']
+        type: str
+        description: Email address pattern.
+      id:
+        type: int
+        description: Entry ID.
         required: true
-    bwl:
-        description: The parameter (bwl) in requested url.
+      ip4_subnet:
+        aliases: ['ip4-subnet']
         type: str
-        required: true
-    emailfilter_bwl_entries:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            action:
-                type: str
-                description: Reject, mark as spam or good email.
-                choices: ['spam', 'clear', 'reject']
-            addr_type:
-                aliases: ['addr-type']
-                type: str
-                description: IP address type.
-                choices: ['ipv4', 'ipv6']
-            email_pattern:
-                aliases: ['email-pattern']
-                type: str
-                description: Email address pattern.
-            id:
-                type: int
-                description: Entry ID.
-                required: true
-            ip4_subnet:
-                aliases: ['ip4-subnet']
-                type: str
-                description: IPv4 network address/subnet mask bits.
-            ip6_subnet:
-                aliases: ['ip6-subnet']
-                type: str
-                description: IPv6 network address/subnet mask bits.
-            pattern_type:
-                aliases: ['pattern-type']
-                type: str
-                description: Wildcard pattern or regular expression.
-                choices: ['wildcard', 'regexp']
-            status:
-                type: str
-                description: Enable/disable status.
-                choices: ['disable', 'enable']
-            type:
-                type: str
-                description: Entry type.
-                choices: ['ip', 'email']
+        description: IPv4 network address/subnet mask bits.
+      ip6_subnet:
+        aliases: ['ip6-subnet']
+        type: str
+        description: IPv6 network address/subnet mask bits.
+      pattern_type:
+        aliases: ['pattern-type']
+        type: str
+        description: Wildcard pattern or regular expression.
+        choices: ['wildcard', 'regexp']
+      status:
+        type: str
+        description: Enable/disable status.
+        choices: ['disable', 'enable']
+      type:
+        type: str
+        description: Entry type.
+        choices: ['ip', 'email']
 '''
 
 EXAMPLES = '''
@@ -100,42 +100,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -153,17 +153,17 @@ def main():
         'bwl': {'required': True, 'type': 'str'},
         'revision_note': {'type': 'str'},
         'emailfilter_bwl_entries': {
-            'type': 'dict', 'v_range': [['6.2.0', '']],
+            'type': 'dict', 'v_range': [['6.2.0', '7.6.7']],
             'options': {
-                'action': {'v_range': [['6.2.0', '']], 'choices': ['spam', 'clear', 'reject'], 'type': 'str'},
-                'addr-type': {'v_range': [['6.2.0', '']], 'choices': ['ipv4', 'ipv6'], 'type': 'str'},
-                'email-pattern': {'v_range': [['6.2.0', '']], 'type': 'str'},
-                'id': {'v_range': [['6.2.0', '']], 'required': True, 'type': 'int'},
-                'ip4-subnet': {'v_range': [['6.2.0', '']], 'type': 'str'},
-                'ip6-subnet': {'v_range': [['6.2.0', '']], 'type': 'str'},
-                'pattern-type': {'v_range': [['6.2.0', '']], 'choices': ['wildcard', 'regexp'], 'type': 'str'},
-                'status': {'v_range': [['6.2.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'type': {'v_range': [['6.2.0', '']], 'choices': ['ip', 'email'], 'type': 'str'}
+                'action': {'v_range': [['6.2.0', '7.6.7']], 'choices': ['spam', 'clear', 'reject'], 'type': 'str'},
+                'addr-type': {'v_range': [['6.2.0', '7.6.7']], 'choices': ['ipv4', 'ipv6'], 'type': 'str'},
+                'email-pattern': {'v_range': [['6.2.0', '7.6.7']], 'type': 'str'},
+                'id': {'v_range': [['6.2.0', '7.6.7']], 'required': True, 'type': 'int'},
+                'ip4-subnet': {'v_range': [['6.2.0', '7.6.7']], 'type': 'str'},
+                'ip6-subnet': {'v_range': [['6.2.0', '7.6.7']], 'type': 'str'},
+                'pattern-type': {'v_range': [['6.2.0', '7.6.7']], 'choices': ['wildcard', 'regexp'], 'type': 'str'},
+                'status': {'v_range': [['6.2.0', '7.6.7']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'type': {'v_range': [['6.2.0', '7.6.7']], 'choices': ['ip', 'email'], 'type': 'str'}
             }
         }
     }

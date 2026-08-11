@@ -15,71 +15,71 @@ module: fmgr_firewall_vip6_quic
 short_description: QUIC setting.
 version_added: "2.4.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.partial_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.partial_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  vip6:
+    description: The parameter (vip6) in requested url.
+    type: str
+    required: true
+  firewall_vip6_quic:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      ack_delay_exponent:
+        aliases: ['ack-delay-exponent']
+        type: int
+        description:
+          - Support meta variable
+          - ACK delay exponent
+      active_connection_id_limit:
+        aliases: ['active-connection-id-limit']
+        type: int
+        description:
+          - Support meta variable
+          - Active connection ID limit
+      active_migration:
+        aliases: ['active-migration']
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Enable/disable active migration
+        choices: ['disable', 'enable']
+      grease_quic_bit:
+        aliases: ['grease-quic-bit']
         type: str
-        required: true
-    vip6:
-        description: The parameter (vip6) in requested url.
-        type: str
-        required: true
-    firewall_vip6_quic:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            ack_delay_exponent:
-                aliases: ['ack-delay-exponent']
-                type: int
-                description:
-                    - Support meta variable
-                    - ACK delay exponent
-            active_connection_id_limit:
-                aliases: ['active-connection-id-limit']
-                type: int
-                description:
-                    - Support meta variable
-                    - Active connection ID limit
-            active_migration:
-                aliases: ['active-migration']
-                type: str
-                description: Enable/disable active migration
-                choices: ['disable', 'enable']
-            grease_quic_bit:
-                aliases: ['grease-quic-bit']
-                type: str
-                description: Enable/disable grease QUIC bit
-                choices: ['disable', 'enable']
-            max_ack_delay:
-                aliases: ['max-ack-delay']
-                type: int
-                description:
-                    - Support meta variable
-                    - Maximum ACK delay in milliseconds
-            max_datagram_frame_size:
-                aliases: ['max-datagram-frame-size']
-                type: int
-                description:
-                    - Support meta variable
-                    - Maximum datagram frame size in bytes
-            max_idle_timeout:
-                aliases: ['max-idle-timeout']
-                type: int
-                description:
-                    - Support meta variable
-                    - Maximum idle timeout milliseconds
-            max_udp_payload_size:
-                aliases: ['max-udp-payload-size']
-                type: int
-                description:
-                    - Support meta variable
-                    - Maximum UDP payload size in bytes
+        description: Enable/disable grease QUIC bit
+        choices: ['disable', 'enable']
+      max_ack_delay:
+        aliases: ['max-ack-delay']
+        type: int
+        description:
+          - Support meta variable
+          - Maximum ACK delay in milliseconds
+      max_datagram_frame_size:
+        aliases: ['max-datagram-frame-size']
+        type: int
+        description:
+          - Support meta variable
+          - Maximum datagram frame size in bytes
+      max_idle_timeout:
+        aliases: ['max-idle-timeout']
+        type: int
+        description:
+          - Support meta variable
+          - Maximum idle timeout milliseconds
+      max_udp_payload_size:
+        aliases: ['max-udp-payload-size']
+        type: int
+        description:
+          - Support meta variable
+          - Maximum UDP payload size in bytes
 '''
 
 EXAMPLES = '''
@@ -106,42 +106,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

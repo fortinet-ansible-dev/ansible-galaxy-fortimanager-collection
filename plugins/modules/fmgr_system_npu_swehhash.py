@@ -15,64 +15,64 @@ module: fmgr_system_npu_swehhash
 short_description: Configure switch enhanced hashing.
 version_added: "2.1.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.partial_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.partial_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  system_npu_swehhash:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      computation:
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Set hashing computation.
+        choices: ['xor16', 'xor8', 'xor4', 'crc16']
+      destination_ip_lower_16:
+        aliases: ['destination-ip-lower-16']
         type: str
-        required: true
-    system_npu_swehhash:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            computation:
-                type: str
-                description: Set hashing computation.
-                choices: ['xor16', 'xor8', 'xor4', 'crc16']
-            destination_ip_lower_16:
-                aliases: ['destination-ip-lower-16']
-                type: str
-                description: Include/exclude destination IP address lower 16 bits.
-                choices: ['include', 'exclude']
-            destination_ip_upper_16:
-                aliases: ['destination-ip-upper-16']
-                type: str
-                description: Include/exclude destination IP address upper 16 bits.
-                choices: ['include', 'exclude']
-            destination_port:
-                aliases: ['destination-port']
-                type: str
-                description: Include/exclude destination port if TCP/UDP.
-                choices: ['include', 'exclude']
-            ip_protocol:
-                aliases: ['ip-protocol']
-                type: str
-                description: Include/exclude IP protocol.
-                choices: ['include', 'exclude']
-            netmask_length:
-                aliases: ['netmask-length']
-                type: int
-                description: Network mask length.
-            source_ip_lower_16:
-                aliases: ['source-ip-lower-16']
-                type: str
-                description: Include/exclude source IP address lower 16 bits.
-                choices: ['include', 'exclude']
-            source_ip_upper_16:
-                aliases: ['source-ip-upper-16']
-                type: str
-                description: Include/exclude source IP address upper 16 bits.
-                choices: ['include', 'exclude']
-            source_port:
-                aliases: ['source-port']
-                type: str
-                description: Include/exclude source port if TCP/UDP.
-                choices: ['include', 'exclude']
+        description: Include/exclude destination IP address lower 16 bits.
+        choices: ['include', 'exclude']
+      destination_ip_upper_16:
+        aliases: ['destination-ip-upper-16']
+        type: str
+        description: Include/exclude destination IP address upper 16 bits.
+        choices: ['include', 'exclude']
+      destination_port:
+        aliases: ['destination-port']
+        type: str
+        description: Include/exclude destination port if TCP/UDP.
+        choices: ['include', 'exclude']
+      ip_protocol:
+        aliases: ['ip-protocol']
+        type: str
+        description: Include/exclude IP protocol.
+        choices: ['include', 'exclude']
+      netmask_length:
+        aliases: ['netmask-length']
+        type: int
+        description: Network mask length.
+      source_ip_lower_16:
+        aliases: ['source-ip-lower-16']
+        type: str
+        description: Include/exclude source IP address lower 16 bits.
+        choices: ['include', 'exclude']
+      source_ip_upper_16:
+        aliases: ['source-ip-upper-16']
+        type: str
+        description: Include/exclude source IP address upper 16 bits.
+        choices: ['include', 'exclude']
+      source_port:
+        aliases: ['source-port']
+        type: str
+        description: Include/exclude source port if TCP/UDP.
+        choices: ['include', 'exclude']
 '''
 
 EXAMPLES = '''
@@ -99,42 +99,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

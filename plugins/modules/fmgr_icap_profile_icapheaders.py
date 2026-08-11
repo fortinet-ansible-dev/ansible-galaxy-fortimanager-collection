@@ -15,54 +15,54 @@ module: fmgr_icap_profile_icapheaders
 short_description: Configure ICAP forwarded request headers.
 version_added: "2.1.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  profile:
+    description: The parameter (profile) in requested url.
+    type: str
+    required: true
+  icap_profile_icapheaders:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      base64_encoding:
+        aliases: ['base64-encoding']
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Enable/disable use of base64 encoding of HTTP content.
+        choices: ['disable', 'enable']
+      content:
         type: str
+        description: HTTP header content.
+      id:
+        type: int
+        description: HTTP forwarded header ID.
         required: true
-    profile:
-        description: The parameter (profile) in requested url.
+      name:
         type: str
-        required: true
-    icap_profile_icapheaders:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            base64_encoding:
-                aliases: ['base64-encoding']
-                type: str
-                description: Enable/disable use of base64 encoding of HTTP content.
-                choices: ['disable', 'enable']
-            content:
-                type: str
-                description: HTTP header content.
-            id:
-                type: int
-                description: HTTP forwarded header ID.
-                required: true
-            name:
-                type: str
-                description: HTTP forwarded header name.
-            http_header:
-                aliases: ['http-header']
-                type: str
-                description: Http header.
-            sesson_info_type:
-                aliases: ['sesson-info-type']
-                type: str
-                description: Sesson info type.
-                choices: ['client-ip', 'user', 'upn', 'domain', 'local-grp', 'remote-grp',
-                          'proxy-name', 'auth-user-uri', 'auth-group-uri']
-            source:
-                type: str
-                description: Source.
-                choices: ['content', 'http-header', 'session']
+        description: HTTP forwarded header name.
+      http_header:
+        aliases: ['http-header']
+        type: str
+        description: Http header.
+      sesson_info_type:
+        aliases: ['sesson-info-type']
+        type: str
+        description: Sesson info type.
+        choices: ['client-ip', 'user', 'upn', 'domain', 'local-grp', 'remote-grp', 'proxy-name',
+                  'auth-user-uri', 'auth-group-uri']
+      source:
+        type: str
+        description: Source.
+        choices: ['content', 'http-header', 'session']
 '''
 
 EXAMPLES = '''
@@ -89,42 +89,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -148,13 +148,13 @@ def main():
                 'content': {'v_range': [['6.2.0', '']], 'type': 'str'},
                 'id': {'v_range': [['6.2.0', '']], 'required': True, 'type': 'int'},
                 'name': {'v_range': [['6.2.0', '']], 'type': 'str'},
-                'http-header': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'str'},
+                'http-header': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'type': 'str'},
                 'sesson-info-type': {
-                    'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']],
+                    'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']],
                     'choices': ['client-ip', 'user', 'upn', 'domain', 'local-grp', 'remote-grp', 'proxy-name', 'auth-user-uri', 'auth-group-uri'],
                     'type': 'str'
                 },
-                'source': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'choices': ['content', 'http-header', 'session'], 'type': 'str'}
+                'source': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'choices': ['content', 'http-header', 'session'], 'type': 'str'}
             }
         }
     }

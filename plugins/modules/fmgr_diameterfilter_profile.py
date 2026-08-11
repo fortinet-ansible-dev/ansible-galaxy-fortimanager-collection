@@ -15,77 +15,95 @@ module: fmgr_diameterfilter_profile
 short_description: Configure Diameter filter profiles.
 version_added: "2.4.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  diameterfilter_profile:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      cmd_flags_reserve_set:
+        aliases: ['cmd-flags-reserve-set']
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Action to be taken for messages with cmd flag reserve bits set.
+        choices: ['block', 'reset', 'monitor', 'allow']
+      command_code_invalid:
+        aliases: ['command-code-invalid']
         type: str
+        description: Action to be taken for messages with invalid command code.
+        choices: ['block', 'reset', 'monitor', 'allow']
+      command_code_range:
+        aliases: ['command-code-range']
+        type: str
+        description: Valid range for command codes
+      comment:
+        type: str
+        description: Comment.
+      log_packet:
+        aliases: ['log-packet']
+        type: str
+        description: Enable/disable packet log for triggered diameter settings.
+        choices: ['disable', 'enable']
+      message_length_invalid:
+        aliases: ['message-length-invalid']
+        type: str
+        description: Action to be taken for invalid message length.
+        choices: ['block', 'reset', 'monitor', 'allow']
+      missing_request_action:
+        aliases: ['missing-request-action']
+        type: str
+        description: Action to be taken for answers without corresponding request.
+        choices: ['block', 'reset', 'monitor', 'allow']
+      monitor_all_messages:
+        aliases: ['monitor-all-messages']
+        type: str
+        description: Enable/disable logging for all User Name and Result Code AVP messages.
+        choices: ['disable', 'enable']
+      name:
+        type: str
+        description: Profile name.
         required: true
-    diameterfilter_profile:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            cmd_flags_reserve_set:
-                aliases: ['cmd-flags-reserve-set']
-                type: str
-                description: Action to be taken for messages with cmd flag reserve bits set.
-                choices: ['block', 'reset', 'monitor', 'allow']
-            command_code_invalid:
-                aliases: ['command-code-invalid']
-                type: str
-                description: Action to be taken for messages with invalid command code.
-                choices: ['block', 'reset', 'monitor', 'allow']
-            command_code_range:
-                aliases: ['command-code-range']
-                type: str
-                description: Valid range for command codes
-            comment:
-                type: str
-                description: Comment.
-            log_packet:
-                aliases: ['log-packet']
-                type: str
-                description: Enable/disable packet log for triggered diameter settings.
-                choices: ['disable', 'enable']
-            message_length_invalid:
-                aliases: ['message-length-invalid']
-                type: str
-                description: Action to be taken for invalid message length.
-                choices: ['block', 'reset', 'monitor', 'allow']
-            missing_request_action:
-                aliases: ['missing-request-action']
-                type: str
-                description: Action to be taken for answers without corresponding request.
-                choices: ['block', 'reset', 'monitor', 'allow']
-            monitor_all_messages:
-                aliases: ['monitor-all-messages']
-                type: str
-                description: Enable/disable logging for all User Name and Result Code AVP messages.
-                choices: ['disable', 'enable']
-            name:
-                type: str
-                description: Profile name.
-                required: true
-            protocol_version_invalid:
-                aliases: ['protocol-version-invalid']
-                type: str
-                description: Action to be taken for invalid protocol version.
-                choices: ['block', 'reset', 'monitor', 'allow']
-            request_error_flag_set:
-                aliases: ['request-error-flag-set']
-                type: str
-                description: Action to be taken for request messages with error flag set.
-                choices: ['block', 'reset', 'monitor', 'allow']
-            track_requests_answers:
-                aliases: ['track-requests-answers']
-                type: str
-                description: Enable/disable validation that each answer has a corresponding request.
-                choices: ['disable', 'enable']
+      protocol_version_invalid:
+        aliases: ['protocol-version-invalid']
+        type: str
+        description: Action to be taken for invalid protocol version.
+        choices: ['block', 'reset', 'monitor', 'allow']
+      request_error_flag_set:
+        aliases: ['request-error-flag-set']
+        type: str
+        description: Action to be taken for request messages with error flag set.
+        choices: ['block', 'reset', 'monitor', 'allow']
+      track_requests_answers:
+        aliases: ['track-requests-answers']
+        type: str
+        description: Enable/disable validation that each answer has a corresponding request.
+        choices: ['disable', 'enable']
+      fabric_force_sync:
+        aliases: ['fabric-force-sync']
+        type: str
+        description: Enable/disable forced synchronization of configuration objects from the root FortiGate unit to the downstream devices.
+        choices: ['disable', 'enable']
+      fabric_object:
+        aliases: ['fabric-object']
+        type: str
+        description: Security Fabric global object setting.
+        choices: ['disable', 'enable']
+      fabric_object_source:
+        aliases: ['fabric-object-source']
+        type: str
+        description: Source of truth for fabric object.
+        choices: ['member', 'local', 'root']
+      uuid:
+        type: str
+        description: Universally Unique Identifier
 '''
 
 EXAMPLES = '''
@@ -112,46 +130,50 @@ EXAMPLES = '''
           # protocol_version_invalid: <value in [block, reset, monitor, ...]>
           # request_error_flag_set: <value in [block, reset, monitor, ...]>
           # track_requests_answers: <value in [disable, enable]>
+          # fabric_force_sync: <value in [disable, enable]>
+          # fabric_object: <value in [disable, enable]>
+          # fabric_object_source: <value in [member, local, root]>
+          # uuid: <string>
 '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -181,7 +203,11 @@ def main():
                 'name': {'v_range': [['7.4.2', '']], 'required': True, 'type': 'str'},
                 'protocol-version-invalid': {'v_range': [['7.4.2', '']], 'choices': ['block', 'reset', 'monitor', 'allow'], 'type': 'str'},
                 'request-error-flag-set': {'v_range': [['7.4.2', '']], 'choices': ['block', 'reset', 'monitor', 'allow'], 'type': 'str'},
-                'track-requests-answers': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'track-requests-answers': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'fabric-force-sync': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'fabric-object': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'fabric-object-source': {'v_range': [['8.0.0', '']], 'choices': ['member', 'local', 'root'], 'type': 'str'},
+                'uuid': {'v_range': [['8.0.0', '']], 'type': 'str'}
             }
         }
     }

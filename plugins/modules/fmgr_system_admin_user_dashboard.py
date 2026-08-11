@@ -15,150 +15,150 @@ module: fmgr_system_admin_user_dashboard
 short_description: Custom dashboard widgets.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    user:
-        description: The parameter (user) in requested url.
+  user:
+    description: The parameter (user) in requested url.
+    type: str
+    required: true
+  system_admin_user_dashboard:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      column:
+        type: int
+        description: Widgets column ID.
+      diskio_content_type:
+        aliases: ['diskio-content-type']
         type: str
+        description:
+          - Disk I/O Monitor widgets chart type.
+          - util - bandwidth utilization.
+          - iops - the number of I/O requests.
+          - blks - the amount of data of I/O requests.
+        choices: ['util', 'iops', 'blks']
+      diskio_period:
+        aliases: ['diskio-period']
+        type: str
+        description:
+          - Disk I/O Monitor widgets data period.
+          - 1hour - 1 hour.
+          - 8hour - 8 hour.
+          - 24hour - 24 hour.
+        choices: ['1hour', '8hour', '24hour']
+      log_rate_period:
+        aliases: ['log-rate-period']
+        type: str
+        description:
+          - Log receive monitor widgets data period.
+          - 2min  - 2 minutes.
+          - 1hour - 1 hour.
+          - 6hours - 6 hours.
+        choices: ['2min', '1hour', '6hours']
+      log_rate_topn:
+        aliases: ['log-rate-topn']
+        type: str
+        description:
+          - Log receive monitor widgets number of top items to display.
+          - 1 - Top 1.
+          - 2 - Top 2.
+          - 3 - Top 3.
+          - 4 - Top 4.
+          - 5 - Top 5.
+        choices: ['1', '2', '3', '4', '5']
+      log_rate_type:
+        aliases: ['log-rate-type']
+        type: str
+        description:
+          - Log receive monitor widgets statistics breakdown options.
+          - log - Show log rates for each log type.
+          - device - Show log rates for each device.
+        choices: ['log', 'device']
+      moduleid:
+        type: int
+        description: Widget ID.
         required: true
-    system_admin_user_dashboard:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            column:
-                type: int
-                description: Widgets column ID.
-            diskio_content_type:
-                aliases: ['diskio-content-type']
-                type: str
-                description:
-                    - Disk I/O Monitor widgets chart type.
-                    - util - bandwidth utilization.
-                    - iops - the number of I/O requests.
-                    - blks - the amount of data of I/O requests.
-                choices: ['util', 'iops', 'blks']
-            diskio_period:
-                aliases: ['diskio-period']
-                type: str
-                description:
-                    - Disk I/O Monitor widgets data period.
-                    - 1hour - 1 hour.
-                    - 8hour - 8 hour.
-                    - 24hour - 24 hour.
-                choices: ['1hour', '8hour', '24hour']
-            log_rate_period:
-                aliases: ['log-rate-period']
-                type: str
-                description:
-                    - Log receive monitor widgets data period.
-                    - 2min  - 2 minutes.
-                    - 1hour - 1 hour.
-                    - 6hours - 6 hours.
-                choices: ['2min', '1hour', '6hours']
-            log_rate_topn:
-                aliases: ['log-rate-topn']
-                type: str
-                description:
-                    - Log receive monitor widgets number of top items to display.
-                    - 1 - Top 1.
-                    - 2 - Top 2.
-                    - 3 - Top 3.
-                    - 4 - Top 4.
-                    - 5 - Top 5.
-                choices: ['1', '2', '3', '4', '5']
-            log_rate_type:
-                aliases: ['log-rate-type']
-                type: str
-                description:
-                    - Log receive monitor widgets statistics breakdown options.
-                    - log - Show log rates for each log type.
-                    - device - Show log rates for each device.
-                choices: ['log', 'device']
-            moduleid:
-                type: int
-                description: Widget ID.
-                required: true
-            name:
-                type: str
-                description: Widget name.
-            num_entries:
-                aliases: ['num-entries']
-                type: int
-                description: Number of entries.
-            refresh_interval:
-                aliases: ['refresh-interval']
-                type: int
-                description: Widgets refresh interval.
-            res_cpu_display:
-                aliases: ['res-cpu-display']
-                type: str
-                description:
-                    - Widgets CPU display type.
-                    - average  - Average usage of CPU.
-                    - each - Each usage of CPU.
-                choices: ['average', 'each']
-            res_period:
-                aliases: ['res-period']
-                type: str
-                description:
-                    - Widgets data period.
-                    - 10min  - Last 10 minutes.
-                    - hour - Last hour.
-                    - day - Last day.
-                choices: ['10min', 'hour', 'day']
-            res_view_type:
-                aliases: ['res-view-type']
-                type: str
-                description:
-                    - Widgets data view type.
-                    - real-time  - Real-time view.
-                    - history - History view.
-                choices: ['real-time', 'history']
-            status:
-                type: str
-                description:
-                    - Widgets opened/closed state.
-                    - close - Widget closed.
-                    - open - Widget opened.
-                choices: ['close', 'open']
-            tabid:
-                type: int
-                description: ID of tab where widget is displayed.
-            time_period:
-                aliases: ['time-period']
-                type: str
-                description:
-                    - Log Database Monitor widgets data period.
-                    - 1hour - 1 hour.
-                    - 8hour - 8 hour.
-                    - 24hour - 24 hour.
-                choices: ['1hour', '8hour', '24hour']
-            widget_type:
-                aliases: ['widget-type']
-                type: str
-                description:
-                    - Widget type.
-                    - top-lograte - Log Receive Monitor.
-                    - sysres - System resources.
-                    - sysinfo - System Information.
-                    - licinfo - License Information.
-                    - jsconsole - CLI Console.
-                    - sysop - Unit Operation.
-                    - alert - Alert Message Console.
-                    - statistics - Statistics.
-                    - rpteng - Report Engine.
-                    - raid - Disk Monitor.
-                    - logrecv - Logs/Data Received.
-                    - devsummary - Device Summary.
-                    - logdb-perf - Log Database Performance Monitor.
-                    - logdb-lag - Log Database Lag Time.
-                    - disk-io - Disk I/O.
-                    - log-rcvd-fwd - Log receive and forwarding Monitor.
-                choices: ['top-lograte', 'sysres', 'sysinfo', 'licinfo', 'jsconsole', 'sysop',
-                          'alert', 'statistics', 'rpteng', 'raid', 'logrecv', 'devsummary',
-                          'logdb-perf', 'logdb-lag', 'disk-io', 'log-rcvd-fwd']
+      name:
+        type: str
+        description: Widget name.
+      num_entries:
+        aliases: ['num-entries']
+        type: int
+        description: Number of entries.
+      refresh_interval:
+        aliases: ['refresh-interval']
+        type: int
+        description: Widgets refresh interval.
+      res_cpu_display:
+        aliases: ['res-cpu-display']
+        type: str
+        description:
+          - Widgets CPU display type.
+          - average  - Average usage of CPU.
+          - each - Each usage of CPU.
+        choices: ['average', 'each']
+      res_period:
+        aliases: ['res-period']
+        type: str
+        description:
+          - Widgets data period.
+          - 10min  - Last 10 minutes.
+          - hour - Last hour.
+          - day - Last day.
+        choices: ['10min', 'hour', 'day']
+      res_view_type:
+        aliases: ['res-view-type']
+        type: str
+        description:
+          - Widgets data view type.
+          - real-time  - Real-time view.
+          - history - History view.
+        choices: ['real-time', 'history']
+      status:
+        type: str
+        description:
+          - Widgets opened/closed state.
+          - close - Widget closed.
+          - open - Widget opened.
+        choices: ['close', 'open']
+      tabid:
+        type: int
+        description: ID of tab where widget is displayed.
+      time_period:
+        aliases: ['time-period']
+        type: str
+        description:
+          - Log Database Monitor widgets data period.
+          - 1hour - 1 hour.
+          - 8hour - 8 hour.
+          - 24hour - 24 hour.
+        choices: ['1hour', '8hour', '24hour']
+      widget_type:
+        aliases: ['widget-type']
+        type: str
+        description:
+          - Widget type.
+          - top-lograte - Log Receive Monitor.
+          - sysres - System resources.
+          - sysinfo - System Information.
+          - licinfo - License Information.
+          - jsconsole - CLI Console.
+          - sysop - Unit Operation.
+          - alert - Alert Message Console.
+          - statistics - Statistics.
+          - rpteng - Report Engine.
+          - raid - Disk Monitor.
+          - logrecv - Logs/Data Received.
+          - devsummary - Device Summary.
+          - logdb-perf - Log Database Performance Monitor.
+          - logdb-lag - Log Database Lag Time.
+          - disk-io - Disk I/O.
+          - log-rcvd-fwd - Log receive and forwarding Monitor.
+        choices: ['top-lograte', 'sysres', 'sysinfo', 'licinfo', 'jsconsole', 'sysop', 'alert',
+                  'statistics', 'rpteng', 'raid', 'logrecv', 'devsummary', 'logdb-perf',
+                  'logdb-lag', 'disk-io', 'log-rcvd-fwd']
 '''
 
 EXAMPLES = '''
@@ -215,42 +215,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

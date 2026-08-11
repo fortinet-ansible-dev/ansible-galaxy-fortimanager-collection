@@ -15,351 +15,351 @@ module: fmgr_system_npu_fpanomaly
 short_description: NP6Lite anomaly protection
 version_added: "2.1.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.partial_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.partial_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  system_npu_fpanomaly:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      esp_minlen_err:
+        aliases: ['esp-minlen-err']
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Invalid IPv4 ESP short packet anomalies.
+        choices: ['drop', 'trap-to-host']
+      icmp_csum_err:
+        aliases: ['icmp-csum-err']
         type: str
-        required: true
-    system_npu_fpanomaly:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            esp_minlen_err:
-                aliases: ['esp-minlen-err']
-                type: str
-                description: Invalid IPv4 ESP short packet anomalies.
-                choices: ['drop', 'trap-to-host']
-            icmp_csum_err:
-                aliases: ['icmp-csum-err']
-                type: str
-                description: Invalid IPv4 ICMP packet checksum anomalies.
-                choices: ['drop', 'trap-to-host']
-            icmp_minlen_err:
-                aliases: ['icmp-minlen-err']
-                type: str
-                description: Invalid IPv4 ICMP short packet anomalies.
-                choices: ['drop', 'trap-to-host']
-            ipv4_csum_err:
-                aliases: ['ipv4-csum-err']
-                type: str
-                description: Invalid IPv4 packet checksum anomalies.
-                choices: ['drop', 'trap-to-host']
-            ipv4_ihl_err:
-                aliases: ['ipv4-ihl-err']
-                type: str
-                description: Invalid IPv4 header length anomalies.
-                choices: ['drop', 'trap-to-host']
-            ipv4_len_err:
-                aliases: ['ipv4-len-err']
-                type: str
-                description: Invalid IPv4 packet length anomalies.
-                choices: ['drop', 'trap-to-host']
-            ipv4_opt_err:
-                aliases: ['ipv4-opt-err']
-                type: str
-                description: Invalid IPv4 option parsing anomalies.
-                choices: ['drop', 'trap-to-host']
-            ipv4_ttlzero_err:
-                aliases: ['ipv4-ttlzero-err']
-                type: str
-                description: Invalid IPv4 TTL field zero anomalies.
-                choices: ['drop', 'trap-to-host']
-            ipv4_ver_err:
-                aliases: ['ipv4-ver-err']
-                type: str
-                description: Invalid IPv4 header version anomalies.
-                choices: ['drop', 'trap-to-host']
-            ipv6_exthdr_len_err:
-                aliases: ['ipv6-exthdr-len-err']
-                type: str
-                description: Invalid IPv6 packet chain extension header total length anomalies.
-                choices: ['drop', 'trap-to-host']
-            ipv6_exthdr_order_err:
-                aliases: ['ipv6-exthdr-order-err']
-                type: str
-                description: Invalid IPv6 packet extension header ordering anomalies.
-                choices: ['drop', 'trap-to-host']
-            ipv6_ihl_err:
-                aliases: ['ipv6-ihl-err']
-                type: str
-                description: Invalid IPv6 packet length anomalies.
-                choices: ['drop', 'trap-to-host']
-            ipv6_plen_zero:
-                aliases: ['ipv6-plen-zero']
-                type: str
-                description: Invalid IPv6 packet payload length zero anomalies.
-                choices: ['drop', 'trap-to-host']
-            ipv6_ver_err:
-                aliases: ['ipv6-ver-err']
-                type: str
-                description: Invalid IPv6 packet version anomalies.
-                choices: ['drop', 'trap-to-host']
-            tcp_csum_err:
-                aliases: ['tcp-csum-err']
-                type: str
-                description: Invalid IPv4 TCP packet checksum anomalies.
-                choices: ['drop', 'trap-to-host']
-            tcp_hlen_err:
-                aliases: ['tcp-hlen-err']
-                type: str
-                description: Invalid IPv4 TCP header length anomalies.
-                choices: ['drop', 'trap-to-host']
-            tcp_plen_err:
-                aliases: ['tcp-plen-err']
-                type: str
-                description: Invalid IPv4 TCP packet length anomalies.
-                choices: ['drop', 'trap-to-host']
-            udp_csum_err:
-                aliases: ['udp-csum-err']
-                type: str
-                description: Invalid IPv4 UDP packet checksum anomalies.
-                choices: ['drop', 'trap-to-host']
-            udp_hlen_err:
-                aliases: ['udp-hlen-err']
-                type: str
-                description: Invalid IPv4 UDP packet header length anomalies.
-                choices: ['drop', 'trap-to-host']
-            udp_len_err:
-                aliases: ['udp-len-err']
-                type: str
-                description: Invalid IPv4 UDP packet length anomalies.
-                choices: ['drop', 'trap-to-host']
-            udp_plen_err:
-                aliases: ['udp-plen-err']
-                type: str
-                description: Invalid IPv4 UDP packet minimum length anomalies.
-                choices: ['drop', 'trap-to-host']
-            udplite_cover_err:
-                aliases: ['udplite-cover-err']
-                type: str
-                description: Invalid IPv4 UDP-Lite packet coverage anomalies.
-                choices: ['drop', 'trap-to-host']
-            udplite_csum_err:
-                aliases: ['udplite-csum-err']
-                type: str
-                description: Invalid IPv4 UDP-Lite packet checksum anomalies.
-                choices: ['drop', 'trap-to-host', 'allow']
-            unknproto_minlen_err:
-                aliases: ['unknproto-minlen-err']
-                type: str
-                description: Invalid IPv4 L4 unknown protocol short packet anomalies.
-                choices: ['drop', 'trap-to-host']
-            tcp_fin_only:
-                aliases: ['tcp-fin-only']
-                type: str
-                description: TCP SYN flood with only FIN flag set anomalies.
-                choices: ['allow', 'drop', 'trap-to-host']
-            ipv4_optsecurity:
-                aliases: ['ipv4-optsecurity']
-                type: str
-                description: Security option anomalies.
-                choices: ['allow', 'drop', 'trap-to-host']
-            ipv6_optralert:
-                aliases: ['ipv6-optralert']
-                type: str
-                description: Router alert option anomalies.
-                choices: ['allow', 'drop', 'trap-to-host']
-            tcp_syn_fin:
-                aliases: ['tcp-syn-fin']
-                type: str
-                description: TCP SYN flood SYN/FIN flag set anomalies.
-                choices: ['allow', 'drop', 'trap-to-host']
-            ipv4_proto_err:
-                aliases: ['ipv4-proto-err']
-                type: str
-                description: Invalid layer 4 protocol anomalies.
-                choices: ['allow', 'drop', 'trap-to-host']
-            ipv6_saddr_err:
-                aliases: ['ipv6-saddr-err']
-                type: str
-                description: Source address as multicast anomalies.
-                choices: ['allow', 'drop', 'trap-to-host']
-            icmp_frag:
-                aliases: ['icmp-frag']
-                type: str
-                description: Layer 3 fragmented packets that could be part of layer 4 ICMP anomalies.
-                choices: ['allow', 'drop', 'trap-to-host']
-            ipv4_optssrr:
-                aliases: ['ipv4-optssrr']
-                type: str
-                description: Strict source record route option anomalies.
-                choices: ['allow', 'drop', 'trap-to-host']
-            ipv6_opthomeaddr:
-                aliases: ['ipv6-opthomeaddr']
-                type: str
-                description: Home address option anomalies.
-                choices: ['allow', 'drop', 'trap-to-host']
-            udp_land:
-                aliases: ['udp-land']
-                type: str
-                description: UDP land anomalies.
-                choices: ['allow', 'drop', 'trap-to-host']
-            ipv6_optinvld:
-                aliases: ['ipv6-optinvld']
-                type: str
-                description: Invalid option anomalies.
-                choices: ['allow', 'drop', 'trap-to-host']
-            tcp_fin_noack:
-                aliases: ['tcp-fin-noack']
-                type: str
-                description: TCP SYN flood with FIN flag set without ACK setting anomalies.
-                choices: ['allow', 'drop', 'trap-to-host']
-            ipv6_proto_err:
-                aliases: ['ipv6-proto-err']
-                type: str
-                description: Layer 4 invalid protocol anomalies.
-                choices: ['allow', 'drop', 'trap-to-host']
-            tcp_land:
-                aliases: ['tcp-land']
-                type: str
-                description: TCP land anomalies.
-                choices: ['allow', 'drop', 'trap-to-host']
-            ipv4_unknopt:
-                aliases: ['ipv4-unknopt']
-                type: str
-                description: Unknown option anomalies.
-                choices: ['allow', 'drop', 'trap-to-host']
-            ipv4_optstream:
-                aliases: ['ipv4-optstream']
-                type: str
-                description: Stream option anomalies.
-                choices: ['allow', 'drop', 'trap-to-host']
-            ipv6_optjumbo:
-                aliases: ['ipv6-optjumbo']
-                type: str
-                description: Jumbo options anomalies.
-                choices: ['allow', 'drop', 'trap-to-host']
-            icmp_land:
-                aliases: ['icmp-land']
-                type: str
-                description: ICMP land anomalies.
-                choices: ['allow', 'drop', 'trap-to-host']
-            tcp_winnuke:
-                aliases: ['tcp-winnuke']
-                type: str
-                description: TCP WinNuke anomalies.
-                choices: ['allow', 'drop', 'trap-to-host']
-            ipv6_daddr_err:
-                aliases: ['ipv6-daddr-err']
-                type: str
-                description: Destination address as unspecified or loopback address anomalies.
-                choices: ['allow', 'drop', 'trap-to-host']
-            ipv4_land:
-                aliases: ['ipv4-land']
-                type: str
-                description: Land anomalies.
-                choices: ['allow', 'drop', 'trap-to-host']
-            ipv6_opttunnel:
-                aliases: ['ipv6-opttunnel']
-                type: str
-                description: Tunnel encapsulation limit option anomalies.
-                choices: ['allow', 'drop', 'trap-to-host']
-            tcp_no_flag:
-                aliases: ['tcp-no-flag']
-                type: str
-                description: TCP SYN flood with no flag set anomalies.
-                choices: ['allow', 'drop', 'trap-to-host']
-            ipv6_land:
-                aliases: ['ipv6-land']
-                type: str
-                description: Land anomalies.
-                choices: ['allow', 'drop', 'trap-to-host']
-            ipv4_optlsrr:
-                aliases: ['ipv4-optlsrr']
-                type: str
-                description: Loose source record route option anomalies.
-                choices: ['allow', 'drop', 'trap-to-host']
-            ipv4_opttimestamp:
-                aliases: ['ipv4-opttimestamp']
-                type: str
-                description: Timestamp option anomalies.
-                choices: ['allow', 'drop', 'trap-to-host']
-            ipv4_optrr:
-                aliases: ['ipv4-optrr']
-                type: str
-                description: Record route option anomalies.
-                choices: ['allow', 'drop', 'trap-to-host']
-            ipv6_optnsap:
-                aliases: ['ipv6-optnsap']
-                type: str
-                description: Network service access point address option anomalies.
-                choices: ['allow', 'drop', 'trap-to-host']
-            ipv6_unknopt:
-                aliases: ['ipv6-unknopt']
-                type: str
-                description: Unknown option anomalies.
-                choices: ['allow', 'drop', 'trap-to-host']
-            tcp_syn_data:
-                aliases: ['tcp-syn-data']
-                type: str
-                description: TCP SYN flood packets with data anomalies.
-                choices: ['allow', 'drop', 'trap-to-host']
-            ipv6_optendpid:
-                aliases: ['ipv6-optendpid']
-                type: str
-                description: End point identification anomalies.
-                choices: ['allow', 'drop', 'trap-to-host']
-            gtpu_plen_err:
-                aliases: ['gtpu-plen-err']
-                type: str
-                description: Gtpu plen err.
-                choices: ['drop', 'trap-to-host']
-            vxlan_minlen_err:
-                aliases: ['vxlan-minlen-err']
-                type: str
-                description: Vxlan minlen err.
-                choices: ['drop', 'trap-to-host']
-            capwap_minlen_err:
-                aliases: ['capwap-minlen-err']
-                type: str
-                description: Capwap minlen err.
-                choices: ['drop', 'trap-to-host']
-            gre_csum_err:
-                aliases: ['gre-csum-err']
-                type: str
-                description: Gre csum err.
-                choices: ['drop', 'trap-to-host', 'allow']
-            nvgre_minlen_err:
-                aliases: ['nvgre-minlen-err']
-                type: str
-                description: Nvgre minlen err.
-                choices: ['drop', 'trap-to-host']
-            sctp_l4len_err:
-                aliases: ['sctp-l4len-err']
-                type: str
-                description: Sctp l4len err.
-                choices: ['drop', 'trap-to-host']
-            tcp_hlenvsl4len_err:
-                aliases: ['tcp-hlenvsl4len-err']
-                type: str
-                description: Tcp hlenvsl4len err.
-                choices: ['drop', 'trap-to-host']
-            sctp_crc_err:
-                aliases: ['sctp-crc-err']
-                type: str
-                description: Sctp crc err.
-                choices: ['drop', 'trap-to-host']
-            sctp_clen_err:
-                aliases: ['sctp-clen-err']
-                type: str
-                description: Sctp clen err.
-                choices: ['drop', 'trap-to-host']
-            uesp_minlen_err:
-                aliases: ['uesp-minlen-err']
-                type: str
-                description: Uesp minlen err.
-                choices: ['drop', 'trap-to-host']
-            sctp_csum_err:
-                aliases: ['sctp-csum-err']
-                type: str
-                description: Invalid IPv4 SCTP checksum anomalies.
-                choices: ['allow', 'drop', 'trap-to-host']
+        description: Invalid IPv4 ICMP packet checksum anomalies.
+        choices: ['drop', 'trap-to-host', 'allow']
+      icmp_minlen_err:
+        aliases: ['icmp-minlen-err']
+        type: str
+        description: Invalid IPv4 ICMP short packet anomalies.
+        choices: ['drop', 'trap-to-host']
+      ipv4_csum_err:
+        aliases: ['ipv4-csum-err']
+        type: str
+        description: Invalid IPv4 packet checksum anomalies.
+        choices: ['drop', 'trap-to-host']
+      ipv4_ihl_err:
+        aliases: ['ipv4-ihl-err']
+        type: str
+        description: Invalid IPv4 header length anomalies.
+        choices: ['drop', 'trap-to-host']
+      ipv4_len_err:
+        aliases: ['ipv4-len-err']
+        type: str
+        description: Invalid IPv4 packet length anomalies.
+        choices: ['drop', 'trap-to-host']
+      ipv4_opt_err:
+        aliases: ['ipv4-opt-err']
+        type: str
+        description: Invalid IPv4 option parsing anomalies.
+        choices: ['drop', 'trap-to-host']
+      ipv4_ttlzero_err:
+        aliases: ['ipv4-ttlzero-err']
+        type: str
+        description: Invalid IPv4 TTL field zero anomalies.
+        choices: ['drop', 'trap-to-host']
+      ipv4_ver_err:
+        aliases: ['ipv4-ver-err']
+        type: str
+        description: Invalid IPv4 header version anomalies.
+        choices: ['drop', 'trap-to-host']
+      ipv6_exthdr_len_err:
+        aliases: ['ipv6-exthdr-len-err']
+        type: str
+        description: Invalid IPv6 packet chain extension header total length anomalies.
+        choices: ['drop', 'trap-to-host']
+      ipv6_exthdr_order_err:
+        aliases: ['ipv6-exthdr-order-err']
+        type: str
+        description: Invalid IPv6 packet extension header ordering anomalies.
+        choices: ['drop', 'trap-to-host']
+      ipv6_ihl_err:
+        aliases: ['ipv6-ihl-err']
+        type: str
+        description: Invalid IPv6 packet length anomalies.
+        choices: ['drop', 'trap-to-host']
+      ipv6_plen_zero:
+        aliases: ['ipv6-plen-zero']
+        type: str
+        description: Invalid IPv6 packet payload length zero anomalies.
+        choices: ['drop', 'trap-to-host']
+      ipv6_ver_err:
+        aliases: ['ipv6-ver-err']
+        type: str
+        description: Invalid IPv6 packet version anomalies.
+        choices: ['drop', 'trap-to-host']
+      tcp_csum_err:
+        aliases: ['tcp-csum-err']
+        type: str
+        description: Invalid IPv4 TCP packet checksum anomalies.
+        choices: ['drop', 'trap-to-host', 'allow']
+      tcp_hlen_err:
+        aliases: ['tcp-hlen-err']
+        type: str
+        description: Invalid IPv4 TCP header length anomalies.
+        choices: ['drop', 'trap-to-host']
+      tcp_plen_err:
+        aliases: ['tcp-plen-err']
+        type: str
+        description: Invalid IPv4 TCP packet length anomalies.
+        choices: ['drop', 'trap-to-host']
+      udp_csum_err:
+        aliases: ['udp-csum-err']
+        type: str
+        description: Invalid IPv4 UDP packet checksum anomalies.
+        choices: ['drop', 'trap-to-host', 'allow']
+      udp_hlen_err:
+        aliases: ['udp-hlen-err']
+        type: str
+        description: Invalid IPv4 UDP packet header length anomalies.
+        choices: ['drop', 'trap-to-host']
+      udp_len_err:
+        aliases: ['udp-len-err']
+        type: str
+        description: Invalid IPv4 UDP packet length anomalies.
+        choices: ['drop', 'trap-to-host']
+      udp_plen_err:
+        aliases: ['udp-plen-err']
+        type: str
+        description: Invalid IPv4 UDP packet minimum length anomalies.
+        choices: ['drop', 'trap-to-host']
+      udplite_cover_err:
+        aliases: ['udplite-cover-err']
+        type: str
+        description: Invalid IPv4 UDP-Lite packet coverage anomalies.
+        choices: ['drop', 'trap-to-host']
+      udplite_csum_err:
+        aliases: ['udplite-csum-err']
+        type: str
+        description: Invalid IPv4 UDP-Lite packet checksum anomalies.
+        choices: ['drop', 'trap-to-host', 'allow']
+      unknproto_minlen_err:
+        aliases: ['unknproto-minlen-err']
+        type: str
+        description: Invalid IPv4 L4 unknown protocol short packet anomalies.
+        choices: ['drop', 'trap-to-host']
+      tcp_fin_only:
+        aliases: ['tcp-fin-only']
+        type: str
+        description: TCP SYN flood with only FIN flag set anomalies.
+        choices: ['allow', 'drop', 'trap-to-host']
+      ipv4_optsecurity:
+        aliases: ['ipv4-optsecurity']
+        type: str
+        description: Security option anomalies.
+        choices: ['allow', 'drop', 'trap-to-host']
+      ipv6_optralert:
+        aliases: ['ipv6-optralert']
+        type: str
+        description: Router alert option anomalies.
+        choices: ['allow', 'drop', 'trap-to-host']
+      tcp_syn_fin:
+        aliases: ['tcp-syn-fin']
+        type: str
+        description: TCP SYN flood SYN/FIN flag set anomalies.
+        choices: ['allow', 'drop', 'trap-to-host']
+      ipv4_proto_err:
+        aliases: ['ipv4-proto-err']
+        type: str
+        description: Invalid layer 4 protocol anomalies.
+        choices: ['allow', 'drop', 'trap-to-host']
+      ipv6_saddr_err:
+        aliases: ['ipv6-saddr-err']
+        type: str
+        description: Source address as multicast anomalies.
+        choices: ['allow', 'drop', 'trap-to-host']
+      icmp_frag:
+        aliases: ['icmp-frag']
+        type: str
+        description: Layer 3 fragmented packets that could be part of layer 4 ICMP anomalies.
+        choices: ['allow', 'drop', 'trap-to-host']
+      ipv4_optssrr:
+        aliases: ['ipv4-optssrr']
+        type: str
+        description: Strict source record route option anomalies.
+        choices: ['allow', 'drop', 'trap-to-host']
+      ipv6_opthomeaddr:
+        aliases: ['ipv6-opthomeaddr']
+        type: str
+        description: Home address option anomalies.
+        choices: ['allow', 'drop', 'trap-to-host']
+      udp_land:
+        aliases: ['udp-land']
+        type: str
+        description: UDP land anomalies.
+        choices: ['allow', 'drop', 'trap-to-host']
+      ipv6_optinvld:
+        aliases: ['ipv6-optinvld']
+        type: str
+        description: Invalid option anomalies.
+        choices: ['allow', 'drop', 'trap-to-host']
+      tcp_fin_noack:
+        aliases: ['tcp-fin-noack']
+        type: str
+        description: TCP SYN flood with FIN flag set without ACK setting anomalies.
+        choices: ['allow', 'drop', 'trap-to-host']
+      ipv6_proto_err:
+        aliases: ['ipv6-proto-err']
+        type: str
+        description: Layer 4 invalid protocol anomalies.
+        choices: ['allow', 'drop', 'trap-to-host']
+      tcp_land:
+        aliases: ['tcp-land']
+        type: str
+        description: TCP land anomalies.
+        choices: ['allow', 'drop', 'trap-to-host']
+      ipv4_unknopt:
+        aliases: ['ipv4-unknopt']
+        type: str
+        description: Unknown option anomalies.
+        choices: ['allow', 'drop', 'trap-to-host']
+      ipv4_optstream:
+        aliases: ['ipv4-optstream']
+        type: str
+        description: Stream option anomalies.
+        choices: ['allow', 'drop', 'trap-to-host']
+      ipv6_optjumbo:
+        aliases: ['ipv6-optjumbo']
+        type: str
+        description: Jumbo options anomalies.
+        choices: ['allow', 'drop', 'trap-to-host']
+      icmp_land:
+        aliases: ['icmp-land']
+        type: str
+        description: ICMP land anomalies.
+        choices: ['allow', 'drop', 'trap-to-host']
+      tcp_winnuke:
+        aliases: ['tcp-winnuke']
+        type: str
+        description: TCP WinNuke anomalies.
+        choices: ['allow', 'drop', 'trap-to-host']
+      ipv6_daddr_err:
+        aliases: ['ipv6-daddr-err']
+        type: str
+        description: Destination address as unspecified or loopback address anomalies.
+        choices: ['allow', 'drop', 'trap-to-host']
+      ipv4_land:
+        aliases: ['ipv4-land']
+        type: str
+        description: Land anomalies.
+        choices: ['allow', 'drop', 'trap-to-host']
+      ipv6_opttunnel:
+        aliases: ['ipv6-opttunnel']
+        type: str
+        description: Tunnel encapsulation limit option anomalies.
+        choices: ['allow', 'drop', 'trap-to-host']
+      tcp_no_flag:
+        aliases: ['tcp-no-flag']
+        type: str
+        description: TCP SYN flood with no flag set anomalies.
+        choices: ['allow', 'drop', 'trap-to-host']
+      ipv6_land:
+        aliases: ['ipv6-land']
+        type: str
+        description: Land anomalies.
+        choices: ['allow', 'drop', 'trap-to-host']
+      ipv4_optlsrr:
+        aliases: ['ipv4-optlsrr']
+        type: str
+        description: Loose source record route option anomalies.
+        choices: ['allow', 'drop', 'trap-to-host']
+      ipv4_opttimestamp:
+        aliases: ['ipv4-opttimestamp']
+        type: str
+        description: Timestamp option anomalies.
+        choices: ['allow', 'drop', 'trap-to-host']
+      ipv4_optrr:
+        aliases: ['ipv4-optrr']
+        type: str
+        description: Record route option anomalies.
+        choices: ['allow', 'drop', 'trap-to-host']
+      ipv6_optnsap:
+        aliases: ['ipv6-optnsap']
+        type: str
+        description: Network service access point address option anomalies.
+        choices: ['allow', 'drop', 'trap-to-host']
+      ipv6_unknopt:
+        aliases: ['ipv6-unknopt']
+        type: str
+        description: Unknown option anomalies.
+        choices: ['allow', 'drop', 'trap-to-host']
+      tcp_syn_data:
+        aliases: ['tcp-syn-data']
+        type: str
+        description: TCP SYN flood packets with data anomalies.
+        choices: ['allow', 'drop', 'trap-to-host']
+      ipv6_optendpid:
+        aliases: ['ipv6-optendpid']
+        type: str
+        description: End point identification anomalies.
+        choices: ['allow', 'drop', 'trap-to-host']
+      gtpu_plen_err:
+        aliases: ['gtpu-plen-err']
+        type: str
+        description: Gtpu plen err.
+        choices: ['drop', 'trap-to-host']
+      vxlan_minlen_err:
+        aliases: ['vxlan-minlen-err']
+        type: str
+        description: Vxlan minlen err.
+        choices: ['drop', 'trap-to-host']
+      capwap_minlen_err:
+        aliases: ['capwap-minlen-err']
+        type: str
+        description: Capwap minlen err.
+        choices: ['drop', 'trap-to-host']
+      gre_csum_err:
+        aliases: ['gre-csum-err']
+        type: str
+        description: Gre csum err.
+        choices: ['drop', 'trap-to-host', 'allow']
+      nvgre_minlen_err:
+        aliases: ['nvgre-minlen-err']
+        type: str
+        description: Nvgre minlen err.
+        choices: ['drop', 'trap-to-host']
+      sctp_l4len_err:
+        aliases: ['sctp-l4len-err']
+        type: str
+        description: Sctp l4len err.
+        choices: ['drop', 'trap-to-host']
+      tcp_hlenvsl4len_err:
+        aliases: ['tcp-hlenvsl4len-err']
+        type: str
+        description: Tcp hlenvsl4len err.
+        choices: ['drop', 'trap-to-host']
+      sctp_crc_err:
+        aliases: ['sctp-crc-err']
+        type: str
+        description: Sctp crc err.
+        choices: ['drop', 'trap-to-host']
+      sctp_clen_err:
+        aliases: ['sctp-clen-err']
+        type: str
+        description: Sctp clen err.
+        choices: ['drop', 'trap-to-host']
+      uesp_minlen_err:
+        aliases: ['uesp-minlen-err']
+        type: str
+        description: Uesp minlen err.
+        choices: ['drop', 'trap-to-host']
+      sctp_csum_err:
+        aliases: ['sctp-csum-err']
+        type: str
+        description: Invalid IPv4 SCTP checksum anomalies.
+        choices: ['allow', 'drop', 'trap-to-host']
 '''
 
 EXAMPLES = '''
@@ -374,7 +374,7 @@ EXAMPLES = '''
         adom: <your own value>
         system_npu_fpanomaly:
           # esp_minlen_err: <value in [drop, trap-to-host]>
-          # icmp_csum_err: <value in [drop, trap-to-host]>
+          # icmp_csum_err: <value in [drop, trap-to-host, allow]>
           # icmp_minlen_err: <value in [drop, trap-to-host]>
           # ipv4_csum_err: <value in [drop, trap-to-host]>
           # ipv4_ihl_err: <value in [drop, trap-to-host]>
@@ -387,10 +387,10 @@ EXAMPLES = '''
           # ipv6_ihl_err: <value in [drop, trap-to-host]>
           # ipv6_plen_zero: <value in [drop, trap-to-host]>
           # ipv6_ver_err: <value in [drop, trap-to-host]>
-          # tcp_csum_err: <value in [drop, trap-to-host]>
+          # tcp_csum_err: <value in [drop, trap-to-host, allow]>
           # tcp_hlen_err: <value in [drop, trap-to-host]>
           # tcp_plen_err: <value in [drop, trap-to-host]>
-          # udp_csum_err: <value in [drop, trap-to-host]>
+          # udp_csum_err: <value in [drop, trap-to-host, allow]>
           # udp_hlen_err: <value in [drop, trap-to-host]>
           # udp_len_err: <value in [drop, trap-to-host]>
           # udp_plen_err: <value in [drop, trap-to-host]>
@@ -443,42 +443,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -498,7 +498,7 @@ def main():
             'type': 'dict', 'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
             'options': {
                 'esp-minlen-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
-                'icmp-csum-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
+                'icmp-csum-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host', 'allow'], 'type': 'str'},
                 'icmp-minlen-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
                 'ipv4-csum-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
                 'ipv4-ihl-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
@@ -511,10 +511,10 @@ def main():
                 'ipv6-ihl-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
                 'ipv6-plen-zero': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
                 'ipv6-ver-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
-                'tcp-csum-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
+                'tcp-csum-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host', 'allow'], 'type': 'str'},
                 'tcp-hlen-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
                 'tcp-plen-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
-                'udp-csum-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
+                'udp-csum-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host', 'allow'], 'type': 'str'},
                 'udp-hlen-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
                 'udp-len-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
                 'udp-plen-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},

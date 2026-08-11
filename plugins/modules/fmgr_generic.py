@@ -29,76 +29,76 @@ DOCUMENTATION = """
 module: fmgr_generic
 short_description: Build and send generic FortiManager API request.
 description:
-    - This module is for generic fortimanager requests. it receives raw json-rpc
-      data, and sends it to fortimanager, finally returns the response to users.
-    - This module also rely on fortimanager httpapi plugin as the transport.
-    - the payload doesn't include session, the httpapi plugin will automatically
-      fill the session later.
-    - the username and password is not managed by the module, but by the plugin.
+  - This module is for generic fortimanager requests. it receives raw json-rpc
+    data, and sends it to fortimanager, finally returns the response to users.
+  - This module also rely on fortimanager httpapi plugin as the transport.
+  - the payload doesn't include session, the httpapi plugin will automatically
+    fill the session later.
+  - the username and password is not managed by the module, but by the plugin.
 version_added: "2.0.0"
 author:
-    - Xinwei Du (@dux-fortinet)
-    - Xing Li (@lix-fortinet)
-    - Link Zheng (@zhengl)
-    - Jie Xue (@JieX19)
-    - Frank Shen (@fshen01)
-    - Hongbin Lu (@fgtdev-hblu)
+  - Xinwei Du (@dux-fortinet)
+  - Xing Li (@lix-fortinet)
+  - Link Zheng (@zhengl)
+  - Jie Xue (@JieX19)
+  - Frank Shen (@fshen01)
+  - Hongbin Lu (@fgtdev-hblu)
 notes:
-    - two parameters schemes are supported, either in raw json format or in
-      ansible recognnizable top-level parameters format.
-    - json is defined as string, user is response for make it json-formatted
-    - method and params should be specified by users if 'json' is not present
-    - if all three parameters are provided, the 'json' is preferred.
+  - two parameters schemes are supported, either in raw json format or in
+    ansible recognnizable top-level parameters format.
+  - json is defined as string, user is response for make it json-formatted
+  - method and params should be specified by users if 'json' is not present
+  - if all three parameters are provided, the 'json' is preferred.
 options:
-    access_token:
-        description: The token to access FortiManager without using username and password.
-        required: false
-        type: str
-    enable_log:
-        description: Enable/Disable logging for task
-        required: false
-        type: bool
-        default: false
-    forticloud_access_token:
-        description: authenticate Ansible client with forticloud API access token
-        required: false
-        type: str
-    rc_succeeded:
-        description: the rc codes list with which the conditions to succeed will be overriden
-        type: list
-        required: false
-        elements: int
-    rc_failed:
-        description: the rc codes list with which the conditions to fail will be overriden
-        type: list
-        elements: int
-        required: false
-    workspace_locking_adom:
-        description: no description
-        type: str
-        required: false
-    workspace_locking_timeout:
-        description: no description
-        type: int
-        required: false
-        default: 300
-    method:
-        description:
-            - the method of the json-rpc
-            - it must be in [get, add, set, update, delete, move, clone, exec]
-        type: str
-        required: false
-    params:
-        description:
-            - the parameter collection.
-        type: list
-        elements: dict
-        required: false
-    json:
-        description:
-            - the raw json-formatted payload to send to fortimanager
-        type: str
-        required: false
+  access_token:
+    description: The token to access FortiManager without using username and password.
+    required: false
+    type: str
+  enable_log:
+    description: Enable/Disable logging for task
+    required: false
+    type: bool
+    default: false
+  forticloud_access_token:
+    description: authenticate Ansible client with forticloud API access token
+    required: false
+    type: str
+  rc_succeeded:
+    description: the rc codes list with which the conditions to succeed will be overriden
+    type: list
+    required: false
+    elements: int
+  rc_failed:
+    description: the rc codes list with which the conditions to fail will be overriden
+    type: list
+    elements: int
+    required: false
+  workspace_locking_adom:
+    description: no description
+    type: str
+    required: false
+  workspace_locking_timeout:
+    description: no description
+    type: int
+    required: false
+    default: 300
+  method:
+    description:
+      - the method of the json-rpc
+      - it must be in [get, add, set, update, delete, move, clone, exec]
+    type: str
+    required: false
+  params:
+    description:
+      - the parameter collection.
+    type: list
+    elements: dict
+    required: false
+  json:
+    description:
+      - the raw json-formatted payload to send to fortimanager
+    type: str
+    required: false
 """
 
 EXAMPLES = """

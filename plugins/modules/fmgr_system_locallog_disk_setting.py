@@ -15,150 +15,157 @@ module: fmgr_system_locallog_disk_setting
 short_description: Settings for local disk logging.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.partial_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.partial_crud
 options:
-    system_locallog_disk_setting:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            diskfull:
-                type: str
-                description:
-                    - Policy to apply when disk is full.
-                    - overwrite - Overwrite oldest log when disk is full.
-                    - nolog - Stop logging when disk is full.
-                choices: ['overwrite', 'nolog']
-            log_disk_full_percentage:
-                aliases: ['log-disk-full-percentage']
-                type: int
-                description: Consider log disk as full at this usage percentage.
-            max_log_file_size:
-                aliases: ['max-log-file-size']
-                type: int
-                description: Maximum log file size before rolling.
-            roll_day:
-                aliases: ['roll-day']
-                type: list
-                elements: str
-                description:
-                    - Days of week to roll logs.
-                    - sunday - Sunday.
-                    - monday - Monday.
-                    - tuesday - Tuesday.
-                    - wednesday - Wednesday.
-                    - thursday - Thursday.
-                    - friday - Friday.
-                    - saturday - Saturday.
-                choices: ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday',
-                          'saturday']
-            roll_schedule:
-                aliases: ['roll-schedule']
-                type: str
-                description:
-                    - Frequency to check log file for rolling.
-                    - none - Not scheduled.
-                    - daily - Every day.
-                    - weekly - Every week.
-                choices: ['none', 'daily', 'weekly']
-            roll_time:
-                aliases: ['roll-time']
-                type: raw
-                description: (list or str) Time to roll logs
-            server_type:
-                aliases: ['server-type']
-                type: str
-                description:
-                    - Server type.
-                    - FTP - Upload via FTP.
-                    - SFTP - Upload via SFTP.
-                    - SCP - Upload via SCP.
-                choices: ['FTP', 'SFTP', 'SCP']
-            severity:
-                type: str
-                description:
-                    - Least severity level to log.
-                    - emergency - Emergency level.
-                    - alert - Alert level.
-                    - critical - Critical level.
-                    - error - Error level.
-                    - warning - Warning level.
-                    - notification - Notification level.
-                    - information - Information level.
-                    - debug - Debug level.
-                choices: ['emergency', 'alert', 'critical', 'error', 'warning', 'notification',
-                          'information', 'debug']
-            status:
-                type: str
-                description:
-                    - Enable/disable local disk log.
-                    - disable - Do not log to local disk.
-                    - enable - Log to local disk.
-                choices: ['disable', 'enable']
-            upload:
-                type: str
-                description:
-                    - Upload log file when rolling.
-                    - disable - Disable uploading when rolling log file.
-                    - enable - Enable uploading when rolling log file.
-                choices: ['disable', 'enable']
-            upload_delete_files:
-                aliases: ['upload-delete-files']
-                type: str
-                description:
-                    - Delete log files after uploading
-                    - disable - Do not delete log files after uploading.
-                    - enable - Delete log files after uploading.
-                choices: ['disable', 'enable']
-            upload_time:
-                aliases: ['upload-time']
-                type: raw
-                description: (list or str) Time to upload logs
-            uploaddir:
-                type: str
-                description: Log file upload remote directory.
-            uploadip:
-                type: str
-                description: IP address of log uploading server.
-            uploadpass:
-                type: raw
-                description: (list) Password of user account in upload server.
-            uploadport:
-                type: int
-                description: Server port
-            uploadsched:
-                type: str
-                description:
-                    - Scheduled upload
-                    - disable - Upload when rolling.
-                    - enable - Scheduled upload.
-                choices: ['disable', 'enable']
-            uploadtype:
-                type: list
-                elements: str
-                description:
-                    - Types of log files that need to be uploaded.
-                    - event - Upload event log.
-                choices: ['event']
-            uploaduser:
-                type: str
-                description: User account in upload server.
-            uploadzip:
-                type: str
-                description:
-                    - Compress upload logs.
-                    - disable - Upload log files as plain text.
-                    - enable - Upload log files compressed.
-                choices: ['disable', 'enable']
-            log_disk_quota:
-                aliases: ['log-disk-quota']
-                type: int
-                description: Quota for controlling local log size.
-            max_log_file_num:
-                aliases: ['max-log-file-num']
-                type: int
-                description: Maximum number of log files before rolling.
+  system_locallog_disk_setting:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      diskfull:
+        type: str
+        description:
+          - Policy to apply when disk is full.
+          - overwrite - Overwrite oldest log when disk is full.
+          - nolog - Stop logging when disk is full.
+        choices: ['overwrite', 'nolog']
+      log_disk_full_percentage:
+        aliases: ['log-disk-full-percentage']
+        type: int
+        description: Consider log disk as full at this usage percentage.
+      max_log_file_size:
+        aliases: ['max-log-file-size']
+        type: int
+        description: Maximum log file size before rolling.
+      roll_day:
+        aliases: ['roll-day']
+        type: list
+        elements: str
+        description:
+          - Days of week to roll logs.
+          - sunday - Sunday.
+          - monday - Monday.
+          - tuesday - Tuesday.
+          - wednesday - Wednesday.
+          - thursday - Thursday.
+          - friday - Friday.
+          - saturday - Saturday.
+        choices: ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday']
+      roll_schedule:
+        aliases: ['roll-schedule']
+        type: str
+        description:
+          - Frequency to check log file for rolling.
+          - none - Not scheduled.
+          - daily - Every day.
+          - weekly - Every week.
+        choices: ['none', 'daily', 'weekly']
+      roll_time:
+        aliases: ['roll-time']
+        type: raw
+        description: (list or str) Time to roll logs
+      server_type:
+        aliases: ['server-type']
+        type: str
+        description:
+          - Server type.
+          - FTP - Upload via FTP.
+          - SFTP - Upload via SFTP.
+          - SCP - Upload via SCP.
+        choices: ['FTP', 'SFTP', 'SCP']
+      severity:
+        type: str
+        description:
+          - Least severity level to log.
+          - emergency - Emergency level.
+          - alert - Alert level.
+          - critical - Critical level.
+          - error - Error level.
+          - warning - Warning level.
+          - notification - Notification level.
+          - information - Information level.
+          - debug - Debug level.
+        choices: ['emergency', 'alert', 'critical', 'error', 'warning', 'notification',
+                  'information', 'debug']
+      status:
+        type: str
+        description:
+          - Enable/disable local disk log.
+          - disable - Do not log to local disk.
+          - enable - Log to local disk.
+        choices: ['disable', 'enable']
+      upload:
+        type: str
+        description:
+          - Upload log file when rolling.
+          - disable - Disable uploading when rolling log file.
+          - enable - Enable uploading when rolling log file.
+        choices: ['disable', 'enable']
+      upload_delete_files:
+        aliases: ['upload-delete-files']
+        type: str
+        description:
+          - Delete log files after uploading
+          - disable - Do not delete log files after uploading.
+          - enable - Delete log files after uploading.
+        choices: ['disable', 'enable']
+      upload_time:
+        aliases: ['upload-time']
+        type: raw
+        description: (list or str) Time to upload logs
+      uploaddir:
+        type: str
+        description: Log file upload remote directory.
+      uploadip:
+        type: str
+        description: IP address of log uploading server.
+      uploadpass:
+        type: raw
+        description: (list) Password of user account in upload server.
+      uploadport:
+        type: int
+        description: Server port
+      uploadsched:
+        type: str
+        description:
+          - Scheduled upload
+          - disable - Upload when rolling.
+          - enable - Scheduled upload.
+        choices: ['disable', 'enable']
+      uploadtype:
+        type: list
+        elements: str
+        description:
+          - Types of log files that need to be uploaded.
+          - event - Upload event log.
+        choices: ['event']
+      uploaduser:
+        type: str
+        description: User account in upload server.
+      uploadzip:
+        type: str
+        description:
+          - Compress upload logs.
+          - disable - Upload log files as plain text.
+          - enable - Upload log files compressed.
+        choices: ['disable', 'enable']
+      log_disk_quota:
+        aliases: ['log-disk-quota']
+        type: int
+        description: Quota for controlling local log size.
+      max_log_file_num:
+        aliases: ['max-log-file-num']
+        type: int
+        description: Maximum number of log files before rolling.
+      log_rate_limit:
+        aliases: ['log-rate-limit']
+        type: int
+        description: Log rate limit.
+      log_max_days:
+        aliases: ['log-max-days']
+        type: int
+        description: Log max days.
 '''
 
 EXAMPLES = '''
@@ -194,46 +201,48 @@ EXAMPLES = '''
           # uploadzip: <value in [disable, enable]>
           # log_disk_quota: <integer>
           # max_log_file_num: <integer>
+          # log_rate_limit: <integer>
+          # log_max_days: <integer>
 '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -270,7 +279,9 @@ def main():
                 'uploaduser': {'type': 'str'},
                 'uploadzip': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'log-disk-quota': {'v_range': [['7.0.3', '']], 'type': 'int'},
-                'max-log-file-num': {'v_range': [['6.4.8', '6.4.15'], ['7.0.2', '']], 'type': 'int'}
+                'max-log-file-num': {'v_range': [['6.4.8', '6.4.15'], ['7.0.2', '']], 'type': 'int'},
+                'log-rate-limit': {'v_range': [['7.6.7', '']], 'type': 'int'},
+                'log-max-days': {'v_range': [['8.0.0', '']], 'type': 'int'}
             }
         }
     }

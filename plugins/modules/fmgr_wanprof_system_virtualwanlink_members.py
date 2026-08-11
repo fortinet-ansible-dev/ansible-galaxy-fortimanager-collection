@@ -15,74 +15,74 @@ module: fmgr_wanprof_system_virtualwanlink_members
 short_description: Physical FortiGate interfaces added to the virtual-wan-link.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    adom:
-        description: The parameter (adom) in requested url.
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  wanprof:
+    description: The parameter (wanprof) in requested url.
+    type: str
+    required: true
+  wanprof_system_virtualwanlink_members:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      _dynamic_member:
+        aliases: ['_dynamic-member']
         type: str
-        required: true
-    wanprof:
-        description: The parameter (wanprof) in requested url.
+        description: Dynamic member.
+      comment:
         type: str
+        description: Comments.
+      gateway:
+        type: str
+        description: The default gateway for this interface.
+      gateway6:
+        type: str
+        description: IPv6 gateway.
+      ingress_spillover_threshold:
+        aliases: ['ingress-spillover-threshold']
+        type: int
+        description: Ingress spillover threshold for this interface
+      interface:
+        type: str
+        description: Interface name.
+      priority:
+        type: int
+        description: Priority of the interface
+      seq_num:
+        aliases: ['seq-num']
+        type: int
+        description: Sequence number
         required: true
-    wanprof_system_virtualwanlink_members:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            _dynamic_member:
-                aliases: ['_dynamic-member']
-                type: str
-                description: Dynamic member.
-            comment:
-                type: str
-                description: Comments.
-            gateway:
-                type: str
-                description: The default gateway for this interface.
-            gateway6:
-                type: str
-                description: IPv6 gateway.
-            ingress_spillover_threshold:
-                aliases: ['ingress-spillover-threshold']
-                type: int
-                description: Ingress spillover threshold for this interface
-            interface:
-                type: str
-                description: Interface name.
-            priority:
-                type: int
-                description: Priority of the interface
-            seq_num:
-                aliases: ['seq-num']
-                type: int
-                description: Sequence number
-                required: true
-            source:
-                type: str
-                description: Source IP address used in the health-check packet to the server.
-            source6:
-                type: str
-                description: Source IPv6 address used in the health-check packet to the server.
-            spillover_threshold:
-                aliases: ['spillover-threshold']
-                type: int
-                description: Egress spillover threshold for this interface
-            status:
-                type: str
-                description: Enable/disable this interface in the SD-WAN.
-                choices: ['disable', 'enable']
-            volume_ratio:
-                aliases: ['volume-ratio']
-                type: int
-                description: Measured volume ratio
-            weight:
-                type: int
-                description: Weight of this interface for weighted load balancing.
-            cost:
-                type: int
-                description: Cost of this interface for services in SLA mode
+      source:
+        type: str
+        description: Source IP address used in the health-check packet to the server.
+      source6:
+        type: str
+        description: Source IPv6 address used in the health-check packet to the server.
+      spillover_threshold:
+        aliases: ['spillover-threshold']
+        type: int
+        description: Egress spillover threshold for this interface
+      status:
+        type: str
+        description: Enable/disable this interface in the SD-WAN.
+        choices: ['disable', 'enable']
+      volume_ratio:
+        aliases: ['volume-ratio']
+        type: int
+        description: Measured volume ratio
+      weight:
+        type: int
+        description: Weight of this interface for weighted load balancing.
+      cost:
+        type: int
+        description: Cost of this interface for services in SLA mode
 '''
 
 EXAMPLES = '''
@@ -117,42 +117,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

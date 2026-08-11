@@ -15,74 +15,74 @@ module: fmgr_firewall_sslsshprofile_ssh
 short_description: Configure SSH options.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.partial_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.partial_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  ssl-ssh-profile:
+    description: Deprecated, please use "ssl_ssh_profile"
+    type: str
+  ssl_ssh_profile:
+    description: The parameter (ssl-ssh-profile) in requested url.
+    type: str
+  firewall_sslsshprofile_ssh:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      inspect_all:
+        aliases: ['inspect-all']
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Level of SSL inspection.
+        choices: ['disable', 'deep-inspection']
+      ports:
+        type: raw
+        description: (list) Ports to use for scanning
+      ssh_algorithm:
+        aliases: ['ssh-algorithm']
         type: str
-        required: true
-    ssl-ssh-profile:
-        description: Deprecated, please use "ssl_ssh_profile"
+        description: Relative strength of encryption algorithms accepted during negotiation.
+        choices: ['compatible', 'high-encryption']
+      ssh_policy_check:
+        aliases: ['ssh-policy-check']
         type: str
-    ssl_ssh_profile:
-        description: The parameter (ssl-ssh-profile) in requested url.
+        description: Enable/disable SSH policy check.
+        choices: ['disable', 'enable']
+      ssh_tun_policy_check:
+        aliases: ['ssh-tun-policy-check']
         type: str
-    firewall_sslsshprofile_ssh:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            inspect_all:
-                aliases: ['inspect-all']
-                type: str
-                description: Level of SSL inspection.
-                choices: ['disable', 'deep-inspection']
-            ports:
-                type: raw
-                description: (list) Ports to use for scanning
-            ssh_algorithm:
-                aliases: ['ssh-algorithm']
-                type: str
-                description: Relative strength of encryption algorithms accepted during negotiation.
-                choices: ['compatible', 'high-encryption']
-            ssh_policy_check:
-                aliases: ['ssh-policy-check']
-                type: str
-                description: Enable/disable SSH policy check.
-                choices: ['disable', 'enable']
-            ssh_tun_policy_check:
-                aliases: ['ssh-tun-policy-check']
-                type: str
-                description: Enable/disable SSH tunnel policy check.
-                choices: ['disable', 'enable']
-            status:
-                type: str
-                description: Configure protocol inspection status.
-                choices: ['disable', 'deep-inspection']
-            unsupported_version:
-                aliases: ['unsupported-version']
-                type: str
-                description: Action based on SSH version being unsupported.
-                choices: ['block', 'bypass']
-            block:
-                type: list
-                elements: str
-                description: SSH blocking options.
-                choices: ['x11-filter', 'ssh-shell', 'exec', 'port-forward']
-            log:
-                type: list
-                elements: str
-                description: SSH logging options.
-                choices: ['x11-filter', 'ssh-shell', 'exec', 'port-forward']
-            proxy_after_tcp_handshake:
-                aliases: ['proxy-after-tcp-handshake']
-                type: str
-                description: Proxy traffic after the TCP 3-way handshake has been established
-                choices: ['disable', 'enable']
+        description: Enable/disable SSH tunnel policy check.
+        choices: ['disable', 'enable']
+      status:
+        type: str
+        description: Configure protocol inspection status.
+        choices: ['disable', 'deep-inspection']
+      unsupported_version:
+        aliases: ['unsupported-version']
+        type: str
+        description: Action based on SSH version being unsupported.
+        choices: ['block', 'bypass']
+      block:
+        type: list
+        elements: str
+        description: SSH blocking options.
+        choices: ['x11-filter', 'ssh-shell', 'exec', 'port-forward']
+      log:
+        type: list
+        elements: str
+        description: SSH logging options.
+        choices: ['x11-filter', 'ssh-shell', 'exec', 'port-forward']
+      proxy_after_tcp_handshake:
+        aliases: ['proxy-after-tcp-handshake']
+        type: str
+        description: Proxy traffic after the TCP 3-way handshake has been established
+        choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -111,42 +111,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

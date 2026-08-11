@@ -1287,3 +1287,71 @@ releases:
         name: fmgr_ztna_webproxy_apigateway_sslciphersuites
         namespace: ""
     release_date: "2026-05-14"
+  2.15.0:
+    changes:
+      minor_changes:
+        - Added 19 new modules.
+        - Reduced the overall project size.
+        - Supported FortiManager schemas 7.4.11, 7.6.7, 8.0.0
+      release_summary: Release fortinet.fortimanager 2.15.0
+    fragments:
+      - 2.15.0.yml
+    modules:
+      - description: Configure WEBSOCKET AntiVirus options.
+        name: fmgr_antivirus_profile_websocket
+        namespace: ""
+      - description: CASB user activity tenant session extraction.
+        name: fmgr_casb_useractivity_match_tenantsessionextraction
+        namespace: ""
+      - description: CASB user activity session extraction filters.
+        name: fmgr_casb_useractivity_match_tenantsessionextraction_filters
+        namespace: ""
+      - description: Refresh status of AP/Switch/Extender controller.
+        name: fmgr_deployment_get_controller_status
+        namespace: ""
+      - description: Define custom tag table.
+        name: fmgr_firewall_customtag
+        namespace: ""
+      - description: Configure WebSocket protocol options.
+        name: fmgr_firewall_profileprotocoloptions_websocket
+        namespace: ""
+      - description: Configure user defined IPv4 local-in policies.
+        name: fmgr_pm_config_pblock_firewall_localinpolicy
+        namespace: ""
+      - description: Configure user defined IPv6 local-in policies.
+        name: fmgr_pm_config_pblock_firewall_localinpolicy6
+        namespace: ""
+      - description: Configure fortiswitchs admin security-policy.
+        name: fmgr_switchcontroller_securitypolicy_admin
+        namespace: ""
+      - description: Backup FortiManager configuration.
+        name: fmgr_sys_backup
+        namespace: ""
+      - description: Cli system csf trusted list adom
+        name: fmgr_system_csf_trustedlist_adom
+        namespace: ""
+      - description: User aci
+        name: fmgr_user_aci
+        namespace: ""
+      - description: User azure
+        name: fmgr_user_azure
+        namespace: ""
+      - description: User azure rule
+        name: fmgr_user_azure_rule
+        namespace: ""
+      - description: User guardicore
+        name: fmgr_user_guardicore
+        namespace: ""
+      - description: Configure local users.
+        name: fmgr_user_local_dynamicmapping
+        namespace: ""
+      - description: FEC redundancy mapping table for specific type of service
+        name: fmgr_vpn_ipsec_fec_mappings_tos
+        namespace: ""
+      - description: Configure LoRaWAN profile.
+        name: fmgr_wireless_lwprofile
+        namespace: ""
+      - description: Configure ZTNA destination.
+        name: fmgr_ztna_destination
+        namespace: ""
+    release_date: "2026-08-11"

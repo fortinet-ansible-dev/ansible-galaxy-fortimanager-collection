@@ -15,100 +15,100 @@ module: fmgr_bleprofile
 short_description: Configure Bluetooth Low Energy profile.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  bleprofile:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      advertising:
+        type: list
+        elements: str
+        description: Advertising type.
+        choices: ['ibeacon', 'eddystone-uid', 'eddystone-url']
+      beacon_interval:
+        aliases: ['beacon-interval']
+        type: int
+        description: Beacon interval
+      ble_scanning:
+        aliases: ['ble-scanning']
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Enable/disable Bluetooth Low Energy
+        choices: ['disable', 'enable']
+      comment:
         type: str
+        description: Comment.
+      eddystone_instance:
+        aliases: ['eddystone-instance']
+        type: str
+        description: Eddystone instance ID.
+      eddystone_namespace:
+        aliases: ['eddystone-namespace']
+        type: str
+        description: Eddystone namespace ID.
+      eddystone_url:
+        aliases: ['eddystone-url']
+        type: str
+        description: Eddystone URL.
+      eddystone_url_encode_hex:
+        aliases: ['eddystone-url-encode-hex']
+        type: str
+        description: Eddystone encoded URL hexadecimal string
+      ibeacon_uuid:
+        aliases: ['ibeacon-uuid']
+        type: str
+        description: Universally Unique Identifier
+      major_id:
+        aliases: ['major-id']
+        type: int
+        description: Major ID.
+      minor_id:
+        aliases: ['minor-id']
+        type: int
+        description: Minor ID.
+      name:
+        type: str
+        description: Bluetooth Low Energy profile name.
         required: true
-    bleprofile:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            advertising:
-                type: list
-                elements: str
-                description: Advertising type.
-                choices: ['ibeacon', 'eddystone-uid', 'eddystone-url']
-            beacon_interval:
-                aliases: ['beacon-interval']
-                type: int
-                description: Beacon interval
-            ble_scanning:
-                aliases: ['ble-scanning']
-                type: str
-                description: Enable/disable Bluetooth Low Energy
-                choices: ['disable', 'enable']
-            comment:
-                type: str
-                description: Comment.
-            eddystone_instance:
-                aliases: ['eddystone-instance']
-                type: str
-                description: Eddystone instance ID.
-            eddystone_namespace:
-                aliases: ['eddystone-namespace']
-                type: str
-                description: Eddystone namespace ID.
-            eddystone_url:
-                aliases: ['eddystone-url']
-                type: str
-                description: Eddystone URL.
-            eddystone_url_encode_hex:
-                aliases: ['eddystone-url-encode-hex']
-                type: str
-                description: Eddystone encoded URL hexadecimal string
-            ibeacon_uuid:
-                aliases: ['ibeacon-uuid']
-                type: str
-                description: Universally Unique Identifier
-            major_id:
-                aliases: ['major-id']
-                type: int
-                description: Major ID.
-            minor_id:
-                aliases: ['minor-id']
-                type: int
-                description: Minor ID.
-            name:
-                type: str
-                description: Bluetooth Low Energy profile name.
-                required: true
-            txpower:
-                type: str
-                description: Transmit power level
-                choices: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12',
-                          '13', '14', '15', '16', '17']
-            scan_interval:
-                aliases: ['scan-interval']
-                type: int
-                description: Scan Interval
-            scan_period:
-                aliases: ['scan-period']
-                type: int
-                description: Scan Period
-            scan_threshold:
-                aliases: ['scan-threshold']
-                type: str
-                description: Minimum signal level/threshold in dBm required for the AP to report detected BLE device
-            scan_time:
-                aliases: ['scan-time']
-                type: int
-                description: Scan Time
-            scan_type:
-                aliases: ['scan-type']
-                type: str
-                description: Scan Type
-                choices: ['active', 'passive']
-            scan_window:
-                aliases: ['scan-window']
-                type: int
-                description: Scan Windows
+      txpower:
+        type: str
+        description: Transmit power level
+        choices: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14',
+                  '15', '16', '17']
+      scan_interval:
+        aliases: ['scan-interval']
+        type: int
+        description: Scan Interval
+      scan_period:
+        aliases: ['scan-period']
+        type: int
+        description: Scan Period
+      scan_threshold:
+        aliases: ['scan-threshold']
+        type: str
+        description: Minimum signal level/threshold in dBm required for the AP to report detected BLE device
+      scan_time:
+        aliases: ['scan-time']
+        type: int
+        description: Scan Time
+      scan_type:
+        aliases: ['scan-type']
+        type: str
+        description: Scan Type
+        choices: ['active', 'passive']
+      scan_window:
+        aliases: ['scan-window']
+        type: int
+        description: Scan Windows
 '''
 
 EXAMPLES = '''
@@ -146,42 +146,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

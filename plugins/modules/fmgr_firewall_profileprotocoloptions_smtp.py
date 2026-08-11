@@ -15,76 +15,76 @@ module: fmgr_firewall_profileprotocoloptions_smtp
 short_description: Configure SMTP protocol options.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.partial_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.partial_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  profile-protocol-options:
+    description: Deprecated, please use "profile_protocol_options"
+    type: str
+  profile_protocol_options:
+    description: The parameter (profile-protocol-options) in requested url.
+    type: str
+  firewall_profileprotocoloptions_smtp:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      inspect_all:
+        aliases: ['inspect-all']
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Enable/disable the inspection of all ports for the protocol.
+        choices: ['disable', 'enable']
+      options:
+        type: list
+        elements: str
+        description: One or more options that can be applied to the session.
+        choices: ['oversize', 'fragmail', 'no-content-summary', 'splice']
+      oversize_limit:
+        aliases: ['oversize-limit']
+        type: int
+        description: Maximum in-memory file size that can be scanned
+      ports:
+        type: raw
+        description: (list) Ports to scan for content
+      scan_bzip2:
+        aliases: ['scan-bzip2']
         type: str
-        required: true
-    profile-protocol-options:
-        description: Deprecated, please use "profile_protocol_options"
+        description: Enable/disable scanning of BZip2 compressed files.
+        choices: ['disable', 'enable']
+      server_busy:
+        aliases: ['server-busy']
         type: str
-    profile_protocol_options:
-        description: The parameter (profile-protocol-options) in requested url.
+        description: Enable/disable SMTP server busy when server not available.
+        choices: ['disable', 'enable']
+      status:
         type: str
-    firewall_profileprotocoloptions_smtp:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            inspect_all:
-                aliases: ['inspect-all']
-                type: str
-                description: Enable/disable the inspection of all ports for the protocol.
-                choices: ['disable', 'enable']
-            options:
-                type: list
-                elements: str
-                description: One or more options that can be applied to the session.
-                choices: ['oversize', 'fragmail', 'no-content-summary', 'splice']
-            oversize_limit:
-                aliases: ['oversize-limit']
-                type: int
-                description: Maximum in-memory file size that can be scanned
-            ports:
-                type: raw
-                description: (list) Ports to scan for content
-            scan_bzip2:
-                aliases: ['scan-bzip2']
-                type: str
-                description: Enable/disable scanning of BZip2 compressed files.
-                choices: ['disable', 'enable']
-            server_busy:
-                aliases: ['server-busy']
-                type: str
-                description: Enable/disable SMTP server busy when server not available.
-                choices: ['disable', 'enable']
-            status:
-                type: str
-                description: Enable/disable the active status of scanning for this protocol.
-                choices: ['disable', 'enable']
-            uncompressed_nest_limit:
-                aliases: ['uncompressed-nest-limit']
-                type: int
-                description: Maximum nested levels of compression that can be uncompressed and scanned
-            uncompressed_oversize_limit:
-                aliases: ['uncompressed-oversize-limit']
-                type: int
-                description: Maximum in-memory uncompressed file size that can be scanned
-            ssl_offloaded:
-                aliases: ['ssl-offloaded']
-                type: str
-                description: SSL decryption and encryption performed by an external device.
-                choices: ['no', 'yes']
-            proxy_after_tcp_handshake:
-                aliases: ['proxy-after-tcp-handshake']
-                type: str
-                description: Proxy traffic after the TCP 3-way handshake has been established
-                choices: ['disable', 'enable']
+        description: Enable/disable the active status of scanning for this protocol.
+        choices: ['disable', 'enable']
+      uncompressed_nest_limit:
+        aliases: ['uncompressed-nest-limit']
+        type: int
+        description: Maximum nested levels of compression that can be uncompressed and scanned
+      uncompressed_oversize_limit:
+        aliases: ['uncompressed-oversize-limit']
+        type: int
+        description: Maximum in-memory uncompressed file size that can be scanned
+      ssl_offloaded:
+        aliases: ['ssl-offloaded']
+        type: str
+        description: SSL decryption and encryption performed by an external device.
+        choices: ['no', 'yes']
+      proxy_after_tcp_handshake:
+        aliases: ['proxy-after-tcp-handshake']
+        type: str
+        description: Proxy traffic after the TCP 3-way handshake has been established
+        choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -114,42 +114,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

@@ -15,39 +15,39 @@ module: fmgr_devprof_log_syslogd_setting_logtemplates
 short_description: System template log syslogd setting log templates
 version_added: "2.12.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    adom:
-        description: The parameter (adom) in requested url.
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  devprof:
+    description: The parameter (devprof) in requested url.
+    type: str
+    required: true
+  devprof_log_syslogd_setting_logtemplates:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      category:
         type: str
-        required: true
-    devprof:
-        description: The parameter (devprof) in requested url.
+        description: Category.
+        choices: ['app-ctrl', 'attack', 'dlp', 'event', 'traffic', 'virus', 'voip', 'webfilter',
+                  'spam', 'anomaly', 'waf', 'dns', 'ssh', 'ssl', 'file-filter', 'icap',
+                  'virtual-patch']
+      empty_value_indicator:
+        aliases: ['empty-value-indicator']
         type: str
+        description: Empty value indicator.
+      id:
+        type: int
+        description: Id.
         required: true
-    devprof_log_syslogd_setting_logtemplates:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            category:
-                type: str
-                description: Category.
-                choices: ['app-ctrl', 'attack', 'dlp', 'event', 'traffic', 'virus', 'voip',
-                          'webfilter', 'spam', 'anomaly', 'waf', 'dns', 'ssh', 'ssl',
-                          'file-filter', 'icap', 'virtual-patch']
-            empty_value_indicator:
-                aliases: ['empty-value-indicator']
-                type: str
-                description: Empty value indicator.
-            id:
-                type: int
-                description: Id.
-                required: true
-            template:
-                type: str
-                description: Template.
+      template:
+        type: str
+        description: Template.
 '''
 
 EXAMPLES = '''
@@ -71,42 +71,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -122,19 +122,19 @@ def main():
         'adom': {'required': True, 'type': 'str'},
         'devprof': {'required': True, 'type': 'str'},
         'devprof_log_syslogd_setting_logtemplates': {
-            'type': 'dict', 'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']],
+            'type': 'dict', 'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']],
             'options': {
                 'category': {
-                    'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']],
+                    'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']],
                     'choices': [
                         'app-ctrl', 'attack', 'dlp', 'event', 'traffic', 'virus', 'voip', 'webfilter', 'spam', 'anomaly', 'waf', 'dns', 'ssh', 'ssl',
                         'file-filter', 'icap', 'virtual-patch'
                     ],
                     'type': 'str'
                 },
-                'empty-value-indicator': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'str'},
-                'id': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'required': True, 'type': 'int'},
-                'template': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'str'}
+                'empty-value-indicator': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'type': 'str'},
+                'id': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'required': True, 'type': 'int'},
+                'template': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'type': 'str'}
             }
         }
     }

@@ -15,120 +15,120 @@ module: fmgr_firewall_accessproxy_apigateway_realservers
 short_description: Select the real servers that this Access Proxy will distribute traffic to.
 version_added: "2.1.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  access-proxy:
+    description: Deprecated, please use "access_proxy"
+    type: str
+  access_proxy:
+    description: The parameter (access-proxy) in requested url.
+    type: str
+  api-gateway:
+    description: Deprecated, please use "api_gateway"
+    type: str
+  api_gateway:
+    description: The parameter (api-gateway) in requested url.
+    type: str
+  firewall_accessproxy_apigateway_realservers:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      address:
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Address or address group of the real server.
+      health_check:
+        aliases: ['health-check']
         type: str
+        description: Enable to check the responsiveness of the real server before forwarding traffic.
+        choices: ['disable', 'enable']
+      health_check_proto:
+        aliases: ['health-check-proto']
+        type: str
+        description: Protocol of the health check monitor to use when polling to determine servers connectivity status.
+        choices: ['ping', 'http', 'tcp-connect']
+      http_host:
+        aliases: ['http-host']
+        type: str
+        description: HTTP server domain name in HTTP header.
+      id:
+        type: int
+        description: Real server ID.
         required: true
-    access-proxy:
-        description: Deprecated, please use "access_proxy"
+      ip:
         type: str
-    access_proxy:
-        description: The parameter (access-proxy) in requested url.
+        description: IP address of the real server.
+      mappedport:
+        type: raw
+        description: (list or str) Port for communicating with the real server.
+      port:
+        type: int
+        description: Port for communicating with the real server.
+      status:
         type: str
-    api-gateway:
-        description: Deprecated, please use "api_gateway"
+        description: Set the status of the real server to active so that it can accept traffic, or on standby or disabled so no traffic is sent.
+        choices: ['active', 'standby', 'disable']
+      weight:
+        type: int
+        description: Weight of the real server.
+      addr_type:
+        aliases: ['addr-type']
         type: str
-    api_gateway:
-        description: The parameter (api-gateway) in requested url.
+        description: Type of address.
+        choices: ['fqdn', 'ip']
+      domain:
         type: str
-    firewall_accessproxy_apigateway_realservers:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            address:
-                type: str
-                description: Address or address group of the real server.
-            health_check:
-                aliases: ['health-check']
-                type: str
-                description: Enable to check the responsiveness of the real server before forwarding traffic.
-                choices: ['disable', 'enable']
-            health_check_proto:
-                aliases: ['health-check-proto']
-                type: str
-                description: Protocol of the health check monitor to use when polling to determine servers connectivity status.
-                choices: ['ping', 'http', 'tcp-connect']
-            http_host:
-                aliases: ['http-host']
-                type: str
-                description: HTTP server domain name in HTTP header.
-            id:
-                type: int
-                description: Real server ID.
-                required: true
-            ip:
-                type: str
-                description: IP address of the real server.
-            mappedport:
-                type: raw
-                description: (list or str) Port for communicating with the real server.
-            port:
-                type: int
-                description: Port for communicating with the real server.
-            status:
-                type: str
-                description: Set the status of the real server to active so that it can accept traffic, or on standby or disabled so no traffic is sent.
-                choices: ['active', 'standby', 'disable']
-            weight:
-                type: int
-                description: Weight of the real server.
-            addr_type:
-                aliases: ['addr-type']
-                type: str
-                description: Type of address.
-                choices: ['fqdn', 'ip']
-            domain:
-                type: str
-                description: Wildcard domain name of the real server.
-            holddown_interval:
-                aliases: ['holddown-interval']
-                type: str
-                description: Enable/disable holddown timer.
-                choices: ['disable', 'enable']
-            ssh_client_cert:
-                aliases: ['ssh-client-cert']
-                type: str
-                description: Set access-proxy SSH client certificate profile.
-            ssh_host_key:
-                aliases: ['ssh-host-key']
-                type: raw
-                description: (list or str) One or more server host key.
-            ssh_host_key_validation:
-                aliases: ['ssh-host-key-validation']
-                type: str
-                description: Enable/disable SSH real server host key validation.
-                choices: ['disable', 'enable']
-            type:
-                type: str
-                description: TCP forwarding server type.
-                choices: ['tcp-forwarding', 'ssh']
-            translate_host:
-                aliases: ['translate-host']
-                type: str
-                description: Enable/disable translation of hostname/IP from virtual server to real server.
-                choices: ['disable', 'enable']
-            external_auth:
-                aliases: ['external-auth']
-                type: str
-                description: Enable/disable use of external browser as user-agent for SAML user authentication.
-                choices: ['disable', 'enable']
-            tunnel_encryption:
-                aliases: ['tunnel-encryption']
-                type: str
-                description: Tunnel encryption.
-                choices: ['disable', 'enable']
-            verify_cert:
-                aliases: ['verify-cert']
-                type: str
-                description: Enable/disable certificate verification of the real server.
-                choices: ['disable', 'enable']
+        description: Wildcard domain name of the real server.
+      holddown_interval:
+        aliases: ['holddown-interval']
+        type: str
+        description: Enable/disable holddown timer.
+        choices: ['disable', 'enable']
+      ssh_client_cert:
+        aliases: ['ssh-client-cert']
+        type: str
+        description: Set access-proxy SSH client certificate profile.
+      ssh_host_key:
+        aliases: ['ssh-host-key']
+        type: raw
+        description: (list or str) One or more server host key.
+      ssh_host_key_validation:
+        aliases: ['ssh-host-key-validation']
+        type: str
+        description: Enable/disable SSH real server host key validation.
+        choices: ['disable', 'enable']
+      type:
+        type: str
+        description: TCP forwarding server type.
+        choices: ['tcp-forwarding', 'ssh']
+      translate_host:
+        aliases: ['translate-host']
+        type: str
+        description: Enable/disable translation of hostname/IP from virtual server to real server.
+        choices: ['disable', 'enable']
+      external_auth:
+        aliases: ['external-auth']
+        type: str
+        description: Enable/disable use of external browser as user-agent for SAML user authentication.
+        choices: ['disable', 'enable']
+      tunnel_encryption:
+        aliases: ['tunnel-encryption']
+        type: str
+        description: Tunnel encryption.
+        choices: ['disable', 'enable']
+      verify_cert:
+        aliases: ['verify-cert']
+        type: str
+        description: Enable/disable certificate verification of the real server.
+        choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -170,42 +170,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -248,7 +248,7 @@ def main():
                 'translate-host': {'v_range': [['7.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'external-auth': {'v_range': [['7.4.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'tunnel-encryption': {'v_range': [['7.4.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'verify-cert': {'v_range': [['7.4.8', '7.4.10'], ['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'verify-cert': {'v_range': [['7.4.8', '7.4.11'], ['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

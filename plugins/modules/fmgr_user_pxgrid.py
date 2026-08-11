@@ -15,44 +15,44 @@ module: fmgr_user_pxgrid
 short_description: User pxgrid
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  user_pxgrid:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      ca_cert:
+        aliases: ['ca-cert']
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Ca cert.
+      client_cert:
+        aliases: ['client-cert']
         type: str
+        description: Client cert.
+      name:
+        type: str
+        description: Name.
         required: true
-    user_pxgrid:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            ca_cert:
-                aliases: ['ca-cert']
-                type: str
-                description: Ca cert.
-            client_cert:
-                aliases: ['client-cert']
-                type: str
-                description: Client cert.
-            name:
-                type: str
-                description: Name.
-                required: true
-            server:
-                type: str
-                description: Server.
-            status:
-                type: str
-                description: Status.
-                choices: ['disable', 'enable']
-            secondary_server:
-                aliases: ['secondary-server']
-                type: str
-                description: Secondary server.
+      server:
+        type: str
+        description: Server.
+      status:
+        type: str
+        description: Status.
+        choices: ['disable', 'enable']
+      secondary_server:
+        aliases: ['secondary-server']
+        type: str
+        description: Secondary server.
 '''
 
 EXAMPLES = '''
@@ -77,42 +77,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -136,7 +136,7 @@ def main():
                 'name': {'required': True, 'type': 'str'},
                 'server': {'type': 'str'},
                 'status': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'secondary-server': {'v_range': [['7.4.7', '7.4.10'], ['7.6.3', '']], 'type': 'str'}
+                'secondary-server': {'v_range': [['7.4.7', '7.4.11'], ['7.6.3', '']], 'type': 'str'}
             }
         }
     }

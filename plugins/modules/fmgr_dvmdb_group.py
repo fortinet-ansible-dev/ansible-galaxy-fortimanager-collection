@@ -15,47 +15,47 @@ module: fmgr_dvmdb_group
 short_description: Device group table.
 version_added: "1.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    adom:
-        description: The parameter (adom) in requested url.
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  dvmdb_group:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      desc:
         type: str
-        required: true
-    dvmdb_group:
-        description: The top level parameters set.
-        required: false
+        description: Desc.
+      meta_fields:
+        aliases: ['meta fields']
         type: dict
-        suboptions:
-            desc:
-                type: str
-                description: Desc.
-            meta_fields:
-                aliases: ['meta fields']
-                type: dict
-                description: Default metafields
-            name:
-                type: str
-                description: Name.
-                required: true
-            os_type:
-                type: str
-                description: Os type.
-                choices: ['unknown', 'fos', 'fsw', 'foc', 'fml', 'faz', 'fwb', 'fch', 'fct',
-                          'log', 'fmg', 'fsa', 'fdd', 'fac', 'fpx', 'fna', 'fdc', 'ffw', 'fsr',
-                          'fad', 'fap', 'fxt', 'fts', 'fai', 'fwc', 'fis', 'fed', 'fpa', 'fca',
-                          'ftc', 'fss', 'fra', 'sim']
-            type:
-                type: str
-                description: Type.
-                choices: ['normal', 'default', 'auto', 'cluster', 'fabric']
-            id:
-                type: str
-                description: Id.
-            cluster_type:
-                type: str
-                description: Cluster type.
-                choices: ['unknown', 'vwan', 'sase', 'ums_aws', 'ums_azure', 'ums_gcp']
+        description: Default metafields
+      name:
+        type: str
+        description: Name.
+        required: true
+      os_type:
+        type: str
+        description: Os type.
+        choices: ['unknown', 'fos', 'fsw', 'foc', 'fml', 'faz', 'fwb', 'fch', 'fct', 'log', 'fmg',
+                  'fsa', 'fdd', 'fac', 'fpx', 'fna', 'fdc', 'ffw', 'fsr', 'fad', 'fap', 'fxt',
+                  'fts', 'fai', 'fwc', 'fis', 'fed', 'fpa', 'fca', 'ftc', 'fss', 'fra', 'sim',
+                  'fdt']
+      type:
+        type: str
+        description: Type.
+        choices: ['normal', 'default', 'auto', 'cluster', 'fabric']
+      id:
+        type: str
+        description: Id.
+      cluster_type:
+        type: str
+        description: Cluster type.
+        choices: ['unknown', 'vwan', 'sase', 'ums_aws', 'ums_azure', 'ums_gcp']
 '''
 
 EXAMPLES = '''
@@ -99,42 +99,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -158,7 +158,7 @@ def main():
                 'os_type': {
                     'choices': [
                         'unknown', 'fos', 'fsw', 'foc', 'fml', 'faz', 'fwb', 'fch', 'fct', 'log', 'fmg', 'fsa', 'fdd', 'fac', 'fpx', 'fna', 'fdc', 'ffw',
-                        'fsr', 'fad', 'fap', 'fxt', 'fts', 'fai', 'fwc', 'fis', 'fed', 'fpa', 'fca', 'ftc', 'fss', 'fra', 'sim'
+                        'fsr', 'fad', 'fap', 'fxt', 'fts', 'fai', 'fwc', 'fis', 'fed', 'fpa', 'fca', 'ftc', 'fss', 'fra', 'sim', 'fdt'
                     ],
                     'type': 'str'
                 },

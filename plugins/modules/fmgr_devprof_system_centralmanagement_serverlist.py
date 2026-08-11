@@ -15,48 +15,48 @@ module: fmgr_devprof_system_centralmanagement_serverlist
 short_description: Additional severs that the FortiGate can use for updates
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    adom:
-        description: The parameter (adom) in requested url.
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  devprof:
+    description: The parameter (devprof) in requested url.
+    type: str
+    required: true
+  devprof_system_centralmanagement_serverlist:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      addr_type:
+        aliases: ['addr-type']
         type: str
-        required: true
-    devprof:
-        description: The parameter (devprof) in requested url.
+        description: Indicate whether the FortiGate communicates with the override server using an IPv4 address, an IPv6 address or a FQDN.
+        choices: ['fqdn', 'ipv4', 'ipv6']
+      fqdn:
         type: str
+        description: FQDN address of override server.
+      id:
+        type: int
+        description: ID.
         required: true
-    devprof_system_centralmanagement_serverlist:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            addr_type:
-                aliases: ['addr-type']
-                type: str
-                description: Indicate whether the FortiGate communicates with the override server using an IPv4 address, an IPv6 address or a FQDN.
-                choices: ['fqdn', 'ipv4', 'ipv6']
-            fqdn:
-                type: str
-                description: FQDN address of override server.
-            id:
-                type: int
-                description: ID.
-                required: true
-            server_address:
-                aliases: ['server-address']
-                type: str
-                description: IPv4 address of override server.
-            server_address6:
-                aliases: ['server-address6']
-                type: str
-                description: IPv6 address of override server.
-            server_type:
-                aliases: ['server-type']
-                type: list
-                elements: str
-                description: FortiGuard service type.
-                choices: ['update', 'rating', 'iot-query', 'iot-collect', 'vpatch-query']
+      server_address:
+        aliases: ['server-address']
+        type: str
+        description: IPv4 address of override server.
+      server_address6:
+        aliases: ['server-address6']
+        type: str
+        description: IPv6 address of override server.
+      server_type:
+        aliases: ['server-type']
+        type: list
+        elements: str
+        description: FortiGuard service type.
+        choices: ['update', 'rating', 'iot-query', 'iot-collect', 'vpatch-query', 'iotv-query']
 '''
 
 EXAMPLES = '''
@@ -103,42 +103,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -164,7 +164,7 @@ def main():
                 'server-type': {
                     'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '']],
                     'type': 'list',
-                    'choices': ['update', 'rating', 'iot-query', 'iot-collect', 'vpatch-query'],
+                    'choices': ['update', 'rating', 'iot-query', 'iot-collect', 'vpatch-query', 'iotv-query'],
                     'elements': 'str'
                 }
             }

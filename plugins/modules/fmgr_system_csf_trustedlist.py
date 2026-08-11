@@ -15,115 +15,134 @@ module: fmgr_system_csf_trustedlist
 short_description: Pre-authorized and blocked security fabric nodes.
 version_added: "2.3.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    system_csf_trustedlist:
-        description: The top level parameters set.
-        required: false
-        type: dict
+  system_csf_trustedlist:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      action:
+        type: str
+        description:
+          - Security fabric authorization action.
+          - accept - Accept authorization request.
+          - deny - Deny authorization request.
+        choices: ['accept', 'deny']
+      authorization_type:
+        aliases: ['authorization-type']
+        type: str
+        description:
+          - Authorization type.
+          - serial - Verify downstream by serial number.
+          - certificate - Verify downstream by certificate.
+        choices: ['serial', 'certificate']
+      certificate:
+        type: str
+        description: Certificate.
+      downstream_authorization:
+        aliases: ['downstream-authorization']
+        type: str
+        description:
+          - Trust authorizations by this node&apos;s administrator.
+          - disable - Disable downstream authorization.
+          - enable - Enable downstream authorization.
+        choices: ['disable', 'enable']
+      ha_members:
+        aliases: ['ha-members']
+        type: str
+        description: HA members.
+      index:
+        type: int
+        description: Index of the downstream in tree.
+      name:
+        type: str
+        description: Name.
+        required: true
+      serial:
+        type: str
+        description: Serial.
+      adom:
+        type: list
+        elements: dict
+        description: Adom.
         suboptions:
-            action:
-                type: str
-                description:
-                    - Security fabric authorization action.
-                    - accept - Accept authorization request.
-                    - deny - Deny authorization request.
-                choices: ['accept', 'deny']
-            authorization_type:
-                aliases: ['authorization-type']
-                type: str
-                description:
-                    - Authorization type.
-                    - serial - Verify downstream by serial number.
-                    - certificate - Verify downstream by certificate.
-                choices: ['serial', 'certificate']
-            certificate:
-                type: str
-                description: Certificate.
-            downstream_authorization:
-                aliases: ['downstream-authorization']
-                type: str
-                description:
-                    - Trust authorizations by this node&apos;s administrator.
-                    - disable - Disable downstream authorization.
-                    - enable - Enable downstream authorization.
-                choices: ['disable', 'enable']
-            ha_members:
-                aliases: ['ha-members']
-                type: str
-                description: HA members.
-            index:
-                type: int
-                description: Index of the downstream in tree.
-            name:
-                type: str
-                description: Name.
-                required: true
-            serial:
-                type: str
-                description: Serial.
+          adom_name:
+            aliases: ['adom-name']
+            type: str
+            description: Adom name.
+      adom_access:
+        aliases: ['adom-access']
+        type: str
+        description: Adom access.
+        choices: ['all', 'specify']
 '''
 
 EXAMPLES = '''
-- name: Example playbook (generated based on argument schema)
+- name: Test CSF trusted-list ADOM settings
   hosts: fortimanagers
   connection: httpapi
   gather_facts: false
   tasks:
-    - name: Pre-authorized and blocked security fabric nodes.
+    - name: Create the parent CSF trusted-list entry
       fortinet.fortimanager.fmgr_system_csf_trustedlist:
-        # workspace_locking_adom: <global or your adom name>
-        state: present # <value in [present, absent]>
+        enable_log: true
+        state: present
         system_csf_trustedlist:
-          name: "your value" # Required variable, string
-          # action: <value in [accept, deny]>
-          # authorization_type: <value in [serial, certificate]>
-          # certificate: <string>
-          # downstream_authorization: <value in [disable, enable]>
-          # ha_members: <string>
-          # index: <integer>
-          # serial: <string>
+          name: "1"
+          action: accept
+          adom_access: specify
+          authorization_type: serial
+          serial: test_device
+
+    - name: Configure a CSF trusted-list ADOM
+      fortinet.fortimanager.fmgr_system_csf_trustedlist_adom:
+        enable_log: true
+        trusted_list: "1"
+        state: present
+        system_csf_trustedlist_adom:
+          adom_name: root
 '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -146,7 +165,14 @@ def main():
                 'ha-members': {'v_range': [['7.4.1', '']], 'type': 'str'},
                 'index': {'v_range': [['7.4.1', '']], 'type': 'int'},
                 'name': {'v_range': [['7.4.1', '']], 'required': True, 'type': 'str'},
-                'serial': {'v_range': [['7.4.1', '']], 'type': 'str'}
+                'serial': {'v_range': [['7.4.1', '']], 'type': 'str'},
+                'adom': {
+                    'v_range': [['7.6.7', '']],
+                    'type': 'list',
+                    'options': {'adom-name': {'v_range': [['7.6.7', '']], 'type': 'str'}},
+                    'elements': 'dict'
+                },
+                'adom-access': {'v_range': [['7.6.7', '']], 'choices': ['all', 'specify'], 'type': 'str'}
             }
         }
     }

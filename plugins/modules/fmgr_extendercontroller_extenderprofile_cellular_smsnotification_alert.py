@@ -15,55 +15,55 @@ module: fmgr_extendercontroller_extenderprofile_cellular_smsnotification_alert
 short_description: SMS alert list.
 version_added: "2.1.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.partial_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.partial_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  extender-profile:
+    description: Deprecated, please use "extender_profile"
+    type: str
+  extender_profile:
+    description: The parameter (extender-profile) in requested url.
+    type: str
+  extendercontroller_extenderprofile_cellular_smsnotification_alert:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      data_exhausted:
+        aliases: ['data-exhausted']
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Display string when data exhausted.
+      fgt_backup_mode_switch:
+        aliases: ['fgt-backup-mode-switch']
         type: str
-        required: true
-    extender-profile:
-        description: Deprecated, please use "extender_profile"
+        description: Display string when FortiGate backup mode switched.
+      low_signal_strength:
+        aliases: ['low-signal-strength']
         type: str
-    extender_profile:
-        description: The parameter (extender-profile) in requested url.
+        description: Display string when signal strength is low.
+      mode_switch:
+        aliases: ['mode-switch']
         type: str
-    extendercontroller_extenderprofile_cellular_smsnotification_alert:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            data_exhausted:
-                aliases: ['data-exhausted']
-                type: str
-                description: Display string when data exhausted.
-            fgt_backup_mode_switch:
-                aliases: ['fgt-backup-mode-switch']
-                type: str
-                description: Display string when FortiGate backup mode switched.
-            low_signal_strength:
-                aliases: ['low-signal-strength']
-                type: str
-                description: Display string when signal strength is low.
-            mode_switch:
-                aliases: ['mode-switch']
-                type: str
-                description: Display string when mode is switched.
-            os_image_fallback:
-                aliases: ['os-image-fallback']
-                type: str
-                description: Display string when falling back to a previous OS image.
-            session_disconnect:
-                aliases: ['session-disconnect']
-                type: str
-                description: Display string when session disconnected.
-            system_reboot:
-                aliases: ['system-reboot']
-                type: str
-                description: Display string when system rebooted.
+        description: Display string when mode is switched.
+      os_image_fallback:
+        aliases: ['os-image-fallback']
+        type: str
+        description: Display string when falling back to a previous OS image.
+      session_disconnect:
+        aliases: ['session-disconnect']
+        type: str
+        description: Display string when session disconnected.
+      system_reboot:
+        aliases: ['system-reboot']
+        type: str
+        description: Display string when system rebooted.
 '''
 
 EXAMPLES = '''
@@ -89,42 +89,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

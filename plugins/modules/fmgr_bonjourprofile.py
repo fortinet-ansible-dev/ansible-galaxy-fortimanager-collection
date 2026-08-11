@@ -15,61 +15,60 @@ module: fmgr_bonjourprofile
 short_description: Configure Bonjour profiles.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  bonjourprofile:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      comment:
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Comment.
+      name:
         type: str
+        description: Bonjour profile name.
         required: true
-    bonjourprofile:
-        description: The top level parameters set.
-        required: false
-        type: dict
+      policy_list:
+        aliases: ['policy-list']
+        type: list
+        elements: dict
+        description: Policy list.
         suboptions:
-            comment:
-                type: str
-                description: Comment.
-            name:
-                type: str
-                description: Bonjour profile name.
-                required: true
-            policy_list:
-                aliases: ['policy-list']
-                type: list
-                elements: dict
-                description: Policy list.
-                suboptions:
-                    description:
-                        type: str
-                        description: Description.
-                    from_vlan:
-                        aliases: ['from-vlan']
-                        type: str
-                        description: VLAN ID from which the Bonjour service is advertised
-                    policy_id:
-                        aliases: ['policy-id']
-                        type: int
-                        description: Policy ID.
-                    services:
-                        type: list
-                        elements: str
-                        description: Bonjour services for the VLAN connecting to the Bonjour network.
-                        choices: ['airplay', 'afp', 'bit-torrent', 'ftp', 'ichat', 'itunes',
-                                  'printers', 'samba', 'scanners', 'ssh', 'chromecast', 'all',
-                                  'miracast']
-                    to_vlan:
-                        aliases: ['to-vlan']
-                        type: str
-                        description: VLAN ID to which the Bonjour service is made available
-            micro_location:
-                aliases: ['micro-location']
-                type: str
-                description: Enable/disable Micro location for Bonjour profile
-                choices: ['disable', 'enable']
+          description:
+            type: str
+            description: Description.
+          from_vlan:
+            aliases: ['from-vlan']
+            type: str
+            description: VLAN ID from which the Bonjour service is advertised
+          policy_id:
+            aliases: ['policy-id']
+            type: int
+            description: Policy ID.
+          services:
+            type: list
+            elements: str
+            description: Bonjour services for the VLAN connecting to the Bonjour network.
+            choices: ['airplay', 'afp', 'bit-torrent', 'ftp', 'ichat', 'itunes', 'printers',
+                      'samba', 'scanners', 'ssh', 'chromecast', 'all', 'miracast']
+          to_vlan:
+            aliases: ['to-vlan']
+            type: str
+            description: VLAN ID to which the Bonjour service is made available
+      micro_location:
+        aliases: ['micro-location']
+        type: str
+        description: Enable/disable Micro location for Bonjour profile
+        choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -98,42 +97,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

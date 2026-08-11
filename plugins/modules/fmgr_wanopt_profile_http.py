@@ -15,80 +15,80 @@ module: fmgr_wanopt_profile_http
 short_description: Enable/disable HTTP WAN Optimization and configure HTTP WAN Optimization features.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.partial_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.partial_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  profile:
+    description: The parameter (profile) in requested url.
+    type: str
+    required: true
+  wanopt_profile_http:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      byte_caching:
+        aliases: ['byte-caching']
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Enable/disable byte-caching for HTTP.
+        choices: ['disable', 'enable']
+      log_traffic:
+        aliases: ['log-traffic']
         type: str
-        required: true
-    profile:
-        description: The parameter (profile) in requested url.
+        description: Enable/disable logging.
+        choices: ['disable', 'enable']
+      port:
+        type: raw
+        description: (list) Single port number or port number range for HTTP.
+      prefer_chunking:
+        aliases: ['prefer-chunking']
         type: str
-        required: true
-    wanopt_profile_http:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            byte_caching:
-                aliases: ['byte-caching']
-                type: str
-                description: Enable/disable byte-caching for HTTP.
-                choices: ['disable', 'enable']
-            log_traffic:
-                aliases: ['log-traffic']
-                type: str
-                description: Enable/disable logging.
-                choices: ['disable', 'enable']
-            port:
-                type: raw
-                description: (list) Single port number or port number range for HTTP.
-            prefer_chunking:
-                aliases: ['prefer-chunking']
-                type: str
-                description: Select dynamic or fixed-size data chunking for HTTP WAN Optimization.
-                choices: ['dynamic', 'fix']
-            secure_tunnel:
-                aliases: ['secure-tunnel']
-                type: str
-                description: Enable/disable securing the WAN Opt tunnel using SSL.
-                choices: ['disable', 'enable']
-            ssl:
-                type: str
-                description: Enable/disable SSL/TLS offloading
-                choices: ['disable', 'enable']
-            ssl_port:
-                aliases: ['ssl-port']
-                type: raw
-                description: (list) Port on which to expect HTTPS traffic for SSL/TLS offloading.
-            status:
-                type: str
-                description: Enable/disable HTTP WAN Optimization.
-                choices: ['disable', 'enable']
-            tunnel_non_http:
-                aliases: ['tunnel-non-http']
-                type: str
-                description: Configure how to process non-HTTP traffic when a profile configured for HTTP traffic accepts a non-HTTP session.
-                choices: ['disable', 'enable']
-            tunnel_sharing:
-                aliases: ['tunnel-sharing']
-                type: str
-                description: Tunnel sharing mode for aggressive/non-aggressive and/or interactive/non-interactive protocols.
-                choices: ['private', 'shared', 'express-shared']
-            unknown_http_version:
-                aliases: ['unknown-http-version']
-                type: str
-                description: How to handle HTTP sessions that do not comply with HTTP 0.
-                choices: ['best-effort', 'reject', 'tunnel']
-            protocol_opt:
-                aliases: ['protocol-opt']
-                type: str
-                description: Select Protocol specific optimitation or generic TCP optimization.
-                choices: ['protocol', 'tcp']
+        description: Select dynamic or fixed-size data chunking for HTTP WAN Optimization.
+        choices: ['dynamic', 'fix']
+      secure_tunnel:
+        aliases: ['secure-tunnel']
+        type: str
+        description: Enable/disable securing the WAN Opt tunnel using SSL.
+        choices: ['disable', 'enable']
+      ssl:
+        type: str
+        description: Enable/disable SSL/TLS offloading
+        choices: ['disable', 'enable']
+      ssl_port:
+        aliases: ['ssl-port']
+        type: raw
+        description: (list) Port on which to expect HTTPS traffic for SSL/TLS offloading.
+      status:
+        type: str
+        description: Enable/disable HTTP WAN Optimization.
+        choices: ['disable', 'enable']
+      tunnel_non_http:
+        aliases: ['tunnel-non-http']
+        type: str
+        description: Configure how to process non-HTTP traffic when a profile configured for HTTP traffic accepts a non-HTTP session.
+        choices: ['disable', 'enable']
+      tunnel_sharing:
+        aliases: ['tunnel-sharing']
+        type: str
+        description: Tunnel sharing mode for aggressive/non-aggressive and/or interactive/non-interactive protocols.
+        choices: ['private', 'shared', 'express-shared']
+      unknown_http_version:
+        aliases: ['unknown-http-version']
+        type: str
+        description: How to handle HTTP sessions that do not comply with HTTP 0.
+        choices: ['best-effort', 'reject', 'tunnel']
+      protocol_opt:
+        aliases: ['protocol-opt']
+        type: str
+        description: Select Protocol specific optimitation or generic TCP optimization.
+        choices: ['protocol', 'tcp']
 '''
 
 EXAMPLES = '''
@@ -119,42 +119,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

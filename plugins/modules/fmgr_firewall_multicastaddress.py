@@ -15,71 +15,80 @@ module: fmgr_firewall_multicastaddress
 short_description: Configure multicast addresses.
 version_added: "1.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  firewall_multicastaddress:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      associated_interface:
+        aliases: ['associated-interface']
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Interface associated with the address object.
+      color:
+        type: int
+        description: Integer value to determine the color of the icon in the GUI
+      comment:
         type: str
+        description: Comment.
+      end_ip:
+        aliases: ['end-ip']
+        type: str
+        description: Final IPv4 address
+      name:
+        type: str
+        description: Multicast address name.
         required: true
-    firewall_multicastaddress:
-        description: The top level parameters set.
-        required: false
-        type: dict
+      start_ip:
+        aliases: ['start-ip']
+        type: str
+        description: First IPv4 address
+      subnet:
+        type: str
+        description: Broadcast address and subnet.
+      tagging:
+        type: list
+        elements: dict
+        description: Tagging.
         suboptions:
-            associated_interface:
-                aliases: ['associated-interface']
-                type: str
-                description: Interface associated with the address object.
-            color:
-                type: int
-                description: Integer value to determine the color of the icon in the GUI
-            comment:
-                type: str
-                description: Comment.
-            end_ip:
-                aliases: ['end-ip']
-                type: str
-                description: Final IPv4 address
-            name:
-                type: str
-                description: Multicast address name.
-                required: true
-            start_ip:
-                aliases: ['start-ip']
-                type: str
-                description: First IPv4 address
-            subnet:
-                type: str
-                description: Broadcast address and subnet.
-            tagging:
-                type: list
-                elements: dict
-                description: Tagging.
-                suboptions:
-                    category:
-                        type: str
-                        description: Tag category.
-                    name:
-                        type: str
-                        description: Tagging entry name.
-                    tags:
-                        type: raw
-                        description: (list) Tags.
-            type:
-                type: str
-                description: Type of address object
-                choices: ['multicastrange', 'broadcastmask']
-            visibility:
-                type: str
-                description: Enable/disable visibility of the multicast address on the GUI.
-                choices: ['disable', 'enable']
-            tags:
-                type: str
-                description: Names of object-tags
+          category:
+            type: str
+            description: Tag category.
+          name:
+            type: str
+            description: Tagging entry name.
+          tags:
+            type: raw
+            description: (list) Tags.
+      type:
+        type: str
+        description: Type of address object
+        choices: ['multicastrange', 'broadcastmask']
+      visibility:
+        type: str
+        description: Enable/disable visibility of the multicast address on the GUI.
+        choices: ['disable', 'enable']
+      tags:
+        type: str
+        description: Names of object-tags
+      custom_tags:
+        aliases: ['custom-tags']
+        type: raw
+        description: (list) Custom tags.
+      display_with:
+        aliases: ['display-with']
+        type: str
+        description: Display object with first tag, all tags, or just the icon.
+        choices: ['all-tags', 'first-tag-only', 'icon-and-color']
 '''
 
 EXAMPLES = '''
@@ -125,42 +134,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -193,7 +202,9 @@ def main():
                 },
                 'type': {'choices': ['multicastrange', 'broadcastmask'], 'type': 'str'},
                 'visibility': {'v_range': [['6.0.0', '7.6.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'tags': {'v_range': [['6.2.0', '6.4.15']], 'type': 'str'}
+                'tags': {'v_range': [['6.2.0', '6.4.15']], 'type': 'str'},
+                'custom-tags': {'v_range': [['8.0.0', '']], 'type': 'raw'},
+                'display-with': {'v_range': [['8.0.0', '']], 'choices': ['all-tags', 'first-tag-only', 'icon-and-color'], 'type': 'str'}
             }
         }
     }

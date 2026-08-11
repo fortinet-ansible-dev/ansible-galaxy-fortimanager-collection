@@ -15,94 +15,94 @@ module: fmgr_system_snmp_user
 short_description: SNMP user configuration.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    system_snmp_user:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            auth_proto:
-                aliases: ['auth-proto']
-                type: str
-                description:
-                    - Authentication protocol.
-                    - md5 - HMAC-MD5-96 authentication protocol.
-                    - sha - HMAC-SHA-96 authentication protocol.
-                choices: ['md5', 'sha', 'sha224', 'sha256', 'sha384', 'sha512']
-            auth_pwd:
-                aliases: ['auth-pwd']
-                type: raw
-                description: (list) Password for authentication protocol.
-            events:
-                type: list
-                elements: str
-                description:
-                    - SNMP notifications
-                    - disk_low - Disk usage too high.
-                    - ha_switch - HA switch.
-                    - intf_ip_chg - Interface IP address changed.
-                    - sys_reboot - System reboot.
-                    - cpu_high - CPU usage too high.
-                    - mem_low - Available memory is low.
-                    - log-alert - Log base alert message.
-                    - log-rate - High incoming log rate detected.
-                    - log-data-rate - High incoming log data rate detected.
-                    - lic-gbday - High licensed log GB/day detected.
-                    - lic-dev-quota - High licensed device quota detected.
-                    - cpu-high-exclude-nice - CPU usage exclude NICE threshold.
-                choices: ['disk_low', 'ha_switch', 'intf_ip_chg', 'sys_reboot', 'cpu_high',
-                          'mem_low', 'log-alert', 'log-rate', 'log-data-rate', 'lic-gbday',
-                          'lic-dev-quota', 'cpu-high-exclude-nice']
-            name:
-                type: str
-                description: SNMP user name.
-                required: true
-            notify_hosts:
-                aliases: ['notify-hosts']
-                type: str
-                description: Hosts to send notifications
-            notify_hosts6:
-                aliases: ['notify-hosts6']
-                type: str
-                description: IPv6 hosts to send notifications
-            priv_proto:
-                aliases: ['priv-proto']
-                type: str
-                description:
-                    - Privacy
-                    - aes - CFB128-AES-128 symmetric encryption protocol.
-                    - des - CBC-DES symmetric encryption protocol.
-                choices: ['aes', 'des', 'aes256', 'aes256cisco']
-            priv_pwd:
-                aliases: ['priv-pwd']
-                type: raw
-                description: (list) Password for privacy
-            queries:
-                type: str
-                description:
-                    - Enable/disable queries for this user.
-                    - disable - Disable setting.
-                    - enable - Enable setting.
-                choices: ['disable', 'enable']
-            query_port:
-                aliases: ['query-port']
-                type: int
-                description: SNMPv3 query port.
-            security_level:
-                aliases: ['security-level']
-                type: str
-                description:
-                    - Security level for message authentication and encryption.
-                    - no-auth-no-priv - Message with no authentication and no privacy
-                    - auth-no-priv - Message with authentication but no privacy
-                    - auth-priv - Message with authentication and privacy
-                choices: ['no-auth-no-priv', 'auth-no-priv', 'auth-priv']
-            notify_port:
-                aliases: ['notify-port']
-                type: int
-                description: Notify port.
+  system_snmp_user:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      auth_proto:
+        aliases: ['auth-proto']
+        type: str
+        description:
+          - Authentication protocol.
+          - md5 - HMAC-MD5-96 authentication protocol.
+          - sha - HMAC-SHA-96 authentication protocol.
+        choices: ['md5', 'sha', 'sha224', 'sha256', 'sha384', 'sha512']
+      auth_pwd:
+        aliases: ['auth-pwd']
+        type: raw
+        description: (list) Password for authentication protocol.
+      events:
+        type: list
+        elements: str
+        description:
+          - SNMP notifications
+          - disk_low - Disk usage too high.
+          - ha_switch - HA switch.
+          - intf_ip_chg - Interface IP address changed.
+          - sys_reboot - System reboot.
+          - cpu_high - CPU usage too high.
+          - mem_low - Available memory is low.
+          - log-alert - Log base alert message.
+          - log-rate - High incoming log rate detected.
+          - log-data-rate - High incoming log data rate detected.
+          - lic-gbday - High licensed log GB/day detected.
+          - lic-dev-quota - High licensed device quota detected.
+          - cpu-high-exclude-nice - CPU usage exclude NICE threshold.
+        choices: ['disk_low', 'ha_switch', 'intf_ip_chg', 'sys_reboot', 'cpu_high', 'mem_low',
+                  'log-alert', 'log-rate', 'log-data-rate', 'lic-gbday', 'lic-dev-quota',
+                  'cpu-high-exclude-nice']
+      name:
+        type: str
+        description: SNMP user name.
+        required: true
+      notify_hosts:
+        aliases: ['notify-hosts']
+        type: str
+        description: Hosts to send notifications
+      notify_hosts6:
+        aliases: ['notify-hosts6']
+        type: str
+        description: IPv6 hosts to send notifications
+      priv_proto:
+        aliases: ['priv-proto']
+        type: str
+        description:
+          - Privacy
+          - aes - CFB128-AES-128 symmetric encryption protocol.
+          - des - CBC-DES symmetric encryption protocol.
+        choices: ['aes', 'des', 'aes256', 'aes256cisco']
+      priv_pwd:
+        aliases: ['priv-pwd']
+        type: raw
+        description: (list) Password for privacy
+      queries:
+        type: str
+        description:
+          - Enable/disable queries for this user.
+          - disable - Disable setting.
+          - enable - Enable setting.
+        choices: ['disable', 'enable']
+      query_port:
+        aliases: ['query-port']
+        type: int
+        description: SNMPv3 query port.
+      security_level:
+        aliases: ['security-level']
+        type: str
+        description:
+          - Security level for message authentication and encryption.
+          - no-auth-no-priv - Message with no authentication and no privacy
+          - auth-no-priv - Message with authentication but no privacy
+          - auth-priv - Message with authentication and privacy
+        choices: ['no-auth-no-priv', 'auth-no-priv', 'auth-priv']
+      notify_port:
+        aliases: ['notify-port']
+        type: int
+        description: Notify port.
 '''
 
 EXAMPLES = '''
@@ -158,42 +158,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -227,7 +227,7 @@ def main():
                 'queries': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'query-port': {'type': 'int'},
                 'security-level': {'choices': ['no-auth-no-priv', 'auth-no-priv', 'auth-priv'], 'type': 'str'},
-                'notify-port': {'v_range': [['7.2.10', '7.2.12'], ['7.4.6', '7.4.10'], ['7.6.2', '']], 'type': 'int'}
+                'notify-port': {'v_range': [['7.2.10', '7.2.12'], ['7.4.6', '7.4.11'], ['7.6.2', '']], 'type': 'int'}
             }
         }
     }

@@ -15,62 +15,72 @@ module: fmgr_system_ntp
 short_description: NTP settings.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.partial_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.partial_crud
 options:
-    system_ntp:
-        description: The top level parameters set.
-        required: false
-        type: dict
+  system_ntp:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      ntpserver:
+        type: list
+        elements: dict
+        description: Ntpserver.
         suboptions:
-            ntpserver:
-                type: list
-                elements: dict
-                description: Ntpserver.
-                suboptions:
-                    authentication:
-                        type: str
-                        description:
-                            - Enable/disable MD5 authentication.
-                            - disable - Disable setting.
-                            - enable - Enable setting.
-                        choices: ['disable', 'enable']
-                    id:
-                        type: int
-                        description: Time server ID.
-                    key:
-                        type: raw
-                        description: (list) Key for authentication.
-                    key_id:
-                        aliases: ['key-id']
-                        type: int
-                        description: Key ID for authentication.
-                    ntpv3:
-                        type: str
-                        description:
-                            - Enable/disable NTPv3.
-                            - disable - Disable setting.
-                            - enable - Enable setting.
-                        choices: ['disable', 'enable']
-                    server:
-                        type: str
-                        description: IP address/hostname of NTP Server.
-                    maxpoll:
-                        type: int
-                        description: Maximum poll interval in seconds as power of 2
-                    minpoll:
-                        type: int
-                        description: Minimum poll interval in seconds as power of 2
-            status:
-                type: str
-                description:
-                    - Enable/disable NTP.
-                    - disable - Disable setting.
-                    - enable - Enable setting.
-                choices: ['disable', 'enable']
-            sync_interval:
-                type: int
-                description: NTP sync interval
+          authentication:
+            type: str
+            description:
+              - Enable/disable MD5 authentication.
+              - disable - Disable setting.
+              - enable - Enable setting.
+            choices: ['disable', 'enable']
+          id:
+            type: int
+            description: Time server ID.
+          key:
+            type: raw
+            description: (list) Key for authentication.
+          key_id:
+            aliases: ['key-id']
+            type: int
+            description: Key ID for authentication.
+          ntpv3:
+            type: str
+            description:
+              - Enable/disable NTPv3.
+              - disable - Disable setting.
+              - enable - Enable setting.
+            choices: ['disable', 'enable']
+          server:
+            type: str
+            description: IP address/hostname of NTP Server.
+          maxpoll:
+            type: int
+            description: Maximum poll interval in seconds as power of 2
+          minpoll:
+            type: int
+            description: Minimum poll interval in seconds as power of 2
+          key_fmt:
+            aliases: ['key-fmt']
+            type: str
+            description: Key fmt.
+            choices: ['ascii', 'hex']
+          key_type:
+            aliases: ['key-type']
+            type: str
+            description: Key type.
+            choices: ['md5', 'sha256']
+      status:
+        type: str
+        description:
+          - Enable/disable NTP.
+          - disable - Disable setting.
+          - enable - Enable setting.
+        choices: ['disable', 'enable']
+      sync_interval:
+        type: int
+        description: NTP sync interval
 '''
 
 EXAMPLES = '''
@@ -92,48 +102,50 @@ EXAMPLES = '''
           #     server: <string>
           #     maxpoll: <integer>
           #     minpoll: <integer>
+          #     key_fmt: <value in [ascii, hex]>
+          #     key_type: <value in [md5, sha256]>
           # status: <value in [disable, enable]>
           # sync_interval: <integer>
 '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -159,7 +171,9 @@ def main():
                         'ntpv3': {'choices': ['disable', 'enable'], 'type': 'str'},
                         'server': {'type': 'str'},
                         'maxpoll': {'v_range': [['6.4.8', '6.4.15'], ['7.0.3', '']], 'type': 'int'},
-                        'minpoll': {'v_range': [['6.4.8', '6.4.15'], ['7.0.3', '']], 'type': 'int'}
+                        'minpoll': {'v_range': [['6.4.8', '6.4.15'], ['7.0.3', '']], 'type': 'int'},
+                        'key-fmt': {'v_range': [['7.6.7', '']], 'choices': ['ascii', 'hex'], 'type': 'str'},
+                        'key-type': {'v_range': [['7.6.7', '']], 'choices': ['md5', 'sha256'], 'type': 'str'}
                     },
                     'elements': 'dict'
                 },

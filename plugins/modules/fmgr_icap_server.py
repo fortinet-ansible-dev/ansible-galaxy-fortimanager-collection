@@ -15,69 +15,87 @@ module: fmgr_icap_server
 short_description: Configure ICAP servers.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  icap_server:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      ip_address:
+        aliases: ['ip-address']
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: IPv4 address of the ICAP server.
+      ip_version:
+        aliases: ['ip-version']
         type: str
+        description: IP version.
+        choices: ['4', '6']
+      ip6_address:
+        aliases: ['ip6-address']
+        type: str
+        description: IPv6 address of the ICAP server.
+      max_connections:
+        aliases: ['max-connections']
+        type: int
+        description: Maximum number of concurrent connections to ICAP server.
+      name:
+        type: str
+        description: Server name.
         required: true
-    icap_server:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            ip_address:
-                aliases: ['ip-address']
-                type: str
-                description: IPv4 address of the ICAP server.
-            ip_version:
-                aliases: ['ip-version']
-                type: str
-                description: IP version.
-                choices: ['4', '6']
-            ip6_address:
-                aliases: ['ip6-address']
-                type: str
-                description: IPv6 address of the ICAP server.
-            max_connections:
-                aliases: ['max-connections']
-                type: int
-                description: Maximum number of concurrent connections to ICAP server.
-            name:
-                type: str
-                description: Server name.
-                required: true
-            port:
-                type: int
-                description: ICAP server port.
-            secure:
-                type: str
-                description: Enable/disable secure connection to ICAP server.
-                choices: ['disable', 'enable']
-            ssl_cert:
-                aliases: ['ssl-cert']
-                type: str
-                description: CA certificate name.
-            addr_type:
-                aliases: ['addr-type']
-                type: str
-                description: Address type of the remote ICAP server
-                choices: ['fqdn', 'ip4', 'ip6']
-            fqdn:
-                type: str
-                description: ICAP remote server Fully Qualified Domain Name
-            healthcheck:
-                type: str
-                description: Enable/disable ICAP remote server health checking.
-                choices: ['disable', 'enable']
-            healthcheck_service:
-                aliases: ['healthcheck-service']
-                type: str
-                description: ICAP Service name to use for health checks.
+      port:
+        type: int
+        description: ICAP server port.
+      secure:
+        type: str
+        description: Enable/disable secure connection to ICAP server.
+        choices: ['disable', 'enable']
+      ssl_cert:
+        aliases: ['ssl-cert']
+        type: str
+        description: CA certificate name.
+      addr_type:
+        aliases: ['addr-type']
+        type: str
+        description: Address type of the remote ICAP server
+        choices: ['fqdn', 'ip4', 'ip6']
+      fqdn:
+        type: str
+        description: ICAP remote server Fully Qualified Domain Name
+      healthcheck:
+        type: str
+        description: Enable/disable ICAP remote server health checking.
+        choices: ['disable', 'enable']
+      healthcheck_service:
+        aliases: ['healthcheck-service']
+        type: str
+        description: ICAP Service name to use for health checks.
+      fabric_force_sync:
+        aliases: ['fabric-force-sync']
+        type: str
+        description: Enable/disable forced synchronization of configuration objects from the root FortiGate unit to the downstream devices.
+        choices: ['disable', 'enable']
+      fabric_object:
+        aliases: ['fabric-object']
+        type: str
+        description: Security Fabric global object setting.
+        choices: ['disable', 'enable']
+      fabric_object_source:
+        aliases: ['fabric-object-source']
+        type: str
+        description: Source of truth for fabric object.
+        choices: ['member', 'local', 'root']
+      uuid:
+        type: str
+        description: Universally Unique Identifier
 '''
 
 EXAMPLES = '''
@@ -104,46 +122,50 @@ EXAMPLES = '''
           # fqdn: <string>
           # healthcheck: <value in [disable, enable]>
           # healthcheck_service: <string>
+          # fabric_force_sync: <value in [disable, enable]>
+          # fabric_object: <value in [disable, enable]>
+          # fabric_object_source: <value in [member, local, root]>
+          # uuid: <string>
 '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -173,7 +195,11 @@ def main():
                 'addr-type': {'v_range': [['7.2.0', '']], 'choices': ['fqdn', 'ip4', 'ip6'], 'type': 'str'},
                 'fqdn': {'v_range': [['7.2.0', '']], 'type': 'str'},
                 'healthcheck': {'v_range': [['7.2.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'healthcheck-service': {'v_range': [['7.2.0', '']], 'type': 'str'}
+                'healthcheck-service': {'v_range': [['7.2.0', '']], 'type': 'str'},
+                'fabric-force-sync': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'fabric-object': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'fabric-object-source': {'v_range': [['8.0.0', '']], 'choices': ['member', 'local', 'root'], 'type': 'str'},
+                'uuid': {'v_range': [['8.0.0', '']], 'type': 'str'}
             }
         }
     }

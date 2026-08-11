@@ -15,38 +15,38 @@ module: fmgr_cloud_orchestawsconnector
 short_description: Cloud orchest awsconnector
 version_added: "2.2.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  cloud_orchestawsconnector:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      access_key_id:
+        aliases: ['access-key-id']
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Access key id.
+      access_key_secret:
+        aliases: ['access-key-secret']
+        type: raw
+        description: (list) Access key secret.
+      name:
         type: str
+        description: Name.
         required: true
-    cloud_orchestawsconnector:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            access_key_id:
-                aliases: ['access-key-id']
-                type: str
-                description: Access key id.
-            access_key_secret:
-                aliases: ['access-key-secret']
-                type: raw
-                description: (list) Access key secret.
-            name:
-                type: str
-                description: Name.
-                required: true
-            use_metadata_iam:
-                aliases: ['use-metadata-iam']
-                type: str
-                description: Use metadata iam.
-                choices: ['disable', 'enable']
+      use_metadata_iam:
+        aliases: ['use-metadata-iam']
+        type: str
+        description: Use metadata iam.
+        choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -69,42 +69,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

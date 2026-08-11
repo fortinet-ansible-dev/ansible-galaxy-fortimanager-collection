@@ -15,62 +15,62 @@ module: fmgr_switchcontroller_qos_queuepolicy_cosqueue
 short_description: COS queue configuration.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  queue-policy:
+    description: Deprecated, please use "queue_policy"
+    type: str
+  queue_policy:
+    description: The parameter (queue-policy) in requested url.
+    type: str
+  switchcontroller_qos_queuepolicy_cosqueue:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      description:
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Description of the COS queue.
+      drop_policy:
+        aliases: ['drop-policy']
         type: str
+        description: COS queue drop policy.
+        choices: ['taildrop', 'weighted-random-early-detection']
+      max_rate:
+        aliases: ['max-rate']
+        type: int
+        description: Maximum rate
+      min_rate:
+        aliases: ['min-rate']
+        type: int
+        description: Minimum rate
+      name:
+        type: str
+        description: Cos queue ID.
         required: true
-    queue-policy:
-        description: Deprecated, please use "queue_policy"
+      weight:
+        type: int
+        description: Weight of weighted round robin scheduling.
+      max_rate_percent:
+        aliases: ['max-rate-percent']
+        type: int
+        description: Maximum rate
+      min_rate_percent:
+        aliases: ['min-rate-percent']
+        type: int
+        description: Minimum rate
+      ecn:
         type: str
-    queue_policy:
-        description: The parameter (queue-policy) in requested url.
-        type: str
-    switchcontroller_qos_queuepolicy_cosqueue:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            description:
-                type: str
-                description: Description of the COS queue.
-            drop_policy:
-                aliases: ['drop-policy']
-                type: str
-                description: COS queue drop policy.
-                choices: ['taildrop', 'weighted-random-early-detection']
-            max_rate:
-                aliases: ['max-rate']
-                type: int
-                description: Maximum rate
-            min_rate:
-                aliases: ['min-rate']
-                type: int
-                description: Minimum rate
-            name:
-                type: str
-                description: Cos queue ID.
-                required: true
-            weight:
-                type: int
-                description: Weight of weighted round robin scheduling.
-            max_rate_percent:
-                aliases: ['max-rate-percent']
-                type: int
-                description: Maximum rate
-            min_rate_percent:
-                aliases: ['min-rate-percent']
-                type: int
-                description: Minimum rate
-            ecn:
-                type: str
-                description: Enable/disable ECN packet marking to drop eligible packets.
-                choices: ['disable', 'enable']
+        description: Enable/disable ECN packet marking to drop eligible packets.
+        choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -99,42 +99,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

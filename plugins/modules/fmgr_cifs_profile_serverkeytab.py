@@ -15,34 +15,34 @@ module: fmgr_cifs_profile_serverkeytab
 short_description: Server keytab.
 version_added: "2.1.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  profile:
+    description: The parameter (profile) in requested url.
+    type: str
+    required: true
+  cifs_profile_serverkeytab:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      keytab:
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Base64 encoded keytab file containing credential of the server.
+      principal:
         type: str
-        required: true
-    profile:
-        description: The parameter (profile) in requested url.
-        type: str
-        required: true
-    cifs_profile_serverkeytab:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            keytab:
-                type: str
-                description: Base64 encoded keytab file containing credential of the server.
-            principal:
-                type: str
-                description: Service principal.
-            password:
-                type: raw
-                description: (list) Password for keytab.
+        description: Service principal.
+      password:
+        type: raw
+        description: (list) Password for keytab.
 '''
 
 EXAMPLES = '''
@@ -65,42 +65,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -118,11 +118,11 @@ def main():
         'profile': {'required': True, 'type': 'str'},
         'revision_note': {'type': 'str'},
         'cifs_profile_serverkeytab': {
-            'type': 'dict', 'v_range': [['6.2.0', '']], 'no_log': False,
+            'type': 'dict', 'v_range': [['6.2.0', '7.6.7']], 'no_log': False,
             'options': {
-                'keytab': {'v_range': [['6.2.0', '']], 'no_log': True, 'type': 'str'},
-                'principal': {'v_range': [['6.2.0', '']], 'type': 'str'},
-                'password': {'v_range': [['6.2.2', '']], 'no_log': True, 'type': 'raw'}
+                'keytab': {'v_range': [['6.2.0', '7.6.7']], 'no_log': True, 'type': 'str'},
+                'principal': {'v_range': [['6.2.0', '7.6.7']], 'type': 'str'},
+                'password': {'v_range': [['6.2.2', '7.6.7']], 'no_log': True, 'type': 'raw'}
             }
         }
     }

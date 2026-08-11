@@ -15,117 +15,117 @@ module: fmgr_wtpprofile_lan
 short_description: WTP LAN port mapping.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.partial_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.partial_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  wtp-profile:
+    description: Deprecated, please use "wtp_profile"
+    type: str
+  wtp_profile:
+    description: The parameter (wtp-profile) in requested url.
+    type: str
+  wtpprofile_lan:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      port_mode:
+        aliases: ['port-mode']
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: LAN port mode.
+        choices: ['offline', 'bridge-to-wan', 'bridge-to-ssid', 'nat-to-wan']
+      port_ssid:
+        aliases: ['port-ssid']
         type: str
-        required: true
-    wtp-profile:
-        description: Deprecated, please use "wtp_profile"
+        description: Bridge LAN port to SSID.
+      port1_mode:
+        aliases: ['port1-mode']
         type: str
-    wtp_profile:
-        description: The parameter (wtp-profile) in requested url.
+        description: LAN port 1 mode.
+        choices: ['offline', 'bridge-to-wan', 'bridge-to-ssid', 'nat-to-wan']
+      port1_ssid:
+        aliases: ['port1-ssid']
         type: str
-    wtpprofile_lan:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            port_mode:
-                aliases: ['port-mode']
-                type: str
-                description: LAN port mode.
-                choices: ['offline', 'bridge-to-wan', 'bridge-to-ssid', 'nat-to-wan']
-            port_ssid:
-                aliases: ['port-ssid']
-                type: str
-                description: Bridge LAN port to SSID.
-            port1_mode:
-                aliases: ['port1-mode']
-                type: str
-                description: LAN port 1 mode.
-                choices: ['offline', 'bridge-to-wan', 'bridge-to-ssid', 'nat-to-wan']
-            port1_ssid:
-                aliases: ['port1-ssid']
-                type: str
-                description: Bridge LAN port 1 to SSID.
-            port2_mode:
-                aliases: ['port2-mode']
-                type: str
-                description: LAN port 2 mode.
-                choices: ['offline', 'bridge-to-wan', 'bridge-to-ssid', 'nat-to-wan']
-            port2_ssid:
-                aliases: ['port2-ssid']
-                type: str
-                description: Bridge LAN port 2 to SSID.
-            port3_mode:
-                aliases: ['port3-mode']
-                type: str
-                description: LAN port 3 mode.
-                choices: ['offline', 'bridge-to-wan', 'bridge-to-ssid', 'nat-to-wan']
-            port3_ssid:
-                aliases: ['port3-ssid']
-                type: str
-                description: Bridge LAN port 3 to SSID.
-            port4_mode:
-                aliases: ['port4-mode']
-                type: str
-                description: LAN port 4 mode.
-                choices: ['offline', 'bridge-to-wan', 'bridge-to-ssid', 'nat-to-wan']
-            port4_ssid:
-                aliases: ['port4-ssid']
-                type: str
-                description: Bridge LAN port 4 to SSID.
-            port5_mode:
-                aliases: ['port5-mode']
-                type: str
-                description: LAN port 5 mode.
-                choices: ['offline', 'bridge-to-wan', 'bridge-to-ssid', 'nat-to-wan']
-            port5_ssid:
-                aliases: ['port5-ssid']
-                type: str
-                description: Bridge LAN port 5 to SSID.
-            port6_mode:
-                aliases: ['port6-mode']
-                type: str
-                description: LAN port 6 mode.
-                choices: ['offline', 'bridge-to-wan', 'bridge-to-ssid', 'nat-to-wan']
-            port6_ssid:
-                aliases: ['port6-ssid']
-                type: str
-                description: Bridge LAN port 6 to SSID.
-            port7_mode:
-                aliases: ['port7-mode']
-                type: str
-                description: LAN port 7 mode.
-                choices: ['offline', 'bridge-to-wan', 'bridge-to-ssid', 'nat-to-wan']
-            port7_ssid:
-                aliases: ['port7-ssid']
-                type: str
-                description: Bridge LAN port 7 to SSID.
-            port8_mode:
-                aliases: ['port8-mode']
-                type: str
-                description: LAN port 8 mode.
-                choices: ['offline', 'bridge-to-wan', 'bridge-to-ssid', 'nat-to-wan']
-            port8_ssid:
-                aliases: ['port8-ssid']
-                type: str
-                description: Bridge LAN port 8 to SSID.
-            port_esl_mode:
-                aliases: ['port-esl-mode']
-                type: str
-                description: ESL port mode.
-                choices: ['offline', 'bridge-to-wan', 'bridge-to-ssid', 'nat-to-wan']
-            port_esl_ssid:
-                aliases: ['port-esl-ssid']
-                type: str
-                description: Bridge ESL port to SSID.
+        description: Bridge LAN port 1 to SSID.
+      port2_mode:
+        aliases: ['port2-mode']
+        type: str
+        description: LAN port 2 mode.
+        choices: ['offline', 'bridge-to-wan', 'bridge-to-ssid', 'nat-to-wan']
+      port2_ssid:
+        aliases: ['port2-ssid']
+        type: str
+        description: Bridge LAN port 2 to SSID.
+      port3_mode:
+        aliases: ['port3-mode']
+        type: str
+        description: LAN port 3 mode.
+        choices: ['offline', 'bridge-to-wan', 'bridge-to-ssid', 'nat-to-wan']
+      port3_ssid:
+        aliases: ['port3-ssid']
+        type: str
+        description: Bridge LAN port 3 to SSID.
+      port4_mode:
+        aliases: ['port4-mode']
+        type: str
+        description: LAN port 4 mode.
+        choices: ['offline', 'bridge-to-wan', 'bridge-to-ssid', 'nat-to-wan']
+      port4_ssid:
+        aliases: ['port4-ssid']
+        type: str
+        description: Bridge LAN port 4 to SSID.
+      port5_mode:
+        aliases: ['port5-mode']
+        type: str
+        description: LAN port 5 mode.
+        choices: ['offline', 'bridge-to-wan', 'bridge-to-ssid', 'nat-to-wan']
+      port5_ssid:
+        aliases: ['port5-ssid']
+        type: str
+        description: Bridge LAN port 5 to SSID.
+      port6_mode:
+        aliases: ['port6-mode']
+        type: str
+        description: LAN port 6 mode.
+        choices: ['offline', 'bridge-to-wan', 'bridge-to-ssid', 'nat-to-wan']
+      port6_ssid:
+        aliases: ['port6-ssid']
+        type: str
+        description: Bridge LAN port 6 to SSID.
+      port7_mode:
+        aliases: ['port7-mode']
+        type: str
+        description: LAN port 7 mode.
+        choices: ['offline', 'bridge-to-wan', 'bridge-to-ssid', 'nat-to-wan']
+      port7_ssid:
+        aliases: ['port7-ssid']
+        type: str
+        description: Bridge LAN port 7 to SSID.
+      port8_mode:
+        aliases: ['port8-mode']
+        type: str
+        description: LAN port 8 mode.
+        choices: ['offline', 'bridge-to-wan', 'bridge-to-ssid', 'nat-to-wan']
+      port8_ssid:
+        aliases: ['port8-ssid']
+        type: str
+        description: Bridge LAN port 8 to SSID.
+      port_esl_mode:
+        aliases: ['port-esl-mode']
+        type: str
+        description: ESL port mode.
+        choices: ['offline', 'bridge-to-wan', 'bridge-to-ssid', 'nat-to-wan']
+      port_esl_ssid:
+        aliases: ['port-esl-ssid']
+        type: str
+        description: Bridge ESL port to SSID.
 '''
 
 EXAMPLES = '''
@@ -164,42 +164,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

@@ -15,42 +15,42 @@ module: fmgr_webfilter_profile_ftgdwf_risk
 short_description: FortiGuard risk level settings.
 version_added: "2.14.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  profile:
+    description: The parameter (profile) in requested url.
+    type: str
+    required: true
+  webfilter_profile_ftgdwf_risk:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      action:
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
-        type: str
+        description: Action to take for matches.
+        choices: ['block', 'monitor']
+      id:
+        type: int
+        description: ID number.
         required: true
-    profile:
-        description: The parameter (profile) in requested url.
+      log:
         type: str
-        required: true
-    webfilter_profile_ftgdwf_risk:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            action:
-                type: str
-                description: Action to take for matches.
-                choices: ['block', 'monitor']
-            id:
-                type: int
-                description: ID number.
-                required: true
-            log:
-                type: str
-                description: Enable/disable logging.
-                choices: ['disable', 'enable']
-            risk_level:
-                aliases: ['risk-level']
-                type: list
-                elements: str
-                description: Risk level to be examined.
+        description: Enable/disable logging.
+        choices: ['disable', 'enable']
+      risk_level:
+        aliases: ['risk-level']
+        type: list
+        elements: str
+        description: Risk level to be examined.
 '''
 
 EXAMPLES = '''
@@ -74,42 +74,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -127,12 +127,12 @@ def main():
         'profile': {'required': True, 'type': 'str'},
         'revision_note': {'type': 'str'},
         'webfilter_profile_ftgdwf_risk': {
-            'type': 'dict', 'v_range': [['7.4.8', '7.4.10'], ['7.6.2', '']],
+            'type': 'dict', 'v_range': [['7.4.8', '7.4.11'], ['7.6.2', '']],
             'options': {
-                'action': {'v_range': [['7.4.8', '7.4.10'], ['7.6.2', '']], 'choices': ['block', 'monitor'], 'type': 'str'},
-                'id': {'v_range': [['7.4.8', '7.4.10'], ['7.6.2', '']], 'required': True, 'type': 'int'},
-                'log': {'v_range': [['7.4.8', '7.4.10'], ['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'risk-level': {'v_range': [['7.4.8', '7.4.10'], ['7.6.2', '']], 'type': 'list', 'elements': 'str'}
+                'action': {'v_range': [['7.4.8', '7.4.11'], ['7.6.2', '']], 'choices': ['block', 'monitor'], 'type': 'str'},
+                'id': {'v_range': [['7.4.8', '7.4.11'], ['7.6.2', '']], 'required': True, 'type': 'int'},
+                'log': {'v_range': [['7.4.8', '7.4.11'], ['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'risk-level': {'v_range': [['7.4.8', '7.4.11'], ['7.6.2', '']], 'type': 'list', 'elements': 'str'}
             }
         }
     }

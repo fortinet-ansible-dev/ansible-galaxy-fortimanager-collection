@@ -15,44 +15,44 @@ module: fmgr_user_fortitoken
 short_description: Configure FortiToken.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  user_fortitoken:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      comments:
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Comment.
+      license:
         type: str
+        description: Mobile token license.
+      os_ver:
+        aliases: ['os-ver']
+        type: str
+        description: Device Mobile Version.
+      reg_id:
+        aliases: ['reg-id']
+        type: str
+        description: Device Reg ID.
+      serial_number:
+        aliases: ['serial-number']
+        type: str
+        description: Serial number.
         required: true
-    user_fortitoken:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            comments:
-                type: str
-                description: Comment.
-            license:
-                type: str
-                description: Mobile token license.
-            os_ver:
-                aliases: ['os-ver']
-                type: str
-                description: Device Mobile Version.
-            reg_id:
-                aliases: ['reg-id']
-                type: str
-                description: Device Reg ID.
-            serial_number:
-                aliases: ['serial-number']
-                type: str
-                description: Serial number.
-                required: true
-            status:
-                type: str
-                description: Status
-                choices: ['lock', 'active']
+      status:
+        type: str
+        description: Status
+        choices: ['lock', 'active']
 '''
 
 EXAMPLES = '''
@@ -95,42 +95,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -151,8 +151,8 @@ def main():
             'options': {
                 'comments': {'type': 'str'},
                 'license': {'type': 'str'},
-                'os-ver': {'v_range': [['6.0.0', '6.2.5'], ['6.4.0', '6.4.1'], ['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'str'},
-                'reg-id': {'v_range': [['6.0.0', '6.2.5'], ['6.4.0', '6.4.1'], ['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'str'},
+                'os-ver': {'v_range': [['6.0.0', '6.2.5'], ['6.4.0', '6.4.1'], ['7.4.8', '7.4.11'], ['7.6.4', '']], 'type': 'str'},
+                'reg-id': {'v_range': [['6.0.0', '6.2.5'], ['6.4.0', '6.4.1'], ['7.4.8', '7.4.11'], ['7.6.4', '']], 'type': 'str'},
                 'serial-number': {'required': True, 'type': 'str'},
                 'status': {'choices': ['lock', 'active'], 'type': 'str'}
             }

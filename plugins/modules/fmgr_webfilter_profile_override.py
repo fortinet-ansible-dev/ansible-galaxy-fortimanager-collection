@@ -15,76 +15,74 @@ module: fmgr_webfilter_profile_override
 short_description: Web Filter override settings.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.partial_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.partial_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  profile:
+    description: The parameter (profile) in requested url.
+    type: str
+    required: true
+  webfilter_profile_override:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      ovrd_cookie:
+        aliases: ['ovrd-cookie']
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Allow/deny browser-based
+        choices: ['deny', 'allow']
+      ovrd_dur:
+        aliases: ['ovrd-dur']
         type: str
-        required: true
-    profile:
-        description: The parameter (profile) in requested url.
+        description: Override duration.
+      ovrd_dur_mode:
+        aliases: ['ovrd-dur-mode']
         type: str
-        required: true
-    webfilter_profile_override:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            ovrd_cookie:
-                aliases: ['ovrd-cookie']
-                type: str
-                description: Allow/deny browser-based
-                choices: ['deny', 'allow']
-            ovrd_dur:
-                aliases: ['ovrd-dur']
-                type: str
-                description: Override duration.
-            ovrd_dur_mode:
-                aliases: ['ovrd-dur-mode']
-                type: str
-                description: Override duration mode.
-                choices: ['constant', 'ask']
-            ovrd_scope:
-                aliases: ['ovrd-scope']
-                type: str
-                description: Override scope.
-                choices: ['user', 'user-group', 'ip', 'ask', 'browser']
-            ovrd_user_group:
-                aliases: ['ovrd-user-group']
-                type: raw
-                description: (list or str) User groups with permission to use the override.
-            profile:
-                type: raw
-                description: (list or str) Web filter profile with permission to create overrides.
-            profile_attribute:
-                aliases: ['profile-attribute']
-                type: str
-                description: Profile attribute to retrieve from the RADIUS server.
-                choices: ['User-Name', 'User-Password', 'CHAP-Password', 'NAS-IP-Address',
-                          'NAS-Port', 'Service-Type', 'Framed-Protocol', 'Framed-IP-Address',
-                          'Framed-IP-Netmask', 'Framed-Routing', 'Filter-Id', 'Framed-MTU',
-                          'Framed-Compression', 'Login-IP-Host', 'Login-Service',
-                          'Login-TCP-Port', 'Reply-Message', 'Callback-Number', 'Callback-Id',
-                          'Framed-Route', 'Framed-IPX-Network', 'State', 'Class',
-                          'Vendor-Specific', 'Session-Timeout', 'Idle-Timeout',
-                          'Termination-Action', 'Called-Station-Id', 'Calling-Station-Id',
-                          'NAS-Identifier', 'Proxy-State', 'Login-LAT-Service', 'Login-LAT-Node',
-                          'Login-LAT-Group', 'Framed-AppleTalk-Link', 'Framed-AppleTalk-Network',
-                          'Framed-AppleTalk-Zone', 'Acct-Status-Type', 'Acct-Delay-Time',
-                          'Acct-Input-Octets', 'Acct-Output-Octets', 'Acct-Session-Id',
-                          'Acct-Authentic', 'Acct-Session-Time', 'Acct-Input-Packets',
-                          'Acct-Output-Packets', 'Acct-Terminate-Cause', 'Acct-Multi-Session-Id',
-                          'Acct-Link-Count', 'CHAP-Challenge', 'NAS-Port-Type', 'Port-Limit',
-                          'Login-LAT-Port']
-            profile_type:
-                aliases: ['profile-type']
-                type: str
-                description: Override profile type.
-                choices: ['list', 'radius']
+        description: Override duration mode.
+        choices: ['constant', 'ask']
+      ovrd_scope:
+        aliases: ['ovrd-scope']
+        type: str
+        description: Override scope.
+        choices: ['user', 'user-group', 'ip', 'ask', 'browser']
+      ovrd_user_group:
+        aliases: ['ovrd-user-group']
+        type: raw
+        description: (list or str) User groups with permission to use the override.
+      profile:
+        type: raw
+        description: (list or str) Web filter profile with permission to create overrides.
+      profile_attribute:
+        aliases: ['profile-attribute']
+        type: str
+        description: Profile attribute to retrieve from the RADIUS server.
+        choices: ['User-Name', 'User-Password', 'CHAP-Password', 'NAS-IP-Address', 'NAS-Port',
+                  'Service-Type', 'Framed-Protocol', 'Framed-IP-Address', 'Framed-IP-Netmask',
+                  'Framed-Routing', 'Filter-Id', 'Framed-MTU', 'Framed-Compression',
+                  'Login-IP-Host', 'Login-Service', 'Login-TCP-Port', 'Reply-Message',
+                  'Callback-Number', 'Callback-Id', 'Framed-Route', 'Framed-IPX-Network', 'State',
+                  'Class', 'Vendor-Specific', 'Session-Timeout', 'Idle-Timeout',
+                  'Termination-Action', 'Called-Station-Id', 'Calling-Station-Id',
+                  'NAS-Identifier', 'Proxy-State', 'Login-LAT-Service', 'Login-LAT-Node',
+                  'Login-LAT-Group', 'Framed-AppleTalk-Link', 'Framed-AppleTalk-Network',
+                  'Framed-AppleTalk-Zone', 'Acct-Status-Type', 'Acct-Delay-Time',
+                  'Acct-Input-Octets', 'Acct-Output-Octets', 'Acct-Session-Id', 'Acct-Authentic',
+                  'Acct-Session-Time', 'Acct-Input-Packets', 'Acct-Output-Packets',
+                  'Acct-Terminate-Cause', 'Acct-Multi-Session-Id', 'Acct-Link-Count',
+                  'CHAP-Challenge', 'NAS-Port-Type', 'Port-Limit', 'Login-LAT-Port']
+      profile_type:
+        aliases: ['profile-type']
+        type: str
+        description: Override profile type.
+        choices: ['list', 'radius']
 '''
 
 EXAMPLES = '''
@@ -111,42 +109,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

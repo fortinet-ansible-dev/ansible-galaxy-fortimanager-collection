@@ -15,80 +15,80 @@ module: fmgr_devprof_system_emailserver
 short_description: Configure the email server used by the FortiGate various things.
 version_added: "1.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.partial_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.partial_crud
 options:
-    adom:
-        description: The parameter (adom) in requested url.
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  devprof:
+    description: The parameter (devprof) in requested url.
+    type: str
+    required: true
+  devprof_system_emailserver:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      authenticate:
         type: str
-        required: true
-    devprof:
-        description: The parameter (devprof) in requested url.
+        description: Enable/disable authentication.
+        choices: ['disable', 'enable']
+      password:
+        type: raw
+        description: (list) SMTP server user password for authentication.
+      port:
+        type: int
+        description: SMTP server port.
+      reply_to:
+        aliases: ['reply-to']
         type: str
-        required: true
-    devprof_system_emailserver:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            authenticate:
-                type: str
-                description: Enable/disable authentication.
-                choices: ['disable', 'enable']
-            password:
-                type: raw
-                description: (list) SMTP server user password for authentication.
-            port:
-                type: int
-                description: SMTP server port.
-            reply_to:
-                aliases: ['reply-to']
-                type: str
-                description: Reply-To email address.
-            security:
-                type: str
-                description: Connection security used by the email server.
-                choices: ['none', 'starttls', 'smtps']
-            server:
-                type: str
-                description: SMTP server IP address or hostname.
-            source_ip:
-                aliases: ['source-ip']
-                type: str
-                description: SMTP server IPv4 source IP.
-            source_ip6:
-                aliases: ['source-ip6']
-                type: str
-                description: SMTP server IPv6 source IP.
-            ssl_min_proto_version:
-                aliases: ['ssl-min-proto-version']
-                type: str
-                description: Minimum supported protocol version for SSL/TLS connections
-                choices: ['default', 'TLSv1', 'TLSv1-1', 'TLSv1-2', 'SSLv3', 'TLSv1-3']
-            type:
-                type: str
-                description: Use FortiGuard Message service or custom email server.
-                choices: ['custom']
-            username:
-                type: str
-                description: SMTP server user name for authentication.
-            validate_server:
-                aliases: ['validate-server']
-                type: str
-                description: Enable/disable validation of server certificate.
-                choices: ['disable', 'enable']
-            interface:
-                type: str
-                description: Specify outgoing interface to reach server.
-            interface_select_method:
-                aliases: ['interface-select-method']
-                type: str
-                description: Specify how to select outgoing interface to reach server.
-                choices: ['auto', 'sdwan', 'specify']
-            vrf_select:
-                aliases: ['vrf-select']
-                type: int
-                description: VRF ID used for connection to server.
+        description: Reply-To email address.
+      security:
+        type: str
+        description: Connection security used by the email server.
+        choices: ['none', 'starttls', 'smtps']
+      server:
+        type: str
+        description: SMTP server IP address or hostname.
+      source_ip:
+        aliases: ['source-ip']
+        type: str
+        description: SMTP server IPv4 source IP.
+      source_ip6:
+        aliases: ['source-ip6']
+        type: str
+        description: SMTP server IPv6 source IP.
+      ssl_min_proto_version:
+        aliases: ['ssl-min-proto-version']
+        type: str
+        description: Minimum supported protocol version for SSL/TLS connections
+        choices: ['default', 'TLSv1', 'TLSv1-1', 'TLSv1-2', 'SSLv3', 'TLSv1-3']
+      type:
+        type: str
+        description: Use FortiGuard Message service or custom email server.
+        choices: ['custom']
+      username:
+        type: str
+        description: SMTP server user name for authentication.
+      validate_server:
+        aliases: ['validate-server']
+        type: str
+        description: Enable/disable validation of server certificate.
+        choices: ['disable', 'enable']
+      interface:
+        type: str
+        description: Specify outgoing interface to reach server.
+      interface_select_method:
+        aliases: ['interface-select-method']
+        type: str
+        description: Specify how to select outgoing interface to reach server.
+        choices: ['auto', 'sdwan', 'specify']
+      vrf_select:
+        aliases: ['vrf-select']
+        type: int
+        description: VRF ID used for connection to server.
 '''
 
 EXAMPLES = '''
@@ -122,42 +122,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

@@ -15,384 +15,384 @@ module: fmgr_pm_config_pblock_firewall_consolidated_policy
 short_description: Configure consolidated IPv4/IPv6 policies.
 version_added: "2.2.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    adom:
-        description: The parameter (adom) in requested url.
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  pblock:
+    description: The parameter (pblock) in requested url.
+    type: str
+    required: true
+  pm_config_pblock_firewall_consolidated_policy:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      _policy_block:
+        type: int
+        description: Assigned policy block.
+      action:
         type: str
-        required: true
-    pblock:
-        description: The parameter (pblock) in requested url.
+        description: Policy action
+        choices: ['deny', 'accept', 'ipsec']
+      app_category:
+        aliases: ['app-category']
+        type: raw
+        description: (list) App category.
+      app_group:
+        aliases: ['app-group']
+        type: raw
+        description: (list) App group.
+      application:
+        type: raw
+        description: (list) Application.
+      application_list:
+        aliases: ['application-list']
         type: str
+        description: Name of an existing Application list.
+      auto_asic_offload:
+        aliases: ['auto-asic-offload']
+        type: str
+        description: Enable/disable policy traffic ASIC offloading.
+        choices: ['disable', 'enable']
+      av_profile:
+        aliases: ['av-profile']
+        type: str
+        description: Name of an existing Antivirus profile.
+      captive_portal_exempt:
+        aliases: ['captive-portal-exempt']
+        type: str
+        description: Enable exemption of some users from the captive portal.
+        choices: ['disable', 'enable']
+      cifs_profile:
+        aliases: ['cifs-profile']
+        type: str
+        description: Name of an existing CIFS profile.
+      comments:
+        type: str
+        description: Comment.
+      diffserv_forward:
+        aliases: ['diffserv-forward']
+        type: str
+        description: Enable to change packets DiffServ values to the specified diffservcode-forward value.
+        choices: ['disable', 'enable']
+      diffserv_reverse:
+        aliases: ['diffserv-reverse']
+        type: str
+        description: Enable to change packets reverse
+        choices: ['disable', 'enable']
+      diffservcode_forward:
+        aliases: ['diffservcode-forward']
+        type: str
+        description: Change packets DiffServ to this value.
+      diffservcode_rev:
+        aliases: ['diffservcode-rev']
+        type: str
+        description: Change packets reverse
+      dlp_sensor:
+        aliases: ['dlp-sensor']
+        type: str
+        description: Name of an existing DLP sensor.
+      dnsfilter_profile:
+        aliases: ['dnsfilter-profile']
+        type: str
+        description: Name of an existing DNS filter profile.
+      dstaddr_negate:
+        aliases: ['dstaddr-negate']
+        type: str
+        description: When enabled dstaddr specifies what the destination address must NOT be.
+        choices: ['disable', 'enable']
+      dstaddr4:
+        type: raw
+        description: (list) Destination IPv4 address name and address group names.
+      dstaddr6:
+        type: raw
+        description: (list) Destination IPv6 address name and address group names.
+      dstintf:
+        type: raw
+        description: (list) Outgoing
+      emailfilter_profile:
+        aliases: ['emailfilter-profile']
+        type: str
+        description: Name of an existing email filter profile.
+      fixedport:
+        type: str
+        description: Enable to prevent source NAT from changing a sessions source port.
+        choices: ['disable', 'enable']
+      fsso_groups:
+        aliases: ['fsso-groups']
+        type: raw
+        description: (list) Names of FSSO groups.
+      global_label:
+        aliases: ['global-label']
+        type: str
+        description: Label for the policy that appears when the GUI is in Global View mode.
+      groups:
+        type: raw
+        description: (list) Names of user groups that can authenticate with this policy.
+      http_policy_redirect:
+        aliases: ['http-policy-redirect']
+        type: str
+        description: Redirect HTTP
+        choices: ['disable', 'enable']
+      icap_profile:
+        aliases: ['icap-profile']
+        type: str
+        description: Name of an existing ICAP profile.
+      inbound:
+        type: str
+        description: Policy-based IPsec VPN
+        choices: ['disable', 'enable']
+      inspection_mode:
+        aliases: ['inspection-mode']
+        type: str
+        description: Policy inspection mode
+        choices: ['proxy', 'flow']
+      internet_service:
+        aliases: ['internet-service']
+        type: str
+        description: Enable/disable use of Internet Services for this policy.
+        choices: ['disable', 'enable']
+      internet_service_custom:
+        aliases: ['internet-service-custom']
+        type: raw
+        description: (list) Custom Internet Service name.
+      internet_service_custom_group:
+        aliases: ['internet-service-custom-group']
+        type: raw
+        description: (list) Custom Internet Service group name.
+      internet_service_group:
+        aliases: ['internet-service-group']
+        type: raw
+        description: (list) Internet Service group name.
+      internet_service_id:
+        aliases: ['internet-service-id']
+        type: raw
+        description: (list) Internet Service ID.
+      internet_service_negate:
+        aliases: ['internet-service-negate']
+        type: str
+        description: When enabled internet-service specifies what the service must NOT be.
+        choices: ['disable', 'enable']
+      internet_service_src:
+        aliases: ['internet-service-src']
+        type: str
+        description: Enable/disable use of Internet Services in source for this policy.
+        choices: ['disable', 'enable']
+      internet_service_src_custom:
+        aliases: ['internet-service-src-custom']
+        type: raw
+        description: (list) Custom Internet Service source name.
+      internet_service_src_custom_group:
+        aliases: ['internet-service-src-custom-group']
+        type: raw
+        description: (list) Custom Internet Service source group name.
+      internet_service_src_group:
+        aliases: ['internet-service-src-group']
+        type: raw
+        description: (list) Internet Service source group name.
+      internet_service_src_id:
+        aliases: ['internet-service-src-id']
+        type: raw
+        description: (list) Internet Service source ID.
+      internet_service_src_negate:
+        aliases: ['internet-service-src-negate']
+        type: str
+        description: When enabled internet-service-src specifies what the service must NOT be.
+        choices: ['disable', 'enable']
+      ippool:
+        type: str
+        description: Enable to use IP Pools for source NAT.
+        choices: ['disable', 'enable']
+      ips_sensor:
+        aliases: ['ips-sensor']
+        type: str
+        description: Name of an existing IPS sensor.
+      logtraffic:
+        type: str
+        description: Enable or disable logging.
+        choices: ['disable', 'all', 'utm']
+      logtraffic_start:
+        aliases: ['logtraffic-start']
+        type: str
+        description: Record logs when a session starts.
+        choices: ['disable', 'enable']
+      mms_profile:
+        aliases: ['mms-profile']
+        type: str
+        description: Name of an existing MMS profile.
+      name:
+        type: str
+        description: Policy name.
+      nat:
+        type: str
+        description: Enable/disable source NAT.
+        choices: ['disable', 'enable']
+      outbound:
+        type: str
+        description: Policy-based IPsec VPN
+        choices: ['disable', 'enable']
+      per_ip_shaper:
+        aliases: ['per-ip-shaper']
+        type: str
+        description: Per-IP traffic shaper.
+      policyid:
+        type: int
+        description: Policy ID
         required: true
-    pm_config_pblock_firewall_consolidated_policy:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            _policy_block:
-                type: int
-                description: Assigned policy block.
-            action:
-                type: str
-                description: Policy action
-                choices: ['deny', 'accept', 'ipsec']
-            app_category:
-                aliases: ['app-category']
-                type: raw
-                description: (list) App category.
-            app_group:
-                aliases: ['app-group']
-                type: raw
-                description: (list) App group.
-            application:
-                type: raw
-                description: (list) Application.
-            application_list:
-                aliases: ['application-list']
-                type: str
-                description: Name of an existing Application list.
-            auto_asic_offload:
-                aliases: ['auto-asic-offload']
-                type: str
-                description: Enable/disable policy traffic ASIC offloading.
-                choices: ['disable', 'enable']
-            av_profile:
-                aliases: ['av-profile']
-                type: str
-                description: Name of an existing Antivirus profile.
-            captive_portal_exempt:
-                aliases: ['captive-portal-exempt']
-                type: str
-                description: Enable exemption of some users from the captive portal.
-                choices: ['disable', 'enable']
-            cifs_profile:
-                aliases: ['cifs-profile']
-                type: str
-                description: Name of an existing CIFS profile.
-            comments:
-                type: str
-                description: Comment.
-            diffserv_forward:
-                aliases: ['diffserv-forward']
-                type: str
-                description: Enable to change packets DiffServ values to the specified diffservcode-forward value.
-                choices: ['disable', 'enable']
-            diffserv_reverse:
-                aliases: ['diffserv-reverse']
-                type: str
-                description: Enable to change packets reverse
-                choices: ['disable', 'enable']
-            diffservcode_forward:
-                aliases: ['diffservcode-forward']
-                type: str
-                description: Change packets DiffServ to this value.
-            diffservcode_rev:
-                aliases: ['diffservcode-rev']
-                type: str
-                description: Change packets reverse
-            dlp_sensor:
-                aliases: ['dlp-sensor']
-                type: str
-                description: Name of an existing DLP sensor.
-            dnsfilter_profile:
-                aliases: ['dnsfilter-profile']
-                type: str
-                description: Name of an existing DNS filter profile.
-            dstaddr_negate:
-                aliases: ['dstaddr-negate']
-                type: str
-                description: When enabled dstaddr specifies what the destination address must NOT be.
-                choices: ['disable', 'enable']
-            dstaddr4:
-                type: raw
-                description: (list) Destination IPv4 address name and address group names.
-            dstaddr6:
-                type: raw
-                description: (list) Destination IPv6 address name and address group names.
-            dstintf:
-                type: raw
-                description: (list) Outgoing
-            emailfilter_profile:
-                aliases: ['emailfilter-profile']
-                type: str
-                description: Name of an existing email filter profile.
-            fixedport:
-                type: str
-                description: Enable to prevent source NAT from changing a sessions source port.
-                choices: ['disable', 'enable']
-            fsso_groups:
-                aliases: ['fsso-groups']
-                type: raw
-                description: (list) Names of FSSO groups.
-            global_label:
-                aliases: ['global-label']
-                type: str
-                description: Label for the policy that appears when the GUI is in Global View mode.
-            groups:
-                type: raw
-                description: (list) Names of user groups that can authenticate with this policy.
-            http_policy_redirect:
-                aliases: ['http-policy-redirect']
-                type: str
-                description: Redirect HTTP
-                choices: ['disable', 'enable']
-            icap_profile:
-                aliases: ['icap-profile']
-                type: str
-                description: Name of an existing ICAP profile.
-            inbound:
-                type: str
-                description: Policy-based IPsec VPN
-                choices: ['disable', 'enable']
-            inspection_mode:
-                aliases: ['inspection-mode']
-                type: str
-                description: Policy inspection mode
-                choices: ['proxy', 'flow']
-            internet_service:
-                aliases: ['internet-service']
-                type: str
-                description: Enable/disable use of Internet Services for this policy.
-                choices: ['disable', 'enable']
-            internet_service_custom:
-                aliases: ['internet-service-custom']
-                type: raw
-                description: (list) Custom Internet Service name.
-            internet_service_custom_group:
-                aliases: ['internet-service-custom-group']
-                type: raw
-                description: (list) Custom Internet Service group name.
-            internet_service_group:
-                aliases: ['internet-service-group']
-                type: raw
-                description: (list) Internet Service group name.
-            internet_service_id:
-                aliases: ['internet-service-id']
-                type: raw
-                description: (list) Internet Service ID.
-            internet_service_negate:
-                aliases: ['internet-service-negate']
-                type: str
-                description: When enabled internet-service specifies what the service must NOT be.
-                choices: ['disable', 'enable']
-            internet_service_src:
-                aliases: ['internet-service-src']
-                type: str
-                description: Enable/disable use of Internet Services in source for this policy.
-                choices: ['disable', 'enable']
-            internet_service_src_custom:
-                aliases: ['internet-service-src-custom']
-                type: raw
-                description: (list) Custom Internet Service source name.
-            internet_service_src_custom_group:
-                aliases: ['internet-service-src-custom-group']
-                type: raw
-                description: (list) Custom Internet Service source group name.
-            internet_service_src_group:
-                aliases: ['internet-service-src-group']
-                type: raw
-                description: (list) Internet Service source group name.
-            internet_service_src_id:
-                aliases: ['internet-service-src-id']
-                type: raw
-                description: (list) Internet Service source ID.
-            internet_service_src_negate:
-                aliases: ['internet-service-src-negate']
-                type: str
-                description: When enabled internet-service-src specifies what the service must NOT be.
-                choices: ['disable', 'enable']
-            ippool:
-                type: str
-                description: Enable to use IP Pools for source NAT.
-                choices: ['disable', 'enable']
-            ips_sensor:
-                aliases: ['ips-sensor']
-                type: str
-                description: Name of an existing IPS sensor.
-            logtraffic:
-                type: str
-                description: Enable or disable logging.
-                choices: ['disable', 'all', 'utm']
-            logtraffic_start:
-                aliases: ['logtraffic-start']
-                type: str
-                description: Record logs when a session starts.
-                choices: ['disable', 'enable']
-            mms_profile:
-                aliases: ['mms-profile']
-                type: str
-                description: Name of an existing MMS profile.
-            name:
-                type: str
-                description: Policy name.
-            nat:
-                type: str
-                description: Enable/disable source NAT.
-                choices: ['disable', 'enable']
-            outbound:
-                type: str
-                description: Policy-based IPsec VPN
-                choices: ['disable', 'enable']
-            per_ip_shaper:
-                aliases: ['per-ip-shaper']
-                type: str
-                description: Per-IP traffic shaper.
-            policyid:
-                type: int
-                description: Policy ID
-                required: true
-            poolname4:
-                type: raw
-                description: (list) IPv4 pool names.
-            poolname6:
-                type: raw
-                description: (list) IPv6 pool names.
-            profile_group:
-                aliases: ['profile-group']
-                type: str
-                description: Name of profile group.
-            profile_protocol_options:
-                aliases: ['profile-protocol-options']
-                type: str
-                description: Name of an existing Protocol options profile.
-            profile_type:
-                aliases: ['profile-type']
-                type: str
-                description: Determine whether the firewall policy allows security profile groups or single profiles only.
-                choices: ['single', 'group']
-            schedule:
-                type: str
-                description: Schedule name.
-            service:
-                type: raw
-                description: (list) Service and service group names.
-            service_negate:
-                aliases: ['service-negate']
-                type: str
-                description: When enabled service specifies what the service must NOT be.
-                choices: ['disable', 'enable']
-            session_ttl:
-                aliases: ['session-ttl']
-                type: int
-                description: TTL in seconds for sessions accepted by this policy
-            srcaddr_negate:
-                aliases: ['srcaddr-negate']
-                type: str
-                description: When enabled srcaddr specifies what the source address must NOT be.
-                choices: ['disable', 'enable']
-            srcaddr4:
-                type: raw
-                description: (list) Source IPv4 address name and address group names.
-            srcaddr6:
-                type: raw
-                description: (list) Source IPv6 address name and address group names.
-            srcintf:
-                type: raw
-                description: (list) Incoming
-            ssh_filter_profile:
-                aliases: ['ssh-filter-profile']
-                type: str
-                description: Name of an existing SSH filter profile.
-            ssh_policy_redirect:
-                aliases: ['ssh-policy-redirect']
-                type: str
-                description: Redirect SSH traffic to matching transparent proxy policy.
-                choices: ['disable', 'enable']
-            ssl_ssh_profile:
-                aliases: ['ssl-ssh-profile']
-                type: str
-                description: Name of an existing SSL SSH profile.
-            status:
-                type: str
-                description: Enable or disable this policy.
-                choices: ['disable', 'enable']
-            tcp_mss_receiver:
-                aliases: ['tcp-mss-receiver']
-                type: int
-                description: Receiver TCP maximum segment size
-            tcp_mss_sender:
-                aliases: ['tcp-mss-sender']
-                type: int
-                description: Sender TCP maximum segment size
-            traffic_shaper:
-                aliases: ['traffic-shaper']
-                type: str
-                description: Traffic shaper.
-            traffic_shaper_reverse:
-                aliases: ['traffic-shaper-reverse']
-                type: str
-                description: Reverse traffic shaper.
-            url_category:
-                aliases: ['url-category']
-                type: raw
-                description: (list) Url category.
-            users:
-                type: raw
-                description: (list) Names of individual users that can authenticate with this policy.
-            utm_status:
-                aliases: ['utm-status']
-                type: str
-                description: Enable to add one or more security profiles
-                choices: ['disable', 'enable']
-            uuid:
-                type: str
-                description: Universally Unique Identifier
-            voip_profile:
-                aliases: ['voip-profile']
-                type: str
-                description: Name of an existing VoIP profile.
-            vpntunnel:
-                type: str
-                description: Policy-based IPsec VPN
-            waf_profile:
-                aliases: ['waf-profile']
-                type: str
-                description: Name of an existing Web application firewall profile.
-            wanopt:
-                type: str
-                description: Enable/disable WAN optimization.
-                choices: ['disable', 'enable']
-            wanopt_detection:
-                aliases: ['wanopt-detection']
-                type: str
-                description: WAN optimization auto-detection mode.
-                choices: ['active', 'passive', 'off']
-            wanopt_passive_opt:
-                aliases: ['wanopt-passive-opt']
-                type: str
-                description: WAN optimization passive mode options.
-                choices: ['default', 'transparent', 'non-transparent']
-            wanopt_peer:
-                aliases: ['wanopt-peer']
-                type: str
-                description: WAN optimization peer.
-            wanopt_profile:
-                aliases: ['wanopt-profile']
-                type: str
-                description: WAN optimization profile.
-            webcache:
-                type: str
-                description: Enable/disable web cache.
-                choices: ['disable', 'enable']
-            webcache_https:
-                aliases: ['webcache-https']
-                type: str
-                description: Enable/disable web cache for HTTPS.
-                choices: ['disable', 'enable']
-            webfilter_profile:
-                aliases: ['webfilter-profile']
-                type: str
-                description: Name of an existing Web filter profile.
-            webproxy_forward_server:
-                aliases: ['webproxy-forward-server']
-                type: str
-                description: Webproxy forward server name.
-            webproxy_profile:
-                aliases: ['webproxy-profile']
-                type: str
-                description: Webproxy profile name.
+      poolname4:
+        type: raw
+        description: (list) IPv4 pool names.
+      poolname6:
+        type: raw
+        description: (list) IPv6 pool names.
+      profile_group:
+        aliases: ['profile-group']
+        type: str
+        description: Name of profile group.
+      profile_protocol_options:
+        aliases: ['profile-protocol-options']
+        type: str
+        description: Name of an existing Protocol options profile.
+      profile_type:
+        aliases: ['profile-type']
+        type: str
+        description: Determine whether the firewall policy allows security profile groups or single profiles only.
+        choices: ['single', 'group']
+      schedule:
+        type: str
+        description: Schedule name.
+      service:
+        type: raw
+        description: (list) Service and service group names.
+      service_negate:
+        aliases: ['service-negate']
+        type: str
+        description: When enabled service specifies what the service must NOT be.
+        choices: ['disable', 'enable']
+      session_ttl:
+        aliases: ['session-ttl']
+        type: int
+        description: TTL in seconds for sessions accepted by this policy
+      srcaddr_negate:
+        aliases: ['srcaddr-negate']
+        type: str
+        description: When enabled srcaddr specifies what the source address must NOT be.
+        choices: ['disable', 'enable']
+      srcaddr4:
+        type: raw
+        description: (list) Source IPv4 address name and address group names.
+      srcaddr6:
+        type: raw
+        description: (list) Source IPv6 address name and address group names.
+      srcintf:
+        type: raw
+        description: (list) Incoming
+      ssh_filter_profile:
+        aliases: ['ssh-filter-profile']
+        type: str
+        description: Name of an existing SSH filter profile.
+      ssh_policy_redirect:
+        aliases: ['ssh-policy-redirect']
+        type: str
+        description: Redirect SSH traffic to matching transparent proxy policy.
+        choices: ['disable', 'enable']
+      ssl_ssh_profile:
+        aliases: ['ssl-ssh-profile']
+        type: str
+        description: Name of an existing SSL SSH profile.
+      status:
+        type: str
+        description: Enable or disable this policy.
+        choices: ['disable', 'enable']
+      tcp_mss_receiver:
+        aliases: ['tcp-mss-receiver']
+        type: int
+        description: Receiver TCP maximum segment size
+      tcp_mss_sender:
+        aliases: ['tcp-mss-sender']
+        type: int
+        description: Sender TCP maximum segment size
+      traffic_shaper:
+        aliases: ['traffic-shaper']
+        type: str
+        description: Traffic shaper.
+      traffic_shaper_reverse:
+        aliases: ['traffic-shaper-reverse']
+        type: str
+        description: Reverse traffic shaper.
+      url_category:
+        aliases: ['url-category']
+        type: raw
+        description: (list) Url category.
+      users:
+        type: raw
+        description: (list) Names of individual users that can authenticate with this policy.
+      utm_status:
+        aliases: ['utm-status']
+        type: str
+        description: Enable to add one or more security profiles
+        choices: ['disable', 'enable']
+      uuid:
+        type: str
+        description: Universally Unique Identifier
+      voip_profile:
+        aliases: ['voip-profile']
+        type: str
+        description: Name of an existing VoIP profile.
+      vpntunnel:
+        type: str
+        description: Policy-based IPsec VPN
+      waf_profile:
+        aliases: ['waf-profile']
+        type: str
+        description: Name of an existing Web application firewall profile.
+      wanopt:
+        type: str
+        description: Enable/disable WAN optimization.
+        choices: ['disable', 'enable']
+      wanopt_detection:
+        aliases: ['wanopt-detection']
+        type: str
+        description: WAN optimization auto-detection mode.
+        choices: ['active', 'passive', 'off']
+      wanopt_passive_opt:
+        aliases: ['wanopt-passive-opt']
+        type: str
+        description: WAN optimization passive mode options.
+        choices: ['default', 'transparent', 'non-transparent']
+      wanopt_peer:
+        aliases: ['wanopt-peer']
+        type: str
+        description: WAN optimization peer.
+      wanopt_profile:
+        aliases: ['wanopt-profile']
+        type: str
+        description: WAN optimization profile.
+      webcache:
+        type: str
+        description: Enable/disable web cache.
+        choices: ['disable', 'enable']
+      webcache_https:
+        aliases: ['webcache-https']
+        type: str
+        description: Enable/disable web cache for HTTPS.
+        choices: ['disable', 'enable']
+      webfilter_profile:
+        aliases: ['webfilter-profile']
+        type: str
+        description: Name of an existing Web filter profile.
+      webproxy_forward_server:
+        aliases: ['webproxy-forward-server']
+        type: str
+        description: Webproxy forward server name.
+      webproxy_profile:
+        aliases: ['webproxy-profile']
+        type: str
+        description: Webproxy profile name.
 '''
 
 EXAMPLES = '''
@@ -502,42 +502,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

@@ -15,632 +15,647 @@ module: fmgr_webfilter_profile
 short_description: Configure Web filter profiles.
 version_added: "1.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  webfilter_profile:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      comment:
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Optional comments.
+      extended_log:
+        aliases: ['extended-log']
         type: str
+        description: Enable/disable extended logging for web filtering.
+        choices: ['disable', 'enable']
+      https_replacemsg:
+        aliases: ['https-replacemsg']
+        type: str
+        description: Enable replacement messages for HTTPS.
+        choices: ['disable', 'enable']
+      inspection_mode:
+        aliases: ['inspection-mode']
+        type: str
+        description: Web filtering inspection mode.
+        choices: ['proxy', 'flow-based', 'dns']
+      log_all_url:
+        aliases: ['log-all-url']
+        type: str
+        description: Enable/disable logging all URLs visited.
+        choices: ['disable', 'enable']
+      name:
+        type: str
+        description: Profile name.
         required: true
-    webfilter_profile:
-        description: The top level parameters set.
-        required: false
-        type: dict
+      options:
+        type: list
+        elements: str
+        description: Options.
+        choices: ['block-invalid-url', 'jscript', 'js', 'vbs', 'unknown', 'wf-referer',
+                  'https-scan', 'intrinsic', 'wf-cookie', 'per-user-bwl', 'activexfilter',
+                  'cookiefilter', 'https-url-scan', 'javafilter', 'rangeblock',
+                  'contenttype-check', 'per-user-bal']
+      ovrd_perm:
+        aliases: ['ovrd-perm']
+        type: list
+        elements: str
+        description: Permitted override types.
+        choices: ['bannedword-override', 'urlfilter-override', 'fortiguard-wf-override',
+                  'contenttype-check-override']
+      post_action:
+        aliases: ['post-action']
+        type: str
+        description: Action taken for HTTP POST traffic.
+        choices: ['normal', 'comfort', 'block']
+      replacemsg_group:
+        aliases: ['replacemsg-group']
+        type: str
+        description: Replacement message group.
+      web_content_log:
+        aliases: ['web-content-log']
+        type: str
+        description: Enable/disable logging logging blocked web content.
+        choices: ['disable', 'enable']
+      web_extended_all_action_log:
+        aliases: ['web-extended-all-action-log']
+        type: str
+        description: Enable/disable extended any filter action logging for web filtering.
+        choices: ['disable', 'enable']
+      web_filter_activex_log:
+        aliases: ['web-filter-activex-log']
+        type: str
+        description: Enable/disable logging ActiveX.
+        choices: ['disable', 'enable']
+      web_filter_applet_log:
+        aliases: ['web-filter-applet-log']
+        type: str
+        description: Enable/disable logging Java applets.
+        choices: ['disable', 'enable']
+      web_filter_command_block_log:
+        aliases: ['web-filter-command-block-log']
+        type: str
+        description: Enable/disable logging blocked commands.
+        choices: ['disable', 'enable']
+      web_filter_cookie_log:
+        aliases: ['web-filter-cookie-log']
+        type: str
+        description: Enable/disable logging cookie filtering.
+        choices: ['disable', 'enable']
+      web_filter_cookie_removal_log:
+        aliases: ['web-filter-cookie-removal-log']
+        type: str
+        description: Enable/disable logging blocked cookies.
+        choices: ['disable', 'enable']
+      web_filter_js_log:
+        aliases: ['web-filter-js-log']
+        type: str
+        description: Enable/disable logging Java scripts.
+        choices: ['disable', 'enable']
+      web_filter_jscript_log:
+        aliases: ['web-filter-jscript-log']
+        type: str
+        description: Enable/disable logging JScripts.
+        choices: ['disable', 'enable']
+      web_filter_referer_log:
+        aliases: ['web-filter-referer-log']
+        type: str
+        description: Enable/disable logging referrers.
+        choices: ['disable', 'enable']
+      web_filter_unknown_log:
+        aliases: ['web-filter-unknown-log']
+        type: str
+        description: Enable/disable logging unknown scripts.
+        choices: ['disable', 'enable']
+      web_filter_vbs_log:
+        aliases: ['web-filter-vbs-log']
+        type: str
+        description: Enable/disable logging VBS scripts.
+        choices: ['disable', 'enable']
+      web_ftgd_err_log:
+        aliases: ['web-ftgd-err-log']
+        type: str
+        description: Enable/disable logging rating errors.
+        choices: ['disable', 'enable']
+      web_ftgd_quota_usage:
+        aliases: ['web-ftgd-quota-usage']
+        type: str
+        description: Enable/disable logging daily quota usage.
+        choices: ['disable', 'enable']
+      web_invalid_domain_log:
+        aliases: ['web-invalid-domain-log']
+        type: str
+        description: Enable/disable logging invalid domain names.
+        choices: ['disable', 'enable']
+      web_url_log:
+        aliases: ['web-url-log']
+        type: str
+        description: Enable/disable logging URL filtering.
+        choices: ['disable', 'enable']
+      wisp:
+        type: str
+        description: Enable/disable web proxy WISP.
+        choices: ['disable', 'enable']
+      wisp_algorithm:
+        aliases: ['wisp-algorithm']
+        type: str
+        description: WISP server selection algorithm.
+        choices: ['auto-learning', 'primary-secondary', 'round-robin']
+      wisp_servers:
+        aliases: ['wisp-servers']
+        type: raw
+        description: (list or str) WISP servers.
+      youtube_channel_filter:
+        aliases: ['youtube-channel-filter']
+        type: list
+        elements: dict
+        description: Youtube channel filter.
         suboptions:
-            comment:
+          channel_id:
+            aliases: ['channel-id']
+            type: str
+            description: YouTube channel ID to be filtered.
+          comment:
+            type: str
+            description: Comment.
+          id:
+            type: int
+            description: ID.
+      youtube_channel_status:
+        aliases: ['youtube-channel-status']
+        type: str
+        description: YouTube channel filter status.
+        choices: ['disable', 'blacklist', 'whitelist']
+      feature_set:
+        aliases: ['feature-set']
+        type: str
+        description: Flow/proxy feature set.
+        choices: ['proxy', 'flow']
+      web_antiphishing_log:
+        aliases: ['web-antiphishing-log']
+        type: str
+        description: Enable/disable logging of AntiPhishing checks.
+        choices: ['disable', 'enable']
+      antiphish:
+        type: dict
+        description: Antiphish.
+        suboptions:
+          check_basic_auth:
+            aliases: ['check-basic-auth']
+            type: str
+            description: Enable/disable checking of HTTP Basic Auth field for known credentials.
+            choices: ['disable', 'enable']
+          check_uri:
+            aliases: ['check-uri']
+            type: str
+            description: Enable/disable checking of GET URI parameters for known credentials.
+            choices: ['disable', 'enable']
+          check_username_only:
+            aliases: ['check-username-only']
+            type: str
+            description: Enable/disable acting only on valid username credentials.
+            choices: ['disable', 'enable']
+          custom_patterns:
+            aliases: ['custom-patterns']
+            type: list
+            elements: dict
+            description: Custom patterns.
+            suboptions:
+              category:
                 type: str
-                description: Optional comments.
-            extended_log:
-                aliases: ['extended-log']
+                description: Category that the pattern matches.
+                choices: ['username', 'password']
+              pattern:
                 type: str
-                description: Enable/disable extended logging for web filtering.
-                choices: ['disable', 'enable']
-            https_replacemsg:
-                aliases: ['https-replacemsg']
+                description: Target pattern.
+              type:
                 type: str
-                description: Enable replacement messages for HTTPS.
-                choices: ['disable', 'enable']
-            inspection_mode:
-                aliases: ['inspection-mode']
+                description: Pattern will be treated either as a regex pattern or literal string.
+                choices: ['regex', 'literal']
+          default_action:
+            aliases: ['default-action']
+            type: str
+            description: Action to be taken when there is no matching rule.
+            choices: ['log', 'block', 'exempt']
+          domain_controller:
+            aliases: ['domain-controller']
+            type: str
+            description: Domain for which to verify received credentials against.
+          inspection_entries:
+            aliases: ['inspection-entries']
+            type: list
+            elements: dict
+            description: Inspection entries.
+            suboptions:
+              action:
                 type: str
-                description: Web filtering inspection mode.
-                choices: ['proxy', 'flow-based', 'dns']
-            log_all_url:
-                aliases: ['log-all-url']
-                type: str
-                description: Enable/disable logging all URLs visited.
-                choices: ['disable', 'enable']
-            name:
-                type: str
-                description: Profile name.
-                required: true
-            options:
-                type: list
-                elements: str
-                description: Options.
-                choices: ['block-invalid-url', 'jscript', 'js', 'vbs', 'unknown', 'wf-referer',
-                          'https-scan', 'intrinsic', 'wf-cookie', 'per-user-bwl', 'activexfilter',
-                          'cookiefilter', 'https-url-scan', 'javafilter', 'rangeblock',
-                          'contenttype-check', 'per-user-bal']
-            ovrd_perm:
-                aliases: ['ovrd-perm']
-                type: list
-                elements: str
-                description: Permitted override types.
-                choices: ['bannedword-override', 'urlfilter-override', 'fortiguard-wf-override',
-                          'contenttype-check-override']
-            post_action:
-                aliases: ['post-action']
-                type: str
-                description: Action taken for HTTP POST traffic.
-                choices: ['normal', 'comfort', 'block']
-            replacemsg_group:
-                aliases: ['replacemsg-group']
-                type: str
-                description: Replacement message group.
-            web_content_log:
-                aliases: ['web-content-log']
-                type: str
-                description: Enable/disable logging logging blocked web content.
-                choices: ['disable', 'enable']
-            web_extended_all_action_log:
-                aliases: ['web-extended-all-action-log']
-                type: str
-                description: Enable/disable extended any filter action logging for web filtering.
-                choices: ['disable', 'enable']
-            web_filter_activex_log:
-                aliases: ['web-filter-activex-log']
-                type: str
-                description: Enable/disable logging ActiveX.
-                choices: ['disable', 'enable']
-            web_filter_applet_log:
-                aliases: ['web-filter-applet-log']
-                type: str
-                description: Enable/disable logging Java applets.
-                choices: ['disable', 'enable']
-            web_filter_command_block_log:
-                aliases: ['web-filter-command-block-log']
-                type: str
-                description: Enable/disable logging blocked commands.
-                choices: ['disable', 'enable']
-            web_filter_cookie_log:
-                aliases: ['web-filter-cookie-log']
-                type: str
-                description: Enable/disable logging cookie filtering.
-                choices: ['disable', 'enable']
-            web_filter_cookie_removal_log:
-                aliases: ['web-filter-cookie-removal-log']
-                type: str
-                description: Enable/disable logging blocked cookies.
-                choices: ['disable', 'enable']
-            web_filter_js_log:
-                aliases: ['web-filter-js-log']
-                type: str
-                description: Enable/disable logging Java scripts.
-                choices: ['disable', 'enable']
-            web_filter_jscript_log:
-                aliases: ['web-filter-jscript-log']
-                type: str
-                description: Enable/disable logging JScripts.
-                choices: ['disable', 'enable']
-            web_filter_referer_log:
-                aliases: ['web-filter-referer-log']
-                type: str
-                description: Enable/disable logging referrers.
-                choices: ['disable', 'enable']
-            web_filter_unknown_log:
-                aliases: ['web-filter-unknown-log']
-                type: str
-                description: Enable/disable logging unknown scripts.
-                choices: ['disable', 'enable']
-            web_filter_vbs_log:
-                aliases: ['web-filter-vbs-log']
-                type: str
-                description: Enable/disable logging VBS scripts.
-                choices: ['disable', 'enable']
-            web_ftgd_err_log:
-                aliases: ['web-ftgd-err-log']
-                type: str
-                description: Enable/disable logging rating errors.
-                choices: ['disable', 'enable']
-            web_ftgd_quota_usage:
-                aliases: ['web-ftgd-quota-usage']
-                type: str
-                description: Enable/disable logging daily quota usage.
-                choices: ['disable', 'enable']
-            web_invalid_domain_log:
-                aliases: ['web-invalid-domain-log']
-                type: str
-                description: Enable/disable logging invalid domain names.
-                choices: ['disable', 'enable']
-            web_url_log:
-                aliases: ['web-url-log']
-                type: str
-                description: Enable/disable logging URL filtering.
-                choices: ['disable', 'enable']
-            wisp:
-                type: str
-                description: Enable/disable web proxy WISP.
-                choices: ['disable', 'enable']
-            wisp_algorithm:
-                aliases: ['wisp-algorithm']
-                type: str
-                description: WISP server selection algorithm.
-                choices: ['auto-learning', 'primary-secondary', 'round-robin']
-            wisp_servers:
-                aliases: ['wisp-servers']
+                description: Action to be taken upon an AntiPhishing match.
+                choices: ['log', 'block', 'exempt']
+              fortiguard_category:
+                aliases: ['fortiguard-category']
                 type: raw
-                description: (list or str) WISP servers.
-            youtube_channel_filter:
-                aliases: ['youtube-channel-filter']
+                description: (list) FortiGuard category to match.
+              name:
+                type: str
+                description: Inspection target name.
+          max_body_len:
+            aliases: ['max-body-len']
+            type: int
+            description: Maximum size of a POST body to check for credentials.
+          status:
+            type: str
+            description: Toggle AntiPhishing functionality.
+            choices: ['disable', 'enable']
+          authentication:
+            type: str
+            description: Authentication methods.
+            choices: ['domain-controller', 'ldap']
+          ldap:
+            type: str
+            description: LDAP server for which to verify received credentials against.
+      ftgd_wf:
+        aliases: ['ftgd-wf']
+        type: dict
+        description: Ftgd wf.
+        suboptions:
+          exempt_quota:
+            aliases: ['exempt-quota']
+            type: raw
+            description: (list or str) Do not stop quota for these categories.
+          filters:
+            type: list
+            elements: dict
+            description: Filters.
+            suboptions:
+              action:
+                type: str
+                description: Action to take for matches.
+                choices: ['block', 'monitor', 'warning', 'authenticate']
+              auth_usr_grp:
+                aliases: ['auth-usr-grp']
+                type: raw
+                description: (list or str) Groups with permission to authenticate.
+              category:
+                type: str
+                description: Categories and groups the filter examines.
+              id:
+                type: int
+                description: ID number.
+              log:
+                type: str
+                description: Enable/disable logging.
+                choices: ['disable', 'enable']
+              override_replacemsg:
+                aliases: ['override-replacemsg']
+                type: str
+                description: Override replacement message.
+              warn_duration:
+                aliases: ['warn-duration']
+                type: str
+                description: Duration of warnings.
+              warning_duration_type:
+                aliases: ['warning-duration-type']
+                type: str
+                description: Re-display warning after closing browser or after a timeout.
+                choices: ['session', 'timeout']
+              warning_prompt:
+                aliases: ['warning-prompt']
+                type: str
+                description: Warning prompts in each category or each domain.
+                choices: ['per-domain', 'per-category']
+          max_quota_timeout:
+            aliases: ['max-quota-timeout']
+            type: int
+            description: Maximum FortiGuard quota used by single page view in seconds
+          options:
+            type: list
+            elements: str
+            description: Options for FortiGuard Web Filter.
+            choices: ['error-allow', 'http-err-detail', 'rate-image-urls', 'strict-blocking',
+                      'rate-server-ip', 'redir-block', 'connect-request-bypass', 'log-all-url',
+                      'ftgd-disable']
+          ovrd:
+            type: raw
+            description: (list or str) Allow web filter profile overrides.
+          quota:
+            type: list
+            elements: dict
+            description: Quota.
+            suboptions:
+              category:
+                type: raw
+                description: (list or str) FortiGuard categories to apply quota to
+              duration:
+                type: str
+                description: Duration of quota.
+              id:
+                type: int
+                description: ID number.
+              override_replacemsg:
+                aliases: ['override-replacemsg']
+                type: str
+                description: Override replacement message.
+              type:
+                type: str
+                description: Quota type.
+                choices: ['time', 'traffic']
+              unit:
+                type: str
+                description: Traffic quota unit of measurement.
+                choices: ['B', 'KB', 'MB', 'GB']
+              value:
+                type: int
+                description: Traffic quota value.
+              reset_frequency:
+                aliases: ['reset-frequency']
+                type: str
+                description: Quota reset frequency
+                choices: ['daily', 'weekly', 'monthly']
+          rate_crl_urls:
+            aliases: ['rate-crl-urls']
+            type: str
+            description: Enable/disable rating CRL by URL.
+            choices: ['disable', 'enable']
+          rate_css_urls:
+            aliases: ['rate-css-urls']
+            type: str
+            description: Enable/disable rating CSS by URL.
+            choices: ['disable', 'enable']
+          rate_image_urls:
+            aliases: ['rate-image-urls']
+            type: str
+            description: Enable/disable rating images by URL.
+            choices: ['disable', 'enable']
+          rate_javascript_urls:
+            aliases: ['rate-javascript-urls']
+            type: str
+            description: Enable/disable rating JavaScript by URL.
+            choices: ['disable', 'enable']
+          category_override:
+            aliases: ['category-override']
+            type: str
+            description: Local categories take precedence over FortiGuard categories.
+          risk:
+            type: list
+            elements: dict
+            description: Risk.
+            suboptions:
+              action:
+                type: str
+                description: Action to take for matches.
+                choices: ['block', 'monitor']
+              id:
+                type: int
+                description: ID number.
+              log:
+                type: str
+                description: Enable/disable logging.
+                choices: ['disable', 'enable']
+              risk_level:
+                aliases: ['risk-level']
+                type: raw
+                description: (list) Risk level to be examined.
+      override:
+        type: dict
+        description: Override.
+        suboptions:
+          ovrd_cookie:
+            aliases: ['ovrd-cookie']
+            type: str
+            description: Allow/deny browser-based
+            choices: ['deny', 'allow']
+          ovrd_dur:
+            aliases: ['ovrd-dur']
+            type: str
+            description: Override duration.
+          ovrd_dur_mode:
+            aliases: ['ovrd-dur-mode']
+            type: str
+            description: Override duration mode.
+            choices: ['constant', 'ask']
+          ovrd_scope:
+            aliases: ['ovrd-scope']
+            type: str
+            description: Override scope.
+            choices: ['user', 'user-group', 'ip', 'ask', 'browser']
+          ovrd_user_group:
+            aliases: ['ovrd-user-group']
+            type: raw
+            description: (list or str) User groups with permission to use the override.
+          profile:
+            type: raw
+            description: (list or str) Web filter profile with permission to create overrides.
+          profile_attribute:
+            aliases: ['profile-attribute']
+            type: str
+            description: Profile attribute to retrieve from the RADIUS server.
+            choices: ['User-Name', 'User-Password', 'CHAP-Password', 'NAS-IP-Address', 'NAS-Port',
+                      'Service-Type', 'Framed-Protocol', 'Framed-IP-Address', 'Framed-IP-Netmask',
+                      'Framed-Routing', 'Filter-Id', 'Framed-MTU', 'Framed-Compression',
+                      'Login-IP-Host', 'Login-Service', 'Login-TCP-Port', 'Reply-Message',
+                      'Callback-Number', 'Callback-Id', 'Framed-Route', 'Framed-IPX-Network',
+                      'State', 'Class', 'Vendor-Specific', 'Session-Timeout', 'Idle-Timeout',
+                      'Termination-Action', 'Called-Station-Id', 'Calling-Station-Id',
+                      'NAS-Identifier', 'Proxy-State', 'Login-LAT-Service', 'Login-LAT-Node',
+                      'Login-LAT-Group', 'Framed-AppleTalk-Link', 'Framed-AppleTalk-Network',
+                      'Framed-AppleTalk-Zone', 'Acct-Status-Type', 'Acct-Delay-Time',
+                      'Acct-Input-Octets', 'Acct-Output-Octets', 'Acct-Session-Id',
+                      'Acct-Authentic', 'Acct-Session-Time', 'Acct-Input-Packets',
+                      'Acct-Output-Packets', 'Acct-Terminate-Cause', 'Acct-Multi-Session-Id',
+                      'Acct-Link-Count', 'CHAP-Challenge', 'NAS-Port-Type', 'Port-Limit',
+                      'Login-LAT-Port']
+          profile_type:
+            aliases: ['profile-type']
+            type: str
+            description: Override profile type.
+            choices: ['list', 'radius']
+      url_extraction:
+        aliases: ['url-extraction']
+        type: dict
+        description: Url extraction.
+        suboptions:
+          redirect_header:
+            aliases: ['redirect-header']
+            type: str
+            description: HTTP header name to use for client redirect on blocked requests
+          redirect_no_content:
+            aliases: ['redirect-no-content']
+            type: str
+            description: Enable / Disable empty message-body entity in HTTP response
+            choices: ['disable', 'enable']
+          redirect_url:
+            aliases: ['redirect-url']
+            type: str
+            description: HTTP header value to use for client redirect on blocked requests
+          server_fqdn:
+            aliases: ['server-fqdn']
+            type: str
+            description: URL extraction server FQDN
+          status:
+            type: str
+            description: Enable URL Extraction
+            choices: ['disable', 'enable']
+      web:
+        type: dict
+        description: Web.
+        suboptions:
+          blacklist:
+            type: str
+            description: Enable/disable automatic addition of URLs detected by FortiSandbox to blacklist.
+            choices: ['disable', 'enable']
+          bword_table:
+            aliases: ['bword-table']
+            type: str
+            description: Banned word table ID.
+          bword_threshold:
+            aliases: ['bword-threshold']
+            type: int
+            description: Banned word score threshold.
+          content_header_list:
+            aliases: ['content-header-list']
+            type: str
+            description: Content header list.
+          keyword_match:
+            aliases: ['keyword-match']
+            type: raw
+            description: (list) Search keywords to log when match is found.
+          log_search:
+            aliases: ['log-search']
+            type: str
+            description: Enable/disable logging all search phrases.
+            choices: ['disable', 'enable']
+          safe_search:
+            aliases: ['safe-search']
+            type: list
+            elements: str
+            description: Safe search type.
+            choices: ['google', 'yahoo', 'bing', 'url', 'header']
+          urlfilter_table:
+            aliases: ['urlfilter-table']
+            type: str
+            description: URL filter table ID.
+          whitelist:
+            type: list
+            elements: str
+            description: FortiGuard whitelist settings.
+            choices: ['exempt-av', 'exempt-webcontent', 'exempt-activex-java-cookie',
+                      'exempt-dlp', 'exempt-rangeblock', 'extended-log-others']
+          youtube_restrict:
+            aliases: ['youtube-restrict']
+            type: str
+            description: YouTube EDU filter level.
+            choices: ['strict', 'none', 'moderate']
+          allowlist:
+            type: list
+            elements: str
+            description: FortiGuard allowlist settings.
+            choices: ['exempt-av', 'exempt-webcontent', 'exempt-activex-java-cookie',
+                      'exempt-dlp', 'exempt-rangeblock', 'extended-log-others']
+          blocklist:
+            type: str
+            description: Enable/disable automatic addition of URLs detected by FortiSandbox to blocklist.
+            choices: ['disable', 'enable']
+          vimeo_restrict:
+            aliases: ['vimeo-restrict']
+            type: str
+            description: Set Vimeo-restrict
+          qwant_restrict:
+            aliases: ['qwant-restrict']
+            type: str
+            description: Qwant restrict.
+            choices: ['strict', 'none', 'moderate']
+      file_filter:
+        aliases: ['file-filter']
+        type: dict
+        description: File filter.
+        suboptions:
+          entries:
+            type: list
+            elements: dict
+            description: Entries.
+            suboptions:
+              action:
+                type: str
+                description: Action taken for matched file.
+                choices: ['log', 'block']
+              comment:
+                type: str
+                description: Comment.
+              direction:
+                type: str
+                description: Match files transmitted in the sessions originating or reply direction.
+                choices: ['any', 'incoming', 'outgoing']
+              encryption:
+                type: str
+                description: Encryption.
+                choices: ['any', 'yes']
+              file_type:
+                aliases: ['file-type']
+                type: raw
+                description: (list) Select file type.
+              filter:
+                type: str
+                description: Add a file filter.
+              password_protected:
+                aliases: ['password-protected']
+                type: str
+                description: Match password-protected files.
+                choices: ['any', 'yes']
+              protocol:
                 type: list
-                elements: dict
-                description: Youtube channel filter.
-                suboptions:
-                    channel_id:
-                        aliases: ['channel-id']
-                        type: str
-                        description: YouTube channel ID to be filtered.
-                    comment:
-                        type: str
-                        description: Comment.
-                    id:
-                        type: int
-                        description: ID.
-            youtube_channel_status:
-                aliases: ['youtube-channel-status']
-                type: str
-                description: YouTube channel filter status.
-                choices: ['disable', 'blacklist', 'whitelist']
-            feature_set:
-                aliases: ['feature-set']
-                type: str
-                description: Flow/proxy feature set.
-                choices: ['proxy', 'flow']
-            web_antiphishing_log:
-                aliases: ['web-antiphishing-log']
-                type: str
-                description: Enable/disable logging of AntiPhishing checks.
-                choices: ['disable', 'enable']
-            antiphish:
-                type: dict
-                description: Antiphish.
-                suboptions:
-                    check_basic_auth:
-                        aliases: ['check-basic-auth']
-                        type: str
-                        description: Enable/disable checking of HTTP Basic Auth field for known credentials.
-                        choices: ['disable', 'enable']
-                    check_uri:
-                        aliases: ['check-uri']
-                        type: str
-                        description: Enable/disable checking of GET URI parameters for known credentials.
-                        choices: ['disable', 'enable']
-                    check_username_only:
-                        aliases: ['check-username-only']
-                        type: str
-                        description: Enable/disable acting only on valid username credentials.
-                        choices: ['disable', 'enable']
-                    custom_patterns:
-                        aliases: ['custom-patterns']
-                        type: list
-                        elements: dict
-                        description: Custom patterns.
-                        suboptions:
-                            category:
-                                type: str
-                                description: Category that the pattern matches.
-                                choices: ['username', 'password']
-                            pattern:
-                                type: str
-                                description: Target pattern.
-                            type:
-                                type: str
-                                description: Pattern will be treated either as a regex pattern or literal string.
-                                choices: ['regex', 'literal']
-                    default_action:
-                        aliases: ['default-action']
-                        type: str
-                        description: Action to be taken when there is no matching rule.
-                        choices: ['log', 'block', 'exempt']
-                    domain_controller:
-                        aliases: ['domain-controller']
-                        type: str
-                        description: Domain for which to verify received credentials against.
-                    inspection_entries:
-                        aliases: ['inspection-entries']
-                        type: list
-                        elements: dict
-                        description: Inspection entries.
-                        suboptions:
-                            action:
-                                type: str
-                                description: Action to be taken upon an AntiPhishing match.
-                                choices: ['log', 'block', 'exempt']
-                            fortiguard_category:
-                                aliases: ['fortiguard-category']
-                                type: raw
-                                description: (list) FortiGuard category to match.
-                            name:
-                                type: str
-                                description: Inspection target name.
-                    max_body_len:
-                        aliases: ['max-body-len']
-                        type: int
-                        description: Maximum size of a POST body to check for credentials.
-                    status:
-                        type: str
-                        description: Toggle AntiPhishing functionality.
-                        choices: ['disable', 'enable']
-                    authentication:
-                        type: str
-                        description: Authentication methods.
-                        choices: ['domain-controller', 'ldap']
-                    ldap:
-                        type: str
-                        description: LDAP server for which to verify received credentials against.
-            ftgd_wf:
-                aliases: ['ftgd-wf']
-                type: dict
-                description: Ftgd wf.
-                suboptions:
-                    exempt_quota:
-                        aliases: ['exempt-quota']
-                        type: raw
-                        description: (list or str) Do not stop quota for these categories.
-                    filters:
-                        type: list
-                        elements: dict
-                        description: Filters.
-                        suboptions:
-                            action:
-                                type: str
-                                description: Action to take for matches.
-                                choices: ['block', 'monitor', 'warning', 'authenticate']
-                            auth_usr_grp:
-                                aliases: ['auth-usr-grp']
-                                type: raw
-                                description: (list or str) Groups with permission to authenticate.
-                            category:
-                                type: str
-                                description: Categories and groups the filter examines.
-                            id:
-                                type: int
-                                description: ID number.
-                            log:
-                                type: str
-                                description: Enable/disable logging.
-                                choices: ['disable', 'enable']
-                            override_replacemsg:
-                                aliases: ['override-replacemsg']
-                                type: str
-                                description: Override replacement message.
-                            warn_duration:
-                                aliases: ['warn-duration']
-                                type: str
-                                description: Duration of warnings.
-                            warning_duration_type:
-                                aliases: ['warning-duration-type']
-                                type: str
-                                description: Re-display warning after closing browser or after a timeout.
-                                choices: ['session', 'timeout']
-                            warning_prompt:
-                                aliases: ['warning-prompt']
-                                type: str
-                                description: Warning prompts in each category or each domain.
-                                choices: ['per-domain', 'per-category']
-                    max_quota_timeout:
-                        aliases: ['max-quota-timeout']
-                        type: int
-                        description: Maximum FortiGuard quota used by single page view in seconds
-                    options:
-                        type: list
-                        elements: str
-                        description: Options for FortiGuard Web Filter.
-                        choices: ['error-allow', 'http-err-detail', 'rate-image-urls',
-                                  'strict-blocking', 'rate-server-ip', 'redir-block',
-                                  'connect-request-bypass', 'log-all-url', 'ftgd-disable']
-                    ovrd:
-                        type: raw
-                        description: (list or str) Allow web filter profile overrides.
-                    quota:
-                        type: list
-                        elements: dict
-                        description: Quota.
-                        suboptions:
-                            category:
-                                type: raw
-                                description: (list or str) FortiGuard categories to apply quota to
-                            duration:
-                                type: str
-                                description: Duration of quota.
-                            id:
-                                type: int
-                                description: ID number.
-                            override_replacemsg:
-                                aliases: ['override-replacemsg']
-                                type: str
-                                description: Override replacement message.
-                            type:
-                                type: str
-                                description: Quota type.
-                                choices: ['time', 'traffic']
-                            unit:
-                                type: str
-                                description: Traffic quota unit of measurement.
-                                choices: ['B', 'KB', 'MB', 'GB']
-                            value:
-                                type: int
-                                description: Traffic quota value.
-                            reset_frequency:
-                                aliases: ['reset-frequency']
-                                type: str
-                                description: Quota reset frequency
-                                choices: ['daily', 'weekly', 'monthly']
-                    rate_crl_urls:
-                        aliases: ['rate-crl-urls']
-                        type: str
-                        description: Enable/disable rating CRL by URL.
-                        choices: ['disable', 'enable']
-                    rate_css_urls:
-                        aliases: ['rate-css-urls']
-                        type: str
-                        description: Enable/disable rating CSS by URL.
-                        choices: ['disable', 'enable']
-                    rate_image_urls:
-                        aliases: ['rate-image-urls']
-                        type: str
-                        description: Enable/disable rating images by URL.
-                        choices: ['disable', 'enable']
-                    rate_javascript_urls:
-                        aliases: ['rate-javascript-urls']
-                        type: str
-                        description: Enable/disable rating JavaScript by URL.
-                        choices: ['disable', 'enable']
-                    category_override:
-                        aliases: ['category-override']
-                        type: str
-                        description: Local categories take precedence over FortiGuard categories.
-                    risk:
-                        type: list
-                        elements: dict
-                        description: Risk.
-                        suboptions:
-                            action:
-                                type: str
-                                description: Action to take for matches.
-                                choices: ['block', 'monitor']
-                            id:
-                                type: int
-                                description: ID number.
-                            log:
-                                type: str
-                                description: Enable/disable logging.
-                                choices: ['disable', 'enable']
-                            risk_level:
-                                aliases: ['risk-level']
-                                type: raw
-                                description: (list) Risk level to be examined.
-            override:
-                type: dict
-                description: Override.
-                suboptions:
-                    ovrd_cookie:
-                        aliases: ['ovrd-cookie']
-                        type: str
-                        description: Allow/deny browser-based
-                        choices: ['deny', 'allow']
-                    ovrd_dur:
-                        aliases: ['ovrd-dur']
-                        type: str
-                        description: Override duration.
-                    ovrd_dur_mode:
-                        aliases: ['ovrd-dur-mode']
-                        type: str
-                        description: Override duration mode.
-                        choices: ['constant', 'ask']
-                    ovrd_scope:
-                        aliases: ['ovrd-scope']
-                        type: str
-                        description: Override scope.
-                        choices: ['user', 'user-group', 'ip', 'ask', 'browser']
-                    ovrd_user_group:
-                        aliases: ['ovrd-user-group']
-                        type: raw
-                        description: (list or str) User groups with permission to use the override.
-                    profile:
-                        type: raw
-                        description: (list or str) Web filter profile with permission to create overrides.
-                    profile_attribute:
-                        aliases: ['profile-attribute']
-                        type: str
-                        description: Profile attribute to retrieve from the RADIUS server.
-                        choices: ['User-Name', 'User-Password', 'CHAP-Password', 'NAS-IP-Address',
-                                  'NAS-Port', 'Service-Type', 'Framed-Protocol',
-                                  'Framed-IP-Address', 'Framed-IP-Netmask', 'Framed-Routing',
-                                  'Filter-Id', 'Framed-MTU', 'Framed-Compression',
-                                  'Login-IP-Host', 'Login-Service', 'Login-TCP-Port',
-                                  'Reply-Message', 'Callback-Number', 'Callback-Id',
-                                  'Framed-Route', 'Framed-IPX-Network', 'State', 'Class',
-                                  'Vendor-Specific', 'Session-Timeout', 'Idle-Timeout',
-                                  'Termination-Action', 'Called-Station-Id', 'Calling-Station-Id',
-                                  'NAS-Identifier', 'Proxy-State', 'Login-LAT-Service',
-                                  'Login-LAT-Node', 'Login-LAT-Group', 'Framed-AppleTalk-Link',
-                                  'Framed-AppleTalk-Network', 'Framed-AppleTalk-Zone',
-                                  'Acct-Status-Type', 'Acct-Delay-Time', 'Acct-Input-Octets',
-                                  'Acct-Output-Octets', 'Acct-Session-Id', 'Acct-Authentic',
-                                  'Acct-Session-Time', 'Acct-Input-Packets',
-                                  'Acct-Output-Packets', 'Acct-Terminate-Cause',
-                                  'Acct-Multi-Session-Id', 'Acct-Link-Count', 'CHAP-Challenge',
-                                  'NAS-Port-Type', 'Port-Limit', 'Login-LAT-Port']
-                    profile_type:
-                        aliases: ['profile-type']
-                        type: str
-                        description: Override profile type.
-                        choices: ['list', 'radius']
-            url_extraction:
-                aliases: ['url-extraction']
-                type: dict
-                description: Url extraction.
-                suboptions:
-                    redirect_header:
-                        aliases: ['redirect-header']
-                        type: str
-                        description: HTTP header name to use for client redirect on blocked requests
-                    redirect_no_content:
-                        aliases: ['redirect-no-content']
-                        type: str
-                        description: Enable / Disable empty message-body entity in HTTP response
-                        choices: ['disable', 'enable']
-                    redirect_url:
-                        aliases: ['redirect-url']
-                        type: str
-                        description: HTTP header value to use for client redirect on blocked requests
-                    server_fqdn:
-                        aliases: ['server-fqdn']
-                        type: str
-                        description: URL extraction server FQDN
-                    status:
-                        type: str
-                        description: Enable URL Extraction
-                        choices: ['disable', 'enable']
-            web:
-                type: dict
-                description: Web.
-                suboptions:
-                    blacklist:
-                        type: str
-                        description: Enable/disable automatic addition of URLs detected by FortiSandbox to blacklist.
-                        choices: ['disable', 'enable']
-                    bword_table:
-                        aliases: ['bword-table']
-                        type: str
-                        description: Banned word table ID.
-                    bword_threshold:
-                        aliases: ['bword-threshold']
-                        type: int
-                        description: Banned word score threshold.
-                    content_header_list:
-                        aliases: ['content-header-list']
-                        type: str
-                        description: Content header list.
-                    keyword_match:
-                        aliases: ['keyword-match']
-                        type: raw
-                        description: (list) Search keywords to log when match is found.
-                    log_search:
-                        aliases: ['log-search']
-                        type: str
-                        description: Enable/disable logging all search phrases.
-                        choices: ['disable', 'enable']
-                    safe_search:
-                        aliases: ['safe-search']
-                        type: list
-                        elements: str
-                        description: Safe search type.
-                        choices: ['google', 'yahoo', 'bing', 'url', 'header']
-                    urlfilter_table:
-                        aliases: ['urlfilter-table']
-                        type: str
-                        description: URL filter table ID.
-                    whitelist:
-                        type: list
-                        elements: str
-                        description: FortiGuard whitelist settings.
-                        choices: ['exempt-av', 'exempt-webcontent', 'exempt-activex-java-cookie',
-                                  'exempt-dlp', 'exempt-rangeblock', 'extended-log-others']
-                    youtube_restrict:
-                        aliases: ['youtube-restrict']
-                        type: str
-                        description: YouTube EDU filter level.
-                        choices: ['strict', 'none', 'moderate']
-                    allowlist:
-                        type: list
-                        elements: str
-                        description: FortiGuard allowlist settings.
-                        choices: ['exempt-av', 'exempt-webcontent', 'exempt-activex-java-cookie',
-                                  'exempt-dlp', 'exempt-rangeblock', 'extended-log-others']
-                    blocklist:
-                        type: str
-                        description: Enable/disable automatic addition of URLs detected by FortiSandbox to blocklist.
-                        choices: ['disable', 'enable']
-                    vimeo_restrict:
-                        aliases: ['vimeo-restrict']
-                        type: str
-                        description: Set Vimeo-restrict
-                    qwant_restrict:
-                        aliases: ['qwant-restrict']
-                        type: str
-                        description: Qwant restrict.
-                        choices: ['strict', 'none', 'moderate']
-            file_filter:
-                aliases: ['file-filter']
-                type: dict
-                description: File filter.
-                suboptions:
-                    entries:
-                        type: list
-                        elements: dict
-                        description: Entries.
-                        suboptions:
-                            action:
-                                type: str
-                                description: Action taken for matched file.
-                                choices: ['log', 'block']
-                            comment:
-                                type: str
-                                description: Comment.
-                            direction:
-                                type: str
-                                description: Match files transmitted in the sessions originating or reply direction.
-                                choices: ['any', 'incoming', 'outgoing']
-                            encryption:
-                                type: str
-                                description: Encryption.
-                                choices: ['any', 'yes']
-                            file_type:
-                                aliases: ['file-type']
-                                type: raw
-                                description: (list) Select file type.
-                            filter:
-                                type: str
-                                description: Add a file filter.
-                            password_protected:
-                                aliases: ['password-protected']
-                                type: str
-                                description: Match password-protected files.
-                                choices: ['any', 'yes']
-                            protocol:
-                                type: list
-                                elements: str
-                                description: Protocols to apply with.
-                                choices: ['http', 'ftp']
-                    log:
-                        type: str
-                        description: Enable/disable file filter logging.
-                        choices: ['disable', 'enable']
-                    scan_archive_contents:
-                        aliases: ['scan-archive-contents']
-                        type: str
-                        description: Enable/disable file filter archive contents scan.
-                        choices: ['disable', 'enable']
-                    status:
-                        type: str
-                        description: Enable/disable file filter.
-                        choices: ['disable', 'enable']
-            web_flow_log_encoding:
-                aliases: ['web-flow-log-encoding']
-                type: str
-                description: Log encoding in flow mode.
-                choices: ['utf-8', 'punycode']
-            ia_categorization:
-                aliases: ['ia-categorization']
-                type: str
-                description: Ia categorization.
-                choices: ['disable', 'enable']
+                elements: str
+                description: Protocols to apply with.
+                choices: ['http', 'ftp']
+          log:
+            type: str
+            description: Enable/disable file filter logging.
+            choices: ['disable', 'enable']
+          scan_archive_contents:
+            aliases: ['scan-archive-contents']
+            type: str
+            description: Enable/disable file filter archive contents scan.
+            choices: ['disable', 'enable']
+          status:
+            type: str
+            description: Enable/disable file filter.
+            choices: ['disable', 'enable']
+      web_flow_log_encoding:
+        aliases: ['web-flow-log-encoding']
+        type: str
+        description: Log encoding in flow mode.
+        choices: ['utf-8', 'punycode']
+      ia_categorization:
+        aliases: ['ia-categorization']
+        type: str
+        description: Ia categorization.
+        choices: ['disable', 'enable']
+      fabric_force_sync:
+        aliases: ['fabric-force-sync']
+        type: str
+        description: Enable/disable forced synchronization of configuration objects from the root FortiGate unit to the downstream devices.
+        choices: ['disable', 'enable']
+      fabric_object:
+        aliases: ['fabric-object']
+        type: str
+        description: Security Fabric global object setting.
+        choices: ['disable', 'enable']
+      fabric_object_source:
+        aliases: ['fabric-object-source']
+        type: str
+        description: Source of truth for fabric object.
+        choices: ['member', 'local', 'root']
+      uuid:
+        type: str
+        description: Universally Unique Identifier
 '''
 
 EXAMPLES = '''
@@ -796,46 +811,50 @@ EXAMPLES = '''
           #   status: <value in [disable, enable]>
           # web_flow_log_encoding: <value in [utf-8, punycode]>
           # ia_categorization: <value in [disable, enable]>
+          # fabric_force_sync: <value in [disable, enable]>
+          # fabric_object: <value in [disable, enable]>
+          # fabric_object_source: <value in [member, local, root]>
+          # uuid: <string>
 '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -895,11 +914,16 @@ def main():
                 'wisp-algorithm': {'choices': ['auto-learning', 'primary-secondary', 'round-robin'], 'type': 'str'},
                 'wisp-servers': {'type': 'raw'},
                 'youtube-channel-filter': {
+                    'v_range': [['6.0.0', '7.6.7']],
                     'type': 'list',
-                    'options': {'channel-id': {'type': 'str'}, 'comment': {'type': 'str'}, 'id': {'type': 'int'}},
+                    'options': {
+                        'channel-id': {'v_range': [['6.0.0', '7.6.7']], 'type': 'str'},
+                        'comment': {'v_range': [['6.0.0', '7.6.7']], 'type': 'str'},
+                        'id': {'v_range': [['6.0.0', '7.6.7']], 'type': 'int'}
+                    },
                     'elements': 'dict'
                 },
-                'youtube-channel-status': {'choices': ['disable', 'blacklist', 'whitelist'], 'type': 'str'},
+                'youtube-channel-status': {'v_range': [['6.0.0', '7.6.7']], 'choices': ['disable', 'blacklist', 'whitelist'], 'type': 'str'},
                 'feature-set': {'v_range': [['6.4.0', '']], 'choices': ['proxy', 'flow'], 'type': 'str'},
                 'web-antiphishing-log': {'v_range': [['6.4.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'antiphish': {
@@ -992,23 +1016,23 @@ def main():
                                 'type': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['time', 'traffic'], 'type': 'str'},
                                 'unit': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['B', 'KB', 'MB', 'GB'], 'type': 'str'},
                                 'value': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
-                                'reset-frequency': {'v_range': [['7.4.8', '7.4.10']], 'choices': ['daily', 'weekly', 'monthly'], 'type': 'str'}
+                                'reset-frequency': {'v_range': [['7.4.8', '7.4.11']], 'choices': ['daily', 'weekly', 'monthly'], 'type': 'str'}
                             },
                             'elements': 'dict'
                         },
                         'rate-crl-urls': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'rate-css-urls': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'rate-image-urls': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'rate-image-urls': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.6.7']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'rate-javascript-urls': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'category-override': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '6.4.15']], 'type': 'str'},
                         'risk': {
-                            'v_range': [['7.4.8', '7.4.10'], ['7.6.2', '']],
+                            'v_range': [['7.4.8', '7.4.11'], ['7.6.2', '']],
                             'type': 'list',
                             'options': {
-                                'action': {'v_range': [['7.4.8', '7.4.10'], ['7.6.2', '']], 'choices': ['block', 'monitor'], 'type': 'str'},
-                                'id': {'v_range': [['7.4.8', '7.4.10'], ['7.6.2', '']], 'type': 'int'},
-                                'log': {'v_range': [['7.4.8', '7.4.10'], ['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                                'risk-level': {'v_range': [['7.4.8', '7.4.10'], ['7.6.2', '']], 'type': 'raw'}
+                                'action': {'v_range': [['7.4.8', '7.4.11'], ['7.6.2', '']], 'choices': ['block', 'monitor'], 'type': 'str'},
+                                'id': {'v_range': [['7.4.8', '7.4.11'], ['7.6.2', '']], 'type': 'int'},
+                                'log': {'v_range': [['7.4.8', '7.4.11'], ['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                                'risk-level': {'v_range': [['7.4.8', '7.4.11'], ['7.6.2', '']], 'type': 'raw'}
                             },
                             'elements': 'dict'
                         }
@@ -1061,7 +1085,7 @@ def main():
                     'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
-                        'blacklist': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'blacklist': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.6.7']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'bword-table': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'str'},
                         'bword-threshold': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
                         'content-header-list': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'str'},
@@ -1075,7 +1099,7 @@ def main():
                         },
                         'urlfilter-table': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'str'},
                         'whitelist': {
-                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.6.7']],
                             'type': 'list',
                             'choices': [
                                 'exempt-av', 'exempt-webcontent', 'exempt-activex-java-cookie', 'exempt-dlp', 'exempt-rangeblock', 'extended-log-others'
@@ -1093,7 +1117,7 @@ def main():
                         },
                         'blocklist': {'v_range': [['7.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'vimeo-restrict': {'v_range': [['7.0.1', '']], 'type': 'str'},
-                        'qwant-restrict': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'choices': ['strict', 'none', 'moderate'], 'type': 'str'}
+                        'qwant-restrict': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'choices': ['strict', 'none', 'moderate'], 'type': 'str'}
                     }
                 },
                 'file-filter': {
@@ -1130,7 +1154,11 @@ def main():
                     }
                 },
                 'web-flow-log-encoding': {'v_range': [['7.4.2', '']], 'choices': ['utf-8', 'punycode'], 'type': 'str'},
-                'ia-categorization': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'ia-categorization': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'fabric-force-sync': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'fabric-object': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'fabric-object-source': {'v_range': [['8.0.0', '']], 'choices': ['member', 'local', 'root'], 'type': 'str'},
+                'uuid': {'v_range': [['8.0.0', '']], 'type': 'str'}
             }
         }
     }

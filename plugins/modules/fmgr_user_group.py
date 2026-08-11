@@ -15,478 +15,549 @@ module: fmgr_user_group
 short_description: Configure user groups.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  user_group:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      auth_concurrent_override:
+        aliases: ['auth-concurrent-override']
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Enable/disable overriding the global number of concurrent authentication sessions for this user group.
+        choices: ['disable', 'enable']
+      auth_concurrent_value:
+        aliases: ['auth-concurrent-value']
+        type: int
+        description: Maximum number of concurrent authenticated connections per user
+      authtimeout:
+        type: int
+        description: Authentication timeout in minutes for this user group.
+      company:
         type: str
-        required: true
-    user_group:
-        description: The top level parameters set.
-        required: false
-        type: dict
+        description: Set the action for the company guest user field.
+        choices: ['optional', 'mandatory', 'disabled']
+      email:
+        type: str
+        description: Enable/disable the guest user email address field.
+        choices: ['disable', 'enable']
+      expire:
+        type: int
+        description: Time in seconds before guest user accounts expire.
+      expire_type:
+        aliases: ['expire-type']
+        type: str
+        description: Determine when the expiration countdown begins.
+        choices: ['immediately', 'first-successful-login']
+      group_type:
+        aliases: ['group-type']
+        type: str
+        description: Set the group to be for firewall authentication, FSSO, RSSO, or guest users.
+        choices: ['firewall', 'directory-service', 'fsso-service', 'guest', 'rsso', 'scim']
+      guest:
+        type: list
+        elements: dict
+        description: Guest.
         suboptions:
-            auth_concurrent_override:
-                aliases: ['auth-concurrent-override']
+          comment:
+            type: str
+            description: Comment.
+          company:
+            type: str
+            description: Set the action for the company guest user field.
+          email:
+            type: str
+            description: Email.
+          expiration:
+            type: str
+            description: Expire time.
+          mobile_phone:
+            aliases: ['mobile-phone']
+            type: str
+            description: Mobile phone.
+          name:
+            type: str
+            description: Guest name.
+          password:
+            type: raw
+            description: (list) Guest password.
+          sponsor:
+            type: str
+            description: Set the action for the sponsor guest user field.
+          user_id:
+            aliases: ['user-id']
+            type: str
+            description: Guest ID.
+          group:
+            type: str
+            description: Guest name.
+          id:
+            type: int
+            description: Guest ID.
+      http_digest_realm:
+        aliases: ['http-digest-realm']
+        type: str
+        description: Realm attribute for MD5-digest authentication.
+      id:
+        type: int
+        description: Group ID.
+      match:
+        type: list
+        elements: dict
+        description: Match.
+        suboptions:
+          _gui_meta:
+            type: str
+            description: Gui meta.
+          group_name:
+            aliases: ['group-name']
+            type: str
+            description: Name of matching group on remote authentication server.
+          id:
+            type: int
+            description: ID.
+          server_name:
+            aliases: ['server-name']
+            type: str
+            description: Name of remote auth server.
+      max_accounts:
+        aliases: ['max-accounts']
+        type: int
+        description: Maximum number of guest accounts that can be created for this group
+      member:
+        type: list
+        elements: str
+        description: Names of users, peers, LDAP severs, or RADIUS servers to add to the user group.
+      mobile_phone:
+        aliases: ['mobile-phone']
+        type: str
+        description: Enable/disable the guest user mobile phone number field.
+        choices: ['disable', 'enable']
+      multiple_guest_add:
+        aliases: ['multiple-guest-add']
+        type: str
+        description: Enable/disable addition of multiple guests.
+        choices: ['disable', 'enable']
+      name:
+        type: str
+        description: Group name.
+        required: true
+      password:
+        type: str
+        description: Guest user password type.
+        choices: ['auto-generate', 'specify', 'disable']
+      sms_custom_server:
+        aliases: ['sms-custom-server']
+        type: str
+        description: SMS server.
+      sms_server:
+        aliases: ['sms-server']
+        type: str
+        description: Send SMS through FortiGuard or other external server.
+        choices: ['fortiguard', 'custom']
+      sponsor:
+        type: str
+        description: Set the action for the sponsor guest user field.
+        choices: ['optional', 'mandatory', 'disabled']
+      sso_attribute_value:
+        aliases: ['sso-attribute-value']
+        type: str
+        description: Name of the RADIUS user group that this local user group represents.
+      user_id:
+        aliases: ['user-id']
+        type: str
+        description: Guest user ID type.
+        choices: ['email', 'auto-generate', 'specify']
+      user_name:
+        aliases: ['user-name']
+        type: str
+        description: Enable/disable the guest user name entry.
+        choices: ['disable', 'enable']
+      dynamic_mapping:
+        type: list
+        elements: dict
+        description: Dynamic mapping.
+        suboptions:
+          _scope:
+            type: list
+            elements: dict
+            description: Scope.
+            suboptions:
+              name:
                 type: str
-                description: Enable/disable overriding the global number of concurrent authentication sessions for this user group.
-                choices: ['disable', 'enable']
-            auth_concurrent_value:
-                aliases: ['auth-concurrent-value']
-                type: int
-                description: Maximum number of concurrent authenticated connections per user
-            authtimeout:
-                type: int
-                description: Authentication timeout in minutes for this user group.
-            company:
+                description: Name.
+              vdom:
+                type: str
+                description: Vdom.
+          auth_concurrent_override:
+            aliases: ['auth-concurrent-override']
+            type: str
+            description: Enable/disable overriding the global number of concurrent authentication sessions for this user group.
+            choices: ['disable', 'enable']
+          auth_concurrent_value:
+            aliases: ['auth-concurrent-value']
+            type: int
+            description: Maximum number of concurrent authenticated connections per user
+          authtimeout:
+            type: int
+            description: Authentication timeout in minutes for this user group.
+          company:
+            type: str
+            description: Set the action for the company guest user field.
+            choices: ['optional', 'mandatory', 'disabled']
+          email:
+            type: str
+            description: Enable/disable the guest user email address field.
+            choices: ['disable', 'enable']
+          expire:
+            type: int
+            description: Time in seconds before guest user accounts expire
+          expire_type:
+            aliases: ['expire-type']
+            type: str
+            description: Determine when the expiration countdown begins.
+            choices: ['immediately', 'first-successful-login']
+          group_type:
+            aliases: ['group-type']
+            type: str
+            description: Set the group to be for firewall authentication, FSSO, RSSO, or guest users.
+            choices: ['firewall', 'directory-service', 'fsso-service', 'guest', 'rsso', 'scim']
+          guest:
+            type: list
+            elements: dict
+            description: Guest.
+            suboptions:
+              comment:
+                type: str
+                description: Comment.
+              company:
                 type: str
                 description: Set the action for the company guest user field.
-                choices: ['optional', 'mandatory', 'disabled']
-            email:
+              email:
                 type: str
-                description: Enable/disable the guest user email address field.
-                choices: ['disable', 'enable']
-            expire:
+                description: Email.
+              expiration:
+                type: str
+                description: Expire time.
+              group:
+                type: str
+                description: Group.
+              id:
                 type: int
-                description: Time in seconds before guest user accounts expire.
-            expire_type:
-                aliases: ['expire-type']
-                type: str
-                description: Determine when the expiration countdown begins.
-                choices: ['immediately', 'first-successful-login']
-            group_type:
-                aliases: ['group-type']
-                type: str
-                description: Set the group to be for firewall authentication, FSSO, RSSO, or guest users.
-                choices: ['firewall', 'directory-service', 'fsso-service', 'guest', 'rsso']
-            guest:
-                type: list
-                elements: dict
-                description: Guest.
-                suboptions:
-                    comment:
-                        type: str
-                        description: Comment.
-                    company:
-                        type: str
-                        description: Set the action for the company guest user field.
-                    email:
-                        type: str
-                        description: Email.
-                    expiration:
-                        type: str
-                        description: Expire time.
-                    mobile_phone:
-                        aliases: ['mobile-phone']
-                        type: str
-                        description: Mobile phone.
-                    name:
-                        type: str
-                        description: Guest name.
-                    password:
-                        type: raw
-                        description: (list) Guest password.
-                    sponsor:
-                        type: str
-                        description: Set the action for the sponsor guest user field.
-                    user_id:
-                        aliases: ['user-id']
-                        type: str
-                        description: Guest ID.
-                    group:
-                        type: str
-                        description: Guest name.
-                    id:
-                        type: int
-                        description: Guest ID.
-            http_digest_realm:
-                aliases: ['http-digest-realm']
-                type: str
-                description: Realm attribute for MD5-digest authentication.
-            id:
-                type: int
-                description: Group ID.
-            match:
-                type: list
-                elements: dict
-                description: Match.
-                suboptions:
-                    _gui_meta:
-                        type: str
-                        description: Gui meta.
-                    group_name:
-                        aliases: ['group-name']
-                        type: str
-                        description: Name of matching group on remote authentication server.
-                    id:
-                        type: int
-                        description: ID.
-                    server_name:
-                        aliases: ['server-name']
-                        type: str
-                        description: Name of remote auth server.
-            max_accounts:
-                aliases: ['max-accounts']
-                type: int
-                description: Maximum number of guest accounts that can be created for this group
-            member:
-                type: list
-                elements: str
-                description: Names of users, peers, LDAP severs, or RADIUS servers to add to the user group.
-            mobile_phone:
+                description: Guest ID.
+              mobile_phone:
                 aliases: ['mobile-phone']
                 type: str
-                description: Enable/disable the guest user mobile phone number field.
-                choices: ['disable', 'enable']
-            multiple_guest_add:
-                aliases: ['multiple-guest-add']
+                description: Mobile phone.
+              name:
                 type: str
-                description: Enable/disable addition of multiple guests.
-                choices: ['disable', 'enable']
-            name:
-                type: str
-                description: Group name.
-                required: true
-            password:
-                type: str
-                description: Guest user password type.
-                choices: ['auto-generate', 'specify', 'disable']
-            sms_custom_server:
-                aliases: ['sms-custom-server']
-                type: str
-                description: SMS server.
-            sms_server:
-                aliases: ['sms-server']
-                type: str
-                description: Send SMS through FortiGuard or other external server.
-                choices: ['fortiguard', 'custom']
-            sponsor:
+                description: Guest name.
+              password:
+                type: raw
+                description: (list) Guest password.
+              sponsor:
                 type: str
                 description: Set the action for the sponsor guest user field.
-                choices: ['optional', 'mandatory', 'disabled']
-            sso_attribute_value:
-                aliases: ['sso-attribute-value']
-                type: str
-                description: Name of the RADIUS user group that this local user group represents.
-            user_id:
+              user_id:
                 aliases: ['user-id']
                 type: str
-                description: Guest user ID type.
-                choices: ['email', 'auto-generate', 'specify']
-            user_name:
-                aliases: ['user-name']
+                description: Guest ID.
+          http_digest_realm:
+            aliases: ['http-digest-realm']
+            type: str
+            description: Realm attribute for MD5-digest authentication.
+          id:
+            type: int
+            description: Group ID.
+          ldap_memberof:
+            aliases: ['ldap-memberof']
+            type: str
+            description: Ldap memberof.
+          logic_type:
+            aliases: ['logic-type']
+            type: str
+            description: Logic type.
+            choices: ['or', 'and']
+          match:
+            type: list
+            elements: dict
+            description: Match.
+            suboptions:
+              _gui_meta:
                 type: str
-                description: Enable/disable the guest user name entry.
-                choices: ['disable', 'enable']
-            dynamic_mapping:
-                type: list
-                elements: dict
-                description: Dynamic mapping.
-                suboptions:
-                    _scope:
-                        type: list
-                        elements: dict
-                        description: Scope.
-                        suboptions:
-                            name:
-                                type: str
-                                description: Name.
-                            vdom:
-                                type: str
-                                description: Vdom.
-                    auth_concurrent_override:
-                        aliases: ['auth-concurrent-override']
-                        type: str
-                        description: Enable/disable overriding the global number of concurrent authentication sessions for this user group.
-                        choices: ['disable', 'enable']
-                    auth_concurrent_value:
-                        aliases: ['auth-concurrent-value']
-                        type: int
-                        description: Maximum number of concurrent authenticated connections per user
-                    authtimeout:
-                        type: int
-                        description: Authentication timeout in minutes for this user group.
-                    company:
-                        type: str
-                        description: Set the action for the company guest user field.
-                        choices: ['optional', 'mandatory', 'disabled']
-                    email:
-                        type: str
-                        description: Enable/disable the guest user email address field.
-                        choices: ['disable', 'enable']
-                    expire:
-                        type: int
-                        description: Time in seconds before guest user accounts expire
-                    expire_type:
-                        aliases: ['expire-type']
-                        type: str
-                        description: Determine when the expiration countdown begins.
-                        choices: ['immediately', 'first-successful-login']
-                    group_type:
-                        aliases: ['group-type']
-                        type: str
-                        description: Set the group to be for firewall authentication, FSSO, RSSO, or guest users.
-                        choices: ['firewall', 'directory-service', 'fsso-service', 'guest', 'rsso']
-                    guest:
-                        type: list
-                        elements: dict
-                        description: Guest.
-                        suboptions:
-                            comment:
-                                type: str
-                                description: Comment.
-                            company:
-                                type: str
-                                description: Set the action for the company guest user field.
-                            email:
-                                type: str
-                                description: Email.
-                            expiration:
-                                type: str
-                                description: Expire time.
-                            group:
-                                type: str
-                                description: Group.
-                            id:
-                                type: int
-                                description: Guest ID.
-                            mobile_phone:
-                                aliases: ['mobile-phone']
-                                type: str
-                                description: Mobile phone.
-                            name:
-                                type: str
-                                description: Guest name.
-                            password:
-                                type: raw
-                                description: (list) Guest password.
-                            sponsor:
-                                type: str
-                                description: Set the action for the sponsor guest user field.
-                            user_id:
-                                aliases: ['user-id']
-                                type: str
-                                description: Guest ID.
-                    http_digest_realm:
-                        aliases: ['http-digest-realm']
-                        type: str
-                        description: Realm attribute for MD5-digest authentication.
-                    id:
-                        type: int
-                        description: Group ID.
-                    ldap_memberof:
-                        aliases: ['ldap-memberof']
-                        type: str
-                        description: Ldap memberof.
-                    logic_type:
-                        aliases: ['logic-type']
-                        type: str
-                        description: Logic type.
-                        choices: ['or', 'and']
-                    match:
-                        type: list
-                        elements: dict
-                        description: Match.
-                        suboptions:
-                            _gui_meta:
-                                type: str
-                                description: Gui meta.
-                            group_name:
-                                aliases: ['group-name']
-                                type: str
-                                description: Name of matching user or group on remote authentication server.
-                            id:
-                                type: int
-                                description: ID.
-                            server_name:
-                                aliases: ['server-name']
-                                type: str
-                                description: Name of remote auth server.
-                    max_accounts:
-                        aliases: ['max-accounts']
-                        type: int
-                        description: Maximum number of guest accounts that can be created for this group
-                    member:
-                        type: raw
-                        description: (list or str) Names of users, peers, LDAP severs, or RADIUS servers to add to the user group.
-                    mobile_phone:
-                        aliases: ['mobile-phone']
-                        type: str
-                        description: Enable/disable the guest user mobile phone number field.
-                        choices: ['disable', 'enable']
-                    multiple_guest_add:
-                        aliases: ['multiple-guest-add']
-                        type: str
-                        description: Enable/disable addition of multiple guests.
-                        choices: ['disable', 'enable']
-                    password:
-                        type: str
-                        description: Guest user password type.
-                        choices: ['auto-generate', 'specify', 'disable']
-                    redir_url:
-                        aliases: ['redir-url']
-                        type: str
-                        description: Redir url.
-                    sms_custom_server:
-                        aliases: ['sms-custom-server']
-                        type: str
-                        description: SMS server.
-                    sms_server:
-                        aliases: ['sms-server']
-                        type: str
-                        description: Send SMS through FortiGuard or other external server.
-                        choices: ['fortiguard', 'custom']
-                    sponsor:
-                        type: str
-                        description: Set the action for the sponsor guest user field.
-                        choices: ['optional', 'mandatory', 'disabled']
-                    sslvpn_bookmarks_group:
-                        aliases: ['sslvpn-bookmarks-group']
-                        type: raw
-                        description: (list or str) Sslvpn bookmarks group.
-                    sslvpn_cache_cleaner:
-                        aliases: ['sslvpn-cache-cleaner']
-                        type: str
-                        description: Sslvpn cache cleaner.
-                        choices: ['disable', 'enable']
-                    sslvpn_client_check:
-                        aliases: ['sslvpn-client-check']
-                        type: list
-                        elements: str
-                        description: Sslvpn client check.
-                        choices: ['forticlient', 'forticlient-av', 'forticlient-fw', '3rdAV',
-                                  '3rdFW']
-                    sslvpn_ftp:
-                        aliases: ['sslvpn-ftp']
-                        type: str
-                        description: Sslvpn ftp.
-                        choices: ['disable', 'enable']
-                    sslvpn_http:
-                        aliases: ['sslvpn-http']
-                        type: str
-                        description: Sslvpn http.
-                        choices: ['disable', 'enable']
-                    sslvpn_os_check:
-                        aliases: ['sslvpn-os-check']
-                        type: str
-                        description: Sslvpn os check.
-                        choices: ['disable', 'enable']
-                    sslvpn_os_check_list:
-                        aliases: ['sslvpn-os-check-list']
-                        type: dict
-                        description: Sslvpn os check list.
-                        suboptions:
-                            action:
-                                type: str
-                                description: Action.
-                                choices: ['allow', 'check-up-to-date', 'deny']
-                            latest_patch_level:
-                                aliases: ['latest-patch-level']
-                                type: str
-                                description: Latest patch level.
-                            name:
-                                type: str
-                                description: Name.
-                            tolerance:
-                                type: int
-                                description: Tolerance.
-                    sslvpn_portal:
-                        aliases: ['sslvpn-portal']
-                        type: raw
-                        description: (list or str) Sslvpn portal.
-                    sslvpn_portal_heading:
-                        aliases: ['sslvpn-portal-heading']
-                        type: str
-                        description: Sslvpn portal heading.
-                    sslvpn_rdp:
-                        aliases: ['sslvpn-rdp']
-                        type: str
-                        description: Sslvpn rdp.
-                        choices: ['disable', 'enable']
-                    sslvpn_samba:
-                        aliases: ['sslvpn-samba']
-                        type: str
-                        description: Sslvpn samba.
-                        choices: ['disable', 'enable']
-                    sslvpn_split_tunneling:
-                        aliases: ['sslvpn-split-tunneling']
-                        type: str
-                        description: Sslvpn split tunneling.
-                        choices: ['disable', 'enable']
-                    sslvpn_ssh:
-                        aliases: ['sslvpn-ssh']
-                        type: str
-                        description: Sslvpn ssh.
-                        choices: ['disable', 'enable']
-                    sslvpn_telnet:
-                        aliases: ['sslvpn-telnet']
-                        type: str
-                        description: Sslvpn telnet.
-                        choices: ['disable', 'enable']
-                    sslvpn_tunnel:
-                        aliases: ['sslvpn-tunnel']
-                        type: str
-                        description: Sslvpn tunnel.
-                        choices: ['disable', 'enable']
-                    sslvpn_tunnel_endip:
-                        aliases: ['sslvpn-tunnel-endip']
-                        type: str
-                        description: Sslvpn tunnel endip.
-                    sslvpn_tunnel_ip_mode:
-                        aliases: ['sslvpn-tunnel-ip-mode']
-                        type: str
-                        description: Sslvpn tunnel ip mode.
-                        choices: ['range', 'usrgrp']
-                    sslvpn_tunnel_startip:
-                        aliases: ['sslvpn-tunnel-startip']
-                        type: str
-                        description: Sslvpn tunnel startip.
-                    sslvpn_virtual_desktop:
-                        aliases: ['sslvpn-virtual-desktop']
-                        type: str
-                        description: Sslvpn virtual desktop.
-                        choices: ['disable', 'enable']
-                    sslvpn_vnc:
-                        aliases: ['sslvpn-vnc']
-                        type: str
-                        description: Sslvpn vnc.
-                        choices: ['disable', 'enable']
-                    sslvpn_webapp:
-                        aliases: ['sslvpn-webapp']
-                        type: str
-                        description: Sslvpn webapp.
-                        choices: ['disable', 'enable']
-                    sso_attribute_value:
-                        aliases: ['sso-attribute-value']
-                        type: str
-                        description: Name of the RADIUS user group that this local user group represents.
-                    user_id:
-                        aliases: ['user-id']
-                        type: str
-                        description: Guest user ID type.
-                        choices: ['email', 'auto-generate', 'specify']
-                    user_name:
-                        aliases: ['user-name']
-                        type: str
-                        description: Enable/disable the guest user name entry.
-                        choices: ['disable', 'enable']
-                    negate:
-                        type: str
-                        description: Negate.
-                        choices: ['disable', 'enable']
-            logic_type:
-                aliases: ['logic-type']
+                description: Gui meta.
+              group_name:
+                aliases: ['group-name']
                 type: str
-                description: Set the logic between members or matching entries.
-                choices: ['or', 'and']
-            negate:
+                description: Name of matching user or group on remote authentication server.
+              id:
+                type: int
+                description: ID.
+              server_name:
+                aliases: ['server-name']
                 type: str
-                description: Negate.
-                choices: ['disable', 'enable']
+                description: Name of remote auth server.
+          max_accounts:
+            aliases: ['max-accounts']
+            type: int
+            description: Maximum number of guest accounts that can be created for this group
+          member:
+            type: raw
+            description: (list or str) Names of users, peers, LDAP severs, or RADIUS servers to add to the user group.
+          mobile_phone:
+            aliases: ['mobile-phone']
+            type: str
+            description: Enable/disable the guest user mobile phone number field.
+            choices: ['disable', 'enable']
+          multiple_guest_add:
+            aliases: ['multiple-guest-add']
+            type: str
+            description: Enable/disable addition of multiple guests.
+            choices: ['disable', 'enable']
+          password:
+            type: str
+            description: Guest user password type.
+            choices: ['auto-generate', 'specify', 'disable']
+          redir_url:
+            aliases: ['redir-url']
+            type: str
+            description: Redir url.
+          sms_custom_server:
+            aliases: ['sms-custom-server']
+            type: str
+            description: SMS server.
+          sms_server:
+            aliases: ['sms-server']
+            type: str
+            description: Send SMS through FortiGuard or other external server.
+            choices: ['fortiguard', 'custom']
+          sponsor:
+            type: str
+            description: Set the action for the sponsor guest user field.
+            choices: ['optional', 'mandatory', 'disabled']
+          sslvpn_bookmarks_group:
+            aliases: ['sslvpn-bookmarks-group']
+            type: raw
+            description: (list or str) Sslvpn bookmarks group.
+          sslvpn_cache_cleaner:
+            aliases: ['sslvpn-cache-cleaner']
+            type: str
+            description: Sslvpn cache cleaner.
+            choices: ['disable', 'enable']
+          sslvpn_client_check:
+            aliases: ['sslvpn-client-check']
+            type: list
+            elements: str
+            description: Sslvpn client check.
+            choices: ['forticlient', 'forticlient-av', 'forticlient-fw', '3rdAV', '3rdFW']
+          sslvpn_ftp:
+            aliases: ['sslvpn-ftp']
+            type: str
+            description: Sslvpn ftp.
+            choices: ['disable', 'enable']
+          sslvpn_http:
+            aliases: ['sslvpn-http']
+            type: str
+            description: Sslvpn http.
+            choices: ['disable', 'enable']
+          sslvpn_os_check:
+            aliases: ['sslvpn-os-check']
+            type: str
+            description: Sslvpn os check.
+            choices: ['disable', 'enable']
+          sslvpn_os_check_list:
+            aliases: ['sslvpn-os-check-list']
+            type: dict
+            description: Sslvpn os check list.
+            suboptions:
+              action:
+                type: str
+                description: Action.
+                choices: ['allow', 'check-up-to-date', 'deny']
+              latest_patch_level:
+                aliases: ['latest-patch-level']
+                type: str
+                description: Latest patch level.
+              name:
+                type: str
+                description: Name.
+              tolerance:
+                type: int
+                description: Tolerance.
+          sslvpn_portal:
+            aliases: ['sslvpn-portal']
+            type: raw
+            description: (list or str) Sslvpn portal.
+          sslvpn_portal_heading:
+            aliases: ['sslvpn-portal-heading']
+            type: str
+            description: Sslvpn portal heading.
+          sslvpn_rdp:
+            aliases: ['sslvpn-rdp']
+            type: str
+            description: Sslvpn rdp.
+            choices: ['disable', 'enable']
+          sslvpn_samba:
+            aliases: ['sslvpn-samba']
+            type: str
+            description: Sslvpn samba.
+            choices: ['disable', 'enable']
+          sslvpn_split_tunneling:
+            aliases: ['sslvpn-split-tunneling']
+            type: str
+            description: Sslvpn split tunneling.
+            choices: ['disable', 'enable']
+          sslvpn_ssh:
+            aliases: ['sslvpn-ssh']
+            type: str
+            description: Sslvpn ssh.
+            choices: ['disable', 'enable']
+          sslvpn_telnet:
+            aliases: ['sslvpn-telnet']
+            type: str
+            description: Sslvpn telnet.
+            choices: ['disable', 'enable']
+          sslvpn_tunnel:
+            aliases: ['sslvpn-tunnel']
+            type: str
+            description: Sslvpn tunnel.
+            choices: ['disable', 'enable']
+          sslvpn_tunnel_endip:
+            aliases: ['sslvpn-tunnel-endip']
+            type: str
+            description: Sslvpn tunnel endip.
+          sslvpn_tunnel_ip_mode:
+            aliases: ['sslvpn-tunnel-ip-mode']
+            type: str
+            description: Sslvpn tunnel ip mode.
+            choices: ['range', 'usrgrp']
+          sslvpn_tunnel_startip:
+            aliases: ['sslvpn-tunnel-startip']
+            type: str
+            description: Sslvpn tunnel startip.
+          sslvpn_virtual_desktop:
+            aliases: ['sslvpn-virtual-desktop']
+            type: str
+            description: Sslvpn virtual desktop.
+            choices: ['disable', 'enable']
+          sslvpn_vnc:
+            aliases: ['sslvpn-vnc']
+            type: str
+            description: Sslvpn vnc.
+            choices: ['disable', 'enable']
+          sslvpn_webapp:
+            aliases: ['sslvpn-webapp']
+            type: str
+            description: Sslvpn webapp.
+            choices: ['disable', 'enable']
+          sso_attribute_value:
+            aliases: ['sso-attribute-value']
+            type: str
+            description: Name of the RADIUS user group that this local user group represents.
+          user_id:
+            aliases: ['user-id']
+            type: str
+            description: Guest user ID type.
+            choices: ['email', 'auto-generate', 'specify']
+          user_name:
+            aliases: ['user-name']
+            type: str
+            description: Enable/disable the guest user name entry.
+            choices: ['disable', 'enable']
+          negate:
+            type: str
+            description: Negate.
+            choices: ['disable', 'enable']
+          scim_group_attr_type:
+            aliases: ['scim-group-attr-type']
+            type: str
+            description: Group attribute type used to match SCIM groups
+            choices: ['display-name', 'external-id']
+          scim_groups:
+            aliases: ['scim-groups']
+            type: raw
+            description: (list) Names of SCIM groups.
+          scim_user_attr_type:
+            aliases: ['scim-user-attr-type']
+            type: str
+            description: User attribute type used to match SCIM users
+            choices: ['user-name', 'display-name', 'external-id', 'email']
+          scim_users:
+            aliases: ['scim-users']
+            type: raw
+            description: (list) Names of SCIM users.
+          fabric_force_sync:
+            aliases: ['fabric-force-sync']
+            type: str
+            description: Enable/disable forced synchronization of configuration objects from the root FortiGate unit to the downstream devices.
+            choices: ['disable', 'enable']
+          fabric_object:
+            aliases: ['fabric-object']
+            type: str
+            description: Security Fabric global object setting.
+            choices: ['disable', 'enable']
+          fabric_object_source:
+            aliases: ['fabric-object-source']
+            type: str
+            description: Source of truth for fabric object.
+            choices: ['member', 'local', 'root']
+          uuid:
+            type: str
+            description: Universally Unique Identifier
+      logic_type:
+        aliases: ['logic-type']
+        type: str
+        description: Set the logic between members or matching entries.
+        choices: ['or', 'and']
+      negate:
+        type: str
+        description: Negate.
+        choices: ['disable', 'enable']
+      scim_groups:
+        aliases: ['scim-groups']
+        type: raw
+        description: (list) Names of SCIM groups.
+      scim_group_attr_type:
+        aliases: ['scim-group-attr-type']
+        type: str
+        description: Group attribute type used to match SCIM groups
+        choices: ['display-name', 'external-id']
+      scim_users:
+        aliases: ['scim-users']
+        type: raw
+        description: (list) Names of SCIM users.
+      scim_user_attr_type:
+        aliases: ['scim-user-attr-type']
+        type: str
+        description: User attribute type used to match SCIM users
+        choices: ['user-name', 'display-name', 'external-id', 'email']
+      fabric_force_sync:
+        aliases: ['fabric-force-sync']
+        type: str
+        description: Enable/disable forced synchronization of configuration objects from the root FortiGate unit to the downstream devices.
+        choices: ['disable', 'enable']
+      fabric_object:
+        aliases: ['fabric-object']
+        type: str
+        description: Security Fabric global object setting.
+        choices: ['disable', 'enable']
+      fabric_object_source:
+        aliases: ['fabric-object-source']
+        type: str
+        description: Source of truth for fabric object.
+        choices: ['member', 'local', 'root']
+      uuid:
+        type: str
+        description: Universally Unique Identifier
 '''
 
 EXAMPLES = '''
@@ -530,42 +601,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -591,7 +662,7 @@ def main():
                 'email': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'expire': {'type': 'int'},
                 'expire-type': {'choices': ['immediately', 'first-successful-login'], 'type': 'str'},
-                'group-type': {'choices': ['firewall', 'directory-service', 'fsso-service', 'guest', 'rsso'], 'type': 'str'},
+                'group-type': {'choices': ['firewall', 'directory-service', 'fsso-service', 'guest', 'rsso', 'scim'], 'type': 'str'},
                 'guest': {
                     'type': 'list',
                     'options': {
@@ -647,7 +718,7 @@ def main():
                         'expire-type': {'v_range': [['7.0.2', '']], 'choices': ['immediately', 'first-successful-login'], 'type': 'str'},
                         'group-type': {
                             'v_range': [['7.0.2', '']],
-                            'choices': ['firewall', 'directory-service', 'fsso-service', 'guest', 'rsso'],
+                            'choices': ['firewall', 'directory-service', 'fsso-service', 'guest', 'rsso', 'scim'],
                             'type': 'str'
                         },
                         'guest': {
@@ -730,12 +801,32 @@ def main():
                         'sso-attribute-value': {'v_range': [['7.0.2', '']], 'type': 'str'},
                         'user-id': {'v_range': [['7.0.2', '']], 'choices': ['email', 'auto-generate', 'specify'], 'type': 'str'},
                         'user-name': {'v_range': [['7.0.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'negate': {'v_range': [['7.4.9', '7.4.10'], ['7.6.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                        'negate': {'v_range': [['7.4.9', '7.4.11'], ['7.6.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'scim-group-attr-type': {'v_range': [['7.6.7', '']], 'choices': ['display-name', 'external-id'], 'type': 'str'},
+                        'scim-groups': {'v_range': [['7.6.7', '']], 'type': 'raw'},
+                        'scim-user-attr-type': {
+                            'v_range': [['7.6.7', '']],
+                            'choices': ['user-name', 'display-name', 'external-id', 'email'],
+                            'type': 'str'
+                        },
+                        'scim-users': {'v_range': [['7.6.7', '']], 'type': 'raw'},
+                        'fabric-force-sync': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'fabric-object': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'fabric-object-source': {'v_range': [['8.0.0', '']], 'choices': ['member', 'local', 'root'], 'type': 'str'},
+                        'uuid': {'v_range': [['8.0.0', '']], 'type': 'str'}
                     },
                     'elements': 'dict'
                 },
-                'logic-type': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'choices': ['or', 'and'], 'type': 'str'},
-                'negate': {'v_range': [['7.4.9', '7.4.10'], ['7.6.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'logic-type': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'choices': ['or', 'and'], 'type': 'str'},
+                'negate': {'v_range': [['7.4.9', '7.4.11'], ['7.6.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'scim-groups': {'v_range': [['7.6.7', '']], 'type': 'raw'},
+                'scim-group-attr-type': {'v_range': [['7.6.7', '']], 'choices': ['display-name', 'external-id'], 'type': 'str'},
+                'scim-users': {'v_range': [['7.6.7', '']], 'type': 'raw'},
+                'scim-user-attr-type': {'v_range': [['7.6.7', '']], 'choices': ['user-name', 'display-name', 'external-id', 'email'], 'type': 'str'},
+                'fabric-force-sync': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'fabric-object': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'fabric-object-source': {'v_range': [['8.0.0', '']], 'choices': ['member', 'local', 'root'], 'type': 'str'},
+                'uuid': {'v_range': [['8.0.0', '']], 'type': 'str'}
             }
         }
     }

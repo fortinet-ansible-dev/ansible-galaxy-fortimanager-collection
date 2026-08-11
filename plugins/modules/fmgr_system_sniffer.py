@@ -15,52 +15,52 @@ module: fmgr_system_sniffer
 short_description: Interface sniffer.
 version_added: "2.1.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    system_sniffer:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            host:
-                type: str
-                description: Hosts to filter for in sniffer traffic
-            id:
-                type: int
-                description: Sniffer ID.
-                required: true
-            interface:
-                type: str
-                description: Interface.
-            ipv6:
-                type: str
-                description:
-                    - Enable/disable sniffing IPv6 packets.
-                    - disable - Disable sniffer for IPv6 packets.
-                    - enable - Enable sniffer for IPv6 packets.
-                choices: ['disable', 'enable']
-            max_packet_count:
-                aliases: ['max-packet-count']
-                type: int
-                description: Maximum packet count
-            non_ip:
-                aliases: ['non-ip']
-                type: str
-                description:
-                    - Enable/disable sniffing non-IP packets.
-                    - disable - Disable sniffer for non-IP packets.
-                    - enable - Enable sniffer for non-IP packets.
-                choices: ['disable', 'enable']
-            port:
-                type: str
-                description: Ports to sniff
-            protocol:
-                type: str
-                description: Integer value for the protocol type as defined by IANA
-            vlan:
-                type: str
-                description: List of VLANs to sniff.
+  system_sniffer:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      host:
+        type: str
+        description: Hosts to filter for in sniffer traffic
+      id:
+        type: int
+        description: Sniffer ID.
+        required: true
+      interface:
+        type: str
+        description: Interface.
+      ipv6:
+        type: str
+        description:
+          - Enable/disable sniffing IPv6 packets.
+          - disable - Disable sniffer for IPv6 packets.
+          - enable - Enable sniffer for IPv6 packets.
+        choices: ['disable', 'enable']
+      max_packet_count:
+        aliases: ['max-packet-count']
+        type: int
+        description: Maximum packet count
+      non_ip:
+        aliases: ['non-ip']
+        type: str
+        description:
+          - Enable/disable sniffing non-IP packets.
+          - disable - Disable sniffer for non-IP packets.
+          - enable - Enable sniffer for non-IP packets.
+        choices: ['disable', 'enable']
+      port:
+        type: str
+        description: Ports to sniff
+      protocol:
+        type: str
+        description: Integer value for the protocol type as defined by IANA
+      vlan:
+        type: str
+        description: List of VLANs to sniff.
 '''
 
 EXAMPLES = '''
@@ -87,42 +87,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

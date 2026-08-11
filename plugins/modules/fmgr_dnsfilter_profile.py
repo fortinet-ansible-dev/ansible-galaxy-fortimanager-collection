@@ -15,176 +15,194 @@ module: fmgr_dnsfilter_profile
 short_description: Configure DNS domain filter profiles.
 version_added: "1.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  dnsfilter_profile:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      block_action:
+        aliases: ['block-action']
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Action to take for blocked domains.
+        choices: ['block', 'redirect', 'block-sevrfail']
+      block_botnet:
+        aliases: ['block-botnet']
         type: str
+        description: Enable/disable blocking botnet C&C DNS lookups.
+        choices: ['disable', 'enable']
+      comment:
+        type: str
+        description: Comment.
+      external_ip_blocklist:
+        aliases: ['external-ip-blocklist']
+        type: raw
+        description: (list or str) One or more external IP block lists.
+      log_all_domain:
+        aliases: ['log-all-domain']
+        type: str
+        description: Enable/disable logging of all domains visited
+        choices: ['disable', 'enable']
+      name:
+        type: str
+        description: Profile name.
         required: true
-    dnsfilter_profile:
-        description: The top level parameters set.
-        required: false
-        type: dict
+      redirect_portal:
+        aliases: ['redirect-portal']
+        type: str
+        description: IP address of the SDNS redirect portal.
+      safe_search:
+        aliases: ['safe-search']
+        type: str
+        description: Enable/disable Google, Bing, and YouTube safe search.
+        choices: ['disable', 'enable']
+      sdns_domain_log:
+        aliases: ['sdns-domain-log']
+        type: str
+        description: Enable/disable domain filtering and botnet domain logging.
+        choices: ['disable', 'enable']
+      sdns_ftgd_err_log:
+        aliases: ['sdns-ftgd-err-log']
+        type: str
+        description: Enable/disable FortiGuard SDNS rating error logging.
+        choices: ['disable', 'enable']
+      youtube_restrict:
+        aliases: ['youtube-restrict']
+        type: str
+        description: Set safe search for YouTube restriction level.
+        choices: ['strict', 'moderate', 'none']
+      dns_translation:
+        aliases: ['dns-translation']
+        type: list
+        elements: dict
+        description: Dns translation.
         suboptions:
-            block_action:
-                aliases: ['block-action']
+          dst:
+            type: str
+            description: IPv4 address or subnet on the external network to substitute for the resolved address in DNS query replies.
+          id:
+            type: int
+            description: ID.
+          netmask:
+            type: str
+            description: If src and dst are subnets rather than single IP addresses, enter the netmask for both src and dst.
+          src:
+            type: str
+            description: IPv4 address or subnet on the internal network to compare with the resolved address in DNS query replies.
+          status:
+            type: str
+            description: Enable/disable this DNS translation entry.
+            choices: ['disable', 'enable']
+          addr_type:
+            aliases: ['addr-type']
+            type: str
+            description: DNS translation type
+            choices: ['ipv4', 'ipv6']
+          dst6:
+            type: str
+            description: IPv6 address or subnet on the external network to substitute for the resolved address in DNS query replies.
+          prefix:
+            type: int
+            description: If src6 and dst6 are subnets rather than single IP addresses, enter the prefix for both src6 and dst6
+          src6:
+            type: str
+            description: IPv6 address or subnet on the internal network to compare with the resolved address in DNS query replies.
+      redirect_portal6:
+        aliases: ['redirect-portal6']
+        type: str
+        description: IPv6 address of the SDNS redirect portal.
+      log_all_url:
+        aliases: ['log-all-url']
+        type: str
+        description: Enable/disable log all URLs visited.
+        choices: ['disable', 'enable']
+      sdns_url_log:
+        aliases: ['sdns-url-log']
+        type: str
+        description: Enable/disable logging of URL filtering and botnet domains.
+        choices: ['disable', 'enable']
+      domain_filter:
+        aliases: ['domain-filter']
+        type: dict
+        description: Domain filter.
+        suboptions:
+          domain_filter_table:
+            aliases: ['domain-filter-table']
+            type: int
+            description: DNS domain filter table ID.
+      ftgd_dns:
+        aliases: ['ftgd-dns']
+        type: dict
+        description: Ftgd dns.
+        suboptions:
+          filters:
+            type: list
+            elements: dict
+            description: Filters.
+            suboptions:
+              action:
                 type: str
-                description: Action to take for blocked domains.
-                choices: ['block', 'redirect', 'block-sevrfail']
-            block_botnet:
-                aliases: ['block-botnet']
+                description: Action to take for DNS requests matching the category.
+                choices: ['monitor', 'block']
+              category:
                 type: str
-                description: Enable/disable blocking botnet C&C DNS lookups.
+                description: Category number.
+              id:
+                type: int
+                description: ID number.
+              log:
+                type: str
+                description: Enable/disable DNS filter logging for this DNS profile.
                 choices: ['disable', 'enable']
-            comment:
-                type: str
-                description: Comment.
-            external_ip_blocklist:
-                aliases: ['external-ip-blocklist']
-                type: raw
-                description: (list or str) One or more external IP block lists.
-            log_all_domain:
-                aliases: ['log-all-domain']
-                type: str
-                description: Enable/disable logging of all domains visited
-                choices: ['disable', 'enable']
-            name:
-                type: str
-                description: Profile name.
-                required: true
-            redirect_portal:
-                aliases: ['redirect-portal']
-                type: str
-                description: IP address of the SDNS redirect portal.
-            safe_search:
-                aliases: ['safe-search']
-                type: str
-                description: Enable/disable Google, Bing, and YouTube safe search.
-                choices: ['disable', 'enable']
-            sdns_domain_log:
-                aliases: ['sdns-domain-log']
-                type: str
-                description: Enable/disable domain filtering and botnet domain logging.
-                choices: ['disable', 'enable']
-            sdns_ftgd_err_log:
-                aliases: ['sdns-ftgd-err-log']
-                type: str
-                description: Enable/disable FortiGuard SDNS rating error logging.
-                choices: ['disable', 'enable']
-            youtube_restrict:
-                aliases: ['youtube-restrict']
-                type: str
-                description: Set safe search for YouTube restriction level.
-                choices: ['strict', 'moderate', 'none']
-            dns_translation:
-                aliases: ['dns-translation']
-                type: list
-                elements: dict
-                description: Dns translation.
-                suboptions:
-                    dst:
-                        type: str
-                        description: IPv4 address or subnet on the external network to substitute for the resolved address in DNS query replies.
-                    id:
-                        type: int
-                        description: ID.
-                    netmask:
-                        type: str
-                        description: If src and dst are subnets rather than single IP addresses, enter the netmask for both src and dst.
-                    src:
-                        type: str
-                        description: IPv4 address or subnet on the internal network to compare with the resolved address in DNS query replies.
-                    status:
-                        type: str
-                        description: Enable/disable this DNS translation entry.
-                        choices: ['disable', 'enable']
-                    addr_type:
-                        aliases: ['addr-type']
-                        type: str
-                        description: DNS translation type
-                        choices: ['ipv4', 'ipv6']
-                    dst6:
-                        type: str
-                        description: IPv6 address or subnet on the external network to substitute for the resolved address in DNS query replies.
-                    prefix:
-                        type: int
-                        description: If src6 and dst6 are subnets rather than single IP addresses, enter the prefix for both src6 and dst6
-                    src6:
-                        type: str
-                        description: IPv6 address or subnet on the internal network to compare with the resolved address in DNS query replies.
-            redirect_portal6:
-                aliases: ['redirect-portal6']
-                type: str
-                description: IPv6 address of the SDNS redirect portal.
-            log_all_url:
-                aliases: ['log-all-url']
-                type: str
-                description: Enable/disable log all URLs visited.
-                choices: ['disable', 'enable']
-            sdns_url_log:
-                aliases: ['sdns-url-log']
-                type: str
-                description: Enable/disable logging of URL filtering and botnet domains.
-                choices: ['disable', 'enable']
-            domain_filter:
-                aliases: ['domain-filter']
-                type: dict
-                description: Domain filter.
-                suboptions:
-                    domain_filter_table:
-                        aliases: ['domain-filter-table']
-                        type: int
-                        description: DNS domain filter table ID.
-            ftgd_dns:
-                aliases: ['ftgd-dns']
-                type: dict
-                description: Ftgd dns.
-                suboptions:
-                    filters:
-                        type: list
-                        elements: dict
-                        description: Filters.
-                        suboptions:
-                            action:
-                                type: str
-                                description: Action to take for DNS requests matching the category.
-                                choices: ['monitor', 'block']
-                            category:
-                                type: str
-                                description: Category number.
-                            id:
-                                type: int
-                                description: ID number.
-                            log:
-                                type: str
-                                description: Enable/disable DNS filter logging for this DNS profile.
-                                choices: ['disable', 'enable']
-                    options:
-                        type: list
-                        elements: str
-                        description: FortiGuard DNS filter options.
-                        choices: ['error-allow', 'ftgd-disable']
-            urlfilter:
-                type: dict
-                description: Urlfilter.
-                suboptions:
-                    urlfilter_table:
-                        aliases: ['urlfilter-table']
-                        type: int
-                        description: DNS URL filter table ID.
-            transparent_dns_database:
-                aliases: ['transparent-dns-database']
-                type: raw
-                description: (list) Transparent DNS database zones.
-            strip_ech:
-                aliases: ['strip-ech']
-                type: str
-                description: Enable/disable removal of the encrypted client hello service parameter from supporting DNS RRs.
-                choices: ['disable', 'enable']
+          options:
+            type: list
+            elements: str
+            description: FortiGuard DNS filter options.
+            choices: ['error-allow', 'ftgd-disable']
+      urlfilter:
+        type: dict
+        description: Urlfilter.
+        suboptions:
+          urlfilter_table:
+            aliases: ['urlfilter-table']
+            type: int
+            description: DNS URL filter table ID.
+      transparent_dns_database:
+        aliases: ['transparent-dns-database']
+        type: raw
+        description: (list) Transparent DNS database zones.
+      strip_ech:
+        aliases: ['strip-ech']
+        type: str
+        description: Enable/disable removal of the encrypted client hello service parameter from supporting DNS RRs.
+        choices: ['disable', 'enable']
+      fabric_force_sync:
+        aliases: ['fabric-force-sync']
+        type: str
+        description: Enable/disable forced synchronization of configuration objects from the root FortiGate unit to the downstream devices.
+        choices: ['disable', 'enable']
+      fabric_object:
+        aliases: ['fabric-object']
+        type: str
+        description: Security Fabric global object setting.
+        choices: ['disable', 'enable']
+      fabric_object_source:
+        aliases: ['fabric-object-source']
+        type: str
+        description: Source of truth for fabric object.
+        choices: ['member', 'local', 'root']
+      uuid:
+        type: str
+        description: Universally Unique Identifier
 '''
 
 EXAMPLES = '''
@@ -229,42 +247,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -347,7 +365,11 @@ def main():
                     'options': {'urlfilter-table': {'v_range': [['6.2.8', '6.2.13']], 'type': 'int'}}
                 },
                 'transparent-dns-database': {'v_range': [['7.4.1', '']], 'type': 'raw'},
-                'strip-ech': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'strip-ech': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'fabric-force-sync': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'fabric-object': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'fabric-object-source': {'v_range': [['8.0.0', '']], 'choices': ['member', 'local', 'root'], 'type': 'str'},
+                'uuid': {'v_range': [['8.0.0', '']], 'type': 'str'}
             }
         }
     }

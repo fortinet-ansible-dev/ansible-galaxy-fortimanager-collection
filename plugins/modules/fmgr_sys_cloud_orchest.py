@@ -15,26 +15,26 @@ module: fmgr_sys_cloud_orchest
 short_description: Sys cloud orchest
 version_added: "2.2.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
+  - fortinet.fortimanager.general
 options:
-    sys_cloud_orchest:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            action:
-                type: str
-                description: Action.
-                choices: ['deploy', 'undeploy', 'status']
-            adom:
-                type: str
-                description: Adom.
-            adom_oid:
-                type: int
-                description: Adom oid.
-            name:
-                type: str
-                description: Name.
+  sys_cloud_orchest:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      action:
+        type: str
+        description: Action.
+        choices: ['deploy', 'undeploy', 'status']
+      adom:
+        type: str
+        description: Adom.
+      adom_oid:
+        type: int
+        description: Adom oid.
+      name:
+        type: str
+        description: Name.
 '''
 
 EXAMPLES = '''
@@ -55,42 +55,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

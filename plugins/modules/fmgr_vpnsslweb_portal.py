@@ -15,687 +15,684 @@ module: fmgr_vpnsslweb_portal
 short_description: Portal.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  vpnsslweb_portal:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      allow_user_access:
+        aliases: ['allow-user-access']
+        type: list
+        elements: str
+        description: Allow user access to SSL-VPN applications.
+        choices: ['web', 'ftp', 'telnet', 'smb', 'vnc', 'rdp', 'ssh', 'ping', 'citrix',
+                  'portforward', 'sftp']
+      auto_connect:
+        aliases: ['auto-connect']
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
-        type: str
-        required: true
-    vpnsslweb_portal:
-        description: The top level parameters set.
-        required: false
-        type: dict
+        description: Enable/disable automatic connect by client when system is up.
+        choices: ['disable', 'enable']
+      bookmark_group:
+        aliases: ['bookmark-group']
+        type: list
+        elements: dict
+        description: Bookmark group.
         suboptions:
-            allow_user_access:
-                aliases: ['allow-user-access']
-                type: list
-                elements: str
-                description: Allow user access to SSL-VPN applications.
-                choices: ['web', 'ftp', 'telnet', 'smb', 'vnc', 'rdp', 'ssh', 'ping', 'citrix',
-                          'portforward', 'sftp']
-            auto_connect:
-                aliases: ['auto-connect']
+          bookmarks:
+            type: list
+            elements: dict
+            description: Bookmarks.
+            suboptions:
+              additional_params:
+                aliases: ['additional-params']
                 type: str
-                description: Enable/disable automatic connect by client when system is up.
-                choices: ['disable', 'enable']
-            bookmark_group:
-                aliases: ['bookmark-group']
+                description: Additional parameters.
+              apptype:
+                type: str
+                description: Application type.
+                choices: ['web', 'telnet', 'ssh', 'ftp', 'smb', 'vnc', 'rdp', 'citrix',
+                          'rdpnative', 'portforward', 'sftp']
+              description:
+                type: str
+                description: Description.
+              folder:
+                type: str
+                description: Network shared file folder parameter.
+              form_data:
+                aliases: ['form-data']
                 type: list
                 elements: dict
-                description: Bookmark group.
+                description: Form data.
                 suboptions:
-                    bookmarks:
-                        type: list
-                        elements: dict
-                        description: Bookmarks.
-                        suboptions:
-                            additional_params:
-                                aliases: ['additional-params']
-                                type: str
-                                description: Additional parameters.
-                            apptype:
-                                type: str
-                                description: Application type.
-                                choices: ['web', 'telnet', 'ssh', 'ftp', 'smb', 'vnc', 'rdp',
-                                          'citrix', 'rdpnative', 'portforward', 'sftp']
-                            description:
-                                type: str
-                                description: Description.
-                            folder:
-                                type: str
-                                description: Network shared file folder parameter.
-                            form_data:
-                                aliases: ['form-data']
-                                type: list
-                                elements: dict
-                                description: Form data.
-                                suboptions:
-                                    name:
-                                        type: str
-                                        description: Name.
-                                    value:
-                                        type: str
-                                        description: Value.
-                            host:
-                                type: str
-                                description: Host name/IP parameter.
-                            listening_port:
-                                aliases: ['listening-port']
-                                type: int
-                                description: Listening port
-                            load_balancing_info:
-                                aliases: ['load-balancing-info']
-                                type: str
-                                description: The load balancing information or cookie which should be provided to the connection broker.
-                            logon_password:
-                                aliases: ['logon-password']
-                                type: raw
-                                description: (list) Logon password.
-                            logon_user:
-                                aliases: ['logon-user']
-                                type: str
-                                description: Logon user.
-                            name:
-                                type: str
-                                description: Bookmark name.
-                            port:
-                                type: int
-                                description: Remote port.
-                            preconnection_blob:
-                                aliases: ['preconnection-blob']
-                                type: str
-                                description: An arbitrary string which identifies the RDP source.
-                            preconnection_id:
-                                aliases: ['preconnection-id']
-                                type: int
-                                description: The numeric ID of the RDP source
-                            remote_port:
-                                aliases: ['remote-port']
-                                type: int
-                                description: Remote port
-                            security:
-                                type: str
-                                description: Security mode for RDP connection.
-                                choices: ['rdp', 'nla', 'tls', 'any']
-                            server_layout:
-                                aliases: ['server-layout']
-                                type: str
-                                description: Server side keyboard layout.
-                                choices: ['en-us-qwerty', 'de-de-qwertz', 'fr-fr-azerty',
-                                          'it-it-qwerty', 'sv-se-qwerty', 'failsafe',
-                                          'en-gb-qwerty', 'es-es-qwerty', 'fr-ch-qwertz',
-                                          'ja-jp-qwerty', 'pt-br-qwerty', 'tr-tr-qwerty',
-                                          'fr-ca-qwerty']
-                            show_status_window:
-                                aliases: ['show-status-window']
-                                type: str
-                                description: Enable/disable showing of status window.
-                                choices: ['disable', 'enable']
-                            sso:
-                                type: str
-                                description: Single Sign-On.
-                                choices: ['disable', 'static', 'auto']
-                            sso_credential:
-                                aliases: ['sso-credential']
-                                type: str
-                                description: Single sign-on credentials.
-                                choices: ['sslvpn-login', 'alternative']
-                            sso_credential_sent_once:
-                                aliases: ['sso-credential-sent-once']
-                                type: str
-                                description: Single sign-on credentials are only sent once to remote server.
-                                choices: ['disable', 'enable']
-                            sso_password:
-                                aliases: ['sso-password']
-                                type: raw
-                                description: (list) SSO password.
-                            sso_username:
-                                aliases: ['sso-username']
-                                type: str
-                                description: SSO user name.
-                            url:
-                                type: str
-                                description: URL parameter.
-                            domain:
-                                type: str
-                                description: Login domain.
-                            color_depth:
-                                aliases: ['color-depth']
-                                type: str
-                                description: Color depth per pixel.
-                                choices: ['8', '16', '32']
-                            height:
-                                type: int
-                                description: Screen height
-                            keyboard_layout:
-                                aliases: ['keyboard-layout']
-                                type: str
-                                description: Keyboard layout.
-                                choices: ['ar', 'da', 'de', 'de-ch', 'en-gb', 'en-uk', 'en-us',
-                                          'es', 'fi', 'fr', 'fr-be', 'fr-ca', 'fr-ch', 'hr', 'hu',
-                                          'it', 'ja', 'lt', 'lv', 'mk', 'no', 'pl', 'pt', 'pt-br',
-                                          'ru', 'sl', 'sv', 'tk', 'tr', 'fr-ca-m', 'wg', 'ar-101',
-                                          'ar-102', 'ar-102-azerty', 'can-mul', 'cz', 'cz-qwerty',
-                                          'cz-pr', 'nl', 'de-ibm', 'en-uk-ext', 'en-us-dvorak',
-                                          'es-var', 'fi-sami', 'hu-101', 'it-142', 'ko', 'lt-ibm',
-                                          'lt-std', 'lav-std', 'lav-leg', 'mk-std', 'no-sami',
-                                          'pol-214', 'pol-pr', 'pt-br-abnt2', 'ru-mne', 'ru-t',
-                                          'sv-sami', 'tuk', 'tur-f', 'tur-q', 'zh-sym-sg-us',
-                                          'zh-sym-us', 'zh-tr-hk', 'zh-tr-mo', 'zh-tr-us',
-                                          'fr-apple', 'la-am', 'ja-106']
-                            restricted_admin:
-                                aliases: ['restricted-admin']
-                                type: str
-                                description: Enable/disable restricted admin mode for RDP.
-                                choices: ['disable', 'enable']
-                            send_preconnection_id:
-                                aliases: ['send-preconnection-id']
-                                type: str
-                                description: Enable/disable sending of preconnection ID.
-                                choices: ['disable', 'enable']
-                            width:
-                                type: int
-                                description: Screen width
-                            vnc_keyboard_layout:
-                                aliases: ['vnc-keyboard-layout']
-                                type: str
-                                description: Keyboard layout.
-                                choices: ['da', 'de', 'de-ch', 'en-uk', 'es', 'fi', 'fr', 'fr-be',
-                                          'it', 'no', 'pt', 'sv', 'nl', 'en-uk-ext', 'it-142',
-                                          'pt-br-abnt2', 'default', 'fr-ca-mul', 'gd', 'us-intl']
-                    name:
-                        type: str
-                        description: Bookmark group name.
-            custom_lang:
-                aliases: ['custom-lang']
+                  name:
+                    type: str
+                    description: Name.
+                  value:
+                    type: str
+                    description: Value.
+              host:
                 type: str
-                description: Change the web portal display language.
-            customize_forticlient_download_url:
-                aliases: ['customize-forticlient-download-url']
-                type: str
-                description: Enable support of customized download URL for FortiClient.
-                choices: ['disable', 'enable']
-            display_bookmark:
-                aliases: ['display-bookmark']
-                type: str
-                description: Enable to display the web portal bookmark widget.
-                choices: ['disable', 'enable']
-            display_connection_tools:
-                aliases: ['display-connection-tools']
-                type: str
-                description: Enable to display the web portal connection tools widget.
-                choices: ['disable', 'enable']
-            display_history:
-                aliases: ['display-history']
-                type: str
-                description: Enable to display the web portal user login history widget.
-                choices: ['disable', 'enable']
-            display_status:
-                aliases: ['display-status']
-                type: str
-                description: Enable to display the web portal status widget.
-                choices: ['disable', 'enable']
-            dns_server1:
-                aliases: ['dns-server1']
-                type: str
-                description: IPv4 DNS server 1.
-            dns_server2:
-                aliases: ['dns-server2']
-                type: str
-                description: IPv4 DNS server 2.
-            dns_suffix:
-                aliases: ['dns-suffix']
-                type: str
-                description: DNS suffix.
-            exclusive_routing:
-                aliases: ['exclusive-routing']
-                type: str
-                description: Enable/disable all traffic go through tunnel only.
-                choices: ['disable', 'enable']
-            forticlient_download:
-                aliases: ['forticlient-download']
-                type: str
-                description: Enable/disable download option for FortiClient.
-                choices: ['disable', 'enable']
-            forticlient_download_method:
-                aliases: ['forticlient-download-method']
-                type: str
-                description: FortiClient download method.
-                choices: ['direct', 'ssl-vpn']
-            heading:
-                type: str
-                description: Web portal heading message.
-            hide_sso_credential:
-                aliases: ['hide-sso-credential']
-                type: str
-                description: Enable to prevent SSO credential being sent to client.
-                choices: ['disable', 'enable']
-            host_check:
-                aliases: ['host-check']
-                type: str
-                description: Type of host checking performed on endpoints.
-                choices: ['none', 'av', 'fw', 'av-fw', 'custom']
-            host_check_interval:
-                aliases: ['host-check-interval']
+                description: Host name/IP parameter.
+              listening_port:
+                aliases: ['listening-port']
                 type: int
-                description: Periodic host check interval.
-            host_check_policy:
-                aliases: ['host-check-policy']
+                description: Listening port
+              load_balancing_info:
+                aliases: ['load-balancing-info']
+                type: str
+                description: The load balancing information or cookie which should be provided to the connection broker.
+              logon_password:
+                aliases: ['logon-password']
                 type: raw
-                description: (list or str) One or more policies to require the endpoint to have specific security software.
-            ip_mode:
-                aliases: ['ip-mode']
+                description: (list) Logon password.
+              logon_user:
+                aliases: ['logon-user']
                 type: str
-                description: Method by which users of this SSL-VPN tunnel obtain IP addresses.
-                choices: ['range', 'user-group', 'dhcp', 'no-ip']
-            ip_pools:
-                aliases: ['ip-pools']
+                description: Logon user.
+              name:
+                type: str
+                description: Bookmark name.
+              port:
+                type: int
+                description: Remote port.
+              preconnection_blob:
+                aliases: ['preconnection-blob']
+                type: str
+                description: An arbitrary string which identifies the RDP source.
+              preconnection_id:
+                aliases: ['preconnection-id']
+                type: int
+                description: The numeric ID of the RDP source
+              remote_port:
+                aliases: ['remote-port']
+                type: int
+                description: Remote port
+              security:
+                type: str
+                description: Security mode for RDP connection.
+                choices: ['rdp', 'nla', 'tls', 'any']
+              server_layout:
+                aliases: ['server-layout']
+                type: str
+                description: Server side keyboard layout.
+                choices: ['en-us-qwerty', 'de-de-qwertz', 'fr-fr-azerty', 'it-it-qwerty',
+                          'sv-se-qwerty', 'failsafe', 'en-gb-qwerty', 'es-es-qwerty',
+                          'fr-ch-qwertz', 'ja-jp-qwerty', 'pt-br-qwerty', 'tr-tr-qwerty',
+                          'fr-ca-qwerty']
+              show_status_window:
+                aliases: ['show-status-window']
+                type: str
+                description: Enable/disable showing of status window.
+                choices: ['disable', 'enable']
+              sso:
+                type: str
+                description: Single Sign-On.
+                choices: ['disable', 'static', 'auto']
+              sso_credential:
+                aliases: ['sso-credential']
+                type: str
+                description: Single sign-on credentials.
+                choices: ['sslvpn-login', 'alternative']
+              sso_credential_sent_once:
+                aliases: ['sso-credential-sent-once']
+                type: str
+                description: Single sign-on credentials are only sent once to remote server.
+                choices: ['disable', 'enable']
+              sso_password:
+                aliases: ['sso-password']
                 type: raw
-                description: (list or str) IPv4 firewall source address objects reserved for SSL-VPN tunnel mode clients.
-            ipv6_dns_server1:
-                aliases: ['ipv6-dns-server1']
+                description: (list) SSO password.
+              sso_username:
+                aliases: ['sso-username']
                 type: str
-                description: IPv6 DNS server 1.
-            ipv6_dns_server2:
-                aliases: ['ipv6-dns-server2']
+                description: SSO user name.
+              url:
                 type: str
-                description: IPv6 DNS server 2.
-            ipv6_exclusive_routing:
-                aliases: ['ipv6-exclusive-routing']
+                description: URL parameter.
+              domain:
                 type: str
-                description: Enable/disable all IPv6 traffic go through tunnel only.
-                choices: ['disable', 'enable']
-            ipv6_pools:
-                aliases: ['ipv6-pools']
-                type: raw
-                description: (list or str) IPv4 firewall source address objects reserved for SSL-VPN tunnel mode clients.
-            ipv6_service_restriction:
-                aliases: ['ipv6-service-restriction']
+                description: Login domain.
+              color_depth:
+                aliases: ['color-depth']
                 type: str
-                description: Enable/disable IPv6 tunnel service restriction.
-                choices: ['disable', 'enable']
-            ipv6_split_tunneling:
-                aliases: ['ipv6-split-tunneling']
-                type: str
-                description: Enable/disable IPv6 split tunneling.
-                choices: ['disable', 'enable']
-            ipv6_split_tunneling_routing_address:
-                aliases: ['ipv6-split-tunneling-routing-address']
-                type: raw
-                description: (list or str) IPv6 SSL-VPN tunnel mode firewall address objects that override firewall policy destination addresses to con...
-            ipv6_tunnel_mode:
-                aliases: ['ipv6-tunnel-mode']
-                type: str
-                description: Enable/disable IPv6 SSL-VPN tunnel mode.
-                choices: ['disable', 'enable']
-            ipv6_wins_server1:
-                aliases: ['ipv6-wins-server1']
-                type: str
-                description: IPv6 WINS server 1.
-            ipv6_wins_server2:
-                aliases: ['ipv6-wins-server2']
-                type: str
-                description: IPv6 WINS server 2.
-            keep_alive:
-                aliases: ['keep-alive']
-                type: str
-                description: Enable/disable automatic reconnect for FortiClient connections.
-                choices: ['disable', 'enable']
-            limit_user_logins:
-                aliases: ['limit-user-logins']
-                type: str
-                description: Enable to limit each user to one SSL-VPN session at a time.
-                choices: ['disable', 'enable']
-            mac_addr_action:
-                aliases: ['mac-addr-action']
-                type: str
-                description: Client MAC address action.
-                choices: ['deny', 'allow']
-            mac_addr_check:
-                aliases: ['mac-addr-check']
-                type: str
-                description: Enable/disable MAC address host checking.
-                choices: ['disable', 'enable']
-            mac_addr_check_rule:
-                aliases: ['mac-addr-check-rule']
-                type: list
-                elements: dict
-                description: Mac addr check rule.
-                suboptions:
-                    mac_addr_list:
-                        aliases: ['mac-addr-list']
-                        type: raw
-                        description: (list) Client MAC address list.
-                    mac_addr_mask:
-                        aliases: ['mac-addr-mask']
-                        type: int
-                        description: Client MAC address mask.
-                    name:
-                        type: str
-                        description: Client MAC address check rule name.
-            macos_forticlient_download_url:
-                aliases: ['macos-forticlient-download-url']
-                type: str
-                description: Download URL for Mac FortiClient.
-            name:
-                type: str
-                description: Portal name.
-                required: true
-            os_check:
-                aliases: ['os-check']
-                type: str
-                description: Enable to let the FortiGate decide action based on client OS.
-                choices: ['disable', 'enable']
-            redir_url:
-                aliases: ['redir-url']
-                type: str
-                description: Client login redirect URL.
-            save_password:
-                aliases: ['save-password']
-                type: str
-                description: Enable/disable FortiClient saving the users password.
-                choices: ['disable', 'enable']
-            service_restriction:
-                aliases: ['service-restriction']
-                type: str
-                description: Enable/disable tunnel service restriction.
-                choices: ['disable', 'enable']
-            skip_check_for_unsupported_browser:
-                aliases: ['skip-check-for-unsupported-browser']
-                type: str
-                description: Enable to skip host check if browser does not support it.
-                choices: ['disable', 'enable']
-            skip_check_for_unsupported_os:
-                aliases: ['skip-check-for-unsupported-os']
-                type: str
-                description: Enable to skip host check if client OS does not support it.
-                choices: ['disable', 'enable']
-            smb_ntlmv1_auth:
-                aliases: ['smb-ntlmv1-auth']
-                type: str
-                description: Enable support of NTLMv1 for Samba authentication.
-                choices: ['disable', 'enable']
-            smbv1:
-                type: str
-                description: Enable/disable support of SMBv1 for Samba.
-                choices: ['disable', 'enable']
-            split_dns:
-                aliases: ['split-dns']
-                type: list
-                elements: dict
-                description: Split dns.
-                suboptions:
-                    dns_server1:
-                        aliases: ['dns-server1']
-                        type: str
-                        description: DNS server 1.
-                    dns_server2:
-                        aliases: ['dns-server2']
-                        type: str
-                        description: DNS server 2.
-                    domains:
-                        type: str
-                        description: Split DNS domains used for SSL-VPN clients separated by comma
-                    id:
-                        type: int
-                        description: ID.
-                    ipv6_dns_server1:
-                        aliases: ['ipv6-dns-server1']
-                        type: str
-                        description: IPv6 DNS server 1.
-                    ipv6_dns_server2:
-                        aliases: ['ipv6-dns-server2']
-                        type: str
-                        description: IPv6 DNS server 2.
-            split_tunneling:
-                aliases: ['split-tunneling']
-                type: str
-                description: Enable/disable IPv4 split tunneling.
-                choices: ['disable', 'enable']
-            split_tunneling_routing_address:
-                aliases: ['split-tunneling-routing-address']
-                type: raw
-                description: (list or str) IPv4 SSL-VPN tunnel mode firewall address objects that override firewall policy destination addresses to con...
-            theme:
-                type: str
-                description: Web portal color scheme.
-                choices: ['gray', 'blue', 'orange', 'crimson', 'steelblue', 'darkgrey', 'green',
-                          'melongene', 'red', 'mariner', 'neutrino', 'jade', 'graphite',
-                          'dark-matter', 'onyx', 'eclipse', 'jet-stream', 'security-fabric']
-            tunnel_mode:
-                aliases: ['tunnel-mode']
-                type: str
-                description: Enable/disable IPv4 SSL-VPN tunnel mode.
-                choices: ['disable', 'enable']
-            user_bookmark:
-                aliases: ['user-bookmark']
-                type: str
-                description: Enable to allow web portal users to create their own bookmarks.
-                choices: ['disable', 'enable']
-            user_group_bookmark:
-                aliases: ['user-group-bookmark']
-                type: str
-                description: Enable to allow web portal users to create bookmarks for all users in the same user group.
-                choices: ['disable', 'enable']
-            web_mode:
-                aliases: ['web-mode']
-                type: str
-                description: Enable/disable SSL VPN web mode.
-                choices: ['disable', 'enable']
-            windows_forticlient_download_url:
-                aliases: ['windows-forticlient-download-url']
-                type: str
-                description: Download URL for Windows FortiClient.
-            wins_server1:
-                aliases: ['wins-server1']
-                type: str
-                description: IPv4 WINS server 1.
-            wins_server2:
-                aliases: ['wins-server2']
-                type: str
-                description: IPv4 WINS server 1.
-            skip_check_for_browser:
-                aliases: ['skip-check-for-browser']
-                type: str
-                description: Enable to skip host check for browser support.
-                choices: ['disable', 'enable']
-            smb_max_version:
-                aliases: ['smb-max-version']
-                type: str
-                description: SMB maximum client protocol version.
-                choices: ['smbv1', 'smbv2', 'smbv3']
-            smb_min_version:
-                aliases: ['smb-min-version']
-                type: str
-                description: SMB minimum client protocol version.
-                choices: ['smbv1', 'smbv2', 'smbv3']
-            virtual_desktop_logout_when_browser_close:
-                aliases: ['virtual-desktop-logout-when-browser-close']
-                type: str
-                description: Enable/disable logout when browser is close in virtual desktop.
-                choices: ['disable', 'enable']
-            virtual_desktop_clipboard_share:
-                aliases: ['virtual-desktop-clipboard-share']
-                type: str
-                description: Enable/disable sharing of clipboard in virtual desktop.
-                choices: ['disable', 'enable']
-            virtual_desktop_desktop_switch:
-                aliases: ['virtual-desktop-desktop-switch']
-                type: str
-                description: Enable/disable switch to virtual desktop.
-                choices: ['disable', 'enable']
-            virtual_desktop:
-                aliases: ['virtual-desktop']
-                type: str
-                description: Enable/disable SSL VPN virtual desktop.
-                choices: ['disable', 'enable']
-            virtual_desktop_network_share_access:
-                aliases: ['virtual-desktop-network-share-access']
-                type: str
-                description: Enable/disable network share access in virtual desktop.
-                choices: ['disable', 'enable']
-            virtual_desktop_printing:
-                aliases: ['virtual-desktop-printing']
-                type: str
-                description: Enable/disable printing in virtual desktop.
-                choices: ['disable', 'enable']
-            virtual_desktop_app_list:
-                aliases: ['virtual-desktop-app-list']
-                type: str
-                description: Virtual desktop application list.
-            virtual_desktop_removable_media_access:
-                aliases: ['virtual-desktop-removable-media-access']
-                type: str
-                description: Enable/disable access to removable media in virtual desktop.
-                choices: ['disable', 'enable']
-            transform_backward_slashes:
-                aliases: ['transform-backward-slashes']
-                type: str
-                description: Transform backward slashes to forward slashes in URLs.
-                choices: ['disable', 'enable']
-            ipv6_split_tunneling_routing_negate:
-                aliases: ['ipv6-split-tunneling-routing-negate']
-                type: str
-                description: Enable to negate IPv6 split tunneling routing address.
-                choices: ['disable', 'enable']
-            split_tunneling_routing_negate:
-                aliases: ['split-tunneling-routing-negate']
-                type: str
-                description: Enable to negate split tunneling routing address.
-                choices: ['disable', 'enable']
-            os_check_list:
-                aliases: ['os-check-list']
-                type: dict
-                description: Os check list.
-                suboptions:
-                    action:
-                        type: str
-                        description: OS check options.
-                        choices: ['allow', 'check-up-to-date', 'deny']
-                    latest_patch_level:
-                        aliases: ['latest-patch-level']
-                        type: str
-                        description: Latest OS patch level.
-                    name:
-                        type: str
-                        description: Name.
-                    tolerance:
-                        type: int
-                        description: OS patch level tolerance.
-                    minor_version:
-                        aliases: ['minor-version']
-                        type: int
-                        description: Minor version number.
-            use_sdwan:
-                aliases: ['use-sdwan']
-                type: str
-                description: Use SD-WAN rules to get output interface.
-                choices: ['disable', 'enable']
-            prefer_ipv6_dns:
-                aliases: ['prefer-ipv6-dns']
-                type: str
-                description: Prefer to query IPv6 dns first if enabled.
-                choices: ['disable', 'enable']
-            rewrite_ip_uri_ui:
-                aliases: ['rewrite-ip-uri-ui']
-                type: str
-                description: Rewrite contents for URI contains IP and /ui/.
-                choices: ['disable', 'enable']
-            clipboard:
-                type: str
-                description: Enable to support RDP/VPC clipboard functionality.
-                choices: ['disable', 'enable']
-            default_window_height:
-                aliases: ['default-window-height']
+                description: Color depth per pixel.
+                choices: ['8', '16', '32']
+              height:
                 type: int
                 description: Screen height
-            default_window_width:
-                aliases: ['default-window-width']
+              keyboard_layout:
+                aliases: ['keyboard-layout']
+                type: str
+                description: Keyboard layout.
+                choices: ['ar', 'da', 'de', 'de-ch', 'en-gb', 'en-uk', 'en-us', 'es', 'fi', 'fr',
+                          'fr-be', 'fr-ca', 'fr-ch', 'hr', 'hu', 'it', 'ja', 'lt', 'lv', 'mk',
+                          'no', 'pl', 'pt', 'pt-br', 'ru', 'sl', 'sv', 'tk', 'tr', 'fr-ca-m',
+                          'wg', 'ar-101', 'ar-102', 'ar-102-azerty', 'can-mul', 'cz', 'cz-qwerty',
+                          'cz-pr', 'nl', 'de-ibm', 'en-uk-ext', 'en-us-dvorak', 'es-var',
+                          'fi-sami', 'hu-101', 'it-142', 'ko', 'lt-ibm', 'lt-std', 'lav-std',
+                          'lav-leg', 'mk-std', 'no-sami', 'pol-214', 'pol-pr', 'pt-br-abnt2',
+                          'ru-mne', 'ru-t', 'sv-sami', 'tuk', 'tur-f', 'tur-q', 'zh-sym-sg-us',
+                          'zh-sym-us', 'zh-tr-hk', 'zh-tr-mo', 'zh-tr-us', 'fr-apple', 'la-am',
+                          'ja-106']
+              restricted_admin:
+                aliases: ['restricted-admin']
+                type: str
+                description: Enable/disable restricted admin mode for RDP.
+                choices: ['disable', 'enable']
+              send_preconnection_id:
+                aliases: ['send-preconnection-id']
+                type: str
+                description: Enable/disable sending of preconnection ID.
+                choices: ['disable', 'enable']
+              width:
                 type: int
                 description: Screen width
-            dhcp_ip_overlap:
-                aliases: ['dhcp-ip-overlap']
+              vnc_keyboard_layout:
+                aliases: ['vnc-keyboard-layout']
                 type: str
-                description: Configure overlapping DHCP IP allocation assignment.
-                choices: ['use-old', 'use-new']
-            client_src_range:
-                aliases: ['client-src-range']
+                description: Keyboard layout.
+                choices: ['da', 'de', 'de-ch', 'en-uk', 'es', 'fi', 'fr', 'fr-be', 'it', 'no',
+                          'pt', 'sv', 'nl', 'en-uk-ext', 'it-142', 'pt-br-abnt2', 'default',
+                          'fr-ca-mul', 'gd', 'us-intl']
+          name:
+            type: str
+            description: Bookmark group name.
+      custom_lang:
+        aliases: ['custom-lang']
+        type: str
+        description: Change the web portal display language.
+      customize_forticlient_download_url:
+        aliases: ['customize-forticlient-download-url']
+        type: str
+        description: Enable support of customized download URL for FortiClient.
+        choices: ['disable', 'enable']
+      display_bookmark:
+        aliases: ['display-bookmark']
+        type: str
+        description: Enable to display the web portal bookmark widget.
+        choices: ['disable', 'enable']
+      display_connection_tools:
+        aliases: ['display-connection-tools']
+        type: str
+        description: Enable to display the web portal connection tools widget.
+        choices: ['disable', 'enable']
+      display_history:
+        aliases: ['display-history']
+        type: str
+        description: Enable to display the web portal user login history widget.
+        choices: ['disable', 'enable']
+      display_status:
+        aliases: ['display-status']
+        type: str
+        description: Enable to display the web portal status widget.
+        choices: ['disable', 'enable']
+      dns_server1:
+        aliases: ['dns-server1']
+        type: str
+        description: IPv4 DNS server 1.
+      dns_server2:
+        aliases: ['dns-server2']
+        type: str
+        description: IPv4 DNS server 2.
+      dns_suffix:
+        aliases: ['dns-suffix']
+        type: str
+        description: DNS suffix.
+      exclusive_routing:
+        aliases: ['exclusive-routing']
+        type: str
+        description: Enable/disable all traffic go through tunnel only.
+        choices: ['disable', 'enable']
+      forticlient_download:
+        aliases: ['forticlient-download']
+        type: str
+        description: Enable/disable download option for FortiClient.
+        choices: ['disable', 'enable']
+      forticlient_download_method:
+        aliases: ['forticlient-download-method']
+        type: str
+        description: FortiClient download method.
+        choices: ['direct', 'ssl-vpn']
+      heading:
+        type: str
+        description: Web portal heading message.
+      hide_sso_credential:
+        aliases: ['hide-sso-credential']
+        type: str
+        description: Enable to prevent SSO credential being sent to client.
+        choices: ['disable', 'enable']
+      host_check:
+        aliases: ['host-check']
+        type: str
+        description: Type of host checking performed on endpoints.
+        choices: ['none', 'av', 'fw', 'av-fw', 'custom']
+      host_check_interval:
+        aliases: ['host-check-interval']
+        type: int
+        description: Periodic host check interval.
+      host_check_policy:
+        aliases: ['host-check-policy']
+        type: raw
+        description: (list or str) One or more policies to require the endpoint to have specific security software.
+      ip_mode:
+        aliases: ['ip-mode']
+        type: str
+        description: Method by which users of this SSL-VPN tunnel obtain IP addresses.
+        choices: ['range', 'user-group', 'dhcp', 'no-ip']
+      ip_pools:
+        aliases: ['ip-pools']
+        type: raw
+        description: (list or str) IPv4 firewall source address objects reserved for SSL-VPN tunnel mode clients.
+      ipv6_dns_server1:
+        aliases: ['ipv6-dns-server1']
+        type: str
+        description: IPv6 DNS server 1.
+      ipv6_dns_server2:
+        aliases: ['ipv6-dns-server2']
+        type: str
+        description: IPv6 DNS server 2.
+      ipv6_exclusive_routing:
+        aliases: ['ipv6-exclusive-routing']
+        type: str
+        description: Enable/disable all IPv6 traffic go through tunnel only.
+        choices: ['disable', 'enable']
+      ipv6_pools:
+        aliases: ['ipv6-pools']
+        type: raw
+        description: (list or str) IPv4 firewall source address objects reserved for SSL-VPN tunnel mode clients.
+      ipv6_service_restriction:
+        aliases: ['ipv6-service-restriction']
+        type: str
+        description: Enable/disable IPv6 tunnel service restriction.
+        choices: ['disable', 'enable']
+      ipv6_split_tunneling:
+        aliases: ['ipv6-split-tunneling']
+        type: str
+        description: Enable/disable IPv6 split tunneling.
+        choices: ['disable', 'enable']
+      ipv6_split_tunneling_routing_address:
+        aliases: ['ipv6-split-tunneling-routing-address']
+        type: raw
+        description: (list or str) IPv6 SSL-VPN tunnel mode firewall address objects that override firewall policy destination addresses to control spl...
+      ipv6_tunnel_mode:
+        aliases: ['ipv6-tunnel-mode']
+        type: str
+        description: Enable/disable IPv6 SSL-VPN tunnel mode.
+        choices: ['disable', 'enable']
+      ipv6_wins_server1:
+        aliases: ['ipv6-wins-server1']
+        type: str
+        description: IPv6 WINS server 1.
+      ipv6_wins_server2:
+        aliases: ['ipv6-wins-server2']
+        type: str
+        description: IPv6 WINS server 2.
+      keep_alive:
+        aliases: ['keep-alive']
+        type: str
+        description: Enable/disable automatic reconnect for FortiClient connections.
+        choices: ['disable', 'enable']
+      limit_user_logins:
+        aliases: ['limit-user-logins']
+        type: str
+        description: Enable to limit each user to one SSL-VPN session at a time.
+        choices: ['disable', 'enable']
+      mac_addr_action:
+        aliases: ['mac-addr-action']
+        type: str
+        description: Client MAC address action.
+        choices: ['deny', 'allow']
+      mac_addr_check:
+        aliases: ['mac-addr-check']
+        type: str
+        description: Enable/disable MAC address host checking.
+        choices: ['disable', 'enable']
+      mac_addr_check_rule:
+        aliases: ['mac-addr-check-rule']
+        type: list
+        elements: dict
+        description: Mac addr check rule.
+        suboptions:
+          mac_addr_list:
+            aliases: ['mac-addr-list']
+            type: raw
+            description: (list) Client MAC address list.
+          mac_addr_mask:
+            aliases: ['mac-addr-mask']
+            type: int
+            description: Client MAC address mask.
+          name:
+            type: str
+            description: Client MAC address check rule name.
+      macos_forticlient_download_url:
+        aliases: ['macos-forticlient-download-url']
+        type: str
+        description: Download URL for Mac FortiClient.
+      name:
+        type: str
+        description: Portal name.
+        required: true
+      os_check:
+        aliases: ['os-check']
+        type: str
+        description: Enable to let the FortiGate decide action based on client OS.
+        choices: ['disable', 'enable']
+      redir_url:
+        aliases: ['redir-url']
+        type: str
+        description: Client login redirect URL.
+      save_password:
+        aliases: ['save-password']
+        type: str
+        description: Enable/disable FortiClient saving the users password.
+        choices: ['disable', 'enable']
+      service_restriction:
+        aliases: ['service-restriction']
+        type: str
+        description: Enable/disable tunnel service restriction.
+        choices: ['disable', 'enable']
+      skip_check_for_unsupported_browser:
+        aliases: ['skip-check-for-unsupported-browser']
+        type: str
+        description: Enable to skip host check if browser does not support it.
+        choices: ['disable', 'enable']
+      skip_check_for_unsupported_os:
+        aliases: ['skip-check-for-unsupported-os']
+        type: str
+        description: Enable to skip host check if client OS does not support it.
+        choices: ['disable', 'enable']
+      smb_ntlmv1_auth:
+        aliases: ['smb-ntlmv1-auth']
+        type: str
+        description: Enable support of NTLMv1 for Samba authentication.
+        choices: ['disable', 'enable']
+      smbv1:
+        type: str
+        description: Enable/disable support of SMBv1 for Samba.
+        choices: ['disable', 'enable']
+      split_dns:
+        aliases: ['split-dns']
+        type: list
+        elements: dict
+        description: Split dns.
+        suboptions:
+          dns_server1:
+            aliases: ['dns-server1']
+            type: str
+            description: DNS server 1.
+          dns_server2:
+            aliases: ['dns-server2']
+            type: str
+            description: DNS server 2.
+          domains:
+            type: str
+            description: Split DNS domains used for SSL-VPN clients separated by comma
+          id:
+            type: int
+            description: ID.
+          ipv6_dns_server1:
+            aliases: ['ipv6-dns-server1']
+            type: str
+            description: IPv6 DNS server 1.
+          ipv6_dns_server2:
+            aliases: ['ipv6-dns-server2']
+            type: str
+            description: IPv6 DNS server 2.
+      split_tunneling:
+        aliases: ['split-tunneling']
+        type: str
+        description: Enable/disable IPv4 split tunneling.
+        choices: ['disable', 'enable']
+      split_tunneling_routing_address:
+        aliases: ['split-tunneling-routing-address']
+        type: raw
+        description: (list or str) IPv4 SSL-VPN tunnel mode firewall address objects that override firewall policy destination addresses to control spl...
+      theme:
+        type: str
+        description: Web portal color scheme.
+        choices: ['gray', 'blue', 'orange', 'crimson', 'steelblue', 'darkgrey', 'green',
+                  'melongene', 'red', 'mariner', 'neutrino', 'jade', 'graphite', 'dark-matter',
+                  'onyx', 'eclipse', 'jet-stream', 'security-fabric']
+      tunnel_mode:
+        aliases: ['tunnel-mode']
+        type: str
+        description: Enable/disable IPv4 SSL-VPN tunnel mode.
+        choices: ['disable', 'enable']
+      user_bookmark:
+        aliases: ['user-bookmark']
+        type: str
+        description: Enable to allow web portal users to create their own bookmarks.
+        choices: ['disable', 'enable']
+      user_group_bookmark:
+        aliases: ['user-group-bookmark']
+        type: str
+        description: Enable to allow web portal users to create bookmarks for all users in the same user group.
+        choices: ['disable', 'enable']
+      web_mode:
+        aliases: ['web-mode']
+        type: str
+        description: Enable/disable SSL VPN web mode.
+        choices: ['disable', 'enable']
+      windows_forticlient_download_url:
+        aliases: ['windows-forticlient-download-url']
+        type: str
+        description: Download URL for Windows FortiClient.
+      wins_server1:
+        aliases: ['wins-server1']
+        type: str
+        description: IPv4 WINS server 1.
+      wins_server2:
+        aliases: ['wins-server2']
+        type: str
+        description: IPv4 WINS server 1.
+      skip_check_for_browser:
+        aliases: ['skip-check-for-browser']
+        type: str
+        description: Enable to skip host check for browser support.
+        choices: ['disable', 'enable']
+      smb_max_version:
+        aliases: ['smb-max-version']
+        type: str
+        description: SMB maximum client protocol version.
+        choices: ['smbv1', 'smbv2', 'smbv3']
+      smb_min_version:
+        aliases: ['smb-min-version']
+        type: str
+        description: SMB minimum client protocol version.
+        choices: ['smbv1', 'smbv2', 'smbv3']
+      virtual_desktop_logout_when_browser_close:
+        aliases: ['virtual-desktop-logout-when-browser-close']
+        type: str
+        description: Enable/disable logout when browser is close in virtual desktop.
+        choices: ['disable', 'enable']
+      virtual_desktop_clipboard_share:
+        aliases: ['virtual-desktop-clipboard-share']
+        type: str
+        description: Enable/disable sharing of clipboard in virtual desktop.
+        choices: ['disable', 'enable']
+      virtual_desktop_desktop_switch:
+        aliases: ['virtual-desktop-desktop-switch']
+        type: str
+        description: Enable/disable switch to virtual desktop.
+        choices: ['disable', 'enable']
+      virtual_desktop:
+        aliases: ['virtual-desktop']
+        type: str
+        description: Enable/disable SSL VPN virtual desktop.
+        choices: ['disable', 'enable']
+      virtual_desktop_network_share_access:
+        aliases: ['virtual-desktop-network-share-access']
+        type: str
+        description: Enable/disable network share access in virtual desktop.
+        choices: ['disable', 'enable']
+      virtual_desktop_printing:
+        aliases: ['virtual-desktop-printing']
+        type: str
+        description: Enable/disable printing in virtual desktop.
+        choices: ['disable', 'enable']
+      virtual_desktop_app_list:
+        aliases: ['virtual-desktop-app-list']
+        type: str
+        description: Virtual desktop application list.
+      virtual_desktop_removable_media_access:
+        aliases: ['virtual-desktop-removable-media-access']
+        type: str
+        description: Enable/disable access to removable media in virtual desktop.
+        choices: ['disable', 'enable']
+      transform_backward_slashes:
+        aliases: ['transform-backward-slashes']
+        type: str
+        description: Transform backward slashes to forward slashes in URLs.
+        choices: ['disable', 'enable']
+      ipv6_split_tunneling_routing_negate:
+        aliases: ['ipv6-split-tunneling-routing-negate']
+        type: str
+        description: Enable to negate IPv6 split tunneling routing address.
+        choices: ['disable', 'enable']
+      split_tunneling_routing_negate:
+        aliases: ['split-tunneling-routing-negate']
+        type: str
+        description: Enable to negate split tunneling routing address.
+        choices: ['disable', 'enable']
+      os_check_list:
+        aliases: ['os-check-list']
+        type: dict
+        description: Os check list.
+        suboptions:
+          action:
+            type: str
+            description: OS check options.
+            choices: ['allow', 'check-up-to-date', 'deny']
+          latest_patch_level:
+            aliases: ['latest-patch-level']
+            type: str
+            description: Latest OS patch level.
+          name:
+            type: str
+            description: Name.
+          tolerance:
+            type: int
+            description: OS patch level tolerance.
+          minor_version:
+            aliases: ['minor-version']
+            type: int
+            description: Minor version number.
+      use_sdwan:
+        aliases: ['use-sdwan']
+        type: str
+        description: Use SD-WAN rules to get output interface.
+        choices: ['disable', 'enable']
+      prefer_ipv6_dns:
+        aliases: ['prefer-ipv6-dns']
+        type: str
+        description: Prefer to query IPv6 dns first if enabled.
+        choices: ['disable', 'enable']
+      rewrite_ip_uri_ui:
+        aliases: ['rewrite-ip-uri-ui']
+        type: str
+        description: Rewrite contents for URI contains IP and /ui/.
+        choices: ['disable', 'enable']
+      clipboard:
+        type: str
+        description: Enable to support RDP/VPC clipboard functionality.
+        choices: ['disable', 'enable']
+      default_window_height:
+        aliases: ['default-window-height']
+        type: int
+        description: Screen height
+      default_window_width:
+        aliases: ['default-window-width']
+        type: int
+        description: Screen width
+      dhcp_ip_overlap:
+        aliases: ['dhcp-ip-overlap']
+        type: str
+        description: Configure overlapping DHCP IP allocation assignment.
+        choices: ['use-old', 'use-new']
+      client_src_range:
+        aliases: ['client-src-range']
+        type: str
+        description: Allow client to add source range for the tunnel traffic.
+        choices: ['disable', 'enable']
+      dhcp_ra_giaddr:
+        aliases: ['dhcp-ra-giaddr']
+        type: str
+        description: Relay agent gateway IP address to use in the giaddr field of DHCP requests.
+      dhcp6_ra_linkaddr:
+        aliases: ['dhcp6-ra-linkaddr']
+        type: str
+        description: Relay agent IPv6 link address to use in DHCP6 requests.
+      landing_page:
+        aliases: ['landing-page']
+        type: dict
+        description: Landing page.
+        suboptions:
+          form_data:
+            aliases: ['form-data']
+            type: list
+            elements: dict
+            description: Form data.
+            suboptions:
+              name:
                 type: str
-                description: Allow client to add source range for the tunnel traffic.
-                choices: ['disable', 'enable']
-            dhcp_ra_giaddr:
-                aliases: ['dhcp-ra-giaddr']
+                description: Name.
+              value:
                 type: str
-                description: Relay agent gateway IP address to use in the giaddr field of DHCP requests.
-            dhcp6_ra_linkaddr:
-                aliases: ['dhcp6-ra-linkaddr']
-                type: str
-                description: Relay agent IPv6 link address to use in DHCP6 requests.
-            landing_page:
-                aliases: ['landing-page']
-                type: dict
-                description: Landing page.
-                suboptions:
-                    form_data:
-                        aliases: ['form-data']
-                        type: list
-                        elements: dict
-                        description: Form data.
-                        suboptions:
-                            name:
-                                type: str
-                                description: Name.
-                            value:
-                                type: str
-                                description: Value.
-                    logout_url:
-                        aliases: ['logout-url']
-                        type: str
-                        description: Landing page log out URL.
-                    sso:
-                        type: str
-                        description: Single sign-on.
-                        choices: ['disable', 'static', 'auto']
-                    sso_credential:
-                        aliases: ['sso-credential']
-                        type: str
-                        description: Single sign-on credentials.
-                        choices: ['sslvpn-login', 'alternative']
-                    sso_password:
-                        aliases: ['sso-password']
-                        type: raw
-                        description: (list) SSO password.
-                    sso_username:
-                        aliases: ['sso-username']
-                        type: str
-                        description: SSO user name.
-                    url:
-                        type: str
-                        description: Landing page URL.
-            landing_page_mode:
-                aliases: ['landing-page-mode']
-                type: str
-                description: Enable/disable SSL-VPN landing page mode.
-                choices: ['disable', 'enable']
-            default_protocol:
-                aliases: ['default-protocol']
-                type: str
-                description: Application type that is set by default.
-                choices: ['web', 'ftp', 'telnet', 'smb', 'vnc', 'rdp', 'ssh', 'sftp']
-            focus_bookmark:
-                aliases: ['focus-bookmark']
-                type: str
-                description: Enable to prioritize the placement of the bookmark section over the quick-connection section in the SSL-VPN application.
-                choices: ['disable', 'enable']
-            dhcp_reservation:
-                aliases: ['dhcp-reservation']
-                type: str
-                description: Enable/disable dhcp reservation.
-                choices: ['disable', 'enable']
+                description: Value.
+          logout_url:
+            aliases: ['logout-url']
+            type: str
+            description: Landing page log out URL.
+          sso:
+            type: str
+            description: Single sign-on.
+            choices: ['disable', 'static', 'auto']
+          sso_credential:
+            aliases: ['sso-credential']
+            type: str
+            description: Single sign-on credentials.
+            choices: ['sslvpn-login', 'alternative']
+          sso_password:
+            aliases: ['sso-password']
+            type: raw
+            description: (list) SSO password.
+          sso_username:
+            aliases: ['sso-username']
+            type: str
+            description: SSO user name.
+          url:
+            type: str
+            description: Landing page URL.
+      landing_page_mode:
+        aliases: ['landing-page-mode']
+        type: str
+        description: Enable/disable SSL-VPN landing page mode.
+        choices: ['disable', 'enable']
+      default_protocol:
+        aliases: ['default-protocol']
+        type: str
+        description: Application type that is set by default.
+        choices: ['web', 'ftp', 'telnet', 'smb', 'vnc', 'rdp', 'ssh', 'sftp']
+      focus_bookmark:
+        aliases: ['focus-bookmark']
+        type: str
+        description: Enable to prioritize the placement of the bookmark section over the quick-connection section in the SSL-VPN application.
+        choices: ['disable', 'enable']
+      dhcp_reservation:
+        aliases: ['dhcp-reservation']
+        type: str
+        description: Enable/disable dhcp reservation.
+        choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -862,42 +859,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -1043,7 +1040,7 @@ def main():
                 'save-password': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'service-restriction': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'skip-check-for-unsupported-browser': {
-                    'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']],
+                    'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.11']],
                     'choices': ['disable', 'enable'],
                     'type': 'str'
                 },

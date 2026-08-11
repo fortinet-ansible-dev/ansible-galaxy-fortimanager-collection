@@ -15,50 +15,50 @@ module: fmgr_webfilter_content_entries
 short_description: Configure banned word entries.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  content:
+    description: The parameter (content) in requested url.
+    type: str
+    required: true
+  webfilter_content_entries:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      action:
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Block or exempt word when a match is found.
+        choices: ['exempt', 'block']
+      lang:
         type: str
+        description: Language of banned word.
+        choices: ['western', 'simch', 'trach', 'japanese', 'korean', 'french', 'thai', 'spanish',
+                  'cyrillic']
+      name:
+        type: str
+        description: Banned word.
         required: true
-    content:
-        description: The parameter (content) in requested url.
+      pattern_type:
+        aliases: ['pattern-type']
         type: str
-        required: true
-    webfilter_content_entries:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            action:
-                type: str
-                description: Block or exempt word when a match is found.
-                choices: ['exempt', 'block']
-            lang:
-                type: str
-                description: Language of banned word.
-                choices: ['western', 'simch', 'trach', 'japanese', 'korean', 'french', 'thai',
-                          'spanish', 'cyrillic']
-            name:
-                type: str
-                description: Banned word.
-                required: true
-            pattern_type:
-                aliases: ['pattern-type']
-                type: str
-                description: Banned word pattern type
-                choices: ['wildcard', 'regexp']
-            score:
-                type: int
-                description: Score, to be applied every time the word appears on a web page
-            status:
-                type: str
-                description: Enable/disable banned word.
-                choices: ['disable', 'enable']
+        description: Banned word pattern type
+        choices: ['wildcard', 'regexp']
+      score:
+        type: int
+        description: Score, to be applied every time the word appears on a web page
+      status:
+        type: str
+        description: Enable/disable banned word.
+        choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -84,42 +84,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

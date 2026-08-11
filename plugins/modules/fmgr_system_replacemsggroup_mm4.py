@@ -15,88 +15,88 @@ module: fmgr_system_replacemsggroup_mm4
 short_description: Replacement message table entries.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  replacemsg-group:
+    description: Deprecated, please use "replacemsg_group"
+    type: str
+  replacemsg_group:
+    description: The parameter (replacemsg-group) in requested url.
+    type: str
+  system_replacemsggroup_mm4:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      add_smil:
+        aliases: ['add-smil']
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Add message encapsulation
+        choices: ['disable', 'enable']
+      charset:
         type: str
+        description: Character encoding used for replacement message
+        choices: ['us-ascii', 'utf-8']
+      class:
+        type: str
+        description: Message class
+        choices: ['personal', 'advertisement', 'informational', 'auto', 'not-included']
+      domain:
+        type: str
+        description: From address domain
+      format:
+        type: str
+        description: Format flag.
+        choices: ['none', 'text', 'html', 'wml']
+      from:
+        type: str
+        description: From address
+      from_sender:
+        aliases: ['from-sender']
+        type: str
+        description: Notification message sent from recipient
+        choices: ['disable', 'enable']
+      header:
+        type: str
+        description: Header flag.
+        choices: ['none', 'http', '8bit']
+      image:
+        type: str
+        description: Message string.
+      fmgr_message:
+        type: str
+        description: Message text
+      msg_type:
+        aliases: ['msg-type']
+        type: str
+        description: Message type.
         required: true
-    replacemsg-group:
-        description: Deprecated, please use "replacemsg_group"
+      priority:
         type: str
-    replacemsg_group:
-        description: The parameter (replacemsg-group) in requested url.
+        description: Message priority
+        choices: ['low', 'normal', 'high', 'not-included']
+      rsp_status:
+        aliases: ['rsp-status']
         type: str
-    system_replacemsggroup_mm4:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            add_smil:
-                aliases: ['add-smil']
-                type: str
-                description: Add message encapsulation
-                choices: ['disable', 'enable']
-            charset:
-                type: str
-                description: Character encoding used for replacement message
-                choices: ['us-ascii', 'utf-8']
-            class:
-                type: str
-                description: Message class
-                choices: ['personal', 'advertisement', 'informational', 'auto', 'not-included']
-            domain:
-                type: str
-                description: From address domain
-            format:
-                type: str
-                description: Format flag.
-                choices: ['none', 'text', 'html', 'wml']
-            from:
-                type: str
-                description: From address
-            from_sender:
-                aliases: ['from-sender']
-                type: str
-                description: Notification message sent from recipient
-                choices: ['disable', 'enable']
-            header:
-                type: str
-                description: Header flag.
-                choices: ['none', 'http', '8bit']
-            image:
-                type: str
-                description: Message string.
-            fmgr_message:
-                type: str
-                description: Message text
-            msg_type:
-                aliases: ['msg-type']
-                type: str
-                description: Message type.
-                required: true
-            priority:
-                type: str
-                description: Message priority
-                choices: ['low', 'normal', 'high', 'not-included']
-            rsp_status:
-                aliases: ['rsp-status']
-                type: str
-                description: Response status
-                choices: ['ok', 'err-unspecified', 'err-srv-denied', 'err-msg-fmt-corrupt',
-                          'err-snd-addr-unresolv', 'err-net-prob', 'err-content-not-accept',
-                          'err-unsupp-msg']
-            smil_part:
-                aliases: ['smil-part']
-                type: str
-                description: Message encapsulation text
-            subject:
-                type: str
-                description: Subject text string
+        description: Response status
+        choices: ['ok', 'err-unspecified', 'err-srv-denied', 'err-msg-fmt-corrupt',
+                  'err-snd-addr-unresolv', 'err-net-prob', 'err-content-not-accept',
+                  'err-unsupp-msg']
+      smil_part:
+        aliases: ['smil-part']
+        type: str
+        description: Message encapsulation text
+      subject:
+        type: str
+        description: Subject text string
 '''
 
 EXAMPLES = '''
@@ -131,42 +131,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

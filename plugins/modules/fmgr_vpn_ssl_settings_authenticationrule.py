@@ -15,77 +15,77 @@ module: fmgr_vpn_ssl_settings_authenticationrule
 short_description: Authentication rule for SSL VPN.
 version_added: "2.1.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    device:
-        description: The parameter (device) in requested url.
+  device:
+    description: The parameter (device) in requested url.
+    type: str
+    required: true
+  vdom:
+    description: The parameter (vdom) in requested url.
+    type: str
+    required: true
+  vpn_ssl_settings_authenticationrule:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      auth:
         type: str
-        required: true
-    vdom:
-        description: The parameter (vdom) in requested url.
+        description: SSL VPN authentication method restriction.
+        choices: ['any', 'local', 'radius', 'ldap', 'tacacs+', 'peer']
+      cipher:
         type: str
+        description: SSL VPN cipher strength.
+        choices: ['any', 'high', 'medium']
+      client_cert:
+        aliases: ['client-cert']
+        type: str
+        description: Enable/disable SSL VPN client certificate restrictive.
+        choices: ['disable', 'enable']
+      groups:
+        type: raw
+        description: (list or str) User groups.
+      id:
+        type: int
+        description: ID
         required: true
-    vpn_ssl_settings_authenticationrule:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            auth:
-                type: str
-                description: SSL VPN authentication method restriction.
-                choices: ['any', 'local', 'radius', 'ldap', 'tacacs+', 'peer']
-            cipher:
-                type: str
-                description: SSL VPN cipher strength.
-                choices: ['any', 'high', 'medium']
-            client_cert:
-                aliases: ['client-cert']
-                type: str
-                description: Enable/disable SSL VPN client certificate restrictive.
-                choices: ['disable', 'enable']
-            groups:
-                type: raw
-                description: (list or str) User groups.
-            id:
-                type: int
-                description: ID
-                required: true
-            portal:
-                type: str
-                description: SSL VPN portal.
-            realm:
-                type: str
-                description: SSL VPN realm.
-            source_address:
-                aliases: ['source-address']
-                type: raw
-                description: (list or str) Source address of incoming traffic.
-            source_address_negate:
-                aliases: ['source-address-negate']
-                type: str
-                description: Enable/disable negated source address match.
-                choices: ['disable', 'enable']
-            source_address6:
-                aliases: ['source-address6']
-                type: raw
-                description: (list or str) IPv6 source address of incoming traffic.
-            source_address6_negate:
-                aliases: ['source-address6-negate']
-                type: str
-                description: Enable/disable negated source IPv6 address match.
-                choices: ['disable', 'enable']
-            source_interface:
-                aliases: ['source-interface']
-                type: raw
-                description: (list or str) SSL VPN source interface of incoming traffic.
-            user_peer:
-                aliases: ['user-peer']
-                type: str
-                description: Name of user peer.
-            users:
-                type: raw
-                description: (list or str) User name.
+      portal:
+        type: str
+        description: SSL VPN portal.
+      realm:
+        type: str
+        description: SSL VPN realm.
+      source_address:
+        aliases: ['source-address']
+        type: raw
+        description: (list or str) Source address of incoming traffic.
+      source_address_negate:
+        aliases: ['source-address-negate']
+        type: str
+        description: Enable/disable negated source address match.
+        choices: ['disable', 'enable']
+      source_address6:
+        aliases: ['source-address6']
+        type: raw
+        description: (list or str) IPv6 source address of incoming traffic.
+      source_address6_negate:
+        aliases: ['source-address6-negate']
+        type: str
+        description: Enable/disable negated source IPv6 address match.
+        choices: ['disable', 'enable']
+      source_interface:
+        aliases: ['source-interface']
+        type: raw
+        description: (list or str) SSL VPN source interface of incoming traffic.
+      user_peer:
+        aliases: ['user-peer']
+        type: str
+        description: Name of user peer.
+      users:
+        type: raw
+        description: (list or str) User name.
 '''
 
 EXAMPLES = '''
@@ -119,42 +119,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

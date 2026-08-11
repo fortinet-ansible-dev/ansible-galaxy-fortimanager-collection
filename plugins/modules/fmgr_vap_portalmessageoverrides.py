@@ -15,41 +15,41 @@ module: fmgr_vap_portalmessageoverrides
 short_description: Individual message overrides.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.partial_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.partial_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  vap:
+    description: The parameter (vap) in requested url.
+    type: str
+    required: true
+  vap_portalmessageoverrides:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      auth_disclaimer_page:
+        aliases: ['auth-disclaimer-page']
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Override auth-disclaimer-page message with message from portal-message-overrides group.
+      auth_login_failed_page:
+        aliases: ['auth-login-failed-page']
         type: str
-        required: true
-    vap:
-        description: The parameter (vap) in requested url.
+        description: Override auth-login-failed-page message with message from portal-message-overrides group.
+      auth_login_page:
+        aliases: ['auth-login-page']
         type: str
-        required: true
-    vap_portalmessageoverrides:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            auth_disclaimer_page:
-                aliases: ['auth-disclaimer-page']
-                type: str
-                description: Override auth-disclaimer-page message with message from portal-message-overrides group.
-            auth_login_failed_page:
-                aliases: ['auth-login-failed-page']
-                type: str
-                description: Override auth-login-failed-page message with message from portal-message-overrides group.
-            auth_login_page:
-                aliases: ['auth-login-page']
-                type: str
-                description: Override auth-login-page message with message from portal-message-overrides group.
-            auth_reject_page:
-                aliases: ['auth-reject-page']
-                type: str
-                description: Override auth-reject-page message with message from portal-message-overrides group.
+        description: Override auth-login-page message with message from portal-message-overrides group.
+      auth_reject_page:
+        aliases: ['auth-reject-page']
+        type: str
+        description: Override auth-reject-page message with message from portal-message-overrides group.
 '''
 
 EXAMPLES = '''
@@ -72,42 +72,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

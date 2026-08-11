@@ -15,162 +15,162 @@ module: fmgr_webfilter_profile_ftgdwf
 short_description: FortiGuard Web Filter settings.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.partial_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.partial_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
-        type: str
-    adom:
-        description: The parameter (adom) in requested url.
-        type: str
-        required: true
-    profile:
-        description: The parameter (profile) in requested url.
-        type: str
-        required: true
-    webfilter_profile_ftgdwf:
-        description: The top level parameters set.
-        required: false
-        type: dict
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  profile:
+    description: The parameter (profile) in requested url.
+    type: str
+    required: true
+  webfilter_profile_ftgdwf:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      exempt_quota:
+        aliases: ['exempt-quota']
+        type: raw
+        description: (list or str) Do not stop quota for these categories.
+      filters:
+        type: list
+        elements: dict
+        description: Filters.
         suboptions:
-            exempt_quota:
-                aliases: ['exempt-quota']
-                type: raw
-                description: (list or str) Do not stop quota for these categories.
-            filters:
-                type: list
-                elements: dict
-                description: Filters.
-                suboptions:
-                    action:
-                        type: str
-                        description: Action to take for matches.
-                        choices: ['block', 'monitor', 'warning', 'authenticate']
-                    auth_usr_grp:
-                        aliases: ['auth-usr-grp']
-                        type: raw
-                        description: (list or str) Groups with permission to authenticate.
-                    category:
-                        type: str
-                        description: Categories and groups the filter examines.
-                    id:
-                        type: int
-                        description: ID number.
-                    log:
-                        type: str
-                        description: Enable/disable logging.
-                        choices: ['disable', 'enable']
-                    override_replacemsg:
-                        aliases: ['override-replacemsg']
-                        type: str
-                        description: Override replacement message.
-                    warn_duration:
-                        aliases: ['warn-duration']
-                        type: str
-                        description: Duration of warnings.
-                    warning_duration_type:
-                        aliases: ['warning-duration-type']
-                        type: str
-                        description: Re-display warning after closing browser or after a timeout.
-                        choices: ['session', 'timeout']
-                    warning_prompt:
-                        aliases: ['warning-prompt']
-                        type: str
-                        description: Warning prompts in each category or each domain.
-                        choices: ['per-domain', 'per-category']
-            max_quota_timeout:
-                aliases: ['max-quota-timeout']
-                type: int
-                description: Maximum FortiGuard quota used by single page view in seconds
-            options:
-                type: list
-                elements: str
-                description: Options for FortiGuard Web Filter.
-                choices: ['error-allow', 'http-err-detail', 'rate-image-urls', 'strict-blocking',
-                          'rate-server-ip', 'redir-block', 'connect-request-bypass',
-                          'log-all-url', 'ftgd-disable']
-            ovrd:
-                type: raw
-                description: (list or str) Allow web filter profile overrides.
-            quota:
-                type: list
-                elements: dict
-                description: Quota.
-                suboptions:
-                    category:
-                        type: raw
-                        description: (list or str) FortiGuard categories to apply quota to
-                    duration:
-                        type: str
-                        description: Duration of quota.
-                    id:
-                        type: int
-                        description: ID number.
-                    override_replacemsg:
-                        aliases: ['override-replacemsg']
-                        type: str
-                        description: Override replacement message.
-                    type:
-                        type: str
-                        description: Quota type.
-                        choices: ['time', 'traffic']
-                    unit:
-                        type: str
-                        description: Traffic quota unit of measurement.
-                        choices: ['B', 'KB', 'MB', 'GB']
-                    value:
-                        type: int
-                        description: Traffic quota value.
-                    reset_frequency:
-                        aliases: ['reset-frequency']
-                        type: str
-                        description: Quota reset frequency
-                        choices: ['daily', 'weekly', 'monthly']
-            rate_crl_urls:
-                aliases: ['rate-crl-urls']
-                type: str
-                description: Enable/disable rating CRL by URL.
-                choices: ['disable', 'enable']
-            rate_css_urls:
-                aliases: ['rate-css-urls']
-                type: str
-                description: Enable/disable rating CSS by URL.
-                choices: ['disable', 'enable']
-            rate_image_urls:
-                aliases: ['rate-image-urls']
-                type: str
-                description: Enable/disable rating images by URL.
-                choices: ['disable', 'enable']
-            rate_javascript_urls:
-                aliases: ['rate-javascript-urls']
-                type: str
-                description: Enable/disable rating JavaScript by URL.
-                choices: ['disable', 'enable']
-            category_override:
-                aliases: ['category-override']
-                type: str
-                description: Local categories take precedence over FortiGuard categories.
-            risk:
-                type: list
-                elements: dict
-                description: Risk.
-                suboptions:
-                    action:
-                        type: str
-                        description: Action to take for matches.
-                        choices: ['block', 'monitor']
-                    id:
-                        type: int
-                        description: ID number.
-                    log:
-                        type: str
-                        description: Enable/disable logging.
-                        choices: ['disable', 'enable']
-                    risk_level:
-                        aliases: ['risk-level']
-                        type: raw
-                        description: (list) Risk level to be examined.
+          action:
+            type: str
+            description: Action to take for matches.
+            choices: ['block', 'monitor', 'warning', 'authenticate']
+          auth_usr_grp:
+            aliases: ['auth-usr-grp']
+            type: raw
+            description: (list or str) Groups with permission to authenticate.
+          category:
+            type: str
+            description: Categories and groups the filter examines.
+          id:
+            type: int
+            description: ID number.
+          log:
+            type: str
+            description: Enable/disable logging.
+            choices: ['disable', 'enable']
+          override_replacemsg:
+            aliases: ['override-replacemsg']
+            type: str
+            description: Override replacement message.
+          warn_duration:
+            aliases: ['warn-duration']
+            type: str
+            description: Duration of warnings.
+          warning_duration_type:
+            aliases: ['warning-duration-type']
+            type: str
+            description: Re-display warning after closing browser or after a timeout.
+            choices: ['session', 'timeout']
+          warning_prompt:
+            aliases: ['warning-prompt']
+            type: str
+            description: Warning prompts in each category or each domain.
+            choices: ['per-domain', 'per-category']
+      max_quota_timeout:
+        aliases: ['max-quota-timeout']
+        type: int
+        description: Maximum FortiGuard quota used by single page view in seconds
+      options:
+        type: list
+        elements: str
+        description: Options for FortiGuard Web Filter.
+        choices: ['error-allow', 'http-err-detail', 'rate-image-urls', 'strict-blocking',
+                  'rate-server-ip', 'redir-block', 'connect-request-bypass', 'log-all-url',
+                  'ftgd-disable']
+      ovrd:
+        type: raw
+        description: (list or str) Allow web filter profile overrides.
+      quota:
+        type: list
+        elements: dict
+        description: Quota.
+        suboptions:
+          category:
+            type: raw
+            description: (list or str) FortiGuard categories to apply quota to
+          duration:
+            type: str
+            description: Duration of quota.
+          id:
+            type: int
+            description: ID number.
+          override_replacemsg:
+            aliases: ['override-replacemsg']
+            type: str
+            description: Override replacement message.
+          type:
+            type: str
+            description: Quota type.
+            choices: ['time', 'traffic']
+          unit:
+            type: str
+            description: Traffic quota unit of measurement.
+            choices: ['B', 'KB', 'MB', 'GB']
+          value:
+            type: int
+            description: Traffic quota value.
+          reset_frequency:
+            aliases: ['reset-frequency']
+            type: str
+            description: Quota reset frequency
+            choices: ['daily', 'weekly', 'monthly']
+      rate_crl_urls:
+        aliases: ['rate-crl-urls']
+        type: str
+        description: Enable/disable rating CRL by URL.
+        choices: ['disable', 'enable']
+      rate_css_urls:
+        aliases: ['rate-css-urls']
+        type: str
+        description: Enable/disable rating CSS by URL.
+        choices: ['disable', 'enable']
+      rate_image_urls:
+        aliases: ['rate-image-urls']
+        type: str
+        description: Enable/disable rating images by URL.
+        choices: ['disable', 'enable']
+      rate_javascript_urls:
+        aliases: ['rate-javascript-urls']
+        type: str
+        description: Enable/disable rating JavaScript by URL.
+        choices: ['disable', 'enable']
+      category_override:
+        aliases: ['category-override']
+        type: str
+        description: Local categories take precedence over FortiGuard categories.
+      risk:
+        type: list
+        elements: dict
+        description: Risk.
+        suboptions:
+          action:
+            type: str
+            description: Action to take for matches.
+            choices: ['block', 'monitor']
+          id:
+            type: int
+            description: ID number.
+          log:
+            type: str
+            description: Enable/disable logging.
+            choices: ['disable', 'enable']
+          risk_level:
+            aliases: ['risk-level']
+            type: raw
+            description: (list) Risk level to be examined.
 '''
 
 EXAMPLES = '''
@@ -224,42 +224,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -315,23 +315,23 @@ def main():
                         'type': {'choices': ['time', 'traffic'], 'type': 'str'},
                         'unit': {'choices': ['B', 'KB', 'MB', 'GB'], 'type': 'str'},
                         'value': {'type': 'int'},
-                        'reset-frequency': {'v_range': [['7.4.8', '7.4.10']], 'choices': ['daily', 'weekly', 'monthly'], 'type': 'str'}
+                        'reset-frequency': {'v_range': [['7.4.8', '7.4.11']], 'choices': ['daily', 'weekly', 'monthly'], 'type': 'str'}
                     },
                     'elements': 'dict'
                 },
                 'rate-crl-urls': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'rate-css-urls': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'rate-image-urls': {'choices': ['disable', 'enable'], 'type': 'str'},
+                'rate-image-urls': {'v_range': [['6.0.0', '7.6.7']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'rate-javascript-urls': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'category-override': {'v_range': [['6.2.0', '6.4.15']], 'type': 'str'},
                 'risk': {
-                    'v_range': [['7.4.8', '7.4.10'], ['7.6.2', '']],
+                    'v_range': [['7.4.8', '7.4.11'], ['7.6.2', '']],
                     'type': 'list',
                     'options': {
-                        'action': {'v_range': [['7.4.8', '7.4.10'], ['7.6.2', '']], 'choices': ['block', 'monitor'], 'type': 'str'},
-                        'id': {'v_range': [['7.4.8', '7.4.10'], ['7.6.2', '']], 'type': 'int'},
-                        'log': {'v_range': [['7.4.8', '7.4.10'], ['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'risk-level': {'v_range': [['7.4.8', '7.4.10'], ['7.6.2', '']], 'type': 'raw'}
+                        'action': {'v_range': [['7.4.8', '7.4.11'], ['7.6.2', '']], 'choices': ['block', 'monitor'], 'type': 'str'},
+                        'id': {'v_range': [['7.4.8', '7.4.11'], ['7.6.2', '']], 'type': 'int'},
+                        'log': {'v_range': [['7.4.8', '7.4.11'], ['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'risk-level': {'v_range': [['7.4.8', '7.4.11'], ['7.6.2', '']], 'type': 'raw'}
                     },
                     'elements': 'dict'
                 }

@@ -15,810 +15,833 @@ module: fmgr_vpn_ipsec_phase1
 short_description: Configure VPN remote gateway.
 version_added: "2.12.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  vpn_ipsec_phase1:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      acct_verify:
+        aliases: ['acct-verify']
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Enable/disable verification of RADIUS accounting record.
+        choices: ['disable', 'enable']
+      add_gw_route:
+        aliases: ['add-gw-route']
         type: str
-        required: true
-    vpn_ipsec_phase1:
-        description: The top level parameters set.
-        required: false
-        type: dict
+        description: Enable/disable automatically add a route to the remote gateway.
+        choices: ['disable', 'enable']
+      add_route:
+        aliases: ['add-route']
+        type: str
+        description: Enable/disable control addition of a route to peer destination selector.
+        choices: ['disable', 'enable']
+      addke1:
+        type: list
+        elements: str
+        description: ADDKE1 group.
+        choices: ['0', '1080', '1081', '1082', '1083', '1084', '1085', '1089', '1090', '1091',
+                  '1092', '1093', '1094', '35', '36', '37', 'none', 'ml-kem-512', 'ml-kem-768',
+                  'ml-kem-1024', 'kyber512', 'kyber768', 'kyber1024', 'frodo-l1', 'frodo-l3',
+                  'frodo-l5', 'bike-l1', 'bike-l3', 'bike-l5', 'hqc128', 'hqc192', 'hqc256']
+      addke2:
+        type: list
+        elements: str
+        description: ADDKE2 group.
+        choices: ['0', '1080', '1081', '1082', '1083', '1084', '1085', '1089', '1090', '1091',
+                  '1092', '1093', '1094', '35', '36', '37', 'none', 'ml-kem-512', 'ml-kem-768',
+                  'ml-kem-1024', 'kyber512', 'kyber768', 'kyber1024', 'frodo-l1', 'frodo-l3',
+                  'frodo-l5', 'bike-l1', 'bike-l3', 'bike-l5', 'hqc128', 'hqc192', 'hqc256']
+      addke3:
+        type: list
+        elements: str
+        description: ADDKE3 group.
+        choices: ['0', '1080', '1081', '1082', '1083', '1084', '1085', '1089', '1090', '1091',
+                  '1092', '1093', '1094', '35', '36', '37', 'none', 'ml-kem-512', 'ml-kem-768',
+                  'ml-kem-1024', 'kyber512', 'kyber768', 'kyber1024', 'frodo-l1', 'frodo-l3',
+                  'frodo-l5', 'bike-l1', 'bike-l3', 'bike-l5', 'hqc128', 'hqc192', 'hqc256']
+      addke4:
+        type: list
+        elements: str
+        description: ADDKE4 group.
+        choices: ['0', '1080', '1081', '1082', '1083', '1084', '1085', '1089', '1090', '1091',
+                  '1092', '1093', '1094', '35', '36', '37', 'none', 'ml-kem-512', 'ml-kem-768',
+                  'ml-kem-1024', 'kyber512', 'kyber768', 'kyber1024', 'frodo-l1', 'frodo-l3',
+                  'frodo-l5', 'bike-l1', 'bike-l3', 'bike-l5', 'hqc128', 'hqc192', 'hqc256']
+      addke5:
+        type: list
+        elements: str
+        description: ADDKE5 group.
+        choices: ['0', '1080', '1081', '1082', '1083', '1084', '1085', '1089', '1090', '1091',
+                  '1092', '1093', '1094', '35', '36', '37', 'none', 'ml-kem-512', 'ml-kem-768',
+                  'ml-kem-1024', 'kyber512', 'kyber768', 'kyber1024', 'frodo-l1', 'frodo-l3',
+                  'frodo-l5', 'bike-l1', 'bike-l3', 'bike-l5', 'hqc128', 'hqc192', 'hqc256']
+      addke6:
+        type: list
+        elements: str
+        description: ADDKE6 group.
+        choices: ['0', '1080', '1081', '1082', '1083', '1084', '1085', '1089', '1090', '1091',
+                  '1092', '1093', '1094', '35', '36', '37', 'none', 'ml-kem-512', 'ml-kem-768',
+                  'ml-kem-1024', 'kyber512', 'kyber768', 'kyber1024', 'frodo-l1', 'frodo-l3',
+                  'frodo-l5', 'bike-l1', 'bike-l3', 'bike-l5', 'hqc128', 'hqc192', 'hqc256']
+      addke7:
+        type: list
+        elements: str
+        description: ADDKE7 group.
+        choices: ['0', '1080', '1081', '1082', '1083', '1084', '1085', '1089', '1090', '1091',
+                  '1092', '1093', '1094', '35', '36', '37', 'none', 'ml-kem-512', 'ml-kem-768',
+                  'ml-kem-1024', 'kyber512', 'kyber768', 'kyber1024', 'frodo-l1', 'frodo-l3',
+                  'frodo-l5', 'bike-l1', 'bike-l3', 'bike-l5', 'hqc128', 'hqc192', 'hqc256']
+      assign_ip:
+        aliases: ['assign-ip']
+        type: str
+        description: Enable/disable assignment of IP to IPsec interface via configuration method.
+        choices: ['disable', 'enable']
+      assign_ip_from:
+        aliases: ['assign-ip-from']
+        type: str
+        description: Method by which the IP address will be assigned.
+        choices: ['range', 'usrgrp', 'dhcp', 'name']
+      authmethod:
+        type: str
+        description: Authentication method.
+        choices: ['psk', 'signature']
+      authmethod_remote:
+        aliases: ['authmethod-remote']
+        type: str
+        description: Authentication method
+        choices: ['psk', 'signature']
+      authpasswd:
+        type: list
+        elements: str
+        description: XAuth password
+      authusr:
+        type: str
+        description: XAuth user name.
+      authusrgrp:
+        type: list
+        elements: str
+        description: Authentication user group.
+      auto_negotiate:
+        aliases: ['auto-negotiate']
+        type: str
+        description: Enable/disable automatic initiation of IKE SA negotiation.
+        choices: ['disable', 'enable']
+      auto_transport_threshold:
+        aliases: ['auto-transport-threshold']
+        type: int
+        description: Timeout in seconds before falling back to next transport protocol.
+      azure_ad_autoconnect:
+        aliases: ['azure-ad-autoconnect']
+        type: str
+        description: Enable/disable Azure AD Auto-Connect for FortiClient.
+        choices: ['disable', 'enable']
+      backup_gateway:
+        aliases: ['backup-gateway']
+        type: list
+        elements: str
+        description: Instruct unity clients about the backup gateway address
+      banner:
+        type: str
+        description: Message that unity client should display after connecting.
+      cert_id_validation:
+        aliases: ['cert-id-validation']
+        type: str
+        description: Enable/disable cross validation of peer ID and the identity in the peers certificate as specified in RFC 4945.
+        choices: ['disable', 'enable']
+      cert_peer_username_strip:
+        aliases: ['cert-peer-username-strip']
+        type: str
+        description: Enable/disable domain stripping on certificate identity.
+        choices: ['disable', 'enable']
+      cert_peer_username_validation:
+        aliases: ['cert-peer-username-validation']
+        type: str
+        description: Enable/disable cross validation of peer username and the identity in the peers certificate.
+        choices: ['othername', 'rfc822name', 'cn', 'none']
+      cert_trust_store:
+        aliases: ['cert-trust-store']
+        type: str
+        description: CA certificate trust store.
+        choices: ['local', 'ems']
+      certificate:
+        type: list
+        elements: str
+        description: Names of up to 4 signed personal certificates.
+      childless_ike:
+        aliases: ['childless-ike']
+        type: str
+        description: Enable/disable childless IKEv2 initiation
+        choices: ['disable', 'enable']
+      client_auto_negotiate:
+        aliases: ['client-auto-negotiate']
+        type: str
+        description: Enable/disable allowing the VPN client to bring up the tunnel when there is no traffic.
+        choices: ['disable', 'enable']
+      client_keep_alive:
+        aliases: ['client-keep-alive']
+        type: str
+        description: Enable/disable allowing the VPN client to keep the tunnel up when there is no traffic.
+        choices: ['disable', 'enable']
+      client_resume:
+        aliases: ['client-resume']
+        type: str
+        description: Enable/disable resumption of offline FortiClient sessions.
+        choices: ['disable', 'enable']
+      client_resume_interval:
+        aliases: ['client-resume-interval']
+        type: int
+        description: Maximum time in seconds during which a VPN client may resume using a tunnel after a client PC has entered sleep mode or temporaril...
+      comments:
+        type: str
+        description: Comment.
+      dev_id:
+        aliases: ['dev-id']
+        type: str
+        description: Device ID carried by the device ID notification.
+      dev_id_notification:
+        aliases: ['dev-id-notification']
+        type: str
+        description: Enable/disable device ID notification.
+        choices: ['disable', 'enable']
+      dhcp_ra_giaddr:
+        aliases: ['dhcp-ra-giaddr']
+        type: str
+        description: Relay agent gateway IP address to use in the giaddr field of DHCP requests.
+      dhcp6_ra_linkaddr:
+        aliases: ['dhcp6-ra-linkaddr']
+        type: str
+        description: Relay agent IPv6 link address to use in DHCP6 requests.
+      dhgrp:
+        type: list
+        elements: str
+        description: DH group.
+        choices: ['1', '2', '5', '14', '15', '16', '17', '18', '19', '20', '21', '27', '28', '29',
+                  '30', '31', '32']
+      digital_signature_auth:
+        aliases: ['digital-signature-auth']
+        type: str
+        description: Enable/disable IKEv2 Digital Signature Authentication
+        choices: ['disable', 'enable']
+      distance:
+        type: int
+        description: Distance for routes added by IKE
+      dns_mode:
+        aliases: ['dns-mode']
+        type: str
+        description: DNS server mode.
+        choices: ['auto', 'manual']
+      dns_suffix_search:
+        aliases: ['dns-suffix-search']
+        type: list
+        elements: str
+        description: One or more DNS domain name suffixes in quotes separated by spaces.
+      domain:
+        type: str
+        description: Instruct unity clients about the single default DNS domain.
+      dpd:
+        type: str
+        description: Dead Peer Detection mode.
+        choices: ['disable', 'on-idle', 'on-demand']
+      dpd_retrycount:
+        aliases: ['dpd-retrycount']
+        type: int
+        description: Number of DPD retry attempts.
+      dpd_retryinterval:
+        aliases: ['dpd-retryinterval']
+        type: list
+        elements: int
+        description: DPD retry interval.
+      eap:
+        type: str
+        description: Enable/disable IKEv2 EAP authentication.
+        choices: ['disable', 'enable']
+      eap_cert_auth:
+        aliases: ['eap-cert-auth']
+        type: str
+        description: Enable/disable peer certificate authentication in addition to EAP if peer is a FortiClient endpoint.
+        choices: ['disable', 'enable']
+      eap_exclude_peergrp:
+        aliases: ['eap-exclude-peergrp']
+        type: list
+        elements: str
+        description: Peer group excluded from EAP authentication.
+      eap_identity:
+        aliases: ['eap-identity']
+        type: str
+        description: IKEv2 EAP peer identity type.
+        choices: ['use-id-payload', 'send-request']
+      ems_sn_check:
+        aliases: ['ems-sn-check']
+        type: str
+        description: Enable/disable verification of EMS serial number.
+        choices: ['enable', 'disable']
+      enforce_unique_id:
+        aliases: ['enforce-unique-id']
+        type: str
+        description: Enable/disable peer ID uniqueness check.
+        choices: ['disable', 'keep-new', 'keep-old']
+      esn:
+        type: str
+        description: Extended sequence number
+        choices: ['disable', 'require', 'allow']
+      exchange_fgt_device_id:
+        aliases: ['exchange-fgt-device-id']
+        type: str
+        description: Enable/disable device identifier exchange with peer FortiGate units for use of VPN monitor data by FortiManager.
+        choices: ['disable', 'enable']
+      fec_base:
+        aliases: ['fec-base']
+        type: int
+        description: Number of base Forward Error Correction packets
+      fec_codec:
+        aliases: ['fec-codec']
+        type: str
+        description: Forward Error Correction encoding/decoding algorithm.
+        choices: ['rs', 'xor']
+      fec_egress:
+        aliases: ['fec-egress']
+        type: str
+        description: Enable/disable Forward Error Correction for egress IPsec traffic.
+        choices: ['disable', 'enable']
+      fec_health_check:
+        aliases: ['fec-health-check']
+        type: list
+        elements: str
+        description: SD-WAN health check.
+      fec_ingress:
+        aliases: ['fec-ingress']
+        type: str
+        description: Enable/disable Forward Error Correction for ingress IPsec traffic.
+        choices: ['disable', 'enable']
+      fec_mapping_profile:
+        aliases: ['fec-mapping-profile']
+        type: list
+        elements: str
+        description: Forward Error Correction
+      fec_receive_timeout:
+        aliases: ['fec-receive-timeout']
+        type: int
+        description: Timeout in milliseconds before dropping Forward Error Correction packets
+      fec_redundant:
+        aliases: ['fec-redundant']
+        type: int
+        description: Number of redundant Forward Error Correction packets
+      fec_send_timeout:
+        aliases: ['fec-send-timeout']
+        type: int
+        description: Timeout in milliseconds before sending Forward Error Correction packets
+      fgsp_sync:
+        aliases: ['fgsp-sync']
+        type: str
+        description: Enable/disable IPsec syncing of tunnels for FGSP IPsec.
+        choices: ['disable', 'enable']
+      fortinet_esp:
+        aliases: ['fortinet-esp']
+        type: str
+        description: Enable/disable Fortinet ESP encapsulaton.
+        choices: ['disable', 'enable']
+      fragmentation:
+        type: str
+        description: Enable/disable fragment IKE message on re-transmission.
+        choices: ['disable', 'enable']
+      fragmentation_mtu:
+        aliases: ['fragmentation-mtu']
+        type: int
+        description: IKE fragmentation MTU
+      group_authentication:
+        aliases: ['group-authentication']
+        type: str
+        description: Enable/disable IKEv2 IDi group authentication.
+        choices: ['disable', 'enable']
+      group_authentication_secret:
+        aliases: ['group-authentication-secret']
+        type: list
+        elements: str
+        description: Password for IKEv2 ID group authentication.
+      ha_sync_esp_seqno:
+        aliases: ['ha-sync-esp-seqno']
+        type: str
+        description: Enable/disable sequence number jump ahead for IPsec HA.
+        choices: ['disable', 'enable']
+      idle_timeout:
+        aliases: ['idle-timeout']
+        type: str
+        description: Enable/disable IPsec tunnel idle timeout.
+        choices: ['disable', 'enable']
+      idle_timeoutinterval:
+        aliases: ['idle-timeoutinterval']
+        type: int
+        description: IPsec tunnel idle timeout in minutes
+      ike_version:
+        aliases: ['ike-version']
+        type: str
+        description: IKE protocol version.
+        choices: ['1', '2']
+      inbound_dscp_copy:
+        aliases: ['inbound-dscp-copy']
+        type: str
+        description: Enable/disable copy the dscp in the ESP header to the inner IP Header.
+        choices: ['disable', 'enable']
+      include_local_lan:
+        aliases: ['include-local-lan']
+        type: str
+        description: Enable/disable allow local LAN access on unity clients.
+        choices: ['disable', 'enable']
+      interface:
+        type: list
+        elements: str
+        description: Local physical, aggregate, or VLAN outgoing interface.
+      internal_domain_list:
+        aliases: ['internal-domain-list']
+        type: list
+        elements: str
+        description: One or more internal domain names in quotes separated by spaces.
+      ip_delay_interval:
+        aliases: ['ip-delay-interval']
+        type: int
+        description: IP address reuse delay interval in seconds
+      ipv4_dns_server1:
+        aliases: ['ipv4-dns-server1']
+        type: str
+        description: IPv4 DNS server 1.
+      ipv4_dns_server2:
+        aliases: ['ipv4-dns-server2']
+        type: str
+        description: IPv4 DNS server 2.
+      ipv4_dns_server3:
+        aliases: ['ipv4-dns-server3']
+        type: str
+        description: IPv4 DNS server 3.
+      ipv4_end_ip:
+        aliases: ['ipv4-end-ip']
+        type: str
+        description: End of IPv4 range.
+      ipv4_exclude_range:
+        aliases: ['ipv4-exclude-range']
+        type: list
+        elements: dict
+        description: Ipv4 exclude range.
         suboptions:
-            acct_verify:
-                aliases: ['acct-verify']
-                type: str
-                description: Enable/disable verification of RADIUS accounting record.
-                choices: ['disable', 'enable']
-            add_gw_route:
-                aliases: ['add-gw-route']
-                type: str
-                description: Enable/disable automatically add a route to the remote gateway.
-                choices: ['disable', 'enable']
-            add_route:
-                aliases: ['add-route']
-                type: str
-                description: Enable/disable control addition of a route to peer destination selector.
-                choices: ['disable', 'enable']
-            addke1:
-                type: list
-                elements: str
-                description: ADDKE1 group.
-                choices: ['0', '1080', '1081', '1082', '1083', '1084', '1085', '1089', '1090',
-                          '1091', '1092', '1093', '1094', '35', '36', '37']
-            addke2:
-                type: list
-                elements: str
-                description: ADDKE2 group.
-                choices: ['0', '1080', '1081', '1082', '1083', '1084', '1085', '1089', '1090',
-                          '1091', '1092', '1093', '1094', '35', '36', '37']
-            addke3:
-                type: list
-                elements: str
-                description: ADDKE3 group.
-                choices: ['0', '1080', '1081', '1082', '1083', '1084', '1085', '1089', '1090',
-                          '1091', '1092', '1093', '1094', '35', '36', '37']
-            addke4:
-                type: list
-                elements: str
-                description: ADDKE4 group.
-                choices: ['0', '1080', '1081', '1082', '1083', '1084', '1085', '1089', '1090',
-                          '1091', '1092', '1093', '1094', '35', '36', '37']
-            addke5:
-                type: list
-                elements: str
-                description: ADDKE5 group.
-                choices: ['0', '1080', '1081', '1082', '1083', '1084', '1085', '1089', '1090',
-                          '1091', '1092', '1093', '1094', '35', '36', '37']
-            addke6:
-                type: list
-                elements: str
-                description: ADDKE6 group.
-                choices: ['0', '1080', '1081', '1082', '1083', '1084', '1085', '1089', '1090',
-                          '1091', '1092', '1093', '1094', '35', '36', '37']
-            addke7:
-                type: list
-                elements: str
-                description: ADDKE7 group.
-                choices: ['0', '1080', '1081', '1082', '1083', '1084', '1085', '1089', '1090',
-                          '1091', '1092', '1093', '1094', '35', '36', '37']
-            assign_ip:
-                aliases: ['assign-ip']
-                type: str
-                description: Enable/disable assignment of IP to IPsec interface via configuration method.
-                choices: ['disable', 'enable']
-            assign_ip_from:
-                aliases: ['assign-ip-from']
-                type: str
-                description: Method by which the IP address will be assigned.
-                choices: ['range', 'usrgrp', 'dhcp', 'name']
-            authmethod:
-                type: str
-                description: Authentication method.
-                choices: ['psk', 'signature']
-            authmethod_remote:
-                aliases: ['authmethod-remote']
-                type: str
-                description: Authentication method
-                choices: ['psk', 'signature']
-            authpasswd:
-                type: list
-                elements: str
-                description: XAuth password
-            authusr:
-                type: str
-                description: XAuth user name.
-            authusrgrp:
-                type: list
-                elements: str
-                description: Authentication user group.
-            auto_negotiate:
-                aliases: ['auto-negotiate']
-                type: str
-                description: Enable/disable automatic initiation of IKE SA negotiation.
-                choices: ['disable', 'enable']
-            auto_transport_threshold:
-                aliases: ['auto-transport-threshold']
-                type: int
-                description: Timeout in seconds before falling back to next transport protocol.
-            azure_ad_autoconnect:
-                aliases: ['azure-ad-autoconnect']
-                type: str
-                description: Enable/disable Azure AD Auto-Connect for FortiClient.
-                choices: ['disable', 'enable']
-            backup_gateway:
-                aliases: ['backup-gateway']
-                type: list
-                elements: str
-                description: Instruct unity clients about the backup gateway address
-            banner:
-                type: str
-                description: Message that unity client should display after connecting.
-            cert_id_validation:
-                aliases: ['cert-id-validation']
-                type: str
-                description: Enable/disable cross validation of peer ID and the identity in the peers certificate as specified in RFC 4945.
-                choices: ['disable', 'enable']
-            cert_peer_username_strip:
-                aliases: ['cert-peer-username-strip']
-                type: str
-                description: Enable/disable domain stripping on certificate identity.
-                choices: ['disable', 'enable']
-            cert_peer_username_validation:
-                aliases: ['cert-peer-username-validation']
-                type: str
-                description: Enable/disable cross validation of peer username and the identity in the peers certificate.
-                choices: ['othername', 'rfc822name', 'cn', 'none']
-            cert_trust_store:
-                aliases: ['cert-trust-store']
-                type: str
-                description: CA certificate trust store.
-                choices: ['local', 'ems']
-            certificate:
-                type: list
-                elements: str
-                description: Names of up to 4 signed personal certificates.
-            childless_ike:
-                aliases: ['childless-ike']
-                type: str
-                description: Enable/disable childless IKEv2 initiation
-                choices: ['disable', 'enable']
-            client_auto_negotiate:
-                aliases: ['client-auto-negotiate']
-                type: str
-                description: Enable/disable allowing the VPN client to bring up the tunnel when there is no traffic.
-                choices: ['disable', 'enable']
-            client_keep_alive:
-                aliases: ['client-keep-alive']
-                type: str
-                description: Enable/disable allowing the VPN client to keep the tunnel up when there is no traffic.
-                choices: ['disable', 'enable']
-            client_resume:
-                aliases: ['client-resume']
-                type: str
-                description: Enable/disable resumption of offline FortiClient sessions.
-                choices: ['disable', 'enable']
-            client_resume_interval:
-                aliases: ['client-resume-interval']
-                type: int
-                description: Maximum time in seconds during which a VPN client may resume using a tunnel after a client PC has entered sleep mode or te...
-            comments:
-                type: str
-                description: Comment.
-            dev_id:
-                aliases: ['dev-id']
-                type: str
-                description: Device ID carried by the device ID notification.
-            dev_id_notification:
-                aliases: ['dev-id-notification']
-                type: str
-                description: Enable/disable device ID notification.
-                choices: ['disable', 'enable']
-            dhcp_ra_giaddr:
-                aliases: ['dhcp-ra-giaddr']
-                type: str
-                description: Relay agent gateway IP address to use in the giaddr field of DHCP requests.
-            dhcp6_ra_linkaddr:
-                aliases: ['dhcp6-ra-linkaddr']
-                type: str
-                description: Relay agent IPv6 link address to use in DHCP6 requests.
-            dhgrp:
-                type: list
-                elements: str
-                description: DH group.
-                choices: ['1', '2', '5', '14', '15', '16', '17', '18', '19', '20', '21', '27',
-                          '28', '29', '30', '31', '32']
-            digital_signature_auth:
-                aliases: ['digital-signature-auth']
-                type: str
-                description: Enable/disable IKEv2 Digital Signature Authentication
-                choices: ['disable', 'enable']
-            distance:
-                type: int
-                description: Distance for routes added by IKE
-            dns_mode:
-                aliases: ['dns-mode']
-                type: str
-                description: DNS server mode.
-                choices: ['auto', 'manual']
-            dns_suffix_search:
-                aliases: ['dns-suffix-search']
-                type: list
-                elements: str
-                description: One or more DNS domain name suffixes in quotes separated by spaces.
-            domain:
-                type: str
-                description: Instruct unity clients about the single default DNS domain.
-            dpd:
-                type: str
-                description: Dead Peer Detection mode.
-                choices: ['disable', 'on-idle', 'on-demand']
-            dpd_retrycount:
-                aliases: ['dpd-retrycount']
-                type: int
-                description: Number of DPD retry attempts.
-            dpd_retryinterval:
-                aliases: ['dpd-retryinterval']
-                type: list
-                elements: int
-                description: DPD retry interval.
-            eap:
-                type: str
-                description: Enable/disable IKEv2 EAP authentication.
-                choices: ['disable', 'enable']
-            eap_cert_auth:
-                aliases: ['eap-cert-auth']
-                type: str
-                description: Enable/disable peer certificate authentication in addition to EAP if peer is a FortiClient endpoint.
-                choices: ['disable', 'enable']
-            eap_exclude_peergrp:
-                aliases: ['eap-exclude-peergrp']
-                type: list
-                elements: str
-                description: Peer group excluded from EAP authentication.
-            eap_identity:
-                aliases: ['eap-identity']
-                type: str
-                description: IKEv2 EAP peer identity type.
-                choices: ['use-id-payload', 'send-request']
-            ems_sn_check:
-                aliases: ['ems-sn-check']
-                type: str
-                description: Enable/disable verification of EMS serial number.
-                choices: ['enable', 'disable']
-            enforce_unique_id:
-                aliases: ['enforce-unique-id']
-                type: str
-                description: Enable/disable peer ID uniqueness check.
-                choices: ['disable', 'keep-new', 'keep-old']
-            esn:
-                type: str
-                description: Extended sequence number
-                choices: ['disable', 'require', 'allow']
-            exchange_fgt_device_id:
-                aliases: ['exchange-fgt-device-id']
-                type: str
-                description: Enable/disable device identifier exchange with peer FortiGate units for use of VPN monitor data by FortiManager.
-                choices: ['disable', 'enable']
-            fec_base:
-                aliases: ['fec-base']
-                type: int
-                description: Number of base Forward Error Correction packets
-            fec_codec:
-                aliases: ['fec-codec']
-                type: str
-                description: Forward Error Correction encoding/decoding algorithm.
-                choices: ['rs', 'xor']
-            fec_egress:
-                aliases: ['fec-egress']
-                type: str
-                description: Enable/disable Forward Error Correction for egress IPsec traffic.
-                choices: ['disable', 'enable']
-            fec_health_check:
-                aliases: ['fec-health-check']
-                type: list
-                elements: str
-                description: SD-WAN health check.
-            fec_ingress:
-                aliases: ['fec-ingress']
-                type: str
-                description: Enable/disable Forward Error Correction for ingress IPsec traffic.
-                choices: ['disable', 'enable']
-            fec_mapping_profile:
-                aliases: ['fec-mapping-profile']
-                type: list
-                elements: str
-                description: Forward Error Correction
-            fec_receive_timeout:
-                aliases: ['fec-receive-timeout']
-                type: int
-                description: Timeout in milliseconds before dropping Forward Error Correction packets
-            fec_redundant:
-                aliases: ['fec-redundant']
-                type: int
-                description: Number of redundant Forward Error Correction packets
-            fec_send_timeout:
-                aliases: ['fec-send-timeout']
-                type: int
-                description: Timeout in milliseconds before sending Forward Error Correction packets
-            fgsp_sync:
-                aliases: ['fgsp-sync']
-                type: str
-                description: Enable/disable IPsec syncing of tunnels for FGSP IPsec.
-                choices: ['disable', 'enable']
-            fortinet_esp:
-                aliases: ['fortinet-esp']
-                type: str
-                description: Enable/disable Fortinet ESP encapsulaton.
-                choices: ['disable', 'enable']
-            fragmentation:
-                type: str
-                description: Enable/disable fragment IKE message on re-transmission.
-                choices: ['disable', 'enable']
-            fragmentation_mtu:
-                aliases: ['fragmentation-mtu']
-                type: int
-                description: IKE fragmentation MTU
-            group_authentication:
-                aliases: ['group-authentication']
-                type: str
-                description: Enable/disable IKEv2 IDi group authentication.
-                choices: ['disable', 'enable']
-            group_authentication_secret:
-                aliases: ['group-authentication-secret']
-                type: list
-                elements: str
-                description: Password for IKEv2 ID group authentication.
-            ha_sync_esp_seqno:
-                aliases: ['ha-sync-esp-seqno']
-                type: str
-                description: Enable/disable sequence number jump ahead for IPsec HA.
-                choices: ['disable', 'enable']
-            idle_timeout:
-                aliases: ['idle-timeout']
-                type: str
-                description: Enable/disable IPsec tunnel idle timeout.
-                choices: ['disable', 'enable']
-            idle_timeoutinterval:
-                aliases: ['idle-timeoutinterval']
-                type: int
-                description: IPsec tunnel idle timeout in minutes
-            ike_version:
-                aliases: ['ike-version']
-                type: str
-                description: IKE protocol version.
-                choices: ['1', '2']
-            inbound_dscp_copy:
-                aliases: ['inbound-dscp-copy']
-                type: str
-                description: Enable/disable copy the dscp in the ESP header to the inner IP Header.
-                choices: ['disable', 'enable']
-            include_local_lan:
-                aliases: ['include-local-lan']
-                type: str
-                description: Enable/disable allow local LAN access on unity clients.
-                choices: ['disable', 'enable']
-            interface:
-                type: list
-                elements: str
-                description: Local physical, aggregate, or VLAN outgoing interface.
-            internal_domain_list:
-                aliases: ['internal-domain-list']
-                type: list
-                elements: str
-                description: One or more internal domain names in quotes separated by spaces.
-            ip_delay_interval:
-                aliases: ['ip-delay-interval']
-                type: int
-                description: IP address reuse delay interval in seconds
-            ipv4_dns_server1:
-                aliases: ['ipv4-dns-server1']
-                type: str
-                description: IPv4 DNS server 1.
-            ipv4_dns_server2:
-                aliases: ['ipv4-dns-server2']
-                type: str
-                description: IPv4 DNS server 2.
-            ipv4_dns_server3:
-                aliases: ['ipv4-dns-server3']
-                type: str
-                description: IPv4 DNS server 3.
-            ipv4_end_ip:
-                aliases: ['ipv4-end-ip']
-                type: str
-                description: End of IPv4 range.
-            ipv4_exclude_range:
-                aliases: ['ipv4-exclude-range']
-                type: list
-                elements: dict
-                description: Ipv4 exclude range.
-                suboptions:
-                    end_ip:
-                        aliases: ['end-ip']
-                        type: str
-                        description: End of IPv4 exclusive range.
-                    id:
-                        type: int
-                        description: ID.
-                    start_ip:
-                        aliases: ['start-ip']
-                        type: str
-                        description: Start of IPv4 exclusive range.
-            ipv4_name:
-                aliases: ['ipv4-name']
-                type: list
-                elements: str
-                description: IPv4 address name.
-            ipv4_netmask:
-                aliases: ['ipv4-netmask']
-                type: str
-                description: IPv4 Netmask.
-            ipv4_split_exclude:
-                aliases: ['ipv4-split-exclude']
-                type: list
-                elements: str
-                description: IPv4 subnets that should not be sent over the IPsec tunnel.
-            ipv4_split_include:
-                aliases: ['ipv4-split-include']
-                type: list
-                elements: str
-                description: IPv4 split-include subnets.
-            ipv4_start_ip:
-                aliases: ['ipv4-start-ip']
-                type: str
-                description: Start of IPv4 range.
-            ipv4_wins_server1:
-                aliases: ['ipv4-wins-server1']
-                type: str
-                description: WINS server 1.
-            ipv4_wins_server2:
-                aliases: ['ipv4-wins-server2']
-                type: str
-                description: WINS server 2.
-            ipv6_auto_linklocal:
-                aliases: ['ipv6-auto-linklocal']
-                type: str
-                description: Enable/disable auto generation of IPv6 link-local address using last 8 bytes of mode-cfg assigned IPv6 address.
-                choices: ['disable', 'enable']
-            ipv6_dns_server1:
-                aliases: ['ipv6-dns-server1']
-                type: str
-                description: IPv6 DNS server 1.
-            ipv6_dns_server2:
-                aliases: ['ipv6-dns-server2']
-                type: str
-                description: IPv6 DNS server 2.
-            ipv6_dns_server3:
-                aliases: ['ipv6-dns-server3']
-                type: str
-                description: IPv6 DNS server 3.
-            ipv6_end_ip:
-                aliases: ['ipv6-end-ip']
-                type: str
-                description: End of IPv6 range.
-            ipv6_exclude_range:
-                aliases: ['ipv6-exclude-range']
-                type: list
-                elements: dict
-                description: Ipv6 exclude range.
-                suboptions:
-                    end_ip:
-                        aliases: ['end-ip']
-                        type: str
-                        description: End of IPv6 exclusive range.
-                    id:
-                        type: int
-                        description: ID.
-                    start_ip:
-                        aliases: ['start-ip']
-                        type: str
-                        description: Start of IPv6 exclusive range.
-            ipv6_name:
-                aliases: ['ipv6-name']
-                type: list
-                elements: str
-                description: IPv6 address name.
-            ipv6_prefix:
-                aliases: ['ipv6-prefix']
-                type: int
-                description: IPv6 prefix.
-            ipv6_split_exclude:
-                aliases: ['ipv6-split-exclude']
-                type: list
-                elements: str
-                description: IPv6 subnets that should not be sent over the IPsec tunnel.
-            ipv6_split_include:
-                aliases: ['ipv6-split-include']
-                type: list
-                elements: str
-                description: IPv6 split-include subnets.
-            ipv6_start_ip:
-                aliases: ['ipv6-start-ip']
-                type: str
-                description: Start of IPv6 range.
-            keepalive:
-                type: int
-                description: NAT-T keep alive interval.
-            keylife:
-                type: int
-                description: Time to wait in seconds before phase 1 encryption key expires.
-            kms:
-                type: list
-                elements: str
-                description: Key Management Services server.
-            link_cost:
-                aliases: ['link-cost']
-                type: int
-                description: VPN tunnel underlay link cost.
-            local_gw:
-                aliases: ['local-gw']
-                type: str
-                description: Local VPN gateway.
-            localid:
-                type: str
-                description: Local ID.
-            localid_type:
-                aliases: ['localid-type']
-                type: str
-                description: Local ID type.
-                choices: ['auto', 'fqdn', 'user-fqdn', 'keyid', 'address', 'asn1dn']
-            loopback_asymroute:
-                aliases: ['loopback-asymroute']
-                type: str
-                description: Enable/disable asymmetric routing for IKE traffic on loopback interface.
-                choices: ['disable', 'enable']
-            mesh_selector_type:
-                aliases: ['mesh-selector-type']
-                type: str
-                description: Add selectors containing subsets of the configuration depending on traffic.
-                choices: ['disable', 'subnet', 'host']
-            mode:
-                type: str
-                description: ID protection mode used to establish a secure channel.
-                choices: ['main', 'aggressive']
-            mode_cfg:
-                aliases: ['mode-cfg']
-                type: str
-                description: Enable/disable configuration method.
-                choices: ['disable', 'enable']
-            mode_cfg_allow_client_selector:
-                aliases: ['mode-cfg-allow-client-selector']
-                type: str
-                description: Enable/disable mode-cfg client to use custom phase2 selectors.
-                choices: ['disable', 'enable']
-            name:
-                type: str
-                description: IPsec remote gateway name.
-                required: true
-            nattraversal:
-                type: str
-                description: Enable/disable NAT traversal.
-                choices: ['disable', 'enable', 'forced']
-            negotiate_timeout:
-                aliases: ['negotiate-timeout']
-                type: int
-                description: IKE SA negotiation timeout in seconds
-            network_id:
-                aliases: ['network-id']
-                type: int
-                description: VPN gateway network ID.
-            network_overlay:
-                aliases: ['network-overlay']
-                type: str
-                description: Enable/disable network overlays.
-                choices: ['disable', 'enable']
-            npu_offload:
-                aliases: ['npu-offload']
-                type: str
-                description: Enable/disable offloading NPU.
-                choices: ['disable', 'enable']
-            peer:
-                type: list
-                elements: str
-                description: Accept this peer certificate.
-            peergrp:
-                type: list
-                elements: str
-                description: Accept this peer certificate group.
-            peerid:
-                type: str
-                description: Accept this peer identity.
-            peertype:
-                type: str
-                description: Accept this peer type.
-                choices: ['any', 'one', 'dialup', 'peer', 'peergrp']
-            ppk:
-                type: str
-                description: Enable/disable IKEv2 Postquantum Preshared Key
-                choices: ['disable', 'allow', 'require']
-            ppk_identity:
-                aliases: ['ppk-identity']
-                type: str
-                description: IKEv2 Postquantum Preshared Key Identity.
-            ppk_secret:
-                aliases: ['ppk-secret']
-                type: list
-                elements: str
-                description: IKEv2 Postquantum Preshared Key
-            priority:
-                type: int
-                description: Priority for routes added by IKE
-            proposal:
-                type: str
-                description: Phase1 proposal.
-                choices: ['des-md5', 'des-sha1', '3des-md5', '3des-sha1', 'aes128-md5',
-                          'aes128-sha1', 'aes192-md5', 'aes192-sha1', 'aes256-md5', 'aes256-sha1',
-                          'des-sha256', '3des-sha256', 'aes128-sha256', 'aes192-sha256',
-                          'aes256-sha256', 'des-sha384', 'des-sha512', '3des-sha384',
-                          '3des-sha512', 'aes128-sha384', 'aes128-sha512', 'aes192-sha384',
-                          'aes192-sha512', 'aes256-sha384', 'aes256-sha512', 'aria128-md5',
-                          'aria128-sha1', 'aria128-sha256', 'aria128-sha384', 'aria128-sha512',
-                          'aria192-md5', 'aria192-sha1', 'aria192-sha256', 'aria192-sha384',
-                          'aria192-sha512', 'aria256-md5', 'aria256-sha1', 'aria256-sha256',
-                          'aria256-sha384', 'aria256-sha512', 'seed-md5', 'seed-sha1',
-                          'seed-sha256', 'seed-sha384', 'seed-sha512', 'aes128gcm-prfsha1',
-                          'aes128gcm-prfsha256', 'aes128gcm-prfsha384', 'aes128gcm-prfsha512',
-                          'aes256gcm-prfsha1', 'aes256gcm-prfsha256', 'aes256gcm-prfsha384',
-                          'aes256gcm-prfsha512', 'chacha20poly1305-prfsha1',
-                          'chacha20poly1305-prfsha256', 'chacha20poly1305-prfsha384',
-                          'chacha20poly1305-prfsha512']
-            psksecret:
-                type: list
-                elements: str
-                description: Pre-shared secret for PSK authentication
-            psksecret_remote:
-                aliases: ['psksecret-remote']
-                type: list
-                elements: str
-                description: Pre-shared secret for remote side PSK authentication
-            qkd:
-                type: str
-                description: Enable/disable use of Quantum Key Distribution
-                choices: ['disable', 'allow', 'require']
-            qkd_hybrid:
-                aliases: ['qkd-hybrid']
-                type: str
-                description: Enable/disable use of Quantum Key Distribution
-                choices: ['disable', 'require', 'allow']
-            qkd_profile:
-                aliases: ['qkd-profile']
-                type: list
-                elements: str
-                description: Quantum Key Distribution
-            reauth:
-                type: str
-                description: Enable/disable re-authentication upon IKE SA lifetime expiration.
-                choices: ['disable', 'enable']
-            rekey:
-                type: str
-                description: Enable/disable phase1 rekey.
-                choices: ['disable', 'enable']
-            remote_gw:
-                aliases: ['remote-gw']
-                type: str
-                description: Remote VPN gateway.
-            remote_gw_country:
-                aliases: ['remote-gw-country']
-                type: str
-                description: IPv4 addresses associated to a specific country.
-            remote_gw_end_ip:
-                aliases: ['remote-gw-end-ip']
-                type: str
-                description: Last IPv4 address in the range.
-            remote_gw_match:
-                aliases: ['remote-gw-match']
-                type: str
-                description: Set type of IPv4 remote gateway address matching.
-                choices: ['any', 'ipmask', 'iprange', 'geography', 'ztna']
-            remote_gw_start_ip:
-                aliases: ['remote-gw-start-ip']
-                type: str
-                description: First IPv4 address in the range.
-            remote_gw_subnet:
-                aliases: ['remote-gw-subnet']
-                type: list
-                elements: str
-                description: IPv4 address and subnet mask.
-            remote_gw_ztna_tags:
-                aliases: ['remote-gw-ztna-tags']
-                type: list
-                elements: str
-                description: IPv4 ZTNA posture tags.
-            remote_gw6_country:
-                aliases: ['remote-gw6-country']
-                type: str
-                description: IPv6 addresses associated to a specific country.
-            remote_gw6_end_ip:
-                aliases: ['remote-gw6-end-ip']
-                type: str
-                description: Last IPv6 address in the range.
-            remote_gw6_match:
-                aliases: ['remote-gw6-match']
-                type: str
-                description: Set type of IPv6 remote gateway address matching.
-                choices: ['any', 'iprange', 'geography', 'ipprefix']
-            remote_gw6_start_ip:
-                aliases: ['remote-gw6-start-ip']
-                type: str
-                description: First IPv6 address in the range.
-            remote_gw6_subnet:
-                aliases: ['remote-gw6-subnet']
-                type: str
-                description: IPv6 address and prefix.
-            remotegw_ddns:
-                aliases: ['remotegw-ddns']
-                type: str
-                description: Domain name of remote gateway.
-            rsa_signature_format:
-                aliases: ['rsa-signature-format']
-                type: str
-                description: Digital Signature Authentication RSA signature format.
-                choices: ['pkcs1', 'pss']
-            rsa_signature_hash_override:
-                aliases: ['rsa-signature-hash-override']
-                type: str
-                description: Enable/disable IKEv2 RSA signature hash algorithm override.
-                choices: ['disable', 'enable']
-            save_password:
-                aliases: ['save-password']
-                type: str
-                description: Enable/disable saving XAuth username and password on VPN clients.
-                choices: ['disable', 'enable']
-            send_cert_chain:
-                aliases: ['send-cert-chain']
-                type: str
-                description: Enable/disable sending certificate chain.
-                choices: ['disable', 'enable']
-            shared_idle_timeout:
-                aliases: ['shared-idle-timeout']
-                type: str
-                description: Enable/disable IPsec tunnel shared idle timeout.
-                choices: ['disable', 'enable']
-            signature_hash_alg:
-                aliases: ['signature-hash-alg']
-                type: list
-                elements: str
-                description: Digital Signature Authentication hash algorithms.
-                choices: ['sha1', 'sha2-256', 'sha2-384', 'sha2-512']
-            split_include_service:
-                aliases: ['split-include-service']
-                type: list
-                elements: str
-                description: Split-include services.
-            suite_b:
-                aliases: ['suite-b']
-                type: str
-                description: Use Suite-B.
-                choices: ['disable', 'suite-b-gcm-128', 'suite-b-gcm-256']
-            transit_gateway:
-                aliases: ['transit-gateway']
-                type: str
-                description: IPsec tunnel created by autoscaling to be used as a transit gateway.
-                choices: ['disable', 'enable']
-            transport:
-                type: str
-                description: Set IKE transport protocol.
-                choices: ['udp', 'tcp', 'auto', 'udp-fallback-tcp']
-            type:
-                type: str
-                description: Remote gateway type.
-                choices: ['static', 'dynamic', 'ddns']
-            unity_support:
-                aliases: ['unity-support']
-                type: str
-                description: Enable/disable support for Cisco UNITY Configuration Method extensions.
-                choices: ['disable', 'enable']
-            usrgrp:
-                type: list
-                elements: str
-                description: User group name for dialup peers.
-            wizard_type:
-                aliases: ['wizard-type']
-                type: str
-                description: GUI VPN Wizard Type.
-                choices: ['custom', 'dialup-forticlient', 'dialup-ios', 'dialup-android',
-                          'dialup-cisco', 'static-fortigate', 'static-cisco', 'dialup-windows',
-                          'dialup-fortigate', 'dialup-cisco-fw', 'simplified-static-fortigate',
-                          'hub-fortigate-auto-discovery', 'spoke-fortigate-auto-discovery',
-                          'fabric-overlay-orchestrator']
-            xauthtype:
-                type: str
-                description: XAuth type.
-                choices: ['disable', 'client', 'pap', 'chap', 'auto']
-            fallback_tcp_threshold:
-                aliases: ['fallback-tcp-threshold']
-                type: int
-                description: Timeout in seconds before falling back IKE/IPsec traffic to tcp.
-            forticlient_enforcement:
-                aliases: ['forticlient-enforcement']
-                type: str
-                description: Enable/disable FortiClient enforcement.
-                choices: ['disable', 'enable']
+          end_ip:
+            aliases: ['end-ip']
+            type: str
+            description: End of IPv4 exclusive range.
+          id:
+            type: int
+            description: ID.
+          start_ip:
+            aliases: ['start-ip']
+            type: str
+            description: Start of IPv4 exclusive range.
+      ipv4_name:
+        aliases: ['ipv4-name']
+        type: list
+        elements: str
+        description: IPv4 address name.
+      ipv4_netmask:
+        aliases: ['ipv4-netmask']
+        type: str
+        description: IPv4 Netmask.
+      ipv4_split_exclude:
+        aliases: ['ipv4-split-exclude']
+        type: list
+        elements: str
+        description: IPv4 subnets that should not be sent over the IPsec tunnel.
+      ipv4_split_include:
+        aliases: ['ipv4-split-include']
+        type: list
+        elements: str
+        description: IPv4 split-include subnets.
+      ipv4_start_ip:
+        aliases: ['ipv4-start-ip']
+        type: str
+        description: Start of IPv4 range.
+      ipv4_wins_server1:
+        aliases: ['ipv4-wins-server1']
+        type: str
+        description: WINS server 1.
+      ipv4_wins_server2:
+        aliases: ['ipv4-wins-server2']
+        type: str
+        description: WINS server 2.
+      ipv6_auto_linklocal:
+        aliases: ['ipv6-auto-linklocal']
+        type: str
+        description: Enable/disable auto generation of IPv6 link-local address using last 8 bytes of mode-cfg assigned IPv6 address.
+        choices: ['disable', 'enable']
+      ipv6_dns_server1:
+        aliases: ['ipv6-dns-server1']
+        type: str
+        description: IPv6 DNS server 1.
+      ipv6_dns_server2:
+        aliases: ['ipv6-dns-server2']
+        type: str
+        description: IPv6 DNS server 2.
+      ipv6_dns_server3:
+        aliases: ['ipv6-dns-server3']
+        type: str
+        description: IPv6 DNS server 3.
+      ipv6_end_ip:
+        aliases: ['ipv6-end-ip']
+        type: str
+        description: End of IPv6 range.
+      ipv6_exclude_range:
+        aliases: ['ipv6-exclude-range']
+        type: list
+        elements: dict
+        description: Ipv6 exclude range.
+        suboptions:
+          end_ip:
+            aliases: ['end-ip']
+            type: str
+            description: End of IPv6 exclusive range.
+          id:
+            type: int
+            description: ID.
+          start_ip:
+            aliases: ['start-ip']
+            type: str
+            description: Start of IPv6 exclusive range.
+      ipv6_name:
+        aliases: ['ipv6-name']
+        type: list
+        elements: str
+        description: IPv6 address name.
+      ipv6_prefix:
+        aliases: ['ipv6-prefix']
+        type: int
+        description: IPv6 prefix.
+      ipv6_split_exclude:
+        aliases: ['ipv6-split-exclude']
+        type: list
+        elements: str
+        description: IPv6 subnets that should not be sent over the IPsec tunnel.
+      ipv6_split_include:
+        aliases: ['ipv6-split-include']
+        type: list
+        elements: str
+        description: IPv6 split-include subnets.
+      ipv6_start_ip:
+        aliases: ['ipv6-start-ip']
+        type: str
+        description: Start of IPv6 range.
+      keepalive:
+        type: int
+        description: NAT-T keep alive interval.
+      keylife:
+        type: int
+        description: Time to wait in seconds before phase 1 encryption key expires.
+      kms:
+        type: list
+        elements: str
+        description: Key Management Services server.
+      link_cost:
+        aliases: ['link-cost']
+        type: int
+        description: VPN tunnel underlay link cost.
+      local_gw:
+        aliases: ['local-gw']
+        type: str
+        description: Local VPN gateway.
+      localid:
+        type: str
+        description: Local ID.
+      localid_type:
+        aliases: ['localid-type']
+        type: str
+        description: Local ID type.
+        choices: ['auto', 'fqdn', 'user-fqdn', 'keyid', 'address', 'asn1dn']
+      loopback_asymroute:
+        aliases: ['loopback-asymroute']
+        type: str
+        description: Enable/disable asymmetric routing for IKE traffic on loopback interface.
+        choices: ['disable', 'enable']
+      mesh_selector_type:
+        aliases: ['mesh-selector-type']
+        type: str
+        description: Add selectors containing subsets of the configuration depending on traffic.
+        choices: ['disable', 'subnet', 'host']
+      mode:
+        type: str
+        description: ID protection mode used to establish a secure channel.
+        choices: ['main', 'aggressive']
+      mode_cfg:
+        aliases: ['mode-cfg']
+        type: str
+        description: Enable/disable configuration method.
+        choices: ['disable', 'enable']
+      mode_cfg_allow_client_selector:
+        aliases: ['mode-cfg-allow-client-selector']
+        type: str
+        description: Enable/disable mode-cfg client to use custom phase2 selectors.
+        choices: ['disable', 'enable']
+      name:
+        type: str
+        description: IPsec remote gateway name.
+        required: true
+      nattraversal:
+        type: str
+        description: Enable/disable NAT traversal.
+        choices: ['disable', 'enable', 'forced']
+      negotiate_timeout:
+        aliases: ['negotiate-timeout']
+        type: int
+        description: IKE SA negotiation timeout in seconds
+      network_id:
+        aliases: ['network-id']
+        type: int
+        description: VPN gateway network ID.
+      network_overlay:
+        aliases: ['network-overlay']
+        type: str
+        description: Enable/disable network overlays.
+        choices: ['disable', 'enable']
+      npu_offload:
+        aliases: ['npu-offload']
+        type: str
+        description: Enable/disable offloading NPU.
+        choices: ['disable', 'enable']
+      peer:
+        type: list
+        elements: str
+        description: Accept this peer certificate.
+      peergrp:
+        type: list
+        elements: str
+        description: Accept this peer certificate group.
+      peerid:
+        type: str
+        description: Accept this peer identity.
+      peertype:
+        type: str
+        description: Accept this peer type.
+        choices: ['any', 'one', 'dialup', 'peer', 'peergrp']
+      ppk:
+        type: str
+        description: Enable/disable IKEv2 Postquantum Preshared Key
+        choices: ['disable', 'allow', 'require']
+      ppk_identity:
+        aliases: ['ppk-identity']
+        type: str
+        description: IKEv2 Postquantum Preshared Key Identity.
+      ppk_secret:
+        aliases: ['ppk-secret']
+        type: list
+        elements: str
+        description: IKEv2 Postquantum Preshared Key
+      priority:
+        type: int
+        description: Priority for routes added by IKE
+      proposal:
+        type: str
+        description: Phase1 proposal.
+        choices: ['des-md5', 'des-sha1', '3des-md5', '3des-sha1', 'aes128-md5', 'aes128-sha1',
+                  'aes192-md5', 'aes192-sha1', 'aes256-md5', 'aes256-sha1', 'des-sha256',
+                  '3des-sha256', 'aes128-sha256', 'aes192-sha256', 'aes256-sha256', 'des-sha384',
+                  'des-sha512', '3des-sha384', '3des-sha512', 'aes128-sha384', 'aes128-sha512',
+                  'aes192-sha384', 'aes192-sha512', 'aes256-sha384', 'aes256-sha512',
+                  'aria128-md5', 'aria128-sha1', 'aria128-sha256', 'aria128-sha384',
+                  'aria128-sha512', 'aria192-md5', 'aria192-sha1', 'aria192-sha256',
+                  'aria192-sha384', 'aria192-sha512', 'aria256-md5', 'aria256-sha1',
+                  'aria256-sha256', 'aria256-sha384', 'aria256-sha512', 'seed-md5', 'seed-sha1',
+                  'seed-sha256', 'seed-sha384', 'seed-sha512', 'aes128gcm-prfsha1',
+                  'aes128gcm-prfsha256', 'aes128gcm-prfsha384', 'aes128gcm-prfsha512',
+                  'aes256gcm-prfsha1', 'aes256gcm-prfsha256', 'aes256gcm-prfsha384',
+                  'aes256gcm-prfsha512', 'chacha20poly1305-prfsha1', 'chacha20poly1305-prfsha256',
+                  'chacha20poly1305-prfsha384', 'chacha20poly1305-prfsha512', 'sm4-sm3']
+      psksecret:
+        type: list
+        elements: str
+        description: Pre-shared secret for PSK authentication
+      psksecret_remote:
+        aliases: ['psksecret-remote']
+        type: list
+        elements: str
+        description: Pre-shared secret for remote side PSK authentication
+      qkd:
+        type: str
+        description: Enable/disable use of Quantum Key Distribution
+        choices: ['disable', 'allow', 'require']
+      qkd_hybrid:
+        aliases: ['qkd-hybrid']
+        type: str
+        description: Enable/disable use of Quantum Key Distribution
+        choices: ['disable', 'require', 'allow']
+      qkd_profile:
+        aliases: ['qkd-profile']
+        type: list
+        elements: str
+        description: Quantum Key Distribution
+      reauth:
+        type: str
+        description: Enable/disable re-authentication upon IKE SA lifetime expiration.
+        choices: ['disable', 'enable']
+      rekey:
+        type: str
+        description: Enable/disable phase1 rekey.
+        choices: ['disable', 'enable']
+      remote_gw:
+        aliases: ['remote-gw']
+        type: str
+        description: Remote VPN gateway.
+      remote_gw_country:
+        aliases: ['remote-gw-country']
+        type: str
+        description: IPv4 addresses associated to a specific country.
+      remote_gw_end_ip:
+        aliases: ['remote-gw-end-ip']
+        type: str
+        description: Last IPv4 address in the range.
+      remote_gw_match:
+        aliases: ['remote-gw-match']
+        type: str
+        description: Set type of IPv4 remote gateway address matching.
+        choices: ['any', 'ipmask', 'iprange', 'geography', 'ztna']
+      remote_gw_start_ip:
+        aliases: ['remote-gw-start-ip']
+        type: str
+        description: First IPv4 address in the range.
+      remote_gw_subnet:
+        aliases: ['remote-gw-subnet']
+        type: list
+        elements: str
+        description: IPv4 address and subnet mask.
+      remote_gw_ztna_tags:
+        aliases: ['remote-gw-ztna-tags']
+        type: list
+        elements: str
+        description: IPv4 ZTNA posture tags.
+      remote_gw6_country:
+        aliases: ['remote-gw6-country']
+        type: str
+        description: IPv6 addresses associated to a specific country.
+      remote_gw6_end_ip:
+        aliases: ['remote-gw6-end-ip']
+        type: str
+        description: Last IPv6 address in the range.
+      remote_gw6_match:
+        aliases: ['remote-gw6-match']
+        type: str
+        description: Set type of IPv6 remote gateway address matching.
+        choices: ['any', 'iprange', 'geography', 'ipprefix']
+      remote_gw6_start_ip:
+        aliases: ['remote-gw6-start-ip']
+        type: str
+        description: First IPv6 address in the range.
+      remote_gw6_subnet:
+        aliases: ['remote-gw6-subnet']
+        type: str
+        description: IPv6 address and prefix.
+      remotegw_ddns:
+        aliases: ['remotegw-ddns']
+        type: str
+        description: Domain name of remote gateway.
+      rsa_signature_format:
+        aliases: ['rsa-signature-format']
+        type: str
+        description: Digital Signature Authentication RSA signature format.
+        choices: ['pkcs1', 'pss']
+      rsa_signature_hash_override:
+        aliases: ['rsa-signature-hash-override']
+        type: str
+        description: Enable/disable IKEv2 RSA signature hash algorithm override.
+        choices: ['disable', 'enable']
+      save_password:
+        aliases: ['save-password']
+        type: str
+        description: Enable/disable saving XAuth username and password on VPN clients.
+        choices: ['disable', 'enable']
+      send_cert_chain:
+        aliases: ['send-cert-chain']
+        type: str
+        description: Enable/disable sending certificate chain.
+        choices: ['disable', 'enable']
+      shared_idle_timeout:
+        aliases: ['shared-idle-timeout']
+        type: str
+        description: Enable/disable IPsec tunnel shared idle timeout.
+        choices: ['disable', 'enable']
+      signature_hash_alg:
+        aliases: ['signature-hash-alg']
+        type: list
+        elements: str
+        description: Digital Signature Authentication hash algorithms.
+        choices: ['sha1', 'sha2-256', 'sha2-384', 'sha2-512', 'identity']
+      split_include_service:
+        aliases: ['split-include-service']
+        type: list
+        elements: str
+        description: Split-include services.
+      suite_b:
+        aliases: ['suite-b']
+        type: str
+        description: Use Suite-B.
+        choices: ['disable', 'suite-b-gcm-128', 'suite-b-gcm-256']
+      transit_gateway:
+        aliases: ['transit-gateway']
+        type: str
+        description: IPsec tunnel created by autoscaling to be used as a transit gateway.
+        choices: ['disable', 'enable']
+      transport:
+        type: str
+        description: Set IKE transport protocol.
+        choices: ['udp', 'tcp', 'auto', 'udp-fallback-tcp']
+      type:
+        type: str
+        description: Remote gateway type.
+        choices: ['static', 'dynamic', 'ddns']
+      unity_support:
+        aliases: ['unity-support']
+        type: str
+        description: Enable/disable support for Cisco UNITY Configuration Method extensions.
+        choices: ['disable', 'enable']
+      usrgrp:
+        type: list
+        elements: str
+        description: User group name for dialup peers.
+      wizard_type:
+        aliases: ['wizard-type']
+        type: str
+        description: GUI VPN Wizard Type.
+        choices: ['custom', 'dialup-forticlient', 'dialup-ios', 'dialup-android', 'dialup-cisco',
+                  'static-fortigate', 'static-cisco', 'dialup-windows', 'dialup-fortigate',
+                  'dialup-cisco-fw', 'simplified-static-fortigate',
+                  'hub-fortigate-auto-discovery', 'spoke-fortigate-auto-discovery',
+                  'fabric-overlay-orchestrator', 'dialup-ikev2', 'dialup-l2tp',
+                  'cloud-sdn-orchestration']
+      xauthtype:
+        type: str
+        description: XAuth type.
+        choices: ['disable', 'client', 'pap', 'chap', 'auto']
+      fallback_tcp_threshold:
+        aliases: ['fallback-tcp-threshold']
+        type: int
+        description: Timeout in seconds before falling back IKE/IPsec traffic to tcp.
+      forticlient_enforcement:
+        aliases: ['forticlient-enforcement']
+        type: str
+        description: Enable/disable FortiClient enforcement.
+        choices: ['disable', 'enable']
+      ztna_cert_scim_authorization:
+        aliases: ['ztna-cert-scim-authorization']
+        type: str
+        description: Enable/disable SCIM authorization based on the ZTNA peer certificate identity.
+        choices: ['user-name', 'display-name', 'external-id', 'email', 'disable']
+      fec_separate_redundant_tunnel:
+        aliases: ['fec-separate-redundant-tunnel']
+        type: str
+        description: Enable/disable Forward Error Correction redundancy on separate tunnel.
+        choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -838,19 +861,33 @@ EXAMPLES = '''
           # add_gw_route: <value in [disable, enable]>
           # add_route: <value in [disable, enable]>
           # addke1: ["0", "1080", "1081", "1082", "1083", "1084", "1085", "1089", "1090", "1091",
-          #          "1092", "1093", "1094", "35", "36", "37"]
+          #          "1092", "1093", "1094", "35", "36", "37", "none", "ml-kem-512", "ml-kem-768",
+          #          "ml-kem-1024", "kyber512", "kyber768", "kyber1024", "frodo-l1", "frodo-l3",
+          #          "frodo-l5", "bike-l1", "bike-l3", "bike-l5", "hqc128", "hqc192", "hqc256"]
           # addke2: ["0", "1080", "1081", "1082", "1083", "1084", "1085", "1089", "1090", "1091",
-          #          "1092", "1093", "1094", "35", "36", "37"]
+          #          "1092", "1093", "1094", "35", "36", "37", "none", "ml-kem-512", "ml-kem-768",
+          #          "ml-kem-1024", "kyber512", "kyber768", "kyber1024", "frodo-l1", "frodo-l3",
+          #          "frodo-l5", "bike-l1", "bike-l3", "bike-l5", "hqc128", "hqc192", "hqc256"]
           # addke3: ["0", "1080", "1081", "1082", "1083", "1084", "1085", "1089", "1090", "1091",
-          #          "1092", "1093", "1094", "35", "36", "37"]
+          #          "1092", "1093", "1094", "35", "36", "37", "none", "ml-kem-512", "ml-kem-768",
+          #          "ml-kem-1024", "kyber512", "kyber768", "kyber1024", "frodo-l1", "frodo-l3",
+          #          "frodo-l5", "bike-l1", "bike-l3", "bike-l5", "hqc128", "hqc192", "hqc256"]
           # addke4: ["0", "1080", "1081", "1082", "1083", "1084", "1085", "1089", "1090", "1091",
-          #          "1092", "1093", "1094", "35", "36", "37"]
+          #          "1092", "1093", "1094", "35", "36", "37", "none", "ml-kem-512", "ml-kem-768",
+          #          "ml-kem-1024", "kyber512", "kyber768", "kyber1024", "frodo-l1", "frodo-l3",
+          #          "frodo-l5", "bike-l1", "bike-l3", "bike-l5", "hqc128", "hqc192", "hqc256"]
           # addke5: ["0", "1080", "1081", "1082", "1083", "1084", "1085", "1089", "1090", "1091",
-          #          "1092", "1093", "1094", "35", "36", "37"]
+          #          "1092", "1093", "1094", "35", "36", "37", "none", "ml-kem-512", "ml-kem-768",
+          #          "ml-kem-1024", "kyber512", "kyber768", "kyber1024", "frodo-l1", "frodo-l3",
+          #          "frodo-l5", "bike-l1", "bike-l3", "bike-l5", "hqc128", "hqc192", "hqc256"]
           # addke6: ["0", "1080", "1081", "1082", "1083", "1084", "1085", "1089", "1090", "1091",
-          #          "1092", "1093", "1094", "35", "36", "37"]
+          #          "1092", "1093", "1094", "35", "36", "37", "none", "ml-kem-512", "ml-kem-768",
+          #          "ml-kem-1024", "kyber512", "kyber768", "kyber1024", "frodo-l1", "frodo-l3",
+          #          "frodo-l5", "bike-l1", "bike-l3", "bike-l5", "hqc128", "hqc192", "hqc256"]
           # addke7: ["0", "1080", "1081", "1082", "1083", "1084", "1085", "1089", "1090", "1091",
-          #          "1092", "1093", "1094", "35", "36", "37"]
+          #          "1092", "1093", "1094", "35", "36", "37", "none", "ml-kem-512", "ml-kem-768",
+          #          "ml-kem-1024", "kyber512", "kyber768", "kyber1024", "frodo-l1", "frodo-l3",
+          #          "frodo-l5", "bike-l1", "bike-l3", "bike-l5", "hqc128", "hqc192", "hqc256"]
           # assign_ip: <value in [disable, enable]>
           # assign_ip_from: <value in [range, usrgrp, dhcp, ...]>
           # authmethod: <value in [psk, signature]>
@@ -1000,7 +1037,7 @@ EXAMPLES = '''
           # save_password: <value in [disable, enable]>
           # send_cert_chain: <value in [disable, enable]>
           # shared_idle_timeout: <value in [disable, enable]>
-          # signature_hash_alg: ["sha1", "sha2-256", "sha2-384", "sha2-512"]
+          # signature_hash_alg: ["sha1", "sha2-256", "sha2-384", "sha2-512", "identity"]
           # split_include_service: <list or string>
           # suite_b: <value in [disable, suite-b-gcm-128, suite-b-gcm-256]>
           # transit_gateway: <value in [disable, enable]>
@@ -1012,46 +1049,48 @@ EXAMPLES = '''
           # xauthtype: <value in [disable, client, pap, ...]>
           # fallback_tcp_threshold: <integer>
           # forticlient_enforcement: <value in [disable, enable]>
+          # ztna_cert_scim_authorization: <value in [user-name, display-name, external-id, ...]>
+          # fec_separate_redundant_tunnel: <value in [disable, enable]>
 '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -1076,43 +1115,71 @@ def main():
                 'addke1': {
                     'v_range': [['7.6.4', '']],
                     'type': 'list',
-                    'choices': ['0', '1080', '1081', '1082', '1083', '1084', '1085', '1089', '1090', '1091', '1092', '1093', '1094', '35', '36', '37'],
+                    'choices': [
+                        '0', '1080', '1081', '1082', '1083', '1084', '1085', '1089', '1090', '1091', '1092', '1093', '1094', '35', '36', '37', 'none',
+                        'ml-kem-512', 'ml-kem-768', 'ml-kem-1024', 'kyber512', 'kyber768', 'kyber1024', 'frodo-l1', 'frodo-l3', 'frodo-l5', 'bike-l1',
+                        'bike-l3', 'bike-l5', 'hqc128', 'hqc192', 'hqc256'
+                    ],
                     'elements': 'str'
                 },
                 'addke2': {
                     'v_range': [['7.6.4', '']],
                     'type': 'list',
-                    'choices': ['0', '1080', '1081', '1082', '1083', '1084', '1085', '1089', '1090', '1091', '1092', '1093', '1094', '35', '36', '37'],
+                    'choices': [
+                        '0', '1080', '1081', '1082', '1083', '1084', '1085', '1089', '1090', '1091', '1092', '1093', '1094', '35', '36', '37', 'none',
+                        'ml-kem-512', 'ml-kem-768', 'ml-kem-1024', 'kyber512', 'kyber768', 'kyber1024', 'frodo-l1', 'frodo-l3', 'frodo-l5', 'bike-l1',
+                        'bike-l3', 'bike-l5', 'hqc128', 'hqc192', 'hqc256'
+                    ],
                     'elements': 'str'
                 },
                 'addke3': {
                     'v_range': [['7.6.4', '']],
                     'type': 'list',
-                    'choices': ['0', '1080', '1081', '1082', '1083', '1084', '1085', '1089', '1090', '1091', '1092', '1093', '1094', '35', '36', '37'],
+                    'choices': [
+                        '0', '1080', '1081', '1082', '1083', '1084', '1085', '1089', '1090', '1091', '1092', '1093', '1094', '35', '36', '37', 'none',
+                        'ml-kem-512', 'ml-kem-768', 'ml-kem-1024', 'kyber512', 'kyber768', 'kyber1024', 'frodo-l1', 'frodo-l3', 'frodo-l5', 'bike-l1',
+                        'bike-l3', 'bike-l5', 'hqc128', 'hqc192', 'hqc256'
+                    ],
                     'elements': 'str'
                 },
                 'addke4': {
                     'v_range': [['7.6.4', '']],
                     'type': 'list',
-                    'choices': ['0', '1080', '1081', '1082', '1083', '1084', '1085', '1089', '1090', '1091', '1092', '1093', '1094', '35', '36', '37'],
+                    'choices': [
+                        '0', '1080', '1081', '1082', '1083', '1084', '1085', '1089', '1090', '1091', '1092', '1093', '1094', '35', '36', '37', 'none',
+                        'ml-kem-512', 'ml-kem-768', 'ml-kem-1024', 'kyber512', 'kyber768', 'kyber1024', 'frodo-l1', 'frodo-l3', 'frodo-l5', 'bike-l1',
+                        'bike-l3', 'bike-l5', 'hqc128', 'hqc192', 'hqc256'
+                    ],
                     'elements': 'str'
                 },
                 'addke5': {
                     'v_range': [['7.6.4', '']],
                     'type': 'list',
-                    'choices': ['0', '1080', '1081', '1082', '1083', '1084', '1085', '1089', '1090', '1091', '1092', '1093', '1094', '35', '36', '37'],
+                    'choices': [
+                        '0', '1080', '1081', '1082', '1083', '1084', '1085', '1089', '1090', '1091', '1092', '1093', '1094', '35', '36', '37', 'none',
+                        'ml-kem-512', 'ml-kem-768', 'ml-kem-1024', 'kyber512', 'kyber768', 'kyber1024', 'frodo-l1', 'frodo-l3', 'frodo-l5', 'bike-l1',
+                        'bike-l3', 'bike-l5', 'hqc128', 'hqc192', 'hqc256'
+                    ],
                     'elements': 'str'
                 },
                 'addke6': {
                     'v_range': [['7.6.4', '']],
                     'type': 'list',
-                    'choices': ['0', '1080', '1081', '1082', '1083', '1084', '1085', '1089', '1090', '1091', '1092', '1093', '1094', '35', '36', '37'],
+                    'choices': [
+                        '0', '1080', '1081', '1082', '1083', '1084', '1085', '1089', '1090', '1091', '1092', '1093', '1094', '35', '36', '37', 'none',
+                        'ml-kem-512', 'ml-kem-768', 'ml-kem-1024', 'kyber512', 'kyber768', 'kyber1024', 'frodo-l1', 'frodo-l3', 'frodo-l5', 'bike-l1',
+                        'bike-l3', 'bike-l5', 'hqc128', 'hqc192', 'hqc256'
+                    ],
                     'elements': 'str'
                 },
                 'addke7': {
                     'v_range': [['7.6.4', '']],
                     'type': 'list',
-                    'choices': ['0', '1080', '1081', '1082', '1083', '1084', '1085', '1089', '1090', '1091', '1092', '1093', '1094', '35', '36', '37'],
+                    'choices': [
+                        '0', '1080', '1081', '1082', '1083', '1084', '1085', '1089', '1090', '1091', '1092', '1093', '1094', '35', '36', '37', 'none',
+                        'ml-kem-512', 'ml-kem-768', 'ml-kem-1024', 'kyber512', 'kyber768', 'kyber1024', 'frodo-l1', 'frodo-l3', 'frodo-l5', 'bike-l1',
+                        'bike-l3', 'bike-l5', 'hqc128', 'hqc192', 'hqc256'
+                    ],
                     'elements': 'str'
                 },
                 'assign-ip': {'v_range': [['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
@@ -1266,7 +1333,7 @@ def main():
                         'aria256-sha384', 'aria256-sha512', 'seed-md5', 'seed-sha1', 'seed-sha256', 'seed-sha384', 'seed-sha512', 'aes128gcm-prfsha1',
                         'aes128gcm-prfsha256', 'aes128gcm-prfsha384', 'aes128gcm-prfsha512', 'aes256gcm-prfsha1', 'aes256gcm-prfsha256',
                         'aes256gcm-prfsha384', 'aes256gcm-prfsha512', 'chacha20poly1305-prfsha1', 'chacha20poly1305-prfsha256',
-                        'chacha20poly1305-prfsha384', 'chacha20poly1305-prfsha512'
+                        'chacha20poly1305-prfsha384', 'chacha20poly1305-prfsha512', 'sm4-sm3'
                     ],
                     'type': 'str'
                 },
@@ -1298,7 +1365,7 @@ def main():
                 'signature-hash-alg': {
                     'v_range': [['7.6.4', '']],
                     'type': 'list',
-                    'choices': ['sha1', 'sha2-256', 'sha2-384', 'sha2-512'],
+                    'choices': ['sha1', 'sha2-256', 'sha2-384', 'sha2-512', 'identity'],
                     'elements': 'str'
                 },
                 'split-include-service': {'v_range': [['7.6.4', '']], 'type': 'list', 'elements': 'str'},
@@ -1313,13 +1380,19 @@ def main():
                     'choices': [
                         'custom', 'dialup-forticlient', 'dialup-ios', 'dialup-android', 'dialup-cisco', 'static-fortigate', 'static-cisco',
                         'dialup-windows', 'dialup-fortigate', 'dialup-cisco-fw', 'simplified-static-fortigate', 'hub-fortigate-auto-discovery',
-                        'spoke-fortigate-auto-discovery', 'fabric-overlay-orchestrator'
+                        'spoke-fortigate-auto-discovery', 'fabric-overlay-orchestrator', 'dialup-ikev2', 'dialup-l2tp', 'cloud-sdn-orchestration'
                     ],
                     'type': 'str'
                 },
                 'xauthtype': {'v_range': [['7.6.4', '']], 'choices': ['disable', 'client', 'pap', 'chap', 'auto'], 'type': 'str'},
                 'fallback-tcp-threshold': {'v_range': [['7.6.4', '']], 'type': 'int'},
-                'forticlient-enforcement': {'v_range': [['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'forticlient-enforcement': {'v_range': [['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'ztna-cert-scim-authorization': {
+                    'v_range': [['7.6.7', '7.6.7']],
+                    'choices': ['user-name', 'display-name', 'external-id', 'email', 'disable'],
+                    'type': 'str'
+                },
+                'fec-separate-redundant-tunnel': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

@@ -15,101 +15,123 @@ module: fmgr_webfilter_urlfilter
 short_description: Configure URL filter lists.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  webfilter_urlfilter:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      comment:
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
-        type: str
-        required: true
-    webfilter_urlfilter:
-        description: The top level parameters set.
-        required: false
-        type: dict
+        description: Optional comments.
+      entries:
+        type: list
+        elements: dict
+        description: Entries.
         suboptions:
-            comment:
-                type: str
-                description: Optional comments.
-            entries:
-                type: list
-                elements: dict
-                description: Entries.
-                suboptions:
-                    action:
-                        type: str
-                        description: Action to take for URL filter matches.
-                        choices: ['exempt', 'block', 'allow', 'monitor', 'pass']
-                    dns_address_family:
-                        aliases: ['dns-address-family']
-                        type: str
-                        description: Resolve IPv4 address, IPv6 address, or both from DNS server.
-                        choices: ['ipv4', 'ipv6', 'both']
-                    exempt:
-                        type: list
-                        elements: str
-                        description: If action is set to exempt, select the security profile operations that exempt URLs skip.
-                        choices: ['av', 'web-content', 'activex-java-cookie', 'dlp', 'fortiguard',
-                                  'all', 'filepattern', 'pass', 'range-block', 'antiphish']
-                    id:
-                        type: int
-                        description: Id.
-                    referrer_host:
-                        aliases: ['referrer-host']
-                        type: str
-                        description: Referrer host name.
-                    status:
-                        type: str
-                        description: Enable/disable this URL filter.
-                        choices: ['disable', 'enable']
-                    type:
-                        type: str
-                        description: Filter type
-                        choices: ['simple', 'regex', 'wildcard']
-                    url:
-                        type: str
-                        description: URL to be filtered.
-                    web_proxy_profile:
-                        aliases: ['web-proxy-profile']
-                        type: str
-                        description: Web proxy profile.
-                    antiphish_action:
-                        aliases: ['antiphish-action']
-                        type: str
-                        description: Action to take for AntiPhishing matches.
-                        choices: ['block', 'log']
-                    comment:
-                        type: str
-                        description: Comment.
-            id:
-                type: int
-                description: ID.
-                required: true
-            ip_addr_block:
-                aliases: ['ip-addr-block']
-                type: str
-                description: Enable/disable blocking URLs when the hostname appears as an IP address.
-                choices: ['disable', 'enable']
-            name:
-                type: str
-                description: Name of URL filter list.
-            one_arm_ips_urlfilter:
-                aliases: ['one-arm-ips-urlfilter']
-                type: str
-                description: Enable/disable DNS resolver for one-arm IPS URL filter operation.
-                choices: ['disable', 'enable']
-            ip4_mapped_ip6:
-                aliases: ['ip4-mapped-ip6']
-                type: str
-                description: Enable/disable matching of IPv4 mapped IPv6 URLs.
-                choices: ['disable', 'enable']
-            include_subdomains:
-                aliases: ['include-subdomains']
-                type: str
-                description: Enable/disable matching subdomains.
-                choices: ['disable', 'enable']
+          action:
+            type: str
+            description: Action to take for URL filter matches.
+            choices: ['exempt', 'block', 'allow', 'monitor', 'pass']
+          dns_address_family:
+            aliases: ['dns-address-family']
+            type: str
+            description: Resolve IPv4 address, IPv6 address, or both from DNS server.
+            choices: ['ipv4', 'ipv6', 'both']
+          exempt:
+            type: list
+            elements: str
+            description: If action is set to exempt, select the security profile operations that exempt URLs skip.
+            choices: ['av', 'web-content', 'activex-java-cookie', 'dlp', 'fortiguard', 'all',
+                      'filepattern', 'pass', 'range-block', 'antiphish']
+          id:
+            type: int
+            description: Id.
+          referrer_host:
+            aliases: ['referrer-host']
+            type: str
+            description: Referrer host name.
+          status:
+            type: str
+            description: Enable/disable this URL filter.
+            choices: ['disable', 'enable']
+          type:
+            type: str
+            description: Filter type
+            choices: ['simple', 'regex', 'wildcard']
+          url:
+            type: str
+            description: URL to be filtered.
+          web_proxy_profile:
+            aliases: ['web-proxy-profile']
+            type: str
+            description: Web proxy profile.
+          antiphish_action:
+            aliases: ['antiphish-action']
+            type: str
+            description: Action to take for AntiPhishing matches.
+            choices: ['block', 'log']
+          comment:
+            type: str
+            description: Comment.
+      id:
+        type: int
+        description: ID.
+        required: true
+      ip_addr_block:
+        aliases: ['ip-addr-block']
+        type: str
+        description: Enable/disable blocking URLs when the hostname appears as an IP address.
+        choices: ['disable', 'enable']
+      name:
+        type: str
+        description: Name of URL filter list.
+      one_arm_ips_urlfilter:
+        aliases: ['one-arm-ips-urlfilter']
+        type: str
+        description: Enable/disable DNS resolver for one-arm IPS URL filter operation.
+        choices: ['disable', 'enable']
+      ip4_mapped_ip6:
+        aliases: ['ip4-mapped-ip6']
+        type: str
+        description: Enable/disable matching of IPv4 mapped IPv6 URLs.
+        choices: ['disable', 'enable']
+      include_subdomains:
+        aliases: ['include-subdomains']
+        type: str
+        description: Enable/disable matching subdomains.
+        choices: ['disable', 'enable']
+      fabric_force_sync:
+        aliases: ['fabric-force-sync']
+        type: str
+        description: Enable/disable forced synchronization of configuration objects from the root FortiGate unit to the downstream devices.
+        choices: ['disable', 'enable']
+      fabric_object:
+        aliases: ['fabric-object']
+        type: str
+        description: Security Fabric global object setting.
+        choices: ['disable', 'enable']
+      fabric_object_source:
+        aliases: ['fabric-object-source']
+        type: str
+        description: Source of truth for fabric object.
+        choices: ['member', 'local', 'root']
+      type:
+        type: str
+        description: Type of URL filter table
+        choices: ['profile', 'category']
+      uuid:
+        type: str
+        description: Universally Unique Identifier
 '''
 
 EXAMPLES = '''
@@ -144,46 +166,51 @@ EXAMPLES = '''
           # one_arm_ips_urlfilter: <value in [disable, enable]>
           # ip4_mapped_ip6: <value in [disable, enable]>
           # include_subdomains: <value in [disable, enable]>
+          # fabric_force_sync: <value in [disable, enable]>
+          # fabric_object: <value in [disable, enable]>
+          # fabric_object_source: <value in [member, local, root]>
+          # type: <value in [profile, category]>
+          # uuid: <string>
 '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -232,7 +259,12 @@ def main():
                 'name': {'type': 'str'},
                 'one-arm-ips-urlfilter': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'ip4-mapped-ip6': {'v_range': [['7.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'include-subdomains': {'v_range': [['7.4.8', '7.4.10'], ['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'include-subdomains': {'v_range': [['7.4.8', '7.4.11'], ['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'fabric-force-sync': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'fabric-object': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'fabric-object-source': {'v_range': [['8.0.0', '']], 'choices': ['member', 'local', 'root'], 'type': 'str'},
+                'type': {'v_range': [['8.0.0', '']], 'choices': ['profile', 'category'], 'type': 'str'},
+                'uuid': {'v_range': [['8.0.0', '']], 'type': 'str'}
             }
         }
     }

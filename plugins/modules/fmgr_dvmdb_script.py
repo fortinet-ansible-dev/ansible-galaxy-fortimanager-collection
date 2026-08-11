@@ -15,93 +15,93 @@ module: fmgr_dvmdb_script
 short_description: Script table.
 version_added: "1.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    adom:
-        description: The parameter (adom) in requested url.
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  dvmdb_script:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      content:
         type: str
+        description: The full content of the script result log.
+      desc:
+        type: str
+        description: Desc.
+      filter_build:
+        type: int
+        description: The value will be ignored in add/set/update requests if filter_ostype is not set.
+      filter_device:
+        type: int
+        description: Name or id of an existing device in the database.
+      filter_hostname:
+        type: str
+        description: The value has no effect if target is adom_database.
+      filter_ostype:
+        type: str
+        description: The value has no effect if target is adom_database.
+        choices: ['unknown', 'fos']
+      filter_osver:
+        type: str
+        description: The value will be ignored in add/set/update requests if filter_ostype is not set.
+        choices: ['unknown', '4.00', '5.00', '6.00']
+      filter_platform:
+        type: str
+        description: The value will be ignored in add/set/update requests if filter_ostype is not set.
+      filter_serial:
+        type: str
+        description: The value has no effect if target is adom_database.
+      modification_time:
+        type: str
+        description: It is a read-only attribute indicating the time when the script was created or modified.
+      name:
+        type: str
+        description: Name.
         required: true
-    dvmdb_script:
-        description: The top level parameters set.
-        required: false
-        type: dict
+      script_schedule:
+        type: list
+        elements: dict
+        description: Script schedule.
         suboptions:
-            content:
-                type: str
-                description: The full content of the script result log.
-            desc:
-                type: str
-                description: Desc.
-            filter_build:
-                type: int
-                description: The value will be ignored in add/set/update requests if filter_ostype is not set.
-            filter_device:
-                type: int
-                description: Name or id of an existing device in the database.
-            filter_hostname:
-                type: str
-                description: The value has no effect if target is adom_database.
-            filter_ostype:
-                type: str
-                description: The value has no effect if target is adom_database.
-                choices: ['unknown', 'fos']
-            filter_osver:
-                type: str
-                description: The value will be ignored in add/set/update requests if filter_ostype is not set.
-                choices: ['unknown', '4.00', '5.00', '6.00']
-            filter_platform:
-                type: str
-                description: The value will be ignored in add/set/update requests if filter_ostype is not set.
-            filter_serial:
-                type: str
-                description: The value has no effect if target is adom_database.
-            modification_time:
-                type: str
-                description: It is a read-only attribute indicating the time when the script was created or modified.
-            name:
-                type: str
-                description: Name.
-                required: true
-            script_schedule:
-                type: list
-                elements: dict
-                description: Script schedule.
-                suboptions:
-                    datetime:
-                        type: str
-                        description:
-                            - Indicates the date and time of the schedule.
-                            - onetime
-                            - daily
-                            - weekly
-                            - monthly
-                    day_of_week:
-                        type: str
-                        description: Day of week.
-                        choices: ['unknown', 'sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat']
-                    device:
-                        type: int
-                        description: Name or id of an existing device in the database.
-                    name:
-                        type: str
-                        description: Name.
-                    run_on_db:
-                        type: str
-                        description: Indicates if the scheduled script should be executed on device database.
-                        choices: ['disable', 'enable']
-                    type:
-                        type: str
-                        description: Type.
-                        choices: ['auto', 'onetime', 'daily', 'weekly', 'monthly']
-            target:
-                type: str
-                description: Target.
-                choices: ['device_database', 'remote_device', 'adom_database']
-            type:
-                type: str
-                description: Type.
-                choices: ['cli', 'tcl', 'cligrp', 'tclgrp', 'jinja']
+          datetime:
+            type: str
+            description:
+              - Indicates the date and time of the schedule.
+              - onetime
+              - daily
+              - weekly
+              - monthly
+          day_of_week:
+            type: str
+            description: Day of week.
+            choices: ['unknown', 'sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat']
+          device:
+            type: int
+            description: Name or id of an existing device in the database.
+          name:
+            type: str
+            description: Name.
+          run_on_db:
+            type: str
+            description: Indicates if the scheduled script should be executed on device database.
+            choices: ['disable', 'enable']
+          type:
+            type: str
+            description: Type.
+            choices: ['auto', 'onetime', 'daily', 'weekly', 'monthly']
+      target:
+        type: str
+        description: Target.
+        choices: ['device_database', 'remote_device', 'adom_database']
+      type:
+        type: str
+        description: Type.
+        choices: ['cli', 'tcl', 'cligrp', 'tclgrp', 'jinja']
 '''
 
 EXAMPLES = '''
@@ -237,42 +237,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

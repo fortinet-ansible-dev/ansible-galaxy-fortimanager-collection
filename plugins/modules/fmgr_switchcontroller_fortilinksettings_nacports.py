@@ -15,57 +15,57 @@ module: fmgr_switchcontroller_fortilinksettings_nacports
 short_description: NAC specific configuration.
 version_added: "2.2.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.partial_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.partial_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  fortilink-settings:
+    description: Deprecated, please use "fortilink_settings"
+    type: str
+  fortilink_settings:
+    description: The parameter (fortilink-settings) in requested url.
+    type: str
+  switchcontroller_fortilinksettings_nacports:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      lan_segment:
+        aliases: ['lan-segment']
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Enable/disable LAN segment feature on the FortiLink interface.
+        choices: ['disabled', 'enabled']
+      member_change:
+        aliases: ['member-change']
+        type: int
+        description: Member change.
+      nac_lan_interface:
+        aliases: ['nac-lan-interface']
         type: str
-        required: true
-    fortilink-settings:
-        description: Deprecated, please use "fortilink_settings"
+        description: Configure NAC LAN interface.
+      nac_segment_vlans:
+        aliases: ['nac-segment-vlans']
+        type: raw
+        description: (list) Configure NAC segment VLANs.
+      onboarding_vlan:
+        aliases: ['onboarding-vlan']
         type: str
-    fortilink_settings:
-        description: The parameter (fortilink-settings) in requested url.
+        description: Default NAC Onboarding VLAN when NAC devices are discovered.
+      parent_key:
+        aliases: ['parent-key']
         type: str
-    switchcontroller_fortilinksettings_nacports:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            lan_segment:
-                aliases: ['lan-segment']
-                type: str
-                description: Enable/disable LAN segment feature on the FortiLink interface.
-                choices: ['disabled', 'enabled']
-            member_change:
-                aliases: ['member-change']
-                type: int
-                description: Member change.
-            nac_lan_interface:
-                aliases: ['nac-lan-interface']
-                type: str
-                description: Configure NAC LAN interface.
-            nac_segment_vlans:
-                aliases: ['nac-segment-vlans']
-                type: raw
-                description: (list) Configure NAC segment VLANs.
-            onboarding_vlan:
-                aliases: ['onboarding-vlan']
-                type: str
-                description: Default NAC Onboarding VLAN when NAC devices are discovered.
-            parent_key:
-                aliases: ['parent-key']
-                type: str
-                description: Parent key.
-            bounce_nac_port:
-                aliases: ['bounce-nac-port']
-                type: str
-                description: Enable/disable bouncing
-                choices: ['disable', 'enable']
+        description: Parent key.
+      bounce_nac_port:
+        aliases: ['bounce-nac-port']
+        type: str
+        description: Enable/disable bouncing
+        choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -91,42 +91,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

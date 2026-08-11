@@ -1,0 +1,5 @@
+release_summary: Release fortinet.fortimanager 2.15.0
+minor_changes:
+  - Added 19 new modules.
+  - Supported FortiManager schemas 7.4.11, 7.6.7, 8.0.0
+  - Reduced the overall project size.

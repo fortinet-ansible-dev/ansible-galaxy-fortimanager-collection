@@ -15,54 +15,54 @@ module: fmgr_fmg_variable
 short_description: Fmg variable
 version_added: "2.1.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  fmg_variable:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      description:
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
-        type: str
-        required: true
-    fmg_variable:
-        description: The top level parameters set.
-        required: false
-        type: dict
+        description: Description.
+      dynamic_mapping:
+        type: list
+        elements: dict
+        description: Dynamic mapping.
         suboptions:
-            description:
-                type: str
-                description: Description.
-            dynamic_mapping:
-                type: list
-                elements: dict
-                description: Dynamic mapping.
-                suboptions:
-                    _scope:
-                        type: list
-                        elements: dict
-                        description: Scope.
-                        suboptions:
-                            name:
-                                type: str
-                                description: Name.
-                            vdom:
-                                type: str
-                                description: Vdom.
-                    value:
-                        type: str
-                        description: Value.
-            name:
+          _scope:
+            type: list
+            elements: dict
+            description: Scope.
+            suboptions:
+              name:
                 type: str
                 description: Name.
-                required: true
-            value:
+              vdom:
                 type: str
-                description: Value.
-            type:
-                type: str
-                description: Type.
-                choices: ['normal', 'password']
+                description: Vdom.
+          value:
+            type: str
+            description: Value.
+      name:
+        type: str
+        description: Name.
+        required: true
+      value:
+        type: str
+        description: Value.
+      type:
+        type: str
+        description: Type.
+        choices: ['normal', 'password']
 '''
 
 EXAMPLES = '''
@@ -90,42 +90,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

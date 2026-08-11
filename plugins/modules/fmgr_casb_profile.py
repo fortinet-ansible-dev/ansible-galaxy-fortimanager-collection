@@ -15,173 +15,191 @@ module: fmgr_casb_profile
 short_description: Configure CASB profile.
 version_added: "2.3.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  casb_profile:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      name:
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
-        type: str
+        description: CASB profile name.
         required: true
-    casb_profile:
-        description: The top level parameters set.
-        required: false
-        type: dict
+      saas_application:
+        aliases: ['saas-application']
+        type: list
+        elements: dict
+        description: Saas application.
         suboptions:
-            name:
+          access_rule:
+            aliases: ['access-rule']
+            type: list
+            elements: dict
+            description: Access rule.
+            suboptions:
+              action:
                 type: str
-                description: CASB profile name.
-                required: true
-            saas_application:
-                aliases: ['saas-application']
+                description: CASB access rule action.
+                choices: ['block', 'bypass', 'monitor']
+              bypass:
+                type: list
+                elements: str
+                description: CASB bypass options.
+                choices: ['av', 'dlp', 'web-filter', 'file-filter', 'video-filter']
+              name:
+                type: str
+                description: CASB access rule activity name.
+              attribute_filter:
+                aliases: ['attribute-filter']
                 type: list
                 elements: dict
-                description: Saas application.
+                description: Attribute filter.
                 suboptions:
-                    access_rule:
-                        aliases: ['access-rule']
-                        type: list
-                        elements: dict
-                        description: Access rule.
-                        suboptions:
-                            action:
-                                type: str
-                                description: CASB access rule action.
-                                choices: ['block', 'bypass', 'monitor']
-                            bypass:
-                                type: list
-                                elements: str
-                                description: CASB bypass options.
-                                choices: ['av', 'dlp', 'web-filter', 'file-filter', 'video-filter']
-                            name:
-                                type: str
-                                description: CASB access rule activity name.
-                            attribute_filter:
-                                aliases: ['attribute-filter']
-                                type: list
-                                elements: dict
-                                description: Attribute filter.
-                                suboptions:
-                                    action:
-                                        type: str
-                                        description: CASB access rule tenant control action.
-                                        choices: ['block', 'monitor', 'bypass']
-                                    attribute_match:
-                                        aliases: ['attribute-match']
-                                        type: list
-                                        elements: str
-                                        description: CASB access rule tenant match.
-                                    id:
-                                        type: int
-                                        description: CASB tenant control ID.
-                    custom_control:
-                        aliases: ['custom-control']
-                        type: list
-                        elements: dict
-                        description: Custom control.
-                        suboptions:
-                            name:
-                                type: str
-                                description: CASB custom control user activity name.
-                            option:
-                                type: list
-                                elements: dict
-                                description: Option.
-                                suboptions:
-                                    name:
-                                        type: str
-                                        description: CASB custom control option name.
-                                    user_input:
-                                        aliases: ['user-input']
-                                        type: list
-                                        elements: str
-                                        description: CASB custom control user input.
-                            attribute_filter:
-                                aliases: ['attribute-filter']
-                                type: list
-                                elements: dict
-                                description: Attribute filter.
-                                suboptions:
-                                    action:
-                                        type: str
-                                        description: CASB access rule tenant control action.
-                                        choices: ['block', 'monitor', 'bypass']
-                                    attribute_match:
-                                        aliases: ['attribute-match']
-                                        type: list
-                                        elements: str
-                                        description: CASB access rule tenant match.
-                                    id:
-                                        type: int
-                                        description: CASB tenant control ID.
-                    domain_control:
-                        aliases: ['domain-control']
-                        type: str
-                        description: Enable/disable domain control.
-                        choices: ['disable', 'enable']
-                    domain_control_domains:
-                        aliases: ['domain-control-domains']
-                        type: list
-                        elements: str
-                        description: CASB profile domain control domains.
-                    log:
-                        type: str
-                        description: Enable/disable log settings.
-                        choices: ['disable', 'enable']
-                    name:
-                        type: str
-                        description: CASB profile SaaS application name.
-                    safe_search:
-                        aliases: ['safe-search']
-                        type: str
-                        description: Enable/disable safe search.
-                        choices: ['disable', 'enable']
-                    safe_search_control:
-                        aliases: ['safe-search-control']
-                        type: list
-                        elements: str
-                        description: CASB profile safe search control.
-                    tenant_control:
-                        aliases: ['tenant-control']
-                        type: str
-                        description: Enable/disable tenant control.
-                        choices: ['disable', 'enable']
-                    tenant_control_tenants:
-                        aliases: ['tenant-control-tenants']
-                        type: list
-                        elements: str
-                        description: CASB profile tenant control tenants.
-                    status:
-                        type: str
-                        description: Enable/disable setting.
-                        choices: ['disable', 'enable']
-                    advanced_tenant_control:
-                        aliases: ['advanced-tenant-control']
-                        type: list
-                        elements: dict
-                        description: Advanced tenant control.
-                        suboptions:
-                            attribute:
-                                type: list
-                                elements: dict
-                                description: Attribute.
-                                suboptions:
-                                    input:
-                                        type: list
-                                        elements: str
-                                        description: CASB extend user input value.
-                                    name:
-                                        type: str
-                                        description: CASB extend user input name.
-                            name:
-                                type: list
-                                elements: str
-                                description: CASB advanced tenant control name.
-            comment:
+                  action:
+                    type: str
+                    description: CASB access rule tenant control action.
+                    choices: ['block', 'monitor', 'bypass']
+                  attribute_match:
+                    aliases: ['attribute-match']
+                    type: list
+                    elements: str
+                    description: CASB access rule tenant match.
+                  id:
+                    type: int
+                    description: CASB tenant control ID.
+          custom_control:
+            aliases: ['custom-control']
+            type: list
+            elements: dict
+            description: Custom control.
+            suboptions:
+              name:
                 type: str
-                description: Comment.
+                description: CASB custom control user activity name.
+              option:
+                type: list
+                elements: dict
+                description: Option.
+                suboptions:
+                  name:
+                    type: str
+                    description: CASB custom control option name.
+                  user_input:
+                    aliases: ['user-input']
+                    type: list
+                    elements: str
+                    description: CASB custom control user input.
+              attribute_filter:
+                aliases: ['attribute-filter']
+                type: list
+                elements: dict
+                description: Attribute filter.
+                suboptions:
+                  action:
+                    type: str
+                    description: CASB access rule tenant control action.
+                    choices: ['block', 'monitor', 'bypass']
+                  attribute_match:
+                    aliases: ['attribute-match']
+                    type: list
+                    elements: str
+                    description: CASB access rule tenant match.
+                  id:
+                    type: int
+                    description: CASB tenant control ID.
+          domain_control:
+            aliases: ['domain-control']
+            type: str
+            description: Enable/disable domain control.
+            choices: ['disable', 'enable']
+          domain_control_domains:
+            aliases: ['domain-control-domains']
+            type: list
+            elements: str
+            description: CASB profile domain control domains.
+          log:
+            type: str
+            description: Enable/disable log settings.
+            choices: ['disable', 'enable']
+          name:
+            type: str
+            description: CASB profile SaaS application name.
+          safe_search:
+            aliases: ['safe-search']
+            type: str
+            description: Enable/disable safe search.
+            choices: ['disable', 'enable']
+          safe_search_control:
+            aliases: ['safe-search-control']
+            type: list
+            elements: str
+            description: CASB profile safe search control.
+          tenant_control:
+            aliases: ['tenant-control']
+            type: str
+            description: Enable/disable tenant control.
+            choices: ['disable', 'enable']
+          tenant_control_tenants:
+            aliases: ['tenant-control-tenants']
+            type: list
+            elements: str
+            description: CASB profile tenant control tenants.
+          status:
+            type: str
+            description: Enable/disable setting.
+            choices: ['disable', 'enable']
+          advanced_tenant_control:
+            aliases: ['advanced-tenant-control']
+            type: list
+            elements: dict
+            description: Advanced tenant control.
+            suboptions:
+              attribute:
+                type: list
+                elements: dict
+                description: Attribute.
+                suboptions:
+                  input:
+                    type: list
+                    elements: str
+                    description: CASB extend user input value.
+                  name:
+                    type: str
+                    description: CASB extend user input name.
+              name:
+                type: list
+                elements: str
+                description: CASB advanced tenant control name.
+      comment:
+        type: str
+        description: Comment.
+      fabric_force_sync:
+        aliases: ['fabric-force-sync']
+        type: str
+        description: Enable/disable forced synchronization of configuration objects from the root FortiGate unit to the downstream devices.
+        choices: ['disable', 'enable']
+      fabric_object:
+        aliases: ['fabric-object']
+        type: str
+        description: Security Fabric global object setting.
+        choices: ['disable', 'enable']
+      fabric_object_source:
+        aliases: ['fabric-object-source']
+        type: str
+        description: Source of truth for fabric object.
+        choices: ['member', 'local', 'root']
+      uuid:
+        type: str
+        description: Universally Unique Identifier
 '''
 
 EXAMPLES = '''
@@ -230,46 +248,50 @@ EXAMPLES = '''
           #             name: <string>
           #         name: <list or string>
           # comment: <string>
+          # fabric_force_sync: <value in [disable, enable]>
+          # fabric_object: <value in [disable, enable]>
+          # fabric_object_source: <value in [member, local, root]>
+          # uuid: <string>
 '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -374,7 +396,11 @@ def main():
                     },
                     'elements': 'dict'
                 },
-                'comment': {'v_range': [['7.4.3', '']], 'type': 'str'}
+                'comment': {'v_range': [['7.4.3', '']], 'type': 'str'},
+                'fabric-force-sync': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'fabric-object': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'fabric-object-source': {'v_range': [['8.0.0', '']], 'choices': ['member', 'local', 'root'], 'type': 'str'},
+                'uuid': {'v_range': [['8.0.0', '']], 'type': 'str'}
             }
         }
     }

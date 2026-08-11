@@ -15,62 +15,62 @@ module: fmgr_extensioncontroller_extenderprofile_lanextension_backhaul
 short_description: LAN extension backhaul tunnel configuration.
 version_added: "2.2.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  extender-profile:
+    description: Deprecated, please use "extender_profile"
+    type: str
+  extender_profile:
+    description: The parameter (extender-profile) in requested url.
+    type: str
+  extensioncontroller_extenderprofile_lanextension_backhaul:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      name:
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
-        type: str
+        description: FortiExtender LAN extension backhaul name.
         required: true
-    extender-profile:
-        description: Deprecated, please use "extender_profile"
+      port:
         type: str
-    extender_profile:
-        description: The parameter (extender-profile) in requested url.
+        description: FortiExtender uplink port.
+        choices: ['wan', 'lte1', 'lte2', 'port1', 'port2', 'port3', 'port4', 'port5', 'sfp']
+      role:
         type: str
-    extensioncontroller_extenderprofile_lanextension_backhaul:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            name:
-                type: str
-                description: FortiExtender LAN extension backhaul name.
-                required: true
-            port:
-                type: str
-                description: FortiExtender uplink port.
-                choices: ['wan', 'lte1', 'lte2', 'port1', 'port2', 'port3', 'port4', 'port5', 'sfp']
-            role:
-                type: str
-                description: FortiExtender uplink port.
-                choices: ['primary', 'secondary']
-            weight:
-                type: int
-                description: WRR weight parameter.
-            health_check_fail_cnt:
-                aliases: ['health-check-fail-cnt']
-                type: int
-                description: Number of failures before the link is considered dead
-            health_check_interval:
-                aliases: ['health-check-interval']
-                type: int
-                description: Health monitoring interval in seconds
-            health_check_probe_cnt:
-                aliases: ['health-check-probe-cnt']
-                type: int
-                description: Number of health monitoring probes to send within an interval
-            health_check_probe_tm:
-                aliases: ['health-check-probe-tm']
-                type: int
-                description: Health monitoring probe timeout in seconds
-            health_check_recovery_cnt:
-                aliases: ['health-check-recovery-cnt']
-                type: int
-                description: Number of successful checks before the link is considered alive
+        description: FortiExtender uplink port.
+        choices: ['primary', 'secondary']
+      weight:
+        type: int
+        description: WRR weight parameter.
+      health_check_fail_cnt:
+        aliases: ['health-check-fail-cnt']
+        type: int
+        description: Number of failures before the link is considered dead
+      health_check_interval:
+        aliases: ['health-check-interval']
+        type: int
+        description: Health monitoring interval in seconds
+      health_check_probe_cnt:
+        aliases: ['health-check-probe-cnt']
+        type: int
+        description: Number of health monitoring probes to send within an interval
+      health_check_probe_tm:
+        aliases: ['health-check-probe-tm']
+        type: int
+        description: Health monitoring probe timeout in seconds
+      health_check_recovery_cnt:
+        aliases: ['health-check-recovery-cnt']
+        type: int
+        description: Number of successful checks before the link is considered alive
 '''
 
 EXAMPLES = '''
@@ -99,42 +99,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

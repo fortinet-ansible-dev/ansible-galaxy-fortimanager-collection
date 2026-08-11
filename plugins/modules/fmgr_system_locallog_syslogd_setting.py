@@ -15,96 +15,95 @@ module: fmgr_system_locallog_syslogd_setting
 short_description: Settings for remote syslog server.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.partial_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.partial_crud
 options:
-    system_locallog_syslogd_setting:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            csv:
-                type: str
-                description:
-                    - CSV format.
-                    - disable - Disable CSV format.
-                    - enable - Enable CSV format.
-                choices: ['disable', 'enable']
-            facility:
-                type: str
-                description:
-                    - Remote syslog facility.
-                    - kernel - Kernel messages.
-                    - user - Random user-level messages.
-                    - ntp - NTP daemon.
-                    - audit - Log audit.
-                    - alert - Log alert.
-                    - clock - Clock daemon.
-                    - mail - Mail system.
-                    - daemon - System daemons.
-                    - auth - Security/authorization messages.
-                    - syslog - Messages generated internally by syslog daemon.
-                    - lpr - Line printer subsystem.
-                    - news - Network news subsystem.
-                    - uucp - Network news subsystem.
-                    - cron - Clock daemon.
-                    - authpriv - Security/authorization messages
-                    - ftp - FTP daemon.
-                    - local0 - Reserved for local use.
-                    - local1 - Reserved for local use.
-                    - local2 - Reserved for local use.
-                    - local3 - Reserved for local use.
-                    - local4 - Reserved for local use.
-                    - local5 - Reserved for local use.
-                    - local6 - Reserved for local use.
-                    - local7 - Reserved for local use.
-                choices: ['kernel', 'user', 'ntp', 'audit', 'alert', 'clock', 'mail', 'daemon',
-                          'auth', 'syslog', 'lpr', 'news', 'uucp', 'cron', 'authpriv', 'ftp',
-                          'local0', 'local1', 'local2', 'local3', 'local4', 'local5', 'local6',
-                          'local7']
-            severity:
-                type: str
-                description:
-                    - Least severity level to log.
-                    - emergency - Emergency level.
-                    - alert - Alert level.
-                    - critical - Critical level.
-                    - error - Error level.
-                    - warning - Warning level.
-                    - notification - Notification level.
-                    - information - Information level.
-                    - debug - Debug level.
-                choices: ['emergency', 'alert', 'critical', 'error', 'warning', 'notification',
-                          'information', 'debug']
-            status:
-                type: str
-                description:
-                    - Remote syslog log.
-                    - disable - Do not log to remote syslog server.
-                    - enable - Log to remote syslog server.
-                choices: ['disable', 'enable']
-            syslog_name:
-                aliases: ['syslog-name']
-                type: str
-                description: Remote syslog server name.
-            cert:
-                type: str
-                description: Select local certificate used for secure connection.
-            reliable:
-                type: str
-                description:
-                    - Enable/disable reliable realtime logging.
-                    - disable - Disable reliable realtime logging.
-                    - enable - Enable reliable realtime logging.
-                choices: ['disable', 'enable']
-            secure_connection:
-                aliases: ['secure-connection']
-                type: str
-                description:
-                    - Enable/disable connection secured by TLS/SSL.
-                    - disable - Disable SSL connection.
-                    - enable - Enable SSL connection.
-                choices: ['disable', 'enable']
+  system_locallog_syslogd_setting:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      csv:
+        type: str
+        description:
+          - CSV format.
+          - disable - Disable CSV format.
+          - enable - Enable CSV format.
+        choices: ['disable', 'enable']
+      facility:
+        type: str
+        description:
+          - Remote syslog facility.
+          - kernel - Kernel messages.
+          - user - Random user-level messages.
+          - ntp - NTP daemon.
+          - audit - Log audit.
+          - alert - Log alert.
+          - clock - Clock daemon.
+          - mail - Mail system.
+          - daemon - System daemons.
+          - auth - Security/authorization messages.
+          - syslog - Messages generated internally by syslog daemon.
+          - lpr - Line printer subsystem.
+          - news - Network news subsystem.
+          - uucp - Network news subsystem.
+          - cron - Clock daemon.
+          - authpriv - Security/authorization messages
+          - ftp - FTP daemon.
+          - local0 - Reserved for local use.
+          - local1 - Reserved for local use.
+          - local2 - Reserved for local use.
+          - local3 - Reserved for local use.
+          - local4 - Reserved for local use.
+          - local5 - Reserved for local use.
+          - local6 - Reserved for local use.
+          - local7 - Reserved for local use.
+        choices: ['kernel', 'user', 'ntp', 'audit', 'alert', 'clock', 'mail', 'daemon', 'auth',
+                  'syslog', 'lpr', 'news', 'uucp', 'cron', 'authpriv', 'ftp', 'local0', 'local1',
+                  'local2', 'local3', 'local4', 'local5', 'local6', 'local7']
+      severity:
+        type: str
+        description:
+          - Least severity level to log.
+          - emergency - Emergency level.
+          - alert - Alert level.
+          - critical - Critical level.
+          - error - Error level.
+          - warning - Warning level.
+          - notification - Notification level.
+          - information - Information level.
+          - debug - Debug level.
+        choices: ['emergency', 'alert', 'critical', 'error', 'warning', 'notification',
+                  'information', 'debug']
+      status:
+        type: str
+        description:
+          - Remote syslog log.
+          - disable - Do not log to remote syslog server.
+          - enable - Log to remote syslog server.
+        choices: ['disable', 'enable']
+      syslog_name:
+        aliases: ['syslog-name']
+        type: str
+        description: Remote syslog server name.
+      cert:
+        type: str
+        description: Select local certificate used for secure connection.
+      reliable:
+        type: str
+        description:
+          - Enable/disable reliable realtime logging.
+          - disable - Disable reliable realtime logging.
+          - enable - Enable reliable realtime logging.
+        choices: ['disable', 'enable']
+      secure_connection:
+        aliases: ['secure-connection']
+        type: str
+        description:
+          - Enable/disable connection secured by TLS/SSL.
+          - disable - Disable SSL connection.
+          - enable - Enable SSL connection.
+        choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -129,42 +128,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

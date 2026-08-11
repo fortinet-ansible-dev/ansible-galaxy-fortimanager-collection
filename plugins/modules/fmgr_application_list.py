@@ -15,250 +15,272 @@ module: fmgr_application_list
 short_description: Configure application control lists.
 version_added: "1.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  application_list:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      app_replacemsg:
+        aliases: ['app-replacemsg']
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Enable/disable replacement messages for blocked applications.
+        choices: ['disable', 'enable']
+      comment:
         type: str
-        required: true
-    application_list:
-        description: The top level parameters set.
-        required: false
-        type: dict
+        description: Comments
+      deep_app_inspection:
+        aliases: ['deep-app-inspection']
+        type: str
+        description: Enable/disable deep application inspection.
+        choices: ['disable', 'enable']
+      entries:
+        type: list
+        elements: dict
+        description: Entries.
         suboptions:
-            app_replacemsg:
-                aliases: ['app-replacemsg']
+          action:
+            type: str
+            description: Pass or block traffic, or reset connection for traffic from this application.
+            choices: ['pass', 'block', 'reset']
+          application:
+            type: raw
+            description: (list) ID of allowed applications.
+          behavior:
+            type: raw
+            description: (list) Application behavior filter.
+          category:
+            type: raw
+            description: (list or str) Category ID list.
+          id:
+            type: int
+            description: Entry ID.
+          log:
+            type: str
+            description: Enable/disable logging for this application list.
+            choices: ['disable', 'enable']
+          log_packet:
+            aliases: ['log-packet']
+            type: str
+            description: Enable/disable packet logging.
+            choices: ['disable', 'enable']
+          parameters:
+            type: list
+            elements: dict
+            description: Parameters.
+            suboptions:
+              id:
+                type: int
+                description: Parameter ID.
+              value:
                 type: str
-                description: Enable/disable replacement messages for blocked applications.
-                choices: ['disable', 'enable']
-            comment:
-                type: str
-                description: Comments
-            deep_app_inspection:
-                aliases: ['deep-app-inspection']
-                type: str
-                description: Enable/disable deep application inspection.
-                choices: ['disable', 'enable']
-            entries:
+                description: Parameter value.
+              members:
                 type: list
                 elements: dict
-                description: Entries.
+                description: Members.
                 suboptions:
-                    action:
-                        type: str
-                        description: Pass or block traffic, or reset connection for traffic from this application.
-                        choices: ['pass', 'block', 'reset']
-                    application:
-                        type: raw
-                        description: (list) ID of allowed applications.
-                    behavior:
-                        type: raw
-                        description: (list) Application behavior filter.
-                    category:
-                        type: raw
-                        description: (list or str) Category ID list.
-                    id:
-                        type: int
-                        description: Entry ID.
-                    log:
-                        type: str
-                        description: Enable/disable logging for this application list.
-                        choices: ['disable', 'enable']
-                    log_packet:
-                        aliases: ['log-packet']
-                        type: str
-                        description: Enable/disable packet logging.
-                        choices: ['disable', 'enable']
-                    parameters:
-                        type: list
-                        elements: dict
-                        description: Parameters.
-                        suboptions:
-                            id:
-                                type: int
-                                description: Parameter ID.
-                            value:
-                                type: str
-                                description: Parameter value.
-                            members:
-                                type: list
-                                elements: dict
-                                description: Members.
-                                suboptions:
-                                    id:
-                                        type: int
-                                        description: Parameter.
-                                    name:
-                                        type: str
-                                        description: Parameter name.
-                                    value:
-                                        type: str
-                                        description: Parameter value.
-                    per_ip_shaper:
-                        aliases: ['per-ip-shaper']
-                        type: str
-                        description: Per-IP traffic shaper.
-                    popularity:
-                        type: list
-                        elements: str
-                        description: Application popularity filter
-                        choices: ['1', '2', '3', '4', '5']
-                    protocols:
-                        type: raw
-                        description: (list) Application protocol filter.
-                    quarantine:
-                        type: str
-                        description: Quarantine method.
-                        choices: ['none', 'attacker']
-                    quarantine_expiry:
-                        aliases: ['quarantine-expiry']
-                        type: str
-                        description: Duration of quarantine.
-                    quarantine_log:
-                        aliases: ['quarantine-log']
-                        type: str
-                        description: Enable/disable quarantine logging.
-                        choices: ['disable', 'enable']
-                    rate_count:
-                        aliases: ['rate-count']
-                        type: int
-                        description: Count of the rate.
-                    rate_duration:
-                        aliases: ['rate-duration']
-                        type: int
-                        description: Duration
-                    rate_mode:
-                        aliases: ['rate-mode']
-                        type: str
-                        description: Rate limit mode.
-                        choices: ['periodical', 'continuous']
-                    rate_track:
-                        aliases: ['rate-track']
-                        type: str
-                        description: Track the packet protocol field.
-                        choices: ['none', 'src-ip', 'dest-ip', 'dhcp-client-mac', 'dns-domain']
-                    risk:
-                        type: raw
-                        description: (list) Risk, or impact, of allowing traffic from this application to occur
-                    session_ttl:
-                        aliases: ['session-ttl']
-                        type: int
-                        description: Session TTL
-                    shaper:
-                        type: str
-                        description: Traffic shaper.
-                    shaper_reverse:
-                        aliases: ['shaper-reverse']
-                        type: str
-                        description: Reverse traffic shaper.
-                    sub_category:
-                        aliases: ['sub-category']
-                        type: raw
-                        description: (list) Application Sub-category ID list.
-                    technology:
-                        type: raw
-                        description: (list) Application technology filter.
-                    vendor:
-                        type: raw
-                        description: (list) Application vendor filter.
-                    tags:
-                        type: str
-                        description: Tag filter.
-                    exclusion:
-                        type: raw
-                        description: (list) ID of excluded applications.
-            extended_log:
-                aliases: ['extended-log']
-                type: str
-                description: Enable/disable extended logging.
-                choices: ['disable', 'enable']
-            name:
-                type: str
-                description: List name.
-                required: true
-            options:
-                type: list
-                elements: str
-                description: Basic application protocol signatures allowed by default.
-                choices: ['allow-dns', 'allow-icmp', 'allow-http', 'allow-ssl', 'allow-quic']
-            other_application_action:
-                aliases: ['other-application-action']
-                type: str
-                description: Action for other applications.
-                choices: ['pass', 'block']
-            other_application_log:
-                aliases: ['other-application-log']
-                type: str
-                description: Enable/disable logging for other applications.
-                choices: ['disable', 'enable']
-            p2p_black_list:
-                aliases: ['p2p-black-list']
-                type: list
-                elements: str
-                description: P2P applications to be black listed.
-                choices: ['skype', 'edonkey', 'bittorrent']
-            replacemsg_group:
-                aliases: ['replacemsg-group']
-                type: str
-                description: Replacement message group.
-            unknown_application_action:
-                aliases: ['unknown-application-action']
-                type: str
-                description: Pass or block traffic from unknown applications.
-                choices: ['pass', 'block']
-            unknown_application_log:
-                aliases: ['unknown-application-log']
-                type: str
-                description: Enable/disable logging for unknown applications.
-                choices: ['disable', 'enable']
-            control_default_network_services:
-                aliases: ['control-default-network-services']
-                type: str
-                description: Enable/disable enforcement of protocols over selected ports.
-                choices: ['disable', 'enable']
-            default_network_services:
-                aliases: ['default-network-services']
-                type: list
-                elements: dict
-                description: Default network services.
-                suboptions:
-                    id:
-                        type: int
-                        description: Entry ID.
-                    port:
-                        type: int
-                        description: Port number.
-                    services:
-                        type: list
-                        elements: str
-                        description: Network protocols.
-                        choices: ['http', 'ssh', 'telnet', 'ftp', 'dns', 'smtp', 'pop3', 'imap',
-                                  'snmp', 'nntp', 'https']
-                    violation_action:
-                        aliases: ['violation-action']
-                        type: str
-                        description: Action for protocols not white listed under selected port.
-                        choices: ['block', 'monitor', 'pass']
-            enforce_default_app_port:
-                aliases: ['enforce-default-app-port']
-                type: str
-                description: Enable/disable default application port enforcement for allowed applications.
-                choices: ['disable', 'enable']
-            force_inclusion_ssl_di_sigs:
-                aliases: ['force-inclusion-ssl-di-sigs']
-                type: str
-                description: Enable/disable forced inclusion of SSL deep inspection signatures.
-                choices: ['disable', 'enable']
-            p2p_block_list:
-                aliases: ['p2p-block-list']
-                type: list
-                elements: str
-                description: P2P applications to be blocklisted.
-                choices: ['skype', 'edonkey', 'bittorrent']
+                  id:
+                    type: int
+                    description: Parameter.
+                  name:
+                    type: str
+                    description: Parameter name.
+                  value:
+                    type: str
+                    description: Parameter value.
+          per_ip_shaper:
+            aliases: ['per-ip-shaper']
+            type: str
+            description: Per-IP traffic shaper.
+          popularity:
+            type: list
+            elements: str
+            description: Application popularity filter
+            choices: ['1', '2', '3', '4', '5']
+          protocols:
+            type: raw
+            description: (list) Application protocol filter.
+          quarantine:
+            type: str
+            description: Quarantine method.
+            choices: ['none', 'attacker']
+          quarantine_expiry:
+            aliases: ['quarantine-expiry']
+            type: str
+            description: Duration of quarantine.
+          quarantine_log:
+            aliases: ['quarantine-log']
+            type: str
+            description: Enable/disable quarantine logging.
+            choices: ['disable', 'enable']
+          rate_count:
+            aliases: ['rate-count']
+            type: int
+            description: Count of the rate.
+          rate_duration:
+            aliases: ['rate-duration']
+            type: int
+            description: Duration
+          rate_mode:
+            aliases: ['rate-mode']
+            type: str
+            description: Rate limit mode.
+            choices: ['periodical', 'continuous']
+          rate_track:
+            aliases: ['rate-track']
+            type: str
+            description: Track the packet protocol field.
+            choices: ['none', 'src-ip', 'dest-ip', 'dhcp-client-mac', 'dns-domain']
+          risk:
+            type: raw
+            description: (list) Risk, or impact, of allowing traffic from this application to occur
+          session_ttl:
+            aliases: ['session-ttl']
+            type: int
+            description: Session TTL
+          shaper:
+            type: str
+            description: Traffic shaper.
+          shaper_reverse:
+            aliases: ['shaper-reverse']
+            type: str
+            description: Reverse traffic shaper.
+          sub_category:
+            aliases: ['sub-category']
+            type: raw
+            description: (list) Application Sub-category ID list.
+          technology:
+            type: raw
+            description: (list) Application technology filter.
+          vendor:
+            type: raw
+            description: (list) Application vendor filter.
+          tags:
+            type: str
+            description: Tag filter.
+          exclusion:
+            type: raw
+            description: (list) ID of excluded applications.
+          classification:
+            type: str
+            description: Application classification filter.
+            choices: ['none', 'sanctioned', 'unsanctioned', 'unclassified']
+      extended_log:
+        aliases: ['extended-log']
+        type: str
+        description: Enable/disable extended logging.
+        choices: ['disable', 'enable']
+      name:
+        type: str
+        description: List name.
+        required: true
+      options:
+        type: list
+        elements: str
+        description: Basic application protocol signatures allowed by default.
+        choices: ['allow-dns', 'allow-icmp', 'allow-http', 'allow-ssl', 'allow-quic']
+      other_application_action:
+        aliases: ['other-application-action']
+        type: str
+        description: Action for other applications.
+        choices: ['pass', 'block']
+      other_application_log:
+        aliases: ['other-application-log']
+        type: str
+        description: Enable/disable logging for other applications.
+        choices: ['disable', 'enable']
+      p2p_black_list:
+        aliases: ['p2p-black-list']
+        type: list
+        elements: str
+        description: P2P applications to be black listed.
+        choices: ['skype', 'edonkey', 'bittorrent']
+      replacemsg_group:
+        aliases: ['replacemsg-group']
+        type: str
+        description: Replacement message group.
+      unknown_application_action:
+        aliases: ['unknown-application-action']
+        type: str
+        description: Pass or block traffic from unknown applications.
+        choices: ['pass', 'block']
+      unknown_application_log:
+        aliases: ['unknown-application-log']
+        type: str
+        description: Enable/disable logging for unknown applications.
+        choices: ['disable', 'enable']
+      control_default_network_services:
+        aliases: ['control-default-network-services']
+        type: str
+        description: Enable/disable enforcement of protocols over selected ports.
+        choices: ['disable', 'enable']
+      default_network_services:
+        aliases: ['default-network-services']
+        type: list
+        elements: dict
+        description: Default network services.
+        suboptions:
+          id:
+            type: int
+            description: Entry ID.
+          port:
+            type: int
+            description: Port number.
+          services:
+            type: list
+            elements: str
+            description: Network protocols.
+            choices: ['http', 'ssh', 'telnet', 'ftp', 'dns', 'smtp', 'pop3', 'imap', 'snmp',
+                      'nntp', 'https']
+          violation_action:
+            aliases: ['violation-action']
+            type: str
+            description: Action for protocols not white listed under selected port.
+            choices: ['block', 'monitor', 'pass']
+      enforce_default_app_port:
+        aliases: ['enforce-default-app-port']
+        type: str
+        description: Enable/disable default application port enforcement for allowed applications.
+        choices: ['disable', 'enable']
+      force_inclusion_ssl_di_sigs:
+        aliases: ['force-inclusion-ssl-di-sigs']
+        type: str
+        description: Enable/disable forced inclusion of SSL deep inspection signatures.
+        choices: ['disable', 'enable']
+      p2p_block_list:
+        aliases: ['p2p-block-list']
+        type: list
+        elements: str
+        description: P2P applications to be blocklisted.
+        choices: ['skype', 'edonkey', 'bittorrent']
+      fabric_force_sync:
+        aliases: ['fabric-force-sync']
+        type: str
+        description: Enable/disable forced synchronization of configuration objects from the root FortiGate unit to the downstream devices.
+        choices: ['disable', 'enable']
+      fabric_object:
+        aliases: ['fabric-object']
+        type: str
+        description: Security Fabric global object setting.
+        choices: ['disable', 'enable']
+      fabric_object_source:
+        aliases: ['fabric-object-source']
+        type: str
+        description: Source of truth for fabric object.
+        choices: ['member', 'local', 'root']
+      uuid:
+        type: str
+        description: Universally Unique Identifier
 '''
 
 EXAMPLES = '''
@@ -306,42 +328,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -405,11 +427,12 @@ def main():
                         'session-ttl': {'type': 'int'},
                         'shaper': {'type': 'str'},
                         'shaper-reverse': {'type': 'str'},
-                        'sub-category': {'type': 'raw'},
+                        'sub-category': {'v_range': [['6.0.0', '7.6.7']], 'type': 'raw'},
                         'technology': {'type': 'raw'},
                         'vendor': {'type': 'raw'},
-                        'tags': {'v_range': [['6.2.0', '6.4.15'], ['7.4.8', '7.4.10']], 'type': 'str'},
-                        'exclusion': {'v_range': [['6.2.7', '6.2.13'], ['6.4.3', '']], 'type': 'raw'}
+                        'tags': {'v_range': [['6.2.0', '6.4.15'], ['7.4.8', '7.4.11']], 'type': 'str'},
+                        'exclusion': {'v_range': [['6.2.7', '6.2.13'], ['6.4.3', '']], 'type': 'raw'},
+                        'classification': {'v_range': [['8.0.0', '']], 'choices': ['none', 'sanctioned', 'unsanctioned', 'unclassified'], 'type': 'str'}
                     },
                     'elements': 'dict'
                 },
@@ -418,7 +441,7 @@ def main():
                 'options': {'type': 'list', 'choices': ['allow-dns', 'allow-icmp', 'allow-http', 'allow-ssl', 'allow-quic'], 'elements': 'str'},
                 'other-application-action': {'choices': ['pass', 'block'], 'type': 'str'},
                 'other-application-log': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'p2p-black-list': {'type': 'list', 'choices': ['skype', 'edonkey', 'bittorrent'], 'elements': 'str'},
+                'p2p-black-list': {'v_range': [['6.0.0', '7.6.7']], 'type': 'list', 'choices': ['skype', 'edonkey', 'bittorrent'], 'elements': 'str'},
                 'replacemsg-group': {'type': 'str'},
                 'unknown-application-action': {'choices': ['pass', 'block'], 'type': 'str'},
                 'unknown-application-log': {'choices': ['disable', 'enable'], 'type': 'str'},
@@ -441,7 +464,11 @@ def main():
                 },
                 'enforce-default-app-port': {'v_range': [['6.2.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'force-inclusion-ssl-di-sigs': {'v_range': [['6.2.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'p2p-block-list': {'v_range': [['7.0.0', '']], 'type': 'list', 'choices': ['skype', 'edonkey', 'bittorrent'], 'elements': 'str'}
+                'p2p-block-list': {'v_range': [['7.0.0', '']], 'type': 'list', 'choices': ['skype', 'edonkey', 'bittorrent'], 'elements': 'str'},
+                'fabric-force-sync': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'fabric-object': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'fabric-object-source': {'v_range': [['8.0.0', '']], 'choices': ['member', 'local', 'root'], 'type': 'str'},
+                'uuid': {'v_range': [['8.0.0', '']], 'type': 'str'}
             }
         }
     }

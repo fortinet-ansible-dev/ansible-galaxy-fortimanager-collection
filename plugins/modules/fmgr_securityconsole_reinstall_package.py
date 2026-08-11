@@ -15,52 +15,52 @@ module: fmgr_securityconsole_reinstall_package
 short_description: Re-install a policy package that had been previously installed.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
+  - fortinet.fortimanager.general
 options:
-    securityconsole_reinstall_package:
-        description: The top level parameters set.
-        required: false
-        type: dict
+  securityconsole_reinstall_package:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      adom:
+        type: str
+        description: Source ADOM name.
+      flags:
+        type: list
+        elements: str
+        description:
+          - cp_all_objs - Assign all objects during global policy assignment.
+          - preview - Generate preview cache only.
+          - generate_rev - Generate new ADOM revision before install.
+          - copy_assigned_pkg - For global policy assignment - copy assigned package from ADOM to device.
+          - unassign - Remove global policy from ADOM.
+          - ifpolicy_only - Only install interface policies.
+          - no_ifpolicy - Install regular policies only - do not install interface policies.
+          - objs_only - Install object
+          - auto_lock_ws - Automatically lock and unlock workspace when performing security console task.
+          - copy_only - Only copy to device db.
+        choices: ['none', 'cp_all_objs', 'preview', 'generate_rev', 'copy_assigned_pkg',
+                  'unassign', 'ifpolicy_only', 'no_ifpolicy', 'objs_only', 'auto_lock_ws',
+                  'check_pkg_st', 'copy_only']
+      target:
+        type: list
+        elements: dict
+        description: Target.
         suboptions:
-            adom:
+          pkg:
+            type: str
+            description: Source package path and name.
+          scope:
+            type: list
+            elements: dict
+            description: Scope.
+            suboptions:
+              name:
                 type: str
-                description: Source ADOM name.
-            flags:
-                type: list
-                elements: str
-                description:
-                    - cp_all_objs - Assign all objects during global policy assignment.
-                    - preview - Generate preview cache only.
-                    - generate_rev - Generate new ADOM revision before install.
-                    - copy_assigned_pkg - For global policy assignment - copy assigned package from ADOM to device.
-                    - unassign - Remove global policy from ADOM.
-                    - ifpolicy_only - Only install interface policies.
-                    - no_ifpolicy - Install regular policies only - do not install interface policies.
-                    - objs_only - Install object
-                    - auto_lock_ws - Automatically lock and unlock workspace when performing security console task.
-                    - copy_only - Only copy to device db.
-                choices: ['none', 'cp_all_objs', 'preview', 'generate_rev', 'copy_assigned_pkg',
-                          'unassign', 'ifpolicy_only', 'no_ifpolicy', 'objs_only', 'auto_lock_ws',
-                          'check_pkg_st', 'copy_only']
-            target:
-                type: list
-                elements: dict
-                description: Target.
-                suboptions:
-                    pkg:
-                        type: str
-                        description: Source package path and name.
-                    scope:
-                        type: list
-                        elements: dict
-                        description: Scope.
-                        suboptions:
-                            name:
-                                type: str
-                                description: Name.
-                            vdom:
-                                type: str
-                                description: Vdom.
+                description: Name.
+              vdom:
+                type: str
+                description: Vdom.
 '''
 
 EXAMPLES = '''
@@ -86,42 +86,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

@@ -15,149 +15,153 @@ module: fmgr_application_list_entries
 short_description: Application list entries.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  list:
+    description: The parameter (list) in requested url.
+    type: str
+    required: true
+  application_list_entries:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      action:
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
-        type: str
+        description: Pass or block traffic, or reset connection for traffic from this application.
+        choices: ['pass', 'block', 'reset']
+      application:
+        type: raw
+        description: (list) ID of allowed applications.
+      behavior:
+        type: raw
+        description: (list) Application behavior filter.
+      category:
+        type: raw
+        description: (list or str) Category ID list.
+      id:
+        type: int
+        description: Entry ID.
         required: true
-    list:
-        description: The parameter (list) in requested url.
+      log:
         type: str
-        required: true
-    application_list_entries:
-        description: The top level parameters set.
-        required: false
-        type: dict
+        description: Enable/disable logging for this application list.
+        choices: ['disable', 'enable']
+      log_packet:
+        aliases: ['log-packet']
+        type: str
+        description: Enable/disable packet logging.
+        choices: ['disable', 'enable']
+      parameters:
+        type: list
+        elements: dict
+        description: Parameters.
         suboptions:
-            action:
-                type: str
-                description: Pass or block traffic, or reset connection for traffic from this application.
-                choices: ['pass', 'block', 'reset']
-            application:
-                type: raw
-                description: (list) ID of allowed applications.
-            behavior:
-                type: raw
-                description: (list) Application behavior filter.
-            category:
-                type: raw
-                description: (list or str) Category ID list.
-            id:
+          id:
+            type: int
+            description: Parameter ID.
+          value:
+            type: str
+            description: Parameter value.
+          members:
+            type: list
+            elements: dict
+            description: Members.
+            suboptions:
+              id:
                 type: int
-                description: Entry ID.
-                required: true
-            log:
+                description: Parameter.
+              name:
                 type: str
-                description: Enable/disable logging for this application list.
-                choices: ['disable', 'enable']
-            log_packet:
-                aliases: ['log-packet']
+                description: Parameter name.
+              value:
                 type: str
-                description: Enable/disable packet logging.
-                choices: ['disable', 'enable']
-            parameters:
-                type: list
-                elements: dict
-                description: Parameters.
-                suboptions:
-                    id:
-                        type: int
-                        description: Parameter ID.
-                    value:
-                        type: str
-                        description: Parameter value.
-                    members:
-                        type: list
-                        elements: dict
-                        description: Members.
-                        suboptions:
-                            id:
-                                type: int
-                                description: Parameter.
-                            name:
-                                type: str
-                                description: Parameter name.
-                            value:
-                                type: str
-                                description: Parameter value.
-            per_ip_shaper:
-                aliases: ['per-ip-shaper']
-                type: str
-                description: Per-IP traffic shaper.
-            popularity:
-                type: list
-                elements: str
-                description: Application popularity filter
-                choices: ['1', '2', '3', '4', '5']
-            protocols:
-                type: raw
-                description: (list) Application protocol filter.
-            quarantine:
-                type: str
-                description: Quarantine method.
-                choices: ['none', 'attacker']
-            quarantine_expiry:
-                aliases: ['quarantine-expiry']
-                type: str
-                description: Duration of quarantine.
-            quarantine_log:
-                aliases: ['quarantine-log']
-                type: str
-                description: Enable/disable quarantine logging.
-                choices: ['disable', 'enable']
-            rate_count:
-                aliases: ['rate-count']
-                type: int
-                description: Count of the rate.
-            rate_duration:
-                aliases: ['rate-duration']
-                type: int
-                description: Duration
-            rate_mode:
-                aliases: ['rate-mode']
-                type: str
-                description: Rate limit mode.
-                choices: ['periodical', 'continuous']
-            rate_track:
-                aliases: ['rate-track']
-                type: str
-                description: Track the packet protocol field.
-                choices: ['none', 'src-ip', 'dest-ip', 'dhcp-client-mac', 'dns-domain']
-            risk:
-                type: raw
-                description: (list) Risk, or impact, of allowing traffic from this application to occur
-            session_ttl:
-                aliases: ['session-ttl']
-                type: int
-                description: Session TTL
-            shaper:
-                type: str
-                description: Traffic shaper.
-            shaper_reverse:
-                aliases: ['shaper-reverse']
-                type: str
-                description: Reverse traffic shaper.
-            sub_category:
-                aliases: ['sub-category']
-                type: raw
-                description: (list) Application Sub-category ID list.
-            technology:
-                type: raw
-                description: (list) Application technology filter.
-            vendor:
-                type: raw
-                description: (list) Application vendor filter.
-            tags:
-                type: str
-                description: Tag filter.
-            exclusion:
-                type: raw
-                description: (list) ID of excluded applications.
+                description: Parameter value.
+      per_ip_shaper:
+        aliases: ['per-ip-shaper']
+        type: str
+        description: Per-IP traffic shaper.
+      popularity:
+        type: list
+        elements: str
+        description: Application popularity filter
+        choices: ['1', '2', '3', '4', '5']
+      protocols:
+        type: raw
+        description: (list) Application protocol filter.
+      quarantine:
+        type: str
+        description: Quarantine method.
+        choices: ['none', 'attacker']
+      quarantine_expiry:
+        aliases: ['quarantine-expiry']
+        type: str
+        description: Duration of quarantine.
+      quarantine_log:
+        aliases: ['quarantine-log']
+        type: str
+        description: Enable/disable quarantine logging.
+        choices: ['disable', 'enable']
+      rate_count:
+        aliases: ['rate-count']
+        type: int
+        description: Count of the rate.
+      rate_duration:
+        aliases: ['rate-duration']
+        type: int
+        description: Duration
+      rate_mode:
+        aliases: ['rate-mode']
+        type: str
+        description: Rate limit mode.
+        choices: ['periodical', 'continuous']
+      rate_track:
+        aliases: ['rate-track']
+        type: str
+        description: Track the packet protocol field.
+        choices: ['none', 'src-ip', 'dest-ip', 'dhcp-client-mac', 'dns-domain']
+      risk:
+        type: raw
+        description: (list) Risk, or impact, of allowing traffic from this application to occur
+      session_ttl:
+        aliases: ['session-ttl']
+        type: int
+        description: Session TTL
+      shaper:
+        type: str
+        description: Traffic shaper.
+      shaper_reverse:
+        aliases: ['shaper-reverse']
+        type: str
+        description: Reverse traffic shaper.
+      sub_category:
+        aliases: ['sub-category']
+        type: raw
+        description: (list) Application Sub-category ID list.
+      technology:
+        type: raw
+        description: (list) Application technology filter.
+      vendor:
+        type: raw
+        description: (list) Application vendor filter.
+      tags:
+        type: str
+        description: Tag filter.
+      exclusion:
+        type: raw
+        description: (list) ID of excluded applications.
+      classification:
+        type: str
+        description: Application classification filter.
+        choices: ['none', 'sanctioned', 'unsanctioned', 'unclassified']
 '''
 
 EXAMPLES = '''
@@ -205,42 +209,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -299,11 +303,12 @@ def main():
                 'session-ttl': {'type': 'int'},
                 'shaper': {'type': 'str'},
                 'shaper-reverse': {'type': 'str'},
-                'sub-category': {'type': 'raw'},
+                'sub-category': {'v_range': [['6.0.0', '7.6.7']], 'type': 'raw'},
                 'technology': {'type': 'raw'},
                 'vendor': {'type': 'raw'},
-                'tags': {'v_range': [['6.2.0', '6.4.15'], ['7.4.8', '7.4.10']], 'type': 'str'},
-                'exclusion': {'v_range': [['6.2.7', '6.2.13'], ['6.4.3', '']], 'type': 'raw'}
+                'tags': {'v_range': [['6.2.0', '6.4.15'], ['7.4.8', '7.4.11']], 'type': 'str'},
+                'exclusion': {'v_range': [['6.2.7', '6.2.13'], ['6.4.3', '']], 'type': 'raw'},
+                'classification': {'v_range': [['8.0.0', '']], 'choices': ['none', 'sanctioned', 'unsanctioned', 'unclassified'], 'type': 'str'}
             }
         }
     }

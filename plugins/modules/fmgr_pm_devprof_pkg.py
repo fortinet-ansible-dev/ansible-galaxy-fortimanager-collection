@@ -15,54 +15,54 @@ module: fmgr_pm_devprof_pkg
 short_description: System template adom
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    adom:
-        description: The parameter (adom) in requested url.
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  pkg_path:
+    description: The parameter (pkg_path) in requested url.
+    type: str
+    required: true
+  pm_devprof_pkg:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      description:
         type: str
-        required: true
-    pkg_path:
-        description: The parameter (pkg_path) in requested url.
+        description: Description.
+      enabled_options:
+        aliases: ['enabled options']
+        type: list
+        elements: str
+        description: Enabled options.
+        choices: ['none', 'dns', 'ntp', 'email', 'admin', 'snmp', 'repmsg', 'ftgd', 'log']
+      name:
         type: str
+        description: Name.
         required: true
-    pm_devprof_pkg:
-        description: The top level parameters set.
-        required: false
-        type: dict
+      oid:
+        type: int
+        description: Oid.
+      scope_member:
+        aliases: ['scope member']
+        type: list
+        elements: dict
+        description: Scope member.
         suboptions:
-            description:
-                type: str
-                description: Description.
-            enabled_options:
-                aliases: ['enabled options']
-                type: list
-                elements: str
-                description: Enabled options.
-                choices: ['none', 'dns', 'ntp', 'email', 'admin', 'snmp', 'repmsg', 'ftgd', 'log']
-            name:
-                type: str
-                description: Name.
-                required: true
-            oid:
-                type: int
-                description: Oid.
-            scope_member:
-                aliases: ['scope member']
-                type: list
-                elements: dict
-                description: Scope member.
-                suboptions:
-                    name:
-                        type: str
-                        description: Name.
-                    vdom:
-                        type: str
-                        description: Vdom.
-            type:
-                type: str
-                description: Type.
-                choices: ['devprof']
+          name:
+            type: str
+            description: Name.
+          vdom:
+            type: str
+            description: Vdom.
+      type:
+        type: str
+        description: Type.
+        choices: ['devprof']
 '''
 
 EXAMPLES = '''
@@ -91,42 +91,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

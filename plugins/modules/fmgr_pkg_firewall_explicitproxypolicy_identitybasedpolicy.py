@@ -15,128 +15,128 @@ module: fmgr_pkg_firewall_explicitproxypolicy_identitybasedpolicy
 short_description: Identity-based policy.
 version_added: "2.2.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  pkg:
+    description: The parameter (pkg) in requested url.
+    type: str
+    required: true
+  explicit-proxy-policy:
+    description: Deprecated, please use "explicit_proxy_policy"
+    type: str
+  explicit_proxy_policy:
+    description: The parameter (explicit-proxy-policy) in requested url.
+    type: str
+  pkg_firewall_explicitproxypolicy_identitybasedpolicy:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      application_list:
+        aliases: ['application-list']
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Application list.
+      av_profile:
+        aliases: ['av-profile']
         type: str
+        description: Antivirus profile.
+      casi_profile:
+        aliases: ['casi-profile']
+        type: str
+        description: CASI profile.
+      disclaimer:
+        type: str
+        description: Web proxy disclaimer setting.
+        choices: ['disable', 'domain', 'policy', 'user']
+      dlp_sensor:
+        aliases: ['dlp-sensor']
+        type: str
+        description: DLP sensor.
+      groups:
+        type: str
+        description: Group name.
+      icap_profile:
+        aliases: ['icap-profile']
+        type: str
+        description: ICAP profile.
+      id:
+        type: int
+        description: ID.
         required: true
-    pkg:
-        description: The parameter (pkg) in requested url.
+      ips_sensor:
+        aliases: ['ips-sensor']
         type: str
-        required: true
-    explicit-proxy-policy:
-        description: Deprecated, please use "explicit_proxy_policy"
+        description: IPS sensor.
+      logtraffic:
         type: str
-    explicit_proxy_policy:
-        description: The parameter (explicit-proxy-policy) in requested url.
+        description: Enable/disable policy log traffic.
+        choices: ['disable', 'all', 'utm']
+      logtraffic_start:
+        aliases: ['logtraffic-start']
         type: str
-    pkg_firewall_explicitproxypolicy_identitybasedpolicy:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            application_list:
-                aliases: ['application-list']
-                type: str
-                description: Application list.
-            av_profile:
-                aliases: ['av-profile']
-                type: str
-                description: Antivirus profile.
-            casi_profile:
-                aliases: ['casi-profile']
-                type: str
-                description: CASI profile.
-            disclaimer:
-                type: str
-                description: Web proxy disclaimer setting.
-                choices: ['disable', 'domain', 'policy', 'user']
-            dlp_sensor:
-                aliases: ['dlp-sensor']
-                type: str
-                description: DLP sensor.
-            groups:
-                type: str
-                description: Group name.
-            icap_profile:
-                aliases: ['icap-profile']
-                type: str
-                description: ICAP profile.
-            id:
-                type: int
-                description: ID.
-                required: true
-            ips_sensor:
-                aliases: ['ips-sensor']
-                type: str
-                description: IPS sensor.
-            logtraffic:
-                type: str
-                description: Enable/disable policy log traffic.
-                choices: ['disable', 'all', 'utm']
-            logtraffic_start:
-                aliases: ['logtraffic-start']
-                type: str
-                description: Enable/disable policy log traffic start.
-                choices: ['disable', 'enable']
-            mms_profile:
-                aliases: ['mms-profile']
-                type: str
-                description: Mms profile
-            profile_group:
-                aliases: ['profile-group']
-                type: str
-                description: Profile group
-            profile_protocol_options:
-                aliases: ['profile-protocol-options']
-                type: str
-                description: Profile protocol options.
-            profile_type:
-                aliases: ['profile-type']
-                type: str
-                description: Profile type
-                choices: ['single', 'group']
-            replacemsg_override_group:
-                aliases: ['replacemsg-override-group']
-                type: str
-                description: Specify authentication replacement message override group.
-            scan_botnet_connections:
-                aliases: ['scan-botnet-connections']
-                type: str
-                description: Enable/disable scanning of connections to Botnet servers.
-                choices: ['disable', 'block', 'monitor']
-            schedule:
-                type: str
-                description: Schedule name.
-            spamfilter_profile:
-                aliases: ['spamfilter-profile']
-                type: str
-                description: Spam filter profile.
-            ssl_ssh_profile:
-                aliases: ['ssl-ssh-profile']
-                type: str
-                description: SSL SSH Profile.
-            users:
-                type: str
-                description: User name.
-            utm_status:
-                aliases: ['utm-status']
-                type: str
-                description: Enable AV/web/IPS protection profile.
-                choices: ['disable', 'enable']
-            waf_profile:
-                aliases: ['waf-profile']
-                type: str
-                description: Web application firewall profile.
-            webfilter_profile:
-                aliases: ['webfilter-profile']
-                type: str
-                description: Web filter profile.
+        description: Enable/disable policy log traffic start.
+        choices: ['disable', 'enable']
+      mms_profile:
+        aliases: ['mms-profile']
+        type: str
+        description: Mms profile
+      profile_group:
+        aliases: ['profile-group']
+        type: str
+        description: Profile group
+      profile_protocol_options:
+        aliases: ['profile-protocol-options']
+        type: str
+        description: Profile protocol options.
+      profile_type:
+        aliases: ['profile-type']
+        type: str
+        description: Profile type
+        choices: ['single', 'group']
+      replacemsg_override_group:
+        aliases: ['replacemsg-override-group']
+        type: str
+        description: Specify authentication replacement message override group.
+      scan_botnet_connections:
+        aliases: ['scan-botnet-connections']
+        type: str
+        description: Enable/disable scanning of connections to Botnet servers.
+        choices: ['disable', 'block', 'monitor']
+      schedule:
+        type: str
+        description: Schedule name.
+      spamfilter_profile:
+        aliases: ['spamfilter-profile']
+        type: str
+        description: Spam filter profile.
+      ssl_ssh_profile:
+        aliases: ['ssl-ssh-profile']
+        type: str
+        description: SSL SSH Profile.
+      users:
+        type: str
+        description: User name.
+      utm_status:
+        aliases: ['utm-status']
+        type: str
+        description: Enable AV/web/IPS protection profile.
+        choices: ['disable', 'enable']
+      waf_profile:
+        aliases: ['waf-profile']
+        type: str
+        description: Web application firewall profile.
+      webfilter_profile:
+        aliases: ['webfilter-profile']
+        type: str
+        description: Web filter profile.
 '''
 
 EXAMPLES = '''
@@ -181,42 +181,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

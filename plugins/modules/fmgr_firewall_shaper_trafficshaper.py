@@ -15,99 +15,117 @@ module: fmgr_firewall_shaper_trafficshaper
 short_description: Configure shared traffic shaper.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  firewall_shaper_trafficshaper:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      bandwidth_unit:
+        aliases: ['bandwidth-unit']
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Unit of measurement for guaranteed and maximum bandwidth for this shaper
+        choices: ['kbps', 'mbps', 'gbps']
+      diffserv:
         type: str
+        description: Enable/disable changing the DiffServ setting applied to traffic accepted by this shaper.
+        choices: ['disable', 'enable']
+      diffservcode:
+        type: str
+        description: DiffServ setting to be applied to traffic accepted by this shaper.
+      guaranteed_bandwidth:
+        aliases: ['guaranteed-bandwidth']
+        type: int
+        description: Amount of bandwidth guaranteed for this shaper
+      maximum_bandwidth:
+        aliases: ['maximum-bandwidth']
+        type: int
+        description: Upper bandwidth limit enforced by this shaper
+      name:
+        type: str
+        description: Traffic shaper name.
         required: true
-    firewall_shaper_trafficshaper:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            bandwidth_unit:
-                aliases: ['bandwidth-unit']
-                type: str
-                description: Unit of measurement for guaranteed and maximum bandwidth for this shaper
-                choices: ['kbps', 'mbps', 'gbps']
-            diffserv:
-                type: str
-                description: Enable/disable changing the DiffServ setting applied to traffic accepted by this shaper.
-                choices: ['disable', 'enable']
-            diffservcode:
-                type: str
-                description: DiffServ setting to be applied to traffic accepted by this shaper.
-            guaranteed_bandwidth:
-                aliases: ['guaranteed-bandwidth']
-                type: int
-                description: Amount of bandwidth guaranteed for this shaper
-            maximum_bandwidth:
-                aliases: ['maximum-bandwidth']
-                type: int
-                description: Upper bandwidth limit enforced by this shaper
-            name:
-                type: str
-                description: Traffic shaper name.
-                required: true
-            per_policy:
-                aliases: ['per-policy']
-                type: str
-                description: Enable/disable applying a separate shaper for each policy.
-                choices: ['disable', 'enable']
-            priority:
-                type: str
-                description: Higher priority traffic is more likely to be forwarded without delays and without compromising the guaranteed bandwidth.
-                choices: ['high', 'medium', 'low']
-            dscp_marking_method:
-                aliases: ['dscp-marking-method']
-                type: str
-                description: Select DSCP marking method.
-                choices: ['multi-stage', 'static']
-            exceed_bandwidth:
-                aliases: ['exceed-bandwidth']
-                type: int
-                description: Exceed bandwidth used for DSCP multi-stage marking.
-            exceed_class_id:
-                aliases: ['exceed-class-id']
-                type: int
-                description: Class ID for traffic in [guaranteed-bandwidth, maximum-bandwidth].
-            exceed_dscp:
-                aliases: ['exceed-dscp']
-                type: str
-                description: DSCP mark for traffic in [guaranteed-bandwidth, exceed-bandwidth].
-            maximum_dscp:
-                aliases: ['maximum-dscp']
-                type: str
-                description: DSCP mark for traffic in [exceed-bandwidth, maximum-bandwidth].
-            overhead:
-                type: int
-                description: Per-packet size overhead used in rate computations.
-            cos:
-                type: str
-                description: VLAN CoS mark.
-            cos_marking:
-                aliases: ['cos-marking']
-                type: str
-                description: Enable/disable VLAN CoS marking.
-                choices: ['disable', 'enable']
-            cos_marking_method:
-                aliases: ['cos-marking-method']
-                type: str
-                description: Select VLAN CoS marking method.
-                choices: ['multi-stage', 'static']
-            exceed_cos:
-                aliases: ['exceed-cos']
-                type: str
-                description: VLAN CoS mark for traffic in [guaranteed-bandwidth, exceed-bandwidth].
-            maximum_cos:
-                aliases: ['maximum-cos']
-                type: str
-                description: VLAN CoS mark for traffic in [exceed-bandwidth, maximum-bandwidth].
+      per_policy:
+        aliases: ['per-policy']
+        type: str
+        description: Enable/disable applying a separate shaper for each policy.
+        choices: ['disable', 'enable']
+      priority:
+        type: str
+        description: Higher priority traffic is more likely to be forwarded without delays and without compromising the guaranteed bandwidth.
+        choices: ['high', 'medium', 'low']
+      dscp_marking_method:
+        aliases: ['dscp-marking-method']
+        type: str
+        description: Select DSCP marking method.
+        choices: ['multi-stage', 'static']
+      exceed_bandwidth:
+        aliases: ['exceed-bandwidth']
+        type: int
+        description: Exceed bandwidth used for DSCP multi-stage marking.
+      exceed_class_id:
+        aliases: ['exceed-class-id']
+        type: int
+        description: Class ID for traffic in [guaranteed-bandwidth, maximum-bandwidth].
+      exceed_dscp:
+        aliases: ['exceed-dscp']
+        type: str
+        description: DSCP mark for traffic in [guaranteed-bandwidth, exceed-bandwidth].
+      maximum_dscp:
+        aliases: ['maximum-dscp']
+        type: str
+        description: DSCP mark for traffic in [exceed-bandwidth, maximum-bandwidth].
+      overhead:
+        type: int
+        description: Per-packet size overhead used in rate computations.
+      cos:
+        type: str
+        description: VLAN CoS mark.
+      cos_marking:
+        aliases: ['cos-marking']
+        type: str
+        description: Enable/disable VLAN CoS marking.
+        choices: ['disable', 'enable']
+      cos_marking_method:
+        aliases: ['cos-marking-method']
+        type: str
+        description: Select VLAN CoS marking method.
+        choices: ['multi-stage', 'static']
+      exceed_cos:
+        aliases: ['exceed-cos']
+        type: str
+        description: VLAN CoS mark for traffic in [guaranteed-bandwidth, exceed-bandwidth].
+      maximum_cos:
+        aliases: ['maximum-cos']
+        type: str
+        description: VLAN CoS mark for traffic in [exceed-bandwidth, maximum-bandwidth].
+      fabric_force_sync:
+        aliases: ['fabric-force-sync']
+        type: str
+        description: Enable/disable forced synchronization of configuration objects from the root FortiGate unit to the downstream devices.
+        choices: ['disable', 'enable']
+      fabric_object:
+        aliases: ['fabric-object']
+        type: str
+        description: Security Fabric global object setting.
+        choices: ['disable', 'enable']
+      fabric_object_source:
+        aliases: ['fabric-object-source']
+        type: str
+        description: Source of truth for fabric object.
+        choices: ['member', 'local', 'root']
+      uuid:
+        type: str
+        description: Universally Unique Identifier
 '''
 
 EXAMPLES = '''
@@ -152,42 +170,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -224,7 +242,11 @@ def main():
                 'cos-marking': {'v_range': [['7.4.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'cos-marking-method': {'v_range': [['7.4.0', '']], 'choices': ['multi-stage', 'static'], 'type': 'str'},
                 'exceed-cos': {'v_range': [['7.4.0', '']], 'type': 'str'},
-                'maximum-cos': {'v_range': [['7.4.0', '']], 'type': 'str'}
+                'maximum-cos': {'v_range': [['7.4.0', '']], 'type': 'str'},
+                'fabric-force-sync': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'fabric-object': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'fabric-object-source': {'v_range': [['8.0.0', '']], 'choices': ['member', 'local', 'root'], 'type': 'str'},
+                'uuid': {'v_range': [['8.0.0', '']], 'type': 'str'}
             }
         }
     }

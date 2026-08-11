@@ -15,66 +15,66 @@ module: fmgr_fsp_vlan_interface_secondaryip
 short_description: Second IP address of interface.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  vlan:
+    description: The parameter (vlan) in requested url.
+    type: str
+    required: true
+  fsp_vlan_interface_secondaryip:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      allowaccess:
+        type: list
+        elements: str
+        description: Allowaccess.
+        choices: ['https', 'ping', 'ssh', 'snmp', 'http', 'telnet', 'fgfm', 'auto-ipsec',
+                  'radius-acct', 'probe-response', 'capwap', 'dnp', 'ftm', 'fabric', 'speed-test',
+                  'icond', 'scim', 'mqtt']
+      detectprotocol:
+        type: list
+        elements: str
+        description: Detectprotocol.
+        choices: ['ping', 'tcp-echo', 'udp-echo']
+      detectserver:
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Detectserver.
+      gwdetect:
         type: str
+        description: Gwdetect.
+        choices: ['disable', 'enable']
+      ha_priority:
+        aliases: ['ha-priority']
+        type: int
+        description: Ha priority.
+      id:
+        type: int
+        description: Id.
         required: true
-    vlan:
-        description: The parameter (vlan) in requested url.
+      ip:
         type: str
-        required: true
-    fsp_vlan_interface_secondaryip:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            allowaccess:
-                type: list
-                elements: str
-                description: Allowaccess.
-                choices: ['https', 'ping', 'ssh', 'snmp', 'http', 'telnet', 'fgfm', 'auto-ipsec',
-                          'radius-acct', 'probe-response', 'capwap', 'dnp', 'ftm', 'fabric',
-                          'speed-test', 'icond', 'scim']
-            detectprotocol:
-                type: list
-                elements: str
-                description: Detectprotocol.
-                choices: ['ping', 'tcp-echo', 'udp-echo']
-            detectserver:
-                type: str
-                description: Detectserver.
-            gwdetect:
-                type: str
-                description: Gwdetect.
-                choices: ['disable', 'enable']
-            ha_priority:
-                aliases: ['ha-priority']
-                type: int
-                description: Ha priority.
-            id:
-                type: int
-                description: Id.
-                required: true
-            ip:
-                type: str
-                description: Ip.
-            ping_serv_status:
-                aliases: ['ping-serv-status']
-                type: int
-                description: Ping serv status.
-            seq:
-                type: int
-                description: Seq.
-            secip_relay_ip:
-                aliases: ['secip-relay-ip']
-                type: str
-                description: DHCP relay IP address.
+        description: Ip.
+      ping_serv_status:
+        aliases: ['ping-serv-status']
+        type: int
+        description: Ping serv status.
+      seq:
+        type: int
+        description: Seq.
+      secip_relay_ip:
+        aliases: ['secip-relay-ip']
+        type: str
+        description: DHCP relay IP address.
 '''
 
 EXAMPLES = '''
@@ -93,7 +93,7 @@ EXAMPLES = '''
           id: 0 # Required variable, integer
           # allowaccess: ["https", "ping", "ssh", "snmp", "http", "telnet", "fgfm", "auto-ipsec",
           #               "radius-acct", "probe-response", "capwap", "dnp", "ftm", "fabric",
-          #               "speed-test", "icond", "scim"]
+          #               "speed-test", "icond", "scim", "mqtt"]
           # detectprotocol: ["ping", "tcp-echo", "udp-echo"]
           # detectserver: <string>
           # gwdetect: <value in [disable, enable]>
@@ -106,42 +106,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -165,7 +165,7 @@ def main():
                     'type': 'list',
                     'choices': [
                         'https', 'ping', 'ssh', 'snmp', 'http', 'telnet', 'fgfm', 'auto-ipsec', 'radius-acct', 'probe-response', 'capwap', 'dnp', 'ftm',
-                        'fabric', 'speed-test', 'icond', 'scim'
+                        'fabric', 'speed-test', 'icond', 'scim', 'mqtt'
                     ],
                     'elements': 'str'
                 },

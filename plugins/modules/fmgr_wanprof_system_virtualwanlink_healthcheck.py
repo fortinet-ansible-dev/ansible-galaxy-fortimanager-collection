@@ -15,185 +15,185 @@ module: fmgr_wanprof_system_virtualwanlink_healthcheck
 short_description: SD-WAN status checking or health checking.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    adom:
-        description: The parameter (adom) in requested url.
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  wanprof:
+    description: The parameter (wanprof) in requested url.
+    type: str
+    required: true
+  wanprof_system_virtualwanlink_healthcheck:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      _dynamic_server:
+        aliases: ['_dynamic-server']
         type: str
-        required: true
-    wanprof:
-        description: The parameter (wanprof) in requested url.
+        description: Dynamic server.
+      addr_mode:
+        aliases: ['addr-mode']
         type: str
+        description: Address mode
+        choices: ['ipv4', 'ipv6']
+      failtime:
+        type: int
+        description: Number of failures before server is considered lost
+      http_agent:
+        aliases: ['http-agent']
+        type: str
+        description: String in the http-agent field in the HTTP header.
+      http_get:
+        aliases: ['http-get']
+        type: str
+        description: URL used to communicate with the server if the protocol if the protocol is HTTP.
+      http_match:
+        aliases: ['http-match']
+        type: str
+        description: Response string expected from the server if the protocol is HTTP.
+      interval:
+        type: int
+        description: Status check interval, or the time between attempting to connect to the server
+      members:
+        type: raw
+        description: (list or str) Member sequence number list.
+      name:
+        type: str
+        description: Status check or health check name.
         required: true
-    wanprof_system_virtualwanlink_healthcheck:
-        description: The top level parameters set.
-        required: false
-        type: dict
+      packet_size:
+        aliases: ['packet-size']
+        type: int
+        description: Packet size of a twamp test session,
+      password:
+        type: raw
+        description: (list) Twamp controller password in authentication mode
+      port:
+        type: int
+        description: Port number used to communicate with the server over the selected protocol.
+      protocol:
+        type: str
+        description: Protocol used to determine if the FortiGate can communicate with the server.
+        choices: ['ping', 'tcp-echo', 'udp-echo', 'http', 'twamp', 'ping6', 'dns']
+      recoverytime:
+        type: int
+        description: Number of successful responses received before server is considered recovered
+      security_mode:
+        aliases: ['security-mode']
+        type: str
+        description: Twamp controller security mode.
+        choices: ['none', 'authentication']
+      server:
+        type: raw
+        description: (list) IP address or FQDN name of the server.
+      sla:
+        type: list
+        elements: dict
+        description: Sla.
         suboptions:
-            _dynamic_server:
-                aliases: ['_dynamic-server']
-                type: str
-                description: Dynamic server.
-            addr_mode:
-                aliases: ['addr-mode']
-                type: str
-                description: Address mode
-                choices: ['ipv4', 'ipv6']
-            failtime:
-                type: int
-                description: Number of failures before server is considered lost
-            http_agent:
-                aliases: ['http-agent']
-                type: str
-                description: String in the http-agent field in the HTTP header.
-            http_get:
-                aliases: ['http-get']
-                type: str
-                description: URL used to communicate with the server if the protocol if the protocol is HTTP.
-            http_match:
-                aliases: ['http-match']
-                type: str
-                description: Response string expected from the server if the protocol is HTTP.
-            interval:
-                type: int
-                description: Status check interval, or the time between attempting to connect to the server
-            members:
-                type: raw
-                description: (list or str) Member sequence number list.
-            name:
-                type: str
-                description: Status check or health check name.
-                required: true
-            packet_size:
-                aliases: ['packet-size']
-                type: int
-                description: Packet size of a twamp test session,
-            password:
-                type: raw
-                description: (list) Twamp controller password in authentication mode
-            port:
-                type: int
-                description: Port number used to communicate with the server over the selected protocol.
-            protocol:
-                type: str
-                description: Protocol used to determine if the FortiGate can communicate with the server.
-                choices: ['ping', 'tcp-echo', 'udp-echo', 'http', 'twamp', 'ping6', 'dns']
-            recoverytime:
-                type: int
-                description: Number of successful responses received before server is considered recovered
-            security_mode:
-                aliases: ['security-mode']
-                type: str
-                description: Twamp controller security mode.
-                choices: ['none', 'authentication']
-            server:
-                type: raw
-                description: (list) IP address or FQDN name of the server.
-            sla:
-                type: list
-                elements: dict
-                description: Sla.
-                suboptions:
-                    id:
-                        type: int
-                        description: SLA ID.
-                    jitter_threshold:
-                        aliases: ['jitter-threshold']
-                        type: int
-                        description: Jitter for SLA to make decision in milliseconds.
-                    latency_threshold:
-                        aliases: ['latency-threshold']
-                        type: int
-                        description: Latency for SLA to make decision in milliseconds.
-                    link_cost_factor:
-                        aliases: ['link-cost-factor']
-                        type: list
-                        elements: str
-                        description: Criteria on which to base link selection.
-                        choices: ['latency', 'jitter', 'packet-loss']
-                    packetloss_threshold:
-                        aliases: ['packetloss-threshold']
-                        type: int
-                        description: Packet loss for SLA to make decision in percentage.
-            threshold_alert_jitter:
-                aliases: ['threshold-alert-jitter']
-                type: int
-                description: Alert threshold for jitter
-            threshold_alert_latency:
-                aliases: ['threshold-alert-latency']
-                type: int
-                description: Alert threshold for latency
-            threshold_alert_packetloss:
-                aliases: ['threshold-alert-packetloss']
-                type: int
-                description: Alert threshold for packet loss
-            threshold_warning_jitter:
-                aliases: ['threshold-warning-jitter']
-                type: int
-                description: Warning threshold for jitter
-            threshold_warning_latency:
-                aliases: ['threshold-warning-latency']
-                type: int
-                description: Warning threshold for latency
-            threshold_warning_packetloss:
-                aliases: ['threshold-warning-packetloss']
-                type: int
-                description: Warning threshold for packet loss
-            update_cascade_interface:
-                aliases: ['update-cascade-interface']
-                type: str
-                description: Enable/disable update cascade interface.
-                choices: ['disable', 'enable']
-            update_static_route:
-                aliases: ['update-static-route']
-                type: str
-                description: Enable/disable updating the static route.
-                choices: ['disable', 'enable']
-            internet_service_id:
-                aliases: ['internet-service-id']
-                type: str
-                description: Internet service ID.
-            probe_packets:
-                aliases: ['probe-packets']
-                type: str
-                description: Enable/disable transmission of probe packets.
-                choices: ['disable', 'enable']
-            sla_fail_log_period:
-                aliases: ['sla-fail-log-period']
-                type: int
-                description: Time interval in seconds that SLA fail log messages will be generated
-            sla_pass_log_period:
-                aliases: ['sla-pass-log-period']
-                type: int
-                description: Time interval in seconds that SLA pass log messages will be generated
-            timeout:
-                type: int
-                description: How long to wait before not receiving a reply from the server to consider the connetion attempt a failure
-            ha_priority:
-                aliases: ['ha-priority']
-                type: int
-                description: HA election priority
-            diffservcode:
-                type: str
-                description: Differentiated services code point
-            probe_timeout:
-                aliases: ['probe-timeout']
-                type: int
-                description: Time to wait before a probe packet is considered lost
-            dns_request_domain:
-                aliases: ['dns-request-domain']
-                type: str
-                description: Fully qualified domain name to resolve for the DNS probe.
-            probe_count:
-                aliases: ['probe-count']
-                type: int
-                description: Number of most recent probes that should be used to calculate latency and jitter
-            system_dns:
-                aliases: ['system-dns']
-                type: str
-                description: Enable/disable system DNS as the probe server.
-                choices: ['disable', 'enable']
+          id:
+            type: int
+            description: SLA ID.
+          jitter_threshold:
+            aliases: ['jitter-threshold']
+            type: int
+            description: Jitter for SLA to make decision in milliseconds.
+          latency_threshold:
+            aliases: ['latency-threshold']
+            type: int
+            description: Latency for SLA to make decision in milliseconds.
+          link_cost_factor:
+            aliases: ['link-cost-factor']
+            type: list
+            elements: str
+            description: Criteria on which to base link selection.
+            choices: ['latency', 'jitter', 'packet-loss']
+          packetloss_threshold:
+            aliases: ['packetloss-threshold']
+            type: int
+            description: Packet loss for SLA to make decision in percentage.
+      threshold_alert_jitter:
+        aliases: ['threshold-alert-jitter']
+        type: int
+        description: Alert threshold for jitter
+      threshold_alert_latency:
+        aliases: ['threshold-alert-latency']
+        type: int
+        description: Alert threshold for latency
+      threshold_alert_packetloss:
+        aliases: ['threshold-alert-packetloss']
+        type: int
+        description: Alert threshold for packet loss
+      threshold_warning_jitter:
+        aliases: ['threshold-warning-jitter']
+        type: int
+        description: Warning threshold for jitter
+      threshold_warning_latency:
+        aliases: ['threshold-warning-latency']
+        type: int
+        description: Warning threshold for latency
+      threshold_warning_packetloss:
+        aliases: ['threshold-warning-packetloss']
+        type: int
+        description: Warning threshold for packet loss
+      update_cascade_interface:
+        aliases: ['update-cascade-interface']
+        type: str
+        description: Enable/disable update cascade interface.
+        choices: ['disable', 'enable']
+      update_static_route:
+        aliases: ['update-static-route']
+        type: str
+        description: Enable/disable updating the static route.
+        choices: ['disable', 'enable']
+      internet_service_id:
+        aliases: ['internet-service-id']
+        type: str
+        description: Internet service ID.
+      probe_packets:
+        aliases: ['probe-packets']
+        type: str
+        description: Enable/disable transmission of probe packets.
+        choices: ['disable', 'enable']
+      sla_fail_log_period:
+        aliases: ['sla-fail-log-period']
+        type: int
+        description: Time interval in seconds that SLA fail log messages will be generated
+      sla_pass_log_period:
+        aliases: ['sla-pass-log-period']
+        type: int
+        description: Time interval in seconds that SLA pass log messages will be generated
+      timeout:
+        type: int
+        description: How long to wait before not receiving a reply from the server to consider the connetion attempt a failure
+      ha_priority:
+        aliases: ['ha-priority']
+        type: int
+        description: HA election priority
+      diffservcode:
+        type: str
+        description: Differentiated services code point
+      probe_timeout:
+        aliases: ['probe-timeout']
+        type: int
+        description: Time to wait before a probe packet is considered lost
+      dns_request_domain:
+        aliases: ['dns-request-domain']
+        type: str
+        description: Fully qualified domain name to resolve for the DNS probe.
+      probe_count:
+        aliases: ['probe-count']
+        type: int
+        description: Number of most recent probes that should be used to calculate latency and jitter
+      system_dns:
+        aliases: ['system-dns']
+        type: str
+        description: Enable/disable system DNS as the probe server.
+        choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -254,42 +254,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

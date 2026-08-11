@@ -15,165 +15,164 @@ module: fmgr_devprof_log_syslogd_filter
 short_description: Filters for remote system server.
 version_added: "1.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.partial_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.partial_crud
 options:
-    adom:
-        description: The parameter (adom) in requested url.
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  devprof:
+    description: The parameter (devprof) in requested url.
+    type: str
+    required: true
+  devprof_log_syslogd_filter:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      severity:
         type: str
-        required: true
-    devprof:
-        description: The parameter (devprof) in requested url.
+        description: Lowest severity level to log.
+        choices: ['emergency', 'alert', 'critical', 'error', 'warning', 'notification',
+                  'information', 'debug']
+      anomaly:
         type: str
-        required: true
-    devprof_log_syslogd_filter:
-        description: The top level parameters set.
-        required: false
-        type: dict
+        description: Enable/disable anomaly logging.
+        choices: ['disable', 'enable']
+      exclude_list:
+        aliases: ['exclude-list']
+        type: list
+        elements: dict
+        description: Exclude list.
         suboptions:
-            severity:
+          category:
+            type: str
+            description: Category.
+            choices: ['app-ctrl', 'attack', 'dlp', 'event', 'traffic', 'virus', 'voip',
+                      'webfilter', 'netscan', 'spam', 'anomaly', 'waf']
+          fields:
+            type: list
+            elements: dict
+            description: Fields.
+            suboptions:
+              args:
+                type: raw
+                description: (list) Args.
+              field:
                 type: str
-                description: Lowest severity level to log.
-                choices: ['emergency', 'alert', 'critical', 'error', 'warning', 'notification',
-                          'information', 'debug']
-            anomaly:
+                description: Field.
+              negate:
                 type: str
-                description: Enable/disable anomaly logging.
+                description: Negate.
                 choices: ['disable', 'enable']
-            exclude_list:
-                aliases: ['exclude-list']
-                type: list
-                elements: dict
-                description: Exclude list.
-                suboptions:
-                    category:
-                        type: str
-                        description: Category.
-                        choices: ['app-ctrl', 'attack', 'dlp', 'event', 'traffic', 'virus',
-                                  'voip', 'webfilter', 'netscan', 'spam', 'anomaly', 'waf']
-                    fields:
-                        type: list
-                        elements: dict
-                        description: Fields.
-                        suboptions:
-                            args:
-                                type: raw
-                                description: (list) Args.
-                            field:
-                                type: str
-                                description: Field.
-                            negate:
-                                type: str
-                                description: Negate.
-                                choices: ['disable', 'enable']
-                    id:
-                        type: int
-                        description: Id.
-            forward_traffic:
-                aliases: ['forward-traffic']
-                type: str
-                description: Enable/disable forward traffic logging.
-                choices: ['disable', 'enable']
-            free_style:
-                aliases: ['free-style']
-                type: list
-                elements: dict
-                description: Free style.
-                suboptions:
-                    category:
-                        type: str
-                        description: Log category.
-                        choices: ['traffic', 'event', 'virus', 'webfilter', 'attack', 'spam',
-                                  'voip', 'dlp', 'app-ctrl', 'anomaly', 'waf', 'gtp', 'dns',
-                                  'ssh', 'ssl', 'file-filter', 'icap', 'ztna', 'virtual-patch',
-                                  'debug']
-                    filter:
-                        type: str
-                        description: Free style filter string.
-                    filter_type:
-                        aliases: ['filter-type']
-                        type: str
-                        description: Include/exclude logs that match the filter.
-                        choices: ['include', 'exclude']
-                    id:
-                        type: int
-                        description: Entry ID.
-            gtp:
-                type: str
-                description: Enable/disable GTP messages logging.
-                choices: ['disable', 'enable']
-            local_traffic:
-                aliases: ['local-traffic']
-                type: str
-                description: Enable/disable local in or out traffic logging.
-                choices: ['disable', 'enable']
-            multicast_traffic:
-                aliases: ['multicast-traffic']
-                type: str
-                description: Enable/disable multicast traffic logging.
-                choices: ['disable', 'enable']
-            sniffer_traffic:
-                aliases: ['sniffer-traffic']
-                type: str
-                description: Enable/disable sniffer traffic logging.
-                choices: ['disable', 'enable']
-            voip:
-                type: str
-                description: Enable/disable VoIP logging.
-                choices: ['disable', 'enable']
-            ztna_traffic:
-                aliases: ['ztna-traffic']
-                type: str
-                description: Enable/disable ztna traffic logging.
-                choices: ['disable', 'enable']
-            filter_type:
-                aliases: ['filter-type']
-                type: str
-                description: Include/exclude logs that match the filter.
-                choices: ['include', 'exclude']
-            filter:
-                type: str
-                description: Syslog filter.
-            cifs:
-                type: str
-                description: Cifs.
-                choices: ['disable', 'enable']
-            ssl:
-                type: str
-                description: Ssl.
-                choices: ['disable', 'enable']
-            dns:
-                type: str
-                description: Enable/disable detailed DNS event logging.
-                choices: ['disable', 'enable']
-            ssh:
-                type: str
-                description: Enable/disable SSH logging.
-                choices: ['disable', 'enable']
-            netscan_discovery:
-                aliases: ['netscan-discovery']
-                type: str
-                description: Enable/disable netscan discovery event logging.
-                choices: ['disable', 'enable']
-            netscan_vulnerability:
-                aliases: ['netscan-vulnerability']
-                type: str
-                description: Enable/disable netscan vulnerability event logging.
-                choices: ['disable', 'enable']
-            forti_switch:
-                aliases: ['forti-switch']
-                type: str
-                description: Enable/disable Forti-Switch logging.
-                choices: ['disable', 'enable']
-            http_transaction:
-                aliases: ['http-transaction']
-                type: str
-                description: Enable/disable log HTTP transaction messages.
-                choices: ['disable', 'enable']
-            debug:
-                type: str
-                description: Enable/disable debug logging.
-                choices: ['disable', 'enable']
+          id:
+            type: int
+            description: Id.
+      forward_traffic:
+        aliases: ['forward-traffic']
+        type: str
+        description: Enable/disable forward traffic logging.
+        choices: ['disable', 'enable']
+      free_style:
+        aliases: ['free-style']
+        type: list
+        elements: dict
+        description: Free style.
+        suboptions:
+          category:
+            type: str
+            description: Log category.
+            choices: ['traffic', 'event', 'virus', 'webfilter', 'attack', 'spam', 'voip', 'dlp',
+                      'app-ctrl', 'anomaly', 'waf', 'gtp', 'dns', 'ssh', 'ssl', 'file-filter',
+                      'icap', 'ztna', 'virtual-patch', 'debug']
+          filter:
+            type: str
+            description: Free style filter string.
+          filter_type:
+            aliases: ['filter-type']
+            type: str
+            description: Include/exclude logs that match the filter.
+            choices: ['include', 'exclude']
+          id:
+            type: int
+            description: Entry ID.
+      gtp:
+        type: str
+        description: Enable/disable GTP messages logging.
+        choices: ['disable', 'enable']
+      local_traffic:
+        aliases: ['local-traffic']
+        type: str
+        description: Enable/disable local in or out traffic logging.
+        choices: ['disable', 'enable']
+      multicast_traffic:
+        aliases: ['multicast-traffic']
+        type: str
+        description: Enable/disable multicast traffic logging.
+        choices: ['disable', 'enable']
+      sniffer_traffic:
+        aliases: ['sniffer-traffic']
+        type: str
+        description: Enable/disable sniffer traffic logging.
+        choices: ['disable', 'enable']
+      voip:
+        type: str
+        description: Enable/disable VoIP logging.
+        choices: ['disable', 'enable']
+      ztna_traffic:
+        aliases: ['ztna-traffic']
+        type: str
+        description: Enable/disable ztna traffic logging.
+        choices: ['disable', 'enable']
+      filter_type:
+        aliases: ['filter-type']
+        type: str
+        description: Include/exclude logs that match the filter.
+        choices: ['include', 'exclude']
+      filter:
+        type: str
+        description: Syslog filter.
+      cifs:
+        type: str
+        description: Cifs.
+        choices: ['disable', 'enable']
+      ssl:
+        type: str
+        description: Ssl.
+        choices: ['disable', 'enable']
+      dns:
+        type: str
+        description: Enable/disable detailed DNS event logging.
+        choices: ['disable', 'enable']
+      ssh:
+        type: str
+        description: Enable/disable SSH logging.
+        choices: ['disable', 'enable']
+      netscan_discovery:
+        aliases: ['netscan-discovery']
+        type: str
+        description: Enable/disable netscan discovery event logging.
+        choices: ['disable', 'enable']
+      netscan_vulnerability:
+        aliases: ['netscan-vulnerability']
+        type: str
+        description: Enable/disable netscan vulnerability event logging.
+        choices: ['disable', 'enable']
+      forti_switch:
+        aliases: ['forti-switch']
+        type: str
+        description: Enable/disable Forti-Switch logging.
+        choices: ['disable', 'enable']
+      http_transaction:
+        aliases: ['http-transaction']
+        type: str
+        description: Enable/disable log HTTP transaction messages.
+        choices: ['disable', 'enable']
+      debug:
+        type: str
+        description: Enable/disable debug logging.
+        choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -224,42 +223,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -333,12 +332,12 @@ def main():
                 'sniffer-traffic': {'v_range': [['7.0.4', '7.0.16'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'voip': {'v_range': [['7.0.4', '7.0.16'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'ztna-traffic': {'v_range': [['7.0.4', '7.0.16'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'filter-type': {'v_range': [['7.0.4', '7.0.16'], ['7.2.1', '']], 'choices': ['include', 'exclude'], 'type': 'str'},
-                'filter': {'v_range': [['7.0.4', '7.0.16'], ['7.2.1', '']], 'type': 'str'},
+                'filter-type': {'v_range': [['7.0.4', '7.0.16'], ['7.2.1', '7.6.7']], 'choices': ['include', 'exclude'], 'type': 'str'},
+                'filter': {'v_range': [['7.0.4', '7.0.16'], ['7.2.1', '7.6.7']], 'type': 'str'},
                 'cifs': {'v_range': [['7.0.4', '7.0.16']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'ssl': {'v_range': [['7.0.4', '7.0.16']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'dns': {'v_range': [['7.0.4', '7.0.16'], ['7.2.1', '7.2.1'], ['7.4.8', '7.4.10']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'ssh': {'v_range': [['7.0.4', '7.0.16'], ['7.2.1', '7.2.1'], ['7.4.8', '7.4.10']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'dns': {'v_range': [['7.0.4', '7.0.16'], ['7.2.1', '7.2.1'], ['7.4.8', '7.4.11']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'ssh': {'v_range': [['7.0.4', '7.0.16'], ['7.2.1', '7.2.1'], ['7.4.8', '7.4.11']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'netscan-discovery': {'v_range': [['7.0.4', '7.0.16']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'netscan-vulnerability': {'v_range': [['7.0.4', '7.0.16']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'forti-switch': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},

@@ -15,545 +15,542 @@ module: fmgr_dvm_cmd_import_devlist
 short_description: Import a list of ADOMs and devices.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
+  - fortinet.fortimanager.general
 options:
-    dvm_cmd_import_devlist:
-        description: The top level parameters set.
-        required: false
-        type: dict
+  dvm_cmd_import_devlist:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      adom:
+        type: str
+        description: Name or ID of the ADOM where the command is to be executed on.
+      flags:
+        type: list
+        elements: str
+        description:
+          - create_task - Create a new task in task manager database.
+          - nonblocking - The API will return immediately in for non-blocking call.
+        choices: ['none', 'create_task', 'nonblocking', 'log_dev']
+      import_adom_members:
+        aliases: ['import-adom-members']
+        type: list
+        elements: dict
+        description: Associations between devices and ADOMs.
         suboptions:
-            adom:
+          adom:
+            type: str
+            description: Target ADOM to associate device VDOM with.
+          dev:
+            type: str
+            description: Dev.
+          vdom:
+            type: str
+            description: Vdom.
+      import_adoms:
+        aliases: ['import-adoms']
+        type: list
+        elements: dict
+        description: A list of ADOM and device group objects to be imported.
+        suboptions:
+          desc:
+            type: str
+            description: Desc.
+          flags:
+            type: list
+            elements: str
+            description: Flags.
+            choices: ['migration', 'db_export', 'no_vpn_console', 'backup', 'other_devices',
+                      'central_sdwan', 'is_autosync', 'per_device_wtp', 'policy_check_on_install',
+                      'install_on_policy_check_fail', 'auto_push_cfg', 'per_device_fsw',
+                      'install_deselect_all']
+          log_db_retention_hours:
+            type: int
+            description: Log db retention hours.
+          log_disk_quota:
+            type: int
+            description: Log disk quota.
+          log_disk_quota_alert_thres:
+            type: int
+            description: Log disk quota alert thres.
+          log_disk_quota_split_ratio:
+            type: int
+            description: Log disk quota split ratio.
+          log_file_retention_hours:
+            type: int
+            description: Log file retention hours.
+          meta_fields:
+            aliases: ['meta fields']
+            type: dict
+            description: Default metafields
+          mig_mr:
+            type: int
+            description: Mig mr.
+          mig_os_ver:
+            type: str
+            description: Mig os ver.
+            choices: ['unknown', '0.0', '1.0', '2.0', '3.0', '4.0', '5.0', '6.0', '7.0', '8.0',
+                      '9.0']
+          mode:
+            type: str
+            description:
+              - ems -
+              - provider - Global database.
+            choices: ['ems', 'gms', 'provider']
+          mr:
+            type: int
+            description: Mr.
+          name:
+            type: str
+            description: Name.
+          os_ver:
+            type: str
+            description: Os ver.
+            choices: ['unknown', '0.0', '1.0', '2.0', '3.0', '4.0', '5.0', '6.0', '7.0', '8.0',
+                      '9.0']
+          restricted_prds:
+            type: raw
+            description: (list or str) Restricted prds.
+            choices: ['fos', 'foc', 'fml', 'fch', 'fwb', 'log', 'fct', 'faz', 'fsa', 'fsw', 'fmg',
+                      'fdd', 'fac', 'fpx', 'fna', 'fdc', 'ffw', 'fsr', 'fad', 'fap', 'fxt', 'fts',
+                      'fai', 'fwc', 'fis', 'fed', 'fabric', 'fpa', 'fca', 'ftc', 'fss', 'sim',
+                      'fra', 'fdt']
+          state:
+            type: int
+            description: State.
+          uuid:
+            type: str
+            description: Uuid.
+          create_time:
+            type: int
+            description: Create time.
+          workspace_mode:
+            type: int
+            description: Workspace mode.
+          tz:
+            type: int
+            description: Tz.
+          lock_override:
+            type: int
+            description: Lock override.
+          primary_dns_ip4:
+            type: str
+            description: Primary dns ip4.
+          primary_dns_ip6_1:
+            type: int
+            description: Primary dns ip6 1.
+          primary_dns_ip6_2:
+            type: int
+            description: Primary dns ip6 2.
+          primary_dns_ip6_3:
+            type: int
+            description: Primary dns ip6 3.
+          primary_dns_ip6_4:
+            type: int
+            description: Primary dns ip6 4.
+          secondary_dns_ip4:
+            type: str
+            description: Secondary dns ip4.
+          secondary_dns_ip6_1:
+            type: int
+            description: Secondary dns ip6 1.
+          secondary_dns_ip6_2:
+            type: int
+            description: Secondary dns ip6 2.
+          secondary_dns_ip6_3:
+            type: int
+            description: Secondary dns ip6 3.
+          secondary_dns_ip6_4:
+            type: int
+            description: Secondary dns ip6 4.
+      import_devices:
+        aliases: ['import-devices']
+        type: list
+        elements: dict
+        description: A list of device objects to be imported.
+        suboptions:
+          adm_pass:
+            type: raw
+            description: (list) Adm pass.
+          adm_usr:
+            type: str
+            description: Adm usr.
+          app_ver:
+            type: str
+            description: App ver.
+          av_ver:
+            type: str
+            description: Av ver.
+          beta:
+            type: int
+            description: Beta.
+          branch_pt:
+            type: int
+            description: Branch pt.
+          build:
+            type: int
+            description: Build.
+          checksum:
+            type: str
+            description: Checksum.
+          conf_status:
+            type: str
+            description: Conf status.
+            choices: ['unknown', 'insync', 'outofsync']
+          conn_mode:
+            type: str
+            description: Conn mode.
+            choices: ['active', 'passive']
+          conn_status:
+            type: str
+            description: Conn status.
+            choices: ['UNKNOWN', 'up', 'down']
+          db_status:
+            type: str
+            description: Db status.
+            choices: ['unknown', 'nomod', 'mod']
+          desc:
+            type: str
+            description: Desc.
+          dev_status:
+            type: str
+            description: Dev status.
+            choices: ['none', 'unknown', 'checkedin', 'inprogress', 'installed', 'aborted',
+                      'sched', 'retry', 'canceled', 'pending', 'retrieved', 'changed_conf',
+                      'sync_fail', 'timeout', 'rev_revert', 'auto_updated']
+          fap_cnt:
+            type: int
+            description: Fap cnt.
+          faz_full_act:
+            aliases: ['faz.full_act']
+            type: int
+            description: Faz.
+          faz_perm:
+            aliases: ['faz.perm']
+            type: int
+            description: Faz.
+          faz_quota:
+            aliases: ['faz.quota']
+            type: int
+            description: Faz.
+          faz_used:
+            aliases: ['faz.used']
+            type: int
+            description: Faz.
+          fex_cnt:
+            type: int
+            description: Fex cnt.
+          flags:
+            type: list
+            elements: str
+            description: Flags.
+            choices: ['has_hdd', 'vdom_enabled', 'discover', 'reload', 'interim_build',
+                      'offline_mode', 'is_model', 'fips_mode', 'linked_to_model', 'ip-conflict',
+                      'faz-autosync', 'need_reset', 'backup_mode', 'azure_vwan_nva',
+                      'fgsp_configured', 'cnf_mode', 'sase_managed', 'override_management_intf',
+                      'sdwan_management', 'deny_api_access']
+          foslic_cpu:
+            type: int
+            description: VM Meter vCPU count.
+          foslic_dr_site:
+            type: str
+            description: VM Meter DR Site status.
+            choices: ['disable', 'enable']
+          foslic_inst_time:
+            type: int
+            description: VM Meter first deployment time
+          foslic_last_sync:
+            type: int
+            description: VM Meter last synchronized time
+          foslic_ram:
+            type: int
+            description: VM Meter device RAM size
+          foslic_type:
+            type: str
+            description: VM Meter license type.
+            choices: ['temporary', 'trial', 'regular', 'trial_expired']
+          foslic_utm:
+            type: list
+            elements: str
+            description:
+              - VM Meter services
+              - fw - Firewall
+              - av - Anti-virus
+              - ips - IPS
+              - app - App control
+              - url - Web filter
+              - utm - Full UTM
+              - fwb - FortiWeb
+            choices: ['fw', 'av', 'ips', 'app', 'url', 'utm', 'fwb']
+          fsw_cnt:
+            type: int
+            description: Fsw cnt.
+          ha_group_id:
+            type: int
+            description: Ha group id.
+          ha_group_name:
+            type: str
+            description: Ha group name.
+          ha_mode:
+            type: str
+            description: Enabled - Value reserved for non-FOS HA devices.
+            choices: ['standalone', 'AP', 'AA', 'ELBC', 'DUAL', 'enabled', 'unknown',
+                      'fmg-enabled', 'autoscale']
+          ha_slave:
+            type: list
+            elements: dict
+            description: Ha slave.
+            suboptions:
+              idx:
+                type: int
+                description: Idx.
+              name:
                 type: str
-                description: Name or ID of the ADOM where the command is to be executed on.
-            flags:
-                type: list
-                elements: str
-                description:
-                    - create_task - Create a new task in task manager database.
-                    - nonblocking - The API will return immediately in for non-blocking call.
-                choices: ['none', 'create_task', 'nonblocking', 'log_dev']
-            import_adom_members:
-                aliases: ['import-adom-members']
-                type: list
-                elements: dict
-                description: Associations between devices and ADOMs.
-                suboptions:
-                    adom:
-                        type: str
-                        description: Target ADOM to associate device VDOM with.
-                    dev:
-                        type: str
-                        description: Dev.
-                    vdom:
-                        type: str
-                        description: Vdom.
-            import_adoms:
-                aliases: ['import-adoms']
-                type: list
-                elements: dict
-                description: A list of ADOM and device group objects to be imported.
-                suboptions:
-                    desc:
-                        type: str
-                        description: Desc.
-                    flags:
-                        type: list
-                        elements: str
-                        description: Flags.
-                        choices: ['migration', 'db_export', 'no_vpn_console', 'backup',
-                                  'other_devices', 'central_sdwan', 'is_autosync',
-                                  'per_device_wtp', 'policy_check_on_install',
-                                  'install_on_policy_check_fail', 'auto_push_cfg',
-                                  'per_device_fsw', 'install_deselect_all']
-                    log_db_retention_hours:
-                        type: int
-                        description: Log db retention hours.
-                    log_disk_quota:
-                        type: int
-                        description: Log disk quota.
-                    log_disk_quota_alert_thres:
-                        type: int
-                        description: Log disk quota alert thres.
-                    log_disk_quota_split_ratio:
-                        type: int
-                        description: Log disk quota split ratio.
-                    log_file_retention_hours:
-                        type: int
-                        description: Log file retention hours.
-                    meta_fields:
-                        aliases: ['meta fields']
-                        type: dict
-                        description: Default metafields
-                    mig_mr:
-                        type: int
-                        description: Mig mr.
-                    mig_os_ver:
-                        type: str
-                        description: Mig os ver.
-                        choices: ['unknown', '0.0', '1.0', '2.0', '3.0', '4.0', '5.0', '6.0',
-                                  '7.0', '8.0', '9.0']
-                    mode:
-                        type: str
-                        description:
-                            - ems -
-                            - provider - Global database.
-                        choices: ['ems', 'gms', 'provider']
-                    mr:
-                        type: int
-                        description: Mr.
-                    name:
-                        type: str
-                        description: Name.
-                    os_ver:
-                        type: str
-                        description: Os ver.
-                        choices: ['unknown', '0.0', '1.0', '2.0', '3.0', '4.0', '5.0', '6.0',
-                                  '7.0', '8.0', '9.0']
-                    restricted_prds:
-                        type: raw
-                        description: (list or str) Restricted prds.
-                        choices: ['fos', 'foc', 'fml', 'fch', 'fwb', 'log', 'fct', 'faz', 'fsa',
-                                  'fsw', 'fmg', 'fdd', 'fac', 'fpx', 'fna', 'fdc', 'ffw', 'fsr',
-                                  'fad', 'fap', 'fxt', 'fts', 'fai', 'fwc', 'fis', 'fed',
-                                  'fabric', 'fpa', 'fca', 'ftc', 'fss', 'sim', 'fra']
-                    state:
-                        type: int
-                        description: State.
-                    uuid:
-                        type: str
-                        description: Uuid.
-                    create_time:
-                        type: int
-                        description: Create time.
-                    workspace_mode:
-                        type: int
-                        description: Workspace mode.
-                    tz:
-                        type: int
-                        description: Tz.
-                    lock_override:
-                        type: int
-                        description: Lock override.
-                    primary_dns_ip4:
-                        type: str
-                        description: Primary dns ip4.
-                    primary_dns_ip6_1:
-                        type: int
-                        description: Primary dns ip6 1.
-                    primary_dns_ip6_2:
-                        type: int
-                        description: Primary dns ip6 2.
-                    primary_dns_ip6_3:
-                        type: int
-                        description: Primary dns ip6 3.
-                    primary_dns_ip6_4:
-                        type: int
-                        description: Primary dns ip6 4.
-                    secondary_dns_ip4:
-                        type: str
-                        description: Secondary dns ip4.
-                    secondary_dns_ip6_1:
-                        type: int
-                        description: Secondary dns ip6 1.
-                    secondary_dns_ip6_2:
-                        type: int
-                        description: Secondary dns ip6 2.
-                    secondary_dns_ip6_3:
-                        type: int
-                        description: Secondary dns ip6 3.
-                    secondary_dns_ip6_4:
-                        type: int
-                        description: Secondary dns ip6 4.
-            import_devices:
-                aliases: ['import-devices']
-                type: list
-                elements: dict
-                description: A list of device objects to be imported.
-                suboptions:
-                    adm_pass:
-                        type: raw
-                        description: (list) Adm pass.
-                    adm_usr:
-                        type: str
-                        description: Adm usr.
-                    app_ver:
-                        type: str
-                        description: App ver.
-                    av_ver:
-                        type: str
-                        description: Av ver.
-                    beta:
-                        type: int
-                        description: Beta.
-                    branch_pt:
-                        type: int
-                        description: Branch pt.
-                    build:
-                        type: int
-                        description: Build.
-                    checksum:
-                        type: str
-                        description: Checksum.
-                    conf_status:
-                        type: str
-                        description: Conf status.
-                        choices: ['unknown', 'insync', 'outofsync']
-                    conn_mode:
-                        type: str
-                        description: Conn mode.
-                        choices: ['active', 'passive']
-                    conn_status:
-                        type: str
-                        description: Conn status.
-                        choices: ['UNKNOWN', 'up', 'down']
-                    db_status:
-                        type: str
-                        description: Db status.
-                        choices: ['unknown', 'nomod', 'mod']
-                    desc:
-                        type: str
-                        description: Desc.
-                    dev_status:
-                        type: str
-                        description: Dev status.
-                        choices: ['none', 'unknown', 'checkedin', 'inprogress', 'installed',
-                                  'aborted', 'sched', 'retry', 'canceled', 'pending', 'retrieved',
-                                  'changed_conf', 'sync_fail', 'timeout', 'rev_revert',
-                                  'auto_updated']
-                    fap_cnt:
-                        type: int
-                        description: Fap cnt.
-                    faz_full_act:
-                        aliases: ['faz.full_act']
-                        type: int
-                        description: Faz.
-                    faz_perm:
-                        aliases: ['faz.perm']
-                        type: int
-                        description: Faz.
-                    faz_quota:
-                        aliases: ['faz.quota']
-                        type: int
-                        description: Faz.
-                    faz_used:
-                        aliases: ['faz.used']
-                        type: int
-                        description: Faz.
-                    fex_cnt:
-                        type: int
-                        description: Fex cnt.
-                    flags:
-                        type: list
-                        elements: str
-                        description: Flags.
-                        choices: ['has_hdd', 'vdom_enabled', 'discover', 'reload',
-                                  'interim_build', 'offline_mode', 'is_model', 'fips_mode',
-                                  'linked_to_model', 'ip-conflict', 'faz-autosync', 'need_reset',
-                                  'backup_mode', 'azure_vwan_nva', 'fgsp_configured', 'cnf_mode',
-                                  'sase_managed', 'override_management_intf', 'sdwan_management',
-                                  'deny_api_access']
-                    foslic_cpu:
-                        type: int
-                        description: VM Meter vCPU count.
-                    foslic_dr_site:
-                        type: str
-                        description: VM Meter DR Site status.
-                        choices: ['disable', 'enable']
-                    foslic_inst_time:
-                        type: int
-                        description: VM Meter first deployment time
-                    foslic_last_sync:
-                        type: int
-                        description: VM Meter last synchronized time
-                    foslic_ram:
-                        type: int
-                        description: VM Meter device RAM size
-                    foslic_type:
-                        type: str
-                        description: VM Meter license type.
-                        choices: ['temporary', 'trial', 'regular', 'trial_expired']
-                    foslic_utm:
-                        type: list
-                        elements: str
-                        description:
-                            - VM Meter services
-                            - fw - Firewall
-                            - av - Anti-virus
-                            - ips - IPS
-                            - app - App control
-                            - url - Web filter
-                            - utm - Full UTM
-                            - fwb - FortiWeb
-                        choices: ['fw', 'av', 'ips', 'app', 'url', 'utm', 'fwb']
-                    fsw_cnt:
-                        type: int
-                        description: Fsw cnt.
-                    ha_group_id:
-                        type: int
-                        description: Ha group id.
-                    ha_group_name:
-                        type: str
-                        description: Ha group name.
-                    ha_mode:
-                        type: str
-                        description: Enabled - Value reserved for non-FOS HA devices.
-                        choices: ['standalone', 'AP', 'AA', 'ELBC', 'DUAL', 'enabled', 'unknown',
-                                  'fmg-enabled', 'autoscale']
-                    ha_slave:
-                        type: list
-                        elements: dict
-                        description: Ha slave.
-                        suboptions:
-                            idx:
-                                type: int
-                                description: Idx.
-                            name:
-                                type: str
-                                description: Name.
-                            prio:
-                                type: int
-                                description: Prio.
-                            role:
-                                type: str
-                                description: Role.
-                                choices: ['slave', 'master']
-                            sn:
-                                type: str
-                                description: Sn.
-                            status:
-                                type: int
-                                description: Status.
-                            conf_status:
-                                type: int
-                                description: Conf status.
-                    hdisk_size:
-                        type: int
-                        description: Hdisk size.
-                    hostname:
-                        type: str
-                        description: Hostname.
-                    hw_rev_major:
-                        type: int
-                        description: Hw rev major.
-                    hw_rev_minor:
-                        type: int
-                        description: Hw rev minor.
-                    ip:
-                        type: str
-                        description: Ip.
-                    ips_ext:
-                        type: int
-                        description: Ips ext.
-                    ips_ver:
-                        type: str
-                        description: Ips ver.
-                    last_checked:
-                        type: int
-                        description: Last checked.
-                    last_resync:
-                        type: int
-                        description: Last resync.
-                    latitude:
-                        type: str
-                        description: Latitude.
-                    lic_flags:
-                        type: int
-                        description: Lic flags.
-                    lic_region:
-                        type: str
-                        description: Lic region.
-                    location_from:
-                        type: str
-                        description: Location from.
-                    logdisk_size:
-                        type: int
-                        description: Logdisk size.
-                    longitude:
-                        type: str
-                        description: Longitude.
-                    maxvdom:
-                        type: int
-                        description: Maxvdom.
-                    meta_fields:
-                        aliases: ['meta fields']
-                        type: dict
-                        description: Default metafields
-                    mgmt_id:
-                        type: int
-                        description: Mgmt id.
-                    mgmt_if:
-                        type: str
-                        description: Mgmt if.
-                    mgmt_mode:
-                        type: str
-                        description: Mgmt mode.
-                        choices: ['unreg', 'fmg', 'faz', 'fmgfaz']
-                    mgt_vdom:
-                        type: str
-                        description: Mgt vdom.
-                    mr:
-                        type: int
-                        description: Mr.
-                    name:
-                        type: str
-                        description: Unique name for the device.
-                    os_type:
-                        type: str
-                        description: Os type.
-                        choices: ['unknown', 'fos', 'fsw', 'foc', 'fml', 'faz', 'fwb', 'fch',
-                                  'fct', 'log', 'fmg', 'fsa', 'fdd', 'fac', 'fpx', 'fna', 'fdc',
-                                  'ffw', 'fsr', 'fad', 'fap', 'fxt', 'fts', 'fai', 'fwc', 'fis',
-                                  'fed', 'fpa', 'fca', 'ftc', 'fss', 'fra', 'sim']
-                    os_ver:
-                        type: str
-                        description: Os ver.
-                        choices: ['unknown', '0.0', '1.0', '2.0', '3.0', '4.0', '5.0', '6.0',
-                                  '7.0', '8.0', '9.0']
-                    patch:
-                        type: int
-                        description: Patch.
-                    platform_str:
-                        type: str
-                        description: Platform str.
-                    psk:
-                        type: str
-                        description: Psk.
-                    sn:
-                        type: str
-                        description: Unique value for each device.
-                    vdom:
-                        type: list
-                        elements: dict
-                        description: Vdom.
-                        suboptions:
-                            comments:
-                                type: str
-                                description: Comments.
-                            name:
-                                type: str
-                                description: Name.
-                            opmode:
-                                type: str
-                                description: Opmode.
-                                choices: ['nat', 'transparent']
-                            rtm_prof_id:
-                                type: int
-                                description: Rtm prof id.
-                            status:
-                                type: str
-                                description: Status.
-                            vpn_id:
-                                type: int
-                                description: Vpn id.
-                            meta_fields:
-                                aliases: ['meta fields']
-                                type: dict
-                                description: Meta fields.
-                            vdom_type:
-                                type: str
-                                description: Vdom type.
-                                choices: ['traffic', 'admin']
-                    version:
-                        type: int
-                        description: Version.
-                    vm_cpu:
-                        type: int
-                        description: Vm cpu.
-                    vm_cpu_limit:
-                        type: int
-                        description: Vm cpu limit.
-                    vm_lic_expire:
-                        type: int
-                        description: Vm lic expire.
-                    vm_mem:
-                        type: int
-                        description: Vm mem.
-                    vm_mem_limit:
-                        type: int
-                        description: Vm mem limit.
-                    vm_status:
-                        type: raw
-                        description: (int or str) Vm status.
-                    module_sn:
-                        type: str
-                        description: Module sn.
-                    prefer_img_ver:
-                        type: str
-                        description: Prefer img ver.
-                    prio:
-                        type: int
-                        description: Prio.
-                    role:
-                        type: str
-                        description: Role.
-                        choices: ['master', 'ha-slave', 'autoscale-slave']
-                    hyperscale:
-                        type: int
-                        description: Hyperscale.
-                    nsxt_service_name:
-                        type: str
-                        description: Nsxt service name.
-                    private_key:
-                        type: str
-                        description: Private key.
-                    private_key_status:
-                        type: int
-                        description: Private key status.
-                    vm_lic_overdue_since:
-                        type: int
-                        description: Vm lic overdue since.
-                    first_tunnel_up:
-                        type: int
-                        description: First tunnel up.
-                    eip:
-                        type: str
-                        description: Eip.
-                    mgmt_uuid:
-                        type: str
-                        description: Mgmt uuid.
-                    hw_generation:
-                        type: int
-                        description: Hw generation.
-                    relver_info:
-                        type: str
-                        description: Relver info.
-                    cluster_worker:
-                        type: str
-                        description: Cluster worker.
-                    ha_vsn:
-                        aliases: ['ha.vsn']
-                        type: str
-                        description: Ha.
-                    ha_upgrade_mode:
-                        type: int
-                        description: Ha upgrade mode.
-                    vm_payg_status:
-                        type: int
-                        description: Vm payg status.
-                    sov_sase_license:
-                        type: str
-                        description: Sov sase license.
-                    tunnel_sn:
-                        type: str
-                        description: Tunnel sn.
-            import_group_members:
-                aliases: ['import-group-members']
-                type: list
-                elements: dict
-                description: Associations between devices and device groups.
-                suboptions:
-                    adom:
-                        type: str
-                        description: ADOM where the device group is located.
-                    dev:
-                        type: str
-                        description: Dev.
-                    grp:
-                        type: str
-                        description: Target device group to associate device VDOM with.
-                    vdom:
-                        type: str
-                        description: Vdom.
+                description: Name.
+              prio:
+                type: int
+                description: Prio.
+              role:
+                type: str
+                description: Role.
+                choices: ['slave', 'master']
+              sn:
+                type: str
+                description: Sn.
+              status:
+                type: int
+                description: Status.
+              conf_status:
+                type: int
+                description: Conf status.
+          hdisk_size:
+            type: int
+            description: Hdisk size.
+          hostname:
+            type: str
+            description: Hostname.
+          hw_rev_major:
+            type: int
+            description: Hw rev major.
+          hw_rev_minor:
+            type: int
+            description: Hw rev minor.
+          ip:
+            type: str
+            description: Ip.
+          ips_ext:
+            type: int
+            description: Ips ext.
+          ips_ver:
+            type: str
+            description: Ips ver.
+          last_checked:
+            type: int
+            description: Last checked.
+          last_resync:
+            type: int
+            description: Last resync.
+          latitude:
+            type: str
+            description: Latitude.
+          lic_flags:
+            type: int
+            description: Lic flags.
+          lic_region:
+            type: str
+            description: Lic region.
+          location_from:
+            type: str
+            description: Location from.
+          logdisk_size:
+            type: int
+            description: Logdisk size.
+          longitude:
+            type: str
+            description: Longitude.
+          maxvdom:
+            type: int
+            description: Maxvdom.
+          meta_fields:
+            aliases: ['meta fields']
+            type: dict
+            description: Default metafields
+          mgmt_id:
+            type: int
+            description: Mgmt id.
+          mgmt_if:
+            type: str
+            description: Mgmt if.
+          mgmt_mode:
+            type: str
+            description: Mgmt mode.
+            choices: ['unreg', 'fmg', 'faz', 'fmgfaz']
+          mgt_vdom:
+            type: str
+            description: Mgt vdom.
+          mr:
+            type: int
+            description: Mr.
+          name:
+            type: str
+            description: Unique name for the device.
+          os_type:
+            type: str
+            description: Os type.
+            choices: ['unknown', 'fos', 'fsw', 'foc', 'fml', 'faz', 'fwb', 'fch', 'fct', 'log',
+                      'fmg', 'fsa', 'fdd', 'fac', 'fpx', 'fna', 'fdc', 'ffw', 'fsr', 'fad', 'fap',
+                      'fxt', 'fts', 'fai', 'fwc', 'fis', 'fed', 'fpa', 'fca', 'ftc', 'fss', 'fra',
+                      'sim', 'fdt']
+          os_ver:
+            type: str
+            description: Os ver.
+            choices: ['unknown', '0.0', '1.0', '2.0', '3.0', '4.0', '5.0', '6.0', '7.0', '8.0',
+                      '9.0']
+          patch:
+            type: int
+            description: Patch.
+          platform_str:
+            type: str
+            description: Platform str.
+          psk:
+            type: str
+            description: Psk.
+          sn:
+            type: str
+            description: Unique value for each device.
+          vdom:
+            type: list
+            elements: dict
+            description: Vdom.
+            suboptions:
+              comments:
+                type: str
+                description: Comments.
+              name:
+                type: str
+                description: Name.
+              opmode:
+                type: str
+                description: Opmode.
+                choices: ['nat', 'transparent']
+              rtm_prof_id:
+                type: int
+                description: Rtm prof id.
+              status:
+                type: str
+                description: Status.
+              vpn_id:
+                type: int
+                description: Vpn id.
+              meta_fields:
+                aliases: ['meta fields']
+                type: dict
+                description: Meta fields.
+              vdom_type:
+                type: str
+                description: Vdom type.
+                choices: ['traffic', 'admin']
+          version:
+            type: int
+            description: Version.
+          vm_cpu:
+            type: int
+            description: Vm cpu.
+          vm_cpu_limit:
+            type: int
+            description: Vm cpu limit.
+          vm_lic_expire:
+            type: int
+            description: Vm lic expire.
+          vm_mem:
+            type: int
+            description: Vm mem.
+          vm_mem_limit:
+            type: int
+            description: Vm mem limit.
+          vm_status:
+            type: raw
+            description: (int or str) Vm status.
+          module_sn:
+            type: str
+            description: Module sn.
+          prefer_img_ver:
+            type: str
+            description: Prefer img ver.
+          prio:
+            type: int
+            description: Prio.
+          role:
+            type: str
+            description: Role.
+            choices: ['master', 'ha-slave', 'autoscale-slave']
+          hyperscale:
+            type: int
+            description: Hyperscale.
+          nsxt_service_name:
+            type: str
+            description: Nsxt service name.
+          private_key:
+            type: str
+            description: Private key.
+          private_key_status:
+            type: int
+            description: Private key status.
+          vm_lic_overdue_since:
+            type: int
+            description: Vm lic overdue since.
+          first_tunnel_up:
+            type: int
+            description: First tunnel up.
+          eip:
+            type: str
+            description: Eip.
+          mgmt_uuid:
+            type: str
+            description: Mgmt uuid.
+          hw_generation:
+            type: int
+            description: Hw generation.
+          relver_info:
+            type: str
+            description: Relver info.
+          cluster_worker:
+            type: str
+            description: Cluster worker.
+          ha_vsn:
+            aliases: ['ha.vsn']
+            type: str
+            description: Ha.
+          ha_upgrade_mode:
+            type: int
+            description: Ha upgrade mode.
+          vm_payg_status:
+            type: int
+            description: Vm payg status.
+          sov_sase_license:
+            type: str
+            description: Sov sase license.
+          tunnel_sn:
+            type: str
+            description: Tunnel sn.
+      import_group_members:
+        aliases: ['import-group-members']
+        type: list
+        elements: dict
+        description: Associations between devices and device groups.
+        suboptions:
+          adom:
+            type: str
+            description: ADOM where the device group is located.
+          dev:
+            type: str
+            description: Dev.
+          grp:
+            type: str
+            description: Target device group to associate device VDOM with.
+          vdom:
+            type: str
+            description: Vdom.
 '''
 
 EXAMPLES = '''
@@ -593,7 +590,7 @@ EXAMPLES = '''
           #     restricted_prds: ["fos", "foc", "fml", "fch", "fwb", "log", "fct", "faz", "fsa",
           #                       "fsw", "fmg", "fdd", "fac", "fpx", "fna", "fdc", "ffw", "fsr",
           #                       "fad", "fap", "fxt", "fts", "fai", "fwc", "fis", "fed",
-          #                       "fabric", "fpa", "fca", "ftc", "fss", "sim", "fra"]
+          #                       "fabric", "fpa", "fca", "ftc", "fss", "sim", "fra", "fdt"]
           #     state: <integer>
           #     uuid: <string>
           #     create_time: <integer>
@@ -729,42 +726,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -805,8 +802,12 @@ def main():
                         'log_disk_quota_split_ratio': {'type': 'int'},
                         'log_file_retention_hours': {'type': 'int'},
                         'meta fields': {'type': 'dict'},
-                        'mig_mr': {'type': 'int'},
-                        'mig_os_ver': {'choices': ['unknown', '0.0', '1.0', '2.0', '3.0', '4.0', '5.0', '6.0', '7.0', '8.0', '9.0'], 'type': 'str'},
+                        'mig_mr': {'v_range': [['6.0.0', '7.6.6'], ['8.0.0', '']], 'type': 'int'},
+                        'mig_os_ver': {
+                            'v_range': [['6.0.0', '7.6.6'], ['8.0.0', '']],
+                            'choices': ['unknown', '0.0', '1.0', '2.0', '3.0', '4.0', '5.0', '6.0', '7.0', '8.0', '9.0'],
+                            'type': 'str'
+                        },
                         'mode': {'choices': ['ems', 'gms', 'provider'], 'type': 'str'},
                         'mr': {'type': 'int'},
                         'name': {'type': 'str'},
@@ -815,7 +816,7 @@ def main():
                             'type': 'raw',
                             'choices': [
                                 'fos', 'foc', 'fml', 'fch', 'fwb', 'log', 'fct', 'faz', 'fsa', 'fsw', 'fmg', 'fdd', 'fac', 'fpx', 'fna', 'fdc', 'ffw',
-                                'fsr', 'fad', 'fap', 'fxt', 'fts', 'fai', 'fwc', 'fis', 'fed', 'fabric', 'fpa', 'fca', 'ftc', 'fss', 'sim', 'fra'
+                                'fsr', 'fad', 'fap', 'fxt', 'fts', 'fai', 'fwc', 'fis', 'fed', 'fabric', 'fpa', 'fca', 'ftc', 'fss', 'sim', 'fra', 'fdt'
                             ]
                         },
                         'state': {'type': 'int'},
@@ -928,7 +929,8 @@ def main():
                         'os_type': {
                             'choices': [
                                 'unknown', 'fos', 'fsw', 'foc', 'fml', 'faz', 'fwb', 'fch', 'fct', 'log', 'fmg', 'fsa', 'fdd', 'fac', 'fpx', 'fna',
-                                'fdc', 'ffw', 'fsr', 'fad', 'fap', 'fxt', 'fts', 'fai', 'fwc', 'fis', 'fed', 'fpa', 'fca', 'ftc', 'fss', 'fra', 'sim'
+                                'fdc', 'ffw', 'fsr', 'fad', 'fap', 'fxt', 'fts', 'fai', 'fwc', 'fis', 'fed', 'fpa', 'fca', 'ftc', 'fss', 'fra', 'sim',
+                                'fdt'
                             ],
                             'type': 'str'
                         },
@@ -975,8 +977,8 @@ def main():
                         'cluster_worker': {'v_range': [['7.6.0', '']], 'type': 'str'},
                         'ha.vsn': {'v_range': [['7.2.6', '7.2.12'], ['7.4.4', '']], 'type': 'str'},
                         'ha_upgrade_mode': {'v_range': [['7.4.4', '']], 'type': 'int'},
-                        'vm_payg_status': {'v_range': [['7.4.4', '7.4.10'], ['7.6.2', '']], 'type': 'int'},
-                        'sov_sase_license': {'v_range': [['7.4.7', '7.4.10'], ['7.6.4', '']], 'type': 'str'},
+                        'vm_payg_status': {'v_range': [['7.4.4', '7.4.11'], ['7.6.2', '']], 'type': 'int'},
+                        'sov_sase_license': {'v_range': [['7.4.7', '7.4.11'], ['7.6.4', '']], 'type': 'str'},
                         'tunnel_sn': {'v_range': [['7.6.5', '']], 'type': 'str'}
                     },
                     'elements': 'dict'

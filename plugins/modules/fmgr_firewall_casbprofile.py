@@ -15,108 +15,108 @@ module: fmgr_firewall_casbprofile
 short_description: Firewall casb profile
 version_added: "2.3.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  firewall_casbprofile:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      name:
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
-        type: str
+        description: Name.
         required: true
-    firewall_casbprofile:
-        description: The top level parameters set.
-        required: false
-        type: dict
+      saas_application:
+        aliases: ['saas-application']
+        type: list
+        elements: dict
+        description: Saas application.
         suboptions:
-            name:
+          access_rule:
+            aliases: ['access-rule']
+            type: list
+            elements: dict
+            description: Access rule.
+            suboptions:
+              action:
+                type: str
+                description: Action.
+                choices: ['block', 'monitor', 'bypass']
+              bypass:
+                type: list
+                elements: str
+                description: Bypass.
+                choices: ['av', 'dlp', 'web-filter', 'file-filter', 'video-filter']
+              name:
                 type: str
                 description: Name.
-                required: true
-            saas_application:
-                aliases: ['saas-application']
+          custom_control:
+            aliases: ['custom-control']
+            type: list
+            elements: dict
+            description: Custom control.
+            suboptions:
+              name:
+                type: str
+                description: Name.
+              option:
                 type: list
                 elements: dict
-                description: Saas application.
+                description: Option.
                 suboptions:
-                    access_rule:
-                        aliases: ['access-rule']
-                        type: list
-                        elements: dict
-                        description: Access rule.
-                        suboptions:
-                            action:
-                                type: str
-                                description: Action.
-                                choices: ['block', 'monitor', 'bypass']
-                            bypass:
-                                type: list
-                                elements: str
-                                description: Bypass.
-                                choices: ['av', 'dlp', 'web-filter', 'file-filter', 'video-filter']
-                            name:
-                                type: str
-                                description: Name.
-                    custom_control:
-                        aliases: ['custom-control']
-                        type: list
-                        elements: dict
-                        description: Custom control.
-                        suboptions:
-                            name:
-                                type: str
-                                description: Name.
-                            option:
-                                type: list
-                                elements: dict
-                                description: Option.
-                                suboptions:
-                                    name:
-                                        type: str
-                                        description: Name.
-                                    user_input:
-                                        aliases: ['user-input']
-                                        type: list
-                                        elements: str
-                                        description: User input.
-                    domain_control:
-                        aliases: ['domain-control']
-                        type: str
-                        description: Domain control.
-                        choices: ['disable', 'enable']
-                    domain_control_domains:
-                        aliases: ['domain-control-domains']
-                        type: list
-                        elements: str
-                        description: Domain control domains.
-                    log:
-                        type: str
-                        description: Log.
-                        choices: ['disable', 'enable']
-                    name:
-                        type: str
-                        description: Name.
-                    safe_search:
-                        aliases: ['safe-search']
-                        type: str
-                        description: Safe search.
-                        choices: ['disable', 'enable']
-                    safe_search_control:
-                        aliases: ['safe-search-control']
-                        type: list
-                        elements: str
-                        description: Safe search control.
-                    tenant_control:
-                        aliases: ['tenant-control']
-                        type: str
-                        description: Tenant control.
-                        choices: ['disable', 'enable']
-                    tenant_control_tenants:
-                        aliases: ['tenant-control-tenants']
-                        type: list
-                        elements: str
-                        description: Tenant control tenants.
+                  name:
+                    type: str
+                    description: Name.
+                  user_input:
+                    aliases: ['user-input']
+                    type: list
+                    elements: str
+                    description: User input.
+          domain_control:
+            aliases: ['domain-control']
+            type: str
+            description: Domain control.
+            choices: ['disable', 'enable']
+          domain_control_domains:
+            aliases: ['domain-control-domains']
+            type: list
+            elements: str
+            description: Domain control domains.
+          log:
+            type: str
+            description: Log.
+            choices: ['disable', 'enable']
+          name:
+            type: str
+            description: Name.
+          safe_search:
+            aliases: ['safe-search']
+            type: str
+            description: Safe search.
+            choices: ['disable', 'enable']
+          safe_search_control:
+            aliases: ['safe-search-control']
+            type: list
+            elements: str
+            description: Safe search control.
+          tenant_control:
+            aliases: ['tenant-control']
+            type: str
+            description: Tenant control.
+            choices: ['disable', 'enable']
+          tenant_control_tenants:
+            aliases: ['tenant-control-tenants']
+            type: list
+            elements: str
+            description: Tenant control tenants.
 '''
 
 EXAMPLES = '''
@@ -154,42 +154,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

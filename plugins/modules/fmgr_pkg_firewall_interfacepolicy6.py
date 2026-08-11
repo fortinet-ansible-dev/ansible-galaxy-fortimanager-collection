@@ -15,162 +15,162 @@ module: fmgr_pkg_firewall_interfacepolicy6
 short_description: Configure IPv6 interface policies.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  pkg:
+    description: The parameter (pkg) in requested url.
+    type: str
+    required: true
+  pkg_firewall_interfacepolicy6:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      address_type:
+        aliases: ['address-type']
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Address type.
+        choices: ['ipv4', 'ipv6']
+      application_list:
+        aliases: ['application-list']
         type: str
+        description: Application list name.
+      application_list_status:
+        aliases: ['application-list-status']
+        type: str
+        description: Enable/disable application control.
+        choices: ['disable', 'enable']
+      av_profile:
+        aliases: ['av-profile']
+        type: str
+        description: Antivirus profile.
+      av_profile_status:
+        aliases: ['av-profile-status']
+        type: str
+        description: Enable/disable antivirus.
+        choices: ['disable', 'enable']
+      comments:
+        type: str
+        description: Comments.
+      dlp_sensor:
+        aliases: ['dlp-sensor']
+        type: str
+        description: DLP sensor name.
+      dlp_sensor_status:
+        aliases: ['dlp-sensor-status']
+        type: str
+        description: Enable/disable DLP.
+        choices: ['disable', 'enable']
+      dsri:
+        type: str
+        description: Enable/disable DSRI.
+        choices: ['disable', 'enable']
+      dstaddr6:
+        type: raw
+        description: (list or str) IPv6 address object to limit traffic monitoring to network traffic sent to the specified address or range.
+      interface:
+        type: str
+        description: Monitored interface name from available interfaces.
+      ips_sensor:
+        aliases: ['ips-sensor']
+        type: str
+        description: IPS sensor name.
+      ips_sensor_status:
+        aliases: ['ips-sensor-status']
+        type: str
+        description: Enable/disable IPS.
+        choices: ['disable', 'enable']
+      label:
+        type: str
+        description: Label.
+      logtraffic:
+        type: str
+        description: Logging type to be used in this policy
+        choices: ['disable', 'all', 'utm']
+      policyid:
+        type: int
+        description: Policy ID.
         required: true
-    pkg:
-        description: The parameter (pkg) in requested url.
+      scan_botnet_connections:
+        aliases: ['scan-botnet-connections']
         type: str
-        required: true
-    pkg_firewall_interfacepolicy6:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            address_type:
-                aliases: ['address-type']
-                type: str
-                description: Address type.
-                choices: ['ipv4', 'ipv6']
-            application_list:
-                aliases: ['application-list']
-                type: str
-                description: Application list name.
-            application_list_status:
-                aliases: ['application-list-status']
-                type: str
-                description: Enable/disable application control.
-                choices: ['disable', 'enable']
-            av_profile:
-                aliases: ['av-profile']
-                type: str
-                description: Antivirus profile.
-            av_profile_status:
-                aliases: ['av-profile-status']
-                type: str
-                description: Enable/disable antivirus.
-                choices: ['disable', 'enable']
-            comments:
-                type: str
-                description: Comments.
-            dlp_sensor:
-                aliases: ['dlp-sensor']
-                type: str
-                description: DLP sensor name.
-            dlp_sensor_status:
-                aliases: ['dlp-sensor-status']
-                type: str
-                description: Enable/disable DLP.
-                choices: ['disable', 'enable']
-            dsri:
-                type: str
-                description: Enable/disable DSRI.
-                choices: ['disable', 'enable']
-            dstaddr6:
-                type: raw
-                description: (list or str) IPv6 address object to limit traffic monitoring to network traffic sent to the specified address or range.
-            interface:
-                type: str
-                description: Monitored interface name from available interfaces.
-            ips_sensor:
-                aliases: ['ips-sensor']
-                type: str
-                description: IPS sensor name.
-            ips_sensor_status:
-                aliases: ['ips-sensor-status']
-                type: str
-                description: Enable/disable IPS.
-                choices: ['disable', 'enable']
-            label:
-                type: str
-                description: Label.
-            logtraffic:
-                type: str
-                description: Logging type to be used in this policy
-                choices: ['disable', 'all', 'utm']
-            policyid:
-                type: int
-                description: Policy ID.
-                required: true
-            scan_botnet_connections:
-                aliases: ['scan-botnet-connections']
-                type: str
-                description: Enable/disable scanning for connections to Botnet servers.
-                choices: ['disable', 'block', 'monitor']
-            service6:
-                type: raw
-                description: (list or str) Service name.
-            spamfilter_profile:
-                aliases: ['spamfilter-profile']
-                type: str
-                description: Antispam profile.
-            spamfilter_profile_status:
-                aliases: ['spamfilter-profile-status']
-                type: str
-                description: Enable/disable antispam.
-                choices: ['disable', 'enable']
-            srcaddr6:
-                type: raw
-                description: (list or str) IPv6 address object to limit traffic monitoring to network traffic sent from the specified address or range.
-            status:
-                type: str
-                description: Enable/disable this policy.
-                choices: ['disable', 'enable']
-            webfilter_profile:
-                aliases: ['webfilter-profile']
-                type: str
-                description: Web filter profile.
-            webfilter_profile_status:
-                aliases: ['webfilter-profile-status']
-                type: str
-                description: Enable/disable web filtering.
-                choices: ['disable', 'enable']
-            emailfilter_profile:
-                aliases: ['emailfilter-profile']
-                type: str
-                description: Email filter profile.
-            emailfilter_profile_status:
-                aliases: ['emailfilter-profile-status']
-                type: str
-                description: Enable/disable email filter.
-                choices: ['disable', 'enable']
-            uuid:
-                type: str
-                description: Universally Unique Identifier
-            casi_profile:
-                aliases: ['casi-profile']
-                type: str
-                description: CASI profile name.
-            casi_profile_status:
-                aliases: ['casi-profile-status']
-                type: str
-                description: Enable/disable CASI.
-                choices: ['disable', 'enable']
-            dlp_profile:
-                aliases: ['dlp-profile']
-                type: str
-                description: DLP profile name.
-            dlp_profile_status:
-                aliases: ['dlp-profile-status']
-                type: str
-                description: Enable/disable DLP.
-                choices: ['disable', 'enable']
-            casb_profile:
-                aliases: ['casb-profile']
-                type: raw
-                description: (list) CASB profile.
-            casb_profile_status:
-                aliases: ['casb-profile-status']
-                type: str
-                description: Enable/disable CASB.
-                choices: ['disable', 'enable']
+        description: Enable/disable scanning for connections to Botnet servers.
+        choices: ['disable', 'block', 'monitor']
+      service6:
+        type: raw
+        description: (list or str) Service name.
+      spamfilter_profile:
+        aliases: ['spamfilter-profile']
+        type: str
+        description: Antispam profile.
+      spamfilter_profile_status:
+        aliases: ['spamfilter-profile-status']
+        type: str
+        description: Enable/disable antispam.
+        choices: ['disable', 'enable']
+      srcaddr6:
+        type: raw
+        description: (list or str) IPv6 address object to limit traffic monitoring to network traffic sent from the specified address or range.
+      status:
+        type: str
+        description: Enable/disable this policy.
+        choices: ['disable', 'enable']
+      webfilter_profile:
+        aliases: ['webfilter-profile']
+        type: str
+        description: Web filter profile.
+      webfilter_profile_status:
+        aliases: ['webfilter-profile-status']
+        type: str
+        description: Enable/disable web filtering.
+        choices: ['disable', 'enable']
+      emailfilter_profile:
+        aliases: ['emailfilter-profile']
+        type: str
+        description: Email filter profile.
+      emailfilter_profile_status:
+        aliases: ['emailfilter-profile-status']
+        type: str
+        description: Enable/disable email filter.
+        choices: ['disable', 'enable']
+      uuid:
+        type: str
+        description: Universally Unique Identifier
+      casi_profile:
+        aliases: ['casi-profile']
+        type: str
+        description: CASI profile name.
+      casi_profile_status:
+        aliases: ['casi-profile-status']
+        type: str
+        description: Enable/disable CASI.
+        choices: ['disable', 'enable']
+      dlp_profile:
+        aliases: ['dlp-profile']
+        type: str
+        description: DLP profile name.
+      dlp_profile_status:
+        aliases: ['dlp-profile-status']
+        type: str
+        description: Enable/disable DLP.
+        choices: ['disable', 'enable']
+      casb_profile:
+        aliases: ['casb-profile']
+        type: raw
+        description: (list) CASB profile.
+      casb_profile_status:
+        aliases: ['casb-profile-status']
+        type: str
+        description: Enable/disable CASB.
+        choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -217,42 +217,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

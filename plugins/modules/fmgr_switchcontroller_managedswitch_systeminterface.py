@@ -15,69 +15,69 @@ module: fmgr_switchcontroller_managedswitch_systeminterface
 short_description: Configure system interface on FortiSwitch.
 version_added: "2.12.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  managed-switch:
+    description: Deprecated, please use "managed_switch"
+    type: str
+  managed_switch:
+    description: The parameter (managed-switch) in requested url.
+    type: str
+  switchcontroller_managedswitch_systeminterface:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      allowaccess:
+        type: list
+        elements: str
+        description: Permitted types of management access to this interface.
+        choices: ['https', 'ping', 'ssh', 'snmp', 'http', 'telnet', 'radius-acct']
+      interface:
+        type: list
+        elements: str
+        description: Interface name.
+      ip:
+        type: list
+        elements: str
+        description: IP and mask for this interface.
+      mode:
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Interface addressing mode.
+        choices: ['static', 'dhcp']
+      name:
         type: str
+        description: Interface name.
         required: true
-    managed-switch:
-        description: Deprecated, please use "managed_switch"
+      status:
         type: str
-    managed_switch:
-        description: The parameter (managed-switch) in requested url.
+        description: Enable/disable interface status.
+        choices: ['disable', 'enable']
+      switch_id:
+        aliases: ['switch-id']
+        type: list
+        elements: str
+        description: Switch ID.
+      type:
         type: str
-    switchcontroller_managedswitch_systeminterface:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            allowaccess:
-                type: list
-                elements: str
-                description: Permitted types of management access to this interface.
-                choices: ['https', 'ping', 'ssh', 'snmp', 'http', 'telnet', 'radius-acct']
-            interface:
-                type: list
-                elements: str
-                description: Interface name.
-            ip:
-                type: list
-                elements: str
-                description: IP and mask for this interface.
-            mode:
-                type: str
-                description: Interface addressing mode.
-                choices: ['static', 'dhcp']
-            name:
-                type: str
-                description: Interface name.
-                required: true
-            status:
-                type: str
-                description: Enable/disable interface status.
-                choices: ['disable', 'enable']
-            switch_id:
-                aliases: ['switch-id']
-                type: list
-                elements: str
-                description: Switch ID.
-            type:
-                type: str
-                description: Interface type.
-                choices: ['physical', 'vlan']
-            vlan:
-                type: list
-                elements: str
-                description: VLAN name.
-            vrf:
-                type: list
-                elements: str
-                description: VRF for this route.
+        description: Interface type.
+        choices: ['physical', 'vlan']
+      vlan:
+        type: list
+        elements: str
+        description: VLAN name.
+      vrf:
+        type: list
+        elements: str
+        description: VRF for this route.
 '''
 
 EXAMPLES = '''
@@ -107,42 +107,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -160,23 +160,23 @@ def main():
         'managed_switch': {'type': 'str'},
         'revision_note': {'type': 'str'},
         'switchcontroller_managedswitch_systeminterface': {
-            'type': 'dict', 'v_range': [['7.6.4', '']],
+            'type': 'dict', 'v_range': [['7.6.4', '7.6.6']],
             'options': {
                 'allowaccess': {
-                    'v_range': [['7.6.4', '']],
+                    'v_range': [['7.6.4', '7.6.6']],
                     'type': 'list',
                     'choices': ['https', 'ping', 'ssh', 'snmp', 'http', 'telnet', 'radius-acct'],
                     'elements': 'str'
                 },
-                'interface': {'v_range': [['7.6.4', '']], 'type': 'list', 'elements': 'str'},
-                'ip': {'v_range': [['7.6.4', '']], 'type': 'list', 'elements': 'str'},
-                'mode': {'v_range': [['7.6.4', '']], 'choices': ['static', 'dhcp'], 'type': 'str'},
-                'name': {'v_range': [['7.6.4', '']], 'required': True, 'type': 'str'},
-                'status': {'v_range': [['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'switch-id': {'v_range': [['7.6.4', '']], 'type': 'list', 'elements': 'str'},
-                'type': {'v_range': [['7.6.4', '']], 'choices': ['physical', 'vlan'], 'type': 'str'},
-                'vlan': {'v_range': [['7.6.4', '']], 'type': 'list', 'elements': 'str'},
-                'vrf': {'v_range': [['7.6.4', '']], 'type': 'list', 'elements': 'str'}
+                'interface': {'v_range': [['7.6.4', '7.6.6']], 'type': 'list', 'elements': 'str'},
+                'ip': {'v_range': [['7.6.4', '7.6.6']], 'type': 'list', 'elements': 'str'},
+                'mode': {'v_range': [['7.6.4', '7.6.6']], 'choices': ['static', 'dhcp'], 'type': 'str'},
+                'name': {'v_range': [['7.6.4', '7.6.6']], 'required': True, 'type': 'str'},
+                'status': {'v_range': [['7.6.4', '7.6.6']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'switch-id': {'v_range': [['7.6.4', '7.6.6']], 'type': 'list', 'elements': 'str'},
+                'type': {'v_range': [['7.6.4', '7.6.6']], 'choices': ['physical', 'vlan'], 'type': 'str'},
+                'vlan': {'v_range': [['7.6.4', '7.6.6']], 'type': 'list', 'elements': 'str'},
+                'vrf': {'v_range': [['7.6.4', '7.6.6']], 'type': 'list', 'elements': 'str'}
             }
         }
     }

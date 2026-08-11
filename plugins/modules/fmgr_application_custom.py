@@ -15,52 +15,52 @@ module: fmgr_application_custom
 short_description: Configure custom application signatures.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  application_custom:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      behavior:
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Custom application signature behavior.
+      category:
         type: str
+        description: Custom application category ID
+      comment:
+        type: str
+        description: Comment.
+      id:
+        type: int
+        description: Id.
+      name:
+        type: str
+        description: Name.
+      protocol:
+        type: str
+        description: Custom application signature protocol.
+      signature:
+        type: str
+        description: The text that makes up the actual custom application signature.
+      tag:
+        type: str
+        description: Signature tag.
         required: true
-    application_custom:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            behavior:
-                type: str
-                description: Custom application signature behavior.
-            category:
-                type: str
-                description: Custom application category ID
-            comment:
-                type: str
-                description: Comment.
-            id:
-                type: int
-                description: Id.
-            name:
-                type: str
-                description: Name.
-            protocol:
-                type: str
-                description: Custom application signature protocol.
-            signature:
-                type: str
-                description: The text that makes up the actual custom application signature.
-            tag:
-                type: str
-                description: Signature tag.
-                required: true
-            technology:
-                type: str
-                description: Custom application signature technology.
-            vendor:
-                type: str
-                description: Custom application signature vendor.
+      technology:
+        type: str
+        description: Custom application signature technology.
+      vendor:
+        type: str
+        description: Custom application signature vendor.
 '''
 
 EXAMPLES = '''
@@ -109,42 +109,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

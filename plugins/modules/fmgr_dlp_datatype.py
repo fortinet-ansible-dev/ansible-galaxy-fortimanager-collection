@@ -15,69 +15,69 @@ module: fmgr_dlp_datatype
 short_description: Configure predefined data type used by DLP blocking.
 version_added: "2.1.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  dlp_datatype:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      comment:
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Optional comments.
+      look_ahead:
+        aliases: ['look-ahead']
+        type: int
+        description: Number of characters to obtain in advance for verification
+      look_back:
+        aliases: ['look-back']
+        type: int
+        description: Number of characters required to save for verification
+      name:
         type: str
+        description: Name of table containing the data type.
         required: true
-    dlp_datatype:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            comment:
-                type: str
-                description: Optional comments.
-            look_ahead:
-                aliases: ['look-ahead']
-                type: int
-                description: Number of characters to obtain in advance for verification
-            look_back:
-                aliases: ['look-back']
-                type: int
-                description: Number of characters required to save for verification
-            name:
-                type: str
-                description: Name of table containing the data type.
-                required: true
-            pattern:
-                type: str
-                description: Regular expression pattern string without look around.
-            transform:
-                type: str
-                description: Template to transform user input to a pattern using capture group from pattern.
-            verify:
-                type: str
-                description: Regular expression pattern string used to verify the data type.
-            verify_transformed_pattern:
-                aliases: ['verify-transformed-pattern']
-                type: str
-                description: Enable/disable verification for transformed pattern.
-                choices: ['disable', 'enable']
-            match_around:
-                aliases: ['match-around']
-                type: str
-                description: Dictionary to check whether it has a match around
-            match_ahead:
-                aliases: ['match-ahead']
-                type: int
-                description: Number of characters behind for match-around
-            match_back:
-                aliases: ['match-back']
-                type: int
-                description: Number of characters in front for match-around
-            verify2:
-                type: str
-                description: Extra regular expression pattern string used to verify the data type.
-            fgd_id:
-                aliases: ['fgd-id']
-                type: int
-                description: ID of object in FortiGuard database.
+      pattern:
+        type: str
+        description: Regular expression pattern string without look around.
+      transform:
+        type: str
+        description: Template to transform user input to a pattern using capture group from pattern.
+      verify:
+        type: str
+        description: Regular expression pattern string used to verify the data type.
+      verify_transformed_pattern:
+        aliases: ['verify-transformed-pattern']
+        type: str
+        description: Enable/disable verification for transformed pattern.
+        choices: ['disable', 'enable']
+      match_around:
+        aliases: ['match-around']
+        type: str
+        description: Dictionary to check whether it has a match around
+      match_ahead:
+        aliases: ['match-ahead']
+        type: int
+        description: Number of characters behind for match-around
+      match_back:
+        aliases: ['match-back']
+        type: int
+        description: Number of characters in front for match-around
+      verify2:
+        type: str
+        description: Extra regular expression pattern string used to verify the data type.
+      fgd_id:
+        aliases: ['fgd-id']
+        type: int
+        description: ID of object in FortiGuard database.
 '''
 
 EXAMPLES = '''
@@ -109,42 +109,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

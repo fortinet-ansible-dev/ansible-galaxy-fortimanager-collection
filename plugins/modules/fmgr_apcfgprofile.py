@@ -15,73 +15,73 @@ module: fmgr_apcfgprofile
 short_description: Configure AP local configuration profiles.
 version_added: "2.1.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  apcfgprofile:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      ac_ip:
+        aliases: ['ac-ip']
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: IP address of the validation controller that AP must be able to join after applying AP local configuration.
+      ac_port:
+        aliases: ['ac-port']
+        type: int
+        description: Port of the validation controller that AP must be able to join after applying AP local configuration
+      ac_timer:
+        aliases: ['ac-timer']
+        type: int
+        description: Maximum waiting time for the AP to join the validation controller after applying AP local configuration
+      ac_type:
+        aliases: ['ac-type']
         type: str
-        required: true
-    apcfgprofile:
-        description: The top level parameters set.
-        required: false
-        type: dict
+        description: Validation controller type
+        choices: ['default', 'specify', 'apcfg']
+      command_list:
+        aliases: ['command-list']
+        type: list
+        elements: dict
+        description: Command list.
         suboptions:
-            ac_ip:
-                aliases: ['ac-ip']
-                type: str
-                description: IP address of the validation controller that AP must be able to join after applying AP local configuration.
-            ac_port:
-                aliases: ['ac-port']
-                type: int
-                description: Port of the validation controller that AP must be able to join after applying AP local configuration
-            ac_timer:
-                aliases: ['ac-timer']
-                type: int
-                description: Maximum waiting time for the AP to join the validation controller after applying AP local configuration
-            ac_type:
-                aliases: ['ac-type']
-                type: str
-                description: Validation controller type
-                choices: ['default', 'specify', 'apcfg']
-            command_list:
-                aliases: ['command-list']
-                type: list
-                elements: dict
-                description: Command list.
-                suboptions:
-                    id:
-                        type: int
-                        description: Command ID.
-                    name:
-                        type: str
-                        description: AP local configuration command name.
-                    passwd_value:
-                        aliases: ['passwd-value']
-                        type: raw
-                        description: (list) AP local configuration command password value.
-                    type:
-                        type: str
-                        description: The command type
-                        choices: ['non-password', 'password']
-                    value:
-                        type: str
-                        description: AP local configuration command value.
-            comment:
-                type: str
-                description: Comment.
-            name:
-                type: str
-                description: AP local configuration profile name.
-                required: true
-            ap_family:
-                aliases: ['ap-family']
-                type: str
-                description: FortiAP family type
-                choices: ['fap', 'fap-u', 'fap-c']
+          id:
+            type: int
+            description: Command ID.
+          name:
+            type: str
+            description: AP local configuration command name.
+          passwd_value:
+            aliases: ['passwd-value']
+            type: raw
+            description: (list) AP local configuration command password value.
+          type:
+            type: str
+            description: The command type
+            choices: ['non-password', 'password']
+          value:
+            type: str
+            description: AP local configuration command value.
+      comment:
+        type: str
+        description: Comment.
+      name:
+        type: str
+        description: AP local configuration profile name.
+        required: true
+      ap_family:
+        aliases: ['ap-family']
+        type: str
+        description: FortiAP family type
+        choices: ['fap', 'fap-u', 'fap-c']
 '''
 
 EXAMPLES = '''
@@ -113,42 +113,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

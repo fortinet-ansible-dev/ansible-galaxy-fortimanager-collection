@@ -15,66 +15,75 @@ module: fmgr_fmg_fabric_authorization_template
 short_description: Fmg fabric authorization template
 version_added: "2.2.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  fmg_fabric_authorization_template:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      description:
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Description.
+      extender_controller:
+        aliases: ['extender-controller']
         type: str
+        description: Extender controller.
+        choices: ['disable', 'enable']
+      name:
+        type: str
+        description: Name.
         required: true
-    fmg_fabric_authorization_template:
-        description: The top level parameters set.
-        required: false
-        type: dict
+      platforms:
+        type: list
+        elements: dict
+        description: Platforms.
         suboptions:
-            description:
-                type: str
-                description: Description.
-            extender_controller:
-                aliases: ['extender-controller']
-                type: str
-                description: Extender controller.
-                choices: ['disable', 'enable']
-            name:
-                type: str
-                description: Name.
-                required: true
-            platforms:
-                type: list
-                elements: dict
-                description: Platforms.
-                suboptions:
-                    count:
-                        type: int
-                        description: Count.
-                    extension_type:
-                        aliases: ['extension-type']
-                        type: str
-                        description: Extension type.
-                        choices: ['wan-extension', 'lan-extension']
-                    fortilink:
-                        type: str
-                        description: Fortilink.
-                    prefix:
-                        type: str
-                        description: Prefix.
-                    type:
-                        type: str
-                        description: Type.
-                        choices: ['ap', 'extender', 'switch']
-            switch_controller:
-                aliases: ['switch-controller']
-                type: str
-                description: Switch controller.
-                choices: ['disable', 'enable']
-            wireless_controller:
-                aliases: ['wireless-controller']
-                type: str
-                description: Wireless controller.
-                choices: ['disable', 'enable']
+          count:
+            type: int
+            description: Count.
+          extension_type:
+            aliases: ['extension-type']
+            type: str
+            description: Extension type.
+            choices: ['wan-extension', 'lan-extension']
+          fortilink:
+            type: str
+            description: Fortilink.
+          prefix:
+            type: str
+            description: Prefix.
+          type:
+            type: str
+            description: Type.
+            choices: ['ap', 'extender', 'switch']
+          fspprof:
+            type: raw
+            description: (list) Fspprof.
+          fxtprof:
+            type: raw
+            description: (list) Fxtprof.
+          wtpprof:
+            type: raw
+            description: (list) Wtpprof.
+      switch_controller:
+        aliases: ['switch-controller']
+        type: str
+        description: Switch controller.
+        choices: ['disable', 'enable']
+      wireless_controller:
+        aliases: ['wireless-controller']
+        type: str
+        description: Wireless controller.
+        choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -98,48 +107,51 @@ EXAMPLES = '''
           #     fortilink: <string>
           #     prefix: <string>
           #     type: <value in [ap, extender, switch]>
+          #     fspprof: <list or string>
+          #     fxtprof: <list or string>
+          #     wtpprof: <list or string>
           # switch_controller: <value in [disable, enable]>
           # wireless_controller: <value in [disable, enable]>
 '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -169,7 +181,10 @@ def main():
                         'extension-type': {'v_range': [['7.2.1', '']], 'choices': ['wan-extension', 'lan-extension'], 'type': 'str'},
                         'fortilink': {'v_range': [['7.2.1', '']], 'type': 'str'},
                         'prefix': {'v_range': [['7.2.1', '']], 'type': 'str'},
-                        'type': {'v_range': [['7.2.1', '']], 'choices': ['ap', 'extender', 'switch'], 'type': 'str'}
+                        'type': {'v_range': [['7.2.1', '']], 'choices': ['ap', 'extender', 'switch'], 'type': 'str'},
+                        'fspprof': {'v_range': [['8.0.0', '']], 'type': 'raw'},
+                        'fxtprof': {'v_range': [['8.0.0', '']], 'type': 'raw'},
+                        'wtpprof': {'v_range': [['8.0.0', '']], 'type': 'raw'}
                     },
                     'elements': 'dict'
                 },

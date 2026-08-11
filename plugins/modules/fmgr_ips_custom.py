@@ -15,71 +15,71 @@ module: fmgr_ips_custom
 short_description: Configure IPS custom signature.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  ips_custom:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      action:
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Default action
+        choices: ['block', 'pass']
+      application:
+        type: raw
+        description: (list) Applications to be protected.
+      comment:
         type: str
+        description: Comment.
+      location:
+        type: raw
+        description: (list) Protect client or server traffic.
+      log:
+        type: str
+        description: Enable/disable logging.
+        choices: ['disable', 'enable']
+      log_packet:
+        aliases: ['log-packet']
+        type: str
+        description: Enable/disable packet logging.
+        choices: ['disable', 'enable']
+      os:
+        type: raw
+        description: (list) Operating system
+      protocol:
+        type: str
+        description: Protocol
+      rule_id:
+        aliases: ['rule-id']
+        type: int
+        description: Rule id.
+      severity:
+        type: str
+        description: Relative severity of the signature, from info to critical.
+      sig_name:
+        aliases: ['sig-name']
+        type: str
+        description: Sig name.
+      signature:
+        type: str
+        description: Custom signature enclosed in single quotes.
+      status:
+        type: str
+        description: Enable/disable this signature.
+        choices: ['disable', 'enable']
+      tag:
+        type: str
+        description: Signature tag.
         required: true
-    ips_custom:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            action:
-                type: str
-                description: Default action
-                choices: ['block', 'pass']
-            application:
-                type: raw
-                description: (list) Applications to be protected.
-            comment:
-                type: str
-                description: Comment.
-            location:
-                type: raw
-                description: (list) Protect client or server traffic.
-            log:
-                type: str
-                description: Enable/disable logging.
-                choices: ['disable', 'enable']
-            log_packet:
-                aliases: ['log-packet']
-                type: str
-                description: Enable/disable packet logging.
-                choices: ['disable', 'enable']
-            os:
-                type: raw
-                description: (list) Operating system
-            protocol:
-                type: str
-                description: Protocol
-            rule_id:
-                aliases: ['rule-id']
-                type: int
-                description: Rule id.
-            severity:
-                type: str
-                description: Relative severity of the signature, from info to critical.
-            sig_name:
-                aliases: ['sig-name']
-                type: str
-                description: Sig name.
-            signature:
-                type: str
-                description: Custom signature enclosed in single quotes.
-            status:
-                type: str
-                description: Enable/disable this signature.
-                choices: ['disable', 'enable']
-            tag:
-                type: str
-                description: Signature tag.
-                required: true
 '''
 
 EXAMPLES = '''
@@ -124,42 +124,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

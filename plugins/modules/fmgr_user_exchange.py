@@ -15,90 +15,90 @@ module: fmgr_user_exchange
 short_description: Configure MS Exchange server entries.
 version_added: "2.1.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  user_exchange:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      addr_type:
+        aliases: ['addr-type']
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Indicate whether the server IP-address is IPv4 or IPv6.
+        choices: ['ipv4', 'ipv6']
+      auth_level:
+        aliases: ['auth-level']
         type: str
+        description: Authentication security level used for the RPC protocol layer.
+        choices: ['low', 'medium', 'normal', 'high', 'connect', 'call', 'packet', 'integrity',
+                  'privacy']
+      auth_type:
+        aliases: ['auth-type']
+        type: str
+        description: Authentication security type used for the RPC protocol layer.
+        choices: ['spnego', 'ntlm', 'kerberos']
+      connect_protocol:
+        aliases: ['connect-protocol']
+        type: str
+        description: Connection protocol used to connect to MS Exchange service.
+        choices: ['rpc-over-tcp', 'rpc-over-http', 'rpc-over-https']
+      domain_name:
+        aliases: ['domain-name']
+        type: str
+        description: MS Exchange server fully qualified domain name.
+      http_auth_type:
+        aliases: ['http-auth-type']
+        type: str
+        description: Authentication security type used for the HTTP transport.
+        choices: ['ntlm', 'basic']
+      ip:
+        type: str
+        description: Server IPv4 address.
+      ip6:
+        type: str
+        description: Server IPv6 address.
+      kdc_ip:
+        aliases: ['kdc-ip']
+        type: raw
+        description: (list) KDC IPv4 addresses for Kerberos authentication.
+      name:
+        type: str
+        description: MS Exchange server entry name.
         required: true
-    user_exchange:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            addr_type:
-                aliases: ['addr-type']
-                type: str
-                description: Indicate whether the server IP-address is IPv4 or IPv6.
-                choices: ['ipv4', 'ipv6']
-            auth_level:
-                aliases: ['auth-level']
-                type: str
-                description: Authentication security level used for the RPC protocol layer.
-                choices: ['low', 'medium', 'normal', 'high', 'connect', 'call', 'packet',
-                          'integrity', 'privacy']
-            auth_type:
-                aliases: ['auth-type']
-                type: str
-                description: Authentication security type used for the RPC protocol layer.
-                choices: ['spnego', 'ntlm', 'kerberos']
-            connect_protocol:
-                aliases: ['connect-protocol']
-                type: str
-                description: Connection protocol used to connect to MS Exchange service.
-                choices: ['rpc-over-tcp', 'rpc-over-http', 'rpc-over-https']
-            domain_name:
-                aliases: ['domain-name']
-                type: str
-                description: MS Exchange server fully qualified domain name.
-            http_auth_type:
-                aliases: ['http-auth-type']
-                type: str
-                description: Authentication security type used for the HTTP transport.
-                choices: ['ntlm', 'basic']
-            ip:
-                type: str
-                description: Server IPv4 address.
-            ip6:
-                type: str
-                description: Server IPv6 address.
-            kdc_ip:
-                aliases: ['kdc-ip']
-                type: raw
-                description: (list) KDC IPv4 addresses for Kerberos authentication.
-            name:
-                type: str
-                description: MS Exchange server entry name.
-                required: true
-            password:
-                type: raw
-                description: (list) Password for the specified username.
-            server_name:
-                aliases: ['server-name']
-                type: str
-                description: MS Exchange server hostname.
-            ssl_min_proto_version:
-                aliases: ['ssl-min-proto-version']
-                type: str
-                description: Minimum SSL/TLS protocol version for HTTPS transport
-                choices: ['default', 'TLSv1-1', 'TLSv1-2', 'SSLv3', 'TLSv1', 'TLSv1-3']
-            username:
-                type: str
-                description: User name used to sign in to the server.
-            auto_discover_kdc:
-                aliases: ['auto-discover-kdc']
-                type: str
-                description: Enable/disable automatic discovery of KDC IP addresses.
-                choices: ['disable', 'enable']
-            validate_server_certificate:
-                aliases: ['validate-server-certificate']
-                type: str
-                description: Enable/disable exchange server certificate validation.
-                choices: ['disable', 'enable']
+      password:
+        type: raw
+        description: (list) Password for the specified username.
+      server_name:
+        aliases: ['server-name']
+        type: str
+        description: MS Exchange server hostname.
+      ssl_min_proto_version:
+        aliases: ['ssl-min-proto-version']
+        type: str
+        description: Minimum SSL/TLS protocol version for HTTPS transport
+        choices: ['default', 'TLSv1-1', 'TLSv1-2', 'SSLv3', 'TLSv1', 'TLSv1-3']
+      username:
+        type: str
+        description: User name used to sign in to the server.
+      auto_discover_kdc:
+        aliases: ['auto-discover-kdc']
+        type: str
+        description: Enable/disable automatic discovery of KDC IP addresses.
+        choices: ['disable', 'enable']
+      validate_server_certificate:
+        aliases: ['validate-server-certificate']
+        type: str
+        description: Enable/disable exchange server certificate validation.
+        choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -133,42 +133,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

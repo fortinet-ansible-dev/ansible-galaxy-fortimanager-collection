@@ -15,50 +15,50 @@ module: fmgr_wanprof_system_virtualwanlink_healthcheck_sla
 short_description: Service level agreement
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    adom:
-        description: The parameter (adom) in requested url.
-        type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  wanprof:
+    description: The parameter (wanprof) in requested url.
+    type: str
+    required: true
+  health-check:
+    description: Deprecated, please use "health_check"
+    type: str
+  health_check:
+    description: The parameter (health-check) in requested url.
+    type: str
+  wanprof_system_virtualwanlink_healthcheck_sla:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      id:
+        type: int
+        description: SLA ID.
         required: true
-    wanprof:
-        description: The parameter (wanprof) in requested url.
-        type: str
-        required: true
-    health-check:
-        description: Deprecated, please use "health_check"
-        type: str
-    health_check:
-        description: The parameter (health-check) in requested url.
-        type: str
-    wanprof_system_virtualwanlink_healthcheck_sla:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            id:
-                type: int
-                description: SLA ID.
-                required: true
-            jitter_threshold:
-                aliases: ['jitter-threshold']
-                type: int
-                description: Jitter for SLA to make decision in milliseconds.
-            latency_threshold:
-                aliases: ['latency-threshold']
-                type: int
-                description: Latency for SLA to make decision in milliseconds.
-            link_cost_factor:
-                aliases: ['link-cost-factor']
-                type: list
-                elements: str
-                description: Criteria on which to base link selection.
-                choices: ['latency', 'jitter', 'packet-loss']
-            packetloss_threshold:
-                aliases: ['packetloss-threshold']
-                type: int
-                description: Packet loss for SLA to make decision in percentage.
+      jitter_threshold:
+        aliases: ['jitter-threshold']
+        type: int
+        description: Jitter for SLA to make decision in milliseconds.
+      latency_threshold:
+        aliases: ['latency-threshold']
+        type: int
+        description: Latency for SLA to make decision in milliseconds.
+      link_cost_factor:
+        aliases: ['link-cost-factor']
+        type: list
+        elements: str
+        description: Criteria on which to base link selection.
+        choices: ['latency', 'jitter', 'packet-loss']
+      packetloss_threshold:
+        aliases: ['packetloss-threshold']
+        type: int
+        description: Packet loss for SLA to make decision in percentage.
 '''
 
 EXAMPLES = '''
@@ -84,42 +84,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

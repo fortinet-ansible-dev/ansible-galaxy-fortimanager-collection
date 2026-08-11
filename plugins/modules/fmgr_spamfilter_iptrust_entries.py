@@ -15,46 +15,46 @@ module: fmgr_spamfilter_iptrust_entries
 short_description: Spam filter trusted IP addresses.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  iptrust:
+    description: The parameter (iptrust) in requested url.
+    type: str
+    required: true
+  spamfilter_iptrust_entries:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      addr_type:
+        aliases: ['addr-type']
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
-        type: str
+        description: Type of address.
+        choices: ['ipv4', 'ipv6']
+      id:
+        type: int
+        description: Trusted IP entry ID.
         required: true
-    iptrust:
-        description: The parameter (iptrust) in requested url.
+      ip4_subnet:
+        aliases: ['ip4-subnet']
         type: str
-        required: true
-    spamfilter_iptrust_entries:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            addr_type:
-                aliases: ['addr-type']
-                type: str
-                description: Type of address.
-                choices: ['ipv4', 'ipv6']
-            id:
-                type: int
-                description: Trusted IP entry ID.
-                required: true
-            ip4_subnet:
-                aliases: ['ip4-subnet']
-                type: str
-                description: IPv4 network address or network address/subnet mask bits.
-            ip6_subnet:
-                aliases: ['ip6-subnet']
-                type: str
-                description: IPv6 network address/subnet mask bits.
-            status:
-                type: str
-                description: Enable/disable status.
-                choices: ['disable', 'enable']
+        description: IPv4 network address or network address/subnet mask bits.
+      ip6_subnet:
+        aliases: ['ip6-subnet']
+        type: str
+        description: IPv6 network address/subnet mask bits.
+      status:
+        type: str
+        description: Enable/disable status.
+        choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -79,42 +79,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -132,13 +132,13 @@ def main():
         'iptrust': {'required': True, 'type': 'str'},
         'revision_note': {'type': 'str'},
         'spamfilter_iptrust_entries': {
-            'type': 'dict', 'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']],
+            'type': 'dict', 'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.11']],
             'options': {
-                'addr-type': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']], 'choices': ['ipv4', 'ipv6'], 'type': 'str'},
-                'id': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']], 'required': True, 'type': 'int'},
-                'ip4-subnet': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']], 'type': 'str'},
-                'ip6-subnet': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']], 'type': 'str'},
-                'status': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'addr-type': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.11']], 'choices': ['ipv4', 'ipv6'], 'type': 'str'},
+                'id': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.11']], 'required': True, 'type': 'int'},
+                'ip4-subnet': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.11']], 'type': 'str'},
+                'ip6-subnet': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.11']], 'type': 'str'},
+                'status': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.11']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

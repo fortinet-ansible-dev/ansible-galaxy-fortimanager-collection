@@ -15,177 +15,192 @@ module: fmgr_dlp_sensor
 short_description: Configure DLP sensors.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  dlp_sensor:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      comment:
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Comment.
+      dlp_log:
+        aliases: ['dlp-log']
         type: str
-        required: true
-    dlp_sensor:
-        description: The top level parameters set.
-        required: false
-        type: dict
+        description: Enable/disable DLP logging.
+        choices: ['disable', 'enable']
+      extended_log:
+        aliases: ['extended-log']
+        type: str
+        description: Enable/disable extended logging for data leak prevention.
+        choices: ['disable', 'enable']
+      filter:
+        type: list
+        elements: dict
+        description: Filter.
         suboptions:
-            comment:
-                type: str
-                description: Comment.
-            dlp_log:
-                aliases: ['dlp-log']
-                type: str
-                description: Enable/disable DLP logging.
-                choices: ['disable', 'enable']
-            extended_log:
-                aliases: ['extended-log']
-                type: str
-                description: Enable/disable extended logging for data leak prevention.
-                choices: ['disable', 'enable']
-            filter:
-                type: list
-                elements: dict
-                description: Filter.
-                suboptions:
-                    action:
-                        type: str
-                        description: Action to take with content that this DLP sensor matches.
-                        choices: ['log-only', 'block', 'exempt', 'ban', 'ban-sender',
-                                  'quarantine-ip', 'quarantine-port', 'none', 'allow']
-                    archive:
-                        type: str
-                        description: Enable/disable DLP archiving.
-                        choices: ['disable', 'enable', 'summary-only']
-                    company_identifier:
-                        aliases: ['company-identifier']
-                        type: str
-                        description: Enter a company identifier watermark to match.
-                    expiry:
-                        type: str
-                        description: Quarantine duration in days, hours, minutes format
-                    file_size:
-                        aliases: ['file-size']
-                        type: int
-                        description: Match files this size or larger
-                    file_type:
-                        aliases: ['file-type']
-                        type: str
-                        description: Select the number of a DLP file pattern table to match.
-                    filter_by:
-                        aliases: ['filter-by']
-                        type: str
-                        description: Select the type of content to match.
-                        choices: ['credit-card', 'ssn', 'regexp', 'file-type', 'file-size',
-                                  'fingerprint', 'watermark', 'encrypted', 'file-type-and-size']
-                    fp_sensitivity:
-                        aliases: ['fp-sensitivity']
-                        type: raw
-                        description: (list or str) Select a DLP file pattern sensitivity to match.
-                    id:
-                        type: int
-                        description: ID.
-                    match_percentage:
-                        aliases: ['match-percentage']
-                        type: int
-                        description: Percentage of fingerprints in the fingerprint databases designated with the selected fp-sensitivity to match.
-                    name:
-                        type: str
-                        description: Filter name.
-                    proto:
-                        type: list
-                        elements: str
-                        description: Check messages or files over one or more of these protocols.
-                        choices: ['imap', 'smtp', 'pop3', 'ftp', 'nntp', 'mm1', 'mm3', 'mm4',
-                                  'mm7', 'mapi', 'aim', 'icq', 'msn', 'yahoo', 'http-get',
-                                  'http-post', 'ssh', 'cifs']
-                    regexp:
-                        type: str
-                        description: Enter a regular expression to match
-                    severity:
-                        type: str
-                        description: Select the severity or threat level that matches this filter.
-                        choices: ['info', 'low', 'medium', 'high', 'critical']
-                    type:
-                        type: str
-                        description: Select whether to check the content of messages
-                        choices: ['file', 'message']
-                    sensitivity:
-                        type: raw
-                        description: (list or str) Select a DLP file pattern sensitivity to match.
-            flow_based:
-                aliases: ['flow-based']
-                type: str
-                description: Enable/disable flow-based DLP.
-                choices: ['disable', 'enable']
-            full_archive_proto:
-                aliases: ['full-archive-proto']
-                type: list
-                elements: str
-                description: Protocols to always content archive.
-                choices: ['imap', 'smtp', 'pop3', 'ftp', 'nntp', 'mm1', 'mm3', 'mm4', 'mm7',
-                          'mapi', 'aim', 'icq', 'msn', 'yahoo', 'http-get', 'http-post', 'ssh',
-                          'cifs']
-            nac_quar_log:
-                aliases: ['nac-quar-log']
-                type: str
-                description: Enable/disable NAC quarantine logging.
-                choices: ['disable', 'enable']
-            name:
-                type: str
-                description: Name of the DLP sensor.
-                required: true
-            options:
-                type: str
-                description: Configure DLP options.
-                choices: ['strict-file']
-            replacemsg_group:
-                aliases: ['replacemsg-group']
-                type: str
-                description: Replacement message group used by this DLP sensor.
-            summary_proto:
-                aliases: ['summary-proto']
-                type: list
-                elements: str
-                description: Protocols to always log summary.
-                choices: ['imap', 'smtp', 'pop3', 'ftp', 'nntp', 'mm1', 'mm3', 'mm4', 'mm7',
-                          'mapi', 'aim', 'icq', 'msn', 'yahoo', 'http-get', 'http-post', 'ssh',
-                          'cifs']
-            feature_set:
-                aliases: ['feature-set']
-                type: str
-                description: Flow/proxy feature set.
-                choices: ['proxy', 'flow']
-            entries:
-                type: list
-                elements: dict
-                description: Entries.
-                suboptions:
-                    count:
-                        type: int
-                        description: Count of dictionary matches to trigger sensor entry match
-                    dictionary:
-                        type: str
-                        description: Select a DLP dictionary.
-                    id:
-                        type: int
-                        description: ID.
-                    status:
-                        type: str
-                        description: Enable/disable this entry.
-                        choices: ['disable', 'enable']
-            eval:
-                type: str
-                description: Expression to evaluate.
-            match_type:
-                aliases: ['match-type']
-                type: str
-                description: Logical relation between entries
-                choices: ['match-all', 'match-any', 'match-eval']
-            fgd_id:
-                aliases: ['fgd-id']
-                type: int
-                description: ID of object in FortiGuard database.
+          action:
+            type: str
+            description: Action to take with content that this DLP sensor matches.
+            choices: ['log-only', 'block', 'exempt', 'ban', 'ban-sender', 'quarantine-ip',
+                      'quarantine-port', 'none', 'allow']
+          archive:
+            type: str
+            description: Enable/disable DLP archiving.
+            choices: ['disable', 'enable', 'summary-only']
+          company_identifier:
+            aliases: ['company-identifier']
+            type: str
+            description: Enter a company identifier watermark to match.
+          expiry:
+            type: str
+            description: Quarantine duration in days, hours, minutes format
+          file_size:
+            aliases: ['file-size']
+            type: int
+            description: Match files this size or larger
+          file_type:
+            aliases: ['file-type']
+            type: str
+            description: Select the number of a DLP file pattern table to match.
+          filter_by:
+            aliases: ['filter-by']
+            type: str
+            description: Select the type of content to match.
+            choices: ['credit-card', 'ssn', 'regexp', 'file-type', 'file-size', 'fingerprint',
+                      'watermark', 'encrypted', 'file-type-and-size']
+          fp_sensitivity:
+            aliases: ['fp-sensitivity']
+            type: raw
+            description: (list or str) Select a DLP file pattern sensitivity to match.
+          id:
+            type: int
+            description: ID.
+          match_percentage:
+            aliases: ['match-percentage']
+            type: int
+            description: Percentage of fingerprints in the fingerprint databases designated with the selected fp-sensitivity to match.
+          name:
+            type: str
+            description: Filter name.
+          proto:
+            type: list
+            elements: str
+            description: Check messages or files over one or more of these protocols.
+            choices: ['imap', 'smtp', 'pop3', 'ftp', 'nntp', 'mm1', 'mm3', 'mm4', 'mm7', 'mapi',
+                      'aim', 'icq', 'msn', 'yahoo', 'http-get', 'http-post', 'ssh', 'cifs']
+          regexp:
+            type: str
+            description: Enter a regular expression to match
+          severity:
+            type: str
+            description: Select the severity or threat level that matches this filter.
+            choices: ['info', 'low', 'medium', 'high', 'critical']
+          type:
+            type: str
+            description: Select whether to check the content of messages
+            choices: ['file', 'message']
+          sensitivity:
+            type: raw
+            description: (list or str) Select a DLP file pattern sensitivity to match.
+      flow_based:
+        aliases: ['flow-based']
+        type: str
+        description: Enable/disable flow-based DLP.
+        choices: ['disable', 'enable']
+      full_archive_proto:
+        aliases: ['full-archive-proto']
+        type: list
+        elements: str
+        description: Protocols to always content archive.
+        choices: ['imap', 'smtp', 'pop3', 'ftp', 'nntp', 'mm1', 'mm3', 'mm4', 'mm7', 'mapi',
+                  'aim', 'icq', 'msn', 'yahoo', 'http-get', 'http-post', 'ssh', 'cifs']
+      nac_quar_log:
+        aliases: ['nac-quar-log']
+        type: str
+        description: Enable/disable NAC quarantine logging.
+        choices: ['disable', 'enable']
+      name:
+        type: str
+        description: Name of the DLP sensor.
+        required: true
+      options:
+        type: str
+        description: Configure DLP options.
+        choices: ['strict-file']
+      replacemsg_group:
+        aliases: ['replacemsg-group']
+        type: str
+        description: Replacement message group used by this DLP sensor.
+      summary_proto:
+        aliases: ['summary-proto']
+        type: list
+        elements: str
+        description: Protocols to always log summary.
+        choices: ['imap', 'smtp', 'pop3', 'ftp', 'nntp', 'mm1', 'mm3', 'mm4', 'mm7', 'mapi',
+                  'aim', 'icq', 'msn', 'yahoo', 'http-get', 'http-post', 'ssh', 'cifs']
+      feature_set:
+        aliases: ['feature-set']
+        type: str
+        description: Flow/proxy feature set.
+        choices: ['proxy', 'flow']
+      entries:
+        type: list
+        elements: dict
+        description: Entries.
+        suboptions:
+          count:
+            type: int
+            description: Count of dictionary matches to trigger sensor entry match
+          dictionary:
+            type: str
+            description: Select a DLP dictionary.
+          id:
+            type: int
+            description: ID.
+          status:
+            type: str
+            description: Enable/disable this entry.
+            choices: ['disable', 'enable']
+      eval:
+        type: str
+        description: Expression to evaluate.
+      match_type:
+        aliases: ['match-type']
+        type: str
+        description: Logical relation between entries
+        choices: ['match-all', 'match-any', 'match-eval']
+      fgd_id:
+        aliases: ['fgd-id']
+        type: int
+        description: ID of object in FortiGuard database.
+      fabric_force_sync:
+        aliases: ['fabric-force-sync']
+        type: str
+        description: Enable/disable forced synchronization of configuration objects from the root FortiGate unit to the downstream devices.
+        choices: ['disable', 'enable']
+      fabric_object:
+        aliases: ['fabric-object']
+        type: str
+        description: Security Fabric global object setting.
+        choices: ['disable', 'enable']
+      fabric_object_source:
+        aliases: ['fabric-object-source']
+        type: str
+        description: Source of truth for fabric object.
+        choices: ['member', 'local', 'root']
+      uuid:
+        type: str
+        description: Universally Unique Identifier
 '''
 
 EXAMPLES = '''
@@ -241,46 +256,50 @@ EXAMPLES = '''
           # eval: <string>
           # match_type: <value in [match-all, match-any, match-eval]>
           # fgd_id: <integer>
+          # fabric_force_sync: <value in [disable, enable]>
+          # fabric_object: <value in [disable, enable]>
+          # fabric_object_source: <value in [member, local, root]>
+          # uuid: <string>
 '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -320,7 +339,7 @@ def main():
                             ],
                             'type': 'str'
                         },
-                        'fp-sensitivity': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']], 'type': 'raw'},
+                        'fp-sensitivity': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.11']], 'type': 'raw'},
                         'id': {'type': 'int'},
                         'match-percentage': {'type': 'int'},
                         'name': {'type': 'str'},
@@ -374,7 +393,11 @@ def main():
                 },
                 'eval': {'v_range': [['7.2.0', '']], 'type': 'str'},
                 'match-type': {'v_range': [['7.2.0', '']], 'choices': ['match-all', 'match-any', 'match-eval'], 'type': 'str'},
-                'fgd-id': {'v_range': [['7.6.0', '']], 'type': 'int'}
+                'fgd-id': {'v_range': [['7.6.0', '']], 'type': 'int'},
+                'fabric-force-sync': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'fabric-object': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'fabric-object-source': {'v_range': [['8.0.0', '']], 'choices': ['member', 'local', 'root'], 'type': 'str'},
+                'uuid': {'v_range': [['8.0.0', '']], 'type': 'str'}
             }
         }
     }

@@ -15,72 +15,72 @@ module: fmgr_user_scim
 short_description: Configure SCIM client entries.
 version_added: "2.10.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  user_scim:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      auth_method:
+        aliases: ['auth-method']
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: TLS client authentication methods
+        choices: ['token', 'base']
+      base_url:
+        aliases: ['base-url']
         type: str
+        description: Server URL to receive SCIM create, read, update, delete
+      certificate:
+        type: list
+        elements: str
+        description: Certificate for client verification during TLS handshake.
+      client_authentication_method:
+        aliases: ['client-authentication-method']
+        type: str
+        description: Client authentication method.
+        choices: ['token', 'base']
+      client_identity_check:
+        aliases: ['client-identity-check']
+        type: str
+        description: Enable/disable client identity check.
+        choices: ['disable', 'enable']
+      client_secret_token:
+        aliases: ['client-secret-token']
+        type: str
+        description: Client secret token.
+      id:
+        type: int
+        description: SCIM client ID.
         required: true
-    user_scim:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            auth_method:
-                aliases: ['auth-method']
-                type: str
-                description: TLS client authentication methods
-                choices: ['token', 'base']
-            base_url:
-                aliases: ['base-url']
-                type: str
-                description: Server URL to receive SCIM create, read, update, delete
-            certificate:
-                type: list
-                elements: str
-                description: Certificate for client verification during TLS handshake.
-            client_authentication_method:
-                aliases: ['client-authentication-method']
-                type: str
-                description: Client authentication method.
-                choices: ['token', 'base']
-            client_identity_check:
-                aliases: ['client-identity-check']
-                type: str
-                description: Enable/disable client identity check.
-                choices: ['disable', 'enable']
-            client_secret_token:
-                aliases: ['client-secret-token']
-                type: str
-                description: Client secret token.
-            id:
-                type: int
-                description: SCIM client ID.
-                required: true
-            name:
-                type: str
-                description: SCIM client name.
-            secret:
-                type: list
-                elements: str
-                description: Secret for token verification or base authentication.
-            status:
-                type: str
-                description: Enable/disable System for Cross-domain Identity Management
-                choices: ['disable', 'enable']
-            token_certificate:
-                aliases: ['token-certificate']
-                type: list
-                elements: str
-                description: Certificate for token verification.
-            cascade:
-                type: str
-                description: Enable/disable to follow SCIM users/groups changes in IDP.
-                choices: ['disable', 'enable']
+      name:
+        type: str
+        description: SCIM client name.
+      secret:
+        type: list
+        elements: str
+        description: Secret for token verification or base authentication.
+      status:
+        type: str
+        description: Enable/disable System for Cross-domain Identity Management
+        choices: ['disable', 'enable']
+      token_certificate:
+        aliases: ['token-certificate']
+        type: list
+        elements: str
+        description: Certificate for token verification.
+      cascade:
+        type: str
+        description: Enable/disable to follow SCIM users/groups changes in IDP.
+        choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -111,42 +111,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

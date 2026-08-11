@@ -15,221 +15,218 @@ module: fmgr_extensioncontroller_extenderprofile_wifi
 short_description: FortiExtender wifi configuration.
 version_added: "2.6.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.partial_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.partial_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  extender-profile:
+    description: Deprecated, please use "extender_profile"
+    type: str
+  extender_profile:
+    description: The parameter (extender-profile) in requested url.
+    type: str
+  extensioncontroller_extenderprofile_wifi:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      DFS:
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Wi-Fi 5G Radio DFS channel enable/disable.
+        choices: ['disable', 'enable']
+      country:
         type: str
-        required: true
-    extender-profile:
-        description: Deprecated, please use "extender_profile"
-        type: str
-    extender_profile:
-        description: The parameter (extender-profile) in requested url.
-        type: str
-    extensioncontroller_extenderprofile_wifi:
-        description: The top level parameters set.
-        required: false
+        description: Country in which this FEX will operate
+        choices: ['AL', 'DZ', 'AR', 'AM', 'AU', 'AT', 'AZ', 'BH', 'BD', 'BY', 'BE', 'BZ', 'BO',
+                  'BA', 'BR', 'BN', 'BG', 'CA', 'CL', 'CN', 'CO', 'CR', 'HR', 'CY', 'CZ', 'DK',
+                  'DO', 'EC', 'EG', 'SV', 'EE', 'FI', 'FR', 'GE', 'DE', 'GR', 'GT', 'HN', 'HK',
+                  'HU', 'IS', 'IN', 'ID', 'IE', 'IL', 'IT', 'JM', 'JP', 'JO', 'KZ', 'KE', 'KR',
+                  'KW', 'LV', 'LB', 'LI', 'LT', 'LU', 'MO', 'MK', 'MY', 'MT', 'MX', 'MC', 'MA',
+                  'NP', 'NL', 'AN', 'NZ', 'NO', 'OM', 'PK', 'PA', 'PG', 'PE', 'PH', 'PL', 'PT',
+                  'PR', 'QA', 'RO', 'RU', 'SA', 'SG', 'SK', 'SI', 'ZA', 'ES', 'LK', 'SE', 'CH',
+                  'TW', 'TH', 'TT', 'TN', 'TR', 'AE', 'UA', 'GB', 'US', 'PS', 'UY', 'UZ', 'VE',
+                  'VN', 'YE', 'ZW', 'NA', 'BS', 'VC', 'KH', 'MV', 'AF', 'NG', 'TZ', 'ZM', 'SN',
+                  'CI', 'GH', 'CM', 'MW', 'AO', 'GA', 'ML', 'BJ', 'MG', 'TD', 'BW', 'LY', 'RW',
+                  'MZ', 'GM', 'LS', 'MU', 'CG', 'UG', 'BF', 'SL', 'SO', 'CD', 'NE', 'CF', 'SZ',
+                  'TG', 'LR', 'MR', 'DJ', 'RE', 'RS', 'ME', 'IQ', 'MD', 'KY', 'BB', 'BM', 'TC',
+                  'VI', 'PM', 'MF', 'GD', 'IM', 'FO', 'GI', 'GL', 'TM', 'MN', 'VU', 'FJ', 'LA',
+                  'GU', 'WF', 'MH', 'BT', 'FM', 'PF', 'NI', 'PY', 'HT', 'GY', 'AW', 'KN', 'GF',
+                  'AS', 'MP', 'PW', 'MM', 'LC', 'GP', 'ET', 'SR', 'CX', 'DM', 'MQ', 'YT', 'BL',
+                  '--', 'TL']
+      radio_1:
+        aliases: ['radio-1']
         type: dict
+        description: Radio 1.
         suboptions:
-            DFS:
-                type: str
-                description: Wi-Fi 5G Radio DFS channel enable/disable.
-                choices: ['disable', 'enable']
-            country:
-                type: str
-                description: Country in which this FEX will operate
-                choices: ['AL', 'DZ', 'AR', 'AM', 'AU', 'AT', 'AZ', 'BH', 'BD', 'BY', 'BE', 'BZ',
-                          'BO', 'BA', 'BR', 'BN', 'BG', 'CA', 'CL', 'CN', 'CO', 'CR', 'HR', 'CY',
-                          'CZ', 'DK', 'DO', 'EC', 'EG', 'SV', 'EE', 'FI', 'FR', 'GE', 'DE', 'GR',
-                          'GT', 'HN', 'HK', 'HU', 'IS', 'IN', 'ID', 'IE', 'IL', 'IT', 'JM', 'JP',
-                          'JO', 'KZ', 'KE', 'KR', 'KW', 'LV', 'LB', 'LI', 'LT', 'LU', 'MO', 'MK',
-                          'MY', 'MT', 'MX', 'MC', 'MA', 'NP', 'NL', 'AN', 'NZ', 'NO', 'OM', 'PK',
-                          'PA', 'PG', 'PE', 'PH', 'PL', 'PT', 'PR', 'QA', 'RO', 'RU', 'SA', 'SG',
-                          'SK', 'SI', 'ZA', 'ES', 'LK', 'SE', 'CH', 'TW', 'TH', 'TT', 'TN', 'TR',
-                          'AE', 'UA', 'GB', 'US', 'PS', 'UY', 'UZ', 'VE', 'VN', 'YE', 'ZW', 'NA',
-                          'BS', 'VC', 'KH', 'MV', 'AF', 'NG', 'TZ', 'ZM', 'SN', 'CI', 'GH', 'CM',
-                          'MW', 'AO', 'GA', 'ML', 'BJ', 'MG', 'TD', 'BW', 'LY', 'RW', 'MZ', 'GM',
-                          'LS', 'MU', 'CG', 'UG', 'BF', 'SL', 'SO', 'CD', 'NE', 'CF', 'SZ', 'TG',
-                          'LR', 'MR', 'DJ', 'RE', 'RS', 'ME', 'IQ', 'MD', 'KY', 'BB', 'BM', 'TC',
-                          'VI', 'PM', 'MF', 'GD', 'IM', 'FO', 'GI', 'GL', 'TM', 'MN', 'VU', 'FJ',
-                          'LA', 'GU', 'WF', 'MH', 'BT', 'FM', 'PF', 'NI', 'PY', 'HT', 'GY', 'AW',
-                          'KN', 'GF', 'AS', 'MP', 'PW', 'MM', 'LC', 'GP', 'ET', 'SR', 'CX', 'DM',
-                          'MQ', 'YT', 'BL', '--', 'TL']
-            radio_1:
-                aliases: ['radio-1']
-                type: dict
-                description: Radio 1.
-                suboptions:
-                    d80211d:
-                        aliases: ['80211d']
-                        type: str
-                        description: Enable/disable Wi-Fi 802.
-                        choices: ['disable', 'enable']
-                    band:
-                        type: str
-                        description: Wi-Fi band selection 2.
-                        choices: ['2.4GHz']
-                    bandwidth:
-                        type: str
-                        description: Wi-Fi channel bandwidth.
-                        choices: ['auto', '20MHz', '40MHz', '80MHz']
-                    beacon_interval:
-                        aliases: ['beacon-interval']
-                        type: int
-                        description: Wi-Fi beacon interval in miliseconds
-                    bss_color:
-                        aliases: ['bss-color']
-                        type: int
-                        description: Wi-Fi 802.
-                    bss_color_mode:
-                        aliases: ['bss-color-mode']
-                        type: str
-                        description: Wi-Fi 802.
-                        choices: ['auto', 'static']
-                    channel:
-                        type: list
-                        elements: str
-                        description: Wi-Fi channels.
-                        choices: ['CH1', 'CH2', 'CH3', 'CH4', 'CH5', 'CH6', 'CH7', 'CH8', 'CH9',
-                                  'CH10', 'CH11']
-                    extension_channel:
-                        aliases: ['extension-channel']
-                        type: str
-                        description: Wi-Fi extension channel.
-                        choices: ['auto', 'higher', 'lower']
-                    guard_interval:
-                        aliases: ['guard-interval']
-                        type: str
-                        description: Wi-Fi guard interval.
-                        choices: ['auto', '400ns', '800ns']
-                    lan_ext_vap:
-                        aliases: ['lan-ext-vap']
-                        type: list
-                        elements: str
-                        description: Wi-Fi LAN-Extention VAP.
-                    local_vaps:
-                        aliases: ['local-vaps']
-                        type: list
-                        elements: str
-                        description: Wi-Fi local VAP.
-                    max_clients:
-                        aliases: ['max-clients']
-                        type: int
-                        description: Maximum number of Wi-Fi radio clients
-                    mode:
-                        type: str
-                        description: Wi-Fi radio mode AP
-                        choices: ['AP', 'Client']
-                    operating_standard:
-                        aliases: ['operating-standard']
-                        type: str
-                        description: Wi-Fi operating standard.
-                        choices: ['auto', '11A-N-AC-AX', '11A-N-AC', '11A-N', '11A', '11N-AC-AX',
-                                  '11AC-AX', '11AC', '11N-AC', '11B-G-N-AX', '11B-G-N', '11B-G',
-                                  '11B', '11G-N-AX', '11N-AX', '11AX', '11G-N', '11N', '11G']
-                    power_level:
-                        aliases: ['power-level']
-                        type: int
-                        description: Wi-Fi power level in percent
-                    radio_id:
-                        aliases: ['radio-id']
-                        type: int
-                        description: Radio ID.
-                    status:
-                        type: str
-                        description: Enable/disable Wi-Fi radio.
-                        choices: ['disable', 'enable']
-            radio_2:
-                aliases: ['radio-2']
-                type: dict
-                description: Radio 2.
-                suboptions:
-                    d80211d:
-                        aliases: ['80211d']
-                        type: str
-                        description: Enable/disable Wi-Fi 802.
-                        choices: ['disable', 'enable']
-                    band:
-                        type: str
-                        description: Wi-Fi band selection 2.
-                        choices: ['5GHz']
-                    bandwidth:
-                        type: str
-                        description: Wi-Fi channel bandwidth.
-                        choices: ['auto', '20MHz', '40MHz', '80MHz']
-                    beacon_interval:
-                        aliases: ['beacon-interval']
-                        type: int
-                        description: Wi-Fi beacon interval in miliseconds
-                    bss_color:
-                        aliases: ['bss-color']
-                        type: int
-                        description: Wi-Fi 802.
-                    bss_color_mode:
-                        aliases: ['bss-color-mode']
-                        type: str
-                        description: Wi-Fi 802.
-                        choices: ['auto', 'static']
-                    channel:
-                        type: list
-                        elements: str
-                        description: Wi-Fi channels.
-                        choices: ['CH36', 'CH40', 'CH44', 'CH48', 'CH52', 'CH56', 'CH60', 'CH64',
-                                  'CH100', 'CH104', 'CH108', 'CH112', 'CH116', 'CH120', 'CH124',
-                                  'CH128', 'CH132', 'CH136', 'CH140', 'CH144', 'CH149', 'CH153',
-                                  'CH157', 'CH161', 'CH165']
-                    extension_channel:
-                        aliases: ['extension-channel']
-                        type: str
-                        description: Wi-Fi extension channel.
-                        choices: ['auto', 'higher', 'lower']
-                    guard_interval:
-                        aliases: ['guard-interval']
-                        type: str
-                        description: Wi-Fi guard interval.
-                        choices: ['auto', '400ns', '800ns']
-                    lan_ext_vap:
-                        aliases: ['lan-ext-vap']
-                        type: list
-                        elements: str
-                        description: Wi-Fi LAN-Extention VAP.
-                    local_vaps:
-                        aliases: ['local-vaps']
-                        type: list
-                        elements: str
-                        description: Wi-Fi local VAP.
-                    max_clients:
-                        aliases: ['max-clients']
-                        type: int
-                        description: Maximum number of Wi-Fi radio clients
-                    mode:
-                        type: str
-                        description: Wi-Fi radio mode AP
-                        choices: ['AP', 'Client']
-                    operating_standard:
-                        aliases: ['operating-standard']
-                        type: str
-                        description: Wi-Fi operating standard.
-                        choices: ['auto', '11A-N-AC-AX', '11A-N-AC', '11A-N', '11A', '11N-AC-AX',
-                                  '11AC-AX', '11AC', '11N-AC', '11B-G-N-AX', '11B-G-N', '11B-G',
-                                  '11B', '11G-N-AX', '11N-AX', '11AX', '11G-N', '11N', '11G']
-                    power_level:
-                        aliases: ['power-level']
-                        type: int
-                        description: Wi-Fi power level in percent
-                    radio_id:
-                        aliases: ['radio-id']
-                        type: int
-                        description: Radio ID.
-                    status:
-                        type: str
-                        description: Enable/disable Wi-Fi radio.
-                        choices: ['disable', 'enable']
+          d80211d:
+            aliases: ['80211d']
+            type: str
+            description: Enable/disable Wi-Fi 802.
+            choices: ['disable', 'enable']
+          band:
+            type: str
+            description: Wi-Fi band selection 2.
+            choices: ['2.4GHz']
+          bandwidth:
+            type: str
+            description: Wi-Fi channel bandwidth.
+            choices: ['auto', '20MHz', '40MHz', '80MHz']
+          beacon_interval:
+            aliases: ['beacon-interval']
+            type: int
+            description: Wi-Fi beacon interval in miliseconds
+          bss_color:
+            aliases: ['bss-color']
+            type: int
+            description: Wi-Fi 802.
+          bss_color_mode:
+            aliases: ['bss-color-mode']
+            type: str
+            description: Wi-Fi 802.
+            choices: ['auto', 'static']
+          channel:
+            type: list
+            elements: str
+            description: Wi-Fi channels.
+            choices: ['CH1', 'CH2', 'CH3', 'CH4', 'CH5', 'CH6', 'CH7', 'CH8', 'CH9', 'CH10', 'CH11']
+          extension_channel:
+            aliases: ['extension-channel']
+            type: str
+            description: Wi-Fi extension channel.
+            choices: ['auto', 'higher', 'lower']
+          guard_interval:
+            aliases: ['guard-interval']
+            type: str
+            description: Wi-Fi guard interval.
+            choices: ['auto', '400ns', '800ns']
+          lan_ext_vap:
+            aliases: ['lan-ext-vap']
+            type: list
+            elements: str
+            description: Wi-Fi LAN-Extention VAP.
+          local_vaps:
+            aliases: ['local-vaps']
+            type: list
+            elements: str
+            description: Wi-Fi local VAP.
+          max_clients:
+            aliases: ['max-clients']
+            type: int
+            description: Maximum number of Wi-Fi radio clients
+          mode:
+            type: str
+            description: Wi-Fi radio mode AP
+            choices: ['AP', 'Client']
+          operating_standard:
+            aliases: ['operating-standard']
+            type: str
+            description: Wi-Fi operating standard.
+            choices: ['auto', '11A-N-AC-AX', '11A-N-AC', '11A-N', '11A', '11N-AC-AX', '11AC-AX',
+                      '11AC', '11N-AC', '11B-G-N-AX', '11B-G-N', '11B-G', '11B', '11G-N-AX',
+                      '11N-AX', '11AX', '11G-N', '11N', '11G']
+          power_level:
+            aliases: ['power-level']
+            type: int
+            description: Wi-Fi power level in percent
+          radio_id:
+            aliases: ['radio-id']
+            type: int
+            description: Radio ID.
+          status:
+            type: str
+            description: Enable/disable Wi-Fi radio.
+            choices: ['disable', 'enable']
+      radio_2:
+        aliases: ['radio-2']
+        type: dict
+        description: Radio 2.
+        suboptions:
+          d80211d:
+            aliases: ['80211d']
+            type: str
+            description: Enable/disable Wi-Fi 802.
+            choices: ['disable', 'enable']
+          band:
+            type: str
+            description: Wi-Fi band selection 2.
+            choices: ['5GHz']
+          bandwidth:
+            type: str
+            description: Wi-Fi channel bandwidth.
+            choices: ['auto', '20MHz', '40MHz', '80MHz']
+          beacon_interval:
+            aliases: ['beacon-interval']
+            type: int
+            description: Wi-Fi beacon interval in miliseconds
+          bss_color:
+            aliases: ['bss-color']
+            type: int
+            description: Wi-Fi 802.
+          bss_color_mode:
+            aliases: ['bss-color-mode']
+            type: str
+            description: Wi-Fi 802.
+            choices: ['auto', 'static']
+          channel:
+            type: list
+            elements: str
+            description: Wi-Fi channels.
+            choices: ['CH36', 'CH40', 'CH44', 'CH48', 'CH52', 'CH56', 'CH60', 'CH64', 'CH100',
+                      'CH104', 'CH108', 'CH112', 'CH116', 'CH120', 'CH124', 'CH128', 'CH132',
+                      'CH136', 'CH140', 'CH144', 'CH149', 'CH153', 'CH157', 'CH161', 'CH165']
+          extension_channel:
+            aliases: ['extension-channel']
+            type: str
+            description: Wi-Fi extension channel.
+            choices: ['auto', 'higher', 'lower']
+          guard_interval:
+            aliases: ['guard-interval']
+            type: str
+            description: Wi-Fi guard interval.
+            choices: ['auto', '400ns', '800ns']
+          lan_ext_vap:
+            aliases: ['lan-ext-vap']
+            type: list
+            elements: str
+            description: Wi-Fi LAN-Extention VAP.
+          local_vaps:
+            aliases: ['local-vaps']
+            type: list
+            elements: str
+            description: Wi-Fi local VAP.
+          max_clients:
+            aliases: ['max-clients']
+            type: int
+            description: Maximum number of Wi-Fi radio clients
+          mode:
+            type: str
+            description: Wi-Fi radio mode AP
+            choices: ['AP', 'Client']
+          operating_standard:
+            aliases: ['operating-standard']
+            type: str
+            description: Wi-Fi operating standard.
+            choices: ['auto', '11A-N-AC-AX', '11A-N-AC', '11A-N', '11A', '11N-AC-AX', '11AC-AX',
+                      '11AC', '11N-AC', '11B-G-N-AX', '11B-G-N', '11B-G', '11B', '11G-N-AX',
+                      '11N-AX', '11AX', '11G-N', '11N', '11G']
+          power_level:
+            aliases: ['power-level']
+            type: int
+            description: Wi-Fi power level in percent
+          radio_id:
+            aliases: ['radio-id']
+            type: int
+            description: Radio ID.
+          status:
+            type: str
+            description: Enable/disable Wi-Fi radio.
+            choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -289,42 +286,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

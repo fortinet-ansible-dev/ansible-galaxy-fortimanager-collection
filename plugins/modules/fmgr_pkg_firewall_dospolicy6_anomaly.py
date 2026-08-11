@@ -15,127 +15,125 @@ module: fmgr_pkg_firewall_dospolicy6_anomaly
 short_description: Anomaly name.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  pkg:
+    description: The parameter (pkg) in requested url.
+    type: str
+    required: true
+  DoS-policy6:
+    description: Deprecated, please use "DoS_policy6"
+    type: str
+  DoS_policy6:
+    description: The parameter (DoS-policy6) in requested url.
+    type: str
+  pkg_firewall_dospolicy6_anomaly:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      action:
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Action taken when the threshold is reached.
+        choices: ['pass', 'block', 'proxy']
+      log:
         type: str
+        description: Enable/disable logging for this anomaly.
+        choices: ['disable', 'enable']
+      name:
+        type: str
+        description: Anomaly name.
         required: true
-    pkg:
-        description: The parameter (pkg) in requested url.
+      quarantine:
         type: str
-        required: true
-    DoS-policy6:
-        description: Deprecated, please use "DoS_policy6"
+        description: Quarantine method.
+        choices: ['none', 'attacker', 'both', 'interface']
+      quarantine_expiry:
+        aliases: ['quarantine-expiry']
         type: str
-    DoS_policy6:
-        description: The parameter (DoS-policy6) in requested url.
+        description: Duration of quarantine, from 1 minute to 364 days, 23 hours, and 59 minutes from now.
+      quarantine_log:
+        aliases: ['quarantine-log']
         type: str
-    pkg_firewall_dospolicy6_anomaly:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            action:
-                type: str
-                description: Action taken when the threshold is reached.
-                choices: ['pass', 'block', 'proxy']
-            log:
-                type: str
-                description: Enable/disable logging for this anomaly.
-                choices: ['disable', 'enable']
-            name:
-                type: str
-                description: Anomaly name.
-                required: true
-            quarantine:
-                type: str
-                description: Quarantine method.
-                choices: ['none', 'attacker', 'both', 'interface']
-            quarantine_expiry:
-                aliases: ['quarantine-expiry']
-                type: str
-                description: Duration of quarantine, from 1 minute to 364 days, 23 hours, and 59 minutes from now.
-            quarantine_log:
-                aliases: ['quarantine-log']
-                type: str
-                description: Enable/disable quarantine logging.
-                choices: ['disable', 'enable']
-            status:
-                type: str
-                description: Enable/disable the active status of this anomaly sensor.
-                choices: ['disable', 'enable']
-            threshold:
-                type: int
-                description: Number of detected instances per minute which triggers action
-            threshold_default:
-                aliases: ['threshold(default)']
-                type: int
-                description: Threshold
-            synproxy_tos:
-                type: str
-                description: Determine TCP differentiated services code point value
-                choices: ['0', '10', '12', '14', '18', '20', '22', '26', '28', '30', '34', '36',
-                          '38', '40', '46', '255']
-            synproxy_ttl:
-                type: str
-                description: Determine Time to live
-                choices: ['32', '64', '128', '255']
-            synproxy_tcp_sack:
-                type: str
-                description: Enable/disable TCP selective acknowledage
-                choices: ['disable', 'enable']
-            synproxy_tcp_window:
-                type: str
-                description: Determine TCP Window size for packets replied by syn proxy module.
-                choices: ['4096', '8192', '16384', '32768']
-            synproxy_tcp_timestamp:
-                type: str
-                description: Enable/disable TCP timestamp option for packets replied by syn proxy module.
-                choices: ['disable', 'enable']
-            synproxy_tcp_mss:
-                type: str
-                description: Determine TCP maximum segment size
-                choices: ['0', '256', '512', '1024', '1300', '1360', '1460', '1500']
-            synproxy_tcp_windowscale:
-                type: str
-                description: Determine TCP window scale option value for packets replied by syn proxy module.
-                choices: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12',
-                          '13', '14']
-            synproxy-tos:
-                type: str
-                description: Deprecated, please rename it to synproxy_tos. Determine TCP differentiated services code point value
-                choices: ['0', '10', '12', '14', '18', '20', '22', '26', '28', '30', '34', '36',
-                          '38', '40', '46', '255']
-            synproxy-tcp-window:
-                type: str
-                description: Deprecated, please rename it to synproxy_tcp_window. Determine TCP Window size for packets replied by syn proxy module.
-                choices: ['4096', '8192', '16384', '32768']
-            synproxy-tcp-windowscale:
-                type: str
-                description: Deprecated, please rename it to synproxy_tcp_windowscale. Determine TCP window scale option value for packets replied by s...
-                choices: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12',
-                          '13', '14']
-            synproxy-tcp-timestamp:
-                type: str
-                description: Deprecated, please rename it to synproxy_tcp_timestamp. Enable/disable TCP timestamp option for packets replied by syn pro...
-                choices: ['disable', 'enable']
-            synproxy-ttl:
-                type: str
-                description: Deprecated, please rename it to synproxy_ttl. Determine Time to live
-                choices: ['32', '64', '128', '255']
-            synproxy-tcp-mss:
-                type: str
-                description: Deprecated, please rename it to synproxy_tcp_mss. Determine TCP maximum segment size
-                choices: ['0', '256', '512', '1024', '1300', '1360', '1460', '1500']
-            synproxy-tcp-sack:
-                type: str
-                description: Deprecated, please rename it to synproxy_tcp_sack. Enable/disable TCP selective acknowledage
-                choices: ['disable', 'enable']
+        description: Enable/disable quarantine logging.
+        choices: ['disable', 'enable']
+      status:
+        type: str
+        description: Enable/disable the active status of this anomaly sensor.
+        choices: ['disable', 'enable']
+      threshold:
+        type: int
+        description: Number of detected instances per minute which triggers action
+      threshold_default:
+        aliases: ['threshold(default)']
+        type: int
+        description: Threshold
+      synproxy_tos:
+        type: str
+        description: Determine TCP differentiated services code point value
+        choices: ['0', '10', '12', '14', '18', '20', '22', '26', '28', '30', '34', '36', '38',
+                  '40', '46', '255']
+      synproxy_ttl:
+        type: str
+        description: Determine Time to live
+        choices: ['32', '64', '128', '255']
+      synproxy_tcp_sack:
+        type: str
+        description: Enable/disable TCP selective acknowledage
+        choices: ['disable', 'enable']
+      synproxy_tcp_window:
+        type: str
+        description: Determine TCP Window size for packets replied by syn proxy module.
+        choices: ['4096', '8192', '16384', '32768']
+      synproxy_tcp_timestamp:
+        type: str
+        description: Enable/disable TCP timestamp option for packets replied by syn proxy module.
+        choices: ['disable', 'enable']
+      synproxy_tcp_mss:
+        type: str
+        description: Determine TCP maximum segment size
+        choices: ['0', '256', '512', '1024', '1300', '1360', '1460', '1500']
+      synproxy_tcp_windowscale:
+        type: str
+        description: Determine TCP window scale option value for packets replied by syn proxy module.
+        choices: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14']
+      synproxy-tos:
+        type: str
+        description: Deprecated, please rename it to synproxy_tos. Determine TCP differentiated services code point value
+        choices: ['0', '10', '12', '14', '18', '20', '22', '26', '28', '30', '34', '36', '38',
+                  '40', '46', '255']
+      synproxy-tcp-window:
+        type: str
+        description: Deprecated, please rename it to synproxy_tcp_window. Determine TCP Window size for packets replied by syn proxy module.
+        choices: ['4096', '8192', '16384', '32768']
+      synproxy-tcp-windowscale:
+        type: str
+        description: Deprecated, please rename it to synproxy_tcp_windowscale. Determine TCP window scale option value for packets replied by syn proxy...
+        choices: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14']
+      synproxy-tcp-timestamp:
+        type: str
+        description: Deprecated, please rename it to synproxy_tcp_timestamp. Enable/disable TCP timestamp option for packets replied by syn proxy module.
+        choices: ['disable', 'enable']
+      synproxy-ttl:
+        type: str
+        description: Deprecated, please rename it to synproxy_ttl. Determine Time to live
+        choices: ['32', '64', '128', '255']
+      synproxy-tcp-mss:
+        type: str
+        description: Deprecated, please rename it to synproxy_tcp_mss. Determine TCP maximum segment size
+        choices: ['0', '256', '512', '1024', '1300', '1360', '1460', '1500']
+      synproxy-tcp-sack:
+        type: str
+        description: Deprecated, please rename it to synproxy_tcp_sack. Enable/disable TCP selective acknowledage
+        choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -184,42 +182,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

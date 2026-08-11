@@ -15,59 +15,59 @@ module: fmgr_system_passwordpolicy
 short_description: Password policy.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.partial_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.partial_crud
 options:
-    system_passwordpolicy:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            change_4_characters:
-                aliases: ['change-4-characters']
-                type: str
-                description:
-                    - Enable/disable changing at least 4 characters for new password.
-                    - disable - Disable changing at least 4 characters for new password.
-                    - enable - Enable changing at least 4 characters for new password.
-                choices: ['disable', 'enable']
-            expire:
-                type: int
-                description: Number of days after which admin users password will expire
-            minimum_length:
-                aliases: ['minimum-length']
-                type: int
-                description: Minimum password length.
-            must_contain:
-                aliases: ['must-contain']
-                type: list
-                elements: str
-                description:
-                    - Password character requirements.
-                    - upper-case-letter - Require password to contain upper case letter.
-                    - lower-case-letter - Require password to contain lower case letter.
-                    - number - Require password to contain number.
-                    - non-alphanumeric - Require password to contain non-alphanumeric characters.
-                choices: ['upper-case-letter', 'lower-case-letter', 'number', 'non-alphanumeric']
-            status:
-                type: str
-                description:
-                    - Enable/disable password policy.
-                    - disable - Disable password policy.
-                    - enable - Enable password policy.
-                choices: ['disable', 'enable']
-            password_history:
-                aliases: ['password-history']
-                type: int
-                description: Number of unique new passwords that must be used before old password can be reused
-            login_lockout_upon_downgrade:
-                aliases: ['login-lockout-upon-downgrade']
-                type: str
-                description:
-                    - Enable/disable administrative user login lockout upon downgrade
-                    - disable - Disable administrative user login lockout upon downgrade.
-                    - enable - Enable administrative user login lockout upon downgrade.
-                choices: ['disable', 'enable']
+  system_passwordpolicy:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      change_4_characters:
+        aliases: ['change-4-characters']
+        type: str
+        description:
+          - Enable/disable changing at least 4 characters for new password.
+          - disable - Disable changing at least 4 characters for new password.
+          - enable - Enable changing at least 4 characters for new password.
+        choices: ['disable', 'enable']
+      expire:
+        type: int
+        description: Number of days after which admin users password will expire
+      minimum_length:
+        aliases: ['minimum-length']
+        type: int
+        description: Minimum password length.
+      must_contain:
+        aliases: ['must-contain']
+        type: list
+        elements: str
+        description:
+          - Password character requirements.
+          - upper-case-letter - Require password to contain upper case letter.
+          - lower-case-letter - Require password to contain lower case letter.
+          - number - Require password to contain number.
+          - non-alphanumeric - Require password to contain non-alphanumeric characters.
+        choices: ['upper-case-letter', 'lower-case-letter', 'number', 'non-alphanumeric']
+      status:
+        type: str
+        description:
+          - Enable/disable password policy.
+          - disable - Disable password policy.
+          - enable - Enable password policy.
+        choices: ['disable', 'enable']
+      password_history:
+        aliases: ['password-history']
+        type: int
+        description: Number of unique new passwords that must be used before old password can be reused
+      login_lockout_upon_downgrade:
+        aliases: ['login-lockout-upon-downgrade']
+        type: str
+        description:
+          - Enable/disable administrative user login lockout upon downgrade
+          - disable - Disable administrative user login lockout upon downgrade.
+          - enable - Enable administrative user login lockout upon downgrade.
+        choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -91,42 +91,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -149,7 +149,7 @@ def main():
                 'status': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'password-history': {'v_range': [['7.6.0', '']], 'no_log': True, 'type': 'int'},
                 'login-lockout-upon-downgrade': {
-                    'v_range': [['7.2.11', '7.2.12'], ['7.4.7', '7.4.10'], ['7.6.3', '']],
+                    'v_range': [['7.2.11', '7.2.12'], ['7.4.7', '7.4.11'], ['7.6.3', '']],
                     'choices': ['disable', 'enable'],
                     'type': 'str'
                 }

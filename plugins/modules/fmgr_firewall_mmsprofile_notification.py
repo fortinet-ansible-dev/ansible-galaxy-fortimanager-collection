@@ -15,221 +15,220 @@ module: fmgr_firewall_mmsprofile_notification
 short_description: Notification configuration.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.partial_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.partial_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  mms-profile:
+    description: Deprecated, please use "mms_profile"
+    type: str
+  mms_profile:
+    description: The parameter (mms-profile) in requested url.
+    type: str
+  firewall_mmsprofile_notification:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      alert_int:
+        aliases: ['alert-int']
+        type: int
+        description: Alert notification send interval.
+      alert_int_mode:
+        aliases: ['alert-int-mode']
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Alert notification interval mode.
+        choices: ['hours', 'minutes']
+      alert_src_msisdn:
+        aliases: ['alert-src-msisdn']
         type: str
-        required: true
-    mms-profile:
-        description: Deprecated, please use "mms_profile"
+        description: Specify from address for alert messages.
+      alert_status:
+        aliases: ['alert-status']
         type: str
-    mms_profile:
-        description: The parameter (mms-profile) in requested url.
+        description: Alert notification status.
+        choices: ['disable', 'enable']
+      bword_int:
+        aliases: ['bword-int']
+        type: int
+        description: Banned word notification send interval.
+      bword_int_mode:
+        aliases: ['bword-int-mode']
         type: str
-    firewall_mmsprofile_notification:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            alert_int:
-                aliases: ['alert-int']
-                type: int
-                description: Alert notification send interval.
-            alert_int_mode:
-                aliases: ['alert-int-mode']
-                type: str
-                description: Alert notification interval mode.
-                choices: ['hours', 'minutes']
-            alert_src_msisdn:
-                aliases: ['alert-src-msisdn']
-                type: str
-                description: Specify from address for alert messages.
-            alert_status:
-                aliases: ['alert-status']
-                type: str
-                description: Alert notification status.
-                choices: ['disable', 'enable']
-            bword_int:
-                aliases: ['bword-int']
-                type: int
-                description: Banned word notification send interval.
-            bword_int_mode:
-                aliases: ['bword-int-mode']
-                type: str
-                description: Banned word notification interval mode.
-                choices: ['hours', 'minutes']
-            bword_status:
-                aliases: ['bword-status']
-                type: str
-                description: Banned word notification status.
-                choices: ['disable', 'enable']
-            carrier_endpoint_bwl_int:
-                aliases: ['carrier-endpoint-bwl-int']
-                type: int
-                description: Carrier end point black/white list notification send interval.
-            carrier_endpoint_bwl_int_mode:
-                aliases: ['carrier-endpoint-bwl-int-mode']
-                type: str
-                description: Carrier end point black/white list notification interval mode.
-                choices: ['hours', 'minutes']
-            carrier_endpoint_bwl_status:
-                aliases: ['carrier-endpoint-bwl-status']
-                type: str
-                description: Carrier end point black/white list notification status.
-                choices: ['disable', 'enable']
-            days_allowed:
-                aliases: ['days-allowed']
-                type: list
-                elements: str
-                description: Weekdays on which notification messages may be sent.
-                choices: ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday',
-                          'saturday']
-            detect_server:
-                aliases: ['detect-server']
-                type: str
-                description: Enable/disable automatic server address determination.
-                choices: ['disable', 'enable']
-            dupe_int:
-                aliases: ['dupe-int']
-                type: int
-                description: Duplicate notification send interval.
-            dupe_int_mode:
-                aliases: ['dupe-int-mode']
-                type: str
-                description: Duplicate notification interval mode.
-                choices: ['hours', 'minutes']
-            dupe_status:
-                aliases: ['dupe-status']
-                type: str
-                description: Duplicate notification status.
-                choices: ['disable', 'enable']
-            file_block_int:
-                aliases: ['file-block-int']
-                type: int
-                description: File block notification send interval.
-            file_block_int_mode:
-                aliases: ['file-block-int-mode']
-                type: str
-                description: File block notification interval mode.
-                choices: ['hours', 'minutes']
-            file_block_status:
-                aliases: ['file-block-status']
-                type: str
-                description: File block notification status.
-                choices: ['disable', 'enable']
-            flood_int:
-                aliases: ['flood-int']
-                type: int
-                description: Flood notification send interval.
-            flood_int_mode:
-                aliases: ['flood-int-mode']
-                type: str
-                description: Flood notification interval mode.
-                choices: ['hours', 'minutes']
-            flood_status:
-                aliases: ['flood-status']
-                type: str
-                description: Flood notification status.
-                choices: ['disable', 'enable']
-            from_in_header:
-                aliases: ['from-in-header']
-                type: str
-                description: Enable/disable insertion of from address in HTTP header.
-                choices: ['disable', 'enable']
-            mms_checksum_int:
-                aliases: ['mms-checksum-int']
-                type: int
-                description: MMS checksum notification send interval.
-            mms_checksum_int_mode:
-                aliases: ['mms-checksum-int-mode']
-                type: str
-                description: MMS checksum notification interval mode.
-                choices: ['hours', 'minutes']
-            mms_checksum_status:
-                aliases: ['mms-checksum-status']
-                type: str
-                description: MMS checksum notification status.
-                choices: ['disable', 'enable']
-            mmsc_hostname:
-                aliases: ['mmsc-hostname']
-                type: str
-                description: Host name or IP address of the MMSC.
-            mmsc_password:
-                aliases: ['mmsc-password']
-                type: raw
-                description: (list) Password required for authentication with the MMSC.
-            mmsc_port:
-                aliases: ['mmsc-port']
-                type: int
-                description: Port used on the MMSC for sending MMS messages
-            mmsc_url:
-                aliases: ['mmsc-url']
-                type: str
-                description: URL used on the MMSC for sending MMS messages.
-            mmsc_username:
-                aliases: ['mmsc-username']
-                type: str
-                description: User name required for authentication with the MMSC.
-            msg_protocol:
-                aliases: ['msg-protocol']
-                type: str
-                description: Protocol to use for sending notification messages.
-                choices: ['mm1', 'mm3', 'mm4', 'mm7']
-            msg_type:
-                aliases: ['msg-type']
-                type: str
-                description: MM7 message type.
-                choices: ['submit-req', 'deliver-req']
-            protocol:
-                type: str
-                description: Protocol.
-            rate_limit:
-                aliases: ['rate-limit']
-                type: int
-                description: Rate limit for sending notification messages
-            tod_window_duration:
-                aliases: ['tod-window-duration']
-                type: str
-                description: Time of day window duration.
-            tod_window_end:
-                aliases: ['tod-window-end']
-                type: str
-                description: Obsolete.
-            tod_window_start:
-                aliases: ['tod-window-start']
-                type: str
-                description: Time of day window start.
-            user_domain:
-                aliases: ['user-domain']
-                type: str
-                description: Domain name to which the user addresses belong.
-            vas_id:
-                aliases: ['vas-id']
-                type: str
-                description: VAS identifier.
-            vasp_id:
-                aliases: ['vasp-id']
-                type: str
-                description: VASP identifier.
-            virus_int:
-                aliases: ['virus-int']
-                type: int
-                description: Virus notification send interval.
-            virus_int_mode:
-                aliases: ['virus-int-mode']
-                type: str
-                description: Virus notification interval mode.
-                choices: ['hours', 'minutes']
-            virus_status:
-                aliases: ['virus-status']
-                type: str
-                description: Virus notification status.
-                choices: ['disable', 'enable']
+        description: Banned word notification interval mode.
+        choices: ['hours', 'minutes']
+      bword_status:
+        aliases: ['bword-status']
+        type: str
+        description: Banned word notification status.
+        choices: ['disable', 'enable']
+      carrier_endpoint_bwl_int:
+        aliases: ['carrier-endpoint-bwl-int']
+        type: int
+        description: Carrier end point black/white list notification send interval.
+      carrier_endpoint_bwl_int_mode:
+        aliases: ['carrier-endpoint-bwl-int-mode']
+        type: str
+        description: Carrier end point black/white list notification interval mode.
+        choices: ['hours', 'minutes']
+      carrier_endpoint_bwl_status:
+        aliases: ['carrier-endpoint-bwl-status']
+        type: str
+        description: Carrier end point black/white list notification status.
+        choices: ['disable', 'enable']
+      days_allowed:
+        aliases: ['days-allowed']
+        type: list
+        elements: str
+        description: Weekdays on which notification messages may be sent.
+        choices: ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday']
+      detect_server:
+        aliases: ['detect-server']
+        type: str
+        description: Enable/disable automatic server address determination.
+        choices: ['disable', 'enable']
+      dupe_int:
+        aliases: ['dupe-int']
+        type: int
+        description: Duplicate notification send interval.
+      dupe_int_mode:
+        aliases: ['dupe-int-mode']
+        type: str
+        description: Duplicate notification interval mode.
+        choices: ['hours', 'minutes']
+      dupe_status:
+        aliases: ['dupe-status']
+        type: str
+        description: Duplicate notification status.
+        choices: ['disable', 'enable']
+      file_block_int:
+        aliases: ['file-block-int']
+        type: int
+        description: File block notification send interval.
+      file_block_int_mode:
+        aliases: ['file-block-int-mode']
+        type: str
+        description: File block notification interval mode.
+        choices: ['hours', 'minutes']
+      file_block_status:
+        aliases: ['file-block-status']
+        type: str
+        description: File block notification status.
+        choices: ['disable', 'enable']
+      flood_int:
+        aliases: ['flood-int']
+        type: int
+        description: Flood notification send interval.
+      flood_int_mode:
+        aliases: ['flood-int-mode']
+        type: str
+        description: Flood notification interval mode.
+        choices: ['hours', 'minutes']
+      flood_status:
+        aliases: ['flood-status']
+        type: str
+        description: Flood notification status.
+        choices: ['disable', 'enable']
+      from_in_header:
+        aliases: ['from-in-header']
+        type: str
+        description: Enable/disable insertion of from address in HTTP header.
+        choices: ['disable', 'enable']
+      mms_checksum_int:
+        aliases: ['mms-checksum-int']
+        type: int
+        description: MMS checksum notification send interval.
+      mms_checksum_int_mode:
+        aliases: ['mms-checksum-int-mode']
+        type: str
+        description: MMS checksum notification interval mode.
+        choices: ['hours', 'minutes']
+      mms_checksum_status:
+        aliases: ['mms-checksum-status']
+        type: str
+        description: MMS checksum notification status.
+        choices: ['disable', 'enable']
+      mmsc_hostname:
+        aliases: ['mmsc-hostname']
+        type: str
+        description: Host name or IP address of the MMSC.
+      mmsc_password:
+        aliases: ['mmsc-password']
+        type: raw
+        description: (list) Password required for authentication with the MMSC.
+      mmsc_port:
+        aliases: ['mmsc-port']
+        type: int
+        description: Port used on the MMSC for sending MMS messages
+      mmsc_url:
+        aliases: ['mmsc-url']
+        type: str
+        description: URL used on the MMSC for sending MMS messages.
+      mmsc_username:
+        aliases: ['mmsc-username']
+        type: str
+        description: User name required for authentication with the MMSC.
+      msg_protocol:
+        aliases: ['msg-protocol']
+        type: str
+        description: Protocol to use for sending notification messages.
+        choices: ['mm1', 'mm3', 'mm4', 'mm7']
+      msg_type:
+        aliases: ['msg-type']
+        type: str
+        description: MM7 message type.
+        choices: ['submit-req', 'deliver-req']
+      protocol:
+        type: str
+        description: Protocol.
+      rate_limit:
+        aliases: ['rate-limit']
+        type: int
+        description: Rate limit for sending notification messages
+      tod_window_duration:
+        aliases: ['tod-window-duration']
+        type: str
+        description: Time of day window duration.
+      tod_window_end:
+        aliases: ['tod-window-end']
+        type: str
+        description: Obsolete.
+      tod_window_start:
+        aliases: ['tod-window-start']
+        type: str
+        description: Time of day window start.
+      user_domain:
+        aliases: ['user-domain']
+        type: str
+        description: Domain name to which the user addresses belong.
+      vas_id:
+        aliases: ['vas-id']
+        type: str
+        description: VAS identifier.
+      vasp_id:
+        aliases: ['vasp-id']
+        type: str
+        description: VASP identifier.
+      virus_int:
+        aliases: ['virus-int']
+        type: int
+        description: Virus notification send interval.
+      virus_int_mode:
+        aliases: ['virus-int-mode']
+        type: str
+        description: Virus notification interval mode.
+        choices: ['hours', 'minutes']
+      virus_status:
+        aliases: ['virus-status']
+        type: str
+        description: Virus notification status.
+        choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -292,42 +291,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

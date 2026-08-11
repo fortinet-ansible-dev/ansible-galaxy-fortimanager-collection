@@ -15,75 +15,90 @@ module: fmgr_system_mail
 short_description: Alert emails.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    system_mail:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            auth:
-                type: str
-                description:
-                    - Enable authentication.
-                    - disable - Disable authentication.
-                    - enable - Enable authentication.
-                choices: ['disable', 'enable']
-            id:
-                type: str
-                description: Mail Service ID.
-                required: true
-            passwd:
-                type: raw
-                description: (list) SMTP account password.
-            port:
-                type: int
-                description: SMTP server port.
-            secure_option:
-                aliases: ['secure-option']
-                type: str
-                description:
-                    - Communication secure option.
-                    - default - Try STARTTLS, proceed as plain text communication otherwise.
-                    - none - Communication will be in plain text format.
-                    - smtps - Communication will be protected by SMTPS.
-                    - starttls - Communication will be protected by STARTTLS.
-                choices: ['default', 'none', 'smtps', 'starttls']
-            server:
-                type: str
-                description: SMTP server.
-            user:
-                type: str
-                description: SMTP account username.
-            auth_type:
-                aliases: ['auth-type']
-                type: str
-                description:
-                    - SMTP authentication type.
-                    - psk - Use username and password to authenticate.
-                    - certificate - Use local certificate to authenticate.
-                choices: ['psk', 'certificate']
-            local_cert:
-                aliases: ['local-cert']
-                type: str
-                description: SMTP local certificate.
-            from:
-                type: str
-                description: Username for MAIL FROM.
-            ssl_protocol:
-                aliases: ['ssl-protocol']
-                type: str
-                description:
-                    - set the lowest SSL protocol version for connection to mail server.
-                    - follow-global-ssl-protocol - Follow system.
-                    - sslv3 - set SSLv3 as the lowest version.
-                    - tlsv1.
-                    - tlsv1.
-                    - tlsv1.
-                    - tlsv1.
-                choices: ['follow-global-ssl-protocol', 'sslv3', 'tlsv1.0', 'tlsv1.1', 'tlsv1.2',
-                          'tlsv1.3']
+  system_mail:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      auth:
+        type: str
+        description:
+          - Enable authentication.
+          - disable - Disable authentication.
+          - enable - Enable authentication.
+        choices: ['disable', 'enable']
+      id:
+        type: str
+        description: Mail Service ID.
+        required: true
+      passwd:
+        type: raw
+        description: (list) SMTP account password.
+      port:
+        type: int
+        description: SMTP server port.
+      secure_option:
+        aliases: ['secure-option']
+        type: str
+        description:
+          - Communication secure option.
+          - default - Try STARTTLS, proceed as plain text communication otherwise.
+          - none - Communication will be in plain text format.
+          - smtps - Communication will be protected by SMTPS.
+          - starttls - Communication will be protected by STARTTLS.
+        choices: ['default', 'none', 'smtps', 'starttls']
+      server:
+        type: str
+        description: SMTP server.
+      user:
+        type: str
+        description: SMTP account username.
+      auth_type:
+        aliases: ['auth-type']
+        type: str
+        description:
+          - SMTP authentication type.
+          - psk - Use username and password to authenticate.
+          - certificate - Use local certificate to authenticate.
+        choices: ['psk', 'certificate', 'oauth2']
+      local_cert:
+        aliases: ['local-cert']
+        type: str
+        description: SMTP local certificate.
+      from:
+        type: str
+        description: Username for MAIL FROM.
+      ssl_protocol:
+        aliases: ['ssl-protocol']
+        type: str
+        description:
+          - set the lowest SSL protocol version for connection to mail server.
+          - follow-global-ssl-protocol - Follow system.
+          - sslv3 - set SSLv3 as the lowest version.
+          - tlsv1.
+          - tlsv1.
+          - tlsv1.
+          - tlsv1.
+        choices: ['follow-global-ssl-protocol', 'sslv3', 'tlsv1.0', 'tlsv1.1', 'tlsv1.2', 'tlsv1.3']
+      oauth2_auth_scope:
+        aliases: ['oauth2-auth-scope']
+        type: str
+        description: Oauth2 auth scope.
+      oauth2_auth_server:
+        aliases: ['oauth2-auth-server']
+        type: str
+        description: Oauth2 auth server.
+      oauth2_client_id:
+        aliases: ['oauth2-client-id']
+        type: str
+        description: Oauth2 client id.
+      oauth2_client_secret:
+        aliases: ['oauth2-client-secret']
+        type: raw
+        description: (list) Oauth2 client secret.
 '''
 
 EXAMPLES = '''
@@ -128,42 +143,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -186,14 +201,18 @@ def main():
                 'secure-option': {'choices': ['default', 'none', 'smtps', 'starttls'], 'type': 'str'},
                 'server': {'type': 'str'},
                 'user': {'type': 'str'},
-                'auth-type': {'v_range': [['6.4.6', '']], 'choices': ['psk', 'certificate'], 'type': 'str'},
+                'auth-type': {'v_range': [['6.4.6', '']], 'choices': ['psk', 'certificate', 'oauth2'], 'type': 'str'},
                 'local-cert': {'v_range': [['6.4.6', '']], 'type': 'str'},
                 'from': {'v_range': [['7.0.7', '7.0.16'], ['7.2.2', '']], 'type': 'str'},
                 'ssl-protocol': {
-                    'v_range': [['7.4.4', '7.4.10'], ['7.6.2', '']],
+                    'v_range': [['7.4.4', '7.4.11'], ['7.6.2', '']],
                     'choices': ['follow-global-ssl-protocol', 'sslv3', 'tlsv1.0', 'tlsv1.1', 'tlsv1.2', 'tlsv1.3'],
                     'type': 'str'
-                }
+                },
+                'oauth2-auth-scope': {'v_range': [['7.6.7', '7.6.7']], 'type': 'str'},
+                'oauth2-auth-server': {'v_range': [['7.6.7', '7.6.7']], 'type': 'str'},
+                'oauth2-client-id': {'v_range': [['7.6.7', '7.6.7']], 'type': 'str'},
+                'oauth2-client-secret': {'v_range': [['7.6.7', '7.6.7']], 'no_log': True, 'type': 'raw'}
             }
         }
     }

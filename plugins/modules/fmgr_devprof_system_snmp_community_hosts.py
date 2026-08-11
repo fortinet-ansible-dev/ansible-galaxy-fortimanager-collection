@@ -15,59 +15,59 @@ module: fmgr_devprof_system_snmp_community_hosts
 short_description: Configure IPv4 SNMP managers
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    adom:
-        description: The parameter (adom) in requested url.
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  devprof:
+    description: The parameter (devprof) in requested url.
+    type: str
+    required: true
+  community:
+    description: The parameter (community) in requested url.
+    type: str
+    required: true
+  devprof_system_snmp_community_hosts:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      ha_direct:
+        aliases: ['ha-direct']
         type: str
-        required: true
-    devprof:
-        description: The parameter (devprof) in requested url.
+        description: Enable/disable direct management of HA cluster members.
+        choices: ['disable', 'enable']
+      host_type:
+        aliases: ['host-type']
         type: str
+        description: Control whether the SNMP manager sends SNMP queries, receives SNMP traps, or both.
+        choices: ['any', 'query', 'trap']
+      id:
+        type: int
+        description: Host entry ID.
         required: true
-    community:
-        description: The parameter (community) in requested url.
+      ip:
         type: str
-        required: true
-    devprof_system_snmp_community_hosts:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            ha_direct:
-                aliases: ['ha-direct']
-                type: str
-                description: Enable/disable direct management of HA cluster members.
-                choices: ['disable', 'enable']
-            host_type:
-                aliases: ['host-type']
-                type: str
-                description: Control whether the SNMP manager sends SNMP queries, receives SNMP traps, or both.
-                choices: ['any', 'query', 'trap']
-            id:
-                type: int
-                description: Host entry ID.
-                required: true
-            ip:
-                type: str
-                description: IPv4 address of the SNMP manager
-            source_ip:
-                aliases: ['source-ip']
-                type: str
-                description: Source IPv4 address for SNMP traps.
-            interface_select_method:
-                aliases: ['interface-select-method']
-                type: str
-                description: Specify how to select outgoing interface to reach server.
-                choices: ['auto', 'sdwan', 'specify']
-            interface:
-                type: raw
-                description: (list) Specify outgoing interface to reach server.
-            vrf_select:
-                aliases: ['vrf-select']
-                type: int
-                description: VRF ID used for connection to server.
+        description: IPv4 address of the SNMP manager
+      source_ip:
+        aliases: ['source-ip']
+        type: str
+        description: Source IPv4 address for SNMP traps.
+      interface_select_method:
+        aliases: ['interface-select-method']
+        type: str
+        description: Specify how to select outgoing interface to reach server.
+        choices: ['auto', 'sdwan', 'specify']
+      interface:
+        type: raw
+        description: (list) Specify outgoing interface to reach server.
+      vrf_select:
+        aliases: ['vrf-select']
+        type: int
+        description: VRF ID used for connection to server.
 '''
 
 EXAMPLES = '''
@@ -114,42 +114,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

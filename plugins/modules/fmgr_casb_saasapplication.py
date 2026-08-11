@@ -15,110 +15,124 @@ module: fmgr_casb_saasapplication
 short_description: Configure CASB SaaS application.
 version_added: "2.3.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  casb_saasapplication:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      casb_name:
+        aliases: ['casb-name']
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: SaaS application signature name.
+      description:
         type: str
+        description: SaaS application description.
+      domains:
+        type: list
+        elements: str
+        description: SaaS application domain list.
+      name:
+        type: str
+        description: SaaS application name.
         required: true
-    casb_saasapplication:
-        description: The top level parameters set.
-        required: false
-        type: dict
+      type:
+        type: str
+        description: SaaS application type.
+        choices: ['built-in', 'customized']
+      uuid:
+        type: str
+        description: Universally Unique Identifier
+      status:
+        type: str
+        description: Enable/disable setting.
+        choices: ['disable', 'enable']
+      input_attributes:
+        aliases: ['input-attributes']
+        type: list
+        elements: dict
+        description: Input attributes.
         suboptions:
-            casb_name:
-                aliases: ['casb-name']
-                type: str
-                description: SaaS application signature name.
-            description:
-                type: str
-                description: SaaS application description.
-            domains:
-                type: list
-                elements: str
-                description: SaaS application domain list.
-            name:
-                type: str
-                description: SaaS application name.
-                required: true
-            type:
-                type: str
-                description: SaaS application type.
-                choices: ['built-in', 'customized']
-            uuid:
-                type: str
-                description: Universally Unique Identifier
-            status:
-                type: str
-                description: Enable/disable setting.
-                choices: ['disable', 'enable']
-            input_attributes:
-                aliases: ['input-attributes']
-                type: list
-                elements: dict
-                description: Input attributes.
-                suboptions:
-                    attr_type:
-                        aliases: ['attr-type']
-                        type: str
-                        description: CASB attribute type.
-                        choices: ['tenant']
-                    default:
-                        type: str
-                        description: CASB attribute default value.
-                        choices: ['string', 'string-list']
-                    description:
-                        type: str
-                        description: CASB attribute description.
-                    fallback_input:
-                        aliases: ['fallback-input']
-                        type: str
-                        description: CASB attribute legacy input.
-                        choices: ['disable', 'enable']
-                    name:
-                        type: str
-                        description: CASB attribute name.
-                    required:
-                        type: str
-                        description: CASB attribute required.
-                        choices: ['disable', 'enable']
-                    type:
-                        type: str
-                        description: CASB attribute format type.
-                        choices: ['string', 'string-list', 'integer', 'integer-list', 'boolean']
-            output_attributes:
-                aliases: ['output-attributes']
-                type: list
-                elements: dict
-                description: Output attributes.
-                suboptions:
-                    attr_type:
-                        aliases: ['attr-type']
-                        type: str
-                        description: CASB attribute type.
-                        choices: ['tenant']
-                    description:
-                        type: str
-                        description: CASB attribute description.
-                    name:
-                        type: str
-                        description: CASB attribute name.
-                    required:
-                        type: str
-                        description: CASB attribute required.
-                        choices: ['disable', 'enable']
-                    type:
-                        type: str
-                        description: CASB attribute format type.
-                        choices: ['string', 'string-list', 'integer', 'integer-list', 'boolean']
-                    optional:
-                        type: str
-                        description: CASB output attribute optional.
-                        choices: ['disable', 'enable']
+          attr_type:
+            aliases: ['attr-type']
+            type: str
+            description: CASB attribute type.
+            choices: ['tenant']
+          default:
+            type: str
+            description: CASB attribute default value.
+            choices: ['string', 'string-list']
+          description:
+            type: str
+            description: CASB attribute description.
+          fallback_input:
+            aliases: ['fallback-input']
+            type: str
+            description: CASB attribute legacy input.
+            choices: ['disable', 'enable']
+          name:
+            type: str
+            description: CASB attribute name.
+          required:
+            type: str
+            description: CASB attribute required.
+            choices: ['disable', 'enable']
+          type:
+            type: str
+            description: CASB attribute format type.
+            choices: ['string', 'string-list', 'integer', 'integer-list', 'boolean']
+      output_attributes:
+        aliases: ['output-attributes']
+        type: list
+        elements: dict
+        description: Output attributes.
+        suboptions:
+          attr_type:
+            aliases: ['attr-type']
+            type: str
+            description: CASB attribute type.
+            choices: ['tenant']
+          description:
+            type: str
+            description: CASB attribute description.
+          name:
+            type: str
+            description: CASB attribute name.
+          required:
+            type: str
+            description: CASB attribute required.
+            choices: ['disable', 'enable']
+          type:
+            type: str
+            description: CASB attribute format type.
+            choices: ['string', 'string-list', 'integer', 'integer-list', 'boolean']
+          optional:
+            type: str
+            description: CASB output attribute optional.
+            choices: ['disable', 'enable']
+      category:
+        type: str
+        description: SaaS application signature category.
+      display_name:
+        aliases: ['display-name']
+        type: str
+        description: SaaS application signature display name.
+      icon_id:
+        aliases: ['icon-id']
+        type: int
+        description: SaaS application signature icon ID.
+      popularity:
+        type: int
+        description: SaaS application signature popularity.
 '''
 
 EXAMPLES = '''
@@ -155,46 +169,50 @@ EXAMPLES = '''
           #     required: <value in [disable, enable]>
           #     type: <value in [string, string-list, integer, ...]>
           #     optional: <value in [disable, enable]>
+          # category: <string>
+          # display_name: <string>
+          # icon_id: <integer>
+          # popularity: <integer>
 '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -246,7 +264,11 @@ def main():
                         'optional': {'v_range': [['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
                     },
                     'elements': 'dict'
-                }
+                },
+                'category': {'v_range': [['8.0.0', '']], 'type': 'str'},
+                'display-name': {'v_range': [['8.0.0', '']], 'type': 'str'},
+                'icon-id': {'v_range': [['8.0.0', '']], 'type': 'int'},
+                'popularity': {'v_range': [['8.0.0', '']], 'type': 'int'}
             }
         }
     }

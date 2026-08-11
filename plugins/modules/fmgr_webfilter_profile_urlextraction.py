@@ -15,46 +15,46 @@ module: fmgr_webfilter_profile_urlextraction
 short_description: Configure URL Extraction
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.partial_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.partial_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  profile:
+    description: The parameter (profile) in requested url.
+    type: str
+    required: true
+  webfilter_profile_urlextraction:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      redirect_header:
+        aliases: ['redirect-header']
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: HTTP header name to use for client redirect on blocked requests
+      redirect_no_content:
+        aliases: ['redirect-no-content']
         type: str
-        required: true
-    profile:
-        description: The parameter (profile) in requested url.
+        description: Enable / Disable empty message-body entity in HTTP response
+        choices: ['disable', 'enable']
+      redirect_url:
+        aliases: ['redirect-url']
         type: str
-        required: true
-    webfilter_profile_urlextraction:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            redirect_header:
-                aliases: ['redirect-header']
-                type: str
-                description: HTTP header name to use for client redirect on blocked requests
-            redirect_no_content:
-                aliases: ['redirect-no-content']
-                type: str
-                description: Enable / Disable empty message-body entity in HTTP response
-                choices: ['disable', 'enable']
-            redirect_url:
-                aliases: ['redirect-url']
-                type: str
-                description: HTTP header value to use for client redirect on blocked requests
-            server_fqdn:
-                aliases: ['server-fqdn']
-                type: str
-                description: URL extraction server FQDN
-            status:
-                type: str
-                description: Enable URL Extraction
-                choices: ['disable', 'enable']
+        description: HTTP header value to use for client redirect on blocked requests
+      server_fqdn:
+        aliases: ['server-fqdn']
+        type: str
+        description: URL extraction server FQDN
+      status:
+        type: str
+        description: Enable URL Extraction
+        choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -78,42 +78,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

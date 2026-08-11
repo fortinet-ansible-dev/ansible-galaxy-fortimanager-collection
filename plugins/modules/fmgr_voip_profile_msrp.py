@@ -15,43 +15,43 @@ module: fmgr_voip_profile_msrp
 short_description: MSRP.
 version_added: "2.1.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.partial_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.partial_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  profile:
+    description: The parameter (profile) in requested url.
+    type: str
+    required: true
+  voip_profile_msrp:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      log_violations:
+        aliases: ['log-violations']
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Enable/disable logging of MSRP violations.
+        choices: ['disable', 'enable']
+      max_msg_size:
+        aliases: ['max-msg-size']
+        type: int
+        description: Maximum allowable MSRP message size
+      max_msg_size_action:
+        aliases: ['max-msg-size-action']
         type: str
-        required: true
-    profile:
-        description: The parameter (profile) in requested url.
+        description: Action for violation of max-msg-size.
+        choices: ['pass', 'block', 'reset', 'monitor']
+      status:
         type: str
-        required: true
-    voip_profile_msrp:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            log_violations:
-                aliases: ['log-violations']
-                type: str
-                description: Enable/disable logging of MSRP violations.
-                choices: ['disable', 'enable']
-            max_msg_size:
-                aliases: ['max-msg-size']
-                type: int
-                description: Maximum allowable MSRP message size
-            max_msg_size_action:
-                aliases: ['max-msg-size-action']
-                type: str
-                description: Action for violation of max-msg-size.
-                choices: ['pass', 'block', 'reset', 'monitor']
-            status:
-                type: str
-                description: Enable/disable MSRP.
-                choices: ['disable', 'enable']
+        description: Enable/disable MSRP.
+        choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -74,42 +74,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

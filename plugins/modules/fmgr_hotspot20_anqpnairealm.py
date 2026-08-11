@@ -15,85 +15,82 @@ module: fmgr_hotspot20_anqpnairealm
 short_description: Configure network access identifier
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
-        type: str
-    adom:
-        description: The parameter (adom) in requested url.
-        type: str
-        required: true
-    hotspot20_anqpnairealm:
-        description: The top level parameters set.
-        required: false
-        type: dict
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  hotspot20_anqpnairealm:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      nai_list:
+        aliases: ['nai-list']
+        type: list
+        elements: dict
+        description: Nai list.
         suboptions:
-            nai_list:
-                aliases: ['nai-list']
+          eap_method:
+            aliases: ['eap-method']
+            type: list
+            elements: dict
+            description: Eap method.
+            suboptions:
+              auth_param:
+                aliases: ['auth-param']
                 type: list
                 elements: dict
-                description: Nai list.
+                description: Auth param.
                 suboptions:
-                    eap_method:
-                        aliases: ['eap-method']
-                        type: list
-                        elements: dict
-                        description: Eap method.
-                        suboptions:
-                            auth_param:
-                                aliases: ['auth-param']
-                                type: list
-                                elements: dict
-                                description: Auth param.
-                                suboptions:
-                                    id:
-                                        type: str
-                                        description: ID of authentication parameter.
-                                        choices: ['non-eap-inner-auth', 'inner-auth-eap',
-                                                  'credential', 'tunneled-credential']
-                                    index:
-                                        type: int
-                                        description: Param index.
-                                    val:
-                                        type: str
-                                        description: Value of authentication parameter.
-                                        choices: ['eap-identity', 'eap-md5', 'eap-tls',
-                                                  'eap-ttls', 'eap-peap', 'eap-sim', 'eap-aka',
-                                                  'eap-aka-prime', 'non-eap-pap', 'non-eap-chap',
-                                                  'non-eap-mschap', 'non-eap-mschapv2',
-                                                  'cred-sim', 'cred-usim', 'cred-nfc',
-                                                  'cred-hardware-token', 'cred-softoken',
-                                                  'cred-certificate', 'cred-user-pwd',
-                                                  'cred-none', 'cred-vendor-specific',
-                                                  'tun-cred-sim', 'tun-cred-usim', 'tun-cred-nfc',
-                                                  'tun-cred-hardware-token', 'tun-cred-softoken',
-                                                  'tun-cred-certificate', 'tun-cred-user-pwd',
-                                                  'tun-cred-anonymous', 'tun-cred-vendor-specific']
-                            index:
-                                type: int
-                                description: EAP method index.
-                            method:
-                                type: str
-                                description: EAP method type.
-                                choices: ['eap-identity', 'eap-md5', 'eap-tls', 'eap-ttls',
-                                          'eap-peap', 'eap-sim', 'eap-aka', 'eap-aka-prime']
-                    encoding:
-                        type: str
-                        description: Enable/disable format in accordance with IETF RFC 4282.
-                        choices: ['disable', 'enable']
-                    nai_realm:
-                        aliases: ['nai-realm']
-                        type: str
-                        description: Configure NAI realms
-                    name:
-                        type: str
-                        description: NAI realm name.
-            name:
+                  id:
+                    type: str
+                    description: ID of authentication parameter.
+                    choices: ['non-eap-inner-auth', 'inner-auth-eap', 'credential',
+                              'tunneled-credential']
+                  index:
+                    type: int
+                    description: Param index.
+                  val:
+                    type: str
+                    description: Value of authentication parameter.
+                    choices: ['eap-identity', 'eap-md5', 'eap-tls', 'eap-ttls', 'eap-peap',
+                              'eap-sim', 'eap-aka', 'eap-aka-prime', 'non-eap-pap',
+                              'non-eap-chap', 'non-eap-mschap', 'non-eap-mschapv2', 'cred-sim',
+                              'cred-usim', 'cred-nfc', 'cred-hardware-token', 'cred-softoken',
+                              'cred-certificate', 'cred-user-pwd', 'cred-none',
+                              'cred-vendor-specific', 'tun-cred-sim', 'tun-cred-usim',
+                              'tun-cred-nfc', 'tun-cred-hardware-token', 'tun-cred-softoken',
+                              'tun-cred-certificate', 'tun-cred-user-pwd', 'tun-cred-anonymous',
+                              'tun-cred-vendor-specific']
+              index:
+                type: int
+                description: EAP method index.
+              method:
                 type: str
-                description: NAI realm list name.
-                required: true
+                description: EAP method type.
+                choices: ['eap-identity', 'eap-md5', 'eap-tls', 'eap-ttls', 'eap-peap', 'eap-sim',
+                          'eap-aka', 'eap-aka-prime']
+          encoding:
+            type: str
+            description: Enable/disable format in accordance with IETF RFC 4282.
+            choices: ['disable', 'enable']
+          nai_realm:
+            aliases: ['nai-realm']
+            type: str
+            description: Configure NAI realms
+          name:
+            type: str
+            description: NAI realm name.
+      name:
+        type: str
+        description: NAI realm list name.
+        required: true
 '''
 
 EXAMPLES = '''
@@ -124,42 +121,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

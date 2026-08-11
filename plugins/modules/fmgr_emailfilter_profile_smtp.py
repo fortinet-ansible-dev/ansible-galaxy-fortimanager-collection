@@ -15,57 +15,57 @@ module: fmgr_emailfilter_profile_smtp
 short_description: SMTP.
 version_added: "2.1.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.partial_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.partial_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  profile:
+    description: The parameter (profile) in requested url.
+    type: str
+    required: true
+  emailfilter_profile_smtp:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      action:
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Action for spam email.
+        choices: ['pass', 'tag', 'discard']
+      hdrip:
         type: str
-        required: true
-    profile:
-        description: The parameter (profile) in requested url.
+        description: Enable/disable SMTP email header IP checks for spamfsip, spamrbl and spambwl filters.
+        choices: ['disable', 'enable']
+      local_override:
+        aliases: ['local-override']
         type: str
-        required: true
-    emailfilter_profile_smtp:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            action:
-                type: str
-                description: Action for spam email.
-                choices: ['pass', 'tag', 'discard']
-            hdrip:
-                type: str
-                description: Enable/disable SMTP email header IP checks for spamfsip, spamrbl and spambwl filters.
-                choices: ['disable', 'enable']
-            local_override:
-                aliases: ['local-override']
-                type: str
-                description: Enable/disable local filter to override SMTP remote check result.
-                choices: ['disable', 'enable']
-            log:
-                type: str
-                description: Enable/disable logging.
-                choices: ['disable', 'enable']
-            tag_msg:
-                aliases: ['tag-msg']
-                type: str
-                description: Subject text or header added to spam email.
-            tag_type:
-                aliases: ['tag-type']
-                type: list
-                elements: str
-                description: Tag subject or header for spam email.
-                choices: ['subject', 'header', 'spaminfo']
-            log_all:
-                aliases: ['log-all']
-                type: str
-                description: Enable/disable logging of all email traffic.
-                choices: ['disable', 'enable']
+        description: Enable/disable local filter to override SMTP remote check result.
+        choices: ['disable', 'enable']
+      log:
+        type: str
+        description: Enable/disable logging.
+        choices: ['disable', 'enable']
+      tag_msg:
+        aliases: ['tag-msg']
+        type: str
+        description: Subject text or header added to spam email.
+      tag_type:
+        aliases: ['tag-type']
+        type: list
+        elements: str
+        description: Tag subject or header for spam email.
+        choices: ['subject', 'header', 'spaminfo']
+      log_all:
+        aliases: ['log-all']
+        type: str
+        description: Enable/disable logging of all email traffic.
+        choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -91,42 +91,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -149,7 +149,7 @@ def main():
                 'action': {'v_range': [['6.2.0', '']], 'choices': ['pass', 'tag', 'discard'], 'type': 'str'},
                 'hdrip': {'v_range': [['6.2.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'local-override': {'v_range': [['6.2.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'log': {'v_range': [['6.2.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'log': {'v_range': [['6.2.0', '7.6.7']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'tag-msg': {'v_range': [['6.2.0', '']], 'type': 'str'},
                 'tag-type': {'v_range': [['6.2.0', '']], 'type': 'list', 'choices': ['subject', 'header', 'spaminfo'], 'elements': 'str'},
                 'log-all': {'v_range': [['6.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'}

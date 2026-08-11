@@ -15,239 +15,239 @@ module: fmgr_wtpprofile_lbs
 short_description: Set various location based service
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.partial_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.partial_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  wtp-profile:
+    description: Deprecated, please use "wtp_profile"
+    type: str
+  wtp_profile:
+    description: The parameter (wtp-profile) in requested url.
+    type: str
+  wtpprofile_lbs:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      aeroscout:
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Enable/disable AeroScout Real Time Location Service
+        choices: ['disable', 'enable']
+      aeroscout_ap_mac:
+        aliases: ['aeroscout-ap-mac']
         type: str
-        required: true
-    wtp-profile:
-        description: Deprecated, please use "wtp_profile"
+        description: Use BSSID or board MAC address as AP MAC address in the Aeroscout AP message.
+        choices: ['bssid', 'board-mac']
+      aeroscout_mmu_report:
+        aliases: ['aeroscout-mmu-report']
         type: str
-    wtp_profile:
-        description: The parameter (wtp-profile) in requested url.
+        description: Enable/disable MU compounded report.
+        choices: ['disable', 'enable']
+      aeroscout_mu:
+        aliases: ['aeroscout-mu']
         type: str
-    wtpprofile_lbs:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            aeroscout:
-                type: str
-                description: Enable/disable AeroScout Real Time Location Service
-                choices: ['disable', 'enable']
-            aeroscout_ap_mac:
-                aliases: ['aeroscout-ap-mac']
-                type: str
-                description: Use BSSID or board MAC address as AP MAC address in the Aeroscout AP message.
-                choices: ['bssid', 'board-mac']
-            aeroscout_mmu_report:
-                aliases: ['aeroscout-mmu-report']
-                type: str
-                description: Enable/disable MU compounded report.
-                choices: ['disable', 'enable']
-            aeroscout_mu:
-                aliases: ['aeroscout-mu']
-                type: str
-                description: Enable/disable AeroScout support.
-                choices: ['disable', 'enable']
-            aeroscout_mu_factor:
-                aliases: ['aeroscout-mu-factor']
-                type: int
-                description: AeroScout Mobile Unit
-            aeroscout_mu_timeout:
-                aliases: ['aeroscout-mu-timeout']
-                type: int
-                description: AeroScout MU mode timeout
-            aeroscout_server_ip:
-                aliases: ['aeroscout-server-ip']
-                type: str
-                description: IP address of AeroScout server.
-            aeroscout_server_port:
-                aliases: ['aeroscout-server-port']
-                type: int
-                description: AeroScout server UDP listening port.
-            ekahau_blink_mode:
-                aliases: ['ekahau-blink-mode']
-                type: str
-                description: Enable/disable Ekahua blink mode
-                choices: ['disable', 'enable']
-            ekahau_tag:
-                aliases: ['ekahau-tag']
-                type: str
-                description: WiFi frame MAC address or WiFi Tag.
-            erc_server_ip:
-                aliases: ['erc-server-ip']
-                type: str
-                description: IP address of Ekahua RTLS Controller
-            erc_server_port:
-                aliases: ['erc-server-port']
-                type: int
-                description: Ekahua RTLS Controller
-            fortipresence:
-                type: str
-                description: Enable/disable FortiPresence to monitor the location and activity of WiFi clients even if they dont connect to this WiFi n...
-                choices: ['disable', 'enable', 'enable2', 'foreign', 'both']
-            fortipresence_frequency:
-                aliases: ['fortipresence-frequency']
-                type: int
-                description: FortiPresence report transmit frequency
-            fortipresence_port:
-                aliases: ['fortipresence-port']
-                type: int
-                description: FortiPresence server UDP listening port
-            fortipresence_project:
-                aliases: ['fortipresence-project']
-                type: str
-                description: FortiPresence project name
-            fortipresence_rogue:
-                aliases: ['fortipresence-rogue']
-                type: str
-                description: Enable/disable FortiPresence finding and reporting rogue APs.
-                choices: ['disable', 'enable']
-            fortipresence_secret:
-                aliases: ['fortipresence-secret']
-                type: raw
-                description: (list) FortiPresence secret password
-            fortipresence_server:
-                aliases: ['fortipresence-server']
-                type: str
-                description: FortiPresence server IP address.
-            fortipresence_unassoc:
-                aliases: ['fortipresence-unassoc']
-                type: str
-                description: Enable/disable FortiPresence finding and reporting unassociated stations.
-                choices: ['disable', 'enable']
-            station_locate:
-                aliases: ['station-locate']
-                type: str
-                description: Enable/disable client station locating services for all clients, whether associated or not
-                choices: ['disable', 'enable']
-            fortipresence_ble:
-                aliases: ['fortipresence-ble']
-                type: str
-                description: Enable/disable FortiPresence finding and reporting BLE devices.
-                choices: ['disable', 'enable']
-            fortipresence_server_addr_type:
-                aliases: ['fortipresence-server-addr-type']
-                type: str
-                description: FortiPresence server address type
-                choices: ['fqdn', 'ipv4']
-            fortipresence_server_fqdn:
-                aliases: ['fortipresence-server-fqdn']
-                type: str
-                description: FQDN of FortiPresence server.
-            polestar:
-                type: str
-                description: Enable/disable PoleStar BLE NAO Track Real Time Location Service
-                choices: ['disable', 'enable']
-            polestar_accumulation_interval:
-                aliases: ['polestar-accumulation-interval']
-                type: int
-                description: Time that measurements should be accumulated in seconds
-            polestar_asset_addrgrp_list:
-                aliases: ['polestar-asset-addrgrp-list']
-                type: str
-                description: Tags and asset addrgrp list to be reported.
-            polestar_asset_uuid_list1:
-                aliases: ['polestar-asset-uuid-list1']
-                type: str
-                description: Tags and asset UUID list 1 to be reported
-            polestar_asset_uuid_list2:
-                aliases: ['polestar-asset-uuid-list2']
-                type: str
-                description: Tags and asset UUID list 2 to be reported
-            polestar_asset_uuid_list3:
-                aliases: ['polestar-asset-uuid-list3']
-                type: str
-                description: Tags and asset UUID list 3 to be reported
-            polestar_asset_uuid_list4:
-                aliases: ['polestar-asset-uuid-list4']
-                type: str
-                description: Tags and asset UUID list 4 to be reported
-            polestar_protocol:
-                aliases: ['polestar-protocol']
-                type: str
-                description: Select the protocol to report Measurements, Advertising Data, or Location Data to NAO Cloud.
-                choices: ['WSS']
-            polestar_reporting_interval:
-                aliases: ['polestar-reporting-interval']
-                type: int
-                description: Time between reporting accumulated measurements in seconds
-            polestar_server_fqdn:
-                aliases: ['polestar-server-fqdn']
-                type: str
-                description: FQDN of PoleStar Nao Track Server
-            polestar_server_path:
-                aliases: ['polestar-server-path']
-                type: str
-                description: Path of PoleStar Nao Track Server
-            polestar_server_port:
-                aliases: ['polestar-server-port']
-                type: int
-                description: Port of PoleStar Nao Track Server
-            polestar_server_token:
-                aliases: ['polestar-server-token']
-                type: str
-                description: Access Token of PoleStar Nao Track Server.
-            ble_rtls:
-                aliases: ['ble-rtls']
-                type: str
-                description: Set BLE Real Time Location Service
-                choices: ['none', 'polestar', 'evresys']
-            ble_rtls_accumulation_interval:
-                aliases: ['ble-rtls-accumulation-interval']
-                type: int
-                description: Time that measurements should be accumulated in seconds
-            ble_rtls_asset_addrgrp_list:
-                aliases: ['ble-rtls-asset-addrgrp-list']
-                type: raw
-                description: (list) Tags and asset addrgrp list to be reported.
-            ble_rtls_asset_uuid_list1:
-                aliases: ['ble-rtls-asset-uuid-list1']
-                type: str
-                description: Tags and asset UUID list 1 to be reported
-            ble_rtls_asset_uuid_list2:
-                aliases: ['ble-rtls-asset-uuid-list2']
-                type: str
-                description: Tags and asset UUID list 2 to be reported
-            ble_rtls_asset_uuid_list3:
-                aliases: ['ble-rtls-asset-uuid-list3']
-                type: str
-                description: Tags and asset UUID list 3 to be reported
-            ble_rtls_asset_uuid_list4:
-                aliases: ['ble-rtls-asset-uuid-list4']
-                type: str
-                description: Tags and asset UUID list 4 to be reported
-            ble_rtls_protocol:
-                aliases: ['ble-rtls-protocol']
-                type: str
-                description: Select the protocol to report Measurements, Advertising Data, or Location Data to Cloud Server.
-                choices: ['WSS']
-            ble_rtls_reporting_interval:
-                aliases: ['ble-rtls-reporting-interval']
-                type: int
-                description: Time between reporting accumulated measurements in seconds
-            ble_rtls_server_fqdn:
-                aliases: ['ble-rtls-server-fqdn']
-                type: str
-                description: FQDN of BLE Real Time Location Service
-            ble_rtls_server_path:
-                aliases: ['ble-rtls-server-path']
-                type: str
-                description: Path of BLE Real Time Location Service
-            ble_rtls_server_port:
-                aliases: ['ble-rtls-server-port']
-                type: int
-                description: Port of BLE Real Time Location Service
-            ble_rtls_server_token:
-                aliases: ['ble-rtls-server-token']
-                type: str
-                description: Access Token of BLE Real Time Location Service
+        description: Enable/disable AeroScout support.
+        choices: ['disable', 'enable']
+      aeroscout_mu_factor:
+        aliases: ['aeroscout-mu-factor']
+        type: int
+        description: AeroScout Mobile Unit
+      aeroscout_mu_timeout:
+        aliases: ['aeroscout-mu-timeout']
+        type: int
+        description: AeroScout MU mode timeout
+      aeroscout_server_ip:
+        aliases: ['aeroscout-server-ip']
+        type: str
+        description: IP address of AeroScout server.
+      aeroscout_server_port:
+        aliases: ['aeroscout-server-port']
+        type: int
+        description: AeroScout server UDP listening port.
+      ekahau_blink_mode:
+        aliases: ['ekahau-blink-mode']
+        type: str
+        description: Enable/disable Ekahua blink mode
+        choices: ['disable', 'enable']
+      ekahau_tag:
+        aliases: ['ekahau-tag']
+        type: str
+        description: WiFi frame MAC address or WiFi Tag.
+      erc_server_ip:
+        aliases: ['erc-server-ip']
+        type: str
+        description: IP address of Ekahua RTLS Controller
+      erc_server_port:
+        aliases: ['erc-server-port']
+        type: int
+        description: Ekahua RTLS Controller
+      fortipresence:
+        type: str
+        description: Enable/disable FortiPresence to monitor the location and activity of WiFi clients even if they dont connect to this WiFi network
+        choices: ['disable', 'enable', 'enable2', 'foreign', 'both']
+      fortipresence_frequency:
+        aliases: ['fortipresence-frequency']
+        type: int
+        description: FortiPresence report transmit frequency
+      fortipresence_port:
+        aliases: ['fortipresence-port']
+        type: int
+        description: FortiPresence server UDP listening port
+      fortipresence_project:
+        aliases: ['fortipresence-project']
+        type: str
+        description: FortiPresence project name
+      fortipresence_rogue:
+        aliases: ['fortipresence-rogue']
+        type: str
+        description: Enable/disable FortiPresence finding and reporting rogue APs.
+        choices: ['disable', 'enable']
+      fortipresence_secret:
+        aliases: ['fortipresence-secret']
+        type: raw
+        description: (list) FortiPresence secret password
+      fortipresence_server:
+        aliases: ['fortipresence-server']
+        type: str
+        description: FortiPresence server IP address.
+      fortipresence_unassoc:
+        aliases: ['fortipresence-unassoc']
+        type: str
+        description: Enable/disable FortiPresence finding and reporting unassociated stations.
+        choices: ['disable', 'enable']
+      station_locate:
+        aliases: ['station-locate']
+        type: str
+        description: Enable/disable client station locating services for all clients, whether associated or not
+        choices: ['disable', 'enable']
+      fortipresence_ble:
+        aliases: ['fortipresence-ble']
+        type: str
+        description: Enable/disable FortiPresence finding and reporting BLE devices.
+        choices: ['disable', 'enable']
+      fortipresence_server_addr_type:
+        aliases: ['fortipresence-server-addr-type']
+        type: str
+        description: FortiPresence server address type
+        choices: ['fqdn', 'ipv4']
+      fortipresence_server_fqdn:
+        aliases: ['fortipresence-server-fqdn']
+        type: str
+        description: FQDN of FortiPresence server.
+      polestar:
+        type: str
+        description: Enable/disable PoleStar BLE NAO Track Real Time Location Service
+        choices: ['disable', 'enable']
+      polestar_accumulation_interval:
+        aliases: ['polestar-accumulation-interval']
+        type: int
+        description: Time that measurements should be accumulated in seconds
+      polestar_asset_addrgrp_list:
+        aliases: ['polestar-asset-addrgrp-list']
+        type: str
+        description: Tags and asset addrgrp list to be reported.
+      polestar_asset_uuid_list1:
+        aliases: ['polestar-asset-uuid-list1']
+        type: str
+        description: Tags and asset UUID list 1 to be reported
+      polestar_asset_uuid_list2:
+        aliases: ['polestar-asset-uuid-list2']
+        type: str
+        description: Tags and asset UUID list 2 to be reported
+      polestar_asset_uuid_list3:
+        aliases: ['polestar-asset-uuid-list3']
+        type: str
+        description: Tags and asset UUID list 3 to be reported
+      polestar_asset_uuid_list4:
+        aliases: ['polestar-asset-uuid-list4']
+        type: str
+        description: Tags and asset UUID list 4 to be reported
+      polestar_protocol:
+        aliases: ['polestar-protocol']
+        type: str
+        description: Select the protocol to report Measurements, Advertising Data, or Location Data to NAO Cloud.
+        choices: ['WSS']
+      polestar_reporting_interval:
+        aliases: ['polestar-reporting-interval']
+        type: int
+        description: Time between reporting accumulated measurements in seconds
+      polestar_server_fqdn:
+        aliases: ['polestar-server-fqdn']
+        type: str
+        description: FQDN of PoleStar Nao Track Server
+      polestar_server_path:
+        aliases: ['polestar-server-path']
+        type: str
+        description: Path of PoleStar Nao Track Server
+      polestar_server_port:
+        aliases: ['polestar-server-port']
+        type: int
+        description: Port of PoleStar Nao Track Server
+      polestar_server_token:
+        aliases: ['polestar-server-token']
+        type: str
+        description: Access Token of PoleStar Nao Track Server.
+      ble_rtls:
+        aliases: ['ble-rtls']
+        type: str
+        description: Set BLE Real Time Location Service
+        choices: ['none', 'polestar', 'evresys']
+      ble_rtls_accumulation_interval:
+        aliases: ['ble-rtls-accumulation-interval']
+        type: int
+        description: Time that measurements should be accumulated in seconds
+      ble_rtls_asset_addrgrp_list:
+        aliases: ['ble-rtls-asset-addrgrp-list']
+        type: raw
+        description: (list) Tags and asset addrgrp list to be reported.
+      ble_rtls_asset_uuid_list1:
+        aliases: ['ble-rtls-asset-uuid-list1']
+        type: str
+        description: Tags and asset UUID list 1 to be reported
+      ble_rtls_asset_uuid_list2:
+        aliases: ['ble-rtls-asset-uuid-list2']
+        type: str
+        description: Tags and asset UUID list 2 to be reported
+      ble_rtls_asset_uuid_list3:
+        aliases: ['ble-rtls-asset-uuid-list3']
+        type: str
+        description: Tags and asset UUID list 3 to be reported
+      ble_rtls_asset_uuid_list4:
+        aliases: ['ble-rtls-asset-uuid-list4']
+        type: str
+        description: Tags and asset UUID list 4 to be reported
+      ble_rtls_protocol:
+        aliases: ['ble-rtls-protocol']
+        type: str
+        description: Select the protocol to report Measurements, Advertising Data, or Location Data to Cloud Server.
+        choices: ['WSS']
+      ble_rtls_reporting_interval:
+        aliases: ['ble-rtls-reporting-interval']
+        type: int
+        description: Time between reporting accumulated measurements in seconds
+      ble_rtls_server_fqdn:
+        aliases: ['ble-rtls-server-fqdn']
+        type: str
+        description: FQDN of BLE Real Time Location Service
+      ble_rtls_server_path:
+        aliases: ['ble-rtls-server-path']
+        type: str
+        description: Path of BLE Real Time Location Service
+      ble_rtls_server_port:
+        aliases: ['ble-rtls-server-port']
+        type: int
+        description: Port of BLE Real Time Location Service
+      ble_rtls_server_token:
+        aliases: ['ble-rtls-server-token']
+        type: str
+        description: Access Token of BLE Real Time Location Service
 '''
 
 EXAMPLES = '''
@@ -316,42 +316,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -409,19 +409,19 @@ def main():
                 'polestar-server-path': {'v_range': [['7.4.1', '']], 'type': 'str'},
                 'polestar-server-port': {'v_range': [['7.4.1', '']], 'type': 'int'},
                 'polestar-server-token': {'v_range': [['7.4.1', '']], 'no_log': True, 'type': 'str'},
-                'ble-rtls': {'v_range': [['7.4.4', '7.4.10'], ['7.6.2', '']], 'choices': ['none', 'polestar', 'evresys'], 'type': 'str'},
-                'ble-rtls-accumulation-interval': {'v_range': [['7.4.4', '7.4.10'], ['7.6.2', '']], 'type': 'int'},
-                'ble-rtls-asset-addrgrp-list': {'v_range': [['7.4.4', '7.4.10'], ['7.6.2', '']], 'type': 'raw'},
-                'ble-rtls-asset-uuid-list1': {'v_range': [['7.4.4', '7.4.10'], ['7.6.2', '']], 'type': 'str'},
-                'ble-rtls-asset-uuid-list2': {'v_range': [['7.4.4', '7.4.10'], ['7.6.2', '']], 'type': 'str'},
-                'ble-rtls-asset-uuid-list3': {'v_range': [['7.4.4', '7.4.10'], ['7.6.2', '']], 'type': 'str'},
-                'ble-rtls-asset-uuid-list4': {'v_range': [['7.4.4', '7.4.10'], ['7.6.2', '']], 'type': 'str'},
-                'ble-rtls-protocol': {'v_range': [['7.4.4', '7.4.10'], ['7.6.2', '']], 'choices': ['WSS'], 'type': 'str'},
-                'ble-rtls-reporting-interval': {'v_range': [['7.4.4', '7.4.10'], ['7.6.2', '']], 'type': 'int'},
-                'ble-rtls-server-fqdn': {'v_range': [['7.4.4', '7.4.10'], ['7.6.2', '']], 'type': 'str'},
-                'ble-rtls-server-path': {'v_range': [['7.4.4', '7.4.10'], ['7.6.2', '']], 'type': 'str'},
-                'ble-rtls-server-port': {'v_range': [['7.4.4', '7.4.10'], ['7.6.2', '']], 'type': 'int'},
-                'ble-rtls-server-token': {'v_range': [['7.4.4', '7.4.10'], ['7.6.2', '']], 'no_log': True, 'type': 'str'}
+                'ble-rtls': {'v_range': [['7.4.4', '7.4.11'], ['7.6.2', '']], 'choices': ['none', 'polestar', 'evresys'], 'type': 'str'},
+                'ble-rtls-accumulation-interval': {'v_range': [['7.4.4', '7.4.11'], ['7.6.2', '']], 'type': 'int'},
+                'ble-rtls-asset-addrgrp-list': {'v_range': [['7.4.4', '7.4.11'], ['7.6.2', '']], 'type': 'raw'},
+                'ble-rtls-asset-uuid-list1': {'v_range': [['7.4.4', '7.4.11'], ['7.6.2', '']], 'type': 'str'},
+                'ble-rtls-asset-uuid-list2': {'v_range': [['7.4.4', '7.4.11'], ['7.6.2', '']], 'type': 'str'},
+                'ble-rtls-asset-uuid-list3': {'v_range': [['7.4.4', '7.4.11'], ['7.6.2', '']], 'type': 'str'},
+                'ble-rtls-asset-uuid-list4': {'v_range': [['7.4.4', '7.4.11'], ['7.6.2', '']], 'type': 'str'},
+                'ble-rtls-protocol': {'v_range': [['7.4.4', '7.4.11'], ['7.6.2', '']], 'choices': ['WSS'], 'type': 'str'},
+                'ble-rtls-reporting-interval': {'v_range': [['7.4.4', '7.4.11'], ['7.6.2', '']], 'type': 'int'},
+                'ble-rtls-server-fqdn': {'v_range': [['7.4.4', '7.4.11'], ['7.6.2', '']], 'type': 'str'},
+                'ble-rtls-server-path': {'v_range': [['7.4.4', '7.4.11'], ['7.6.2', '']], 'type': 'str'},
+                'ble-rtls-server-port': {'v_range': [['7.4.4', '7.4.11'], ['7.6.2', '']], 'type': 'int'},
+                'ble-rtls-server-token': {'v_range': [['7.4.4', '7.4.11'], ['7.6.2', '']], 'no_log': True, 'type': 'str'}
             }
         }
     }

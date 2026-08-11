@@ -15,75 +15,75 @@ module: fmgr_firewall_vip6_realservers
 short_description: Select the real servers that this server load balancing VIP will distribute traffic to.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  vip6:
+    description: The parameter (vip6) in requested url.
+    type: str
+    required: true
+  firewall_vip6_realservers:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      client_ip:
+        aliases: ['client-ip']
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Only clients in this IP range can connect to this real server.
+      healthcheck:
         type: str
+        description: Enable to check the responsiveness of the real server before forwarding traffic.
+        choices: ['disable', 'enable', 'vip']
+      holddown_interval:
+        aliases: ['holddown-interval']
+        type: int
+        description: Time in seconds that the health check monitor continues to monitor an unresponsive server that should be active.
+      http_host:
+        aliases: ['http-host']
+        type: str
+        description: HTTP server domain name in HTTP header.
+      id:
+        type: int
+        description: Real server ID.
         required: true
-    vip6:
-        description: The parameter (vip6) in requested url.
+      ip:
         type: str
-        required: true
-    firewall_vip6_realservers:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            client_ip:
-                aliases: ['client-ip']
-                type: str
-                description: Only clients in this IP range can connect to this real server.
-            healthcheck:
-                type: str
-                description: Enable to check the responsiveness of the real server before forwarding traffic.
-                choices: ['disable', 'enable', 'vip']
-            holddown_interval:
-                aliases: ['holddown-interval']
-                type: int
-                description: Time in seconds that the health check monitor continues to monitor an unresponsive server that should be active.
-            http_host:
-                aliases: ['http-host']
-                type: str
-                description: HTTP server domain name in HTTP header.
-            id:
-                type: int
-                description: Real server ID.
-                required: true
-            ip:
-                type: str
-                description: IPv6 address of the real server.
-            max_connections:
-                aliases: ['max-connections']
-                type: int
-                description: Max number of active connections that can directed to the real server.
-            monitor:
-                type: raw
-                description: (list or str) Name of the health check monitor to use when polling to determine a virtual servers connectivity status.
-            port:
-                type: int
-                description: Port for communicating with the real server.
-            status:
-                type: str
-                description: Set the status of the real server to active so that it can accept traffic, or on standby or disabled so no traffic is sent.
-                choices: ['active', 'standby', 'disable']
-            weight:
-                type: int
-                description: Weight of the real server.
-            translate_host:
-                aliases: ['translate-host']
-                type: str
-                description: Enable/disable translation of hostname/IP from virtual server to real server.
-                choices: ['disable', 'enable']
-            verify_cert:
-                aliases: ['verify-cert']
-                type: str
-                description: Enable/disable certificate verification of the real server.
-                choices: ['disable', 'enable']
+        description: IPv6 address of the real server.
+      max_connections:
+        aliases: ['max-connections']
+        type: int
+        description: Max number of active connections that can directed to the real server.
+      monitor:
+        type: raw
+        description: (list or str) Name of the health check monitor to use when polling to determine a virtual servers connectivity status.
+      port:
+        type: int
+        description: Port for communicating with the real server.
+      status:
+        type: str
+        description: Set the status of the real server to active so that it can accept traffic, or on standby or disabled so no traffic is sent.
+        choices: ['active', 'standby', 'disable']
+      weight:
+        type: int
+        description: Weight of the real server.
+      translate_host:
+        aliases: ['translate-host']
+        type: str
+        description: Enable/disable translation of hostname/IP from virtual server to real server.
+        choices: ['disable', 'enable']
+      verify_cert:
+        aliases: ['verify-cert']
+        type: str
+        description: Enable/disable certificate verification of the real server.
+        choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -128,42 +128,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

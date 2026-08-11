@@ -15,123 +15,132 @@ module: fmgr_pkg_authentication_setting
 short_description: Configure authentication setting.
 version_added: "2.1.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.partial_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.partial_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  pkg:
+    description: The parameter (pkg) in requested url.
+    type: str
+    required: true
+  pkg_authentication_setting:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      active_auth_scheme:
+        aliases: ['active-auth-scheme']
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Active authentication method
+      auth_https:
+        aliases: ['auth-https']
         type: str
-        required: true
-    pkg:
-        description: The parameter (pkg) in requested url.
+        description: Enable/disable redirecting HTTP user authentication to HTTPS.
+        choices: ['disable', 'enable']
+      captive_portal:
+        aliases: ['captive-portal']
         type: str
-        required: true
-    pkg_authentication_setting:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            active_auth_scheme:
-                aliases: ['active-auth-scheme']
-                type: str
-                description: Active authentication method
-            auth_https:
-                aliases: ['auth-https']
-                type: str
-                description: Enable/disable redirecting HTTP user authentication to HTTPS.
-                choices: ['disable', 'enable']
-            captive_portal:
-                aliases: ['captive-portal']
-                type: str
-                description: Captive portal host name.
-            captive_portal_ip:
-                aliases: ['captive-portal-ip']
-                type: str
-                description: Captive portal IP address.
-            captive_portal_ip6:
-                aliases: ['captive-portal-ip6']
-                type: str
-                description: Captive portal IPv6 address.
-            captive_portal_port:
-                aliases: ['captive-portal-port']
-                type: int
-                description: Captive portal port number
-            captive_portal_ssl_port:
-                aliases: ['captive-portal-ssl-port']
-                type: int
-                description: Captive portal SSL port number
-            captive_portal_type:
-                aliases: ['captive-portal-type']
-                type: str
-                description: Captive portal type.
-                choices: ['fqdn', 'ip']
-            captive_portal6:
-                aliases: ['captive-portal6']
-                type: str
-                description: IPv6 captive portal host name.
-            rewrite_https_port:
-                aliases: ['rewrite-https-port']
-                type: int
-                description: Rewrite to HTTPS port
-            sso_auth_scheme:
-                aliases: ['sso-auth-scheme']
-                type: str
-                description: Single-Sign-On authentication method
-            dev_range:
-                aliases: ['dev-range']
-                type: raw
-                description: (list or str) Address range for the IP based device query.
-            user_cert_ca:
-                aliases: ['user-cert-ca']
-                type: raw
-                description: (list or str) CA certificate used for client certificate verification.
-            cert_auth:
-                aliases: ['cert-auth']
-                type: str
-                description: Enable/disable redirecting certificate authentication to HTTPS portal.
-                choices: ['disable', 'enable']
-            cert_captive_portal:
-                aliases: ['cert-captive-portal']
-                type: str
-                description: Certificate captive portal host name.
-            cert_captive_portal_ip:
-                aliases: ['cert-captive-portal-ip']
-                type: str
-                description: Certificate captive portal IP address.
-            cert_captive_portal_port:
-                aliases: ['cert-captive-portal-port']
-                type: int
-                description: Certificate captive portal port number
-            cookie_max_age:
-                aliases: ['cookie-max-age']
-                type: int
-                description: Persistent web portal cookie maximum age in minutes
-            cookie_refresh_div:
-                aliases: ['cookie-refresh-div']
-                type: int
-                description: Refresh rate divider of persistent web portal cookie
-            ip_auth_cookie:
-                aliases: ['ip-auth-cookie']
-                type: str
-                description: Enable/disable persistent cookie on IP based web portal authentication
-                choices: ['disable', 'enable']
-            persistent_cookie:
-                aliases: ['persistent-cookie']
-                type: str
-                description: Enable/disable persistent cookie on web portal authentication
-                choices: ['disable', 'enable']
-            update_time:
-                aliases: ['update-time']
-                type: str
-                description: Time of the last update.
-            log_auth_request:
-                aliases: ['log-auth-request']
-                type: str
-                description: Log auth request.
-                choices: ['disable', 'enable']
+        description: Captive portal host name.
+      captive_portal_ip:
+        aliases: ['captive-portal-ip']
+        type: str
+        description: Captive portal IP address.
+      captive_portal_ip6:
+        aliases: ['captive-portal-ip6']
+        type: str
+        description: Captive portal IPv6 address.
+      captive_portal_port:
+        aliases: ['captive-portal-port']
+        type: int
+        description: Captive portal port number
+      captive_portal_ssl_port:
+        aliases: ['captive-portal-ssl-port']
+        type: int
+        description: Captive portal SSL port number
+      captive_portal_type:
+        aliases: ['captive-portal-type']
+        type: str
+        description: Captive portal type.
+        choices: ['fqdn', 'ip']
+      captive_portal6:
+        aliases: ['captive-portal6']
+        type: str
+        description: IPv6 captive portal host name.
+      rewrite_https_port:
+        aliases: ['rewrite-https-port']
+        type: int
+        description: Rewrite to HTTPS port
+      sso_auth_scheme:
+        aliases: ['sso-auth-scheme']
+        type: str
+        description: Single-Sign-On authentication method
+      dev_range:
+        aliases: ['dev-range']
+        type: raw
+        description: (list or str) Address range for the IP based device query.
+      user_cert_ca:
+        aliases: ['user-cert-ca']
+        type: raw
+        description: (list or str) CA certificate used for client certificate verification.
+      cert_auth:
+        aliases: ['cert-auth']
+        type: str
+        description: Enable/disable redirecting certificate authentication to HTTPS portal.
+        choices: ['disable', 'enable']
+      cert_captive_portal:
+        aliases: ['cert-captive-portal']
+        type: str
+        description: Certificate captive portal host name.
+      cert_captive_portal_ip:
+        aliases: ['cert-captive-portal-ip']
+        type: str
+        description: Certificate captive portal IP address.
+      cert_captive_portal_port:
+        aliases: ['cert-captive-portal-port']
+        type: int
+        description: Certificate captive portal port number
+      cookie_max_age:
+        aliases: ['cookie-max-age']
+        type: int
+        description: Persistent web portal cookie maximum age in minutes
+      cookie_refresh_div:
+        aliases: ['cookie-refresh-div']
+        type: int
+        description: Refresh rate divider of persistent web portal cookie
+      ip_auth_cookie:
+        aliases: ['ip-auth-cookie']
+        type: str
+        description: Enable/disable persistent cookie on IP based web portal authentication
+        choices: ['disable', 'enable']
+      persistent_cookie:
+        aliases: ['persistent-cookie']
+        type: str
+        description: Enable/disable persistent cookie on web portal authentication
+        choices: ['disable', 'enable']
+      update_time:
+        aliases: ['update-time']
+        type: str
+        description: Time of the last update.
+      log_auth_request:
+        aliases: ['log-auth-request']
+        type: str
+        description: Log auth request.
+        choices: ['disable', 'enable']
+      max_redirection_url_length:
+        aliases: ['max-redirection-url-length']
+        type: int
+        description: Max redirection url length.
+      ems_root_ca:
+        aliases: ['ems-root-ca']
+        type: str
+        description: Enable/disable use of the EMS root CA for FortiClient, ZTNA, and endpoint authentication
+        choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -169,46 +178,48 @@ EXAMPLES = '''
           # persistent_cookie: <value in [disable, enable]>
           # update_time: <string>
           # log_auth_request: <value in [disable, enable]>
+          # max_redirection_url_length: <integer>
+          # ems_root_ca: <value in [disable, enable]>
 '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -249,7 +260,9 @@ def main():
                 'ip-auth-cookie': {'v_range': [['7.2.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'persistent-cookie': {'v_range': [['7.2.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'update-time': {'v_range': [['7.2.0', '']], 'type': 'str'},
-                'log-auth-request': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'log-auth-request': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'max-redirection-url-length': {'v_range': [['7.6.7', '']], 'type': 'int'},
+                'ems-root-ca': {'v_range': [['7.6.7', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

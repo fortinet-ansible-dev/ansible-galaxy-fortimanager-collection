@@ -15,45 +15,45 @@ module: fmgr_firewall_identitybasedroute
 short_description: Configure identity based routing.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  firewall_identitybasedroute:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      comments:
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Comments.
+      name:
         type: str
+        description: Name.
         required: true
-    firewall_identitybasedroute:
-        description: The top level parameters set.
-        required: false
-        type: dict
+      rule:
+        type: list
+        elements: dict
+        description: Rule.
         suboptions:
-            comments:
-                type: str
-                description: Comments.
-            name:
-                type: str
-                description: Name.
-                required: true
-            rule:
-                type: list
-                elements: dict
-                description: Rule.
-                suboptions:
-                    device:
-                        type: str
-                        description: Outgoing interface for the rule.
-                    gateway:
-                        type: str
-                        description: IPv4 address of the gateway
-                    groups:
-                        type: raw
-                        description: (list or str) Select one or more group
-                    id:
-                        type: int
-                        description: Rule ID.
+          device:
+            type: str
+            description: Outgoing interface for the rule.
+          gateway:
+            type: str
+            description: IPv4 address of the gateway
+          groups:
+            type: raw
+            description: (list or str) Select one or more group
+          id:
+            type: int
+            description: Rule ID.
 '''
 
 EXAMPLES = '''
@@ -95,42 +95,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

@@ -15,43 +15,43 @@ module: fmgr_spamfilter_profile_imap
 short_description: IMAP.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.partial_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.partial_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  profile:
+    description: The parameter (profile) in requested url.
+    type: str
+    required: true
+  spamfilter_profile_imap:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      action:
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Action for spam email.
+        choices: ['pass', 'tag']
+      log:
         type: str
-        required: true
-    profile:
-        description: The parameter (profile) in requested url.
+        description: Enable/disable logging.
+        choices: ['disable', 'enable']
+      tag_msg:
+        aliases: ['tag-msg']
         type: str
-        required: true
-    spamfilter_profile_imap:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            action:
-                type: str
-                description: Action for spam email.
-                choices: ['pass', 'tag']
-            log:
-                type: str
-                description: Enable/disable logging.
-                choices: ['disable', 'enable']
-            tag_msg:
-                aliases: ['tag-msg']
-                type: str
-                description: Subject text or header added to spam email.
-            tag_type:
-                aliases: ['tag-type']
-                type: list
-                elements: str
-                description: Tag subject or header for spam email.
-                choices: ['subject', 'header', 'spaminfo']
+        description: Subject text or header added to spam email.
+      tag_type:
+        aliases: ['tag-type']
+        type: list
+        elements: str
+        description: Tag subject or header for spam email.
+        choices: ['subject', 'header', 'spaminfo']
 '''
 
 EXAMPLES = '''
@@ -74,42 +74,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -127,13 +127,13 @@ def main():
         'profile': {'required': True, 'type': 'str'},
         'revision_note': {'type': 'str'},
         'spamfilter_profile_imap': {
-            'type': 'dict', 'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']],
+            'type': 'dict', 'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.11']],
             'options': {
-                'action': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']], 'choices': ['pass', 'tag'], 'type': 'str'},
-                'log': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'tag-msg': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']], 'type': 'str'},
+                'action': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.11']], 'choices': ['pass', 'tag'], 'type': 'str'},
+                'log': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.11']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'tag-msg': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.11']], 'type': 'str'},
                 'tag-type': {
-                    'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']],
+                    'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.11']],
                     'type': 'list',
                     'choices': ['subject', 'header', 'spaminfo'],
                     'elements': 'str'

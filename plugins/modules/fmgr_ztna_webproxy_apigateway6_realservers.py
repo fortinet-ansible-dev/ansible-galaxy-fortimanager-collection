@@ -15,88 +15,88 @@ module: fmgr_ztna_webproxy_apigateway6_realservers
 short_description: Select the real servers that this Access Proxy will distribute traffic to.
 version_added: "2.12.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  web-proxy:
+    description: Deprecated, please use "web_proxy"
+    type: str
+  web_proxy:
+    description: The parameter (web-proxy) in requested url.
+    type: str
+  api-gateway6:
+    description: Deprecated, please use "api_gateway6"
+    type: str
+  api_gateway6:
+    description: The parameter (api-gateway6) in requested url.
+    type: str
+  ztna_webproxy_apigateway6_realservers:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      addr_type:
+        aliases: ['addr-type']
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Type of address.
+        choices: ['fqdn', 'ip']
+      address:
+        type: list
+        elements: str
+        description: Address or address group of the real server.
+      health_check:
+        aliases: ['health-check']
         type: str
+        description: Enable to check the responsiveness of the real server before forwarding traffic.
+        choices: ['disable', 'enable']
+      health_check_proto:
+        aliases: ['health-check-proto']
+        type: str
+        description: Protocol of the health check monitor to use when polling to determine servers connectivity status.
+        choices: ['ping', 'http', 'tcp-connect']
+      holddown_interval:
+        aliases: ['holddown-interval']
+        type: str
+        description: Enable/disable holddown timer.
+        choices: ['disable', 'enable']
+      http_host:
+        aliases: ['http-host']
+        type: str
+        description: HTTP server domain name in HTTP header.
+      id:
+        type: int
+        description: Real server ID.
         required: true
-    web-proxy:
-        description: Deprecated, please use "web_proxy"
+      ip:
         type: str
-    web_proxy:
-        description: The parameter (web-proxy) in requested url.
+        description: IPv6 address of the real server.
+      port:
+        type: int
+        description: Port for communicating with the real server.
+      status:
         type: str
-    api-gateway6:
-        description: Deprecated, please use "api_gateway6"
+        description: Set the status of the real server to active so that it can accept traffic, or on standby or disabled so no traffic is sent.
+        choices: ['active', 'standby', 'disable']
+      translate_host:
+        aliases: ['translate-host']
         type: str
-    api_gateway6:
-        description: The parameter (api-gateway6) in requested url.
+        description: Enable/disable translation of hostname/IP from virtual server to real server.
+        choices: ['disable', 'enable']
+      verify_cert:
+        aliases: ['verify-cert']
         type: str
-    ztna_webproxy_apigateway6_realservers:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            addr_type:
-                aliases: ['addr-type']
-                type: str
-                description: Type of address.
-                choices: ['fqdn', 'ip']
-            address:
-                type: list
-                elements: str
-                description: Address or address group of the real server.
-            health_check:
-                aliases: ['health-check']
-                type: str
-                description: Enable to check the responsiveness of the real server before forwarding traffic.
-                choices: ['disable', 'enable']
-            health_check_proto:
-                aliases: ['health-check-proto']
-                type: str
-                description: Protocol of the health check monitor to use when polling to determine servers connectivity status.
-                choices: ['ping', 'http', 'tcp-connect']
-            holddown_interval:
-                aliases: ['holddown-interval']
-                type: str
-                description: Enable/disable holddown timer.
-                choices: ['disable', 'enable']
-            http_host:
-                aliases: ['http-host']
-                type: str
-                description: HTTP server domain name in HTTP header.
-            id:
-                type: int
-                description: Real server ID.
-                required: true
-            ip:
-                type: str
-                description: IPv6 address of the real server.
-            port:
-                type: int
-                description: Port for communicating with the real server.
-            status:
-                type: str
-                description: Set the status of the real server to active so that it can accept traffic, or on standby or disabled so no traffic is sent.
-                choices: ['active', 'standby', 'disable']
-            translate_host:
-                aliases: ['translate-host']
-                type: str
-                description: Enable/disable translation of hostname/IP from virtual server to real server.
-                choices: ['disable', 'enable']
-            verify_cert:
-                aliases: ['verify-cert']
-                type: str
-                description: Enable/disable certificate verification of the real server.
-                choices: ['disable', 'enable']
-            weight:
-                type: int
-                description: Weight of the real server.
+        description: Enable/disable certificate verification of the real server.
+        choices: ['disable', 'enable']
+      weight:
+        type: int
+        description: Weight of the real server.
 '''
 
 EXAMPLES = '''
@@ -130,42 +130,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

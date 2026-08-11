@@ -15,90 +15,90 @@ module: fmgr_firewall_internetserviceextension_disableentry
 short_description: Disable entries in the Internet Service database.
 version_added: "2.10.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  internet-service-extension:
+    description: Deprecated, please use "internet_service_extension"
+    type: str
+  internet_service_extension:
+    description: The parameter (internet-service-extension) in requested url.
+    type: str
+  firewall_internetserviceextension_disableentry:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      addr_mode:
+        aliases: ['addr-mode']
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
-        type: str
+        description: Address mode
+        choices: ['ipv4', 'ipv6']
+      id:
+        type: int
+        description: Disable entry ID.
         required: true
-    internet-service-extension:
-        description: Deprecated, please use "internet_service_extension"
-        type: str
-    internet_service_extension:
-        description: The parameter (internet-service-extension) in requested url.
-        type: str
-    firewall_internetserviceextension_disableentry:
-        description: The top level parameters set.
-        required: false
-        type: dict
+      ip_range:
+        aliases: ['ip-range']
+        type: list
+        elements: dict
+        description: Ip range.
         suboptions:
-            addr_mode:
-                aliases: ['addr-mode']
-                type: str
-                description: Address mode
-                choices: ['ipv4', 'ipv6']
-            id:
-                type: int
-                description: Disable entry ID.
-                required: true
-            ip_range:
-                aliases: ['ip-range']
-                type: list
-                elements: dict
-                description: Ip range.
-                suboptions:
-                    end_ip:
-                        aliases: ['end-ip']
-                        type: str
-                        description: End IPv4 address.
-                    id:
-                        type: int
-                        description: Disable entry range ID.
-                    start_ip:
-                        aliases: ['start-ip']
-                        type: str
-                        description: Start IPv4 address.
-            ip6_range:
-                aliases: ['ip6-range']
-                type: list
-                elements: dict
-                description: Ip6 range.
-                suboptions:
-                    end_ip6:
-                        aliases: ['end-ip6']
-                        type: str
-                        description: End IPv6 address.
-                    id:
-                        type: int
-                        description: Disable entry range ID.
-                    start_ip6:
-                        aliases: ['start-ip6']
-                        type: str
-                        description: Start IPv6 address.
-            port_range:
-                aliases: ['port-range']
-                type: list
-                elements: dict
-                description: Port range.
-                suboptions:
-                    end_port:
-                        aliases: ['end-port']
-                        type: int
-                        description: Ending TCP/UDP/SCTP destination port
-                    id:
-                        type: int
-                        description: Custom entry port range ID.
-                    start_port:
-                        aliases: ['start-port']
-                        type: int
-                        description: Starting TCP/UDP/SCTP destination port
-            protocol:
-                type: int
-                description: Integer value for the protocol type as defined by IANA
+          end_ip:
+            aliases: ['end-ip']
+            type: str
+            description: End IPv4 address.
+          id:
+            type: int
+            description: Disable entry range ID.
+          start_ip:
+            aliases: ['start-ip']
+            type: str
+            description: Start IPv4 address.
+      ip6_range:
+        aliases: ['ip6-range']
+        type: list
+        elements: dict
+        description: Ip6 range.
+        suboptions:
+          end_ip6:
+            aliases: ['end-ip6']
+            type: str
+            description: End IPv6 address.
+          id:
+            type: int
+            description: Disable entry range ID.
+          start_ip6:
+            aliases: ['start-ip6']
+            type: str
+            description: Start IPv6 address.
+      port_range:
+        aliases: ['port-range']
+        type: list
+        elements: dict
+        description: Port range.
+        suboptions:
+          end_port:
+            aliases: ['end-port']
+            type: int
+            description: Ending TCP/UDP/SCTP destination port
+          id:
+            type: int
+            description: Custom entry port range ID.
+          start_port:
+            aliases: ['start-port']
+            type: int
+            description: Starting TCP/UDP/SCTP destination port
+      protocol:
+        type: int
+        description: Integer value for the protocol type as defined by IANA
 '''
 
 EXAMPLES = '''
@@ -133,42 +133,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -187,41 +187,41 @@ def main():
         'internet_service_extension': {'type': 'str'},
         'revision_note': {'type': 'str'},
         'firewall_internetserviceextension_disableentry': {
-            'type': 'dict', 'v_range': [['7.4.7', '7.4.10'], ['7.6.4', '']],
+            'type': 'dict', 'v_range': [['7.4.7', '7.4.11'], ['7.6.4', '']],
             'options': {
-                'addr-mode': {'v_range': [['7.4.7', '7.4.10'], ['7.6.4', '']], 'choices': ['ipv4', 'ipv6'], 'type': 'str'},
-                'id': {'v_range': [['7.4.7', '7.4.10'], ['7.6.4', '']], 'required': True, 'type': 'int'},
+                'addr-mode': {'v_range': [['7.4.7', '7.4.11'], ['7.6.4', '']], 'choices': ['ipv4', 'ipv6'], 'type': 'str'},
+                'id': {'v_range': [['7.4.7', '7.4.11'], ['7.6.4', '']], 'required': True, 'type': 'int'},
                 'ip-range': {
-                    'v_range': [['7.4.7', '7.4.10'], ['7.6.4', '']],
+                    'v_range': [['7.4.7', '7.4.11'], ['7.6.4', '']],
                     'type': 'list',
                     'options': {
-                        'end-ip': {'v_range': [['7.4.7', '7.4.10'], ['7.6.4', '']], 'type': 'str'},
-                        'id': {'v_range': [['7.4.7', '7.4.10'], ['7.6.4', '']], 'type': 'int'},
-                        'start-ip': {'v_range': [['7.4.7', '7.4.10'], ['7.6.4', '']], 'type': 'str'}
+                        'end-ip': {'v_range': [['7.4.7', '7.4.11'], ['7.6.4', '']], 'type': 'str'},
+                        'id': {'v_range': [['7.4.7', '7.4.11'], ['7.6.4', '']], 'type': 'int'},
+                        'start-ip': {'v_range': [['7.4.7', '7.4.11'], ['7.6.4', '']], 'type': 'str'}
                     },
                     'elements': 'dict'
                 },
                 'ip6-range': {
-                    'v_range': [['7.4.7', '7.4.10'], ['7.6.4', '']],
+                    'v_range': [['7.4.7', '7.4.11'], ['7.6.4', '']],
                     'type': 'list',
                     'options': {
-                        'end-ip6': {'v_range': [['7.4.7', '7.4.10'], ['7.6.4', '']], 'type': 'str'},
-                        'id': {'v_range': [['7.4.7', '7.4.10'], ['7.6.4', '']], 'type': 'int'},
-                        'start-ip6': {'v_range': [['7.4.7', '7.4.10'], ['7.6.4', '']], 'type': 'str'}
+                        'end-ip6': {'v_range': [['7.4.7', '7.4.11'], ['7.6.4', '']], 'type': 'str'},
+                        'id': {'v_range': [['7.4.7', '7.4.11'], ['7.6.4', '']], 'type': 'int'},
+                        'start-ip6': {'v_range': [['7.4.7', '7.4.11'], ['7.6.4', '']], 'type': 'str'}
                     },
                     'elements': 'dict'
                 },
                 'port-range': {
-                    'v_range': [['7.4.7', '7.4.10'], ['7.6.4', '']],
+                    'v_range': [['7.4.7', '7.4.11'], ['7.6.4', '']],
                     'type': 'list',
                     'options': {
-                        'end-port': {'v_range': [['7.4.7', '7.4.10'], ['7.6.4', '']], 'type': 'int'},
-                        'id': {'v_range': [['7.4.7', '7.4.10'], ['7.6.4', '']], 'type': 'int'},
-                        'start-port': {'v_range': [['7.4.7', '7.4.10'], ['7.6.4', '']], 'type': 'int'}
+                        'end-port': {'v_range': [['7.4.7', '7.4.11'], ['7.6.4', '']], 'type': 'int'},
+                        'id': {'v_range': [['7.4.7', '7.4.11'], ['7.6.4', '']], 'type': 'int'},
+                        'start-port': {'v_range': [['7.4.7', '7.4.11'], ['7.6.4', '']], 'type': 'int'}
                     },
                     'elements': 'dict'
                 },
-                'protocol': {'v_range': [['7.4.7', '7.4.10'], ['7.6.4', '']], 'type': 'int'}
+                'protocol': {'v_range': [['7.4.7', '7.4.11'], ['7.6.4', '']], 'type': 'int'}
             }
         }
     }

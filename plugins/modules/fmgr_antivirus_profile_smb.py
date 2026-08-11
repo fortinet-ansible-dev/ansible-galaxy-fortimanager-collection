@@ -15,53 +15,53 @@ module: fmgr_antivirus_profile_smb
 short_description: Configure SMB AntiVirus options.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.partial_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.partial_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  profile:
+    description: The parameter (profile) in requested url.
+    type: str
+    required: true
+  antivirus_profile_smb:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      archive_block:
+        aliases: ['archive-block']
+        type: list
+        elements: str
+        description: Select the archive types to block.
+        choices: ['encrypted', 'corrupted', 'multipart', 'nested', 'mailbomb', 'unhandled',
+                  'partiallycorrupted', 'fileslimit', 'timeout']
+      archive_log:
+        aliases: ['archive-log']
+        type: list
+        elements: str
+        description: Select the archive types to log.
+        choices: ['encrypted', 'corrupted', 'multipart', 'nested', 'mailbomb', 'unhandled',
+                  'partiallycorrupted', 'fileslimit', 'timeout']
+      emulator:
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Enable/disable the virus emulator.
+        choices: ['disable', 'enable']
+      options:
+        type: list
+        elements: str
+        description: Enable/disable SMB AntiVirus scanning, monitoring, and quarantine.
+        choices: ['scan', 'quarantine', 'avquery', 'avmonitor']
+      outbreak_prevention:
+        aliases: ['outbreak-prevention']
         type: str
-        required: true
-    profile:
-        description: The parameter (profile) in requested url.
-        type: str
-        required: true
-    antivirus_profile_smb:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            archive_block:
-                aliases: ['archive-block']
-                type: list
-                elements: str
-                description: Select the archive types to block.
-                choices: ['encrypted', 'corrupted', 'multipart', 'nested', 'mailbomb',
-                          'unhandled', 'partiallycorrupted', 'fileslimit', 'timeout']
-            archive_log:
-                aliases: ['archive-log']
-                type: list
-                elements: str
-                description: Select the archive types to log.
-                choices: ['encrypted', 'corrupted', 'multipart', 'nested', 'mailbomb',
-                          'unhandled', 'partiallycorrupted', 'fileslimit', 'timeout']
-            emulator:
-                type: str
-                description: Enable/disable the virus emulator.
-                choices: ['disable', 'enable']
-            options:
-                type: list
-                elements: str
-                description: Enable/disable SMB AntiVirus scanning, monitoring, and quarantine.
-                choices: ['scan', 'quarantine', 'avquery', 'avmonitor']
-            outbreak_prevention:
-                aliases: ['outbreak-prevention']
-                type: str
-                description: Enable FortiGuard Virus Outbreak Prevention service.
-                choices: ['disabled', 'files', 'full-archive']
+        description: Enable FortiGuard Virus Outbreak Prevention service.
+        choices: ['disabled', 'files', 'full-archive']
 '''
 
 EXAMPLES = '''
@@ -87,42 +87,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

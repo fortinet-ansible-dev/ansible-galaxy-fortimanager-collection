@@ -15,44 +15,44 @@ module: fmgr_firewall_sslsshprofile_sslclientcertificate
 short_description: Firewall ssl ssh profile ssl client certificate
 version_added: "2.12.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.partial_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.partial_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  ssl-ssh-profile:
+    description: Deprecated, please use "ssl_ssh_profile"
+    type: str
+  ssl_ssh_profile:
+    description: The parameter (ssl-ssh-profile) in requested url.
+    type: str
+  firewall_sslsshprofile_sslclientcertificate:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      caname:
+        type: list
+        elements: str
+        description: Caname.
+      cert:
+        type: list
+        elements: str
+        description: Cert.
+      keyring_list:
+        aliases: ['keyring-list']
+        type: list
+        elements: str
+        description: Keyring list.
+      status:
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
-        type: str
-        required: true
-    ssl-ssh-profile:
-        description: Deprecated, please use "ssl_ssh_profile"
-        type: str
-    ssl_ssh_profile:
-        description: The parameter (ssl-ssh-profile) in requested url.
-        type: str
-    firewall_sslsshprofile_sslclientcertificate:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            caname:
-                type: list
-                elements: str
-                description: Caname.
-            cert:
-                type: list
-                elements: str
-                description: Cert.
-            keyring_list:
-                aliases: ['keyring-list']
-                type: list
-                elements: str
-                description: Keyring list.
-            status:
-                type: str
-                description: Status.
-                choices: ['do-not-offer', 'keyring-list', 'ca-sign', 'static']
+        description: Status.
+        choices: ['do-not-offer', 'keyring-list', 'ca-sign', 'static']
 '''
 
 EXAMPLES = '''
@@ -75,42 +75,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -129,13 +129,13 @@ def main():
         'ssl_ssh_profile': {'type': 'str'},
         'revision_note': {'type': 'str'},
         'firewall_sslsshprofile_sslclientcertificate': {
-            'type': 'dict', 'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']],
+            'type': 'dict', 'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']],
             'options': {
-                'caname': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'list', 'elements': 'str'},
-                'cert': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'list', 'elements': 'str'},
-                'keyring-list': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'no_log': True, 'type': 'list', 'elements': 'str'},
+                'caname': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'type': 'list', 'elements': 'str'},
+                'cert': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'type': 'list', 'elements': 'str'},
+                'keyring-list': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'no_log': True, 'type': 'list', 'elements': 'str'},
                 'status': {
-                    'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']],
+                    'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']],
                     'choices': ['do-not-offer', 'keyring-list', 'ca-sign', 'static'],
                     'type': 'str'
                 }

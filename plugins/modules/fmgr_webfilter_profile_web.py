@@ -15,90 +15,90 @@ module: fmgr_webfilter_profile_web
 short_description: Web content filtering settings.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.partial_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.partial_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  profile:
+    description: The parameter (profile) in requested url.
+    type: str
+    required: true
+  webfilter_profile_web:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      blacklist:
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Enable/disable automatic addition of URLs detected by FortiSandbox to blacklist.
+        choices: ['disable', 'enable']
+      bword_table:
+        aliases: ['bword-table']
         type: str
-        required: true
-    profile:
-        description: The parameter (profile) in requested url.
+        description: Banned word table ID.
+      bword_threshold:
+        aliases: ['bword-threshold']
+        type: int
+        description: Banned word score threshold.
+      content_header_list:
+        aliases: ['content-header-list']
         type: str
-        required: true
-    webfilter_profile_web:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            blacklist:
-                type: str
-                description: Enable/disable automatic addition of URLs detected by FortiSandbox to blacklist.
-                choices: ['disable', 'enable']
-            bword_table:
-                aliases: ['bword-table']
-                type: str
-                description: Banned word table ID.
-            bword_threshold:
-                aliases: ['bword-threshold']
-                type: int
-                description: Banned word score threshold.
-            content_header_list:
-                aliases: ['content-header-list']
-                type: str
-                description: Content header list.
-            keyword_match:
-                aliases: ['keyword-match']
-                type: raw
-                description: (list) Search keywords to log when match is found.
-            log_search:
-                aliases: ['log-search']
-                type: str
-                description: Enable/disable logging all search phrases.
-                choices: ['disable', 'enable']
-            safe_search:
-                aliases: ['safe-search']
-                type: list
-                elements: str
-                description: Safe search type.
-                choices: ['google', 'yahoo', 'bing', 'url', 'header']
-            urlfilter_table:
-                aliases: ['urlfilter-table']
-                type: str
-                description: URL filter table ID.
-            whitelist:
-                type: list
-                elements: str
-                description: FortiGuard whitelist settings.
-                choices: ['exempt-av', 'exempt-webcontent', 'exempt-activex-java-cookie',
-                          'exempt-dlp', 'exempt-rangeblock', 'extended-log-others']
-            youtube_restrict:
-                aliases: ['youtube-restrict']
-                type: str
-                description: YouTube EDU filter level.
-                choices: ['strict', 'none', 'moderate']
-            allowlist:
-                type: list
-                elements: str
-                description: FortiGuard allowlist settings.
-                choices: ['exempt-av', 'exempt-webcontent', 'exempt-activex-java-cookie',
-                          'exempt-dlp', 'exempt-rangeblock', 'extended-log-others']
-            blocklist:
-                type: str
-                description: Enable/disable automatic addition of URLs detected by FortiSandbox to blocklist.
-                choices: ['disable', 'enable']
-            vimeo_restrict:
-                aliases: ['vimeo-restrict']
-                type: str
-                description: Set Vimeo-restrict
-            qwant_restrict:
-                aliases: ['qwant-restrict']
-                type: str
-                description: Qwant restrict.
-                choices: ['strict', 'none', 'moderate']
+        description: Content header list.
+      keyword_match:
+        aliases: ['keyword-match']
+        type: raw
+        description: (list) Search keywords to log when match is found.
+      log_search:
+        aliases: ['log-search']
+        type: str
+        description: Enable/disable logging all search phrases.
+        choices: ['disable', 'enable']
+      safe_search:
+        aliases: ['safe-search']
+        type: list
+        elements: str
+        description: Safe search type.
+        choices: ['google', 'yahoo', 'bing', 'url', 'header']
+      urlfilter_table:
+        aliases: ['urlfilter-table']
+        type: str
+        description: URL filter table ID.
+      whitelist:
+        type: list
+        elements: str
+        description: FortiGuard whitelist settings.
+        choices: ['exempt-av', 'exempt-webcontent', 'exempt-activex-java-cookie', 'exempt-dlp',
+                  'exempt-rangeblock', 'extended-log-others']
+      youtube_restrict:
+        aliases: ['youtube-restrict']
+        type: str
+        description: YouTube EDU filter level.
+        choices: ['strict', 'none', 'moderate']
+      allowlist:
+        type: list
+        elements: str
+        description: FortiGuard allowlist settings.
+        choices: ['exempt-av', 'exempt-webcontent', 'exempt-activex-java-cookie', 'exempt-dlp',
+                  'exempt-rangeblock', 'extended-log-others']
+      blocklist:
+        type: str
+        description: Enable/disable automatic addition of URLs detected by FortiSandbox to blocklist.
+        choices: ['disable', 'enable']
+      vimeo_restrict:
+        aliases: ['vimeo-restrict']
+        type: str
+        description: Set Vimeo-restrict
+      qwant_restrict:
+        aliases: ['qwant-restrict']
+        type: str
+        description: Qwant restrict.
+        choices: ['strict', 'none', 'moderate']
 '''
 
 EXAMPLES = '''
@@ -133,42 +133,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -188,7 +188,7 @@ def main():
         'webfilter_profile_web': {
             'type': 'dict', 'v_range': [['6.0.0', '']],
             'options': {
-                'blacklist': {'choices': ['disable', 'enable'], 'type': 'str'},
+                'blacklist': {'v_range': [['6.0.0', '7.6.7']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'bword-table': {'type': 'str'},
                 'bword-threshold': {'type': 'int'},
                 'content-header-list': {'type': 'str'},
@@ -197,6 +197,7 @@ def main():
                 'safe-search': {'type': 'list', 'choices': ['google', 'yahoo', 'bing', 'url', 'header'], 'elements': 'str'},
                 'urlfilter-table': {'type': 'str'},
                 'whitelist': {
+                    'v_range': [['6.0.0', '7.6.7']],
                     'type': 'list',
                     'choices': ['exempt-av', 'exempt-webcontent', 'exempt-activex-java-cookie', 'exempt-dlp', 'exempt-rangeblock', 'extended-log-others'],
                     'elements': 'str'
@@ -210,7 +211,7 @@ def main():
                 },
                 'blocklist': {'v_range': [['7.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'vimeo-restrict': {'v_range': [['7.0.1', '']], 'type': 'str'},
-                'qwant-restrict': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'choices': ['strict', 'none', 'moderate'], 'type': 'str'}
+                'qwant-restrict': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'choices': ['strict', 'none', 'moderate'], 'type': 'str'}
             }
         }
     }

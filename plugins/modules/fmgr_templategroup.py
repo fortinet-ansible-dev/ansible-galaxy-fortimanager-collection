@@ -15,56 +15,56 @@ module: fmgr_templategroup
 short_description: Require device/vdom scope member
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  templategroup:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      description:
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Description.
+      member:
+        type: list
+        elements: str
+        description: Member.
+      modification_time:
+        aliases: ['modification-time']
         type: str
+        description: Modification time.
+      name:
+        type: str
+        description: Name.
         required: true
-    templategroup:
-        description: The top level parameters set.
-        required: false
-        type: dict
+      variables:
+        type: raw
+        description: (list) Variables.
+      option:
+        type: list
+        elements: str
+        description: Option.
+        choices: ['sdwan-overlay', 'sdwan-manager']
+      scope_member:
+        aliases: ['scope member']
+        type: list
+        elements: dict
+        description: Scope member.
         suboptions:
-            description:
-                type: str
-                description: Description.
-            member:
-                type: list
-                elements: str
-                description: Member.
-            modification_time:
-                aliases: ['modification-time']
-                type: str
-                description: Modification time.
-            name:
-                type: str
-                description: Name.
-                required: true
-            variables:
-                type: raw
-                description: (list) Variables.
-            option:
-                type: list
-                elements: str
-                description: Option.
-                choices: ['sdwan-overlay', 'sdwan-manager']
-            scope_member:
-                aliases: ['scope member']
-                type: list
-                elements: dict
-                description: Scope member.
-                suboptions:
-                    name:
-                        type: str
-                        description: Name.
-                    vdom:
-                        type: str
-                        description: Vdom.
+          name:
+            type: str
+            description: Name.
+          vdom:
+            type: str
+            description: Vdom.
 '''
 
 EXAMPLES = '''
@@ -92,42 +92,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -153,11 +153,11 @@ def main():
                 'variables': {'v_range': [['7.2.3', '']], 'type': 'raw'},
                 'option': {'v_range': [['7.6.0', '']], 'type': 'list', 'choices': ['sdwan-overlay', 'sdwan-manager'], 'elements': 'str'},
                 'scope member': {
-                    'v_range': [['7.4.7', '7.4.10'], ['7.6.4', '']],
+                    'v_range': [['7.4.7', '7.4.11'], ['7.6.4', '']],
                     'type': 'list',
                     'options': {
-                        'name': {'v_range': [['7.4.7', '7.4.10'], ['7.6.4', '']], 'type': 'str'},
-                        'vdom': {'v_range': [['7.4.7', '7.4.10'], ['7.6.4', '']], 'type': 'str'}
+                        'name': {'v_range': [['7.4.7', '7.4.11'], ['7.6.4', '']], 'type': 'str'},
+                        'vdom': {'v_range': [['7.4.7', '7.4.11'], ['7.6.4', '']], 'type': 'str'}
                     },
                     'elements': 'dict'
                 }

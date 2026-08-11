@@ -15,67 +15,67 @@ module: fmgr_casb_useractivity_match_tenantextraction
 short_description: CASB user activity tenant extraction.
 version_added: "2.14.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.partial_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.partial_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
-        type: str
-    adom:
-        description: The parameter (adom) in requested url.
-        type: str
-        required: true
-    user-activity:
-        description: Deprecated, please use "user_activity"
-        type: str
-    user_activity:
-        description: The parameter (user-activity) in requested url.
-        type: str
-    match:
-        description: The parameter (match) in requested url.
-        type: str
-        required: true
-    casb_useractivity_match_tenantextraction:
-        description: The top level parameters set.
-        required: false
-        type: dict
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  user-activity:
+    description: Deprecated, please use "user_activity"
+    type: str
+  user_activity:
+    description: The parameter (user-activity) in requested url.
+    type: str
+  match:
+    description: The parameter (match) in requested url.
+    type: str
+    required: true
+  casb_useractivity_match_tenantextraction:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      filters:
+        type: list
+        elements: dict
+        description: Filters.
         suboptions:
-            filters:
-                type: list
-                elements: dict
-                description: Filters.
-                suboptions:
-                    body_type:
-                        aliases: ['body-type']
-                        type: str
-                        description: CASB tenant extraction filter body type.
-                        choices: ['json']
-                    direction:
-                        type: str
-                        description: CASB tenant extraction filter direction.
-                        choices: ['request', 'response']
-                    header_name:
-                        aliases: ['header-name']
-                        type: str
-                        description: CASB tenant extraction filter header name.
-                    id:
-                        type: int
-                        description: CASB tenant extraction filter ID.
-                    place:
-                        type: str
-                        description: CASB tenant extraction filter place type.
-                        choices: ['path', 'header', 'body']
-            jq:
-                type: str
-                description: CASB user activity tenant extraction jq script.
-            status:
-                type: str
-                description: Enable/disable CASB tenant extraction.
-                choices: ['disable', 'enable']
-            type:
-                type: str
-                description: CASB user activity tenant extraction type.
-                choices: ['json-query']
+          body_type:
+            aliases: ['body-type']
+            type: str
+            description: CASB tenant extraction filter body type.
+            choices: ['json', 'form']
+          direction:
+            type: str
+            description: CASB tenant extraction filter direction.
+            choices: ['request', 'response']
+          header_name:
+            aliases: ['header-name']
+            type: str
+            description: CASB tenant extraction filter header name.
+          id:
+            type: int
+            description: CASB tenant extraction filter ID.
+          place:
+            type: str
+            description: CASB tenant extraction filter place type.
+            choices: ['path', 'header', 'body']
+      jq:
+        type: str
+        description: CASB user activity tenant extraction jq script.
+      status:
+        type: str
+        description: Enable/disable CASB tenant extraction.
+        choices: ['disable', 'enable']
+      type:
+        type: str
+        description: CASB user activity tenant extraction type.
+        choices: ['json-query']
 '''
 
 EXAMPLES = '''
@@ -92,7 +92,7 @@ EXAMPLES = '''
         match: <your own value>
         casb_useractivity_match_tenantextraction:
           # filters:
-          #   - body_type: <value in [json]>
+          #   - body_type: <value in [json, form]>
           #     direction: <value in [request, response]>
           #     header_name: <string>
           #     id: <integer>
@@ -104,42 +104,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -165,7 +165,7 @@ def main():
                     'v_range': [['7.6.2', '']],
                     'type': 'list',
                     'options': {
-                        'body-type': {'v_range': [['7.6.2', '']], 'choices': ['json'], 'type': 'str'},
+                        'body-type': {'v_range': [['7.6.2', '']], 'choices': ['json', 'form'], 'type': 'str'},
                         'direction': {'v_range': [['7.6.2', '']], 'choices': ['request', 'response'], 'type': 'str'},
                         'header-name': {'v_range': [['7.6.2', '']], 'type': 'str'},
                         'id': {'v_range': [['7.6.2', '']], 'type': 'int'},

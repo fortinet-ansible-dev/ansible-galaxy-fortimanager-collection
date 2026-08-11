@@ -15,58 +15,58 @@ module: fmgr_system_dnsdatabase_dnsentry
 short_description: DNS entry.
 version_added: "2.12.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  dns-database:
+    description: Deprecated, please use "dns_database"
+    type: str
+  dns_database:
+    description: The parameter (dns-database) in requested url.
+    type: str
+  system_dnsdatabase_dnsentry:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      canonical_name:
+        aliases: ['canonical-name']
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Canonical name of the host.
+      hostname:
         type: str
+        description: Name of the host.
+      id:
+        type: int
+        description: DNS entry ID.
         required: true
-    dns-database:
-        description: Deprecated, please use "dns_database"
+      ip:
         type: str
-    dns_database:
-        description: The parameter (dns-database) in requested url.
+        description: IPv4 address of the host.
+      ipv6:
         type: str
-    system_dnsdatabase_dnsentry:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            canonical_name:
-                aliases: ['canonical-name']
-                type: str
-                description: Canonical name of the host.
-            hostname:
-                type: str
-                description: Name of the host.
-            id:
-                type: int
-                description: DNS entry ID.
-                required: true
-            ip:
-                type: str
-                description: IPv4 address of the host.
-            ipv6:
-                type: str
-                description: IPv6 address of the host.
-            preference:
-                type: int
-                description: DNS entry preference
-            status:
-                type: str
-                description: Enable/disable resource record status.
-                choices: ['disable', 'enable']
-            ttl:
-                type: int
-                description: Time-to-live for this entry
-            type:
-                type: str
-                description: Resource record type.
-                choices: ['NS', 'MX', 'CNAME', 'A', 'AAAA', 'PTR', 'PTR_V6']
+        description: IPv6 address of the host.
+      preference:
+        type: int
+        description: DNS entry preference
+      status:
+        type: str
+        description: Enable/disable resource record status.
+        choices: ['disable', 'enable']
+      ttl:
+        type: int
+        description: Time-to-live for this entry
+      type:
+        type: str
+        description: Resource record type.
+        choices: ['NS', 'MX', 'CNAME', 'A', 'AAAA', 'PTR', 'PTR_V6']
 '''
 
 EXAMPLES = '''
@@ -95,42 +95,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

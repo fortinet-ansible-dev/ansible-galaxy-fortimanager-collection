@@ -15,121 +15,121 @@ module: fmgr_pkg_firewall_policy46
 short_description: Configure IPv4 to IPv6 policies.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  pkg:
+    description: The parameter (pkg) in requested url.
+    type: str
+    required: true
+  pkg_firewall_policy46:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      action:
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Accept or deny traffic matching the policy.
+        choices: ['deny', 'accept']
+      comments:
         type: str
+        description: Comment.
+      dstaddr:
+        type: raw
+        description: (list or str) Destination address objects.
+      dstintf:
+        type: str
+        description: Destination interface name.
+      fixedport:
+        type: str
+        description: Enable/disable fixed port for this policy.
+        choices: ['disable', 'enable']
+      logtraffic:
+        type: str
+        description: Enable/disable traffic logging for this policy.
+        choices: ['disable', 'enable']
+      per_ip_shaper:
+        aliases: ['per-ip-shaper']
+        type: str
+        description: Per IP traffic shaper.
+      permit_any_host:
+        aliases: ['permit-any-host']
+        type: str
+        description: Enable/disable allowing any host.
+        choices: ['disable', 'enable']
+      policyid:
+        type: int
+        description: Policy ID.
         required: true
-    pkg:
-        description: The parameter (pkg) in requested url.
+      schedule:
         type: str
-        required: true
-    pkg_firewall_policy46:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            action:
-                type: str
-                description: Accept or deny traffic matching the policy.
-                choices: ['deny', 'accept']
-            comments:
-                type: str
-                description: Comment.
-            dstaddr:
-                type: raw
-                description: (list or str) Destination address objects.
-            dstintf:
-                type: str
-                description: Destination interface name.
-            fixedport:
-                type: str
-                description: Enable/disable fixed port for this policy.
-                choices: ['disable', 'enable']
-            logtraffic:
-                type: str
-                description: Enable/disable traffic logging for this policy.
-                choices: ['disable', 'enable']
-            per_ip_shaper:
-                aliases: ['per-ip-shaper']
-                type: str
-                description: Per IP traffic shaper.
-            permit_any_host:
-                aliases: ['permit-any-host']
-                type: str
-                description: Enable/disable allowing any host.
-                choices: ['disable', 'enable']
-            policyid:
-                type: int
-                description: Policy ID.
-                required: true
-            schedule:
-                type: str
-                description: Schedule name.
-            service:
-                type: raw
-                description: (list or str) Service name.
-            srcaddr:
-                type: raw
-                description: (list or str) Source address objects.
-            srcintf:
-                type: str
-                description: Source interface name.
-            status:
-                type: str
-                description: Enable/disable this policy.
-                choices: ['disable', 'enable']
-            tags:
-                type: str
-                description: Applied object tags.
-            tcp_mss_receiver:
-                aliases: ['tcp-mss-receiver']
-                type: int
-                description: TCP Maximum Segment Size value of receiver
-            tcp_mss_sender:
-                aliases: ['tcp-mss-sender']
-                type: int
-                description: TCP Maximum Segment Size value of sender
-            traffic_shaper:
-                aliases: ['traffic-shaper']
-                type: str
-                description: Traffic shaper.
-            traffic_shaper_reverse:
-                aliases: ['traffic-shaper-reverse']
-                type: str
-                description: Reverse traffic shaper.
-            uuid:
-                type: str
-                description: Universally Unique Identifier
-            ippool:
-                type: str
-                description: Enable/disable use of IP Pools for source NAT.
-                choices: ['disable', 'enable']
-            logtraffic_start:
-                aliases: ['logtraffic-start']
-                type: str
-                description: Record logs when a session starts and ends.
-                choices: ['disable', 'enable']
-            poolname:
-                type: raw
-                description: (list or str) IP Pool names.
-            name:
-                type: str
-                description: Policy name.
-            cgn_log_server_grp:
-                aliases: ['cgn-log-server-grp']
-                type: str
-                description: NP log server group name
-            policy_offload:
-                aliases: ['policy-offload']
-                type: str
-                description: Enable/disable hardware session setup for CGNAT.
-                choices: ['disable', 'enable']
+        description: Schedule name.
+      service:
+        type: raw
+        description: (list or str) Service name.
+      srcaddr:
+        type: raw
+        description: (list or str) Source address objects.
+      srcintf:
+        type: str
+        description: Source interface name.
+      status:
+        type: str
+        description: Enable/disable this policy.
+        choices: ['disable', 'enable']
+      tags:
+        type: str
+        description: Applied object tags.
+      tcp_mss_receiver:
+        aliases: ['tcp-mss-receiver']
+        type: int
+        description: TCP Maximum Segment Size value of receiver
+      tcp_mss_sender:
+        aliases: ['tcp-mss-sender']
+        type: int
+        description: TCP Maximum Segment Size value of sender
+      traffic_shaper:
+        aliases: ['traffic-shaper']
+        type: str
+        description: Traffic shaper.
+      traffic_shaper_reverse:
+        aliases: ['traffic-shaper-reverse']
+        type: str
+        description: Reverse traffic shaper.
+      uuid:
+        type: str
+        description: Universally Unique Identifier
+      ippool:
+        type: str
+        description: Enable/disable use of IP Pools for source NAT.
+        choices: ['disable', 'enable']
+      logtraffic_start:
+        aliases: ['logtraffic-start']
+        type: str
+        description: Record logs when a session starts and ends.
+        choices: ['disable', 'enable']
+      poolname:
+        type: raw
+        description: (list or str) IP Pool names.
+      name:
+        type: str
+        description: Policy name.
+      cgn_log_server_grp:
+        aliases: ['cgn-log-server-grp']
+        type: str
+        description: NP log server group name
+      policy_offload:
+        aliases: ['policy-offload']
+        type: str
+        description: Enable/disable hardware session setup for CGNAT.
+        choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -181,42 +181,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

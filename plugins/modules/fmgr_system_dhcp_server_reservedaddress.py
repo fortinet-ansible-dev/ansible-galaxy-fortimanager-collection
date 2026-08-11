@@ -15,64 +15,64 @@ module: fmgr_system_dhcp_server_reservedaddress
 short_description: Options for the DHCP server to assign IP settings to specific MAC addresses.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  server:
+    description: The parameter (server) in requested url.
+    type: str
+    required: true
+  system_dhcp_server_reservedaddress:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      action:
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Options for the DHCP server to configure the client with the reserved MAC address.
+        choices: ['assign', 'block', 'reserved']
+      description:
         type: str
+        description: Description.
+      id:
+        type: int
+        description: ID.
         required: true
-    server:
-        description: The parameter (server) in requested url.
+      ip:
         type: str
-        required: true
-    system_dhcp_server_reservedaddress:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            action:
-                type: str
-                description: Options for the DHCP server to configure the client with the reserved MAC address.
-                choices: ['assign', 'block', 'reserved']
-            description:
-                type: str
-                description: Description.
-            id:
-                type: int
-                description: ID.
-                required: true
-            ip:
-                type: str
-                description: IP address to be reserved for the MAC address.
-            mac:
-                type: str
-                description: MAC address of the client that will get the reserved IP address.
-            circuit_id:
-                aliases: ['circuit-id']
-                type: str
-                description: Option 82 circuit-ID of the client that will get the reserved IP address.
-            circuit_id_type:
-                aliases: ['circuit-id-type']
-                type: str
-                description: DHCP option type.
-                choices: ['hex', 'string']
-            remote_id:
-                aliases: ['remote-id']
-                type: str
-                description: Option 82 remote-ID of the client that will get the reserved IP address.
-            remote_id_type:
-                aliases: ['remote-id-type']
-                type: str
-                description: DHCP option type.
-                choices: ['hex', 'string']
-            type:
-                type: str
-                description: DHCP reserved-address type.
-                choices: ['mac', 'option82']
+        description: IP address to be reserved for the MAC address.
+      mac:
+        type: str
+        description: MAC address of the client that will get the reserved IP address.
+      circuit_id:
+        aliases: ['circuit-id']
+        type: str
+        description: Option 82 circuit-ID of the client that will get the reserved IP address.
+      circuit_id_type:
+        aliases: ['circuit-id-type']
+        type: str
+        description: DHCP option type.
+        choices: ['hex', 'string']
+      remote_id:
+        aliases: ['remote-id']
+        type: str
+        description: Option 82 remote-ID of the client that will get the reserved IP address.
+      remote_id_type:
+        aliases: ['remote-id-type']
+        type: str
+        description: DHCP option type.
+        choices: ['hex', 'string']
+      type:
+        type: str
+        description: DHCP reserved-address type.
+        choices: ['mac', 'option82']
 '''
 
 EXAMPLES = '''
@@ -118,42 +118,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

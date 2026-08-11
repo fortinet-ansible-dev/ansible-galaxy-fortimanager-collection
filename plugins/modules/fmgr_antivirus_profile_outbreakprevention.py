@@ -15,35 +15,35 @@ module: fmgr_antivirus_profile_outbreakprevention
 short_description: Configure Virus Outbreak Prevention settings.
 version_added: "2.1.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.partial_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.partial_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  profile:
+    description: The parameter (profile) in requested url.
+    type: str
+    required: true
+  antivirus_profile_outbreakprevention:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      external_blocklist:
+        aliases: ['external-blocklist']
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Enable/disable external malware blocklist.
+        choices: ['disable', 'enable']
+      ftgd_service:
+        aliases: ['ftgd-service']
         type: str
-        required: true
-    profile:
-        description: The parameter (profile) in requested url.
-        type: str
-        required: true
-    antivirus_profile_outbreakprevention:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            external_blocklist:
-                aliases: ['external-blocklist']
-                type: str
-                description: Enable/disable external malware blocklist.
-                choices: ['disable', 'enable']
-            ftgd_service:
-                aliases: ['ftgd-service']
-                type: str
-                description: Enable/disable FortiGuard Virus outbreak prevention service.
-                choices: ['disable', 'enable']
+        description: Enable/disable FortiGuard Virus outbreak prevention service.
+        choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -64,42 +64,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -117,10 +117,10 @@ def main():
         'profile': {'required': True, 'type': 'str'},
         'revision_note': {'type': 'str'},
         'antivirus_profile_outbreakprevention': {
-            'type': 'dict', 'v_range': [['6.2.0', '']],
+            'type': 'dict', 'v_range': [['6.2.0', '7.6.7']],
             'options': {
-                'external-blocklist': {'v_range': [['6.2.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'ftgd-service': {'v_range': [['6.2.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'external-blocklist': {'v_range': [['6.2.0', '7.6.7']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'ftgd-service': {'v_range': [['6.2.0', '7.6.7']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

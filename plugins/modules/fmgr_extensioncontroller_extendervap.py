@@ -15,112 +15,135 @@ module: fmgr_extensioncontroller_extendervap
 short_description: FortiExtender wifi vap configuration.
 version_added: "2.10.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  extensioncontroller_extendervap:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      allowaccess:
+        type: list
+        elements: str
+        description: Control management access to the managed extender.
+        choices: ['http', 'ssh', 'telnet', 'snmp', 'https', 'ping']
+      auth_server_address:
+        aliases: ['auth-server-address']
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Wi-Fi Authentication Server Address
+      auth_server_port:
+        aliases: ['auth-server-port']
+        type: int
+        description: Wi-Fi Authentication Server Port.
+      auth_server_secret:
+        aliases: ['auth-server-secret']
         type: str
+        description: Wi-Fi Authentication Server Secret.
+      broadcast_ssid:
+        aliases: ['broadcast-ssid']
+        type: str
+        description: Wi-Fi broadcast SSID enable / disable.
+        choices: ['disable', 'enable']
+      bss_color_partial:
+        aliases: ['bss-color-partial']
+        type: str
+        description: Wi-Fi 802.
+        choices: ['disable', 'enable']
+      dtim:
+        type: int
+        description: Wi-Fi DTIM
+      end_ip:
+        aliases: ['end-ip']
+        type: str
+        description: End ip address.
+      ip_address:
+        aliases: ['ip-address']
+        type: list
+        elements: str
+        description: Extender ip address.
+      max_clients:
+        aliases: ['max-clients']
+        type: int
+        description: Wi-Fi max clients
+      mu_mimo:
+        aliases: ['mu-mimo']
+        type: str
+        description: Wi-Fi multi-user MIMO enable / disable, default = enable.
+        choices: ['disable', 'enable']
+      name:
+        type: str
+        description: Wi-Fi VAP name.
         required: true
-    extensioncontroller_extendervap:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            allowaccess:
-                type: list
-                elements: str
-                description: Control management access to the managed extender.
-                choices: ['http', 'ssh', 'telnet', 'snmp', 'https', 'ping']
-            auth_server_address:
-                aliases: ['auth-server-address']
-                type: str
-                description: Wi-Fi Authentication Server Address
-            auth_server_port:
-                aliases: ['auth-server-port']
-                type: int
-                description: Wi-Fi Authentication Server Port.
-            auth_server_secret:
-                aliases: ['auth-server-secret']
-                type: str
-                description: Wi-Fi Authentication Server Secret.
-            broadcast_ssid:
-                aliases: ['broadcast-ssid']
-                type: str
-                description: Wi-Fi broadcast SSID enable / disable.
-                choices: ['disable', 'enable']
-            bss_color_partial:
-                aliases: ['bss-color-partial']
-                type: str
-                description: Wi-Fi 802.
-                choices: ['disable', 'enable']
-            dtim:
-                type: int
-                description: Wi-Fi DTIM
-            end_ip:
-                aliases: ['end-ip']
-                type: str
-                description: End ip address.
-            ip_address:
-                aliases: ['ip-address']
-                type: list
-                elements: str
-                description: Extender ip address.
-            max_clients:
-                aliases: ['max-clients']
-                type: int
-                description: Wi-Fi max clients
-            mu_mimo:
-                aliases: ['mu-mimo']
-                type: str
-                description: Wi-Fi multi-user MIMO enable / disable, default = enable.
-                choices: ['disable', 'enable']
-            name:
-                type: str
-                description: Wi-Fi VAP name.
-                required: true
-            passphrase:
-                type: list
-                elements: str
-                description: Wi-Fi passphrase.
-            pmf:
-                type: str
-                description: Wi-Fi pmf enable/disable, default = disable.
-                choices: ['disabled', 'optional', 'required']
-            rts_threshold:
-                aliases: ['rts-threshold']
-                type: int
-                description: Wi-Fi RTS Threshold
-            sae_password:
-                aliases: ['sae-password']
-                type: list
-                elements: str
-                description: Wi-Fi SAE Password.
-            security:
-                type: str
-                description: Wi-Fi security.
-                choices: ['OPEN', 'WPA2-Personal', 'WPA-WPA2-Personal', 'WPA3-SAE',
-                          'WPA3-SAE-Transition', 'WPA2-Enterprise', 'WPA3-Enterprise-only',
-                          'WPA3-Enterprise-transition', 'WPA3-Enterprise-192-bit']
-            ssid:
-                type: str
-                description: Wi-Fi SSID.
-            start_ip:
-                aliases: ['start-ip']
-                type: str
-                description: Start ip address.
-            target_wake_time:
-                aliases: ['target-wake-time']
-                type: str
-                description: Wi-Fi 802.
-                choices: ['disable', 'enable']
-            type:
-                type: str
-                description: Wi-Fi VAP type local-vap / lan-extension-vap.
-                choices: ['local-vap', 'lan-ext-vap']
+      passphrase:
+        type: list
+        elements: str
+        description: Wi-Fi passphrase.
+      pmf:
+        type: str
+        description: Wi-Fi pmf enable/disable, default = disable.
+        choices: ['disabled', 'optional', 'required']
+      rts_threshold:
+        aliases: ['rts-threshold']
+        type: int
+        description: Wi-Fi RTS Threshold
+      sae_password:
+        aliases: ['sae-password']
+        type: list
+        elements: str
+        description: Wi-Fi SAE Password.
+      security:
+        type: str
+        description: Wi-Fi security.
+        choices: ['OPEN', 'WPA2-Personal', 'WPA-WPA2-Personal', 'WPA3-SAE', 'WPA3-SAE-Transition',
+                  'WPA2-Enterprise', 'WPA3-Enterprise-only', 'WPA3-Enterprise-transition',
+                  'WPA3-Enterprise-192-bit']
+      ssid:
+        type: str
+        description: Wi-Fi SSID.
+      start_ip:
+        aliases: ['start-ip']
+        type: str
+        description: Start ip address.
+      target_wake_time:
+        aliases: ['target-wake-time']
+        type: str
+        description: Wi-Fi 802.
+        choices: ['disable', 'enable']
+      type:
+        type: str
+        description: Wi-Fi VAP type local-vap / lan-extension-vap.
+        choices: ['local-vap', 'lan-ext-vap']
+      security_exempt_list:
+        aliases: ['security-exempt-list']
+        type: list
+        elements: str
+        description: Name of security exempt list.
+      security_external_web:
+        aliases: ['security-external-web']
+        type: str
+        description: URL of external authentication web server.
+      security_groups:
+        aliases: ['security-groups']
+        type: list
+        elements: str
+        description: User groups that can authenticate with the captive portal.
+      security_mode:
+        aliases: ['security-mode']
+        type: str
+        description: Turn on captive portal authentication for this Wi-Fi interface.
+        choices: ['none', 'captive-portal']
+      security_redirect_url:
+        aliases: ['security-redirect-url']
+        type: str
+        description: Optional URL for redirecting users after they pass captive portal authentication.
 '''
 
 EXAMPLES = '''
@@ -156,46 +179,51 @@ EXAMPLES = '''
           # start_ip: <string>
           # target_wake_time: <value in [disable, enable]>
           # type: <value in [local-vap, lan-ext-vap]>
+          # security_exempt_list: <list or string>
+          # security_external_web: <string>
+          # security_groups: <list or string>
+          # security_mode: <value in [none, captive-portal]>
+          # security_redirect_url: <string>
 '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -212,41 +240,46 @@ def main():
         'adom': {'required': True, 'type': 'str'},
         'revision_note': {'type': 'str'},
         'extensioncontroller_extendervap': {
-            'type': 'dict', 'v_range': [['7.4.7', '7.4.10'], ['7.6.3', '']],
+            'type': 'dict', 'v_range': [['7.4.7', '7.4.11'], ['7.6.3', '']],
             'options': {
                 'allowaccess': {
-                    'v_range': [['7.4.7', '7.4.10'], ['7.6.3', '']],
+                    'v_range': [['7.4.7', '7.4.11'], ['7.6.3', '']],
                     'type': 'list',
                     'choices': ['http', 'ssh', 'telnet', 'snmp', 'https', 'ping'],
                     'elements': 'str'
                 },
-                'auth-server-address': {'v_range': [['7.4.7', '7.4.10'], ['7.6.3', '']], 'type': 'str'},
-                'auth-server-port': {'v_range': [['7.4.7', '7.4.10'], ['7.6.3', '']], 'type': 'int'},
-                'auth-server-secret': {'v_range': [['7.4.7', '7.4.10'], ['7.6.3', '']], 'no_log': True, 'type': 'str'},
-                'broadcast-ssid': {'v_range': [['7.4.7', '7.4.10'], ['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'bss-color-partial': {'v_range': [['7.4.7', '7.4.10'], ['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'dtim': {'v_range': [['7.4.7', '7.4.10'], ['7.6.3', '']], 'type': 'int'},
-                'end-ip': {'v_range': [['7.4.7', '7.4.10'], ['7.6.3', '']], 'type': 'str'},
-                'ip-address': {'v_range': [['7.4.7', '7.4.10'], ['7.6.3', '']], 'type': 'list', 'elements': 'str'},
-                'max-clients': {'v_range': [['7.4.7', '7.4.10'], ['7.6.3', '']], 'type': 'int'},
-                'mu-mimo': {'v_range': [['7.4.7', '7.4.10'], ['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'name': {'v_range': [['7.4.7', '7.4.10'], ['7.6.3', '']], 'required': True, 'type': 'str'},
-                'passphrase': {'v_range': [['7.4.7', '7.4.10'], ['7.6.3', '']], 'no_log': True, 'type': 'list', 'elements': 'str'},
-                'pmf': {'v_range': [['7.4.7', '7.4.10'], ['7.6.3', '']], 'choices': ['disabled', 'optional', 'required'], 'type': 'str'},
-                'rts-threshold': {'v_range': [['7.4.7', '7.4.10'], ['7.6.3', '']], 'type': 'int'},
-                'sae-password': {'v_range': [['7.4.7', '7.4.10'], ['7.6.3', '']], 'no_log': True, 'type': 'list', 'elements': 'str'},
+                'auth-server-address': {'v_range': [['7.4.7', '7.4.11'], ['7.6.3', '']], 'type': 'str'},
+                'auth-server-port': {'v_range': [['7.4.7', '7.4.11'], ['7.6.3', '']], 'type': 'int'},
+                'auth-server-secret': {'v_range': [['7.4.7', '7.4.11'], ['7.6.3', '']], 'no_log': True, 'type': 'str'},
+                'broadcast-ssid': {'v_range': [['7.4.7', '7.4.11'], ['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'bss-color-partial': {'v_range': [['7.4.7', '7.4.11'], ['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'dtim': {'v_range': [['7.4.7', '7.4.11'], ['7.6.3', '']], 'type': 'int'},
+                'end-ip': {'v_range': [['7.4.7', '7.4.11'], ['7.6.3', '']], 'type': 'str'},
+                'ip-address': {'v_range': [['7.4.7', '7.4.11'], ['7.6.3', '']], 'type': 'list', 'elements': 'str'},
+                'max-clients': {'v_range': [['7.4.7', '7.4.11'], ['7.6.3', '']], 'type': 'int'},
+                'mu-mimo': {'v_range': [['7.4.7', '7.4.11'], ['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'name': {'v_range': [['7.4.7', '7.4.11'], ['7.6.3', '']], 'required': True, 'type': 'str'},
+                'passphrase': {'v_range': [['7.4.7', '7.4.11'], ['7.6.3', '']], 'no_log': True, 'type': 'list', 'elements': 'str'},
+                'pmf': {'v_range': [['7.4.7', '7.4.11'], ['7.6.3', '']], 'choices': ['disabled', 'optional', 'required'], 'type': 'str'},
+                'rts-threshold': {'v_range': [['7.4.7', '7.4.11'], ['7.6.3', '']], 'type': 'int'},
+                'sae-password': {'v_range': [['7.4.7', '7.4.11'], ['7.6.3', '']], 'no_log': True, 'type': 'list', 'elements': 'str'},
                 'security': {
-                    'v_range': [['7.4.7', '7.4.10'], ['7.6.3', '']],
+                    'v_range': [['7.4.7', '7.4.11'], ['7.6.3', '']],
                     'choices': [
                         'OPEN', 'WPA2-Personal', 'WPA-WPA2-Personal', 'WPA3-SAE', 'WPA3-SAE-Transition', 'WPA2-Enterprise', 'WPA3-Enterprise-only',
                         'WPA3-Enterprise-transition', 'WPA3-Enterprise-192-bit'
                     ],
                     'type': 'str'
                 },
-                'ssid': {'v_range': [['7.4.7', '7.4.10'], ['7.6.3', '']], 'type': 'str'},
-                'start-ip': {'v_range': [['7.4.7', '7.4.10'], ['7.6.3', '']], 'type': 'str'},
-                'target-wake-time': {'v_range': [['7.4.7', '7.4.10'], ['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'type': {'v_range': [['7.4.7', '7.4.10'], ['7.6.3', '']], 'choices': ['local-vap', 'lan-ext-vap'], 'type': 'str'}
+                'ssid': {'v_range': [['7.4.7', '7.4.11'], ['7.6.3', '']], 'type': 'str'},
+                'start-ip': {'v_range': [['7.4.7', '7.4.11'], ['7.6.3', '']], 'type': 'str'},
+                'target-wake-time': {'v_range': [['7.4.7', '7.4.11'], ['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'type': {'v_range': [['7.4.7', '7.4.11'], ['7.6.3', '']], 'choices': ['local-vap', 'lan-ext-vap'], 'type': 'str'},
+                'security-exempt-list': {'v_range': [['8.0.0', '']], 'type': 'list', 'elements': 'str'},
+                'security-external-web': {'v_range': [['8.0.0', '']], 'type': 'str'},
+                'security-groups': {'v_range': [['8.0.0', '']], 'type': 'list', 'elements': 'str'},
+                'security-mode': {'v_range': [['8.0.0', '']], 'choices': ['none', 'captive-portal'], 'type': 'str'},
+                'security-redirect-url': {'v_range': [['8.0.0', '']], 'type': 'str'}
             }
         }
     }

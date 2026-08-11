@@ -15,220 +15,230 @@ module: fmgr_system_interface
 short_description: Interface configuration.
 version_added: "1.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    system_interface:
-        description: The top level parameters set.
-        required: false
+  system_interface:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      alias:
+        type: str
+        description: Alias.
+      allowaccess:
+        type: list
+        elements: str
+        description:
+          - Allow management access to interface.
+          - ping - PING access.
+          - https - HTTPS access.
+          - ssh - SSH access.
+          - snmp - SNMP access.
+          - http - HTTP access.
+          - webservice - Web service access.
+          - https-logging - Logging over HTTPS access.
+        choices: ['ping', 'https', 'ssh', 'snmp', 'http', 'webservice', 'https-logging',
+                  'soc-fabric', 'fabric']
+      description:
+        type: str
+        description: Description.
+      ip:
+        type: str
+        description: IP address of interface.
+      ipv6:
         type: dict
+        description: Ipv6.
         suboptions:
-            alias:
-                type: str
-                description: Alias.
-            allowaccess:
-                type: list
-                elements: str
-                description:
-                    - Allow management access to interface.
-                    - ping - PING access.
-                    - https - HTTPS access.
-                    - ssh - SSH access.
-                    - snmp - SNMP access.
-                    - http - HTTP access.
-                    - webservice - Web service access.
-                    - https-logging - Logging over HTTPS access.
-                choices: ['ping', 'https', 'ssh', 'snmp', 'http', 'webservice', 'https-logging',
-                          'soc-fabric', 'fabric']
+          ip6_address:
+            aliases: ['ip6-address']
+            type: str
+            description: IPv6 address/prefix of interface.
+          ip6_allowaccess:
+            aliases: ['ip6-allowaccess']
+            type: list
+            elements: str
             description:
-                type: str
-                description: Description.
-            ip:
-                type: str
-                description: IP address of interface.
-            ipv6:
-                type: dict
-                description: Ipv6.
-                suboptions:
-                    ip6_address:
-                        aliases: ['ip6-address']
-                        type: str
-                        description: IPv6 address/prefix of interface.
-                    ip6_allowaccess:
-                        aliases: ['ip6-allowaccess']
-                        type: list
-                        elements: str
-                        description:
-                            - Allow management access to interface.
-                            - ping - PING access.
-                            - https - HTTPS access.
-                            - ssh - SSH access.
-                            - snmp - SNMP access.
-                            - http - HTTP access.
-                            - webservice - Web service access.
-                            - https-logging - Logging over HTTPS access.
-                        choices: ['ping', 'https', 'ssh', 'snmp', 'http', 'webservice',
-                                  'https-logging', 'fabric']
-                    ip6_autoconf:
-                        aliases: ['ip6-autoconf']
-                        type: str
-                        description:
-                            - Enable/disable address auto config
-                            - disable - Disable setting.
-                            - enable - Enable setting.
-                        choices: ['disable', 'enable']
-            mtu:
-                type: int
-                description: Maximum transportation unit
-            name:
-                type: str
-                description: Interface name.
-                required: true
-            serviceaccess:
-                type: list
-                elements: str
-                description:
-                    - Allow service access to interface.
-                    - fgtupdates - FortiGate updates access.
-                    - fclupdates - FortiClient updates access.
-                    - webfilter-antispam - Web filtering and antispam access.
-                choices: ['fgtupdates', 'fclupdates', 'webfilter-antispam']
-            speed:
-                type: str
-                description:
-                    - Speed.
-                    - auto - Auto adjust speed.
-                    - 10full - 10M full-duplex.
-                    - 10half - 10M half-duplex.
-                    - 100full - 100M full-duplex.
-                    - 100half - 100M half-duplex.
-                    - 1000full - 1000M full-duplex.
-                    - 10000full - 10000M full-duplex.
-                choices: ['auto', '10full', '10half', '100full', '100half', '1000full',
-                          '10000full', '1g/full', '2.5g/full', '5g/full', '10g/full', '14g/full',
-                          '20g/full', '25g/full', '40g/full', '50g/full', '56g/full', '100g/full',
-                          '1g/half', '200g/full', '400g/full']
-            status:
-                type: str
-                description:
-                    - Interface status.
-                    - down - Interface down.
-                    - up - Interface up.
-                choices: ['down', 'up', 'disable', 'enable']
-            rating_service_ip:
-                aliases: ['rating-service-ip']
-                type: str
-                description: IP address for fgt rating service, must be same subnet with interface ip.
-            update_service_ip:
-                aliases: ['update-service-ip']
-                type: str
-                description: IP address for fgt/fct update service, must be same subnet with interface ip.
-            aggregate:
-                type: str
-                description: Aggregate interface.
-            interface:
-                type: str
-                description: Underlying interface name.
-            lacp_mode:
-                aliases: ['lacp-mode']
-                type: str
-                description:
-                    - LACP mode.
-                    - active - Actively use LACP to negotiate 802.
-                choices: ['active']
-            lacp_speed:
-                aliases: ['lacp-speed']
-                type: str
-                description:
-                    - How often the interface sends LACP messages.
-                    - slow - Send LACP message every 30 seconds.
-                    - fast - Send LACP message every second.
-                choices: ['slow', 'fast']
-            link_up_delay:
-                aliases: ['link-up-delay']
-                type: int
-                description: Number of milliseconds to wait before considering a link is up.
-            member:
-                type: list
-                elements: dict
-                description: Member.
-                suboptions:
-                    interface_name:
-                        aliases: ['interface-name']
-                        type: str
-                        description: Physical interface name.
-            min_links:
-                aliases: ['min-links']
-                type: int
-                description: Minimum number of aggregated ports that must be up.
-            min_links_down:
-                aliases: ['min-links-down']
-                type: str
-                description:
-                    - Action to take when less than the configured minimum number of links are active.
-                    - operational - Set the aggregate operationally down.
-                    - administrative - Set the aggregate administratively down.
-                choices: ['operational', 'administrative']
-            type:
-                type: str
-                description:
-                    - Interface type.
-                    - vlan - VLAN interface.
-                    - physical - Physical interface.
-                    - aggregate - Aggregate interface.
-                choices: ['vlan', 'physical', 'aggregate']
-            vlan_protocol:
-                aliases: ['vlan-protocol']
-                type: str
-                description:
-                    - Ethernet protocol of VLAN.
-                    - 8021q - IEEE 802.
-                    - 8021ad - IEEE 802.
-                choices: ['8021q', '8021ad']
-            vlanid:
-                type: int
-                description: VLAN ID
-            lldp:
-                type: str
-                description:
-                    - Enable/disable LLDP
-                    - disable - Disable setting.
-                    - enable - Enable setting.
-                choices: ['disable', 'enable']
-            defaultgw:
-                type: str
-                description:
-                    - Enable/disable default gateway.
-                    - disable - Disable setting.
-                    - enable - Enable setting.
-                choices: ['disable', 'enable']
-            dhcp_client_identifier:
-                aliases: ['dhcp-client-identifier']
-                type: str
-                description: DHCP client identifier.
-            dns_server_override:
-                aliases: ['dns-server-override']
-                type: str
-                description:
-                    - Enable/disable use DNS acquired by DHCP or PPPoE.
-                    - disable - Disable setting.
-                    - enable - Enable setting.
-                choices: ['disable', 'enable']
-            mode:
-                type: str
-                description:
-                    - Addressing mode
-                    - static - Static setting.
-                    - dhcp - External DHCP client mode.
-                choices: ['static', 'dhcp']
-            mtu_override:
-                aliases: ['mtu-override']
-                type: str
-                description:
-                    - Enable/disable use MTU acquired by DHCP or PPPoE.
-                    - disable - Disable setting.
-                    - enable - Enable setting.
-                choices: ['disable', 'enable']
+              - Allow management access to interface.
+              - ping - PING access.
+              - https - HTTPS access.
+              - ssh - SSH access.
+              - snmp - SNMP access.
+              - http - HTTP access.
+              - webservice - Web service access.
+              - https-logging - Logging over HTTPS access.
+            choices: ['ping', 'https', 'ssh', 'snmp', 'http', 'webservice', 'https-logging',
+                      'fabric']
+          ip6_autoconf:
+            aliases: ['ip6-autoconf']
+            type: str
+            description:
+              - Enable/disable address auto config
+              - disable - Disable setting.
+              - enable - Enable setting.
+            choices: ['disable', 'enable']
+      mtu:
+        type: int
+        description: Maximum transportation unit
+      name:
+        type: str
+        description: Interface name.
+        required: true
+      serviceaccess:
+        type: list
+        elements: str
+        description:
+          - Allow service access to interface.
+          - fgtupdates - FortiGate updates access.
+          - fclupdates - FortiClient updates access.
+          - webfilter-antispam - Web filtering and antispam access.
+        choices: ['fgtupdates', 'fclupdates', 'webfilter-antispam']
+      speed:
+        type: str
+        description:
+          - Speed.
+          - auto - Auto adjust speed.
+          - 10full - 10M full-duplex.
+          - 10half - 10M half-duplex.
+          - 100full - 100M full-duplex.
+          - 100half - 100M half-duplex.
+          - 1000full - 1000M full-duplex.
+          - 10000full - 10000M full-duplex.
+        choices: ['auto', '10full', '10half', '100full', '100half', '1000full', '10000full',
+                  '1g/full', '2.5g/full', '5g/full', '10g/full', '14g/full', '20g/full',
+                  '25g/full', '40g/full', '50g/full', '56g/full', '100g/full', '1g/half',
+                  '200g/full', '400g/full']
+      status:
+        type: str
+        description:
+          - Interface status.
+          - down - Interface down.
+          - up - Interface up.
+        choices: ['down', 'up', 'disable', 'enable']
+      rating_service_ip:
+        aliases: ['rating-service-ip']
+        type: str
+        description: IP address for fgt rating service, must be same subnet with interface ip.
+      update_service_ip:
+        aliases: ['update-service-ip']
+        type: str
+        description: IP address for fgt/fct update service, must be same subnet with interface ip.
+      aggregate:
+        type: str
+        description: Aggregate interface.
+      interface:
+        type: str
+        description: Underlying interface name.
+      lacp_mode:
+        aliases: ['lacp-mode']
+        type: str
+        description:
+          - LACP mode.
+          - active - Actively use LACP to negotiate 802.
+        choices: ['active']
+      lacp_speed:
+        aliases: ['lacp-speed']
+        type: str
+        description:
+          - How often the interface sends LACP messages.
+          - slow - Send LACP message every 30 seconds.
+          - fast - Send LACP message every second.
+        choices: ['slow', 'fast']
+      link_up_delay:
+        aliases: ['link-up-delay']
+        type: int
+        description: Number of milliseconds to wait before considering a link is up.
+      member:
+        type: list
+        elements: dict
+        description: Member.
+        suboptions:
+          interface_name:
+            aliases: ['interface-name']
+            type: str
+            description: Physical interface name.
+      min_links:
+        aliases: ['min-links']
+        type: int
+        description: Minimum number of aggregated ports that must be up.
+      min_links_down:
+        aliases: ['min-links-down']
+        type: str
+        description:
+          - Action to take when less than the configured minimum number of links are active.
+          - operational - Set the aggregate operationally down.
+          - administrative - Set the aggregate administratively down.
+        choices: ['operational', 'administrative']
+      type:
+        type: str
+        description:
+          - Interface type.
+          - vlan - VLAN interface.
+          - physical - Physical interface.
+          - aggregate - Aggregate interface.
+        choices: ['vlan', 'physical', 'aggregate']
+      vlan_protocol:
+        aliases: ['vlan-protocol']
+        type: str
+        description:
+          - Ethernet protocol of VLAN.
+          - 8021q - IEEE 802.
+          - 8021ad - IEEE 802.
+        choices: ['8021q', '8021ad']
+      vlanid:
+        type: int
+        description: VLAN ID
+      lldp:
+        type: str
+        description:
+          - Enable/disable LLDP
+          - disable - Disable setting.
+          - enable - Enable setting.
+        choices: ['disable', 'enable']
+      defaultgw:
+        type: str
+        description:
+          - Enable/disable default gateway.
+          - disable - Disable setting.
+          - enable - Enable setting.
+        choices: ['disable', 'enable']
+      dhcp_client_identifier:
+        aliases: ['dhcp-client-identifier']
+        type: str
+        description: DHCP client identifier.
+      dns_server_override:
+        aliases: ['dns-server-override']
+        type: str
+        description:
+          - Enable/disable use DNS acquired by DHCP or PPPoE.
+          - disable - Disable setting.
+          - enable - Enable setting.
+        choices: ['disable', 'enable']
+      mode:
+        type: str
+        description:
+          - Addressing mode
+          - static - Static setting.
+          - dhcp - External DHCP client mode.
+        choices: ['static', 'dhcp']
+      mtu_override:
+        aliases: ['mtu-override']
+        type: str
+        description:
+          - Enable/disable use MTU acquired by DHCP or PPPoE.
+          - disable - Disable setting.
+          - enable - Enable setting.
+        choices: ['disable', 'enable']
+      lldp_reception:
+        aliases: ['lldp-reception']
+        type: str
+        description: Lldp reception.
+        choices: ['disable', 'enable']
+      lldp_transmission:
+        aliases: ['lldp-transmission']
+        type: str
+        description: Lldp transmission.
+        choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -275,42 +285,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -375,12 +385,14 @@ def main():
                 'type': {'v_range': [['7.2.0', '']], 'choices': ['vlan', 'physical', 'aggregate'], 'type': 'str'},
                 'vlan-protocol': {'v_range': [['7.2.0', '']], 'choices': ['8021q', '8021ad'], 'type': 'str'},
                 'vlanid': {'v_range': [['7.2.0', '']], 'type': 'int'},
-                'lldp': {'v_range': [['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'lldp': {'v_range': [['7.2.1', '7.6.7']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'defaultgw': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'dhcp-client-identifier': {'v_range': [['7.4.2', '']], 'type': 'str'},
                 'dns-server-override': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'mode': {'v_range': [['7.4.2', '']], 'choices': ['static', 'dhcp'], 'type': 'str'},
-                'mtu-override': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'mtu-override': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'lldp-reception': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'lldp-transmission': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

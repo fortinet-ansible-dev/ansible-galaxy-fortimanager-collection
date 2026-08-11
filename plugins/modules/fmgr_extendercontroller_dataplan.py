@@ -15,98 +15,98 @@ module: fmgr_extendercontroller_dataplan
 short_description: FortiExtender dataplan configuration.
 version_added: "2.1.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  extendercontroller_dataplan:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      apn:
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: APN configuration.
+      auth_type:
+        aliases: ['auth-type']
         type: str
+        description: Authentication type.
+        choices: ['none', 'pap', 'chap']
+      billing_date:
+        aliases: ['billing-date']
+        type: int
+        description: Billing day of the month
+      capacity:
+        type: int
+        description: Capacity in MB
+      carrier:
+        type: str
+        description: Carrier configuration.
+      iccid:
+        type: str
+        description: ICCID configuration.
+      modem_id:
+        aliases: ['modem-id']
+        type: str
+        description: Dataplans modem specifics, if any.
+        choices: ['all', 'modem1', 'modem2']
+      monthly_fee:
+        aliases: ['monthly-fee']
+        type: int
+        description: Monthly fee of dataplan
+      name:
+        type: str
+        description: FortiExtender dataplan name
         required: true
-    extendercontroller_dataplan:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            apn:
-                type: str
-                description: APN configuration.
-            auth_type:
-                aliases: ['auth-type']
-                type: str
-                description: Authentication type.
-                choices: ['none', 'pap', 'chap']
-            billing_date:
-                aliases: ['billing-date']
-                type: int
-                description: Billing day of the month
-            capacity:
-                type: int
-                description: Capacity in MB
-            carrier:
-                type: str
-                description: Carrier configuration.
-            iccid:
-                type: str
-                description: ICCID configuration.
-            modem_id:
-                aliases: ['modem-id']
-                type: str
-                description: Dataplans modem specifics, if any.
-                choices: ['all', 'modem1', 'modem2']
-            monthly_fee:
-                aliases: ['monthly-fee']
-                type: int
-                description: Monthly fee of dataplan
-            name:
-                type: str
-                description: FortiExtender dataplan name
-                required: true
-            overage:
-                type: str
-                description: Enable/disable dataplan overage detection.
-                choices: ['disable', 'enable']
-            password:
-                type: raw
-                description: (list) Password.
-            pdn:
-                type: str
-                description: PDN type.
-                choices: ['ipv4-only', 'ipv6-only', 'ipv4-ipv6']
-            preferred_subnet:
-                aliases: ['preferred-subnet']
-                type: int
-                description: Preferred subnet mask
-            private_network:
-                aliases: ['private-network']
-                type: str
-                description: Enable/disable dataplan private network support.
-                choices: ['disable', 'enable']
-            signal_period:
-                aliases: ['signal-period']
-                type: int
-                description: Signal period
-            signal_threshold:
-                aliases: ['signal-threshold']
-                type: int
-                description: Signal threshold.
-            slot:
-                type: str
-                description: SIM slot configuration.
-                choices: ['sim1', 'sim2']
-            status:
-                type: str
-                description: FortiExtender dataplan
-                choices: ['disable', 'enable']
-            type:
-                type: str
-                description: Type preferences configuration.
-                choices: ['carrier', 'slot', 'iccid', 'generic']
-            username:
-                type: str
-                description: Username.
+      overage:
+        type: str
+        description: Enable/disable dataplan overage detection.
+        choices: ['disable', 'enable']
+      password:
+        type: raw
+        description: (list) Password.
+      pdn:
+        type: str
+        description: PDN type.
+        choices: ['ipv4-only', 'ipv6-only', 'ipv4-ipv6']
+      preferred_subnet:
+        aliases: ['preferred-subnet']
+        type: int
+        description: Preferred subnet mask
+      private_network:
+        aliases: ['private-network']
+        type: str
+        description: Enable/disable dataplan private network support.
+        choices: ['disable', 'enable']
+      signal_period:
+        aliases: ['signal-period']
+        type: int
+        description: Signal period
+      signal_threshold:
+        aliases: ['signal-threshold']
+        type: int
+        description: Signal threshold.
+      slot:
+        type: str
+        description: SIM slot configuration.
+        choices: ['sim1', 'sim2']
+      status:
+        type: str
+        description: FortiExtender dataplan
+        choices: ['disable', 'enable']
+      type:
+        type: str
+        description: Type preferences configuration.
+        choices: ['carrier', 'slot', 'iccid', 'generic']
+      username:
+        type: str
+        description: Username.
 '''
 
 EXAMPLES = '''
@@ -145,42 +145,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -216,7 +216,7 @@ def main():
                 'signal-period': {'v_range': [['6.4.4', '']], 'type': 'int'},
                 'signal-threshold': {'v_range': [['6.4.4', '']], 'type': 'int'},
                 'slot': {'v_range': [['6.4.4', '']], 'choices': ['sim1', 'sim2'], 'type': 'str'},
-                'status': {'v_range': [['6.4.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'status': {'v_range': [['6.4.4', '7.6.7']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'type': {'v_range': [['6.4.4', '']], 'choices': ['carrier', 'slot', 'iccid', 'generic'], 'type': 'str'},
                 'username': {'v_range': [['6.4.4', '']], 'type': 'str'}
             }

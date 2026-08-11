@@ -15,125 +15,123 @@ module: fmgr_dvmdb_adom
 short_description: ADOM table, most attributes are read-only and can only be changed internally.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    dvmdb_adom:
-        description: The top level parameters set.
-        required: false
+  dvmdb_adom:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      desc:
+        type: str
+        description: Desc.
+      flags:
+        type: list
+        elements: str
+        description: Flags.
+        choices: ['migration', 'db_export', 'no_vpn_console', 'backup', 'other_devices',
+                  'central_sdwan', 'is_autosync', 'per_device_wtp', 'policy_check_on_install',
+                  'install_on_policy_check_fail', 'auto_push_cfg', 'per_device_fsw',
+                  'install_deselect_all']
+      log_db_retention_hours:
+        type: int
+        description: Log db retention hours.
+      log_disk_quota:
+        type: int
+        description: Log disk quota.
+      log_disk_quota_alert_thres:
+        type: int
+        description: Log disk quota alert thres.
+      log_disk_quota_split_ratio:
+        type: int
+        description: Log disk quota split ratio.
+      log_file_retention_hours:
+        type: int
+        description: Log file retention hours.
+      meta_fields:
+        aliases: ['meta fields']
         type: dict
-        suboptions:
-            desc:
-                type: str
-                description: Desc.
-            flags:
-                type: list
-                elements: str
-                description: Flags.
-                choices: ['migration', 'db_export', 'no_vpn_console', 'backup', 'other_devices',
-                          'central_sdwan', 'is_autosync', 'per_device_wtp',
-                          'policy_check_on_install', 'install_on_policy_check_fail',
-                          'auto_push_cfg', 'per_device_fsw', 'install_deselect_all']
-            log_db_retention_hours:
-                type: int
-                description: Log db retention hours.
-            log_disk_quota:
-                type: int
-                description: Log disk quota.
-            log_disk_quota_alert_thres:
-                type: int
-                description: Log disk quota alert thres.
-            log_disk_quota_split_ratio:
-                type: int
-                description: Log disk quota split ratio.
-            log_file_retention_hours:
-                type: int
-                description: Log file retention hours.
-            meta_fields:
-                aliases: ['meta fields']
-                type: dict
-                description: Default metafields
-            mig_mr:
-                type: int
-                description: Mig mr.
-            mig_os_ver:
-                type: str
-                description: Mig os ver.
-                choices: ['unknown', '0.0', '1.0', '2.0', '3.0', '4.0', '5.0', '6.0', '7.0',
-                          '8.0', '9.0']
-            mode:
-                type: str
-                description:
-                    - ems -
-                    - provider - Global database.
-                choices: ['ems', 'gms', 'provider']
-            mr:
-                type: int
-                description: Mr.
-            name:
-                type: str
-                description: Name.
-                required: true
-            os_ver:
-                type: str
-                description: Os ver.
-                choices: ['unknown', '0.0', '1.0', '2.0', '3.0', '4.0', '5.0', '6.0', '7.0',
-                          '8.0', '9.0']
-            restricted_prds:
-                type: raw
-                description: (list or str) Restricted prds.
-                choices: ['fos', 'foc', 'fml', 'fch', 'fwb', 'log', 'fct', 'faz', 'fsa', 'fsw',
-                          'fmg', 'fdd', 'fac', 'fpx', 'fna', 'fdc', 'ffw', 'fsr', 'fad', 'fap',
-                          'fxt', 'fts', 'fai', 'fwc', 'fis', 'fed', 'fabric', 'fpa', 'fca', 'ftc',
-                          'fss', 'sim', 'fra']
-            state:
-                type: int
-                description: State.
-            uuid:
-                type: str
-                description: Uuid.
-            create_time:
-                type: int
-                description: Create time.
-            workspace_mode:
-                type: int
-                description: Workspace mode.
-            tz:
-                type: int
-                description: Tz.
-            lock_override:
-                type: int
-                description: Lock override.
-            primary_dns_ip4:
-                type: str
-                description: Primary dns ip4.
-            primary_dns_ip6_1:
-                type: int
-                description: Primary dns ip6 1.
-            primary_dns_ip6_2:
-                type: int
-                description: Primary dns ip6 2.
-            primary_dns_ip6_3:
-                type: int
-                description: Primary dns ip6 3.
-            primary_dns_ip6_4:
-                type: int
-                description: Primary dns ip6 4.
-            secondary_dns_ip4:
-                type: str
-                description: Secondary dns ip4.
-            secondary_dns_ip6_1:
-                type: int
-                description: Secondary dns ip6 1.
-            secondary_dns_ip6_2:
-                type: int
-                description: Secondary dns ip6 2.
-            secondary_dns_ip6_3:
-                type: int
-                description: Secondary dns ip6 3.
-            secondary_dns_ip6_4:
-                type: int
-                description: Secondary dns ip6 4.
+        description: Default metafields
+      mig_mr:
+        type: int
+        description: Mig mr.
+      mig_os_ver:
+        type: str
+        description: Mig os ver.
+        choices: ['unknown', '0.0', '1.0', '2.0', '3.0', '4.0', '5.0', '6.0', '7.0', '8.0', '9.0']
+      mode:
+        type: str
+        description:
+          - ems -
+          - provider - Global database.
+        choices: ['ems', 'gms', 'provider']
+      mr:
+        type: int
+        description: Mr.
+      name:
+        type: str
+        description: Name.
+        required: true
+      os_ver:
+        type: str
+        description: Os ver.
+        choices: ['unknown', '0.0', '1.0', '2.0', '3.0', '4.0', '5.0', '6.0', '7.0', '8.0', '9.0']
+      restricted_prds:
+        type: raw
+        description: (list or str) Restricted prds.
+        choices: ['fos', 'foc', 'fml', 'fch', 'fwb', 'log', 'fct', 'faz', 'fsa', 'fsw', 'fmg',
+                  'fdd', 'fac', 'fpx', 'fna', 'fdc', 'ffw', 'fsr', 'fad', 'fap', 'fxt', 'fts',
+                  'fai', 'fwc', 'fis', 'fed', 'fabric', 'fpa', 'fca', 'ftc', 'fss', 'sim', 'fra',
+                  'fdt']
+      state:
+        type: int
+        description: State.
+      uuid:
+        type: str
+        description: Uuid.
+      create_time:
+        type: int
+        description: Create time.
+      workspace_mode:
+        type: int
+        description: Workspace mode.
+      tz:
+        type: int
+        description: Tz.
+      lock_override:
+        type: int
+        description: Lock override.
+      primary_dns_ip4:
+        type: str
+        description: Primary dns ip4.
+      primary_dns_ip6_1:
+        type: int
+        description: Primary dns ip6 1.
+      primary_dns_ip6_2:
+        type: int
+        description: Primary dns ip6 2.
+      primary_dns_ip6_3:
+        type: int
+        description: Primary dns ip6 3.
+      primary_dns_ip6_4:
+        type: int
+        description: Primary dns ip6 4.
+      secondary_dns_ip4:
+        type: str
+        description: Secondary dns ip4.
+      secondary_dns_ip6_1:
+        type: int
+        description: Secondary dns ip6 1.
+      secondary_dns_ip6_2:
+        type: int
+        description: Secondary dns ip6 2.
+      secondary_dns_ip6_3:
+        type: int
+        description: Secondary dns ip6 3.
+      secondary_dns_ip6_4:
+        type: int
+        description: Secondary dns ip6 4.
 '''
 
 EXAMPLES = '''
@@ -167,7 +165,7 @@ EXAMPLES = '''
           # restricted_prds: ["fos", "foc", "fml", "fch", "fwb", "log", "fct", "faz", "fsa",
           #                   "fsw", "fmg", "fdd", "fac", "fpx", "fna", "fdc", "ffw", "fsr",
           #                   "fad", "fap", "fxt", "fts", "fai", "fwc", "fis", "fed", "fabric",
-          #                   "fpa", "fca", "ftc", "fss", "sim", "fra"]
+          #                   "fpa", "fca", "ftc", "fss", "sim", "fra", "fdt"]
           # state: <integer>
           # uuid: <string>
           # create_time: <integer>
@@ -188,42 +186,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -254,8 +252,12 @@ def main():
                 'log_disk_quota_split_ratio': {'type': 'int'},
                 'log_file_retention_hours': {'type': 'int'},
                 'meta fields': {'type': 'dict'},
-                'mig_mr': {'type': 'int'},
-                'mig_os_ver': {'choices': ['unknown', '0.0', '1.0', '2.0', '3.0', '4.0', '5.0', '6.0', '7.0', '8.0', '9.0'], 'type': 'str'},
+                'mig_mr': {'v_range': [['6.0.0', '7.6.6'], ['8.0.0', '']], 'type': 'int'},
+                'mig_os_ver': {
+                    'v_range': [['6.0.0', '7.6.6'], ['8.0.0', '']],
+                    'choices': ['unknown', '0.0', '1.0', '2.0', '3.0', '4.0', '5.0', '6.0', '7.0', '8.0', '9.0'],
+                    'type': 'str'
+                },
                 'mode': {'choices': ['ems', 'gms', 'provider'], 'type': 'str'},
                 'mr': {'type': 'int'},
                 'name': {'required': True, 'type': 'str'},
@@ -264,7 +266,7 @@ def main():
                     'type': 'raw',
                     'choices': [
                         'fos', 'foc', 'fml', 'fch', 'fwb', 'log', 'fct', 'faz', 'fsa', 'fsw', 'fmg', 'fdd', 'fac', 'fpx', 'fna', 'fdc', 'ffw', 'fsr',
-                        'fad', 'fap', 'fxt', 'fts', 'fai', 'fwc', 'fis', 'fed', 'fabric', 'fpa', 'fca', 'ftc', 'fss', 'sim', 'fra'
+                        'fad', 'fap', 'fxt', 'fts', 'fai', 'fwc', 'fis', 'fed', 'fabric', 'fpa', 'fca', 'ftc', 'fss', 'sim', 'fra', 'fdt'
                     ]
                 },
                 'state': {'type': 'int'},

@@ -15,55 +15,55 @@ module: fmgr_application_internetservice
 short_description: Show Internet service application.
 version_added: "2.2.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.partial_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.partial_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
-        type: str
-    adom:
-        description: The parameter (adom) in requested url.
-        type: str
-        required: true
-    application_internetservice:
-        description: The top level parameters set.
-        required: false
-        type: dict
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  application_internetservice:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      entry:
+        type: list
+        elements: dict
+        description: Entry.
         suboptions:
-            entry:
-                type: list
-                elements: dict
-                description: Entry.
-                suboptions:
-                    id:
-                        type: int
-                        description: Entry ID.
-                    ip_number:
-                        aliases: ['ip-number']
-                        type: int
-                        description: Total number of IP addresses.
-                    ip_range_number:
-                        aliases: ['ip-range-number']
-                        type: int
-                        description: Total number of IP ranges.
-                    port:
-                        type: raw
-                        description: (list) Port.
-                    protocol:
-                        type: int
-                        description: Protocol number.
-            id:
-                type: int
-                description: Internet service Application ID.
-            name:
-                type: str
-                description: Internet service Application name.
-            offset:
-                type: int
-                description: Offset of Internet service Application ID.
-            reputation:
-                type: int
-                description: Reputation level of the Internet service application.
+          id:
+            type: int
+            description: Entry ID.
+          ip_number:
+            aliases: ['ip-number']
+            type: int
+            description: Total number of IP addresses.
+          ip_range_number:
+            aliases: ['ip-range-number']
+            type: int
+            description: Total number of IP ranges.
+          port:
+            type: raw
+            description: (list) Port.
+          protocol:
+            type: int
+            description: Protocol number.
+      id:
+        type: int
+        description: Internet service Application ID.
+      name:
+        type: str
+        description: Internet service Application name.
+      offset:
+        type: int
+        description: Offset of Internet service Application ID.
+      reputation:
+        type: int
+        description: Reputation level of the Internet service application.
 '''
 
 EXAMPLES = '''
@@ -91,42 +91,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

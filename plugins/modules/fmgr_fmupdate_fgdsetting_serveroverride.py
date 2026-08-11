@@ -15,40 +15,40 @@ module: fmgr_fmupdate_fgdsetting_serveroverride
 short_description: Cli fmupdate fgd setting server override
 version_added: "2.10.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.partial_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.partial_crud
 options:
-    fmupdate_fgdsetting_serveroverride:
-        description: The top level parameters set.
-        required: false
-        type: dict
+  fmupdate_fgdsetting_serveroverride:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      servlist:
+        type: list
+        elements: dict
+        description: Servlist.
         suboptions:
-            servlist:
-                type: list
-                elements: dict
-                description: Servlist.
-                suboptions:
-                    id:
-                        type: int
-                        description: Id.
-                    ip:
-                        type: str
-                        description: Ip.
-                    ip6:
-                        type: str
-                        description: Ip6.
-                    port:
-                        type: int
-                        description: Port.
-                    service_type:
-                        aliases: ['service-type']
-                        type: str
-                        description: Service type.
-                        choices: ['fgd', 'fsa', 'fgfq', 'geoip', 'iot-collect']
-            status:
-                type: str
-                description: Status.
-                choices: ['disable', 'enable']
+          id:
+            type: int
+            description: Id.
+          ip:
+            type: str
+            description: Ip.
+          ip6:
+            type: str
+            description: Ip6.
+          port:
+            type: int
+            description: Port.
+          service_type:
+            aliases: ['service-type']
+            type: str
+            description: Service type.
+            choices: ['fgd', 'fsa', 'fgfq', 'geoip', 'iot-collect']
+      status:
+        type: str
+        description: Status.
+        choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -72,42 +72,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

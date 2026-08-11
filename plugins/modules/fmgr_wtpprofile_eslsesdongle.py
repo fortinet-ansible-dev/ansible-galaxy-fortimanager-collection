@@ -15,79 +15,79 @@ module: fmgr_wtpprofile_eslsesdongle
 short_description: ESL SES-imagotag dongle configuration.
 version_added: "2.1.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.partial_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.partial_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  wtp-profile:
+    description: Deprecated, please use "wtp_profile"
+    type: str
+  wtp_profile:
+    description: The parameter (wtp-profile) in requested url.
+    type: str
+  wtpprofile_eslsesdongle:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      apc_addr_type:
+        aliases: ['apc-addr-type']
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: ESL SES-imagotag APC address type
+        choices: ['fqdn', 'ip']
+      apc_fqdn:
+        aliases: ['apc-fqdn']
         type: str
-        required: true
-    wtp-profile:
-        description: Deprecated, please use "wtp_profile"
+        description: FQDN of ESL SES-imagotag Access Point Controller
+      apc_ip:
+        aliases: ['apc-ip']
         type: str
-    wtp_profile:
-        description: The parameter (wtp-profile) in requested url.
+        description: IP address of ESL SES-imagotag Access Point Controller
+      apc_port:
+        aliases: ['apc-port']
+        type: int
+        description: Port of ESL SES-imagotag Access Point Controller
+      coex_level:
+        aliases: ['coex-level']
         type: str
-    wtpprofile_eslsesdongle:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            apc_addr_type:
-                aliases: ['apc-addr-type']
-                type: str
-                description: ESL SES-imagotag APC address type
-                choices: ['fqdn', 'ip']
-            apc_fqdn:
-                aliases: ['apc-fqdn']
-                type: str
-                description: FQDN of ESL SES-imagotag Access Point Controller
-            apc_ip:
-                aliases: ['apc-ip']
-                type: str
-                description: IP address of ESL SES-imagotag Access Point Controller
-            apc_port:
-                aliases: ['apc-port']
-                type: int
-                description: Port of ESL SES-imagotag Access Point Controller
-            coex_level:
-                aliases: ['coex-level']
-                type: str
-                description: ESL SES-imagotag dongle coexistence level
-                choices: ['none']
-            compliance_level:
-                aliases: ['compliance-level']
-                type: str
-                description: Compliance levels for the ESL solution integration
-                choices: ['compliance-level-2']
-            esl_channel:
-                aliases: ['esl-channel']
-                type: str
-                description: ESL SES-imagotag dongle channel
-                choices: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '127', '-1']
-            output_power:
-                aliases: ['output-power']
-                type: str
-                description: ESL SES-imagotag dongle output power
-                choices: ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']
-            scd_enable:
-                aliases: ['scd-enable']
-                type: str
-                description: Enable/disable ESL SES-imagotag Serial Communication Daemon
-                choices: ['disable', 'enable']
-            tls_cert_verification:
-                aliases: ['tls-cert-verification']
-                type: str
-                description: Enable/disable TLS certificate verification
-                choices: ['disable', 'enable']
-            tls_fqdn_verification:
-                aliases: ['tls-fqdn-verification']
-                type: str
-                description: Enable/disable TLS certificate verification
-                choices: ['disable', 'enable']
+        description: ESL SES-imagotag dongle coexistence level
+        choices: ['none']
+      compliance_level:
+        aliases: ['compliance-level']
+        type: str
+        description: Compliance levels for the ESL solution integration
+        choices: ['compliance-level-2']
+      esl_channel:
+        aliases: ['esl-channel']
+        type: str
+        description: ESL SES-imagotag dongle channel
+        choices: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '127', '-1']
+      output_power:
+        aliases: ['output-power']
+        type: str
+        description: ESL SES-imagotag dongle output power
+        choices: ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']
+      scd_enable:
+        aliases: ['scd-enable']
+        type: str
+        description: Enable/disable ESL SES-imagotag Serial Communication Daemon
+        choices: ['disable', 'enable']
+      tls_cert_verification:
+        aliases: ['tls-cert-verification']
+        type: str
+        description: Enable/disable TLS certificate verification
+        choices: ['disable', 'enable']
+      tls_fqdn_verification:
+        aliases: ['tls-fqdn-verification']
+        type: str
+        description: Enable/disable TLS certificate verification
+        choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -117,42 +117,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

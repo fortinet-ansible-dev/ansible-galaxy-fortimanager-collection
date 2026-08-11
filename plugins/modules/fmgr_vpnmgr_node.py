@@ -15,344 +15,344 @@ module: fmgr_vpnmgr_node
 short_description: VPN node for VPN Manager.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  vpnmgr_node:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      add_route:
+        aliases: ['add-route']
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Add route.
+        choices: ['disable', 'enable']
+      assign_ip:
+        aliases: ['assign-ip']
         type: str
+        description: Assign ip.
+        choices: ['disable', 'enable']
+      assign_ip_from:
+        aliases: ['assign-ip-from']
+        type: str
+        description: Assign ip from.
+        choices: ['range', 'usrgrp', 'dhcp', 'name']
+      authpasswd:
+        type: raw
+        description: (list) Authpasswd.
+      authusr:
+        type: str
+        description: Authusr.
+      authusrgrp:
+        type: str
+        description: Authusrgrp.
+      auto_configuration:
+        aliases: ['auto-configuration']
+        type: str
+        description: Auto configuration.
+        choices: ['disable', 'enable']
+      automatic_routing:
+        type: str
+        description: Automatic routing.
+        choices: ['disable', 'enable']
+      banner:
+        type: str
+        description: Banner.
+      default_gateway:
+        aliases: ['default-gateway']
+        type: str
+        description: Default gateway.
+      dhcp_server:
+        aliases: ['dhcp-server']
+        type: str
+        description: Dhcp server.
+        choices: ['disable', 'enable']
+      dns_mode:
+        aliases: ['dns-mode']
+        type: str
+        description: Dns mode.
+        choices: ['auto', 'manual']
+      dns_service:
+        aliases: ['dns-service']
+        type: str
+        description: Dns service.
+        choices: ['default', 'specify', 'local']
+      domain:
+        type: str
+        description: Domain.
+      extgw:
+        type: str
+        description: Extgw.
+      extgw_hubip:
+        type: str
+        description: Extgw hubip.
+      extgw_p2_per_net:
+        type: str
+        description: Extgw p2 per net.
+        choices: ['disable', 'enable']
+      extgwip:
+        type: str
+        description: Extgwip.
+      hub_iface:
+        type: raw
+        description: (list or str) Hub iface.
+      id:
+        type: int
+        description: Id.
         required: true
-    vpnmgr_node:
-        description: The top level parameters set.
-        required: false
-        type: dict
+      iface:
+        type: raw
+        description: (list or str) Iface.
+      ip_range:
+        aliases: ['ip-range']
+        type: list
+        elements: dict
+        description: Ip range.
         suboptions:
-            add_route:
-                aliases: ['add-route']
-                type: str
-                description: Add route.
-                choices: ['disable', 'enable']
-            assign_ip:
-                aliases: ['assign-ip']
-                type: str
-                description: Assign ip.
-                choices: ['disable', 'enable']
-            assign_ip_from:
-                aliases: ['assign-ip-from']
-                type: str
-                description: Assign ip from.
-                choices: ['range', 'usrgrp', 'dhcp', 'name']
-            authpasswd:
-                type: raw
-                description: (list) Authpasswd.
-            authusr:
-                type: str
-                description: Authusr.
-            authusrgrp:
-                type: str
-                description: Authusrgrp.
-            auto_configuration:
-                aliases: ['auto-configuration']
-                type: str
-                description: Auto configuration.
-                choices: ['disable', 'enable']
-            automatic_routing:
-                type: str
-                description: Automatic routing.
-                choices: ['disable', 'enable']
-            banner:
-                type: str
-                description: Banner.
-            default_gateway:
-                aliases: ['default-gateway']
-                type: str
-                description: Default gateway.
-            dhcp_server:
-                aliases: ['dhcp-server']
-                type: str
-                description: Dhcp server.
-                choices: ['disable', 'enable']
-            dns_mode:
-                aliases: ['dns-mode']
-                type: str
-                description: Dns mode.
-                choices: ['auto', 'manual']
-            dns_service:
-                aliases: ['dns-service']
-                type: str
-                description: Dns service.
-                choices: ['default', 'specify', 'local']
-            domain:
-                type: str
-                description: Domain.
-            extgw:
-                type: str
-                description: Extgw.
-            extgw_hubip:
-                type: str
-                description: Extgw hubip.
-            extgw_p2_per_net:
-                type: str
-                description: Extgw p2 per net.
-                choices: ['disable', 'enable']
-            extgwip:
-                type: str
-                description: Extgwip.
-            hub_iface:
-                type: raw
-                description: (list or str) Hub iface.
-            id:
-                type: int
-                description: Id.
-                required: true
-            iface:
-                type: raw
-                description: (list or str) Iface.
-            ip_range:
-                aliases: ['ip-range']
-                type: list
-                elements: dict
-                description: Ip range.
-                suboptions:
-                    end_ip:
-                        aliases: ['end-ip']
-                        type: str
-                        description: End ip.
-                    id:
-                        type: int
-                        description: Id.
-                    start_ip:
-                        aliases: ['start-ip']
-                        type: str
-                        description: Start ip.
-            ipsec_lease_hold:
-                aliases: ['ipsec-lease-hold']
-                type: int
-                description: Ipsec lease hold.
-            ipv4_dns_server1:
-                aliases: ['ipv4-dns-server1']
-                type: str
-                description: Ipv4 dns server1.
-            ipv4_dns_server2:
-                aliases: ['ipv4-dns-server2']
-                type: str
-                description: Ipv4 dns server2.
-            ipv4_dns_server3:
-                aliases: ['ipv4-dns-server3']
-                type: str
-                description: Ipv4 dns server3.
-            ipv4_end_ip:
-                aliases: ['ipv4-end-ip']
-                type: str
-                description: Ipv4 end ip.
-            ipv4_exclude_range:
-                aliases: ['ipv4-exclude-range']
-                type: list
-                elements: dict
-                description: Ipv4 exclude range.
-                suboptions:
-                    end_ip:
-                        aliases: ['end-ip']
-                        type: str
-                        description: End ip.
-                    id:
-                        type: int
-                        description: Id.
-                    start_ip:
-                        aliases: ['start-ip']
-                        type: str
-                        description: Start ip.
-            ipv4_netmask:
-                aliases: ['ipv4-netmask']
-                type: str
-                description: Ipv4 netmask.
-            ipv4_split_include:
-                aliases: ['ipv4-split-include']
-                type: str
-                description: Ipv4 split include.
-            ipv4_start_ip:
-                aliases: ['ipv4-start-ip']
-                type: str
-                description: Ipv4 start ip.
-            ipv4_wins_server1:
-                aliases: ['ipv4-wins-server1']
-                type: str
-                description: Ipv4 wins server1.
-            ipv4_wins_server2:
-                aliases: ['ipv4-wins-server2']
-                type: str
-                description: Ipv4 wins server2.
-            local_gw:
-                aliases: ['local-gw']
-                type: str
-                description: Local gw.
-            localid:
-                type: str
-                description: Localid.
-            mode_cfg:
-                aliases: ['mode-cfg']
-                type: str
-                description: Mode cfg.
-                choices: ['disable', 'enable']
-            mode_cfg_ip_version:
-                aliases: ['mode-cfg-ip-version']
-                type: str
-                description: Mode cfg ip version.
-                choices: ['4', '6']
-            net_device:
-                aliases: ['net-device']
-                type: str
-                description: Net device.
-                choices: ['disable', 'enable']
-            peer:
-                type: raw
-                description: (list or str) Peer.
-            peergrp:
-                type: str
-                description: Peergrp.
-            peerid:
-                type: str
-                description: Peerid.
-            peertype:
-                type: str
-                description: Peertype.
-                choices: ['any', 'one', 'dialup', 'peer', 'peergrp']
-            protected_subnet:
-                type: list
-                elements: dict
-                description: Protected subnet.
-                suboptions:
-                    addr:
-                        type: raw
-                        description: (list or str) Addr.
-                    seq:
-                        type: int
-                        description: Seq.
-            public_ip:
-                aliases: ['public-ip']
-                type: str
-                description: Public ip.
-            role:
-                type: str
-                description: Role.
-                choices: ['hub', 'spoke']
-            route_overlap:
-                aliases: ['route-overlap']
-                type: str
-                description: Route overlap.
-                choices: ['use-old', 'use-new', 'allow']
-            spoke_zone:
-                aliases: ['spoke-zone']
-                type: raw
-                description: (list or str) Spoke zone.
-            summary_addr:
-                type: list
-                elements: dict
-                description: Summary addr.
-                suboptions:
-                    addr:
-                        type: str
-                        description: Addr.
-                    priority:
-                        type: int
-                        description: Priority.
-                    seq:
-                        type: int
-                        description: Seq.
-            tunnel_search:
-                aliases: ['tunnel-search']
-                type: str
-                description: Tunnel search.
-                choices: ['selectors', 'nexthop']
-            unity_support:
-                aliases: ['unity-support']
-                type: str
-                description: Unity support.
-                choices: ['disable', 'enable']
-            usrgrp:
-                type: str
-                description: Usrgrp.
-            vpn_interface_priority:
-                aliases: ['vpn-interface-priority']
-                type: int
-                description: Vpn interface priority.
-            vpn_zone:
-                aliases: ['vpn-zone']
-                type: raw
-                description: (list or str) Vpn zone.
-            vpntable:
-                type: raw
-                description: (list or str) Vpntable.
-            xauthtype:
-                type: str
-                description: Xauthtype.
-                choices: ['disable', 'client', 'pap', 'chap', 'auto']
-            exchange_interface_ip:
-                aliases: ['exchange-interface-ip']
-                type: str
-                description: Exchange interface ip.
-                choices: ['disable', 'enable']
-            hub_public_ip:
-                aliases: ['hub-public-ip']
-                type: str
-                description: Hub public ip.
-            ipv4_split_exclude:
-                aliases: ['ipv4-split-exclude']
-                type: str
-                description: Ipv4 split exclude.
-            scope_member:
-                aliases: ['scope member']
-                type: list
-                elements: dict
-                description: Scope member.
-                suboptions:
-                    name:
-                        type: str
-                        description: Name.
-                    vdom:
-                        type: str
-                        description: Vdom.
-            dhcp_ra_giaddr:
-                aliases: ['dhcp-ra-giaddr']
-                type: str
-                description: Dhcp ra giaddr.
-            encapsulation:
-                type: str
-                description: Encapsulation.
-                choices: ['tunnel-mode', 'transport-mode']
-            ipv4_name:
-                aliases: ['ipv4-name']
-                type: str
-                description: Ipv4 name.
-            l2tp:
-                type: str
-                description: L2tp.
-                choices: ['disable', 'enable']
-            auto_discovery_receiver:
-                aliases: ['auto-discovery-receiver']
-                type: str
-                description: Auto discovery receiver.
-                choices: ['disable', 'enable']
-            auto_discovery_sender:
-                aliases: ['auto-discovery-sender']
-                type: str
-                description: Auto discovery sender.
-                choices: ['disable', 'enable']
-            network_id:
-                aliases: ['network-id']
-                type: int
-                description: Network id.
-            network_overlay:
-                aliases: ['network-overlay']
-                type: str
-                description: Network overlay.
-                choices: ['enable', 'disable']
-            protocol:
-                type: int
-                description: Protocol.
+          end_ip:
+            aliases: ['end-ip']
+            type: str
+            description: End ip.
+          id:
+            type: int
+            description: Id.
+          start_ip:
+            aliases: ['start-ip']
+            type: str
+            description: Start ip.
+      ipsec_lease_hold:
+        aliases: ['ipsec-lease-hold']
+        type: int
+        description: Ipsec lease hold.
+      ipv4_dns_server1:
+        aliases: ['ipv4-dns-server1']
+        type: str
+        description: Ipv4 dns server1.
+      ipv4_dns_server2:
+        aliases: ['ipv4-dns-server2']
+        type: str
+        description: Ipv4 dns server2.
+      ipv4_dns_server3:
+        aliases: ['ipv4-dns-server3']
+        type: str
+        description: Ipv4 dns server3.
+      ipv4_end_ip:
+        aliases: ['ipv4-end-ip']
+        type: str
+        description: Ipv4 end ip.
+      ipv4_exclude_range:
+        aliases: ['ipv4-exclude-range']
+        type: list
+        elements: dict
+        description: Ipv4 exclude range.
+        suboptions:
+          end_ip:
+            aliases: ['end-ip']
+            type: str
+            description: End ip.
+          id:
+            type: int
+            description: Id.
+          start_ip:
+            aliases: ['start-ip']
+            type: str
+            description: Start ip.
+      ipv4_netmask:
+        aliases: ['ipv4-netmask']
+        type: str
+        description: Ipv4 netmask.
+      ipv4_split_include:
+        aliases: ['ipv4-split-include']
+        type: str
+        description: Ipv4 split include.
+      ipv4_start_ip:
+        aliases: ['ipv4-start-ip']
+        type: str
+        description: Ipv4 start ip.
+      ipv4_wins_server1:
+        aliases: ['ipv4-wins-server1']
+        type: str
+        description: Ipv4 wins server1.
+      ipv4_wins_server2:
+        aliases: ['ipv4-wins-server2']
+        type: str
+        description: Ipv4 wins server2.
+      local_gw:
+        aliases: ['local-gw']
+        type: str
+        description: Local gw.
+      localid:
+        type: str
+        description: Localid.
+      mode_cfg:
+        aliases: ['mode-cfg']
+        type: str
+        description: Mode cfg.
+        choices: ['disable', 'enable']
+      mode_cfg_ip_version:
+        aliases: ['mode-cfg-ip-version']
+        type: str
+        description: Mode cfg ip version.
+        choices: ['4', '6']
+      net_device:
+        aliases: ['net-device']
+        type: str
+        description: Net device.
+        choices: ['disable', 'enable']
+      peer:
+        type: raw
+        description: (list or str) Peer.
+      peergrp:
+        type: str
+        description: Peergrp.
+      peerid:
+        type: str
+        description: Peerid.
+      peertype:
+        type: str
+        description: Peertype.
+        choices: ['any', 'one', 'dialup', 'peer', 'peergrp']
+      protected_subnet:
+        type: list
+        elements: dict
+        description: Protected subnet.
+        suboptions:
+          addr:
+            type: raw
+            description: (list or str) Addr.
+          seq:
+            type: int
+            description: Seq.
+      public_ip:
+        aliases: ['public-ip']
+        type: str
+        description: Public ip.
+      role:
+        type: str
+        description: Role.
+        choices: ['hub', 'spoke']
+      route_overlap:
+        aliases: ['route-overlap']
+        type: str
+        description: Route overlap.
+        choices: ['use-old', 'use-new', 'allow']
+      spoke_zone:
+        aliases: ['spoke-zone']
+        type: raw
+        description: (list or str) Spoke zone.
+      summary_addr:
+        type: list
+        elements: dict
+        description: Summary addr.
+        suboptions:
+          addr:
+            type: str
+            description: Addr.
+          priority:
+            type: int
+            description: Priority.
+          seq:
+            type: int
+            description: Seq.
+      tunnel_search:
+        aliases: ['tunnel-search']
+        type: str
+        description: Tunnel search.
+        choices: ['selectors', 'nexthop']
+      unity_support:
+        aliases: ['unity-support']
+        type: str
+        description: Unity support.
+        choices: ['disable', 'enable']
+      usrgrp:
+        type: str
+        description: Usrgrp.
+      vpn_interface_priority:
+        aliases: ['vpn-interface-priority']
+        type: int
+        description: Vpn interface priority.
+      vpn_zone:
+        aliases: ['vpn-zone']
+        type: raw
+        description: (list or str) Vpn zone.
+      vpntable:
+        type: raw
+        description: (list or str) Vpntable.
+      xauthtype:
+        type: str
+        description: Xauthtype.
+        choices: ['disable', 'client', 'pap', 'chap', 'auto']
+      exchange_interface_ip:
+        aliases: ['exchange-interface-ip']
+        type: str
+        description: Exchange interface ip.
+        choices: ['disable', 'enable']
+      hub_public_ip:
+        aliases: ['hub-public-ip']
+        type: str
+        description: Hub public ip.
+      ipv4_split_exclude:
+        aliases: ['ipv4-split-exclude']
+        type: str
+        description: Ipv4 split exclude.
+      scope_member:
+        aliases: ['scope member']
+        type: list
+        elements: dict
+        description: Scope member.
+        suboptions:
+          name:
+            type: str
+            description: Name.
+          vdom:
+            type: str
+            description: Vdom.
+      dhcp_ra_giaddr:
+        aliases: ['dhcp-ra-giaddr']
+        type: str
+        description: Dhcp ra giaddr.
+      encapsulation:
+        type: str
+        description: Encapsulation.
+        choices: ['tunnel-mode', 'transport-mode']
+      ipv4_name:
+        aliases: ['ipv4-name']
+        type: str
+        description: Ipv4 name.
+      l2tp:
+        type: str
+        description: L2tp.
+        choices: ['disable', 'enable']
+      auto_discovery_receiver:
+        aliases: ['auto-discovery-receiver']
+        type: str
+        description: Auto discovery receiver.
+        choices: ['disable', 'enable']
+      auto_discovery_sender:
+        aliases: ['auto-discovery-sender']
+        type: str
+        description: Auto discovery sender.
+        choices: ['disable', 'enable']
+      network_id:
+        aliases: ['network-id']
+        type: int
+        description: Network id.
+      network_overlay:
+        aliases: ['network-overlay']
+        type: str
+        description: Network overlay.
+        choices: ['enable', 'disable']
+      protocol:
+        type: int
+        description: Protocol.
 '''
 
 EXAMPLES = '''
@@ -452,42 +452,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

@@ -15,75 +15,75 @@ module: fmgr_dlp_dictionary
 short_description: Configure dictionaries used by DLP blocking.
 version_added: "2.1.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  dlp_dictionary:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      comment:
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
-        type: str
-        required: true
-    dlp_dictionary:
-        description: The top level parameters set.
-        required: false
-        type: dict
+        description: Optional comments.
+      entries:
+        type: list
+        elements: dict
+        description: Entries.
         suboptions:
-            comment:
-                type: str
-                description: Optional comments.
-            entries:
-                type: list
-                elements: dict
-                description: Entries.
-                suboptions:
-                    comment:
-                        type: str
-                        description: Optional comments.
-                    id:
-                        type: int
-                        description: ID.
-                    ignore_case:
-                        aliases: ['ignore-case']
-                        type: str
-                        description: Enable/disable ignore case.
-                        choices: ['disable', 'enable']
-                    pattern:
-                        type: str
-                        description: Pattern to match.
-                    repeat:
-                        type: str
-                        description: Enable/disable repeat match.
-                        choices: ['disable', 'enable']
-                    status:
-                        type: str
-                        description: Enable/disable this pattern.
-                        choices: ['disable', 'enable']
-                    type:
-                        type: str
-                        description: Pattern type to match.
-            match_type:
-                aliases: ['match-type']
-                type: str
-                description: Logical relation between entries
-                choices: ['match-all', 'match-any']
-            name:
-                type: str
-                description: Name of table containing the dictionary.
-                required: true
-            uuid:
-                type: str
-                description: Universally Unique Identifier
-            match_around:
-                aliases: ['match-around']
-                type: str
-                description: Enable/disable match-around support.
-                choices: ['disable', 'enable']
-            fgd_id:
-                aliases: ['fgd-id']
-                type: int
-                description: ID of object in FortiGuard database.
+          comment:
+            type: str
+            description: Optional comments.
+          id:
+            type: int
+            description: ID.
+          ignore_case:
+            aliases: ['ignore-case']
+            type: str
+            description: Enable/disable ignore case.
+            choices: ['disable', 'enable']
+          pattern:
+            type: str
+            description: Pattern to match.
+          repeat:
+            type: str
+            description: Enable/disable repeat match.
+            choices: ['disable', 'enable']
+          status:
+            type: str
+            description: Enable/disable this pattern.
+            choices: ['disable', 'enable']
+          type:
+            type: str
+            description: Pattern type to match.
+      match_type:
+        aliases: ['match-type']
+        type: str
+        description: Logical relation between entries
+        choices: ['match-all', 'match-any']
+      name:
+        type: str
+        description: Name of table containing the dictionary.
+        required: true
+      uuid:
+        type: str
+        description: Universally Unique Identifier
+      match_around:
+        aliases: ['match-around']
+        type: str
+        description: Enable/disable match-around support.
+        choices: ['disable', 'enable']
+      fgd_id:
+        aliases: ['fgd-id']
+        type: int
+        description: ID of object in FortiGuard database.
 '''
 
 EXAMPLES = '''
@@ -116,42 +116,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

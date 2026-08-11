@@ -15,76 +15,76 @@ module: fmgr_firewall_pfcp
 short_description: Configure PFCP.
 version_added: "2.12.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  firewall_pfcp:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      denied_log:
+        aliases: ['denied-log']
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Enable/disable logging denied PFCP packets.
+        choices: ['disable', 'enable']
+      forwarded_log:
+        aliases: ['forwarded-log']
         type: str
+        description: Enable/disable logging forwarded PFCP packets.
+        choices: ['disable', 'enable']
+      invalid_reserved_field:
+        aliases: ['invalid-reserved-field']
+        type: str
+        description: Allow or deny invalid reserved field in PFCP header packets.
+        choices: ['deny', 'allow']
+      log_freq:
+        aliases: ['log-freq']
+        type: int
+        description: Logging frequency of PFCP packets.
+      max_message_length:
+        aliases: ['max-message-length']
+        type: int
+        description: Maximum message length.
+      message_filter:
+        aliases: ['message-filter']
+        type: list
+        elements: str
+        description: PFCP message filter.
+      min_message_length:
+        aliases: ['min-message-length']
+        type: int
+        description: Minimum message length.
+      monitor_mode:
+        aliases: ['monitor-mode']
+        type: str
+        description: PFCP monitor mode.
+        choices: ['disable', 'enable', 'vdom']
+      name:
+        type: str
+        description: PFCP profile name.
         required: true
-    firewall_pfcp:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            denied_log:
-                aliases: ['denied-log']
-                type: str
-                description: Enable/disable logging denied PFCP packets.
-                choices: ['disable', 'enable']
-            forwarded_log:
-                aliases: ['forwarded-log']
-                type: str
-                description: Enable/disable logging forwarded PFCP packets.
-                choices: ['disable', 'enable']
-            invalid_reserved_field:
-                aliases: ['invalid-reserved-field']
-                type: str
-                description: Allow or deny invalid reserved field in PFCP header packets.
-                choices: ['deny', 'allow']
-            log_freq:
-                aliases: ['log-freq']
-                type: int
-                description: Logging frequency of PFCP packets.
-            max_message_length:
-                aliases: ['max-message-length']
-                type: int
-                description: Maximum message length.
-            message_filter:
-                aliases: ['message-filter']
-                type: list
-                elements: str
-                description: PFCP message filter.
-            min_message_length:
-                aliases: ['min-message-length']
-                type: int
-                description: Minimum message length.
-            monitor_mode:
-                aliases: ['monitor-mode']
-                type: str
-                description: PFCP monitor mode.
-                choices: ['disable', 'enable', 'vdom']
-            name:
-                type: str
-                description: PFCP profile name.
-                required: true
-            pfcp_timeout:
-                aliases: ['pfcp-timeout']
-                type: int
-                description: Set PFCP timeout
-            traffic_count_log:
-                aliases: ['traffic-count-log']
-                type: str
-                description: Enable/disable logging session traffic counter.
-                choices: ['disable', 'enable']
-            unknown_version:
-                aliases: ['unknown-version']
-                type: str
-                description: Allow or deny unknown version packets.
-                choices: ['deny', 'allow']
+      pfcp_timeout:
+        aliases: ['pfcp-timeout']
+        type: int
+        description: Set PFCP timeout
+      traffic_count_log:
+        aliases: ['traffic-count-log']
+        type: str
+        description: Enable/disable logging session traffic counter.
+        choices: ['disable', 'enable']
+      unknown_version:
+        aliases: ['unknown-version']
+        type: str
+        description: Allow or deny unknown version packets.
+        choices: ['deny', 'allow']
 '''
 
 EXAMPLES = '''
@@ -115,42 +115,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

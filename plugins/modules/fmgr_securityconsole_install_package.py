@@ -15,56 +15,56 @@ module: fmgr_securityconsole_install_package
 short_description: Copy and install a policy package to devices.
 version_added: "1.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
+  - fortinet.fortimanager.general
 options:
-    securityconsole_install_package:
-        description: The top level parameters set.
-        required: false
-        type: dict
+  securityconsole_install_package:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      adom:
+        type: str
+        description: Source ADOM name.
+      adom_rev_comments:
+        type: str
+        description: If generate_rev flag is set, the comment for the new ADOM revision.
+      adom_rev_name:
+        type: str
+        description: If generate_rev flag is set, the name for the new ADOM revision.
+      dev_rev_comments:
+        type: str
+        description: Comments for the device configuration revision that will be generated during install.
+      flags:
+        type: list
+        elements: str
+        description:
+          - cp_all_objs - Assign all objects during global policy assignment.
+          - preview - Generate preview cache only.
+          - generate_rev - Generate new ADOM revision before install.
+          - copy_assigned_pkg - For global policy assignment - copy assigned package from ADOM to device.
+          - unassign - Remove global policy from ADOM.
+          - ifpolicy_only - Only install interface policies.
+          - no_ifpolicy - Install regular policies only - do not install interface policies.
+          - objs_only - Install object
+          - auto_lock_ws - Automatically lock and unlock workspace when performing security console task.
+          - copy_only - Only copy to device db.
+        choices: ['none', 'cp_all_objs', 'preview', 'generate_rev', 'copy_assigned_pkg',
+                  'unassign', 'ifpolicy_only', 'no_ifpolicy', 'objs_only', 'auto_lock_ws',
+                  'check_pkg_st', 'copy_only']
+      pkg:
+        type: str
+        description: Source package path and name.
+      scope:
+        type: list
+        elements: dict
+        description: Scope.
         suboptions:
-            adom:
-                type: str
-                description: Source ADOM name.
-            adom_rev_comments:
-                type: str
-                description: If generate_rev flag is set, the comment for the new ADOM revision.
-            adom_rev_name:
-                type: str
-                description: If generate_rev flag is set, the name for the new ADOM revision.
-            dev_rev_comments:
-                type: str
-                description: Comments for the device configuration revision that will be generated during install.
-            flags:
-                type: list
-                elements: str
-                description:
-                    - cp_all_objs - Assign all objects during global policy assignment.
-                    - preview - Generate preview cache only.
-                    - generate_rev - Generate new ADOM revision before install.
-                    - copy_assigned_pkg - For global policy assignment - copy assigned package from ADOM to device.
-                    - unassign - Remove global policy from ADOM.
-                    - ifpolicy_only - Only install interface policies.
-                    - no_ifpolicy - Install regular policies only - do not install interface policies.
-                    - objs_only - Install object
-                    - auto_lock_ws - Automatically lock and unlock workspace when performing security console task.
-                    - copy_only - Only copy to device db.
-                choices: ['none', 'cp_all_objs', 'preview', 'generate_rev', 'copy_assigned_pkg',
-                          'unassign', 'ifpolicy_only', 'no_ifpolicy', 'objs_only', 'auto_lock_ws',
-                          'check_pkg_st', 'copy_only']
-            pkg:
-                type: str
-                description: Source package path and name.
-            scope:
-                type: list
-                elements: dict
-                description: Scope.
-                suboptions:
-                    name:
-                        type: str
-                        description: Name.
-                    vdom:
-                        type: str
-                        description: Vdom.
+          name:
+            type: str
+            description: Name.
+          vdom:
+            type: str
+            description: Vdom.
 '''
 
 EXAMPLES = '''
@@ -169,42 +169,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

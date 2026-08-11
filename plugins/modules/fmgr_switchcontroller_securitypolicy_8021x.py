@@ -15,135 +15,149 @@ module: fmgr_switchcontroller_securitypolicy_8021x
 short_description: Configure 802.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  switchcontroller_securitypolicy_8021x:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      auth_fail_vlan:
+        aliases: ['auth-fail-vlan']
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Enable to allow limited access to clients that cannot authenticate.
+        choices: ['disable', 'enable']
+      auth_fail_vlan_id:
+        aliases: ['auth-fail-vlan-id']
         type: str
+        description: VLAN ID on which authentication failed.
+      auth_fail_vlanid:
+        aliases: ['auth-fail-vlanid']
+        type: int
+        description: VLAN ID on which authentication failed.
+      eap_passthru:
+        aliases: ['eap-passthru']
+        type: str
+        description: Enable/disable EAP pass-through mode, allowing protocols
+        choices: ['disable', 'enable']
+      guest_auth_delay:
+        aliases: ['guest-auth-delay']
+        type: int
+        description: Guest authentication delay
+      guest_vlan:
+        aliases: ['guest-vlan']
+        type: str
+        description: Enable the guest VLAN feature to allow limited access to non-802.
+        choices: ['disable', 'enable']
+      guest_vlan_id:
+        aliases: ['guest-vlan-id']
+        type: str
+        description: Guest VLAN name.
+      guest_vlanid:
+        aliases: ['guest-vlanid']
+        type: int
+        description: Guest VLAN ID.
+      mac_auth_bypass:
+        aliases: ['mac-auth-bypass']
+        type: str
+        description: Enable/disable MAB for this policy.
+        choices: ['disable', 'enable']
+      name:
+        type: str
+        description: Policy name.
         required: true
-    switchcontroller_securitypolicy_8021x:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            auth_fail_vlan:
-                aliases: ['auth-fail-vlan']
-                type: str
-                description: Enable to allow limited access to clients that cannot authenticate.
-                choices: ['disable', 'enable']
-            auth_fail_vlan_id:
-                aliases: ['auth-fail-vlan-id']
-                type: str
-                description: VLAN ID on which authentication failed.
-            auth_fail_vlanid:
-                aliases: ['auth-fail-vlanid']
-                type: int
-                description: VLAN ID on which authentication failed.
-            eap_passthru:
-                aliases: ['eap-passthru']
-                type: str
-                description: Enable/disable EAP pass-through mode, allowing protocols
-                choices: ['disable', 'enable']
-            guest_auth_delay:
-                aliases: ['guest-auth-delay']
-                type: int
-                description: Guest authentication delay
-            guest_vlan:
-                aliases: ['guest-vlan']
-                type: str
-                description: Enable the guest VLAN feature to allow limited access to non-802.
-                choices: ['disable', 'enable']
-            guest_vlan_id:
-                aliases: ['guest-vlan-id']
-                type: str
-                description: Guest VLAN name.
-            guest_vlanid:
-                aliases: ['guest-vlanid']
-                type: int
-                description: Guest VLAN ID.
-            mac_auth_bypass:
-                aliases: ['mac-auth-bypass']
-                type: str
-                description: Enable/disable MAB for this policy.
-                choices: ['disable', 'enable']
-            name:
-                type: str
-                description: Policy name.
-                required: true
-            open_auth:
-                aliases: ['open-auth']
-                type: str
-                description: Enable/disable open authentication for this policy.
-                choices: ['disable', 'enable']
-            policy_type:
-                aliases: ['policy-type']
-                type: str
-                description: Policy type.
-                choices: ['802.1X']
-            radius_timeout_overwrite:
-                aliases: ['radius-timeout-overwrite']
-                type: str
-                description: Enable to override the global RADIUS session timeout.
-                choices: ['disable', 'enable']
-            security_mode:
-                aliases: ['security-mode']
-                type: str
-                description: Port or MAC based 802.
-                choices: ['802.1X', '802.1X-mac-based']
-            user_group:
-                aliases: ['user-group']
-                type: raw
-                description: (list or str) Name of user-group to assign to this MAC Authentication Bypass
-            framevid_apply:
-                aliases: ['framevid-apply']
-                type: str
-                description: Enable/disable the capability to apply the EAP/MAB frame VLAN to the port native VLAN.
-                choices: ['disable', 'enable']
-            eap_auto_untagged_vlans:
-                aliases: ['eap-auto-untagged-vlans']
-                type: str
-                description: Enable/disable automatic inclusion of untagged VLANs.
-                choices: ['disable', 'enable']
-            authserver_timeout_period:
-                aliases: ['authserver-timeout-period']
-                type: int
-                description: Authentication server timeout period
-            authserver_timeout_vlan:
-                aliases: ['authserver-timeout-vlan']
-                type: str
-                description: Enable/disable the authentication server timeout VLAN to allow limited access when RADIUS is unavailable.
-                choices: ['disable', 'enable']
-            authserver_timeout_vlanid:
-                aliases: ['authserver-timeout-vlanid']
-                type: str
-                description: Authentication server timeout VLAN name.
-            authserver_timeout_tagged:
-                aliases: ['authserver-timeout-tagged']
-                type: str
-                description: Configure timeout option for the tagged VLAN which allows limited access when the authentication server is unavailable.
-                choices: ['static', 'disable', 'lldp-voice']
-            authserver_timeout_tagged_vlanid:
-                aliases: ['authserver-timeout-tagged-vlanid']
-                type: raw
-                description: (list) Tagged VLAN name for which the timeout option is applied to
-            dacl:
-                type: str
-                description: Enable/disable dynamic access control list on this interface.
-                choices: ['disable', 'enable']
-            auth_order:
-                aliases: ['auth-order']
-                type: str
-                description: Configure authentication order.
-                choices: ['dot1x-mab', 'mab-dot1x', 'mab']
-            auth_priority:
-                aliases: ['auth-priority']
-                type: str
-                description: Configure authentication priority.
-                choices: ['dot1x-mab', 'mab-dot1x', 'legacy']
+      open_auth:
+        aliases: ['open-auth']
+        type: str
+        description: Enable/disable open authentication for this policy.
+        choices: ['disable', 'enable']
+      policy_type:
+        aliases: ['policy-type']
+        type: str
+        description: Policy type.
+        choices: ['802.1X']
+      radius_timeout_overwrite:
+        aliases: ['radius-timeout-overwrite']
+        type: str
+        description: Enable to override the global RADIUS session timeout.
+        choices: ['disable', 'enable']
+      security_mode:
+        aliases: ['security-mode']
+        type: str
+        description: Port or MAC based 802.
+        choices: ['802.1X', '802.1X-mac-based']
+      user_group:
+        aliases: ['user-group']
+        type: raw
+        description: (list or str) Name of user-group to assign to this MAC Authentication Bypass
+      framevid_apply:
+        aliases: ['framevid-apply']
+        type: str
+        description: Enable/disable the capability to apply the EAP/MAB frame VLAN to the port native VLAN.
+        choices: ['disable', 'enable']
+      eap_auto_untagged_vlans:
+        aliases: ['eap-auto-untagged-vlans']
+        type: str
+        description: Enable/disable automatic inclusion of untagged VLANs.
+        choices: ['disable', 'enable']
+      authserver_timeout_period:
+        aliases: ['authserver-timeout-period']
+        type: int
+        description: Authentication server timeout period
+      authserver_timeout_vlan:
+        aliases: ['authserver-timeout-vlan']
+        type: str
+        description: Enable/disable the authentication server timeout VLAN to allow limited access when RADIUS is unavailable.
+        choices: ['disable', 'enable']
+      authserver_timeout_vlanid:
+        aliases: ['authserver-timeout-vlanid']
+        type: str
+        description: Authentication server timeout VLAN name.
+      authserver_timeout_tagged:
+        aliases: ['authserver-timeout-tagged']
+        type: str
+        description: Configure timeout option for the tagged VLAN which allows limited access when the authentication server is unavailable.
+        choices: ['static', 'disable', 'lldp-voice']
+      authserver_timeout_tagged_vlanid:
+        aliases: ['authserver-timeout-tagged-vlanid']
+        type: raw
+        description: (list) Tagged VLAN name for which the timeout option is applied to
+      dacl:
+        type: str
+        description: Enable/disable dynamic access control list on this interface.
+        choices: ['disable', 'enable']
+      auth_order:
+        aliases: ['auth-order']
+        type: str
+        description: Configure authentication order.
+        choices: ['dot1x-mab', 'mab-dot1x', 'mab']
+      auth_priority:
+        aliases: ['auth-priority']
+        type: str
+        description: Configure authentication priority.
+        choices: ['dot1x-mab', 'mab-dot1x', 'legacy']
+      allow_mac_move:
+        aliases: ['allow-mac-move']
+        type: str
+        description: Enable/disable MAC move
+        choices: ['disable', 'enable']
+      client_limit:
+        aliases: ['client-limit']
+        type: int
+        description: Configure the maximum number of endpoint devices this FortiGate unit will accept while configured in MAC mode.
+      eap_egress_tagged:
+        aliases: ['eap-egress-tagged']
+        type: str
+        description: Enable/disable egress frame tag
+        choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -183,46 +197,49 @@ EXAMPLES = '''
           # dacl: <value in [disable, enable]>
           # auth_order: <value in [dot1x-mab, mab-dot1x, mab]>
           # auth_priority: <value in [dot1x-mab, mab-dot1x, legacy]>
+          # allow_mac_move: <value in [disable, enable]>
+          # client_limit: <integer>
+          # eap_egress_tagged: <value in [disable, enable]>
 '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -269,7 +286,10 @@ def main():
                 'authserver-timeout-tagged-vlanid': {'v_range': [['7.2.6', '7.2.12'], ['7.4.3', '']], 'type': 'raw'},
                 'dacl': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'auth-order': {'v_range': [['7.6.0', '']], 'choices': ['dot1x-mab', 'mab-dot1x', 'mab'], 'type': 'str'},
-                'auth-priority': {'v_range': [['7.6.0', '']], 'choices': ['dot1x-mab', 'mab-dot1x', 'legacy'], 'type': 'str'}
+                'auth-priority': {'v_range': [['7.6.0', '']], 'choices': ['dot1x-mab', 'mab-dot1x', 'legacy'], 'type': 'str'},
+                'allow-mac-move': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'client-limit': {'v_range': [['8.0.0', '']], 'type': 'int'},
+                'eap-egress-tagged': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

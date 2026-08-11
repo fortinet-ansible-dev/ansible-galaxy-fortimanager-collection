@@ -15,114 +15,126 @@ module: fmgr_fmg_device_blueprint
 short_description: Fmg device blueprint
 version_added: "2.1.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  fmg_device_blueprint:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      cliprofs:
+        type: raw
+        description: (list) Cliprofs.
+      description:
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Description.
+      dev_group:
+        aliases: ['dev-group']
+        type: raw
+        description: (list) Dev group.
+      folder:
         type: str
+        description: Folder.
+      name:
+        type: str
+        description: Name.
         required: true
-    fmg_device_blueprint:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            cliprofs:
-                type: raw
-                description: (list) Cliprofs.
-            description:
-                type: str
-                description: Description.
-            dev_group:
-                aliases: ['dev-group']
-                type: raw
-                description: (list) Dev group.
-            folder:
-                type: str
-                description: Folder.
-            name:
-                type: str
-                description: Name.
-                required: true
-            pkg:
-                type: str
-                description: Pkg.
-            platform:
-                type: str
-                description: Platform.
-            prefer_img_ver:
-                aliases: ['prefer-img-ver']
-                type: str
-                description: Prefer img ver.
-            prerun_cliprof:
-                aliases: ['prerun-cliprof']
-                type: raw
-                description: (list) Prerun cliprof.
-            prov_type:
-                aliases: ['prov-type']
-                type: str
-                description: Prov type.
-                choices: ['none', 'templates', 'template-group']
-            template_group:
-                aliases: ['template-group']
-                type: str
-                description: Template group.
-            templates:
-                type: raw
-                description: (list) Templates.
-            enforce_device_config:
-                aliases: ['enforce-device-config']
-                type: str
-                description: Enforce device config.
-                choices: ['disable', 'enable']
-            auth_template:
-                aliases: ['auth-template']
-                type: raw
-                description: (list) Auth template.
-            ha_config:
-                aliases: ['ha-config']
-                type: str
-                description: Ha config.
-                choices: ['disable', 'enable']
-            ha_hbdev:
-                aliases: ['ha-hbdev']
-                type: raw
-                description: Ha hbdev.
-            ha_monitor:
-                aliases: ['ha-monitor']
-                type: raw
-                description: (list) Ha monitor.
-            ha_password:
-                aliases: ['ha-password']
-                type: raw
-                description: (list) Ha password.
-            linked_to_model:
-                aliases: ['linked-to-model']
-                type: str
-                description: Linked to model.
-                choices: ['disable', 'enable']
-            port_provisioning:
-                aliases: ['port-provisioning']
-                type: int
-                description: Port provisioning.
-            sdwan_management:
-                aliases: ['sdwan-management']
-                type: str
-                description: Sdwan management.
-                choices: ['disable', 'enable']
-            split_switch_port:
-                aliases: ['split-switch-port']
-                type: str
-                description: Split switch port.
-                choices: ['disable', 'enable']
-            vm_log_disk:
-                aliases: ['vm-log-disk']
-                type: str
-                description: Vm log disk.
-                choices: ['disable', 'enable']
+      pkg:
+        type: str
+        description: Pkg.
+      platform:
+        type: str
+        description: Platform.
+      prefer_img_ver:
+        aliases: ['prefer-img-ver']
+        type: str
+        description: Prefer img ver.
+      prerun_cliprof:
+        aliases: ['prerun-cliprof']
+        type: raw
+        description: (list) Prerun cliprof.
+      prov_type:
+        aliases: ['prov-type']
+        type: str
+        description: Prov type.
+        choices: ['none', 'templates', 'template-group']
+      template_group:
+        aliases: ['template-group']
+        type: str
+        description: Template group.
+      templates:
+        type: raw
+        description: (list) Templates.
+      enforce_device_config:
+        aliases: ['enforce-device-config']
+        type: str
+        description: Enforce device config.
+        choices: ['disable', 'enable']
+      auth_template:
+        aliases: ['auth-template']
+        type: raw
+        description: (list) Auth template.
+      ha_config:
+        aliases: ['ha-config']
+        type: str
+        description: Ha config.
+        choices: ['disable', 'enable']
+      ha_hbdev:
+        aliases: ['ha-hbdev']
+        type: raw
+        description: Ha hbdev.
+      ha_monitor:
+        aliases: ['ha-monitor']
+        type: raw
+        description: (list) Ha monitor.
+      ha_password:
+        aliases: ['ha-password']
+        type: raw
+        description: (list) Ha password.
+      linked_to_model:
+        aliases: ['linked-to-model']
+        type: str
+        description: Linked to model.
+        choices: ['disable', 'enable']
+      port_provisioning:
+        aliases: ['port-provisioning']
+        type: int
+        description: Port provisioning.
+      sdwan_management:
+        aliases: ['sdwan-management']
+        type: str
+        description: Sdwan management.
+        choices: ['disable', 'enable']
+      split_switch_port:
+        aliases: ['split-switch-port']
+        type: str
+        description: Split switch port.
+        choices: ['disable', 'enable']
+      vm_log_disk:
+        aliases: ['vm-log-disk']
+        type: str
+        description: Vm log disk.
+        choices: ['disable', 'enable']
+      cluster_worker:
+        aliases: ['cluster-worker']
+        type: raw
+        description: (list) Cluster worker.
+      cert_template:
+        aliases: ['cert-template']
+        type: raw
+        description: (list) Cert template.
+      firmware_template:
+        aliases: ['firmware-template']
+        type: str
+        description: Firmware template.
 '''
 
 EXAMPLES = '''
@@ -160,46 +172,49 @@ EXAMPLES = '''
           # sdwan_management: <value in [disable, enable]>
           # split_switch_port: <value in [disable, enable]>
           # vm_log_disk: <value in [disable, enable]>
+          # cluster_worker: <list or string>
+          # cert_template: <list or string>
+          # firmware_template: <string>
 '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -240,7 +255,10 @@ def main():
                 'port-provisioning': {'v_range': [['7.4.4', '']], 'type': 'int'},
                 'sdwan-management': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'split-switch-port': {'v_range': [['7.4.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'vm-log-disk': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'vm-log-disk': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'cluster-worker': {'v_range': [['7.6.7', '']], 'type': 'raw'},
+                'cert-template': {'v_range': [['8.0.0', '']], 'type': 'raw'},
+                'firmware-template': {'v_range': [['8.0.0', '']], 'type': 'str'}
             }
         }
     }

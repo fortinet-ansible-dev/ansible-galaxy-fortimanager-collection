@@ -15,43 +15,53 @@ module: fmgr_firewall_schedule_group
 short_description: Schedule group configuration.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  firewall_schedule_group:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      color:
+        type: int
+        description: Color of icon on the GUI.
+      member:
+        type: raw
+        description: (list or str) Schedules added to the schedule group.
+      name:
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
-        type: str
+        description: Schedule group name.
         required: true
-    firewall_schedule_group:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            color:
-                type: int
-                description: Color of icon on the GUI.
-            member:
-                type: raw
-                description: (list or str) Schedules added to the schedule group.
-            name:
-                type: str
-                description: Schedule group name.
-                required: true
-            global_object:
-                aliases: ['global-object']
-                type: int
-                description: Global Object.
-            fabric_object:
-                aliases: ['fabric-object']
-                type: str
-                description: Security Fabric global object setting.
-                choices: ['disable', 'enable']
-            uuid:
-                type: str
-                description: Universally Unique Identifier
+      global_object:
+        aliases: ['global-object']
+        type: int
+        description: Global Object.
+      fabric_object:
+        aliases: ['fabric-object']
+        type: str
+        description: Security Fabric global object setting.
+        choices: ['disable', 'enable']
+      uuid:
+        type: str
+        description: Universally Unique Identifier
+      fabric_force_sync:
+        aliases: ['fabric-force-sync']
+        type: str
+        description: Enable/disable forced synchronization of configuration objects from the root FortiGate unit to the downstream devices.
+        choices: ['disable', 'enable']
+      fabric_object_source:
+        aliases: ['fabric-object-source']
+        type: str
+        description: Source of truth for fabric object.
+        choices: ['member', 'local', 'root']
 '''
 
 EXAMPLES = '''
@@ -94,42 +104,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -151,9 +161,11 @@ def main():
                 'color': {'type': 'int'},
                 'member': {'type': 'raw'},
                 'name': {'required': True, 'type': 'str'},
-                'global-object': {'v_range': [['6.4.0', '']], 'type': 'int'},
+                'global-object': {'v_range': [['6.4.0', '7.6.7']], 'type': 'int'},
                 'fabric-object': {'v_range': [['6.4.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'uuid': {'v_range': [['7.6.0', '']], 'type': 'str'}
+                'uuid': {'v_range': [['7.6.0', '']], 'type': 'str'},
+                'fabric-force-sync': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'fabric-object-source': {'v_range': [['8.0.0', '']], 'choices': ['member', 'local', 'root'], 'type': 'str'}
             }
         }
     }

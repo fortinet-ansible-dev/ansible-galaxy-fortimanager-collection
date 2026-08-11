@@ -15,42 +15,42 @@ module: fmgr_system_locallog_memory_setting
 short_description: Settings for memory buffer.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.partial_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.partial_crud
 options:
-    system_locallog_memory_setting:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            diskfull:
-                type: str
-                description:
-                    - Action upon disk full.
-                    - overwrite - Overwrite oldest log when disk is full.
-                    - nolog - Stop logging when disk is full.
-                choices: ['overwrite', 'nolog']
-            severity:
-                type: str
-                description:
-                    - Least severity level to log.
-                    - emergency - Emergency level.
-                    - alert - Alert level.
-                    - critical - Critical level.
-                    - error - Error level.
-                    - warning - Warning level.
-                    - notification - Notification level.
-                    - information - Information level.
-                    - debug - Debug level.
-                choices: ['emergency', 'alert', 'critical', 'error', 'warning', 'notification',
-                          'information', 'debug']
-            status:
-                type: str
-                description:
-                    - Enable/disable memory buffer log.
-                    - disable - Do not log to memory buffer.
-                    - enable - Log to memory buffer.
-                choices: ['disable', 'enable']
+  system_locallog_memory_setting:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      diskfull:
+        type: str
+        description:
+          - Action upon disk full.
+          - overwrite - Overwrite oldest log when disk is full.
+          - nolog - Stop logging when disk is full.
+        choices: ['overwrite', 'nolog']
+      severity:
+        type: str
+        description:
+          - Least severity level to log.
+          - emergency - Emergency level.
+          - alert - Alert level.
+          - critical - Critical level.
+          - error - Error level.
+          - warning - Warning level.
+          - notification - Notification level.
+          - information - Information level.
+          - debug - Debug level.
+        choices: ['emergency', 'alert', 'critical', 'error', 'warning', 'notification',
+                  'information', 'debug']
+      status:
+        type: str
+        description:
+          - Enable/disable memory buffer log.
+          - disable - Do not log to memory buffer.
+          - enable - Log to memory buffer.
+        choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -70,42 +70,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

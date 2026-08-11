@@ -15,65 +15,65 @@ module: fmgr_user_group_dynamicmapping_guest
 short_description: Guest User.
 version_added: "2.1.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  group:
+    description: The parameter (group) in requested url.
+    type: str
+    required: true
+  dynamic_mapping:
+    description: The parameter (dynamic_mapping) in requested url.
+    type: str
+    required: true
+  user_group_dynamicmapping_guest:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      comment:
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Comment.
+      company:
         type: str
+        description: Set the action for the company guest user field.
+      email:
+        type: str
+        description: Email.
+      expiration:
+        type: str
+        description: Expire time.
+      group:
+        type: str
+        description: Group.
+      id:
+        type: int
+        description: Guest ID.
         required: true
-    group:
-        description: The parameter (group) in requested url.
+      mobile_phone:
+        aliases: ['mobile-phone']
         type: str
-        required: true
-    dynamic_mapping:
-        description: The parameter (dynamic_mapping) in requested url.
+        description: Mobile phone.
+      name:
         type: str
-        required: true
-    user_group_dynamicmapping_guest:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            comment:
-                type: str
-                description: Comment.
-            company:
-                type: str
-                description: Set the action for the company guest user field.
-            email:
-                type: str
-                description: Email.
-            expiration:
-                type: str
-                description: Expire time.
-            group:
-                type: str
-                description: Group.
-            id:
-                type: int
-                description: Guest ID.
-                required: true
-            mobile_phone:
-                aliases: ['mobile-phone']
-                type: str
-                description: Mobile phone.
-            name:
-                type: str
-                description: Guest name.
-            password:
-                type: raw
-                description: (list) Guest password.
-            sponsor:
-                type: str
-                description: Set the action for the sponsor guest user field.
-            user_id:
-                aliases: ['user-id']
-                type: str
-                description: Guest ID.
+        description: Guest name.
+      password:
+        type: raw
+        description: (list) Guest password.
+      sponsor:
+        type: str
+        description: Set the action for the sponsor guest user field.
+      user_id:
+        aliases: ['user-id']
+        type: str
+        description: Guest ID.
 '''
 
 EXAMPLES = '''
@@ -105,42 +105,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

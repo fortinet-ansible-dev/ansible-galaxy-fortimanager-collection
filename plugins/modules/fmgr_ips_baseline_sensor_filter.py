@@ -15,94 +15,94 @@ module: fmgr_ips_baseline_sensor_filter
 short_description: Ips baseline sensor filter
 version_added: "2.2.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  sensor:
+    description: The parameter (sensor) in requested url.
+    type: str
+    required: true
+  ips_baseline_sensor_filter:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      action:
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Action of selected rules.
+        choices: ['pass', 'block', 'default', 'reset']
+      application:
+        type: raw
+        description: (list) Vulnerable application filter.
+      application_real:
+        aliases: ['application(real)']
         type: str
+        description: Application
+      location:
+        type: raw
+        description: (list) Vulnerability location filter.
+      location_real:
+        aliases: ['location(real)']
+        type: str
+        description: Location
+      log:
+        type: str
+        description: Enable/disable logging of selected rules.
+        choices: ['disable', 'enable', 'default']
+      log_packet:
+        aliases: ['log-packet']
+        type: str
+        description: Enable/disable packet logging of selected rules.
+        choices: ['disable', 'enable', 'default']
+      name:
+        type: str
+        description: Filter name.
         required: true
-    sensor:
-        description: The parameter (sensor) in requested url.
+      os:
+        type: raw
+        description: (list) Vulnerable OS filter.
+      os_real:
+        aliases: ['os(real)']
         type: str
-        required: true
-    ips_baseline_sensor_filter:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            action:
-                type: str
-                description: Action of selected rules.
-                choices: ['pass', 'block', 'default', 'reset']
-            application:
-                type: raw
-                description: (list) Vulnerable application filter.
-            application_real:
-                aliases: ['application(real)']
-                type: str
-                description: Application
-            location:
-                type: raw
-                description: (list) Vulnerability location filter.
-            location_real:
-                aliases: ['location(real)']
-                type: str
-                description: Location
-            log:
-                type: str
-                description: Enable/disable logging of selected rules.
-                choices: ['disable', 'enable', 'default']
-            log_packet:
-                aliases: ['log-packet']
-                type: str
-                description: Enable/disable packet logging of selected rules.
-                choices: ['disable', 'enable', 'default']
-            name:
-                type: str
-                description: Filter name.
-                required: true
-            os:
-                type: raw
-                description: (list) Vulnerable OS filter.
-            os_real:
-                aliases: ['os(real)']
-                type: str
-                description: Os
-            protocol:
-                type: raw
-                description: (list) Vulnerable protocol filter.
-            protocol_real:
-                aliases: ['protocol(real)']
-                type: str
-                description: Protocol
-            quarantine:
-                type: str
-                description: Quarantine IP or interface.
-                choices: ['none', 'attacker', 'both', 'interface']
-            quarantine_expiry:
-                aliases: ['quarantine-expiry']
-                type: int
-                description: Duration of quarantine in minute.
-            quarantine_log:
-                aliases: ['quarantine-log']
-                type: str
-                description: Enable/disable logging of selected quarantine.
-                choices: ['disable', 'enable']
-            severity:
-                type: raw
-                description: (list) Vulnerability severity filter.
-            severity_real:
-                aliases: ['severity(real)']
-                type: str
-                description: Severity
-            status:
-                type: str
-                description: Selected rules status.
-                choices: ['disable', 'enable', 'default']
+        description: Os
+      protocol:
+        type: raw
+        description: (list) Vulnerable protocol filter.
+      protocol_real:
+        aliases: ['protocol(real)']
+        type: str
+        description: Protocol
+      quarantine:
+        type: str
+        description: Quarantine IP or interface.
+        choices: ['none', 'attacker', 'both', 'interface']
+      quarantine_expiry:
+        aliases: ['quarantine-expiry']
+        type: int
+        description: Duration of quarantine in minute.
+      quarantine_log:
+        aliases: ['quarantine-log']
+        type: str
+        description: Enable/disable logging of selected quarantine.
+        choices: ['disable', 'enable']
+      severity:
+        type: raw
+        description: (list) Vulnerability severity filter.
+      severity_real:
+        aliases: ['severity(real)']
+        type: str
+        description: Severity
+      status:
+        type: str
+        description: Selected rules status.
+        choices: ['disable', 'enable', 'default']
 '''
 
 EXAMPLES = '''
@@ -140,42 +140,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

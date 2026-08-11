@@ -15,106 +15,106 @@ module: fmgr_pkg_firewall_hyperscalepolicy6
 short_description: Configure IPv6 policies.
 version_added: "2.2.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  pkg:
+    description: The parameter (pkg) in requested url.
+    type: str
+    required: true
+  pkg_firewall_hyperscalepolicy6:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      action:
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Policy action
+        choices: ['deny', 'accept', 'ipsec']
+      auto_asic_offload:
+        aliases: ['auto-asic-offload']
         type: str
+        description: Enable/disable policy traffic ASIC offloading.
+        choices: ['disable', 'enable']
+      cgn_log_server_grp:
+        aliases: ['cgn-log-server-grp']
+        type: str
+        description: NP log server group name
+      comments:
+        type: str
+        description: Comment.
+      dstaddr:
+        type: raw
+        description: (list or str) Destination address and address group names.
+      dstaddr_negate:
+        aliases: ['dstaddr-negate']
+        type: str
+        description: When enabled dstaddr specifies what the destination address must NOT be.
+        choices: ['disable', 'enable']
+      dstintf:
+        type: raw
+        description: (list or str) Outgoing
+      name:
+        type: str
+        description: Policy name.
+      policy_offload:
+        aliases: ['policy-offload']
+        type: str
+        description: Enable/disable offloading policy configuration to CP processors.
+        choices: ['disable', 'enable']
+      policyid:
+        type: int
+        description: Policy ID
         required: true
-    pkg:
-        description: The parameter (pkg) in requested url.
+      service:
+        type: raw
+        description: (list or str) Service and service group names.
+      service_negate:
+        aliases: ['service-negate']
         type: str
-        required: true
-    pkg_firewall_hyperscalepolicy6:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            action:
-                type: str
-                description: Policy action
-                choices: ['deny', 'accept', 'ipsec']
-            auto_asic_offload:
-                aliases: ['auto-asic-offload']
-                type: str
-                description: Enable/disable policy traffic ASIC offloading.
-                choices: ['disable', 'enable']
-            cgn_log_server_grp:
-                aliases: ['cgn-log-server-grp']
-                type: str
-                description: NP log server group name
-            comments:
-                type: str
-                description: Comment.
-            dstaddr:
-                type: raw
-                description: (list or str) Destination address and address group names.
-            dstaddr_negate:
-                aliases: ['dstaddr-negate']
-                type: str
-                description: When enabled dstaddr specifies what the destination address must NOT be.
-                choices: ['disable', 'enable']
-            dstintf:
-                type: raw
-                description: (list or str) Outgoing
-            name:
-                type: str
-                description: Policy name.
-            policy_offload:
-                aliases: ['policy-offload']
-                type: str
-                description: Enable/disable offloading policy configuration to CP processors.
-                choices: ['disable', 'enable']
-            policyid:
-                type: int
-                description: Policy ID
-                required: true
-            service:
-                type: raw
-                description: (list or str) Service and service group names.
-            service_negate:
-                aliases: ['service-negate']
-                type: str
-                description: When enabled service specifies what the service must NOT be.
-                choices: ['disable', 'enable']
-            srcaddr:
-                type: raw
-                description: (list or str) Source address and address group names.
-            srcaddr_negate:
-                aliases: ['srcaddr-negate']
-                type: str
-                description: When enabled srcaddr specifies what the source address must NOT be.
-                choices: ['disable', 'enable']
-            srcintf:
-                type: raw
-                description: (list or str) Incoming
-            status:
-                type: str
-                description: Enable or disable this policy.
-                choices: ['disable', 'enable']
-            tcp_timeout_pid:
-                aliases: ['tcp-timeout-pid']
-                type: str
-                description: TCP timeout profile ID
-            traffic_shaper:
-                aliases: ['traffic-shaper']
-                type: str
-                description: Reverse traffic shaper.
-            traffic_shaper_reverse:
-                aliases: ['traffic-shaper-reverse']
-                type: str
-                description: Reverse traffic shaper.
-            udp_timeout_pid:
-                aliases: ['udp-timeout-pid']
-                type: str
-                description: UDP timeout profile ID
-            uuid:
-                type: str
-                description: Universally Unique Identifier
+        description: When enabled service specifies what the service must NOT be.
+        choices: ['disable', 'enable']
+      srcaddr:
+        type: raw
+        description: (list or str) Source address and address group names.
+      srcaddr_negate:
+        aliases: ['srcaddr-negate']
+        type: str
+        description: When enabled srcaddr specifies what the source address must NOT be.
+        choices: ['disable', 'enable']
+      srcintf:
+        type: raw
+        description: (list or str) Incoming
+      status:
+        type: str
+        description: Enable or disable this policy.
+        choices: ['disable', 'enable']
+      tcp_timeout_pid:
+        aliases: ['tcp-timeout-pid']
+        type: str
+        description: TCP timeout profile ID
+      traffic_shaper:
+        aliases: ['traffic-shaper']
+        type: str
+        description: Reverse traffic shaper.
+      traffic_shaper_reverse:
+        aliases: ['traffic-shaper-reverse']
+        type: str
+        description: Reverse traffic shaper.
+      udp_timeout_pid:
+        aliases: ['udp-timeout-pid']
+        type: str
+        description: UDP timeout profile ID
+      uuid:
+        type: str
+        description: Universally Unique Identifier
 '''
 
 EXAMPLES = '''
@@ -155,42 +155,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

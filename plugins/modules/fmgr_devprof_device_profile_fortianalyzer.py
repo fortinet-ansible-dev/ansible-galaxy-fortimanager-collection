@@ -15,38 +15,38 @@ module: fmgr_devprof_device_profile_fortianalyzer
 short_description: System template device profile fortianalyzer
 version_added: "1.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.partial_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.partial_crud
 options:
-    adom:
-        description: The parameter (adom) in requested url.
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  devprof:
+    description: The parameter (devprof) in requested url.
+    type: str
+    required: true
+  devprof_device_profile_fortianalyzer:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      managed_sn:
+        aliases: ['managed-sn']
         type: str
-        required: true
-    devprof:
-        description: The parameter (devprof) in requested url.
+        description: Managed sn.
+      target:
         type: str
-        required: true
-    devprof_device_profile_fortianalyzer:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            managed_sn:
-                aliases: ['managed-sn']
-                type: str
-                description: Managed sn.
-            target:
-                type: str
-                description: Target.
-                choices: ['none', 'this-fmg', 'managed', 'others']
-            target_ip:
-                aliases: ['target-ip']
-                type: str
-                description: Target ip.
-            target_sn:
-                aliases: ['target-sn']
-                type: raw
-                description: (list) Target sn.
+        description: Target.
+        choices: ['none', 'this-fmg', 'managed', 'others']
+      target_ip:
+        aliases: ['target-ip']
+        type: str
+        description: Target ip.
+      target_sn:
+        aliases: ['target-sn']
+        type: raw
+        description: (list) Target sn.
 '''
 
 EXAMPLES = '''
@@ -69,42 +69,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

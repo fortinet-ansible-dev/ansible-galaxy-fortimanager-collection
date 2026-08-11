@@ -15,48 +15,48 @@ module: fmgr_user_securityexemptlist
 short_description: Configure security exemption list.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  user_securityexemptlist:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      description:
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Description.
+      name:
         type: str
+        description: Name of the exempt list.
         required: true
-    user_securityexemptlist:
-        description: The top level parameters set.
-        required: false
-        type: dict
+      rule:
+        type: list
+        elements: dict
+        description: Rule.
         suboptions:
-            description:
-                type: str
-                description: Description.
-            name:
-                type: str
-                description: Name of the exempt list.
-                required: true
-            rule:
-                type: list
-                elements: dict
-                description: Rule.
-                suboptions:
-                    devices:
-                        type: raw
-                        description: (list or str) Devices or device groups.
-                    dstaddr:
-                        type: raw
-                        description: (list or str) Destination addresses or address groups.
-                    id:
-                        type: int
-                        description: ID.
-                    service:
-                        type: raw
-                        description: (list or str) Destination services.
-                    srcaddr:
-                        type: raw
-                        description: (list or str) Source addresses or address groups.
+          devices:
+            type: raw
+            description: (list or str) Devices or device groups.
+          dstaddr:
+            type: raw
+            description: (list or str) Destination addresses or address groups.
+          id:
+            type: int
+            description: ID.
+          service:
+            type: raw
+            description: (list or str) Destination services.
+          srcaddr:
+            type: raw
+            description: (list or str) Source addresses or address groups.
 '''
 
 EXAMPLES = '''
@@ -98,42 +98,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

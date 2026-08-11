@@ -15,46 +15,46 @@ module: fmgr_casb_profile_saasapplication_customcontrol_option
 short_description: CASB custom control option.
 version_added: "2.3.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  profile:
+    description: The parameter (profile) in requested url.
+    type: str
+    required: true
+  saas-application:
+    description: Deprecated, please use "saas_application"
+    type: str
+  saas_application:
+    description: The parameter (saas-application) in requested url.
+    type: str
+  custom-control:
+    description: Deprecated, please use "custom_control"
+    type: str
+  custom_control:
+    description: The parameter (custom-control) in requested url.
+    type: str
+  casb_profile_saasapplication_customcontrol_option:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      name:
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
-        type: str
+        description: CASB custom control option name.
         required: true
-    profile:
-        description: The parameter (profile) in requested url.
-        type: str
-        required: true
-    saas-application:
-        description: Deprecated, please use "saas_application"
-        type: str
-    saas_application:
-        description: The parameter (saas-application) in requested url.
-        type: str
-    custom-control:
-        description: Deprecated, please use "custom_control"
-        type: str
-    custom_control:
-        description: The parameter (custom-control) in requested url.
-        type: str
-    casb_profile_saasapplication_customcontrol_option:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            name:
-                type: str
-                description: CASB custom control option name.
-                required: true
-            user_input:
-                aliases: ['user-input']
-                type: list
-                elements: str
-                description: CASB custom control user input.
+      user_input:
+        aliases: ['user-input']
+        type: list
+        elements: str
+        description: CASB custom control user input.
 '''
 
 EXAMPLES = '''
@@ -78,42 +78,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

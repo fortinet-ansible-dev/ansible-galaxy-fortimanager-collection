@@ -15,89 +15,89 @@ module: fmgr_firewall_vip_dynamicmapping_realservers
 short_description: Select the real servers that this server load balancing VIP will distribute traffic to.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  vip:
+    description: The parameter (vip) in requested url.
+    type: str
+    required: true
+  dynamic_mapping:
+    description: The parameter (dynamic_mapping) in requested url.
+    type: str
+    required: true
+  firewall_vip_dynamicmapping_realservers:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      client_ip:
+        aliases: ['client-ip']
+        type: raw
+        description: (list) Client ip.
+      healthcheck:
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Healthcheck.
+        choices: ['disable', 'enable', 'vip']
+      holddown_interval:
+        aliases: ['holddown-interval']
+        type: int
+        description: Holddown interval.
+      http_host:
+        aliases: ['http-host']
         type: str
+        description: Http host.
+      ip:
+        type: str
+        description: Ip.
+      max_connections:
+        aliases: ['max-connections']
+        type: int
+        description: Max connections.
+      monitor:
+        type: raw
+        description: (list or str) Monitor.
+      port:
+        type: int
+        description: Port.
+      seq:
+        type: int
+        description: Seq.
         required: true
-    vip:
-        description: The parameter (vip) in requested url.
+      status:
         type: str
-        required: true
-    dynamic_mapping:
-        description: The parameter (dynamic_mapping) in requested url.
+        description: Status.
+        choices: ['active', 'standby', 'disable']
+      weight:
+        type: int
+        description: Weight.
+      address:
         type: str
-        required: true
-    firewall_vip_dynamicmapping_realservers:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            client_ip:
-                aliases: ['client-ip']
-                type: raw
-                description: (list) Client ip.
-            healthcheck:
-                type: str
-                description: Healthcheck.
-                choices: ['disable', 'enable', 'vip']
-            holddown_interval:
-                aliases: ['holddown-interval']
-                type: int
-                description: Holddown interval.
-            http_host:
-                aliases: ['http-host']
-                type: str
-                description: Http host.
-            ip:
-                type: str
-                description: Ip.
-            max_connections:
-                aliases: ['max-connections']
-                type: int
-                description: Max connections.
-            monitor:
-                type: raw
-                description: (list or str) Monitor.
-            port:
-                type: int
-                description: Port.
-            seq:
-                type: int
-                description: Seq.
-                required: true
-            status:
-                type: str
-                description: Status.
-                choices: ['active', 'standby', 'disable']
-            weight:
-                type: int
-                description: Weight.
-            address:
-                type: str
-                description: Address.
-            id:
-                type: int
-                description: Id.
-            type:
-                type: str
-                description: Type.
-                choices: ['ip', 'address']
-            translate_host:
-                aliases: ['translate-host']
-                type: str
-                description: Enable/disable translation of hostname/IP from virtual server to real server.
-                choices: ['disable', 'enable']
-            health_check_proto:
-                aliases: ['health-check-proto']
-                type: str
-                description: Health check proto.
-                choices: ['ping', 'http']
+        description: Address.
+      id:
+        type: int
+        description: Id.
+      type:
+        type: str
+        description: Type.
+        choices: ['ip', 'address']
+      translate_host:
+        aliases: ['translate-host']
+        type: str
+        description: Enable/disable translation of hostname/IP from virtual server to real server.
+        choices: ['disable', 'enable']
+      health_check_proto:
+        aliases: ['health-check-proto']
+        type: str
+        description: Health check proto.
+        choices: ['ping', 'http']
 '''
 
 EXAMPLES = '''
@@ -134,42 +134,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

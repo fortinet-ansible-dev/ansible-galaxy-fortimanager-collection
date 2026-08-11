@@ -15,82 +15,82 @@ module: fmgr_vpn_kmipserver
 short_description: KMIP server entry configuration.
 version_added: "2.12.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  vpn_kmipserver:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      interface:
+        type: list
+        elements: str
+        description: Specify outgoing interface to reach server.
+      interface_select_method:
+        aliases: ['interface-select-method']
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Specify how to select outgoing interface to reach server.
+        choices: ['auto', 'sdwan', 'specify']
+      name:
         type: str
+        description: KMIP server entry name.
         required: true
-    vpn_kmipserver:
-        description: The top level parameters set.
-        required: false
-        type: dict
+      password:
+        type: list
+        elements: str
+        description: Password to use for connectivity to the KMIP server.
+      server_identity_check:
+        aliases: ['server-identity-check']
+        type: str
+        description: Enable/disable KMIP server identity check
+        choices: ['disable', 'enable']
+      server_list:
+        aliases: ['server-list']
+        type: list
+        elements: dict
+        description: Server list.
         suboptions:
-            interface:
-                type: list
-                elements: str
-                description: Specify outgoing interface to reach server.
-            interface_select_method:
-                aliases: ['interface-select-method']
-                type: str
-                description: Specify how to select outgoing interface to reach server.
-                choices: ['auto', 'sdwan', 'specify']
-            name:
-                type: str
-                description: KMIP server entry name.
-                required: true
-            password:
-                type: list
-                elements: str
-                description: Password to use for connectivity to the KMIP server.
-            server_identity_check:
-                aliases: ['server-identity-check']
-                type: str
-                description: Enable/disable KMIP server identity check
-                choices: ['disable', 'enable']
-            server_list:
-                aliases: ['server-list']
-                type: list
-                elements: dict
-                description: Server list.
-                suboptions:
-                    cert:
-                        type: list
-                        elements: str
-                        description: Client certificate to use for connectivity to the KMIP server.
-                    id:
-                        type: int
-                        description: ID
-                    port:
-                        type: int
-                        description: KMIP server port.
-                    server:
-                        type: str
-                        description: KMIP server FQDN or IP address.
-                    status:
-                        type: str
-                        description: Enable/disable KMIP server.
-                        choices: ['disable', 'enable']
-            source_ip:
-                aliases: ['source-ip']
-                type: str
-                description: FortiGate IP address to be used for communication with the KMIP server.
-            ssl_min_proto_version:
-                aliases: ['ssl-min-proto-version']
-                type: str
-                description: Minimum supported protocol version for SSL/TLS connections
-                choices: ['default', 'TLSv1', 'TLSv1-1', 'TLSv1-2', 'SSLv3', 'TLSv1-3']
-            username:
-                type: str
-                description: User name to use for connectivity to the KMIP server.
-            vrf_select:
-                aliases: ['vrf-select']
-                type: int
-                description: VRF ID used for connection to server.
+          cert:
+            type: list
+            elements: str
+            description: Client certificate to use for connectivity to the KMIP server.
+          id:
+            type: int
+            description: ID
+          port:
+            type: int
+            description: KMIP server port.
+          server:
+            type: str
+            description: KMIP server FQDN or IP address.
+          status:
+            type: str
+            description: Enable/disable KMIP server.
+            choices: ['disable', 'enable']
+      source_ip:
+        aliases: ['source-ip']
+        type: str
+        description: FortiGate IP address to be used for communication with the KMIP server.
+      ssl_min_proto_version:
+        aliases: ['ssl-min-proto-version']
+        type: str
+        description: Minimum supported protocol version for SSL/TLS connections
+        choices: ['default', 'TLSv1', 'TLSv1-1', 'TLSv1-2', 'SSLv3', 'TLSv1-3']
+      username:
+        type: str
+        description: User name to use for connectivity to the KMIP server.
+      vrf_select:
+        aliases: ['vrf-select']
+        type: int
+        description: VRF ID used for connection to server.
 '''
 
 EXAMPLES = '''
@@ -124,42 +124,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

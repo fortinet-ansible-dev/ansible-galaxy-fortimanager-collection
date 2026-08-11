@@ -15,49 +15,49 @@ module: fmgr_fmg_sasemanager_settings
 short_description: Fmg sase manager settings
 version_added: "2.7.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.partial_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.partial_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  fmg_sasemanager_settings:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      address:
+        type: list
+        elements: str
+        description: Address.
+      profile_group:
+        aliases: ['profile-group']
+        type: list
+        elements: str
+        description: Profile group.
+      sync_address:
+        aliases: ['sync-address']
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Sync address.
+        choices: ['disable', 'specify', 'all']
+      sync_profile_group:
+        aliases: ['sync-profile-group']
         type: str
-        required: true
-    fmg_sasemanager_settings:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            address:
-                type: list
-                elements: str
-                description: Address.
-            profile_group:
-                aliases: ['profile-group']
-                type: list
-                elements: str
-                description: Profile group.
-            sync_address:
-                aliases: ['sync-address']
-                type: str
-                description: Sync address.
-                choices: ['disable', 'specify', 'all']
-            sync_profile_group:
-                aliases: ['sync-profile-group']
-                type: str
-                description: Sync profile group.
-                choices: ['disable', 'specify', 'all']
-            sync_user:
-                aliases: ['sync-user']
-                type: str
-                description: Sync user.
-                choices: ['disable', 'specify', 'all']
-            user:
-                type: list
-                elements: str
-                description: User.
+        description: Sync profile group.
+        choices: ['disable', 'specify', 'all']
+      sync_user:
+        aliases: ['sync-user']
+        type: str
+        description: Sync user.
+        choices: ['disable', 'specify', 'all']
+      user:
+        type: list
+        elements: str
+        description: User.
 '''
 
 EXAMPLES = '''
@@ -81,42 +81,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

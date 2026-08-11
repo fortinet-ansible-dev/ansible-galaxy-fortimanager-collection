@@ -15,90 +15,99 @@ module: fmgr_user_peer
 short_description: Configure peer users.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  user_peer:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      ca:
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Name of the CA certificate as returned by the execute vpn certificate ca list command.
+      cn:
         type: str
+        description: Peer certificate common name.
+      cn_type:
+        aliases: ['cn-type']
+        type: str
+        description: Peer certificate common name type.
+        choices: ['string', 'email', 'FQDN', 'ipv4', 'ipv6']
+      ldap_mode:
+        aliases: ['ldap-mode']
+        type: str
+        description: Mode for LDAP peer authentication.
+        choices: ['password', 'principal-name']
+      ldap_password:
+        aliases: ['ldap-password']
+        type: raw
+        description: (list) Password for LDAP server bind.
+      ldap_server:
+        aliases: ['ldap-server']
+        type: str
+        description: Name of an LDAP server defined under the user ldap command.
+      ldap_username:
+        aliases: ['ldap-username']
+        type: str
+        description: Username for LDAP server bind.
+      mandatory_ca_verify:
+        aliases: ['mandatory-ca-verify']
+        type: str
+        description: Determine what happens to the peer if the CA certificate is not installed.
+        choices: ['disable', 'enable']
+      name:
+        type: str
+        description: Peer name.
         required: true
-    user_peer:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            ca:
-                type: str
-                description: Name of the CA certificate as returned by the execute vpn certificate ca list command.
-            cn:
-                type: str
-                description: Peer certificate common name.
-            cn_type:
-                aliases: ['cn-type']
-                type: str
-                description: Peer certificate common name type.
-                choices: ['string', 'email', 'FQDN', 'ipv4', 'ipv6']
-            ldap_mode:
-                aliases: ['ldap-mode']
-                type: str
-                description: Mode for LDAP peer authentication.
-                choices: ['password', 'principal-name']
-            ldap_password:
-                aliases: ['ldap-password']
-                type: raw
-                description: (list) Password for LDAP server bind.
-            ldap_server:
-                aliases: ['ldap-server']
-                type: str
-                description: Name of an LDAP server defined under the user ldap command.
-            ldap_username:
-                aliases: ['ldap-username']
-                type: str
-                description: Username for LDAP server bind.
-            mandatory_ca_verify:
-                aliases: ['mandatory-ca-verify']
-                type: str
-                description: Determine what happens to the peer if the CA certificate is not installed.
-                choices: ['disable', 'enable']
-            name:
-                type: str
-                description: Peer name.
-                required: true
-            ocsp_override_server:
-                aliases: ['ocsp-override-server']
-                type: str
-                description: Online Certificate Status Protocol
-            passwd:
-                type: raw
-                description: (list) Peers password used for two-factor authentication.
-            subject:
-                type: str
-                description: Peer certificate name constraints.
-            two_factor:
-                aliases: ['two-factor']
-                type: str
-                description: Enable/disable two-factor authentication, applying certificate and password-based authentication.
-                choices: ['disable', 'enable']
-            mfa_mode:
-                aliases: ['mfa-mode']
-                type: str
-                description: MFA mode for remote peer authentication/authorization.
-                choices: ['none', 'password', 'subject-identity']
-            mfa_password:
-                aliases: ['mfa-password']
-                type: raw
-                description: (list) Unified password for remote authentication.
-            mfa_server:
-                aliases: ['mfa-server']
-                type: str
-                description: Name of a remote authenticator.
-            mfa_username:
-                aliases: ['mfa-username']
-                type: str
-                description: Unified username for remote authentication.
+      ocsp_override_server:
+        aliases: ['ocsp-override-server']
+        type: str
+        description: Online Certificate Status Protocol
+      passwd:
+        type: raw
+        description: (list) Peers password used for two-factor authentication.
+      subject:
+        type: str
+        description: Peer certificate name constraints.
+      two_factor:
+        aliases: ['two-factor']
+        type: str
+        description: Enable/disable two-factor authentication, applying certificate and password-based authentication.
+        choices: ['disable', 'enable']
+      mfa_mode:
+        aliases: ['mfa-mode']
+        type: str
+        description: MFA mode for remote peer authentication/authorization.
+        choices: ['none', 'password', 'subject-identity']
+      mfa_password:
+        aliases: ['mfa-password']
+        type: raw
+        description: (list) Unified password for remote authentication.
+      mfa_server:
+        aliases: ['mfa-server']
+        type: str
+        description: Name of a remote authenticator.
+      mfa_username:
+        aliases: ['mfa-username']
+        type: str
+        description: Unified username for remote authentication.
+      checkemail:
+        type: str
+        description: Peer certificate email address.
+      checkhost:
+        type: str
+        description: Peer certificate hostname.
+      checkip:
+        type: str
+        description: Peer certificate IP address.
 '''
 
 EXAMPLES = '''
@@ -141,42 +150,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -211,7 +220,10 @@ def main():
                 'mfa-mode': {'v_range': [['7.4.1', '']], 'choices': ['none', 'password', 'subject-identity'], 'type': 'str'},
                 'mfa-password': {'v_range': [['7.4.1', '']], 'no_log': True, 'type': 'raw'},
                 'mfa-server': {'v_range': [['7.4.1', '']], 'type': 'str'},
-                'mfa-username': {'v_range': [['7.4.1', '']], 'type': 'str'}
+                'mfa-username': {'v_range': [['7.4.1', '']], 'type': 'str'},
+                'checkemail': {'v_range': [['8.0.0', '']], 'type': 'str'},
+                'checkhost': {'v_range': [['8.0.0', '']], 'type': 'str'},
+                'checkip': {'v_range': [['8.0.0', '']], 'type': 'str'}
             }
         }
     }

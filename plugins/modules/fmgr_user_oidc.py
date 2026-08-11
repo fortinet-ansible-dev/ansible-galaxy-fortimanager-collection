@@ -12,118 +12,118 @@ ANSIBLE_METADATA = {'status': ['preview'],
 DOCUMENTATION = '''
 ---
 module: fmgr_user_oidc
-short_description: User oidc
+short_description: OpenID Connect server entry configuration.
 version_added: "2.12.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  user_oidc:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      auth_method:
+        aliases: ['auth-method']
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Auth method.
+        choices: ['client_secret_basic', 'client_secret_post', 'private_key_jwt']
+      auth_type:
+        aliases: ['auth-type']
         type: str
+        description: Auth type.
+        choices: ['client-secret', 'private-key']
+      authorization_url:
+        aliases: ['authorization-url']
+        type: str
+        description: Authorization url.
+      client_id:
+        aliases: ['client-id']
+        type: str
+        description: Client id.
+      client_secret:
+        aliases: ['client-secret']
+        type: str
+        description: Client secret.
+      clock_tolerance:
+        aliases: ['clock-tolerance']
+        type: int
+        description: Clock tolerance.
+      discovery_url:
+        aliases: ['discovery-url']
+        type: str
+        description: Discovery url.
+      display_name:
+        aliases: ['display-name']
+        type: str
+        description: Display name.
+      domain_hint:
+        aliases: ['domain-hint']
+        type: str
+        description: Domain hint.
+      group_attr_name:
+        aliases: ['group-attr-name']
+        type: str
+        description: Group attr name.
+      icon_url:
+        aliases: ['icon-url']
+        type: str
+        description: Icon url.
+      issuer:
+        type: str
+        description: Issuer.
+      jwks_uri:
+        aliases: ['jwks-uri']
+        type: str
+        description: Jwks uri.
+      ldap_server:
+        aliases: ['ldap-server']
+        type: list
+        elements: str
+        description: Ldap server.
+      name:
+        type: str
+        description: Name.
         required: true
-    user_oidc:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            auth_method:
-                aliases: ['auth-method']
-                type: str
-                description: Auth method.
-                choices: ['client_secret_basic', 'client_secret_post', 'private_key_jwt']
-            auth_type:
-                aliases: ['auth-type']
-                type: str
-                description: Auth type.
-                choices: ['client-secret', 'private-key']
-            authorization_url:
-                aliases: ['authorization-url']
-                type: str
-                description: Authorization url.
-            client_id:
-                aliases: ['client-id']
-                type: str
-                description: Client id.
-            client_secret:
-                aliases: ['client-secret']
-                type: str
-                description: Client secret.
-            clock_tolerance:
-                aliases: ['clock-tolerance']
-                type: int
-                description: Clock tolerance.
-            discovery_url:
-                aliases: ['discovery-url']
-                type: str
-                description: Discovery url.
-            display_name:
-                aliases: ['display-name']
-                type: str
-                description: Display name.
-            domain_hint:
-                aliases: ['domain-hint']
-                type: str
-                description: Domain hint.
-            group_attr_name:
-                aliases: ['group-attr-name']
-                type: str
-                description: Group attr name.
-            icon_url:
-                aliases: ['icon-url']
-                type: str
-                description: Icon url.
-            issuer:
-                type: str
-                description: Issuer.
-            jwks_uri:
-                aliases: ['jwks-uri']
-                type: str
-                description: Jwks uri.
-            ldap_server:
-                aliases: ['ldap-server']
-                type: list
-                elements: str
-                description: Ldap server.
-            name:
-                type: str
-                description: Name.
-                required: true
-            private_key:
-                aliases: ['private-key']
-                type: list
-                elements: str
-                description: Private key.
-            token_url:
-                aliases: ['token-url']
-                type: str
-                description: Token url.
-            type:
-                type: str
-                description: Type.
-                choices: ['discovery', 'manual']
-            user_attr_name:
-                aliases: ['user-attr-name']
-                type: str
-                description: User attr name.
-                choices: ['email', 'sub', 'preferred_username']
-            user_regex:
-                aliases: ['user-regex']
-                type: str
-                description: User regex.
-            verify_cert:
-                aliases: ['verify-cert']
-                type: str
-                description: Verify cert.
-                choices: ['disable', 'enable']
-            verify_issuer:
-                aliases: ['verify-issuer']
-                type: str
-                description: Verify issuer.
-                choices: ['disable', 'enable']
+      private_key:
+        aliases: ['private-key']
+        type: list
+        elements: str
+        description: Private key.
+      token_url:
+        aliases: ['token-url']
+        type: str
+        description: Token url.
+      type:
+        type: str
+        description: Type.
+        choices: ['discovery', 'manual']
+      user_attr_name:
+        aliases: ['user-attr-name']
+        type: str
+        description: User attr name.
+        choices: ['email', 'sub', 'preferred_username']
+      user_regex:
+        aliases: ['user-regex']
+        type: str
+        description: User regex.
+      verify_cert:
+        aliases: ['verify-cert']
+        type: str
+        description: Verify cert.
+        choices: ['disable', 'enable']
+      verify_issuer:
+        aliases: ['verify-issuer']
+        type: str
+        description: Verify issuer.
+        choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -132,7 +132,7 @@ EXAMPLES = '''
   connection: httpapi
   gather_facts: false
   tasks:
-    - name: User oidc
+    - name: OpenID Connect server entry configuration.
       fortinet.fortimanager.fmgr_user_oidc:
         # workspace_locking_adom: <global or your adom name>
         adom: <your own value>
@@ -164,42 +164,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

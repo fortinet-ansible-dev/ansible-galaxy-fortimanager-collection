@@ -15,127 +15,127 @@ module: fmgr_switchcontroller_managedswitch_systemdhcpserver
 short_description: Configure DHCP servers.
 version_added: "2.12.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  managed-switch:
+    description: Deprecated, please use "managed_switch"
+    type: str
+  managed_switch:
+    description: The parameter (managed-switch) in requested url.
+    type: str
+  switchcontroller_managedswitch_systemdhcpserver:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      default_gateway:
+        aliases: ['default-gateway']
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Default gateway IP address assigned by the DHCP server.
+      dns_server1:
+        aliases: ['dns-server1']
         type: str
+        description: DNS server 1.
+      dns_server2:
+        aliases: ['dns-server2']
+        type: str
+        description: DNS server 2.
+      dns_server3:
+        aliases: ['dns-server3']
+        type: str
+        description: DNS server 3.
+      dns_service:
+        aliases: ['dns-service']
+        type: str
+        description: Options for assigning DNS servers to DHCP clients.
+        choices: ['default', 'specify', 'local']
+      id:
+        type: int
+        description: ID.
         required: true
-    managed-switch:
-        description: Deprecated, please use "managed_switch"
-        type: str
-    managed_switch:
-        description: The parameter (managed-switch) in requested url.
-        type: str
-    switchcontroller_managedswitch_systemdhcpserver:
-        description: The top level parameters set.
-        required: false
-        type: dict
+      interface:
+        type: list
+        elements: str
+        description: DHCP server can assign IP configurations to clients connected to this interface.
+      ip_range:
+        aliases: ['ip-range']
+        type: list
+        elements: dict
+        description: Ip range.
         suboptions:
-            default_gateway:
-                aliases: ['default-gateway']
-                type: str
-                description: Default gateway IP address assigned by the DHCP server.
-            dns_server1:
-                aliases: ['dns-server1']
-                type: str
-                description: DNS server 1.
-            dns_server2:
-                aliases: ['dns-server2']
-                type: str
-                description: DNS server 2.
-            dns_server3:
-                aliases: ['dns-server3']
-                type: str
-                description: DNS server 3.
-            dns_service:
-                aliases: ['dns-service']
-                type: str
-                description: Options for assigning DNS servers to DHCP clients.
-                choices: ['default', 'specify', 'local']
-            id:
-                type: int
-                description: ID.
-                required: true
-            interface:
-                type: list
-                elements: str
-                description: DHCP server can assign IP configurations to clients connected to this interface.
-            ip_range:
-                aliases: ['ip-range']
-                type: list
-                elements: dict
-                description: Ip range.
-                suboptions:
-                    end_ip:
-                        aliases: ['end-ip']
-                        type: str
-                        description: End of IP range.
-                    id:
-                        type: int
-                        description: ID.
-                    start_ip:
-                        aliases: ['start-ip']
-                        type: str
-                        description: Start of IP range.
-            lease_time:
-                aliases: ['lease-time']
-                type: int
-                description: Lease time in seconds, 0 means unlimited.
-            netmask:
-                type: str
-                description: Netmask assigned by the DHCP server.
-            ntp_server1:
-                aliases: ['ntp-server1']
-                type: str
-                description: NTP server 1.
-            ntp_server2:
-                aliases: ['ntp-server2']
-                type: str
-                description: NTP server 2.
-            ntp_server3:
-                aliases: ['ntp-server3']
-                type: str
-                description: NTP server 3.
-            ntp_service:
-                aliases: ['ntp-service']
-                type: str
-                description: Options for assigning Network Time Protocol
-                choices: ['default', 'specify', 'local']
-            options:
-                type: list
-                elements: dict
-                description: Options.
-                suboptions:
-                    code:
-                        type: int
-                        description: DHCP option code.
-                    id:
-                        type: int
-                        description: ID.
-                    ip:
-                        type: str
-                        description: DHCP option IPs.
-                    type:
-                        type: str
-                        description: DHCP option type.
-                        choices: ['hex', 'string', 'ip', 'fqdn']
-                    value:
-                        type: str
-                        description: DHCP option value.
-            status:
-                type: str
-                description: Enable/disable this DHCP configuration.
-                choices: ['disable', 'enable']
-            switch_id:
-                aliases: ['switch-id']
-                type: list
-                elements: str
-                description: Switch ID.
+          end_ip:
+            aliases: ['end-ip']
+            type: str
+            description: End of IP range.
+          id:
+            type: int
+            description: ID.
+          start_ip:
+            aliases: ['start-ip']
+            type: str
+            description: Start of IP range.
+      lease_time:
+        aliases: ['lease-time']
+        type: int
+        description: Lease time in seconds, 0 means unlimited.
+      netmask:
+        type: str
+        description: Netmask assigned by the DHCP server.
+      ntp_server1:
+        aliases: ['ntp-server1']
+        type: str
+        description: NTP server 1.
+      ntp_server2:
+        aliases: ['ntp-server2']
+        type: str
+        description: NTP server 2.
+      ntp_server3:
+        aliases: ['ntp-server3']
+        type: str
+        description: NTP server 3.
+      ntp_service:
+        aliases: ['ntp-service']
+        type: str
+        description: Options for assigning Network Time Protocol
+        choices: ['default', 'specify', 'local']
+      options:
+        type: list
+        elements: dict
+        description: Options.
+        suboptions:
+          code:
+            type: int
+            description: DHCP option code.
+          id:
+            type: int
+            description: ID.
+          ip:
+            type: str
+            description: DHCP option IPs.
+          type:
+            type: str
+            description: DHCP option type.
+            choices: ['hex', 'string', 'ip', 'fqdn']
+          value:
+            type: str
+            description: DHCP option value.
+      status:
+        type: str
+        description: Enable/disable this DHCP configuration.
+        choices: ['disable', 'enable']
+      switch_id:
+        aliases: ['switch-id']
+        type: list
+        elements: str
+        description: Switch ID.
 '''
 
 EXAMPLES = '''
@@ -180,42 +180,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -233,45 +233,45 @@ def main():
         'managed_switch': {'type': 'str'},
         'revision_note': {'type': 'str'},
         'switchcontroller_managedswitch_systemdhcpserver': {
-            'type': 'dict', 'v_range': [['7.6.4', '']],
+            'type': 'dict', 'v_range': [['7.6.4', '7.6.6']],
             'options': {
-                'default-gateway': {'v_range': [['7.6.4', '']], 'type': 'str'},
-                'dns-server1': {'v_range': [['7.6.4', '']], 'type': 'str'},
-                'dns-server2': {'v_range': [['7.6.4', '']], 'type': 'str'},
-                'dns-server3': {'v_range': [['7.6.4', '']], 'type': 'str'},
-                'dns-service': {'v_range': [['7.6.4', '']], 'choices': ['default', 'specify', 'local'], 'type': 'str'},
-                'id': {'v_range': [['7.6.4', '']], 'required': True, 'type': 'int'},
-                'interface': {'v_range': [['7.6.4', '']], 'type': 'list', 'elements': 'str'},
+                'default-gateway': {'v_range': [['7.6.4', '7.6.6']], 'type': 'str'},
+                'dns-server1': {'v_range': [['7.6.4', '7.6.6']], 'type': 'str'},
+                'dns-server2': {'v_range': [['7.6.4', '7.6.6']], 'type': 'str'},
+                'dns-server3': {'v_range': [['7.6.4', '7.6.6']], 'type': 'str'},
+                'dns-service': {'v_range': [['7.6.4', '7.6.6']], 'choices': ['default', 'specify', 'local'], 'type': 'str'},
+                'id': {'v_range': [['7.6.4', '7.6.6']], 'required': True, 'type': 'int'},
+                'interface': {'v_range': [['7.6.4', '7.6.6']], 'type': 'list', 'elements': 'str'},
                 'ip-range': {
-                    'v_range': [['7.6.4', '']],
+                    'v_range': [['7.6.4', '7.6.6']],
                     'type': 'list',
                     'options': {
-                        'end-ip': {'v_range': [['7.6.4', '']], 'type': 'str'},
-                        'id': {'v_range': [['7.6.4', '']], 'type': 'int'},
-                        'start-ip': {'v_range': [['7.6.4', '']], 'type': 'str'}
+                        'end-ip': {'v_range': [['7.6.4', '7.6.6']], 'type': 'str'},
+                        'id': {'v_range': [['7.6.4', '7.6.6']], 'type': 'int'},
+                        'start-ip': {'v_range': [['7.6.4', '7.6.6']], 'type': 'str'}
                     },
                     'elements': 'dict'
                 },
-                'lease-time': {'v_range': [['7.6.4', '']], 'type': 'int'},
-                'netmask': {'v_range': [['7.6.4', '']], 'type': 'str'},
-                'ntp-server1': {'v_range': [['7.6.4', '']], 'type': 'str'},
-                'ntp-server2': {'v_range': [['7.6.4', '']], 'type': 'str'},
-                'ntp-server3': {'v_range': [['7.6.4', '']], 'type': 'str'},
-                'ntp-service': {'v_range': [['7.6.4', '']], 'choices': ['default', 'specify', 'local'], 'type': 'str'},
+                'lease-time': {'v_range': [['7.6.4', '7.6.6']], 'type': 'int'},
+                'netmask': {'v_range': [['7.6.4', '7.6.6']], 'type': 'str'},
+                'ntp-server1': {'v_range': [['7.6.4', '7.6.6']], 'type': 'str'},
+                'ntp-server2': {'v_range': [['7.6.4', '7.6.6']], 'type': 'str'},
+                'ntp-server3': {'v_range': [['7.6.4', '7.6.6']], 'type': 'str'},
+                'ntp-service': {'v_range': [['7.6.4', '7.6.6']], 'choices': ['default', 'specify', 'local'], 'type': 'str'},
                 'options': {
-                    'v_range': [['7.6.4', '']],
+                    'v_range': [['7.6.4', '7.6.6']],
                     'type': 'list',
                     'options': {
-                        'code': {'v_range': [['7.6.4', '']], 'type': 'int'},
-                        'id': {'v_range': [['7.6.4', '']], 'type': 'int'},
-                        'ip': {'v_range': [['7.6.4', '']], 'type': 'str'},
-                        'type': {'v_range': [['7.6.4', '']], 'choices': ['hex', 'string', 'ip', 'fqdn'], 'type': 'str'},
-                        'value': {'v_range': [['7.6.4', '']], 'type': 'str'}
+                        'code': {'v_range': [['7.6.4', '7.6.6']], 'type': 'int'},
+                        'id': {'v_range': [['7.6.4', '7.6.6']], 'type': 'int'},
+                        'ip': {'v_range': [['7.6.4', '7.6.6']], 'type': 'str'},
+                        'type': {'v_range': [['7.6.4', '7.6.6']], 'choices': ['hex', 'string', 'ip', 'fqdn'], 'type': 'str'},
+                        'value': {'v_range': [['7.6.4', '7.6.6']], 'type': 'str'}
                     },
                     'elements': 'dict'
                 },
-                'status': {'v_range': [['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'switch-id': {'v_range': [['7.6.4', '']], 'type': 'list', 'elements': 'str'}
+                'status': {'v_range': [['7.6.4', '7.6.6']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'switch-id': {'v_range': [['7.6.4', '7.6.6']], 'type': 'list', 'elements': 'str'}
             }
         }
     }

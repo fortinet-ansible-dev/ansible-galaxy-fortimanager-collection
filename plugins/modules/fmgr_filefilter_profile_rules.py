@@ -15,54 +15,54 @@ module: fmgr_filefilter_profile_rules
 short_description: File filter rules.
 version_added: "2.1.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  profile:
+    description: The parameter (profile) in requested url.
+    type: str
+    required: true
+  filefilter_profile_rules:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      action:
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Action taken for matched file.
+        choices: ['log-only', 'block', 'warning']
+      comment:
         type: str
+        description: Comment.
+      direction:
+        type: str
+        description: Traffic direction.
+        choices: ['any', 'incoming', 'outgoing']
+      file_type:
+        aliases: ['file-type']
+        type: raw
+        description: (list) Select file type.
+      name:
+        type: str
+        description: File-filter rule name.
         required: true
-    profile:
-        description: The parameter (profile) in requested url.
+      password_protected:
+        aliases: ['password-protected']
         type: str
-        required: true
-    filefilter_profile_rules:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            action:
-                type: str
-                description: Action taken for matched file.
-                choices: ['log-only', 'block']
-            comment:
-                type: str
-                description: Comment.
-            direction:
-                type: str
-                description: Traffic direction.
-                choices: ['any', 'incoming', 'outgoing']
-            file_type:
-                aliases: ['file-type']
-                type: raw
-                description: (list) Select file type.
-            name:
-                type: str
-                description: File-filter rule name.
-                required: true
-            password_protected:
-                aliases: ['password-protected']
-                type: str
-                description: Match password-protected files.
-                choices: ['any', 'yes']
-            protocol:
-                type: list
-                elements: str
-                description: Protocols to apply rule to.
-                choices: ['imap', 'smtp', 'pop3', 'http', 'ftp', 'mapi', 'cifs', 'ssh']
+        description: Match password-protected files.
+        choices: ['any', 'yes']
+      protocol:
+        type: list
+        elements: str
+        description: Protocols to apply rule to.
+        choices: ['imap', 'smtp', 'pop3', 'http', 'ftp', 'mapi', 'cifs', 'ssh', 'websocket']
 '''
 
 EXAMPLES = '''
@@ -79,52 +79,52 @@ EXAMPLES = '''
         state: present # <value in [present, absent]>
         filefilter_profile_rules:
           name: "your value" # Required variable, string
-          # action: <value in [log-only, block]>
+          # action: <value in [log-only, block, warning]>
           # comment: <string>
           # direction: <value in [any, incoming, outgoing]>
           # file_type: <list or string>
           # password_protected: <value in [any, yes]>
-          # protocol: ["imap", "smtp", "pop3", "http", "ftp", "mapi", "cifs", "ssh"]
+          # protocol: ["imap", "smtp", "pop3", "http", "ftp", "mapi", "cifs", "ssh", "websocket"]
 '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -144,7 +144,7 @@ def main():
         'filefilter_profile_rules': {
             'type': 'dict', 'v_range': [['6.4.1', '']],
             'options': {
-                'action': {'v_range': [['6.4.1', '']], 'choices': ['log-only', 'block'], 'type': 'str'},
+                'action': {'v_range': [['6.4.1', '']], 'choices': ['log-only', 'block', 'warning'], 'type': 'str'},
                 'comment': {'v_range': [['6.4.1', '']], 'type': 'str'},
                 'direction': {'v_range': [['6.4.1', '']], 'choices': ['any', 'incoming', 'outgoing'], 'type': 'str'},
                 'file-type': {'v_range': [['6.4.1', '']], 'type': 'raw'},
@@ -153,7 +153,7 @@ def main():
                 'protocol': {
                     'v_range': [['6.4.1', '']],
                     'type': 'list',
-                    'choices': ['imap', 'smtp', 'pop3', 'http', 'ftp', 'mapi', 'cifs', 'ssh'],
+                    'choices': ['imap', 'smtp', 'pop3', 'http', 'ftp', 'mapi', 'cifs', 'ssh', 'websocket'],
                     'elements': 'str'
                 }
             }

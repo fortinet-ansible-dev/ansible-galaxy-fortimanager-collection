@@ -12,94 +12,94 @@ ANSIBLE_METADATA = {'status': ['preview'],
 DOCUMENTATION = '''
 ---
 module: fmgr_ztna_serviceconnector
-short_description: Ztna service connector
+short_description: Configure ZTNA service connector.
 version_added: "2.12.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  ztna_serviceconnector:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      certificate:
+        type: list
+        elements: str
+        description: Certificate.
+      connection_mode:
+        aliases: ['connection-mode']
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Connection mode.
+        choices: ['forward', 'reverse']
+      encryption:
         type: str
+        description: Encryption.
+        choices: ['disable', 'enable']
+      forward_address:
+        aliases: ['forward-address']
+        type: str
+        description: Forward address.
+      forward_destination_cn:
+        aliases: ['forward-destination-cn']
+        type: str
+        description: Forward destination cn.
+      forward_port:
+        aliases: ['forward-port']
+        type: int
+        description: Forward port.
+      health_check_interval:
+        aliases: ['health-check-interval']
+        type: int
+        description: Health check interval.
+      log:
+        type: str
+        description: Log.
+        choices: ['disable', 'enable']
+      name:
+        type: str
+        description: Name.
         required: true
-    ztna_serviceconnector:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            certificate:
-                type: list
-                elements: str
-                description: Certificate.
-            connection_mode:
-                aliases: ['connection-mode']
-                type: str
-                description: Connection mode.
-                choices: ['forward', 'reverse']
-            encryption:
-                type: str
-                description: Encryption.
-                choices: ['disable', 'enable']
-            forward_address:
-                aliases: ['forward-address']
-                type: str
-                description: Forward address.
-            forward_destination_cn:
-                aliases: ['forward-destination-cn']
-                type: str
-                description: Forward destination cn.
-            forward_port:
-                aliases: ['forward-port']
-                type: int
-                description: Forward port.
-            health_check_interval:
-                aliases: ['health-check-interval']
-                type: int
-                description: Health check interval.
-            log:
-                type: str
-                description: Log.
-                choices: ['disable', 'enable']
-            name:
-                type: str
-                description: Name.
-                required: true
-            relay_dev_info:
-                aliases: ['relay-dev-info']
-                type: str
-                description: Relay dev info.
-                choices: ['disable', 'enable']
-            relay_user_info:
-                aliases: ['relay-user-info']
-                type: str
-                description: Relay user info.
-                choices: ['disable', 'enable']
-            ssl_max_version:
-                aliases: ['ssl-max-version']
-                type: str
-                description: Ssl max version.
-                choices: ['ssl-3.0', 'tls-1.0', 'tls-1.1', 'tls-1.2', 'tls-1.3']
-            ssl_min_version:
-                aliases: ['ssl-min-version']
-                type: str
-                description: Ssl min version.
-                choices: ['ssl-3.0', 'tls-1.0', 'tls-1.1', 'tls-1.2', 'tls-1.3']
-            status:
-                type: str
-                description: Status.
-                choices: ['disable', 'enable']
-            trusted_ca:
-                aliases: ['trusted-ca']
-                type: list
-                elements: str
-                description: Trusted ca.
-            url_map:
-                aliases: ['url-map']
-                type: str
-                description: Url map.
+      relay_dev_info:
+        aliases: ['relay-dev-info']
+        type: str
+        description: Relay dev info.
+        choices: ['disable', 'enable']
+      relay_user_info:
+        aliases: ['relay-user-info']
+        type: str
+        description: Relay user info.
+        choices: ['disable', 'enable']
+      ssl_max_version:
+        aliases: ['ssl-max-version']
+        type: str
+        description: Ssl max version.
+        choices: ['ssl-3.0', 'tls-1.0', 'tls-1.1', 'tls-1.2', 'tls-1.3']
+      ssl_min_version:
+        aliases: ['ssl-min-version']
+        type: str
+        description: Ssl min version.
+        choices: ['ssl-3.0', 'tls-1.0', 'tls-1.1', 'tls-1.2', 'tls-1.3']
+      status:
+        type: str
+        description: Status.
+        choices: ['disable', 'enable']
+      trusted_ca:
+        aliases: ['trusted-ca']
+        type: list
+        elements: str
+        description: Trusted ca.
+      url_map:
+        aliases: ['url-map']
+        type: str
+        description: Url map.
 '''
 
 EXAMPLES = '''
@@ -108,7 +108,7 @@ EXAMPLES = '''
   connection: httpapi
   gather_facts: false
   tasks:
-    - name: Ztna service connector
+    - name: Configure ZTNA service connector.
       fortinet.fortimanager.fmgr_ztna_serviceconnector:
         # workspace_locking_adom: <global or your adom name>
         adom: <your own value>
@@ -134,42 +134,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

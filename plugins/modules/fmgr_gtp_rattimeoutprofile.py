@@ -15,65 +15,113 @@ module: fmgr_gtp_rattimeoutprofile
 short_description: RAT timeout profile
 version_added: "2.10.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  gtp_rattimeoutprofile:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      eutran_timeout:
+        aliases: ['eutran-timeout']
+        type: int
+        description: Established eutran timeout in seconds
+      gan_timeout:
+        aliases: ['gan-timeout']
+        type: int
+        description: Established gan timeout in seconds
+      geran_timeout:
+        aliases: ['geran-timeout']
+        type: int
+        description: Established geran timeout in seconds
+      hspa_timeout:
+        aliases: ['hspa-timeout']
+        type: int
+        description: Established hspa timeout in seconds
+      ltem_timeout:
+        aliases: ['ltem-timeout']
+        type: int
+        description: Established ltem timeout in seconds
+      name:
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
-        type: str
+        description: RAT timeout profile name.
         required: true
-    gtp_rattimeoutprofile:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            eutran_timeout:
-                aliases: ['eutran-timeout']
-                type: int
-                description: Established eutran timeout in seconds
-            gan_timeout:
-                aliases: ['gan-timeout']
-                type: int
-                description: Established gan timeout in seconds
-            geran_timeout:
-                aliases: ['geran-timeout']
-                type: int
-                description: Established geran timeout in seconds
-            hspa_timeout:
-                aliases: ['hspa-timeout']
-                type: int
-                description: Established hspa timeout in seconds
-            ltem_timeout:
-                aliases: ['ltem-timeout']
-                type: int
-                description: Established ltem timeout in seconds
-            name:
-                type: str
-                description: RAT timeout profile name.
-                required: true
-            nbiot_timeout:
-                aliases: ['nbiot-timeout']
-                type: int
-                description: Established nbiot timeout in seconds
-            nr_timeout:
-                aliases: ['nr-timeout']
-                type: int
-                description: Established nr timeout in seconds
-            utran_timeout:
-                aliases: ['utran-timeout']
-                type: int
-                description: Established utran timeout in seconds
-            virtual_timeout:
-                aliases: ['virtual-timeout']
-                type: int
-                description: Established virtual timeout in seconds
-            wlan_timeout:
-                aliases: ['wlan-timeout']
-                type: int
-                description: Established wlan timeout in seconds
+      nbiot_timeout:
+        aliases: ['nbiot-timeout']
+        type: int
+        description: Established nbiot timeout in seconds
+      nr_timeout:
+        aliases: ['nr-timeout']
+        type: int
+        description: Established nr timeout in seconds
+      utran_timeout:
+        aliases: ['utran-timeout']
+        type: int
+        description: Established utran timeout in seconds
+      virtual_timeout:
+        aliases: ['virtual-timeout']
+        type: int
+        description: Established virtual timeout in seconds
+      wlan_timeout:
+        aliases: ['wlan-timeout']
+        type: int
+        description: Established wlan timeout in seconds
+      ltem_geo_timeout:
+        aliases: ['ltem-geo-timeout']
+        type: int
+        description: Established ltem-geo timeout in seconds
+      ltem_leo_timeout:
+        aliases: ['ltem-leo-timeout']
+        type: int
+        description: Established ltem-leo timeout in seconds
+      ltem_meo_timeout:
+        aliases: ['ltem-meo-timeout']
+        type: int
+        description: Established ltem-meo timeout in seconds
+      ltem_othersat_timeout:
+        aliases: ['ltem-othersat-timeout']
+        type: int
+        description: Established ltem-othersat timeout in seconds
+      nbiot_geo_timeout:
+        aliases: ['nbiot-geo-timeout']
+        type: int
+        description: Established nbiot-geo timeout in seconds
+      nbiot_leo_timeout:
+        aliases: ['nbiot-leo-timeout']
+        type: int
+        description: Established nbiot-leo timeout in seconds
+      nbiot_meo_timeout:
+        aliases: ['nbiot-meo-timeout']
+        type: int
+        description: Established nbiot-meo timeout in seconds
+      nbiot_othersat_timeout:
+        aliases: ['nbiot-othersat-timeout']
+        type: int
+        description: Established nbiot-othersat timeout in seconds
+      wb_eutran_geo_timeout:
+        aliases: ['wb-eutran-geo-timeout']
+        type: int
+        description: Established wb-eutran-geo timeout in seconds
+      wb_eutran_leo_timeout:
+        aliases: ['wb-eutran-leo-timeout']
+        type: int
+        description: Established wb-eutran-leo timeout in seconds
+      wb_eutran_meo_timeout:
+        aliases: ['wb-eutran-meo-timeout']
+        type: int
+        description: Established wb-eutran-meo timeout in seconds
+      wb_eutran_othersat_timeout:
+        aliases: ['wb-eutran-othersat-timeout']
+        type: int
+        description: Established wb-eutran-othersat timeout in seconds
 '''
 
 EXAMPLES = '''
@@ -99,46 +147,58 @@ EXAMPLES = '''
           # utran_timeout: <integer>
           # virtual_timeout: <integer>
           # wlan_timeout: <integer>
+          # ltem_geo_timeout: <integer>
+          # ltem_leo_timeout: <integer>
+          # ltem_meo_timeout: <integer>
+          # ltem_othersat_timeout: <integer>
+          # nbiot_geo_timeout: <integer>
+          # nbiot_leo_timeout: <integer>
+          # nbiot_meo_timeout: <integer>
+          # nbiot_othersat_timeout: <integer>
+          # wb_eutran_geo_timeout: <integer>
+          # wb_eutran_leo_timeout: <integer>
+          # wb_eutran_meo_timeout: <integer>
+          # wb_eutran_othersat_timeout: <integer>
 '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -155,19 +215,31 @@ def main():
         'adom': {'required': True, 'type': 'str'},
         'revision_note': {'type': 'str'},
         'gtp_rattimeoutprofile': {
-            'type': 'dict', 'v_range': [['7.4.7', '7.4.10'], ['7.6.4', '']],
+            'type': 'dict', 'v_range': [['7.4.7', '7.4.11'], ['7.6.4', '']],
             'options': {
-                'eutran-timeout': {'v_range': [['7.4.7', '7.4.10'], ['7.6.4', '']], 'type': 'int'},
-                'gan-timeout': {'v_range': [['7.4.7', '7.4.10'], ['7.6.4', '']], 'type': 'int'},
-                'geran-timeout': {'v_range': [['7.4.7', '7.4.10'], ['7.6.4', '']], 'type': 'int'},
-                'hspa-timeout': {'v_range': [['7.4.7', '7.4.10'], ['7.6.4', '']], 'type': 'int'},
-                'ltem-timeout': {'v_range': [['7.4.7', '7.4.10'], ['7.6.4', '']], 'type': 'int'},
-                'name': {'v_range': [['7.4.7', '7.4.10'], ['7.6.4', '']], 'required': True, 'type': 'str'},
-                'nbiot-timeout': {'v_range': [['7.4.7', '7.4.10'], ['7.6.4', '']], 'type': 'int'},
-                'nr-timeout': {'v_range': [['7.4.7', '7.4.10'], ['7.6.4', '']], 'type': 'int'},
-                'utran-timeout': {'v_range': [['7.4.7', '7.4.10'], ['7.6.4', '']], 'type': 'int'},
-                'virtual-timeout': {'v_range': [['7.4.7', '7.4.10'], ['7.6.4', '']], 'type': 'int'},
-                'wlan-timeout': {'v_range': [['7.4.7', '7.4.10'], ['7.6.4', '']], 'type': 'int'}
+                'eutran-timeout': {'v_range': [['7.4.7', '7.4.11'], ['7.6.4', '']], 'type': 'int'},
+                'gan-timeout': {'v_range': [['7.4.7', '7.4.11'], ['7.6.4', '']], 'type': 'int'},
+                'geran-timeout': {'v_range': [['7.4.7', '7.4.11'], ['7.6.4', '']], 'type': 'int'},
+                'hspa-timeout': {'v_range': [['7.4.7', '7.4.11'], ['7.6.4', '']], 'type': 'int'},
+                'ltem-timeout': {'v_range': [['7.4.7', '7.4.11'], ['7.6.4', '']], 'type': 'int'},
+                'name': {'v_range': [['7.4.7', '7.4.11'], ['7.6.4', '']], 'required': True, 'type': 'str'},
+                'nbiot-timeout': {'v_range': [['7.4.7', '7.4.11'], ['7.6.4', '']], 'type': 'int'},
+                'nr-timeout': {'v_range': [['7.4.7', '7.4.11'], ['7.6.4', '']], 'type': 'int'},
+                'utran-timeout': {'v_range': [['7.4.7', '7.4.11'], ['7.6.4', '']], 'type': 'int'},
+                'virtual-timeout': {'v_range': [['7.4.7', '7.4.11'], ['7.6.4', '']], 'type': 'int'},
+                'wlan-timeout': {'v_range': [['7.4.7', '7.4.11'], ['7.6.4', '']], 'type': 'int'},
+                'ltem-geo-timeout': {'v_range': [['8.0.0', '']], 'type': 'int'},
+                'ltem-leo-timeout': {'v_range': [['8.0.0', '']], 'type': 'int'},
+                'ltem-meo-timeout': {'v_range': [['8.0.0', '']], 'type': 'int'},
+                'ltem-othersat-timeout': {'v_range': [['8.0.0', '']], 'type': 'int'},
+                'nbiot-geo-timeout': {'v_range': [['8.0.0', '']], 'type': 'int'},
+                'nbiot-leo-timeout': {'v_range': [['8.0.0', '']], 'type': 'int'},
+                'nbiot-meo-timeout': {'v_range': [['8.0.0', '']], 'type': 'int'},
+                'nbiot-othersat-timeout': {'v_range': [['8.0.0', '']], 'type': 'int'},
+                'wb-eutran-geo-timeout': {'v_range': [['8.0.0', '']], 'type': 'int'},
+                'wb-eutran-leo-timeout': {'v_range': [['8.0.0', '']], 'type': 'int'},
+                'wb-eutran-meo-timeout': {'v_range': [['8.0.0', '']], 'type': 'int'},
+                'wb-eutran-othersat-timeout': {'v_range': [['8.0.0', '']], 'type': 'int'}
             }
         }
     }

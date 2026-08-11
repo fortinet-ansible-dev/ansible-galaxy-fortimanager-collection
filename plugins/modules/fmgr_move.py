@@ -14,205 +14,208 @@ DOCUMENTATION = '''
 module: fmgr_move
 short_description: Move fortimanager defined Object.
 description:
-    - This module is able to configure a FortiManager device.
-    - Examples include all parameters and values which need to be adjusted to data sources before usage.
+  - This module is able to configure a FortiManager device.
+  - Examples include all parameters and values which need to be adjusted to data sources before usage.
 version_added: "2.0.0"
 author:
-    - Xinwei Du (@dux-fortinet)
-    - Xing Li (@lix-fortinet)
-    - Jie Xue (@JieX19)
-    - Link Zheng (@chillancezen)
-    - Frank Shen (@fshen01)
-    - Hongbin Lu (@fgtdev-hblu)
+  - Xinwei Du (@dux-fortinet)
+  - Xing Li (@lix-fortinet)
+  - Jie Xue (@JieX19)
+  - Link Zheng (@chillancezen)
+  - Frank Shen (@fshen01)
+  - Hongbin Lu (@fgtdev-hblu)
 notes:
-    - Running in workspace locking mode is supported in this FortiManager module, the top
-      level parameters workspace_locking_adom and workspace_locking_timeout help do the work.
-    - Normally, running one module can fail when a non-zero rc is returned. you can also override
-      the conditions to fail or succeed with parameters rc_failed and rc_succeeded
+  - Running in workspace locking mode is supported in this FortiManager module, the top
+    level parameters workspace_locking_adom and workspace_locking_timeout help do the work.
+  - Normally, running one module can fail when a non-zero rc is returned. you can also override
+    the conditions to fail or succeed with parameters rc_failed and rc_succeeded
 options:
-    access_token:
-        description: The token to access FortiManager without using username and password.
-        required: false
-        type: str
-    enable_log:
-        description: Enable/Disable logging for task.
-        required: false
-        type: bool
-        default: false
-    forticloud_access_token:
-        description: Access token of forticloud managed API users, this option is available with FortiManager later than 6.4.0.
-        required: false
-        type: str
-    workspace_locking_adom:
-        description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
-        required: false
-        type: str
-    workspace_locking_timeout:
-        description: The maximum time in seconds to wait for other user to release the workspace lock.
-        required: false
-        type: int
-        default: 300
-    rc_succeeded:
-        description: The rc codes list with which the conditions to succeed will be overriden.
-        type: list
-        required: false
-        elements: int
-    rc_failed:
-        description: The rc codes list with which the conditions to fail will be overriden.
-        type: list
-        required: false
-        elements: int
-    move:
-        description: Reorder Two Objects.
-        type: dict
+  access_token:
+    description: The token to access FortiManager without using username and password.
+    required: false
+    type: str
+  enable_log:
+    description: Enable/Disable logging for task.
+    required: false
+    type: bool
+    default: false
+  forticloud_access_token:
+    description: Access token of forticloud managed API users, this option is available with FortiManager later than 6.4.0.
+    required: false
+    type: str
+  workspace_locking_adom:
+    description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
+    required: false
+    type: str
+  workspace_locking_timeout:
+    description: The maximum time in seconds to wait for other user to release the workspace lock.
+    required: false
+    type: int
+    default: 300
+  rc_succeeded:
+    description: The rc codes list with which the conditions to succeed will be overriden.
+    type: list
+    required: false
+    elements: int
+  rc_failed:
+    description: The rc codes list with which the conditions to fail will be overriden.
+    type: list
+    required: false
+    elements: int
+  move:
+    description: Reorder Two Objects.
+    type: dict
+    required: true
+    suboptions:
+      action:
         required: true
-        suboptions:
-            action:
-                required: true
-                description: Direction to indicate where to move an object entry.
-                type: str
-                choices:
-                    - after
-                    - before
-            selector:
-                required: true
-                description: Selector of the move object.
-                type: str
-                choices:
-                    - 'apcfgprofile_commandlist'
-                    - 'application_casi_profile_entries'
-                    - 'application_list_defaultnetworkservices'
-                    - 'application_list_entries'
-                    - 'application_list_entries_parameters'
-                    - 'bonjourprofile_policylist'
-                    - 'casb_profile'
-                    - 'casb_saasapplication'
-                    - 'casb_useractivity'
-                    - 'cifs_profile_filefilter_entries'
-                    - 'dlp_dictionary_entries'
-                    - 'dlp_exactdatamatch_columns'
-                    - 'dlp_filepattern_entries'
-                    - 'dlp_label_entries'
-                    - 'dlp_profile_rule'
-                    - 'dlp_sensor_entries'
-                    - 'dlp_sensor_filter'
-                    - 'dnsfilter_domainfilter_entries'
-                    - 'dnsfilter_urlfilter_entries'
-                    - 'emailfilter_blockallowlist_entries'
-                    - 'emailfilter_bwl_entries'
-                    - 'emailfilter_bword_entries'
-                    - 'emailfilter_profile_filefilter_entries'
-                    - 'endpointcontrol_fctems'
-                    - 'extendercontroller_extenderprofile_cellular_smsnotification_receiver'
-                    - 'extendercontroller_extenderprofile_lanextension_backhaul'
-                    - 'extensioncontroller_extenderprofile_cellular_smsnotification_receiver'
-                    - 'extensioncontroller_extenderprofile_lanextension_backhaul'
-                    - 'filefilter_profile_rules'
-                    - 'firewall_accessproxy'
-                    - 'firewall_accessproxy6'
-                    - 'firewall_accessproxysshclientcert'
-                    - 'firewall_accessproxyvirtualhost'
-                    - 'firewall_carrierendpointbwl_entries'
-                    - 'firewall_casbprofile'
-                    - 'firewall_identitybasedroute'
-                    - 'firewall_profileprotocoloptions_cifs_filefilter_entries'
-                    - 'firewall_service_category'
-                    - 'firewall_service_custom'
-                    - 'firewall_shapingprofile_classes'
-                    - 'firewall_shapingprofile_shapingentries'
-                    - 'firewall_vip'
-                    - 'firewall_vip6'
-                    - 'ips_sensor_entries'
-                    - 'ips_sensor_filter'
-                    - 'isolator_profile_entries'
-                    - 'mpskprofile_mpskgroup'
-                    - 'mpskprofile_mpskgroup_mpskkey'
-                    - 'pkg_authentication_rule'
-                    - 'pkg_central_dnat'
-                    - 'pkg_central_dnat6'
-                    - 'pkg_firewall_acl'
-                    - 'pkg_firewall_acl6'
-                    - 'pkg_firewall_centralsnatmap'
-                    - 'pkg_firewall_consolidated_policy'
-                    - 'pkg_firewall_dospolicy'
-                    - 'pkg_firewall_dospolicy6'
-                    - 'pkg_firewall_explicitproxypolicy'
-                    - 'pkg_firewall_explicitproxypolicy_identitybasedpolicy'
-                    - 'pkg_firewall_hyperscalepolicy'
-                    - 'pkg_firewall_hyperscalepolicy46'
-                    - 'pkg_firewall_hyperscalepolicy6'
-                    - 'pkg_firewall_hyperscalepolicy64'
-                    - 'pkg_firewall_interfacepolicy'
-                    - 'pkg_firewall_interfacepolicy6'
-                    - 'pkg_firewall_localinpolicy'
-                    - 'pkg_firewall_localinpolicy6'
-                    - 'pkg_firewall_multicastpolicy'
-                    - 'pkg_firewall_multicastpolicy6'
-                    - 'pkg_firewall_policy'
-                    - 'pkg_firewall_policy46'
-                    - 'pkg_firewall_policy6'
-                    - 'pkg_firewall_policy64'
-                    - 'pkg_firewall_proxypolicy'
-                    - 'pkg_firewall_responseshapingpolicy'
-                    - 'pkg_firewall_securitypolicy'
-                    - 'pkg_firewall_shapingpolicy'
-                    - 'pkg_user_nacpolicy'
-                    - 'pm_config_pblock_firewall_consolidated_policy'
-                    - 'pm_config_pblock_firewall_policy'
-                    - 'pm_config_pblock_firewall_policy6'
-                    - 'pm_config_pblock_firewall_proxypolicy'
-                    - 'pm_config_pblock_firewall_securitypolicy'
-                    - 'spamfilter_bwl_entries'
-                    - 'spamfilter_bword_entries'
-                    - 'sshfilter_profile_filefilter_entries'
-                    - 'sshfilter_profile_shellcommands'
-                    - 'switchcontroller_dynamicportpolicy_policy'
-                    - 'switchcontroller_managedswitch'
-                    - 'system_externalresource'
-                    - 'system_sdnconnector_compartmentlist'
-                    - 'system_sdnconnector_externalaccountlist'
-                    - 'system_sdnconnector_externalip'
-                    - 'system_sdnconnector_forwardingrule'
-                    - 'system_sdnconnector_gcpprojectlist'
-                    - 'system_sdnconnector_nic'
-                    - 'system_sdnconnector_nic_ip'
-                    - 'system_sdnconnector_ociregionlist'
-                    - 'system_sdnconnector_route'
-                    - 'system_sdnconnector_routetable'
-                    - 'system_sdnconnector_routetable_route'
-                    - 'user_deviceaccesslist_devicelist'
-                    - 'vap_vlanname'
-                    - 'videofilter_profile_filters'
-                    - 'videofilter_profile_fortiguardcategory_filters'
-                    - 'videofilter_youtubechannelfilter_entries'
-                    - 'vpn_ipsec_fec_mappings'
-                    - 'vpn_kmipserver_serverlist'
-                    - 'vpn_ssl_settings_authenticationrule'
-                    - 'vpnsslweb_portal_bookmarkgroup'
-                    - 'vpnsslweb_portal_bookmarkgroup_bookmarks'
-                    - 'vpnsslweb_portal_splitdns'
-                    - 'wanprof_system_sdwan_members'
-                    - 'wanprof_system_sdwan_service'
-                    - 'wanprof_system_sdwan_service_sla'
-                    - 'wanprof_system_sdwan_zone'
-                    - 'wanprof_system_virtualwanlink_members'
-                    - 'wanprof_system_virtualwanlink_service'
-                    - 'wanprof_system_virtualwanlink_service_sla'
-                    - 'webfilter_contentheader_entries'
-                    - 'webfilter_profile_filefilter_entries'
-                    - 'webfilter_urlfilter_entries'
-                    - 'webproxy_redirectprofile_entries'
-                    - 'wireless_accesscontrollist_layer3ipv4rules'
-                    - 'wireless_accesscontrollist_layer3ipv6rules'
-                    - 'ztna_webportalbookmark_bookmarks'
-            self:
-                required: true
-                description: The parameter for each selector.
-                type: dict
-            target:
-                required: true
-                description: Key to the target entry.
-                type: str
+        description: Direction to indicate where to move an object entry.
+        type: str
+        choices:
+          - after
+          - before
+      selector:
+        required: true
+        description: Selector of the move object.
+        type: str
+        choices:
+          - 'apcfgprofile_commandlist'
+          - 'application_casi_profile_entries'
+          - 'application_list_defaultnetworkservices'
+          - 'application_list_entries'
+          - 'application_list_entries_parameters'
+          - 'bonjourprofile_policylist'
+          - 'casb_profile'
+          - 'casb_saasapplication'
+          - 'casb_useractivity'
+          - 'cifs_profile_filefilter_entries'
+          - 'dlp_dictionary_entries'
+          - 'dlp_exactdatamatch_columns'
+          - 'dlp_filepattern_entries'
+          - 'dlp_label_entries'
+          - 'dlp_profile_rule'
+          - 'dlp_sensor_entries'
+          - 'dlp_sensor_filter'
+          - 'dnsfilter_domainfilter_entries'
+          - 'dnsfilter_urlfilter_entries'
+          - 'emailfilter_blockallowlist_entries'
+          - 'emailfilter_bwl_entries'
+          - 'emailfilter_bword_entries'
+          - 'emailfilter_profile_filefilter_entries'
+          - 'endpointcontrol_fctems'
+          - 'extendercontroller_extenderprofile_cellular_smsnotification_receiver'
+          - 'extendercontroller_extenderprofile_lanextension_backhaul'
+          - 'extensioncontroller_extenderprofile_cellular_smsnotification_receiver'
+          - 'extensioncontroller_extenderprofile_lanextension_backhaul'
+          - 'filefilter_profile_rules'
+          - 'firewall_accessproxy'
+          - 'firewall_accessproxy6'
+          - 'firewall_accessproxysshclientcert'
+          - 'firewall_accessproxyvirtualhost'
+          - 'firewall_carrierendpointbwl_entries'
+          - 'firewall_casbprofile'
+          - 'firewall_identitybasedroute'
+          - 'firewall_profileprotocoloptions_cifs_filefilter_entries'
+          - 'firewall_service_category'
+          - 'firewall_service_custom'
+          - 'firewall_shapingprofile_classes'
+          - 'firewall_shapingprofile_shapingentries'
+          - 'firewall_vip'
+          - 'firewall_vip6'
+          - 'ips_sensor_entries'
+          - 'ips_sensor_filter'
+          - 'isolator_profile_entries'
+          - 'mpskprofile_mpskgroup'
+          - 'mpskprofile_mpskgroup_mpskkey'
+          - 'pkg_authentication_rule'
+          - 'pkg_central_dnat'
+          - 'pkg_central_dnat6'
+          - 'pkg_firewall_acl'
+          - 'pkg_firewall_acl6'
+          - 'pkg_firewall_centralsnatmap'
+          - 'pkg_firewall_consolidated_policy'
+          - 'pkg_firewall_dospolicy'
+          - 'pkg_firewall_dospolicy6'
+          - 'pkg_firewall_explicitproxypolicy'
+          - 'pkg_firewall_explicitproxypolicy_identitybasedpolicy'
+          - 'pkg_firewall_hyperscalepolicy'
+          - 'pkg_firewall_hyperscalepolicy46'
+          - 'pkg_firewall_hyperscalepolicy6'
+          - 'pkg_firewall_hyperscalepolicy64'
+          - 'pkg_firewall_interfacepolicy'
+          - 'pkg_firewall_interfacepolicy6'
+          - 'pkg_firewall_localinpolicy'
+          - 'pkg_firewall_localinpolicy6'
+          - 'pkg_firewall_multicastpolicy'
+          - 'pkg_firewall_multicastpolicy6'
+          - 'pkg_firewall_policy'
+          - 'pkg_firewall_policy46'
+          - 'pkg_firewall_policy6'
+          - 'pkg_firewall_policy64'
+          - 'pkg_firewall_proxypolicy'
+          - 'pkg_firewall_responseshapingpolicy'
+          - 'pkg_firewall_securitypolicy'
+          - 'pkg_firewall_shapingpolicy'
+          - 'pkg_user_nacpolicy'
+          - 'pm_config_pblock_firewall_consolidated_policy'
+          - 'pm_config_pblock_firewall_localinpolicy'
+          - 'pm_config_pblock_firewall_localinpolicy6'
+          - 'pm_config_pblock_firewall_policy'
+          - 'pm_config_pblock_firewall_policy6'
+          - 'pm_config_pblock_firewall_proxypolicy'
+          - 'pm_config_pblock_firewall_securitypolicy'
+          - 'spamfilter_bwl_entries'
+          - 'spamfilter_bword_entries'
+          - 'sshfilter_profile_filefilter_entries'
+          - 'sshfilter_profile_shellcommands'
+          - 'switchcontroller_dynamicportpolicy_policy'
+          - 'switchcontroller_managedswitch'
+          - 'system_externalresource'
+          - 'system_sdnconnector_compartmentlist'
+          - 'system_sdnconnector_externalaccountlist'
+          - 'system_sdnconnector_externalip'
+          - 'system_sdnconnector_forwardingrule'
+          - 'system_sdnconnector_gcpprojectlist'
+          - 'system_sdnconnector_nic'
+          - 'system_sdnconnector_nic_ip'
+          - 'system_sdnconnector_ociregionlist'
+          - 'system_sdnconnector_route'
+          - 'system_sdnconnector_routetable'
+          - 'system_sdnconnector_routetable_route'
+          - 'user_deviceaccesslist_devicelist'
+          - 'vap_vlanname'
+          - 'videofilter_profile_filters'
+          - 'videofilter_profile_fortiguardcategory_filters'
+          - 'videofilter_youtubechannelfilter_entries'
+          - 'vpn_ipsec_fec_mappings'
+          - 'vpn_ipsec_fec_mappings_tos'
+          - 'vpn_kmipserver_serverlist'
+          - 'vpn_ssl_settings_authenticationrule'
+          - 'vpnsslweb_portal_bookmarkgroup'
+          - 'vpnsslweb_portal_bookmarkgroup_bookmarks'
+          - 'vpnsslweb_portal_splitdns'
+          - 'wanprof_system_sdwan_members'
+          - 'wanprof_system_sdwan_service'
+          - 'wanprof_system_sdwan_service_sla'
+          - 'wanprof_system_sdwan_zone'
+          - 'wanprof_system_virtualwanlink_members'
+          - 'wanprof_system_virtualwanlink_service'
+          - 'wanprof_system_virtualwanlink_service_sla'
+          - 'webfilter_contentheader_entries'
+          - 'webfilter_profile_filefilter_entries'
+          - 'webfilter_urlfilter_entries'
+          - 'webproxy_redirectprofile_entries'
+          - 'wireless_accesscontrollist_layer3ipv4rules'
+          - 'wireless_accesscontrollist_layer3ipv6rules'
+          - 'ztna_webportalbookmark_bookmarks'
+      self:
+        required: true
+        description: The parameter for each selector.
+        type: dict
+      target:
+        required: true
+        description: Key to the target entry.
+        type: str
 '''
 
 EXAMPLES = '''
@@ -237,42 +240,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 
 from ansible.module_utils.basic import AnsibleModule
@@ -373,7 +376,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/dlp/exact-data-match/{exact-data-match}/columns/{columns}',
                 '/pm/config/global/obj/dlp/exact-data-match/{exact-data-match}/columns/{columns}'
             ],
-            'v_range': [['7.4.7', '7.4.10'], ['7.6.3', '']]
+            'v_range': [['7.4.7', '7.4.11'], ['7.6.3', '']]
         },
         'dlp_filepattern_entries': {
             'params': ['adom', 'entries', 'filepattern'],
@@ -442,7 +445,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/emailfilter/bwl/{bwl}/entries/{entries}',
                 '/pm/config/global/obj/emailfilter/bwl/{bwl}/entries/{entries}'
             ],
-            'v_range': [['6.2.0', '']]
+            'v_range': [['6.2.0', '7.6.7']]
         },
         'emailfilter_bword_entries': {
             'params': ['adom', 'bword', 'entries'],
@@ -569,7 +572,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/firewall/profile-protocol-options/{profile-protocol-options}/cifs/file-filter/entries/{entries}',
                 '/pm/config/global/obj/firewall/profile-protocol-options/{profile-protocol-options}/cifs/file-filter/entries/{entries}'
             ],
-            'v_range': [['6.4.2', '']]
+            'v_range': [['6.4.2', '7.6.7']]
         },
         'firewall_service_category': {
             'params': ['adom', 'category'],
@@ -591,7 +594,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/firewall/shaping-profile/{shaping-profile}/classes/{classes}',
                 '/pm/config/global/obj/firewall/shaping-profile/{shaping-profile}/classes/{classes}'
             ],
-            'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']]
+            'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']]
         },
         'firewall_shapingprofile_shapingentries': {
             'params': ['adom', 'shaping-entries', 'shaping-profile'],
@@ -731,14 +734,14 @@ def main():
             'urls': [
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/hyperscale-policy/{hyperscale-policy}'
             ],
-            'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '']]
+            'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '7.6.7']]
         },
         'pkg_firewall_hyperscalepolicy46': {
             'params': ['adom', 'hyperscale-policy46', 'pkg'],
             'urls': [
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/hyperscale-policy46/{hyperscale-policy46}'
             ],
-            'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '']]
+            'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '7.6.7']]
         },
         'pkg_firewall_hyperscalepolicy6': {
             'params': ['adom', 'hyperscale-policy6', 'pkg'],
@@ -752,7 +755,7 @@ def main():
             'urls': [
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/hyperscale-policy64/{hyperscale-policy64}'
             ],
-            'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '']]
+            'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '7.6.7']]
         },
         'pkg_firewall_interfacepolicy': {
             'params': ['adom', 'interface-policy', 'pkg'],
@@ -828,7 +831,7 @@ def main():
             'urls': [
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/response-shaping-policy/{response-shaping-policy}'
             ],
-            'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']]
+            'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']]
         },
         'pkg_firewall_securitypolicy': {
             'params': ['adom', 'pkg', 'security-policy'],
@@ -856,6 +859,20 @@ def main():
                 '/pm/config/adom/{adom}/pblock/{pblock}/firewall/consolidated/policy/{policy}'
             ],
             'v_range': [['7.0.3', '7.6.2']]
+        },
+        'pm_config_pblock_firewall_localinpolicy': {
+            'params': ['adom', 'local-in-policy', 'pblock'],
+            'urls': [
+                '/pm/config/adom/{adom}/pblock/{pblock}/firewall/local-in-policy/{local-in-policy}'
+            ],
+            'v_range': [['8.0.0', '']]
+        },
+        'pm_config_pblock_firewall_localinpolicy6': {
+            'params': ['adom', 'local-in-policy6', 'pblock'],
+            'urls': [
+                '/pm/config/adom/{adom}/pblock/{pblock}/firewall/local-in-policy6/{local-in-policy6}'
+            ],
+            'v_range': [['8.0.0', '']]
         },
         'pm_config_pblock_firewall_policy': {
             'params': ['adom', 'pblock', 'policy'],
@@ -891,7 +908,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/spamfilter/bwl/{bwl}/entries/{entries}',
                 '/pm/config/global/obj/spamfilter/bwl/{bwl}/entries/{entries}'
             ],
-            'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']]
+            'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.11']]
         },
         'spamfilter_bword_entries': {
             'params': ['adom', 'bword', 'entries'],
@@ -899,7 +916,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/spamfilter/bword/{bword}/entries/{entries}',
                 '/pm/config/global/obj/spamfilter/bword/{bword}/entries/{entries}'
             ],
-            'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']]
+            'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.11']]
         },
         'sshfilter_profile_filefilter_entries': {
             'params': ['adom', 'entries', 'profile'],
@@ -1067,6 +1084,14 @@ def main():
                 '/pm/config/global/obj/vpn/ipsec/fec/{fec}/mappings/{mappings}'
             ],
             'v_range': [['7.2.0', '']]
+        },
+        'vpn_ipsec_fec_mappings_tos': {
+            'params': ['adom', 'fec', 'mappings', 'tos'],
+            'urls': [
+                '/pm/config/adom/{adom}/obj/vpn/ipsec/fec/{fec}/mappings/{mappings}/tos/{tos}',
+                '/pm/config/global/obj/vpn/ipsec/fec/{fec}/mappings/{mappings}/tos/{tos}'
+            ],
+            'v_range': [['8.0.0', '']]
         },
         'vpn_kmipserver_serverlist': {
             'params': ['adom', 'kmip-server', 'server-list'],

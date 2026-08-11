@@ -15,2451 +15,2579 @@ module: fmgr_wtpprofile
 short_description: Configure WTP profiles or FortiAP profiles that define radio settings for manageable FortiAP platforms.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  wtpprofile:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      allowaccess:
+        type: list
+        elements: str
+        description: Control management access to the managed WTP, FortiAP, or AP.
+        choices: ['https', 'ssh', 'snmp', 'http', 'telnet']
+      ap_country:
+        aliases: ['ap-country']
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Country in which this WTP, FortiAP or AP will operate
+        choices: ['AL', 'DZ', 'AR', 'AM', 'AU', 'AT', 'AZ', 'BH', 'BD', 'BY', 'BE', 'BZ', 'BO',
+                  'BA', 'BR', 'BN', 'BG', 'CA', 'CL', 'CN', 'CO', 'CR', 'HR', 'CY', 'CZ', 'DK',
+                  'DO', 'EC', 'EG', 'SV', 'EE', 'FI', 'FR', 'GE', 'DE', 'GR', 'GT', 'HN', 'HK',
+                  'HU', 'IS', 'IN', 'ID', 'IR', 'IE', 'IL', 'IT', 'JM', 'JP', 'JO', 'KZ', 'KE',
+                  'KP', 'KR', 'KW', 'LV', 'LB', 'LI', 'LT', 'LU', 'MO', 'MK', 'MY', 'MT', 'MX',
+                  'MC', 'MA', 'NP', 'NL', 'AN', 'NZ', 'NO', 'OM', 'PK', 'PA', 'PG', 'PE', 'PH',
+                  'PL', 'PT', 'PR', 'QA', 'RO', 'RU', 'SA', 'SG', 'SK', 'SI', 'ZA', 'ES', 'LK',
+                  'SE', 'CH', 'SY', 'TW', 'TH', 'TT', 'TN', 'TR', 'AE', 'UA', 'GB', 'US', 'PS',
+                  'UY', 'UZ', 'VE', 'VN', 'YE', 'ZW', 'NA', 'KH', 'TZ', 'SD', 'AO', 'RW', 'MZ',
+                  'RS', 'ME', 'BB', 'GD', 'GL', 'GU', 'PY', 'HT', 'AW', 'MM', 'ZB', 'CF', 'BS',
+                  'VC', 'MV', 'SN', 'CI', 'GH', 'MW', 'UG', 'BF', 'KY', 'TC', 'TM', 'VU', 'FM',
+                  'GY', 'KN', 'LC', 'CX', 'AF', 'CM', 'ML', 'BJ', 'MG', 'TD', 'BW', 'LY', 'LS',
+                  'MU', 'SL', 'NE', 'TG', 'RE', 'MD', 'BM', 'VI', 'PM', 'MF', 'IM', 'FO', 'GI',
+                  'LA', 'WF', 'MH', 'BT', 'PF', 'NI', 'GF', 'AS', 'MP', 'PW', 'GP', 'ET', 'SR',
+                  'DM', 'MQ', 'YT', 'BL', 'ZM', 'CG', 'CD', 'MR', 'IQ', 'FJ', '--', 'MN', 'NG',
+                  'GA', 'GM', 'SO', 'SZ', 'LR', 'DJ', 'TL']
+      ble_profile:
+        aliases: ['ble-profile']
         type: str
-        required: true
-    wtpprofile:
-        description: The top level parameters set.
-        required: false
-        type: dict
+        description: Bluetooth Low Energy profile name.
+      comment:
+        type: str
+        description: Comment.
+      control_message_offload:
+        aliases: ['control-message-offload']
+        type: list
+        elements: str
+        description: Enable/disable CAPWAP control message data channel offload.
+        choices: ['ebp-frame', 'aeroscout-tag', 'ap-list', 'sta-list', 'sta-cap-list', 'stats',
+                  'aeroscout-mu', 'sta-health', 'spectral-analysis']
+      deny_mac_list:
+        aliases: ['deny-mac-list']
+        type: list
+        elements: dict
+        description: Deny mac list.
         suboptions:
-            allowaccess:
-                type: list
-                elements: str
-                description: Control management access to the managed WTP, FortiAP, or AP.
-                choices: ['https', 'ssh', 'snmp', 'http', 'telnet']
-            ap_country:
-                aliases: ['ap-country']
-                type: str
-                description: Country in which this WTP, FortiAP or AP will operate
-                choices: ['AL', 'DZ', 'AR', 'AM', 'AU', 'AT', 'AZ', 'BH', 'BD', 'BY', 'BE', 'BZ',
-                          'BO', 'BA', 'BR', 'BN', 'BG', 'CA', 'CL', 'CN', 'CO', 'CR', 'HR', 'CY',
-                          'CZ', 'DK', 'DO', 'EC', 'EG', 'SV', 'EE', 'FI', 'FR', 'GE', 'DE', 'GR',
-                          'GT', 'HN', 'HK', 'HU', 'IS', 'IN', 'ID', 'IR', 'IE', 'IL', 'IT', 'JM',
-                          'JP', 'JO', 'KZ', 'KE', 'KP', 'KR', 'KW', 'LV', 'LB', 'LI', 'LT', 'LU',
-                          'MO', 'MK', 'MY', 'MT', 'MX', 'MC', 'MA', 'NP', 'NL', 'AN', 'NZ', 'NO',
-                          'OM', 'PK', 'PA', 'PG', 'PE', 'PH', 'PL', 'PT', 'PR', 'QA', 'RO', 'RU',
-                          'SA', 'SG', 'SK', 'SI', 'ZA', 'ES', 'LK', 'SE', 'CH', 'SY', 'TW', 'TH',
-                          'TT', 'TN', 'TR', 'AE', 'UA', 'GB', 'US', 'PS', 'UY', 'UZ', 'VE', 'VN',
-                          'YE', 'ZW', 'NA', 'KH', 'TZ', 'SD', 'AO', 'RW', 'MZ', 'RS', 'ME', 'BB',
-                          'GD', 'GL', 'GU', 'PY', 'HT', 'AW', 'MM', 'ZB', 'CF', 'BS', 'VC', 'MV',
-                          'SN', 'CI', 'GH', 'MW', 'UG', 'BF', 'KY', 'TC', 'TM', 'VU', 'FM', 'GY',
-                          'KN', 'LC', 'CX', 'AF', 'CM', 'ML', 'BJ', 'MG', 'TD', 'BW', 'LY', 'LS',
-                          'MU', 'SL', 'NE', 'TG', 'RE', 'MD', 'BM', 'VI', 'PM', 'MF', 'IM', 'FO',
-                          'GI', 'LA', 'WF', 'MH', 'BT', 'PF', 'NI', 'GF', 'AS', 'MP', 'PW', 'GP',
-                          'ET', 'SR', 'DM', 'MQ', 'YT', 'BL', 'ZM', 'CG', 'CD', 'MR', 'IQ', 'FJ',
-                          '--', 'MN', 'NG', 'GA', 'GM', 'SO', 'SZ', 'LR', 'DJ', 'TL']
-            ble_profile:
-                aliases: ['ble-profile']
-                type: str
-                description: Bluetooth Low Energy profile name.
-            comment:
-                type: str
-                description: Comment.
-            control_message_offload:
-                aliases: ['control-message-offload']
-                type: list
-                elements: str
-                description: Enable/disable CAPWAP control message data channel offload.
-                choices: ['ebp-frame', 'aeroscout-tag', 'ap-list', 'sta-list', 'sta-cap-list',
-                          'stats', 'aeroscout-mu', 'sta-health', 'spectral-analysis']
-            deny_mac_list:
-                aliases: ['deny-mac-list']
-                type: list
-                elements: dict
-                description: Deny mac list.
-                suboptions:
-                    id:
-                        type: int
-                        description: ID.
-                    mac:
-                        type: str
-                        description: A WiFi device with this MAC address is denied access to this WTP, FortiAP or AP.
-            dtls_in_kernel:
-                aliases: ['dtls-in-kernel']
-                type: str
-                description: Enable/disable data channel DTLS in kernel.
-                choices: ['disable', 'enable']
-            dtls_policy:
-                aliases: ['dtls-policy']
-                type: list
-                elements: str
-                description: WTP data channel DTLS policy
-                choices: ['clear-text', 'dtls-enabled', 'ipsec-vpn', 'ipsec-sn-vpn']
-            energy_efficient_ethernet:
-                aliases: ['energy-efficient-ethernet']
-                type: str
-                description: Enable/disable use of energy efficient Ethernet on WTP.
-                choices: ['disable', 'enable']
-            ext_info_enable:
-                aliases: ['ext-info-enable']
-                type: str
-                description: Enable/disable station/VAP/radio extension information.
-                choices: ['disable', 'enable']
-            handoff_roaming:
-                aliases: ['handoff-roaming']
-                type: str
-                description: Enable/disable client load balancing during roaming to avoid roaming delay
-                choices: ['disable', 'enable']
-            handoff_rssi:
-                aliases: ['handoff-rssi']
-                type: int
-                description: Minimum received signal strength indicator
-            handoff_sta_thresh:
-                aliases: ['handoff-sta-thresh']
-                type: int
-                description: Threshold value for AP handoff.
-            ip_fragment_preventing:
-                aliases: ['ip-fragment-preventing']
-                type: list
-                elements: str
-                description: Select how to prevent IP fragmentation for CAPWAP tunneled control and data packets
-                choices: ['tcp-mss-adjust', 'icmp-unreachable']
-            led_schedules:
-                aliases: ['led-schedules']
-                type: raw
-                description: (list or str) Recurring firewall schedules for illuminating LEDs on the FortiAP.
-            led_state:
-                aliases: ['led-state']
-                type: str
-                description: Enable/disable use of LEDs on WTP
-                choices: ['disable', 'enable']
-            lldp:
-                type: str
-                description: Enable/disable Link Layer Discovery Protocol
-                choices: ['disable', 'enable']
-            login_passwd:
-                aliases: ['login-passwd']
-                type: raw
-                description: (list) Set the managed WTP, FortiAP, or APs administrator password.
-            login_passwd_change:
-                aliases: ['login-passwd-change']
-                type: str
-                description: Change or reset the administrator password of a managed WTP, FortiAP or AP
-                choices: ['no', 'yes', 'default']
-            max_clients:
-                aliases: ['max-clients']
-                type: int
-                description: Maximum number of stations
-            name:
-                type: str
-                description: WTP
-                required: true
-            poe_mode:
-                aliases: ['poe-mode']
-                type: str
-                description: Set the WTP, FortiAP, or APs PoE mode.
-                choices: ['auto', '8023af', '8023at', 'power-adapter', 'full', 'high', 'low']
-            split_tunneling_acl:
-                aliases: ['split-tunneling-acl']
-                type: list
-                elements: dict
-                description: Split tunneling acl.
-                suboptions:
-                    dest_ip:
-                        aliases: ['dest-ip']
-                        type: str
-                        description: Destination IP and mask for the split-tunneling subnet.
-                    id:
-                        type: int
-                        description: ID.
-            split_tunneling_acl_local_ap_subnet:
-                aliases: ['split-tunneling-acl-local-ap-subnet']
-                type: str
-                description: Enable/disable automatically adding local subnetwork of FortiAP to split-tunneling ACL
-                choices: ['disable', 'enable']
-            split_tunneling_acl_path:
-                aliases: ['split-tunneling-acl-path']
-                type: str
-                description: Split tunneling ACL path is local/tunnel.
-                choices: ['tunnel', 'local']
-            tun_mtu_downlink:
-                aliases: ['tun-mtu-downlink']
-                type: int
-                description: Downlink CAPWAP tunnel MTU
-            tun_mtu_uplink:
-                aliases: ['tun-mtu-uplink']
-                type: int
-                description: Uplink CAPWAP tunnel MTU
-            wan_port_mode:
-                aliases: ['wan-port-mode']
-                type: str
-                description: Enable/disable using a WAN port as a LAN port.
-                choices: ['wan-lan', 'wan-only']
-            snmp:
-                type: str
-                description: Enable/disable SNMP for the WTP, FortiAP, or AP
-                choices: ['disable', 'enable']
-            ap_handoff:
-                aliases: ['ap-handoff']
-                type: str
-                description: Enable/disable AP handoff of clients to other APs
-                choices: ['disable', 'enable']
-            apcfg_profile:
-                aliases: ['apcfg-profile']
-                type: str
-                description: AP local configuration profile name.
-            frequency_handoff:
-                aliases: ['frequency-handoff']
-                type: str
-                description: Enable/disable frequency handoff of clients to other channels
-                choices: ['disable', 'enable']
-            lan:
-                type: dict
-                description: Lan.
-                suboptions:
-                    port_esl_mode:
-                        aliases: ['port-esl-mode']
-                        type: str
-                        description: ESL port mode.
-                        choices: ['offline', 'bridge-to-wan', 'bridge-to-ssid', 'nat-to-wan']
-                    port_esl_ssid:
-                        aliases: ['port-esl-ssid']
-                        type: str
-                        description: Bridge ESL port to SSID.
-                    port_mode:
-                        aliases: ['port-mode']
-                        type: str
-                        description: LAN port mode.
-                        choices: ['offline', 'bridge-to-wan', 'bridge-to-ssid', 'nat-to-wan']
-                    port_ssid:
-                        aliases: ['port-ssid']
-                        type: str
-                        description: Bridge LAN port to SSID.
-                    port1_mode:
-                        aliases: ['port1-mode']
-                        type: str
-                        description: LAN port 1 mode.
-                        choices: ['offline', 'bridge-to-wan', 'bridge-to-ssid', 'nat-to-wan']
-                    port1_ssid:
-                        aliases: ['port1-ssid']
-                        type: str
-                        description: Bridge LAN port 1 to SSID.
-                    port2_mode:
-                        aliases: ['port2-mode']
-                        type: str
-                        description: LAN port 2 mode.
-                        choices: ['offline', 'bridge-to-wan', 'bridge-to-ssid', 'nat-to-wan']
-                    port2_ssid:
-                        aliases: ['port2-ssid']
-                        type: str
-                        description: Bridge LAN port 2 to SSID.
-                    port3_mode:
-                        aliases: ['port3-mode']
-                        type: str
-                        description: LAN port 3 mode.
-                        choices: ['offline', 'bridge-to-wan', 'bridge-to-ssid', 'nat-to-wan']
-                    port3_ssid:
-                        aliases: ['port3-ssid']
-                        type: str
-                        description: Bridge LAN port 3 to SSID.
-                    port4_mode:
-                        aliases: ['port4-mode']
-                        type: str
-                        description: LAN port 4 mode.
-                        choices: ['offline', 'bridge-to-wan', 'bridge-to-ssid', 'nat-to-wan']
-                    port4_ssid:
-                        aliases: ['port4-ssid']
-                        type: str
-                        description: Bridge LAN port 4 to SSID.
-                    port5_mode:
-                        aliases: ['port5-mode']
-                        type: str
-                        description: LAN port 5 mode.
-                        choices: ['offline', 'bridge-to-wan', 'bridge-to-ssid', 'nat-to-wan']
-                    port5_ssid:
-                        aliases: ['port5-ssid']
-                        type: str
-                        description: Bridge LAN port 5 to SSID.
-                    port6_mode:
-                        aliases: ['port6-mode']
-                        type: str
-                        description: LAN port 6 mode.
-                        choices: ['offline', 'bridge-to-wan', 'bridge-to-ssid', 'nat-to-wan']
-                    port6_ssid:
-                        aliases: ['port6-ssid']
-                        type: str
-                        description: Bridge LAN port 6 to SSID.
-                    port7_mode:
-                        aliases: ['port7-mode']
-                        type: str
-                        description: LAN port 7 mode.
-                        choices: ['offline', 'bridge-to-wan', 'bridge-to-ssid', 'nat-to-wan']
-                    port7_ssid:
-                        aliases: ['port7-ssid']
-                        type: str
-                        description: Bridge LAN port 7 to SSID.
-                    port8_mode:
-                        aliases: ['port8-mode']
-                        type: str
-                        description: LAN port 8 mode.
-                        choices: ['offline', 'bridge-to-wan', 'bridge-to-ssid', 'nat-to-wan']
-                    port8_ssid:
-                        aliases: ['port8-ssid']
-                        type: str
-                        description: Bridge LAN port 8 to SSID.
-            lbs:
-                type: dict
-                description: Lbs.
-                suboptions:
-                    aeroscout:
-                        type: str
-                        description: Enable/disable AeroScout Real Time Location Service
-                        choices: ['disable', 'enable']
-                    aeroscout_ap_mac:
-                        aliases: ['aeroscout-ap-mac']
-                        type: str
-                        description: Use BSSID or board MAC address as AP MAC address in AeroScout AP messages
-                        choices: ['bssid', 'board-mac']
-                    aeroscout_mmu_report:
-                        aliases: ['aeroscout-mmu-report']
-                        type: str
-                        description: Enable/disable compounded AeroScout tag and MU report
-                        choices: ['disable', 'enable']
-                    aeroscout_mu:
-                        aliases: ['aeroscout-mu']
-                        type: str
-                        description: Enable/disable AeroScout Mobile Unit
-                        choices: ['disable', 'enable']
-                    aeroscout_mu_factor:
-                        aliases: ['aeroscout-mu-factor']
-                        type: int
-                        description: AeroScout MU mode dilution factor
-                    aeroscout_mu_timeout:
-                        aliases: ['aeroscout-mu-timeout']
-                        type: int
-                        description: AeroScout MU mode timeout
-                    aeroscout_server_ip:
-                        aliases: ['aeroscout-server-ip']
-                        type: str
-                        description: IP address of AeroScout server.
-                    aeroscout_server_port:
-                        aliases: ['aeroscout-server-port']
-                        type: int
-                        description: AeroScout server UDP listening port.
-                    ekahau_blink_mode:
-                        aliases: ['ekahau-blink-mode']
-                        type: str
-                        description: Enable/disable Ekahau blink mode
-                        choices: ['disable', 'enable']
-                    ekahau_tag:
-                        aliases: ['ekahau-tag']
-                        type: str
-                        description: WiFi frame MAC address or WiFi Tag.
-                    erc_server_ip:
-                        aliases: ['erc-server-ip']
-                        type: str
-                        description: IP address of Ekahau RTLS Controller
-                    erc_server_port:
-                        aliases: ['erc-server-port']
-                        type: int
-                        description: Ekahau RTLS Controller
-                    fortipresence:
-                        type: str
-                        description: Enable/disable FortiPresence to monitor the location and activity of WiFi clients even if they dont connect to thi...
-                        choices: ['disable', 'enable', 'enable2', 'foreign', 'both']
-                    fortipresence_ble:
-                        aliases: ['fortipresence-ble']
-                        type: str
-                        description: Enable/disable FortiPresence finding and reporting BLE devices.
-                        choices: ['disable', 'enable']
-                    fortipresence_frequency:
-                        aliases: ['fortipresence-frequency']
-                        type: int
-                        description: FortiPresence report transmit frequency
-                    fortipresence_port:
-                        aliases: ['fortipresence-port']
-                        type: int
-                        description: FortiPresence server UDP listening port
-                    fortipresence_project:
-                        aliases: ['fortipresence-project']
-                        type: str
-                        description: FortiPresence project name
-                    fortipresence_rogue:
-                        aliases: ['fortipresence-rogue']
-                        type: str
-                        description: Enable/disable FortiPresence finding and reporting rogue APs.
-                        choices: ['disable', 'enable']
-                    fortipresence_secret:
-                        aliases: ['fortipresence-secret']
-                        type: raw
-                        description: (list) FortiPresence secret password
-                    fortipresence_server:
-                        aliases: ['fortipresence-server']
-                        type: str
-                        description: FortiPresence server IP address.
-                    fortipresence_unassoc:
-                        aliases: ['fortipresence-unassoc']
-                        type: str
-                        description: Enable/disable FortiPresence finding and reporting unassociated stations.
-                        choices: ['disable', 'enable']
-                    station_locate:
-                        aliases: ['station-locate']
-                        type: str
-                        description: Enable/disable client station locating services for all clients, whether associated or not
-                        choices: ['disable', 'enable']
-                    fortipresence_server_addr_type:
-                        aliases: ['fortipresence-server-addr-type']
-                        type: str
-                        description: FortiPresence server address type
-                        choices: ['fqdn', 'ipv4']
-                    fortipresence_server_fqdn:
-                        aliases: ['fortipresence-server-fqdn']
-                        type: str
-                        description: FQDN of FortiPresence server.
-                    polestar:
-                        type: str
-                        description: Enable/disable PoleStar BLE NAO Track Real Time Location Service
-                        choices: ['disable', 'enable']
-                    polestar_accumulation_interval:
-                        aliases: ['polestar-accumulation-interval']
-                        type: int
-                        description: Time that measurements should be accumulated in seconds
-                    polestar_asset_addrgrp_list:
-                        aliases: ['polestar-asset-addrgrp-list']
-                        type: str
-                        description: Tags and asset addrgrp list to be reported.
-                    polestar_asset_uuid_list1:
-                        aliases: ['polestar-asset-uuid-list1']
-                        type: str
-                        description: Tags and asset UUID list 1 to be reported
-                    polestar_asset_uuid_list2:
-                        aliases: ['polestar-asset-uuid-list2']
-                        type: str
-                        description: Tags and asset UUID list 2 to be reported
-                    polestar_asset_uuid_list3:
-                        aliases: ['polestar-asset-uuid-list3']
-                        type: str
-                        description: Tags and asset UUID list 3 to be reported
-                    polestar_asset_uuid_list4:
-                        aliases: ['polestar-asset-uuid-list4']
-                        type: str
-                        description: Tags and asset UUID list 4 to be reported
-                    polestar_protocol:
-                        aliases: ['polestar-protocol']
-                        type: str
-                        description: Select the protocol to report Measurements, Advertising Data, or Location Data to NAO Cloud.
-                        choices: ['WSS']
-                    polestar_reporting_interval:
-                        aliases: ['polestar-reporting-interval']
-                        type: int
-                        description: Time between reporting accumulated measurements in seconds
-                    polestar_server_fqdn:
-                        aliases: ['polestar-server-fqdn']
-                        type: str
-                        description: FQDN of PoleStar Nao Track Server
-                    polestar_server_path:
-                        aliases: ['polestar-server-path']
-                        type: str
-                        description: Path of PoleStar Nao Track Server
-                    polestar_server_port:
-                        aliases: ['polestar-server-port']
-                        type: int
-                        description: Port of PoleStar Nao Track Server
-                    polestar_server_token:
-                        aliases: ['polestar-server-token']
-                        type: str
-                        description: Access Token of PoleStar Nao Track Server.
-                    ble_rtls:
-                        aliases: ['ble-rtls']
-                        type: str
-                        description: Set BLE Real Time Location Service
-                        choices: ['none', 'polestar', 'evresys']
-                    ble_rtls_accumulation_interval:
-                        aliases: ['ble-rtls-accumulation-interval']
-                        type: int
-                        description: Time that measurements should be accumulated in seconds
-                    ble_rtls_asset_addrgrp_list:
-                        aliases: ['ble-rtls-asset-addrgrp-list']
-                        type: raw
-                        description: (list) Tags and asset addrgrp list to be reported.
-                    ble_rtls_asset_uuid_list1:
-                        aliases: ['ble-rtls-asset-uuid-list1']
-                        type: str
-                        description: Tags and asset UUID list 1 to be reported
-                    ble_rtls_asset_uuid_list2:
-                        aliases: ['ble-rtls-asset-uuid-list2']
-                        type: str
-                        description: Tags and asset UUID list 2 to be reported
-                    ble_rtls_asset_uuid_list3:
-                        aliases: ['ble-rtls-asset-uuid-list3']
-                        type: str
-                        description: Tags and asset UUID list 3 to be reported
-                    ble_rtls_asset_uuid_list4:
-                        aliases: ['ble-rtls-asset-uuid-list4']
-                        type: str
-                        description: Tags and asset UUID list 4 to be reported
-                    ble_rtls_protocol:
-                        aliases: ['ble-rtls-protocol']
-                        type: str
-                        description: Select the protocol to report Measurements, Advertising Data, or Location Data to Cloud Server.
-                        choices: ['WSS']
-                    ble_rtls_reporting_interval:
-                        aliases: ['ble-rtls-reporting-interval']
-                        type: int
-                        description: Time between reporting accumulated measurements in seconds
-                    ble_rtls_server_fqdn:
-                        aliases: ['ble-rtls-server-fqdn']
-                        type: str
-                        description: FQDN of BLE Real Time Location Service
-                    ble_rtls_server_path:
-                        aliases: ['ble-rtls-server-path']
-                        type: str
-                        description: Path of BLE Real Time Location Service
-                    ble_rtls_server_port:
-                        aliases: ['ble-rtls-server-port']
-                        type: int
-                        description: Port of BLE Real Time Location Service
-                    ble_rtls_server_token:
-                        aliases: ['ble-rtls-server-token']
-                        type: str
-                        description: Access Token of BLE Real Time Location Service
-            platform:
-                type: dict
-                description: Platform.
-                suboptions:
-                    ddscan:
-                        type: str
-                        description: Enable/disable use of one radio for dedicated dual-band scanning to detect RF characterization and wireless threat...
-                        choices: ['disable', 'enable']
-                    mode:
-                        type: str
-                        description: Configure operation mode of 5G radios
-                        choices: ['dual-5G', 'single-5G']
-                    type:
-                        type: str
-                        description: WTP, FortiAP or AP platform type.
-                        choices: ['30B-50B', '60B', '80CM-81CM', '220A', '220B', '210B', '60C',
-                                  '222B', '112B', '320B', '11C', '14C', '223B', '28C', '320C',
-                                  '221C', '25D', '222C', '224D', '214B', '21D', '24D', '112D',
-                                  '223C', '321C', 'C220C', 'C225C', 'S321C', 'S323C', 'FWF',
-                                  'S311C', 'S313C', 'AP-11N', 'S322C', 'S321CR', 'S322CR',
-                                  'S323CR', 'S421E', 'S422E', 'S423E', '421E', '423E', 'C221E',
-                                  'C226E', 'C23JD', 'C24JE', 'C21D', 'U421E', 'U423E', '221E',
-                                  '222E', '223E', 'S221E', 'S223E', 'U221EV', 'U223EV', 'U321EV',
-                                  'U323EV', '224E', 'U422EV', 'U24JEV', '321E', 'U431F', 'U433F',
-                                  '231E', '431F', '433F', '231F', '432F', '234F', '23JF', 'U231F',
-                                  '831F', 'U234F', 'U432F', '431FL', '432FR', '433FL', '231FL',
-                                  '231G', '233G', '431G', '433G', 'U231G', 'U441G', '234G',
-                                  '432G', '441K', '443K', '241K', '243K', '231K', '23JK', '222KL',
-                                  '244K', '432K', 'MVP', '231KD']
-                    _local_platform_str:
-                        type: str
-                        description: Local platform str.
-            radio_1:
-                aliases: ['radio-1']
-                type: dict
-                description: Radio 1.
-                suboptions:
-                    airtime_fairness:
-                        aliases: ['airtime-fairness']
-                        type: str
-                        description: Enable/disable airtime fairness
-                        choices: ['disable', 'enable']
-                    amsdu:
-                        type: str
-                        description: Enable/disable 802.
-                        choices: ['disable', 'enable']
-                    ap_sniffer_addr:
-                        aliases: ['ap-sniffer-addr']
-                        type: str
-                        description: MAC address to monitor.
-                    ap_sniffer_bufsize:
-                        aliases: ['ap-sniffer-bufsize']
-                        type: int
-                        description: Sniffer buffer size
-                    ap_sniffer_chan:
-                        aliases: ['ap-sniffer-chan']
-                        type: int
-                        description: Channel on which to operate the sniffer
-                    ap_sniffer_ctl:
-                        aliases: ['ap-sniffer-ctl']
-                        type: str
-                        description: Enable/disable sniffer on WiFi control frame
-                        choices: ['disable', 'enable']
-                    ap_sniffer_data:
-                        aliases: ['ap-sniffer-data']
-                        type: str
-                        description: Enable/disable sniffer on WiFi data frame
-                        choices: ['disable', 'enable']
-                    ap_sniffer_mgmt_beacon:
-                        aliases: ['ap-sniffer-mgmt-beacon']
-                        type: str
-                        description: Enable/disable sniffer on WiFi management Beacon frames
-                        choices: ['disable', 'enable']
-                    ap_sniffer_mgmt_other:
-                        aliases: ['ap-sniffer-mgmt-other']
-                        type: str
-                        description: Enable/disable sniffer on WiFi management other frames
-                        choices: ['disable', 'enable']
-                    ap_sniffer_mgmt_probe:
-                        aliases: ['ap-sniffer-mgmt-probe']
-                        type: str
-                        description: Enable/disable sniffer on WiFi management probe frames
-                        choices: ['disable', 'enable']
-                    auto_power_high:
-                        aliases: ['auto-power-high']
-                        type: int
-                        description: The upper bound of automatic transmit power adjustment in dBm
-                    auto_power_level:
-                        aliases: ['auto-power-level']
-                        type: str
-                        description: Enable/disable automatic power-level adjustment to prevent co-channel interference
-                        choices: ['disable', 'enable']
-                    auto_power_low:
-                        aliases: ['auto-power-low']
-                        type: int
-                        description: The lower bound of automatic transmit power adjustment in dBm
-                    auto_power_target:
-                        aliases: ['auto-power-target']
-                        type: str
-                        description: The target of automatic transmit power adjustment in dBm.
-                    band:
-                        type: str
-                        description: WiFi band that Radio 1 operates on.
-                        choices: ['802.11b', '802.11a', '802.11g', '802.11n', '802.11ac',
-                                  '802.11n-5G', '802.11ax-5G', '802.11ax', '802.11ac-2G',
-                                  '802.11g-only', '802.11n-only', '802.11n,g-only',
-                                  '802.11ac-only', '802.11ac,n-only', '802.11n-5G-only',
-                                  '802.11ax-5G-only', '802.11ax,ac-only', '802.11ax,ac,n-only',
-                                  '802.11ax-only', '802.11ax,n-only', '802.11ax,n,g-only',
-                                  '802.11ax-6G', '802.11n-2G', '802.11ac-5G', '802.11ax-2G',
-                                  '802.11be-2G', '802.11be-5G', '802.11be-6G']
-                    band_5g_type:
-                        aliases: ['band-5g-type']
-                        type: str
-                        description: WiFi 5G band type.
-                        choices: ['5g-full', '5g-high', '5g-low']
-                    bandwidth_admission_control:
-                        aliases: ['bandwidth-admission-control']
-                        type: str
-                        description: Enable/disable WiFi multimedia
-                        choices: ['disable', 'enable']
-                    bandwidth_capacity:
-                        aliases: ['bandwidth-capacity']
-                        type: int
-                        description: Maximum bandwidth capacity allowed
-                    beacon_interval:
-                        aliases: ['beacon-interval']
-                        type: int
-                        description: Beacon interval.
-                    bss_color:
-                        aliases: ['bss-color']
-                        type: int
-                        description: BSS color value for this 11ax radio
-                    call_admission_control:
-                        aliases: ['call-admission-control']
-                        type: str
-                        description: Enable/disable WiFi multimedia
-                        choices: ['disable', 'enable']
-                    call_capacity:
-                        aliases: ['call-capacity']
-                        type: int
-                        description: Maximum number of Voice over WLAN
-                    channel:
-                        type: raw
-                        description: (list) Selected list of wireless radio channels.
-                    channel_bonding:
-                        aliases: ['channel-bonding']
-                        type: str
-                        description: Channel bandwidth
-                        choices: ['disable', 'enable', '80MHz', '40MHz', '20MHz', '160MHz',
-                                  '320MHz', '240MHz']
-                    channel_utilization:
-                        aliases: ['channel-utilization']
-                        type: str
-                        description: Enable/disable measuring channel utilization.
-                        choices: ['disable', 'enable']
-                    coexistence:
-                        type: str
-                        description: Enable/disable allowing both HT20 and HT40 on the same radio
-                        choices: ['disable', 'enable']
-                    darrp:
-                        type: str
-                        description: Enable/disable Distributed Automatic Radio Resource Provisioning
-                        choices: ['disable', 'enable']
-                    drma:
-                        type: str
-                        description: Enable/disable dynamic radio mode assignment
-                        choices: ['disable', 'enable']
-                    drma_sensitivity:
-                        aliases: ['drma-sensitivity']
-                        type: str
-                        description: Network Coverage Factor
-                        choices: ['low', 'medium', 'high']
-                    dtim:
-                        type: int
-                        description: Delivery Traffic Indication Map
-                    frag_threshold:
-                        aliases: ['frag-threshold']
-                        type: int
-                        description: Maximum packet size that can be sent without fragmentation
-                    max_clients:
-                        aliases: ['max-clients']
-                        type: int
-                        description: Maximum number of stations
-                    max_distance:
-                        aliases: ['max-distance']
-                        type: int
-                        description: Maximum expected distance between the AP and clients
-                    mode:
-                        type: str
-                        description: Mode of radio 1.
-                        choices: ['disabled', 'ap', 'monitor', 'sniffer', 'sam']
-                    power_level:
-                        aliases: ['power-level']
-                        type: int
-                        description: Radio power level as a percentage of the maximum transmit power
-                    powersave_optimize:
-                        aliases: ['powersave-optimize']
-                        type: list
-                        elements: str
-                        description: Enable client power-saving features such as TIM, AC VO, and OBSS etc.
-                        choices: ['tim', 'ac-vo', 'no-obss-scan', 'no-11b-rate',
-                                  'client-rate-follow']
-                    protection_mode:
-                        aliases: ['protection-mode']
-                        type: str
-                        description: Enable/disable 802.
-                        choices: ['rtscts', 'ctsonly', 'disable']
-                    radio_id:
-                        aliases: ['radio-id']
-                        type: int
-                        description: Radio id.
-                    rts_threshold:
-                        aliases: ['rts-threshold']
-                        type: int
-                        description: Maximum packet size for RTS transmissions, specifying the maximum size of a data packet before RTS/CTS
-                    short_guard_interval:
-                        aliases: ['short-guard-interval']
-                        type: str
-                        description: Use either the short guard interval
-                        choices: ['disable', 'enable']
-                    spectrum_analysis:
-                        aliases: ['spectrum-analysis']
-                        type: str
-                        description: Enable/disable spectrum analysis to find interference that would negatively impact wireless performance.
-                        choices: ['disable', 'enable', 'scan-only']
-                    transmit_optimize:
-                        aliases: ['transmit-optimize']
-                        type: list
-                        elements: str
-                        description: Packet transmission optimization options including power saving, aggregation limiting, retry limiting, etc.
-                        choices: ['disable', 'power-save', 'aggr-limit', 'retry-limit', 'send-bar']
-                    vap_all:
-                        aliases: ['vap-all']
-                        type: str
-                        description: Configure method for assigning SSIDs to this FortiAP
-                        choices: ['disable', 'enable', 'tunnel', 'bridge', 'manual']
-                    vap1:
-                        type: str
-                        description: Virtual Access Point
-                    vap2:
-                        type: str
-                        description: Virtual Access Point
-                    vap3:
-                        type: str
-                        description: Virtual Access Point
-                    vap4:
-                        type: str
-                        description: Virtual Access Point
-                    vap5:
-                        type: str
-                        description: Virtual Access Point
-                    vap6:
-                        type: str
-                        description: Virtual Access Point
-                    vap7:
-                        type: str
-                        description: Virtual Access Point
-                    vap8:
-                        type: str
-                        description: Virtual Access Point
-                    vaps:
-                        type: raw
-                        description: (list or str) Manually selected list of Virtual Access Points
-                    wids_profile:
-                        aliases: ['wids-profile']
-                        type: str
-                        description: Wireless Intrusion Detection System
-                    zero_wait_dfs:
-                        aliases: ['zero-wait-dfs']
-                        type: str
-                        description: Enable/disable zero wait DFS on radio
-                        choices: ['disable', 'enable']
-                    frequency_handoff:
-                        aliases: ['frequency-handoff']
-                        type: str
-                        description: Enable/disable frequency handoff of clients to other channels
-                        choices: ['disable', 'enable']
-                    ap_handoff:
-                        aliases: ['ap-handoff']
-                        type: str
-                        description: Enable/disable AP handoff of clients to other APs
-                        choices: ['disable', 'enable']
-                    iperf_protocol:
-                        aliases: ['iperf-protocol']
-                        type: str
-                        description: Iperf test protocol
-                        choices: ['udp', 'tcp']
-                    iperf_server_port:
-                        aliases: ['iperf-server-port']
-                        type: int
-                        description: Iperf service port number.
-                    power_mode:
-                        aliases: ['power-mode']
-                        type: str
-                        description: Set radio effective isotropic radiated power
-                        choices: ['dBm', 'percentage']
-                    power_value:
-                        aliases: ['power-value']
-                        type: int
-                        description: Radio EIRP power in dBm
-                    sam_bssid:
-                        aliases: ['sam-bssid']
-                        type: str
-                        description: BSSID for WiFi network.
-                    sam_captive_portal:
-                        aliases: ['sam-captive-portal']
-                        type: str
-                        description: Enable/disable Captive Portal Authentication
-                        choices: ['disable', 'enable']
-                    sam_password:
-                        aliases: ['sam-password']
-                        type: raw
-                        description: (list) Passphrase for WiFi network connection.
-                    sam_report_intv:
-                        aliases: ['sam-report-intv']
-                        type: int
-                        description: SAM report interval
-                    sam_security_type:
-                        aliases: ['sam-security-type']
-                        type: str
-                        description: Select WiFi network security type
-                        choices: ['open', 'wpa-personal', 'wpa-enterprise', 'owe', 'wpa3-sae']
-                    sam_server:
-                        aliases: ['sam-server']
-                        type: str
-                        description: SAM test server IP address or domain name.
-                    sam_ssid:
-                        aliases: ['sam-ssid']
-                        type: str
-                        description: SSID for WiFi network.
-                    sam_test:
-                        aliases: ['sam-test']
-                        type: str
-                        description: Select SAM test type
-                        choices: ['ping', 'iperf']
-                    sam_username:
-                        aliases: ['sam-username']
-                        type: str
-                        description: Username for WiFi network connection.
-                    arrp_profile:
-                        aliases: ['arrp-profile']
-                        type: str
-                        description: Distributed Automatic Radio Resource Provisioning
-                    bss_color_mode:
-                        aliases: ['bss-color-mode']
-                        type: str
-                        description: BSS color mode for this 11ax radio
-                        choices: ['auto', 'static']
-                    sam_cwp_failure_string:
-                        aliases: ['sam-cwp-failure-string']
-                        type: str
-                        description: Failure identification on the page after an incorrect login.
-                    sam_cwp_match_string:
-                        aliases: ['sam-cwp-match-string']
-                        type: str
-                        description: Identification string from the captive portal login form.
-                    sam_cwp_password:
-                        aliases: ['sam-cwp-password']
-                        type: raw
-                        description: (list) Password for captive portal authentication.
-                    sam_cwp_success_string:
-                        aliases: ['sam-cwp-success-string']
-                        type: str
-                        description: Success identification on the page after a successful login.
-                    sam_cwp_test_url:
-                        aliases: ['sam-cwp-test-url']
-                        type: str
-                        description: Website the client is trying to access.
-                    sam_cwp_username:
-                        aliases: ['sam-cwp-username']
-                        type: str
-                        description: Username for captive portal authentication.
-                    sam_server_fqdn:
-                        aliases: ['sam-server-fqdn']
-                        type: str
-                        description: SAM test server domain name.
-                    sam_server_ip:
-                        aliases: ['sam-server-ip']
-                        type: str
-                        description: SAM test server IP address.
-                    sam_server_type:
-                        aliases: ['sam-server-type']
-                        type: str
-                        description: Select SAM server type
-                        choices: ['ip', 'fqdn']
-                    d80211d:
-                        aliases: ['80211d']
-                        type: str
-                        description: Enable/disable 802.
-                        choices: ['disable', 'enable']
-                    optional_antenna:
-                        aliases: ['optional-antenna']
-                        type: str
-                        description: Optional antenna used on FAP
-                        choices: ['none', 'FANT-04ABGN-0606-O-N', 'FANT-04ABGN-1414-P-N',
-                                  'FANT-04ABGN-8065-P-N', 'FANT-04ABGN-0606-O-R',
-                                  'FANT-04ABGN-0606-P-R', 'FANT-10ACAX-1213-D-N',
-                                  'FANT-08ABGN-1213-D-R', 'custom', 'FANT-04BEAX-0606-P-R']
-                    mimo_mode:
-                        aliases: ['mimo-mode']
-                        type: str
-                        description: Configure radio MIMO mode
-                        choices: ['default', '1x1', '2x2', '3x3', '4x4', '8x8']
-                    optional_antenna_gain:
-                        aliases: ['optional-antenna-gain']
-                        type: str
-                        description: Optional antenna gain in dBi
-                    sam_ca_certificate:
-                        aliases: ['sam-ca-certificate']
-                        type: str
-                        description: CA certificate for WPA2/WPA3-ENTERPRISE.
-                    sam_client_certificate:
-                        aliases: ['sam-client-certificate']
-                        type: str
-                        description: Client certificate for WPA2/WPA3-ENTERPRISE.
-                    sam_eap_method:
-                        aliases: ['sam-eap-method']
-                        type: str
-                        description: Select WPA2/WPA3-ENTERPRISE EAP Method
-                        choices: ['tls', 'peap', 'both']
-                    sam_private_key:
-                        aliases: ['sam-private-key']
-                        type: str
-                        description: Private key for WPA2/WPA3-ENTERPRISE.
-                    sam_private_key_password:
-                        aliases: ['sam-private-key-password']
-                        type: raw
-                        description: (list) Password for private key file for WPA2/WPA3-ENTERPRISE.
-                    channel_bonding_ext:
-                        aliases: ['channel-bonding-ext']
-                        type: str
-                        description: Channel bandwidth extension
-                        choices: ['320MHz-1', '320MHz-2']
-                    d80211mc:
-                        aliases: ['80211mc']
-                        type: str
-                        description: Enable/disable 802.
-                        choices: ['disable', 'enable']
-                    ap_sniffer_chan_width:
-                        aliases: ['ap-sniffer-chan-width']
-                        type: str
-                        description: Channel bandwidth for sniffer.
-                        choices: ['320MHz', '240MHz', '160MHz', '80MHz', '40MHz', '20MHz']
-                    ai_darrp_support:
-                        aliases: ['ai-darrp-support']
-                        type: str
-                        description: Enable/disable support for FortiAIOps to retrieve Distributed Automatic Radio Resource Provisioning
-                        choices: ['disable', 'enable']
-            radio_2:
-                aliases: ['radio-2']
-                type: dict
-                description: Radio 2.
-                suboptions:
-                    airtime_fairness:
-                        aliases: ['airtime-fairness']
-                        type: str
-                        description: Enable/disable airtime fairness
-                        choices: ['disable', 'enable']
-                    amsdu:
-                        type: str
-                        description: Enable/disable 802.
-                        choices: ['disable', 'enable']
-                    ap_sniffer_addr:
-                        aliases: ['ap-sniffer-addr']
-                        type: str
-                        description: MAC address to monitor.
-                    ap_sniffer_bufsize:
-                        aliases: ['ap-sniffer-bufsize']
-                        type: int
-                        description: Sniffer buffer size
-                    ap_sniffer_chan:
-                        aliases: ['ap-sniffer-chan']
-                        type: int
-                        description: Channel on which to operate the sniffer
-                    ap_sniffer_ctl:
-                        aliases: ['ap-sniffer-ctl']
-                        type: str
-                        description: Enable/disable sniffer on WiFi control frame
-                        choices: ['disable', 'enable']
-                    ap_sniffer_data:
-                        aliases: ['ap-sniffer-data']
-                        type: str
-                        description: Enable/disable sniffer on WiFi data frame
-                        choices: ['disable', 'enable']
-                    ap_sniffer_mgmt_beacon:
-                        aliases: ['ap-sniffer-mgmt-beacon']
-                        type: str
-                        description: Enable/disable sniffer on WiFi management Beacon frames
-                        choices: ['disable', 'enable']
-                    ap_sniffer_mgmt_other:
-                        aliases: ['ap-sniffer-mgmt-other']
-                        type: str
-                        description: Enable/disable sniffer on WiFi management other frames
-                        choices: ['disable', 'enable']
-                    ap_sniffer_mgmt_probe:
-                        aliases: ['ap-sniffer-mgmt-probe']
-                        type: str
-                        description: Enable/disable sniffer on WiFi management probe frames
-                        choices: ['disable', 'enable']
-                    auto_power_high:
-                        aliases: ['auto-power-high']
-                        type: int
-                        description: The upper bound of automatic transmit power adjustment in dBm
-                    auto_power_level:
-                        aliases: ['auto-power-level']
-                        type: str
-                        description: Enable/disable automatic power-level adjustment to prevent co-channel interference
-                        choices: ['disable', 'enable']
-                    auto_power_low:
-                        aliases: ['auto-power-low']
-                        type: int
-                        description: The lower bound of automatic transmit power adjustment in dBm
-                    auto_power_target:
-                        aliases: ['auto-power-target']
-                        type: str
-                        description: The target of automatic transmit power adjustment in dBm.
-                    band:
-                        type: str
-                        description: WiFi band that Radio 2 operates on.
-                        choices: ['802.11b', '802.11a', '802.11g', '802.11n', '802.11ac',
-                                  '802.11n-5G', '802.11ax-5G', '802.11ax', '802.11ac-2G',
-                                  '802.11g-only', '802.11n-only', '802.11n,g-only',
-                                  '802.11ac-only', '802.11ac,n-only', '802.11n-5G-only',
-                                  '802.11ax-5G-only', '802.11ax,ac-only', '802.11ax,ac,n-only',
-                                  '802.11ax-only', '802.11ax,n-only', '802.11ax,n,g-only',
-                                  '802.11ax-6G', '802.11n-2G', '802.11ac-5G', '802.11ax-2G',
-                                  '802.11be-2G', '802.11be-5G', '802.11be-6G']
-                    band_5g_type:
-                        aliases: ['band-5g-type']
-                        type: str
-                        description: WiFi 5G band type.
-                        choices: ['5g-full', '5g-high', '5g-low']
-                    bandwidth_admission_control:
-                        aliases: ['bandwidth-admission-control']
-                        type: str
-                        description: Enable/disable WiFi multimedia
-                        choices: ['disable', 'enable']
-                    bandwidth_capacity:
-                        aliases: ['bandwidth-capacity']
-                        type: int
-                        description: Maximum bandwidth capacity allowed
-                    beacon_interval:
-                        aliases: ['beacon-interval']
-                        type: int
-                        description: Beacon interval.
-                    bss_color:
-                        aliases: ['bss-color']
-                        type: int
-                        description: BSS color value for this 11ax radio
-                    call_admission_control:
-                        aliases: ['call-admission-control']
-                        type: str
-                        description: Enable/disable WiFi multimedia
-                        choices: ['disable', 'enable']
-                    call_capacity:
-                        aliases: ['call-capacity']
-                        type: int
-                        description: Maximum number of Voice over WLAN
-                    channel:
-                        type: raw
-                        description: (list) Selected list of wireless radio channels.
-                    channel_bonding:
-                        aliases: ['channel-bonding']
-                        type: str
-                        description: Channel bandwidth
-                        choices: ['disable', 'enable', '80MHz', '40MHz', '20MHz', '160MHz',
-                                  '320MHz', '240MHz']
-                    channel_utilization:
-                        aliases: ['channel-utilization']
-                        type: str
-                        description: Enable/disable measuring channel utilization.
-                        choices: ['disable', 'enable']
-                    coexistence:
-                        type: str
-                        description: Enable/disable allowing both HT20 and HT40 on the same radio
-                        choices: ['disable', 'enable']
-                    darrp:
-                        type: str
-                        description: Enable/disable Distributed Automatic Radio Resource Provisioning
-                        choices: ['disable', 'enable']
-                    drma:
-                        type: str
-                        description: Enable/disable dynamic radio mode assignment
-                        choices: ['disable', 'enable']
-                    drma_sensitivity:
-                        aliases: ['drma-sensitivity']
-                        type: str
-                        description: Network Coverage Factor
-                        choices: ['low', 'medium', 'high']
-                    dtim:
-                        type: int
-                        description: Delivery Traffic Indication Map
-                    frag_threshold:
-                        aliases: ['frag-threshold']
-                        type: int
-                        description: Maximum packet size that can be sent without fragmentation
-                    max_clients:
-                        aliases: ['max-clients']
-                        type: int
-                        description: Maximum number of stations
-                    max_distance:
-                        aliases: ['max-distance']
-                        type: int
-                        description: Maximum expected distance between the AP and clients
-                    mode:
-                        type: str
-                        description: Mode of radio 2.
-                        choices: ['disabled', 'ap', 'monitor', 'sniffer', 'sam']
-                    power_level:
-                        aliases: ['power-level']
-                        type: int
-                        description: Radio power level as a percentage of the maximum transmit power
-                    powersave_optimize:
-                        aliases: ['powersave-optimize']
-                        type: list
-                        elements: str
-                        description: Enable client power-saving features such as TIM, AC VO, and OBSS etc.
-                        choices: ['tim', 'ac-vo', 'no-obss-scan', 'no-11b-rate',
-                                  'client-rate-follow']
-                    protection_mode:
-                        aliases: ['protection-mode']
-                        type: str
-                        description: Enable/disable 802.
-                        choices: ['rtscts', 'ctsonly', 'disable']
-                    radio_id:
-                        aliases: ['radio-id']
-                        type: int
-                        description: Radio id.
-                    rts_threshold:
-                        aliases: ['rts-threshold']
-                        type: int
-                        description: Maximum packet size for RTS transmissions, specifying the maximum size of a data packet before RTS/CTS
-                    short_guard_interval:
-                        aliases: ['short-guard-interval']
-                        type: str
-                        description: Use either the short guard interval
-                        choices: ['disable', 'enable']
-                    spectrum_analysis:
-                        aliases: ['spectrum-analysis']
-                        type: str
-                        description: Enable/disable spectrum analysis to find interference that would negatively impact wireless performance.
-                        choices: ['disable', 'enable', 'scan-only']
-                    transmit_optimize:
-                        aliases: ['transmit-optimize']
-                        type: list
-                        elements: str
-                        description: Packet transmission optimization options including power saving, aggregation limiting, retry limiting, etc.
-                        choices: ['disable', 'power-save', 'aggr-limit', 'retry-limit', 'send-bar']
-                    vap_all:
-                        aliases: ['vap-all']
-                        type: str
-                        description: Configure method for assigning SSIDs to this FortiAP
-                        choices: ['disable', 'enable', 'tunnel', 'bridge', 'manual']
-                    vap1:
-                        type: str
-                        description: Virtual Access Point
-                    vap2:
-                        type: str
-                        description: Virtual Access Point
-                    vap3:
-                        type: str
-                        description: Virtual Access Point
-                    vap4:
-                        type: str
-                        description: Virtual Access Point
-                    vap5:
-                        type: str
-                        description: Virtual Access Point
-                    vap6:
-                        type: str
-                        description: Virtual Access Point
-                    vap7:
-                        type: str
-                        description: Virtual Access Point
-                    vap8:
-                        type: str
-                        description: Virtual Access Point
-                    vaps:
-                        type: raw
-                        description: (list or str) Manually selected list of Virtual Access Points
-                    wids_profile:
-                        aliases: ['wids-profile']
-                        type: str
-                        description: Wireless Intrusion Detection System
-                    zero_wait_dfs:
-                        aliases: ['zero-wait-dfs']
-                        type: str
-                        description: Enable/disable zero wait DFS on radio
-                        choices: ['disable', 'enable']
-                    frequency_handoff:
-                        aliases: ['frequency-handoff']
-                        type: str
-                        description: Enable/disable frequency handoff of clients to other channels
-                        choices: ['disable', 'enable']
-                    ap_handoff:
-                        aliases: ['ap-handoff']
-                        type: str
-                        description: Enable/disable AP handoff of clients to other APs
-                        choices: ['disable', 'enable']
-                    iperf_protocol:
-                        aliases: ['iperf-protocol']
-                        type: str
-                        description: Iperf test protocol
-                        choices: ['udp', 'tcp']
-                    iperf_server_port:
-                        aliases: ['iperf-server-port']
-                        type: int
-                        description: Iperf service port number.
-                    power_mode:
-                        aliases: ['power-mode']
-                        type: str
-                        description: Set radio effective isotropic radiated power
-                        choices: ['dBm', 'percentage']
-                    power_value:
-                        aliases: ['power-value']
-                        type: int
-                        description: Radio EIRP power in dBm
-                    sam_bssid:
-                        aliases: ['sam-bssid']
-                        type: str
-                        description: BSSID for WiFi network.
-                    sam_captive_portal:
-                        aliases: ['sam-captive-portal']
-                        type: str
-                        description: Enable/disable Captive Portal Authentication
-                        choices: ['disable', 'enable']
-                    sam_password:
-                        aliases: ['sam-password']
-                        type: raw
-                        description: (list) Passphrase for WiFi network connection.
-                    sam_report_intv:
-                        aliases: ['sam-report-intv']
-                        type: int
-                        description: SAM report interval
-                    sam_security_type:
-                        aliases: ['sam-security-type']
-                        type: str
-                        description: Select WiFi network security type
-                        choices: ['open', 'wpa-personal', 'wpa-enterprise', 'owe', 'wpa3-sae']
-                    sam_server:
-                        aliases: ['sam-server']
-                        type: str
-                        description: SAM test server IP address or domain name.
-                    sam_ssid:
-                        aliases: ['sam-ssid']
-                        type: str
-                        description: SSID for WiFi network.
-                    sam_test:
-                        aliases: ['sam-test']
-                        type: str
-                        description: Select SAM test type
-                        choices: ['ping', 'iperf']
-                    sam_username:
-                        aliases: ['sam-username']
-                        type: str
-                        description: Username for WiFi network connection.
-                    arrp_profile:
-                        aliases: ['arrp-profile']
-                        type: str
-                        description: Distributed Automatic Radio Resource Provisioning
-                    bss_color_mode:
-                        aliases: ['bss-color-mode']
-                        type: str
-                        description: BSS color mode for this 11ax radio
-                        choices: ['auto', 'static']
-                    sam_cwp_failure_string:
-                        aliases: ['sam-cwp-failure-string']
-                        type: str
-                        description: Failure identification on the page after an incorrect login.
-                    sam_cwp_match_string:
-                        aliases: ['sam-cwp-match-string']
-                        type: str
-                        description: Identification string from the captive portal login form.
-                    sam_cwp_password:
-                        aliases: ['sam-cwp-password']
-                        type: raw
-                        description: (list) Password for captive portal authentication.
-                    sam_cwp_success_string:
-                        aliases: ['sam-cwp-success-string']
-                        type: str
-                        description: Success identification on the page after a successful login.
-                    sam_cwp_test_url:
-                        aliases: ['sam-cwp-test-url']
-                        type: str
-                        description: Website the client is trying to access.
-                    sam_cwp_username:
-                        aliases: ['sam-cwp-username']
-                        type: str
-                        description: Username for captive portal authentication.
-                    sam_server_fqdn:
-                        aliases: ['sam-server-fqdn']
-                        type: str
-                        description: SAM test server domain name.
-                    sam_server_ip:
-                        aliases: ['sam-server-ip']
-                        type: str
-                        description: SAM test server IP address.
-                    sam_server_type:
-                        aliases: ['sam-server-type']
-                        type: str
-                        description: Select SAM server type
-                        choices: ['ip', 'fqdn']
-                    d80211d:
-                        aliases: ['80211d']
-                        type: str
-                        description: Enable/disable 802.
-                        choices: ['disable', 'enable']
-                    optional_antenna:
-                        aliases: ['optional-antenna']
-                        type: str
-                        description: Optional antenna used on FAP
-                        choices: ['none', 'FANT-04ABGN-0606-O-N', 'FANT-04ABGN-1414-P-N',
-                                  'FANT-04ABGN-8065-P-N', 'FANT-04ABGN-0606-O-R',
-                                  'FANT-04ABGN-0606-P-R', 'FANT-10ACAX-1213-D-N',
-                                  'FANT-08ABGN-1213-D-R', 'custom', 'FANT-04BEAX-0606-P-R']
-                    mimo_mode:
-                        aliases: ['mimo-mode']
-                        type: str
-                        description: Configure radio MIMO mode
-                        choices: ['default', '1x1', '2x2', '3x3', '4x4', '8x8']
-                    optional_antenna_gain:
-                        aliases: ['optional-antenna-gain']
-                        type: str
-                        description: Optional antenna gain in dBi
-                    sam_ca_certificate:
-                        aliases: ['sam-ca-certificate']
-                        type: str
-                        description: CA certificate for WPA2/WPA3-ENTERPRISE.
-                    sam_client_certificate:
-                        aliases: ['sam-client-certificate']
-                        type: str
-                        description: Client certificate for WPA2/WPA3-ENTERPRISE.
-                    sam_eap_method:
-                        aliases: ['sam-eap-method']
-                        type: str
-                        description: Select WPA2/WPA3-ENTERPRISE EAP Method
-                        choices: ['tls', 'peap', 'both']
-                    sam_private_key:
-                        aliases: ['sam-private-key']
-                        type: str
-                        description: Private key for WPA2/WPA3-ENTERPRISE.
-                    sam_private_key_password:
-                        aliases: ['sam-private-key-password']
-                        type: raw
-                        description: (list) Password for private key file for WPA2/WPA3-ENTERPRISE.
-                    channel_bonding_ext:
-                        aliases: ['channel-bonding-ext']
-                        type: str
-                        description: Channel bandwidth extension
-                        choices: ['320MHz-1', '320MHz-2']
-                    d80211mc:
-                        aliases: ['80211mc']
-                        type: str
-                        description: Enable/disable 802.
-                        choices: ['disable', 'enable']
-                    ap_sniffer_chan_width:
-                        aliases: ['ap-sniffer-chan-width']
-                        type: str
-                        description: Channel bandwidth for sniffer.
-                        choices: ['320MHz', '240MHz', '160MHz', '80MHz', '40MHz', '20MHz']
-                    ai_darrp_support:
-                        aliases: ['ai-darrp-support']
-                        type: str
-                        description: Enable/disable support for FortiAIOps to retrieve Distributed Automatic Radio Resource Provisioning
-                        choices: ['disable', 'enable']
-            radio_3:
-                aliases: ['radio-3']
-                type: dict
-                description: Radio 3.
-                suboptions:
-                    airtime_fairness:
-                        aliases: ['airtime-fairness']
-                        type: str
-                        description: Enable/disable airtime fairness
-                        choices: ['disable', 'enable']
-                    amsdu:
-                        type: str
-                        description: Enable/disable 802.
-                        choices: ['disable', 'enable']
-                    ap_sniffer_addr:
-                        aliases: ['ap-sniffer-addr']
-                        type: str
-                        description: MAC address to monitor.
-                    ap_sniffer_bufsize:
-                        aliases: ['ap-sniffer-bufsize']
-                        type: int
-                        description: Sniffer buffer size
-                    ap_sniffer_chan:
-                        aliases: ['ap-sniffer-chan']
-                        type: int
-                        description: Channel on which to operate the sniffer
-                    ap_sniffer_ctl:
-                        aliases: ['ap-sniffer-ctl']
-                        type: str
-                        description: Enable/disable sniffer on WiFi control frame
-                        choices: ['disable', 'enable']
-                    ap_sniffer_data:
-                        aliases: ['ap-sniffer-data']
-                        type: str
-                        description: Enable/disable sniffer on WiFi data frame
-                        choices: ['disable', 'enable']
-                    ap_sniffer_mgmt_beacon:
-                        aliases: ['ap-sniffer-mgmt-beacon']
-                        type: str
-                        description: Enable/disable sniffer on WiFi management Beacon frames
-                        choices: ['disable', 'enable']
-                    ap_sniffer_mgmt_other:
-                        aliases: ['ap-sniffer-mgmt-other']
-                        type: str
-                        description: Enable/disable sniffer on WiFi management other frames
-                        choices: ['disable', 'enable']
-                    ap_sniffer_mgmt_probe:
-                        aliases: ['ap-sniffer-mgmt-probe']
-                        type: str
-                        description: Enable/disable sniffer on WiFi management probe frames
-                        choices: ['disable', 'enable']
-                    auto_power_high:
-                        aliases: ['auto-power-high']
-                        type: int
-                        description: The upper bound of automatic transmit power adjustment in dBm
-                    auto_power_level:
-                        aliases: ['auto-power-level']
-                        type: str
-                        description: Enable/disable automatic power-level adjustment to prevent co-channel interference
-                        choices: ['disable', 'enable']
-                    auto_power_low:
-                        aliases: ['auto-power-low']
-                        type: int
-                        description: The lower bound of automatic transmit power adjustment in dBm
-                    auto_power_target:
-                        aliases: ['auto-power-target']
-                        type: str
-                        description: The target of automatic transmit power adjustment in dBm.
-                    band:
-                        type: str
-                        description: WiFi band that Radio 3 operates on.
-                        choices: ['802.11b', '802.11a', '802.11g', '802.11n', '802.11ac',
-                                  '802.11n-5G', '802.11ax-5G', '802.11ax', '802.11ac-2G',
-                                  '802.11g-only', '802.11n-only', '802.11n,g-only',
-                                  '802.11ac-only', '802.11ac,n-only', '802.11n-5G-only',
-                                  '802.11ax-5G-only', '802.11ax,ac-only', '802.11ax,ac,n-only',
-                                  '802.11ax-only', '802.11ax,n-only', '802.11ax,n,g-only',
-                                  '802.11ax-6G', '802.11n-2G', '802.11ac-5G', '802.11ax-2G',
-                                  '802.11be-2G', '802.11be-5G', '802.11be-6G']
-                    band_5g_type:
-                        aliases: ['band-5g-type']
-                        type: str
-                        description: WiFi 5G band type.
-                        choices: ['5g-full', '5g-high', '5g-low']
-                    bandwidth_admission_control:
-                        aliases: ['bandwidth-admission-control']
-                        type: str
-                        description: Enable/disable WiFi multimedia
-                        choices: ['disable', 'enable']
-                    bandwidth_capacity:
-                        aliases: ['bandwidth-capacity']
-                        type: int
-                        description: Maximum bandwidth capacity allowed
-                    beacon_interval:
-                        aliases: ['beacon-interval']
-                        type: int
-                        description: Beacon interval.
-                    bss_color:
-                        aliases: ['bss-color']
-                        type: int
-                        description: BSS color value for this 11ax radio
-                    call_admission_control:
-                        aliases: ['call-admission-control']
-                        type: str
-                        description: Enable/disable WiFi multimedia
-                        choices: ['disable', 'enable']
-                    call_capacity:
-                        aliases: ['call-capacity']
-                        type: int
-                        description: Maximum number of Voice over WLAN
-                    channel:
-                        type: raw
-                        description: (list) Selected list of wireless radio channels.
-                    channel_bonding:
-                        aliases: ['channel-bonding']
-                        type: str
-                        description: Channel bandwidth
-                        choices: ['80MHz', '40MHz', '20MHz', '160MHz', '320MHz', '240MHz']
-                    channel_utilization:
-                        aliases: ['channel-utilization']
-                        type: str
-                        description: Enable/disable measuring channel utilization.
-                        choices: ['disable', 'enable']
-                    coexistence:
-                        type: str
-                        description: Enable/disable allowing both HT20 and HT40 on the same radio
-                        choices: ['disable', 'enable']
-                    darrp:
-                        type: str
-                        description: Enable/disable Distributed Automatic Radio Resource Provisioning
-                        choices: ['disable', 'enable']
-                    drma:
-                        type: str
-                        description: Enable/disable dynamic radio mode assignment
-                        choices: ['disable', 'enable']
-                    drma_sensitivity:
-                        aliases: ['drma-sensitivity']
-                        type: str
-                        description: Network Coverage Factor
-                        choices: ['low', 'medium', 'high']
-                    dtim:
-                        type: int
-                        description: Delivery Traffic Indication Map
-                    frag_threshold:
-                        aliases: ['frag-threshold']
-                        type: int
-                        description: Maximum packet size that can be sent without fragmentation
-                    max_clients:
-                        aliases: ['max-clients']
-                        type: int
-                        description: Maximum number of stations
-                    max_distance:
-                        aliases: ['max-distance']
-                        type: int
-                        description: Maximum expected distance between the AP and clients
-                    mode:
-                        type: str
-                        description: Mode of radio 3.
-                        choices: ['disabled', 'ap', 'monitor', 'sniffer', 'sam']
-                    power_level:
-                        aliases: ['power-level']
-                        type: int
-                        description: Radio power level as a percentage of the maximum transmit power
-                    powersave_optimize:
-                        aliases: ['powersave-optimize']
-                        type: list
-                        elements: str
-                        description: Enable client power-saving features such as TIM, AC VO, and OBSS etc.
-                        choices: ['tim', 'ac-vo', 'no-obss-scan', 'no-11b-rate',
-                                  'client-rate-follow']
-                    protection_mode:
-                        aliases: ['protection-mode']
-                        type: str
-                        description: Enable/disable 802.
-                        choices: ['rtscts', 'ctsonly', 'disable']
-                    radio_id:
-                        aliases: ['radio-id']
-                        type: int
-                        description: Radio id.
-                    rts_threshold:
-                        aliases: ['rts-threshold']
-                        type: int
-                        description: Maximum packet size for RTS transmissions, specifying the maximum size of a data packet before RTS/CTS
-                    short_guard_interval:
-                        aliases: ['short-guard-interval']
-                        type: str
-                        description: Use either the short guard interval
-                        choices: ['disable', 'enable']
-                    spectrum_analysis:
-                        aliases: ['spectrum-analysis']
-                        type: str
-                        description: Enable/disable spectrum analysis to find interference that would negatively impact wireless performance.
-                        choices: ['disable', 'enable', 'scan-only']
-                    transmit_optimize:
-                        aliases: ['transmit-optimize']
-                        type: list
-                        elements: str
-                        description: Packet transmission optimization options including power saving, aggregation limiting, retry limiting, etc.
-                        choices: ['disable', 'power-save', 'aggr-limit', 'retry-limit', 'send-bar']
-                    vap_all:
-                        aliases: ['vap-all']
-                        type: str
-                        description: Configure method for assigning SSIDs to this FortiAP
-                        choices: ['disable', 'enable', 'tunnel', 'bridge', 'manual']
-                    vap1:
-                        type: str
-                        description: Virtual Access Point
-                    vap2:
-                        type: str
-                        description: Virtual Access Point
-                    vap3:
-                        type: str
-                        description: Virtual Access Point
-                    vap4:
-                        type: str
-                        description: Virtual Access Point
-                    vap5:
-                        type: str
-                        description: Virtual Access Point
-                    vap6:
-                        type: str
-                        description: Virtual Access Point
-                    vap7:
-                        type: str
-                        description: Virtual Access Point
-                    vap8:
-                        type: str
-                        description: Virtual Access Point
-                    vaps:
-                        type: raw
-                        description: (list or str) Manually selected list of Virtual Access Points
-                    wids_profile:
-                        aliases: ['wids-profile']
-                        type: str
-                        description: Wireless Intrusion Detection System
-                    zero_wait_dfs:
-                        aliases: ['zero-wait-dfs']
-                        type: str
-                        description: Enable/disable zero wait DFS on radio
-                        choices: ['disable', 'enable']
-                    frequency_handoff:
-                        aliases: ['frequency-handoff']
-                        type: str
-                        description: Enable/disable frequency handoff of clients to other channels
-                        choices: ['disable', 'enable']
-                    ap_handoff:
-                        aliases: ['ap-handoff']
-                        type: str
-                        description: Enable/disable AP handoff of clients to other APs
-                        choices: ['disable', 'enable']
-                    iperf_protocol:
-                        aliases: ['iperf-protocol']
-                        type: str
-                        description: Iperf test protocol
-                        choices: ['udp', 'tcp']
-                    iperf_server_port:
-                        aliases: ['iperf-server-port']
-                        type: int
-                        description: Iperf service port number.
-                    power_mode:
-                        aliases: ['power-mode']
-                        type: str
-                        description: Set radio effective isotropic radiated power
-                        choices: ['dBm', 'percentage']
-                    power_value:
-                        aliases: ['power-value']
-                        type: int
-                        description: Radio EIRP power in dBm
-                    sam_bssid:
-                        aliases: ['sam-bssid']
-                        type: str
-                        description: BSSID for WiFi network.
-                    sam_captive_portal:
-                        aliases: ['sam-captive-portal']
-                        type: str
-                        description: Enable/disable Captive Portal Authentication
-                        choices: ['disable', 'enable']
-                    sam_password:
-                        aliases: ['sam-password']
-                        type: raw
-                        description: (list) Passphrase for WiFi network connection.
-                    sam_report_intv:
-                        aliases: ['sam-report-intv']
-                        type: int
-                        description: SAM report interval
-                    sam_security_type:
-                        aliases: ['sam-security-type']
-                        type: str
-                        description: Select WiFi network security type
-                        choices: ['open', 'wpa-personal', 'wpa-enterprise', 'owe', 'wpa3-sae']
-                    sam_server:
-                        aliases: ['sam-server']
-                        type: str
-                        description: SAM test server IP address or domain name.
-                    sam_ssid:
-                        aliases: ['sam-ssid']
-                        type: str
-                        description: SSID for WiFi network.
-                    sam_test:
-                        aliases: ['sam-test']
-                        type: str
-                        description: Select SAM test type
-                        choices: ['ping', 'iperf']
-                    sam_username:
-                        aliases: ['sam-username']
-                        type: str
-                        description: Username for WiFi network connection.
-                    arrp_profile:
-                        aliases: ['arrp-profile']
-                        type: str
-                        description: Distributed Automatic Radio Resource Provisioning
-                    bss_color_mode:
-                        aliases: ['bss-color-mode']
-                        type: str
-                        description: BSS color mode for this 11ax radio
-                        choices: ['auto', 'static']
-                    sam_cwp_failure_string:
-                        aliases: ['sam-cwp-failure-string']
-                        type: str
-                        description: Failure identification on the page after an incorrect login.
-                    sam_cwp_match_string:
-                        aliases: ['sam-cwp-match-string']
-                        type: str
-                        description: Identification string from the captive portal login form.
-                    sam_cwp_password:
-                        aliases: ['sam-cwp-password']
-                        type: raw
-                        description: (list) Password for captive portal authentication.
-                    sam_cwp_success_string:
-                        aliases: ['sam-cwp-success-string']
-                        type: str
-                        description: Success identification on the page after a successful login.
-                    sam_cwp_test_url:
-                        aliases: ['sam-cwp-test-url']
-                        type: str
-                        description: Website the client is trying to access.
-                    sam_cwp_username:
-                        aliases: ['sam-cwp-username']
-                        type: str
-                        description: Username for captive portal authentication.
-                    sam_server_fqdn:
-                        aliases: ['sam-server-fqdn']
-                        type: str
-                        description: SAM test server domain name.
-                    sam_server_ip:
-                        aliases: ['sam-server-ip']
-                        type: str
-                        description: SAM test server IP address.
-                    sam_server_type:
-                        aliases: ['sam-server-type']
-                        type: str
-                        description: Select SAM server type
-                        choices: ['ip', 'fqdn']
-                    d80211d:
-                        aliases: ['80211d']
-                        type: str
-                        description: Enable/disable 802.
-                        choices: ['disable', 'enable']
-                    optional_antenna:
-                        aliases: ['optional-antenna']
-                        type: str
-                        description: Optional antenna used on FAP
-                        choices: ['none', 'FANT-04ABGN-0606-O-N', 'FANT-04ABGN-1414-P-N',
-                                  'FANT-04ABGN-8065-P-N', 'FANT-04ABGN-0606-O-R',
-                                  'FANT-04ABGN-0606-P-R', 'FANT-10ACAX-1213-D-N',
-                                  'FANT-08ABGN-1213-D-R', 'custom', 'FANT-04BEAX-0606-P-R']
-                    mimo_mode:
-                        aliases: ['mimo-mode']
-                        type: str
-                        description: Configure radio MIMO mode
-                        choices: ['default', '1x1', '2x2', '3x3', '4x4', '8x8']
-                    optional_antenna_gain:
-                        aliases: ['optional-antenna-gain']
-                        type: str
-                        description: Optional antenna gain in dBi
-                    sam_ca_certificate:
-                        aliases: ['sam-ca-certificate']
-                        type: str
-                        description: CA certificate for WPA2/WPA3-ENTERPRISE.
-                    sam_client_certificate:
-                        aliases: ['sam-client-certificate']
-                        type: str
-                        description: Client certificate for WPA2/WPA3-ENTERPRISE.
-                    sam_eap_method:
-                        aliases: ['sam-eap-method']
-                        type: str
-                        description: Select WPA2/WPA3-ENTERPRISE EAP Method
-                        choices: ['tls', 'peap', 'both']
-                    sam_private_key:
-                        aliases: ['sam-private-key']
-                        type: str
-                        description: Private key for WPA2/WPA3-ENTERPRISE.
-                    sam_private_key_password:
-                        aliases: ['sam-private-key-password']
-                        type: raw
-                        description: (list) Password for private key file for WPA2/WPA3-ENTERPRISE.
-                    channel_bonding_ext:
-                        aliases: ['channel-bonding-ext']
-                        type: str
-                        description: Channel bandwidth extension
-                        choices: ['320MHz-1', '320MHz-2']
-                    d80211mc:
-                        aliases: ['80211mc']
-                        type: str
-                        description: Enable/disable 802.
-                        choices: ['disable', 'enable']
-                    ap_sniffer_chan_width:
-                        aliases: ['ap-sniffer-chan-width']
-                        type: str
-                        description: Channel bandwidth for sniffer.
-                        choices: ['320MHz', '240MHz', '160MHz', '80MHz', '40MHz', '20MHz']
-                    ai_darrp_support:
-                        aliases: ['ai-darrp-support']
-                        type: str
-                        description: Enable/disable support for FortiAIOps to retrieve Distributed Automatic Radio Resource Provisioning
-                        choices: ['disable', 'enable']
-            radio_4:
-                aliases: ['radio-4']
-                type: dict
-                description: Radio 4.
-                suboptions:
-                    airtime_fairness:
-                        aliases: ['airtime-fairness']
-                        type: str
-                        description: Enable/disable airtime fairness
-                        choices: ['disable', 'enable']
-                    amsdu:
-                        type: str
-                        description: Enable/disable 802.
-                        choices: ['disable', 'enable']
-                    ap_sniffer_addr:
-                        aliases: ['ap-sniffer-addr']
-                        type: str
-                        description: MAC address to monitor.
-                    ap_sniffer_bufsize:
-                        aliases: ['ap-sniffer-bufsize']
-                        type: int
-                        description: Sniffer buffer size
-                    ap_sniffer_chan:
-                        aliases: ['ap-sniffer-chan']
-                        type: int
-                        description: Channel on which to operate the sniffer
-                    ap_sniffer_ctl:
-                        aliases: ['ap-sniffer-ctl']
-                        type: str
-                        description: Enable/disable sniffer on WiFi control frame
-                        choices: ['disable', 'enable']
-                    ap_sniffer_data:
-                        aliases: ['ap-sniffer-data']
-                        type: str
-                        description: Enable/disable sniffer on WiFi data frame
-                        choices: ['disable', 'enable']
-                    ap_sniffer_mgmt_beacon:
-                        aliases: ['ap-sniffer-mgmt-beacon']
-                        type: str
-                        description: Enable/disable sniffer on WiFi management Beacon frames
-                        choices: ['disable', 'enable']
-                    ap_sniffer_mgmt_other:
-                        aliases: ['ap-sniffer-mgmt-other']
-                        type: str
-                        description: Enable/disable sniffer on WiFi management other frames
-                        choices: ['disable', 'enable']
-                    ap_sniffer_mgmt_probe:
-                        aliases: ['ap-sniffer-mgmt-probe']
-                        type: str
-                        description: Enable/disable sniffer on WiFi management probe frames
-                        choices: ['disable', 'enable']
-                    auto_power_high:
-                        aliases: ['auto-power-high']
-                        type: int
-                        description: The upper bound of automatic transmit power adjustment in dBm
-                    auto_power_level:
-                        aliases: ['auto-power-level']
-                        type: str
-                        description: Enable/disable automatic power-level adjustment to prevent co-channel interference
-                        choices: ['disable', 'enable']
-                    auto_power_low:
-                        aliases: ['auto-power-low']
-                        type: int
-                        description: The lower bound of automatic transmit power adjustment in dBm
-                    auto_power_target:
-                        aliases: ['auto-power-target']
-                        type: str
-                        description: The target of automatic transmit power adjustment in dBm.
-                    band:
-                        type: str
-                        description: WiFi band that Radio 3 operates on.
-                        choices: ['802.11b', '802.11a', '802.11g', '802.11n', '802.11ac',
-                                  '802.11n-5G', '802.11ax-5G', '802.11ax', '802.11ac-2G',
-                                  '802.11g-only', '802.11n-only', '802.11n,g-only',
-                                  '802.11ac-only', '802.11ac,n-only', '802.11n-5G-only',
-                                  '802.11ax-5G-only', '802.11ax,ac-only', '802.11ax,ac,n-only',
-                                  '802.11ax-only', '802.11ax,n-only', '802.11ax,n,g-only',
-                                  '802.11ax-6G', '802.11n-2G', '802.11ac-5G', '802.11ax-2G',
-                                  '802.11be-2G', '802.11be-5G', '802.11be-6G']
-                    band_5g_type:
-                        aliases: ['band-5g-type']
-                        type: str
-                        description: WiFi 5G band type.
-                        choices: ['5g-full', '5g-high', '5g-low']
-                    bandwidth_admission_control:
-                        aliases: ['bandwidth-admission-control']
-                        type: str
-                        description: Enable/disable WiFi multimedia
-                        choices: ['disable', 'enable']
-                    bandwidth_capacity:
-                        aliases: ['bandwidth-capacity']
-                        type: int
-                        description: Maximum bandwidth capacity allowed
-                    beacon_interval:
-                        aliases: ['beacon-interval']
-                        type: int
-                        description: Beacon interval.
-                    bss_color:
-                        aliases: ['bss-color']
-                        type: int
-                        description: BSS color value for this 11ax radio
-                    call_admission_control:
-                        aliases: ['call-admission-control']
-                        type: str
-                        description: Enable/disable WiFi multimedia
-                        choices: ['disable', 'enable']
-                    call_capacity:
-                        aliases: ['call-capacity']
-                        type: int
-                        description: Maximum number of Voice over WLAN
-                    channel:
-                        type: raw
-                        description: (list) Selected list of wireless radio channels.
-                    channel_bonding:
-                        aliases: ['channel-bonding']
-                        type: str
-                        description: Channel bandwidth
-                        choices: ['80MHz', '40MHz', '20MHz', '160MHz', '320MHz', '240MHz']
-                    channel_utilization:
-                        aliases: ['channel-utilization']
-                        type: str
-                        description: Enable/disable measuring channel utilization.
-                        choices: ['disable', 'enable']
-                    coexistence:
-                        type: str
-                        description: Enable/disable allowing both HT20 and HT40 on the same radio
-                        choices: ['disable', 'enable']
-                    darrp:
-                        type: str
-                        description: Enable/disable Distributed Automatic Radio Resource Provisioning
-                        choices: ['disable', 'enable']
-                    drma:
-                        type: str
-                        description: Enable/disable dynamic radio mode assignment
-                        choices: ['disable', 'enable']
-                    drma_sensitivity:
-                        aliases: ['drma-sensitivity']
-                        type: str
-                        description: Network Coverage Factor
-                        choices: ['low', 'medium', 'high']
-                    dtim:
-                        type: int
-                        description: Delivery Traffic Indication Map
-                    frag_threshold:
-                        aliases: ['frag-threshold']
-                        type: int
-                        description: Maximum packet size that can be sent without fragmentation
-                    max_clients:
-                        aliases: ['max-clients']
-                        type: int
-                        description: Maximum number of stations
-                    max_distance:
-                        aliases: ['max-distance']
-                        type: int
-                        description: Maximum expected distance between the AP and clients
-                    mode:
-                        type: str
-                        description: Mode of radio 3.
-                        choices: ['ap', 'monitor', 'sniffer', 'disabled', 'sam']
-                    power_level:
-                        aliases: ['power-level']
-                        type: int
-                        description: Radio power level as a percentage of the maximum transmit power
-                    powersave_optimize:
-                        aliases: ['powersave-optimize']
-                        type: list
-                        elements: str
-                        description: Enable client power-saving features such as TIM, AC VO, and OBSS etc.
-                        choices: ['tim', 'ac-vo', 'no-obss-scan', 'no-11b-rate',
-                                  'client-rate-follow']
-                    protection_mode:
-                        aliases: ['protection-mode']
-                        type: str
-                        description: Enable/disable 802.
-                        choices: ['rtscts', 'ctsonly', 'disable']
-                    radio_id:
-                        aliases: ['radio-id']
-                        type: int
-                        description: Radio id.
-                    rts_threshold:
-                        aliases: ['rts-threshold']
-                        type: int
-                        description: Maximum packet size for RTS transmissions, specifying the maximum size of a data packet before RTS/CTS
-                    short_guard_interval:
-                        aliases: ['short-guard-interval']
-                        type: str
-                        description: Use either the short guard interval
-                        choices: ['disable', 'enable']
-                    spectrum_analysis:
-                        aliases: ['spectrum-analysis']
-                        type: str
-                        description: Enable/disable spectrum analysis to find interference that would negatively impact wireless performance.
-                        choices: ['disable', 'enable', 'scan-only']
-                    transmit_optimize:
-                        aliases: ['transmit-optimize']
-                        type: list
-                        elements: str
-                        description: Packet transmission optimization options including power saving, aggregation limiting, retry limiting, etc.
-                        choices: ['disable', 'power-save', 'aggr-limit', 'retry-limit', 'send-bar']
-                    vap_all:
-                        aliases: ['vap-all']
-                        type: str
-                        description: Configure method for assigning SSIDs to this FortiAP
-                        choices: ['disable', 'enable', 'tunnel', 'bridge', 'manual']
-                    vap1:
-                        type: str
-                        description: Virtual Access Point
-                    vap2:
-                        type: str
-                        description: Virtual Access Point
-                    vap3:
-                        type: str
-                        description: Virtual Access Point
-                    vap4:
-                        type: str
-                        description: Virtual Access Point
-                    vap5:
-                        type: str
-                        description: Virtual Access Point
-                    vap6:
-                        type: str
-                        description: Virtual Access Point
-                    vap7:
-                        type: str
-                        description: Virtual Access Point
-                    vap8:
-                        type: str
-                        description: Virtual Access Point
-                    vaps:
-                        type: raw
-                        description: (list or str) Manually selected list of Virtual Access Points
-                    wids_profile:
-                        aliases: ['wids-profile']
-                        type: str
-                        description: Wireless Intrusion Detection System
-                    zero_wait_dfs:
-                        aliases: ['zero-wait-dfs']
-                        type: str
-                        description: Enable/disable zero wait DFS on radio
-                        choices: ['disable', 'enable']
-                    frequency_handoff:
-                        aliases: ['frequency-handoff']
-                        type: str
-                        description: Enable/disable frequency handoff of clients to other channels
-                        choices: ['disable', 'enable']
-                    ap_handoff:
-                        aliases: ['ap-handoff']
-                        type: str
-                        description: Enable/disable AP handoff of clients to other APs
-                        choices: ['disable', 'enable']
-                    iperf_protocol:
-                        aliases: ['iperf-protocol']
-                        type: str
-                        description: Iperf test protocol
-                        choices: ['udp', 'tcp']
-                    iperf_server_port:
-                        aliases: ['iperf-server-port']
-                        type: int
-                        description: Iperf service port number.
-                    power_mode:
-                        aliases: ['power-mode']
-                        type: str
-                        description: Set radio effective isotropic radiated power
-                        choices: ['dBm', 'percentage']
-                    power_value:
-                        aliases: ['power-value']
-                        type: int
-                        description: Radio EIRP power in dBm
-                    sam_bssid:
-                        aliases: ['sam-bssid']
-                        type: str
-                        description: BSSID for WiFi network.
-                    sam_captive_portal:
-                        aliases: ['sam-captive-portal']
-                        type: str
-                        description: Enable/disable Captive Portal Authentication
-                        choices: ['disable', 'enable']
-                    sam_password:
-                        aliases: ['sam-password']
-                        type: raw
-                        description: (list) Passphrase for WiFi network connection.
-                    sam_report_intv:
-                        aliases: ['sam-report-intv']
-                        type: int
-                        description: SAM report interval
-                    sam_security_type:
-                        aliases: ['sam-security-type']
-                        type: str
-                        description: Select WiFi network security type
-                        choices: ['open', 'wpa-personal', 'wpa-enterprise', 'owe', 'wpa3-sae']
-                    sam_server:
-                        aliases: ['sam-server']
-                        type: str
-                        description: SAM test server IP address or domain name.
-                    sam_ssid:
-                        aliases: ['sam-ssid']
-                        type: str
-                        description: SSID for WiFi network.
-                    sam_test:
-                        aliases: ['sam-test']
-                        type: str
-                        description: Select SAM test type
-                        choices: ['ping', 'iperf']
-                    sam_username:
-                        aliases: ['sam-username']
-                        type: str
-                        description: Username for WiFi network connection.
-                    arrp_profile:
-                        aliases: ['arrp-profile']
-                        type: str
-                        description: Distributed Automatic Radio Resource Provisioning
-                    bss_color_mode:
-                        aliases: ['bss-color-mode']
-                        type: str
-                        description: BSS color mode for this 11ax radio
-                        choices: ['auto', 'static']
-                    sam_cwp_failure_string:
-                        aliases: ['sam-cwp-failure-string']
-                        type: str
-                        description: Failure identification on the page after an incorrect login.
-                    sam_cwp_match_string:
-                        aliases: ['sam-cwp-match-string']
-                        type: str
-                        description: Identification string from the captive portal login form.
-                    sam_cwp_password:
-                        aliases: ['sam-cwp-password']
-                        type: raw
-                        description: (list) Password for captive portal authentication.
-                    sam_cwp_success_string:
-                        aliases: ['sam-cwp-success-string']
-                        type: str
-                        description: Success identification on the page after a successful login.
-                    sam_cwp_test_url:
-                        aliases: ['sam-cwp-test-url']
-                        type: str
-                        description: Website the client is trying to access.
-                    sam_cwp_username:
-                        aliases: ['sam-cwp-username']
-                        type: str
-                        description: Username for captive portal authentication.
-                    sam_server_fqdn:
-                        aliases: ['sam-server-fqdn']
-                        type: str
-                        description: SAM test server domain name.
-                    sam_server_ip:
-                        aliases: ['sam-server-ip']
-                        type: str
-                        description: SAM test server IP address.
-                    sam_server_type:
-                        aliases: ['sam-server-type']
-                        type: str
-                        description: Select SAM server type
-                        choices: ['ip', 'fqdn']
-                    d80211d:
-                        aliases: ['80211d']
-                        type: str
-                        description: Enable/disable 802.
-                        choices: ['disable', 'enable']
-                    optional_antenna:
-                        aliases: ['optional-antenna']
-                        type: str
-                        description: Optional antenna used on FAP
-                        choices: ['none', 'FANT-04ABGN-0606-O-N', 'FANT-04ABGN-1414-P-N',
-                                  'FANT-04ABGN-8065-P-N', 'FANT-04ABGN-0606-O-R',
-                                  'FANT-04ABGN-0606-P-R', 'FANT-10ACAX-1213-D-N',
-                                  'FANT-08ABGN-1213-D-R', 'custom', 'FANT-04BEAX-0606-P-R']
-                    mimo_mode:
-                        aliases: ['mimo-mode']
-                        type: str
-                        description: Configure radio MIMO mode
-                        choices: ['default', '1x1', '2x2', '3x3', '4x4', '8x8']
-                    optional_antenna_gain:
-                        aliases: ['optional-antenna-gain']
-                        type: str
-                        description: Optional antenna gain in dBi
-                    sam_ca_certificate:
-                        aliases: ['sam-ca-certificate']
-                        type: str
-                        description: CA certificate for WPA2/WPA3-ENTERPRISE.
-                    sam_client_certificate:
-                        aliases: ['sam-client-certificate']
-                        type: str
-                        description: Client certificate for WPA2/WPA3-ENTERPRISE.
-                    sam_eap_method:
-                        aliases: ['sam-eap-method']
-                        type: str
-                        description: Select WPA2/WPA3-ENTERPRISE EAP Method
-                        choices: ['tls', 'peap', 'both']
-                    sam_private_key:
-                        aliases: ['sam-private-key']
-                        type: str
-                        description: Private key for WPA2/WPA3-ENTERPRISE.
-                    sam_private_key_password:
-                        aliases: ['sam-private-key-password']
-                        type: raw
-                        description: (list) Password for private key file for WPA2/WPA3-ENTERPRISE.
-                    channel_bonding_ext:
-                        aliases: ['channel-bonding-ext']
-                        type: str
-                        description: Channel bandwidth extension
-                        choices: ['320MHz-1', '320MHz-2']
-                    d80211mc:
-                        aliases: ['80211mc']
-                        type: str
-                        description: Enable/disable 802.
-                        choices: ['disable', 'enable']
-                    ap_sniffer_chan_width:
-                        aliases: ['ap-sniffer-chan-width']
-                        type: str
-                        description: Channel bandwidth for sniffer.
-                        choices: ['320MHz', '240MHz', '160MHz', '80MHz', '40MHz', '20MHz']
-                    ai_darrp_support:
-                        aliases: ['ai-darrp-support']
-                        type: str
-                        description: Enable/disable support for FortiAIOps to retrieve Distributed Automatic Radio Resource Provisioning
-                        choices: ['disable', 'enable']
-            console_login:
-                aliases: ['console-login']
-                type: str
-                description: Enable/disable FortiAP console login access
-                choices: ['disable', 'enable']
-            esl_ses_dongle:
-                aliases: ['esl-ses-dongle']
-                type: dict
-                description: Esl ses dongle.
-                suboptions:
-                    apc_addr_type:
-                        aliases: ['apc-addr-type']
-                        type: str
-                        description: ESL SES-imagotag APC address type
-                        choices: ['fqdn', 'ip']
-                    apc_fqdn:
-                        aliases: ['apc-fqdn']
-                        type: str
-                        description: FQDN of ESL SES-imagotag Access Point Controller
-                    apc_ip:
-                        aliases: ['apc-ip']
-                        type: str
-                        description: IP address of ESL SES-imagotag Access Point Controller
-                    apc_port:
-                        aliases: ['apc-port']
-                        type: int
-                        description: Port of ESL SES-imagotag Access Point Controller
-                    coex_level:
-                        aliases: ['coex-level']
-                        type: str
-                        description: ESL SES-imagotag dongle coexistence level
-                        choices: ['none']
-                    compliance_level:
-                        aliases: ['compliance-level']
-                        type: str
-                        description: Compliance levels for the ESL solution integration
-                        choices: ['compliance-level-2']
-                    esl_channel:
-                        aliases: ['esl-channel']
-                        type: str
-                        description: ESL SES-imagotag dongle channel
-                        choices: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '127',
-                                  '-1']
-                    output_power:
-                        aliases: ['output-power']
-                        type: str
-                        description: ESL SES-imagotag dongle output power
-                        choices: ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']
-                    scd_enable:
-                        aliases: ['scd-enable']
-                        type: str
-                        description: Enable/disable ESL SES-imagotag Serial Communication Daemon
-                        choices: ['disable', 'enable']
-                    tls_cert_verification:
-                        aliases: ['tls-cert-verification']
-                        type: str
-                        description: Enable/disable TLS certificate verification
-                        choices: ['disable', 'enable']
-                    tls_fqdn_verification:
-                        aliases: ['tls-fqdn-verification']
-                        type: str
-                        description: Enable/disable TLS certificate verification
-                        choices: ['disable', 'enable']
-            indoor_outdoor_deployment:
-                aliases: ['indoor-outdoor-deployment']
-                type: str
-                description: Set to allow indoor/outdoor-only channels under regulatory rules
-                choices: ['platform-determined', 'outdoor', 'indoor']
-            syslog_profile:
-                aliases: ['syslog-profile']
-                type: str
-                description: System log server configuration profile name.
-            wan_port_auth:
-                aliases: ['wan-port-auth']
-                type: str
-                description: Set WAN port authentication mode
-                choices: ['none', '802.1x']
-            wan_port_auth_methods:
-                aliases: ['wan-port-auth-methods']
-                type: str
-                description: WAN port 802.
-                choices: ['all', 'EAP-FAST', 'EAP-TLS', 'EAP-PEAP']
-            wan_port_auth_password:
-                aliases: ['wan-port-auth-password']
-                type: raw
-                description: (list) Set WAN port 802.
-            wan_port_auth_usrname:
-                aliases: ['wan-port-auth-usrname']
-                type: str
-                description: Set WAN port 802.
-            _is_factory_setting:
-                type: str
-                description: Is factory setting.
-                choices: ['disable', 'enable', 'ext']
-            unii_4_5ghz_band:
-                aliases: ['unii-4-5ghz-band']
-                type: str
-                description: Enable/disable UNII-4 5Ghz band channels
-                choices: ['disable', 'enable']
-            bonjour_profile:
-                aliases: ['bonjour-profile']
-                type: str
-                description: Bonjour profile name.
-            wan_port_auth_macsec:
-                aliases: ['wan-port-auth-macsec']
-                type: str
-                description: Enable/disable WAN port 802.
-                choices: ['disable', 'enable']
-            usb_port:
-                aliases: ['usb-port']
-                type: str
-                description: Enable/disable USB port of the WTP
-                choices: ['disable', 'enable']
-            admin_auth_tacacs_:
-                aliases: ['admin-auth-tacacs+']
-                type: raw
-                description: (list) Remote authentication server for admin user.
-            admin_restrict_local:
-                aliases: ['admin-restrict-local']
-                type: str
-                description: Enable/disable local admin authentication restriction when remote authenticator is up and running
-                choices: ['disable', 'enable']
-            apcfg_mesh:
-                aliases: ['apcfg-mesh']
-                type: str
-                description: Enable/disable AP local mesh configuration
-                choices: ['disable', 'enable']
-            apcfg_mesh_ap_type:
-                aliases: ['apcfg-mesh-ap-type']
-                type: str
-                description: Mesh AP Type
-                choices: ['auto', 'ethernet', 'mesh']
-            apcfg_mesh_eth_bridge:
-                aliases: ['apcfg-mesh-eth-bridge']
-                type: str
-                description: Enable/disable mesh ethernet bridge
-                choices: ['disable', 'enable']
-            apcfg_mesh_passwd:
-                aliases: ['apcfg-mesh-passwd']
-                type: raw
-                description: (list) Apcfg mesh passwd.
-            apcfg_mesh_ssid:
-                aliases: ['apcfg-mesh-ssid']
-                type: raw
-                description: (list) Mesh SSID
-            default_mesh_root:
-                aliases: ['default-mesh-root']
-                type: str
-                description: Configure default mesh root SSID when it is not included by radios SSID configuration.
-                choices: ['disable', 'enable']
-            apcfg_auto_cert:
-                aliases: ['apcfg-auto-cert']
-                type: str
-                description: Enable/disable AP local auto cert configuration
-                choices: ['disable', 'enable']
-            apcfg_auto_cert_auto_regen_days:
-                aliases: ['apcfg-auto-cert-auto-regen-days']
-                type: int
-                description: Number of days to wait before expiry of an updated local certificate is requested
-            apcfg_auto_cert_crypto_algo:
-                aliases: ['apcfg-auto-cert-crypto-algo']
-                type: str
-                description: Cryptography algorithm
-                choices: ['rsa-1024', 'rsa-1536', 'rsa-2048', 'rsa-4096', 'ec-secp256r1',
-                          'ec-secp384r1', 'ec-secp521r1']
-            apcfg_auto_cert_enroll_protocol:
-                aliases: ['apcfg-auto-cert-enroll-protocol']
-                type: str
-                description: Certificate enrollment protocol
-                choices: ['none', 'scep', 'est']
-            apcfg_auto_cert_est_ca_id:
-                aliases: ['apcfg-auto-cert-est-ca-id']
-                type: str
-                description: CA identifier of the CA server for signing via EST.
-            apcfg_auto_cert_est_http_password:
-                aliases: ['apcfg-auto-cert-est-http-password']
-                type: raw
-                description: (list) HTTP Authentication password for signing via EST.
-            apcfg_auto_cert_est_http_username:
-                aliases: ['apcfg-auto-cert-est-http-username']
-                type: str
-                description: HTTP Authentication username for signing via EST.
-            apcfg_auto_cert_est_https_ca:
-                aliases: ['apcfg-auto-cert-est-https-ca']
-                type: raw
-                description: (list) PEM format https CA Certificate.
-            apcfg_auto_cert_est_server:
-                aliases: ['apcfg-auto-cert-est-server']
-                type: str
-                description: Address and port for EST server
-            apcfg_auto_cert_est_subject:
-                aliases: ['apcfg-auto-cert-est-subject']
-                type: str
-                description: Subject e.
-            apcfg_auto_cert_est_subject_alt_name:
-                aliases: ['apcfg-auto-cert-est-subject-alt-name']
-                type: str
-                description: Subject alternative name
-            apcfg_auto_cert_scep_ca_id:
-                aliases: ['apcfg-auto-cert-scep-ca-id']
-                type: str
-                description: CA identifier of the CA server for signing via SCEP.
-            apcfg_auto_cert_scep_ec_name:
-                aliases: ['apcfg-auto-cert-scep-ec-name']
-                type: str
-                description: Elliptic curve name
-                choices: ['secp256r1', 'secp384r1', 'secp521r1']
-            apcfg_auto_cert_scep_https_ca:
-                aliases: ['apcfg-auto-cert-scep-https-ca']
-                type: raw
-                description: (list) PEM format https CA Certificate.
-            apcfg_auto_cert_scep_keysize:
-                aliases: ['apcfg-auto-cert-scep-keysize']
-                type: str
-                description: Key size
-                choices: ['1024', '1536', '2048', '4096']
-            apcfg_auto_cert_scep_keytype:
-                aliases: ['apcfg-auto-cert-scep-keytype']
-                type: str
-                description: Key type
-                choices: ['rsa', 'ec']
-            apcfg_auto_cert_scep_password:
-                aliases: ['apcfg-auto-cert-scep-password']
-                type: raw
-                description: (list) SCEP server challenge password for auto-regeneration.
-            apcfg_auto_cert_scep_sub_fully_dn:
-                aliases: ['apcfg-auto-cert-scep-sub-fully-dn']
-                type: str
-                description: Full DN of the subject
-            apcfg_auto_cert_scep_subject_alt_name:
-                aliases: ['apcfg-auto-cert-scep-subject-alt-name']
-                type: str
-                description: Subject alternative name
-            apcfg_auto_cert_scep_url:
-                aliases: ['apcfg-auto-cert-scep-url']
-                type: str
-                description: SCEP server URL.
-            lw_profile:
-                aliases: ['lw-profile']
-                type: raw
-                description: (list) LoRaWAN profile name.
+          id:
+            type: int
+            description: ID.
+          mac:
+            type: str
+            description: A WiFi device with this MAC address is denied access to this WTP, FortiAP or AP.
+      dtls_in_kernel:
+        aliases: ['dtls-in-kernel']
+        type: str
+        description: Enable/disable data channel DTLS in kernel.
+        choices: ['disable', 'enable']
+      dtls_policy:
+        aliases: ['dtls-policy']
+        type: list
+        elements: str
+        description: WTP data channel DTLS policy
+        choices: ['clear-text', 'dtls-enabled', 'ipsec-vpn', 'ipsec-sn-vpn']
+      energy_efficient_ethernet:
+        aliases: ['energy-efficient-ethernet']
+        type: str
+        description: Enable/disable use of energy efficient Ethernet on WTP.
+        choices: ['disable', 'enable']
+      ext_info_enable:
+        aliases: ['ext-info-enable']
+        type: str
+        description: Enable/disable station/VAP/radio extension information.
+        choices: ['disable', 'enable']
+      handoff_roaming:
+        aliases: ['handoff-roaming']
+        type: str
+        description: Enable/disable client load balancing during roaming to avoid roaming delay
+        choices: ['disable', 'enable']
+      handoff_rssi:
+        aliases: ['handoff-rssi']
+        type: int
+        description: Minimum received signal strength indicator
+      handoff_sta_thresh:
+        aliases: ['handoff-sta-thresh']
+        type: int
+        description: Threshold value for AP handoff.
+      ip_fragment_preventing:
+        aliases: ['ip-fragment-preventing']
+        type: list
+        elements: str
+        description: Select how to prevent IP fragmentation for CAPWAP tunneled control and data packets
+        choices: ['tcp-mss-adjust', 'icmp-unreachable']
+      led_schedules:
+        aliases: ['led-schedules']
+        type: raw
+        description: (list or str) Recurring firewall schedules for illuminating LEDs on the FortiAP.
+      led_state:
+        aliases: ['led-state']
+        type: str
+        description: Enable/disable use of LEDs on WTP
+        choices: ['disable', 'enable']
+      lldp:
+        type: str
+        description: Enable/disable Link Layer Discovery Protocol
+        choices: ['disable', 'enable']
+      login_passwd:
+        aliases: ['login-passwd']
+        type: raw
+        description: (list) Set the managed WTP, FortiAP, or APs administrator password.
+      login_passwd_change:
+        aliases: ['login-passwd-change']
+        type: str
+        description: Change or reset the administrator password of a managed WTP, FortiAP or AP
+        choices: ['no', 'yes', 'default']
+      max_clients:
+        aliases: ['max-clients']
+        type: int
+        description: Maximum number of stations
+      name:
+        type: str
+        description: WTP
+        required: true
+      poe_mode:
+        aliases: ['poe-mode']
+        type: str
+        description: Set the WTP, FortiAP, or APs PoE mode.
+        choices: ['auto', '8023af', '8023at', 'power-adapter', 'full', 'high', 'low', 'high-pse']
+      split_tunneling_acl:
+        aliases: ['split-tunneling-acl']
+        type: list
+        elements: dict
+        description: Split tunneling acl.
+        suboptions:
+          dest_ip:
+            aliases: ['dest-ip']
+            type: str
+            description: Destination IP and mask for the split-tunneling subnet.
+          id:
+            type: int
+            description: ID.
+      split_tunneling_acl_local_ap_subnet:
+        aliases: ['split-tunneling-acl-local-ap-subnet']
+        type: str
+        description: Enable/disable automatically adding local subnetwork of FortiAP to split-tunneling ACL
+        choices: ['disable', 'enable']
+      split_tunneling_acl_path:
+        aliases: ['split-tunneling-acl-path']
+        type: str
+        description: Split tunneling ACL path is local/tunnel.
+        choices: ['tunnel', 'local']
+      tun_mtu_downlink:
+        aliases: ['tun-mtu-downlink']
+        type: int
+        description: Downlink CAPWAP tunnel MTU
+      tun_mtu_uplink:
+        aliases: ['tun-mtu-uplink']
+        type: int
+        description: Uplink CAPWAP tunnel MTU
+      wan_port_mode:
+        aliases: ['wan-port-mode']
+        type: str
+        description: Enable/disable using a WAN port as a LAN port.
+        choices: ['wan-lan', 'wan-only']
+      snmp:
+        type: str
+        description: Enable/disable SNMP for the WTP, FortiAP, or AP
+        choices: ['disable', 'enable']
+      ap_handoff:
+        aliases: ['ap-handoff']
+        type: str
+        description: Enable/disable AP handoff of clients to other APs
+        choices: ['disable', 'enable']
+      apcfg_profile:
+        aliases: ['apcfg-profile']
+        type: str
+        description: AP local configuration profile name.
+      frequency_handoff:
+        aliases: ['frequency-handoff']
+        type: str
+        description: Enable/disable frequency handoff of clients to other channels
+        choices: ['disable', 'enable']
+      lan:
+        type: dict
+        description: Lan.
+        suboptions:
+          port_esl_mode:
+            aliases: ['port-esl-mode']
+            type: str
+            description: ESL port mode.
+            choices: ['offline', 'bridge-to-wan', 'bridge-to-ssid', 'nat-to-wan']
+          port_esl_ssid:
+            aliases: ['port-esl-ssid']
+            type: str
+            description: Bridge ESL port to SSID.
+          port_mode:
+            aliases: ['port-mode']
+            type: str
+            description: LAN port mode.
+            choices: ['offline', 'bridge-to-wan', 'bridge-to-ssid', 'nat-to-wan']
+          port_ssid:
+            aliases: ['port-ssid']
+            type: str
+            description: Bridge LAN port to SSID.
+          port1_mode:
+            aliases: ['port1-mode']
+            type: str
+            description: LAN port 1 mode.
+            choices: ['offline', 'bridge-to-wan', 'bridge-to-ssid', 'nat-to-wan']
+          port1_ssid:
+            aliases: ['port1-ssid']
+            type: str
+            description: Bridge LAN port 1 to SSID.
+          port2_mode:
+            aliases: ['port2-mode']
+            type: str
+            description: LAN port 2 mode.
+            choices: ['offline', 'bridge-to-wan', 'bridge-to-ssid', 'nat-to-wan']
+          port2_ssid:
+            aliases: ['port2-ssid']
+            type: str
+            description: Bridge LAN port 2 to SSID.
+          port3_mode:
+            aliases: ['port3-mode']
+            type: str
+            description: LAN port 3 mode.
+            choices: ['offline', 'bridge-to-wan', 'bridge-to-ssid', 'nat-to-wan']
+          port3_ssid:
+            aliases: ['port3-ssid']
+            type: str
+            description: Bridge LAN port 3 to SSID.
+          port4_mode:
+            aliases: ['port4-mode']
+            type: str
+            description: LAN port 4 mode.
+            choices: ['offline', 'bridge-to-wan', 'bridge-to-ssid', 'nat-to-wan']
+          port4_ssid:
+            aliases: ['port4-ssid']
+            type: str
+            description: Bridge LAN port 4 to SSID.
+          port5_mode:
+            aliases: ['port5-mode']
+            type: str
+            description: LAN port 5 mode.
+            choices: ['offline', 'bridge-to-wan', 'bridge-to-ssid', 'nat-to-wan']
+          port5_ssid:
+            aliases: ['port5-ssid']
+            type: str
+            description: Bridge LAN port 5 to SSID.
+          port6_mode:
+            aliases: ['port6-mode']
+            type: str
+            description: LAN port 6 mode.
+            choices: ['offline', 'bridge-to-wan', 'bridge-to-ssid', 'nat-to-wan']
+          port6_ssid:
+            aliases: ['port6-ssid']
+            type: str
+            description: Bridge LAN port 6 to SSID.
+          port7_mode:
+            aliases: ['port7-mode']
+            type: str
+            description: LAN port 7 mode.
+            choices: ['offline', 'bridge-to-wan', 'bridge-to-ssid', 'nat-to-wan']
+          port7_ssid:
+            aliases: ['port7-ssid']
+            type: str
+            description: Bridge LAN port 7 to SSID.
+          port8_mode:
+            aliases: ['port8-mode']
+            type: str
+            description: LAN port 8 mode.
+            choices: ['offline', 'bridge-to-wan', 'bridge-to-ssid', 'nat-to-wan']
+          port8_ssid:
+            aliases: ['port8-ssid']
+            type: str
+            description: Bridge LAN port 8 to SSID.
+      lbs:
+        type: dict
+        description: Lbs.
+        suboptions:
+          aeroscout:
+            type: str
+            description: Enable/disable AeroScout Real Time Location Service
+            choices: ['disable', 'enable']
+          aeroscout_ap_mac:
+            aliases: ['aeroscout-ap-mac']
+            type: str
+            description: Use BSSID or board MAC address as AP MAC address in AeroScout AP messages
+            choices: ['bssid', 'board-mac']
+          aeroscout_mmu_report:
+            aliases: ['aeroscout-mmu-report']
+            type: str
+            description: Enable/disable compounded AeroScout tag and MU report
+            choices: ['disable', 'enable']
+          aeroscout_mu:
+            aliases: ['aeroscout-mu']
+            type: str
+            description: Enable/disable AeroScout Mobile Unit
+            choices: ['disable', 'enable']
+          aeroscout_mu_factor:
+            aliases: ['aeroscout-mu-factor']
+            type: int
+            description: AeroScout MU mode dilution factor
+          aeroscout_mu_timeout:
+            aliases: ['aeroscout-mu-timeout']
+            type: int
+            description: AeroScout MU mode timeout
+          aeroscout_server_ip:
+            aliases: ['aeroscout-server-ip']
+            type: str
+            description: IP address of AeroScout server.
+          aeroscout_server_port:
+            aliases: ['aeroscout-server-port']
+            type: int
+            description: AeroScout server UDP listening port.
+          ekahau_blink_mode:
+            aliases: ['ekahau-blink-mode']
+            type: str
+            description: Enable/disable Ekahau blink mode
+            choices: ['disable', 'enable']
+          ekahau_tag:
+            aliases: ['ekahau-tag']
+            type: str
+            description: WiFi frame MAC address or WiFi Tag.
+          erc_server_ip:
+            aliases: ['erc-server-ip']
+            type: str
+            description: IP address of Ekahau RTLS Controller
+          erc_server_port:
+            aliases: ['erc-server-port']
+            type: int
+            description: Ekahau RTLS Controller
+          fortipresence:
+            type: str
+            description: Enable/disable FortiPresence to monitor the location and activity of WiFi clients even if they dont connect to this WiFi network
+            choices: ['disable', 'enable', 'enable2', 'foreign', 'both']
+          fortipresence_ble:
+            aliases: ['fortipresence-ble']
+            type: str
+            description: Enable/disable FortiPresence finding and reporting BLE devices.
+            choices: ['disable', 'enable']
+          fortipresence_frequency:
+            aliases: ['fortipresence-frequency']
+            type: int
+            description: FortiPresence report transmit frequency
+          fortipresence_port:
+            aliases: ['fortipresence-port']
+            type: int
+            description: FortiPresence server UDP listening port
+          fortipresence_project:
+            aliases: ['fortipresence-project']
+            type: str
+            description: FortiPresence project name
+          fortipresence_rogue:
+            aliases: ['fortipresence-rogue']
+            type: str
+            description: Enable/disable FortiPresence finding and reporting rogue APs.
+            choices: ['disable', 'enable']
+          fortipresence_secret:
+            aliases: ['fortipresence-secret']
+            type: raw
+            description: (list) FortiPresence secret password
+          fortipresence_server:
+            aliases: ['fortipresence-server']
+            type: str
+            description: FortiPresence server IP address.
+          fortipresence_unassoc:
+            aliases: ['fortipresence-unassoc']
+            type: str
+            description: Enable/disable FortiPresence finding and reporting unassociated stations.
+            choices: ['disable', 'enable']
+          station_locate:
+            aliases: ['station-locate']
+            type: str
+            description: Enable/disable client station locating services for all clients, whether associated or not
+            choices: ['disable', 'enable']
+          fortipresence_server_addr_type:
+            aliases: ['fortipresence-server-addr-type']
+            type: str
+            description: FortiPresence server address type
+            choices: ['fqdn', 'ipv4']
+          fortipresence_server_fqdn:
+            aliases: ['fortipresence-server-fqdn']
+            type: str
+            description: FQDN of FortiPresence server.
+          polestar:
+            type: str
+            description: Enable/disable PoleStar BLE NAO Track Real Time Location Service
+            choices: ['disable', 'enable']
+          polestar_accumulation_interval:
+            aliases: ['polestar-accumulation-interval']
+            type: int
+            description: Time that measurements should be accumulated in seconds
+          polestar_asset_addrgrp_list:
+            aliases: ['polestar-asset-addrgrp-list']
+            type: str
+            description: Tags and asset addrgrp list to be reported.
+          polestar_asset_uuid_list1:
+            aliases: ['polestar-asset-uuid-list1']
+            type: str
+            description: Tags and asset UUID list 1 to be reported
+          polestar_asset_uuid_list2:
+            aliases: ['polestar-asset-uuid-list2']
+            type: str
+            description: Tags and asset UUID list 2 to be reported
+          polestar_asset_uuid_list3:
+            aliases: ['polestar-asset-uuid-list3']
+            type: str
+            description: Tags and asset UUID list 3 to be reported
+          polestar_asset_uuid_list4:
+            aliases: ['polestar-asset-uuid-list4']
+            type: str
+            description: Tags and asset UUID list 4 to be reported
+          polestar_protocol:
+            aliases: ['polestar-protocol']
+            type: str
+            description: Select the protocol to report Measurements, Advertising Data, or Location Data to NAO Cloud.
+            choices: ['WSS']
+          polestar_reporting_interval:
+            aliases: ['polestar-reporting-interval']
+            type: int
+            description: Time between reporting accumulated measurements in seconds
+          polestar_server_fqdn:
+            aliases: ['polestar-server-fqdn']
+            type: str
+            description: FQDN of PoleStar Nao Track Server
+          polestar_server_path:
+            aliases: ['polestar-server-path']
+            type: str
+            description: Path of PoleStar Nao Track Server
+          polestar_server_port:
+            aliases: ['polestar-server-port']
+            type: int
+            description: Port of PoleStar Nao Track Server
+          polestar_server_token:
+            aliases: ['polestar-server-token']
+            type: str
+            description: Access Token of PoleStar Nao Track Server.
+          ble_rtls:
+            aliases: ['ble-rtls']
+            type: str
+            description: Set BLE Real Time Location Service
+            choices: ['none', 'polestar', 'evresys']
+          ble_rtls_accumulation_interval:
+            aliases: ['ble-rtls-accumulation-interval']
+            type: int
+            description: Time that measurements should be accumulated in seconds
+          ble_rtls_asset_addrgrp_list:
+            aliases: ['ble-rtls-asset-addrgrp-list']
+            type: raw
+            description: (list) Tags and asset addrgrp list to be reported.
+          ble_rtls_asset_uuid_list1:
+            aliases: ['ble-rtls-asset-uuid-list1']
+            type: str
+            description: Tags and asset UUID list 1 to be reported
+          ble_rtls_asset_uuid_list2:
+            aliases: ['ble-rtls-asset-uuid-list2']
+            type: str
+            description: Tags and asset UUID list 2 to be reported
+          ble_rtls_asset_uuid_list3:
+            aliases: ['ble-rtls-asset-uuid-list3']
+            type: str
+            description: Tags and asset UUID list 3 to be reported
+          ble_rtls_asset_uuid_list4:
+            aliases: ['ble-rtls-asset-uuid-list4']
+            type: str
+            description: Tags and asset UUID list 4 to be reported
+          ble_rtls_protocol:
+            aliases: ['ble-rtls-protocol']
+            type: str
+            description: Select the protocol to report Measurements, Advertising Data, or Location Data to Cloud Server.
+            choices: ['WSS']
+          ble_rtls_reporting_interval:
+            aliases: ['ble-rtls-reporting-interval']
+            type: int
+            description: Time between reporting accumulated measurements in seconds
+          ble_rtls_server_fqdn:
+            aliases: ['ble-rtls-server-fqdn']
+            type: str
+            description: FQDN of BLE Real Time Location Service
+          ble_rtls_server_path:
+            aliases: ['ble-rtls-server-path']
+            type: str
+            description: Path of BLE Real Time Location Service
+          ble_rtls_server_port:
+            aliases: ['ble-rtls-server-port']
+            type: int
+            description: Port of BLE Real Time Location Service
+          ble_rtls_server_token:
+            aliases: ['ble-rtls-server-token']
+            type: str
+            description: Access Token of BLE Real Time Location Service
+      platform:
+        type: dict
+        description: Platform.
+        suboptions:
+          ddscan:
+            type: str
+            description: Enable/disable use of one radio for dedicated dual-band scanning to detect RF characterization and wireless threat management.
+            choices: ['disable', 'enable']
+          mode:
+            type: str
+            description: Configure operation mode of 5G radios
+            choices: ['dual-5G', 'single-5G']
+          type:
+            type: str
+            description: WTP, FortiAP or AP platform type.
+            choices: ['30B-50B', '60B', '80CM-81CM', '220A', '220B', '210B', '60C', '222B',
+                      '112B', '320B', '11C', '14C', '223B', '28C', '320C', '221C', '25D', '222C',
+                      '224D', '214B', '21D', '24D', '112D', '223C', '321C', 'C220C', 'C225C',
+                      'S321C', 'S323C', 'FWF', 'S311C', 'S313C', 'AP-11N', 'S322C', 'S321CR',
+                      'S322CR', 'S323CR', 'S421E', 'S422E', 'S423E', '421E', '423E', 'C221E',
+                      'C226E', 'C23JD', 'C24JE', 'C21D', 'U421E', 'U423E', '221E', '222E', '223E',
+                      'S221E', 'S223E', 'U221EV', 'U223EV', 'U321EV', 'U323EV', '224E', 'U422EV',
+                      'U24JEV', '321E', 'U431F', 'U433F', '231E', '431F', '433F', '231F', '432F',
+                      '234F', '23JF', 'U231F', '831F', 'U234F', 'U432F', '431FL', '432FR',
+                      '433FL', '231FL', '231G', '233G', '431G', '433G', 'U231G', 'U441G', '234G',
+                      '432G', '441K', '443K', '241K', '243K', '231K', '23JK', '222KL', '244K',
+                      '432K', 'MVP', '231KD', '221K', '435K']
+          _local_platform_str:
+            type: str
+            description: Local platform str.
+      radio_1:
+        aliases: ['radio-1']
+        type: dict
+        description: Radio 1.
+        suboptions:
+          airtime_fairness:
+            aliases: ['airtime-fairness']
+            type: str
+            description: Enable/disable airtime fairness
+            choices: ['disable', 'enable']
+          amsdu:
+            type: str
+            description: Enable/disable 802.
+            choices: ['disable', 'enable']
+          ap_sniffer_addr:
+            aliases: ['ap-sniffer-addr']
+            type: str
+            description: MAC address to monitor.
+          ap_sniffer_bufsize:
+            aliases: ['ap-sniffer-bufsize']
+            type: int
+            description: Sniffer buffer size
+          ap_sniffer_chan:
+            aliases: ['ap-sniffer-chan']
+            type: int
+            description: Channel on which to operate the sniffer
+          ap_sniffer_ctl:
+            aliases: ['ap-sniffer-ctl']
+            type: str
+            description: Enable/disable sniffer on WiFi control frame
+            choices: ['disable', 'enable']
+          ap_sniffer_data:
+            aliases: ['ap-sniffer-data']
+            type: str
+            description: Enable/disable sniffer on WiFi data frame
+            choices: ['disable', 'enable']
+          ap_sniffer_mgmt_beacon:
+            aliases: ['ap-sniffer-mgmt-beacon']
+            type: str
+            description: Enable/disable sniffer on WiFi management Beacon frames
+            choices: ['disable', 'enable']
+          ap_sniffer_mgmt_other:
+            aliases: ['ap-sniffer-mgmt-other']
+            type: str
+            description: Enable/disable sniffer on WiFi management other frames
+            choices: ['disable', 'enable']
+          ap_sniffer_mgmt_probe:
+            aliases: ['ap-sniffer-mgmt-probe']
+            type: str
+            description: Enable/disable sniffer on WiFi management probe frames
+            choices: ['disable', 'enable']
+          auto_power_high:
+            aliases: ['auto-power-high']
+            type: int
+            description: The upper bound of automatic transmit power adjustment in dBm
+          auto_power_level:
+            aliases: ['auto-power-level']
+            type: str
+            description: Enable/disable automatic power-level adjustment to prevent co-channel interference
+            choices: ['disable', 'enable']
+          auto_power_low:
+            aliases: ['auto-power-low']
+            type: int
+            description: The lower bound of automatic transmit power adjustment in dBm
+          auto_power_target:
+            aliases: ['auto-power-target']
+            type: str
+            description: The target of automatic transmit power adjustment in dBm.
+          band:
+            type: str
+            description: WiFi band that Radio 1 operates on.
+            choices: ['802.11b', '802.11a', '802.11g', '802.11n', '802.11ac', '802.11n-5G',
+                      '802.11ax-5G', '802.11ax', '802.11ac-2G', '802.11g-only', '802.11n-only',
+                      '802.11n,g-only', '802.11ac-only', '802.11ac,n-only', '802.11n-5G-only',
+                      '802.11ax-5G-only', '802.11ax,ac-only', '802.11ax,ac,n-only',
+                      '802.11ax-only', '802.11ax,n-only', '802.11ax,n,g-only', '802.11ax-6G',
+                      '802.11n-2G', '802.11ac-5G', '802.11ax-2G', '802.11be-2G', '802.11be-5G',
+                      '802.11be-6G']
+          band_5g_type:
+            aliases: ['band-5g-type']
+            type: str
+            description: WiFi 5G band type.
+            choices: ['5g-full', '5g-high', '5g-low']
+          bandwidth_admission_control:
+            aliases: ['bandwidth-admission-control']
+            type: str
+            description: Enable/disable WiFi multimedia
+            choices: ['disable', 'enable']
+          bandwidth_capacity:
+            aliases: ['bandwidth-capacity']
+            type: int
+            description: Maximum bandwidth capacity allowed
+          beacon_interval:
+            aliases: ['beacon-interval']
+            type: int
+            description: Beacon interval.
+          bss_color:
+            aliases: ['bss-color']
+            type: int
+            description: BSS color value for this 11ax radio
+          call_admission_control:
+            aliases: ['call-admission-control']
+            type: str
+            description: Enable/disable WiFi multimedia
+            choices: ['disable', 'enable']
+          call_capacity:
+            aliases: ['call-capacity']
+            type: int
+            description: Maximum number of Voice over WLAN
+          channel:
+            type: raw
+            description: (list) Selected list of wireless radio channels.
+          channel_bonding:
+            aliases: ['channel-bonding']
+            type: str
+            description: Channel bandwidth
+            choices: ['disable', 'enable', '80MHz', '40MHz', '20MHz', '160MHz', '320MHz', '240MHz']
+          channel_utilization:
+            aliases: ['channel-utilization']
+            type: str
+            description: Enable/disable measuring channel utilization.
+            choices: ['disable', 'enable']
+          coexistence:
+            type: str
+            description: Enable/disable allowing both HT20 and HT40 on the same radio
+            choices: ['disable', 'enable']
+          darrp:
+            type: str
+            description: Enable/disable Distributed Automatic Radio Resource Provisioning
+            choices: ['disable', 'enable']
+          drma:
+            type: str
+            description: Enable/disable dynamic radio mode assignment
+            choices: ['disable', 'enable']
+          drma_sensitivity:
+            aliases: ['drma-sensitivity']
+            type: str
+            description: Network Coverage Factor
+            choices: ['low', 'medium', 'high']
+          dtim:
+            type: int
+            description: Delivery Traffic Indication Map
+          frag_threshold:
+            aliases: ['frag-threshold']
+            type: int
+            description: Maximum packet size that can be sent without fragmentation
+          max_clients:
+            aliases: ['max-clients']
+            type: int
+            description: Maximum number of stations
+          max_distance:
+            aliases: ['max-distance']
+            type: int
+            description: Maximum expected distance between the AP and clients
+          mode:
+            type: str
+            description: Mode of radio 1.
+            choices: ['disabled', 'ap', 'monitor', 'sniffer', 'sam']
+          power_level:
+            aliases: ['power-level']
+            type: int
+            description: Radio power level as a percentage of the maximum transmit power
+          powersave_optimize:
+            aliases: ['powersave-optimize']
+            type: list
+            elements: str
+            description: Enable client power-saving features such as TIM, AC VO, and OBSS etc.
+            choices: ['tim', 'ac-vo', 'no-obss-scan', 'no-11b-rate', 'client-rate-follow']
+          protection_mode:
+            aliases: ['protection-mode']
+            type: str
+            description: Enable/disable 802.
+            choices: ['rtscts', 'ctsonly', 'disable']
+          radio_id:
+            aliases: ['radio-id']
+            type: int
+            description: Radio id.
+          rts_threshold:
+            aliases: ['rts-threshold']
+            type: int
+            description: Maximum packet size for RTS transmissions, specifying the maximum size of a data packet before RTS/CTS
+          short_guard_interval:
+            aliases: ['short-guard-interval']
+            type: str
+            description: Use either the short guard interval
+            choices: ['disable', 'enable']
+          spectrum_analysis:
+            aliases: ['spectrum-analysis']
+            type: str
+            description: Enable/disable spectrum analysis to find interference that would negatively impact wireless performance.
+            choices: ['disable', 'enable', 'scan-only']
+          transmit_optimize:
+            aliases: ['transmit-optimize']
+            type: list
+            elements: str
+            description: Packet transmission optimization options including power saving, aggregation limiting, retry limiting, etc.
+            choices: ['disable', 'power-save', 'aggr-limit', 'retry-limit', 'send-bar']
+          vap_all:
+            aliases: ['vap-all']
+            type: str
+            description: Configure method for assigning SSIDs to this FortiAP
+            choices: ['disable', 'enable', 'tunnel', 'bridge', 'manual']
+          vap1:
+            type: str
+            description: Virtual Access Point
+          vap2:
+            type: str
+            description: Virtual Access Point
+          vap3:
+            type: str
+            description: Virtual Access Point
+          vap4:
+            type: str
+            description: Virtual Access Point
+          vap5:
+            type: str
+            description: Virtual Access Point
+          vap6:
+            type: str
+            description: Virtual Access Point
+          vap7:
+            type: str
+            description: Virtual Access Point
+          vap8:
+            type: str
+            description: Virtual Access Point
+          vaps:
+            type: raw
+            description: (list or str) Manually selected list of Virtual Access Points
+          wids_profile:
+            aliases: ['wids-profile']
+            type: str
+            description: Wireless Intrusion Detection System
+          zero_wait_dfs:
+            aliases: ['zero-wait-dfs']
+            type: str
+            description: Enable/disable zero wait DFS on radio
+            choices: ['disable', 'enable']
+          frequency_handoff:
+            aliases: ['frequency-handoff']
+            type: str
+            description: Enable/disable frequency handoff of clients to other channels
+            choices: ['disable', 'enable']
+          ap_handoff:
+            aliases: ['ap-handoff']
+            type: str
+            description: Enable/disable AP handoff of clients to other APs
+            choices: ['disable', 'enable']
+          iperf_protocol:
+            aliases: ['iperf-protocol']
+            type: str
+            description: Iperf test protocol
+            choices: ['udp', 'tcp']
+          iperf_server_port:
+            aliases: ['iperf-server-port']
+            type: int
+            description: Iperf service port number.
+          power_mode:
+            aliases: ['power-mode']
+            type: str
+            description: Set radio effective isotropic radiated power
+            choices: ['dBm', 'percentage']
+          power_value:
+            aliases: ['power-value']
+            type: int
+            description: Radio EIRP power in dBm
+          sam_bssid:
+            aliases: ['sam-bssid']
+            type: str
+            description: BSSID for WiFi network.
+          sam_captive_portal:
+            aliases: ['sam-captive-portal']
+            type: str
+            description: Enable/disable Captive Portal Authentication
+            choices: ['disable', 'enable']
+          sam_password:
+            aliases: ['sam-password']
+            type: raw
+            description: (list) Passphrase for WiFi network connection.
+          sam_report_intv:
+            aliases: ['sam-report-intv']
+            type: int
+            description: SAM report interval
+          sam_security_type:
+            aliases: ['sam-security-type']
+            type: str
+            description: Select WiFi network security type
+            choices: ['open', 'wpa-personal', 'wpa-enterprise', 'owe', 'wpa3-sae']
+          sam_server:
+            aliases: ['sam-server']
+            type: str
+            description: SAM test server IP address or domain name.
+          sam_ssid:
+            aliases: ['sam-ssid']
+            type: str
+            description: SSID for WiFi network.
+          sam_test:
+            aliases: ['sam-test']
+            type: str
+            description: Select SAM test type
+            choices: ['ping', 'iperf']
+          sam_username:
+            aliases: ['sam-username']
+            type: str
+            description: Username for WiFi network connection.
+          arrp_profile:
+            aliases: ['arrp-profile']
+            type: str
+            description: Distributed Automatic Radio Resource Provisioning
+          bss_color_mode:
+            aliases: ['bss-color-mode']
+            type: str
+            description: BSS color mode for this 11ax radio
+            choices: ['auto', 'static']
+          sam_cwp_failure_string:
+            aliases: ['sam-cwp-failure-string']
+            type: str
+            description: Failure identification on the page after an incorrect login.
+          sam_cwp_match_string:
+            aliases: ['sam-cwp-match-string']
+            type: str
+            description: Identification string from the captive portal login form.
+          sam_cwp_password:
+            aliases: ['sam-cwp-password']
+            type: raw
+            description: (list) Password for captive portal authentication.
+          sam_cwp_success_string:
+            aliases: ['sam-cwp-success-string']
+            type: str
+            description: Success identification on the page after a successful login.
+          sam_cwp_test_url:
+            aliases: ['sam-cwp-test-url']
+            type: str
+            description: Website the client is trying to access.
+          sam_cwp_username:
+            aliases: ['sam-cwp-username']
+            type: str
+            description: Username for captive portal authentication.
+          sam_server_fqdn:
+            aliases: ['sam-server-fqdn']
+            type: str
+            description: SAM test server domain name.
+          sam_server_ip:
+            aliases: ['sam-server-ip']
+            type: str
+            description: SAM test server IP address.
+          sam_server_type:
+            aliases: ['sam-server-type']
+            type: str
+            description: Select SAM server type
+            choices: ['ip', 'fqdn']
+          d80211d:
+            aliases: ['80211d']
+            type: str
+            description: Enable/disable 802.
+            choices: ['disable', 'enable']
+          optional_antenna:
+            aliases: ['optional-antenna']
+            type: str
+            description: Optional antenna used on FAP
+            choices: ['none', 'FANT-04ABGN-0606-O-N', 'FANT-04ABGN-1414-P-N',
+                      'FANT-04ABGN-8065-P-N', 'FANT-04ABGN-0606-O-R', 'FANT-04ABGN-0606-P-R',
+                      'FANT-10ACAX-1213-D-N', 'FANT-08ABGN-1213-D-R', 'custom',
+                      'FANT-04BEAX-0606-P-R']
+          mimo_mode:
+            aliases: ['mimo-mode']
+            type: str
+            description: Configure radio MIMO mode
+            choices: ['default', '1x1', '2x2', '3x3', '4x4', '8x8']
+          optional_antenna_gain:
+            aliases: ['optional-antenna-gain']
+            type: str
+            description: Optional antenna gain in dBi
+          sam_ca_certificate:
+            aliases: ['sam-ca-certificate']
+            type: str
+            description: CA certificate for WPA2/WPA3-ENTERPRISE.
+          sam_client_certificate:
+            aliases: ['sam-client-certificate']
+            type: str
+            description: Client certificate for WPA2/WPA3-ENTERPRISE.
+          sam_eap_method:
+            aliases: ['sam-eap-method']
+            type: str
+            description: Select WPA2/WPA3-ENTERPRISE EAP Method
+            choices: ['tls', 'peap', 'both']
+          sam_private_key:
+            aliases: ['sam-private-key']
+            type: str
+            description: Private key for WPA2/WPA3-ENTERPRISE.
+          sam_private_key_password:
+            aliases: ['sam-private-key-password']
+            type: raw
+            description: (list) Password for private key file for WPA2/WPA3-ENTERPRISE.
+          channel_bonding_ext:
+            aliases: ['channel-bonding-ext']
+            type: str
+            description: Channel bandwidth extension
+            choices: ['320MHz-1', '320MHz-2']
+          d80211mc:
+            aliases: ['80211mc']
+            type: str
+            description: Enable/disable 802.
+            choices: ['disable', 'enable']
+          ap_sniffer_chan_width:
+            aliases: ['ap-sniffer-chan-width']
+            type: str
+            description: Channel bandwidth for sniffer.
+            choices: ['320MHz', '240MHz', '160MHz', '80MHz', '40MHz', '20MHz']
+          ai_darrp_support:
+            aliases: ['ai-darrp-support']
+            type: str
+            description: Enable/disable support for FortiAIOps to retrieve Distributed Automatic Radio Resource Provisioning
+            choices: ['disable', 'enable']
+          cca_threshold:
+            aliases: ['cca-threshold']
+            type: str
+            description: Configure Clear Channel Assessment
+          vap_status:
+            aliases: ['vap-status']
+            type: str
+            description: Enable/disable all configured SSIDs on this radio
+            choices: ['disable', 'enable']
+          vap10:
+            type: str
+            description: Virtual Access Point
+          vap11:
+            type: str
+            description: Virtual Access Point
+          vap12:
+            type: str
+            description: Virtual Access Point
+          vap13:
+            type: str
+            description: Virtual Access Point
+          vap14:
+            type: str
+            description: Virtual Access Point
+          vap15:
+            type: str
+            description: Virtual Access Point
+          vap16:
+            type: str
+            description: Virtual Access Point
+          vap9:
+            type: str
+            description: Virtual Access Point
+      radio_2:
+        aliases: ['radio-2']
+        type: dict
+        description: Radio 2.
+        suboptions:
+          airtime_fairness:
+            aliases: ['airtime-fairness']
+            type: str
+            description: Enable/disable airtime fairness
+            choices: ['disable', 'enable']
+          amsdu:
+            type: str
+            description: Enable/disable 802.
+            choices: ['disable', 'enable']
+          ap_sniffer_addr:
+            aliases: ['ap-sniffer-addr']
+            type: str
+            description: MAC address to monitor.
+          ap_sniffer_bufsize:
+            aliases: ['ap-sniffer-bufsize']
+            type: int
+            description: Sniffer buffer size
+          ap_sniffer_chan:
+            aliases: ['ap-sniffer-chan']
+            type: int
+            description: Channel on which to operate the sniffer
+          ap_sniffer_ctl:
+            aliases: ['ap-sniffer-ctl']
+            type: str
+            description: Enable/disable sniffer on WiFi control frame
+            choices: ['disable', 'enable']
+          ap_sniffer_data:
+            aliases: ['ap-sniffer-data']
+            type: str
+            description: Enable/disable sniffer on WiFi data frame
+            choices: ['disable', 'enable']
+          ap_sniffer_mgmt_beacon:
+            aliases: ['ap-sniffer-mgmt-beacon']
+            type: str
+            description: Enable/disable sniffer on WiFi management Beacon frames
+            choices: ['disable', 'enable']
+          ap_sniffer_mgmt_other:
+            aliases: ['ap-sniffer-mgmt-other']
+            type: str
+            description: Enable/disable sniffer on WiFi management other frames
+            choices: ['disable', 'enable']
+          ap_sniffer_mgmt_probe:
+            aliases: ['ap-sniffer-mgmt-probe']
+            type: str
+            description: Enable/disable sniffer on WiFi management probe frames
+            choices: ['disable', 'enable']
+          auto_power_high:
+            aliases: ['auto-power-high']
+            type: int
+            description: The upper bound of automatic transmit power adjustment in dBm
+          auto_power_level:
+            aliases: ['auto-power-level']
+            type: str
+            description: Enable/disable automatic power-level adjustment to prevent co-channel interference
+            choices: ['disable', 'enable']
+          auto_power_low:
+            aliases: ['auto-power-low']
+            type: int
+            description: The lower bound of automatic transmit power adjustment in dBm
+          auto_power_target:
+            aliases: ['auto-power-target']
+            type: str
+            description: The target of automatic transmit power adjustment in dBm.
+          band:
+            type: str
+            description: WiFi band that Radio 2 operates on.
+            choices: ['802.11b', '802.11a', '802.11g', '802.11n', '802.11ac', '802.11n-5G',
+                      '802.11ax-5G', '802.11ax', '802.11ac-2G', '802.11g-only', '802.11n-only',
+                      '802.11n,g-only', '802.11ac-only', '802.11ac,n-only', '802.11n-5G-only',
+                      '802.11ax-5G-only', '802.11ax,ac-only', '802.11ax,ac,n-only',
+                      '802.11ax-only', '802.11ax,n-only', '802.11ax,n,g-only', '802.11ax-6G',
+                      '802.11n-2G', '802.11ac-5G', '802.11ax-2G', '802.11be-2G', '802.11be-5G',
+                      '802.11be-6G']
+          band_5g_type:
+            aliases: ['band-5g-type']
+            type: str
+            description: WiFi 5G band type.
+            choices: ['5g-full', '5g-high', '5g-low']
+          bandwidth_admission_control:
+            aliases: ['bandwidth-admission-control']
+            type: str
+            description: Enable/disable WiFi multimedia
+            choices: ['disable', 'enable']
+          bandwidth_capacity:
+            aliases: ['bandwidth-capacity']
+            type: int
+            description: Maximum bandwidth capacity allowed
+          beacon_interval:
+            aliases: ['beacon-interval']
+            type: int
+            description: Beacon interval.
+          bss_color:
+            aliases: ['bss-color']
+            type: int
+            description: BSS color value for this 11ax radio
+          call_admission_control:
+            aliases: ['call-admission-control']
+            type: str
+            description: Enable/disable WiFi multimedia
+            choices: ['disable', 'enable']
+          call_capacity:
+            aliases: ['call-capacity']
+            type: int
+            description: Maximum number of Voice over WLAN
+          channel:
+            type: raw
+            description: (list) Selected list of wireless radio channels.
+          channel_bonding:
+            aliases: ['channel-bonding']
+            type: str
+            description: Channel bandwidth
+            choices: ['disable', 'enable', '80MHz', '40MHz', '20MHz', '160MHz', '320MHz', '240MHz']
+          channel_utilization:
+            aliases: ['channel-utilization']
+            type: str
+            description: Enable/disable measuring channel utilization.
+            choices: ['disable', 'enable']
+          coexistence:
+            type: str
+            description: Enable/disable allowing both HT20 and HT40 on the same radio
+            choices: ['disable', 'enable']
+          darrp:
+            type: str
+            description: Enable/disable Distributed Automatic Radio Resource Provisioning
+            choices: ['disable', 'enable']
+          drma:
+            type: str
+            description: Enable/disable dynamic radio mode assignment
+            choices: ['disable', 'enable']
+          drma_sensitivity:
+            aliases: ['drma-sensitivity']
+            type: str
+            description: Network Coverage Factor
+            choices: ['low', 'medium', 'high']
+          dtim:
+            type: int
+            description: Delivery Traffic Indication Map
+          frag_threshold:
+            aliases: ['frag-threshold']
+            type: int
+            description: Maximum packet size that can be sent without fragmentation
+          max_clients:
+            aliases: ['max-clients']
+            type: int
+            description: Maximum number of stations
+          max_distance:
+            aliases: ['max-distance']
+            type: int
+            description: Maximum expected distance between the AP and clients
+          mode:
+            type: str
+            description: Mode of radio 2.
+            choices: ['disabled', 'ap', 'monitor', 'sniffer', 'sam']
+          power_level:
+            aliases: ['power-level']
+            type: int
+            description: Radio power level as a percentage of the maximum transmit power
+          powersave_optimize:
+            aliases: ['powersave-optimize']
+            type: list
+            elements: str
+            description: Enable client power-saving features such as TIM, AC VO, and OBSS etc.
+            choices: ['tim', 'ac-vo', 'no-obss-scan', 'no-11b-rate', 'client-rate-follow']
+          protection_mode:
+            aliases: ['protection-mode']
+            type: str
+            description: Enable/disable 802.
+            choices: ['rtscts', 'ctsonly', 'disable']
+          radio_id:
+            aliases: ['radio-id']
+            type: int
+            description: Radio id.
+          rts_threshold:
+            aliases: ['rts-threshold']
+            type: int
+            description: Maximum packet size for RTS transmissions, specifying the maximum size of a data packet before RTS/CTS
+          short_guard_interval:
+            aliases: ['short-guard-interval']
+            type: str
+            description: Use either the short guard interval
+            choices: ['disable', 'enable']
+          spectrum_analysis:
+            aliases: ['spectrum-analysis']
+            type: str
+            description: Enable/disable spectrum analysis to find interference that would negatively impact wireless performance.
+            choices: ['disable', 'enable', 'scan-only']
+          transmit_optimize:
+            aliases: ['transmit-optimize']
+            type: list
+            elements: str
+            description: Packet transmission optimization options including power saving, aggregation limiting, retry limiting, etc.
+            choices: ['disable', 'power-save', 'aggr-limit', 'retry-limit', 'send-bar']
+          vap_all:
+            aliases: ['vap-all']
+            type: str
+            description: Configure method for assigning SSIDs to this FortiAP
+            choices: ['disable', 'enable', 'tunnel', 'bridge', 'manual']
+          vap1:
+            type: str
+            description: Virtual Access Point
+          vap2:
+            type: str
+            description: Virtual Access Point
+          vap3:
+            type: str
+            description: Virtual Access Point
+          vap4:
+            type: str
+            description: Virtual Access Point
+          vap5:
+            type: str
+            description: Virtual Access Point
+          vap6:
+            type: str
+            description: Virtual Access Point
+          vap7:
+            type: str
+            description: Virtual Access Point
+          vap8:
+            type: str
+            description: Virtual Access Point
+          vaps:
+            type: raw
+            description: (list or str) Manually selected list of Virtual Access Points
+          wids_profile:
+            aliases: ['wids-profile']
+            type: str
+            description: Wireless Intrusion Detection System
+          zero_wait_dfs:
+            aliases: ['zero-wait-dfs']
+            type: str
+            description: Enable/disable zero wait DFS on radio
+            choices: ['disable', 'enable']
+          frequency_handoff:
+            aliases: ['frequency-handoff']
+            type: str
+            description: Enable/disable frequency handoff of clients to other channels
+            choices: ['disable', 'enable']
+          ap_handoff:
+            aliases: ['ap-handoff']
+            type: str
+            description: Enable/disable AP handoff of clients to other APs
+            choices: ['disable', 'enable']
+          iperf_protocol:
+            aliases: ['iperf-protocol']
+            type: str
+            description: Iperf test protocol
+            choices: ['udp', 'tcp']
+          iperf_server_port:
+            aliases: ['iperf-server-port']
+            type: int
+            description: Iperf service port number.
+          power_mode:
+            aliases: ['power-mode']
+            type: str
+            description: Set radio effective isotropic radiated power
+            choices: ['dBm', 'percentage']
+          power_value:
+            aliases: ['power-value']
+            type: int
+            description: Radio EIRP power in dBm
+          sam_bssid:
+            aliases: ['sam-bssid']
+            type: str
+            description: BSSID for WiFi network.
+          sam_captive_portal:
+            aliases: ['sam-captive-portal']
+            type: str
+            description: Enable/disable Captive Portal Authentication
+            choices: ['disable', 'enable']
+          sam_password:
+            aliases: ['sam-password']
+            type: raw
+            description: (list) Passphrase for WiFi network connection.
+          sam_report_intv:
+            aliases: ['sam-report-intv']
+            type: int
+            description: SAM report interval
+          sam_security_type:
+            aliases: ['sam-security-type']
+            type: str
+            description: Select WiFi network security type
+            choices: ['open', 'wpa-personal', 'wpa-enterprise', 'owe', 'wpa3-sae']
+          sam_server:
+            aliases: ['sam-server']
+            type: str
+            description: SAM test server IP address or domain name.
+          sam_ssid:
+            aliases: ['sam-ssid']
+            type: str
+            description: SSID for WiFi network.
+          sam_test:
+            aliases: ['sam-test']
+            type: str
+            description: Select SAM test type
+            choices: ['ping', 'iperf']
+          sam_username:
+            aliases: ['sam-username']
+            type: str
+            description: Username for WiFi network connection.
+          arrp_profile:
+            aliases: ['arrp-profile']
+            type: str
+            description: Distributed Automatic Radio Resource Provisioning
+          bss_color_mode:
+            aliases: ['bss-color-mode']
+            type: str
+            description: BSS color mode for this 11ax radio
+            choices: ['auto', 'static']
+          sam_cwp_failure_string:
+            aliases: ['sam-cwp-failure-string']
+            type: str
+            description: Failure identification on the page after an incorrect login.
+          sam_cwp_match_string:
+            aliases: ['sam-cwp-match-string']
+            type: str
+            description: Identification string from the captive portal login form.
+          sam_cwp_password:
+            aliases: ['sam-cwp-password']
+            type: raw
+            description: (list) Password for captive portal authentication.
+          sam_cwp_success_string:
+            aliases: ['sam-cwp-success-string']
+            type: str
+            description: Success identification on the page after a successful login.
+          sam_cwp_test_url:
+            aliases: ['sam-cwp-test-url']
+            type: str
+            description: Website the client is trying to access.
+          sam_cwp_username:
+            aliases: ['sam-cwp-username']
+            type: str
+            description: Username for captive portal authentication.
+          sam_server_fqdn:
+            aliases: ['sam-server-fqdn']
+            type: str
+            description: SAM test server domain name.
+          sam_server_ip:
+            aliases: ['sam-server-ip']
+            type: str
+            description: SAM test server IP address.
+          sam_server_type:
+            aliases: ['sam-server-type']
+            type: str
+            description: Select SAM server type
+            choices: ['ip', 'fqdn']
+          d80211d:
+            aliases: ['80211d']
+            type: str
+            description: Enable/disable 802.
+            choices: ['disable', 'enable']
+          optional_antenna:
+            aliases: ['optional-antenna']
+            type: str
+            description: Optional antenna used on FAP
+            choices: ['none', 'FANT-04ABGN-0606-O-N', 'FANT-04ABGN-1414-P-N',
+                      'FANT-04ABGN-8065-P-N', 'FANT-04ABGN-0606-O-R', 'FANT-04ABGN-0606-P-R',
+                      'FANT-10ACAX-1213-D-N', 'FANT-08ABGN-1213-D-R', 'custom',
+                      'FANT-04BEAX-0606-P-R']
+          mimo_mode:
+            aliases: ['mimo-mode']
+            type: str
+            description: Configure radio MIMO mode
+            choices: ['default', '1x1', '2x2', '3x3', '4x4', '8x8']
+          optional_antenna_gain:
+            aliases: ['optional-antenna-gain']
+            type: str
+            description: Optional antenna gain in dBi
+          sam_ca_certificate:
+            aliases: ['sam-ca-certificate']
+            type: str
+            description: CA certificate for WPA2/WPA3-ENTERPRISE.
+          sam_client_certificate:
+            aliases: ['sam-client-certificate']
+            type: str
+            description: Client certificate for WPA2/WPA3-ENTERPRISE.
+          sam_eap_method:
+            aliases: ['sam-eap-method']
+            type: str
+            description: Select WPA2/WPA3-ENTERPRISE EAP Method
+            choices: ['tls', 'peap', 'both']
+          sam_private_key:
+            aliases: ['sam-private-key']
+            type: str
+            description: Private key for WPA2/WPA3-ENTERPRISE.
+          sam_private_key_password:
+            aliases: ['sam-private-key-password']
+            type: raw
+            description: (list) Password for private key file for WPA2/WPA3-ENTERPRISE.
+          channel_bonding_ext:
+            aliases: ['channel-bonding-ext']
+            type: str
+            description: Channel bandwidth extension
+            choices: ['320MHz-1', '320MHz-2']
+          d80211mc:
+            aliases: ['80211mc']
+            type: str
+            description: Enable/disable 802.
+            choices: ['disable', 'enable']
+          ap_sniffer_chan_width:
+            aliases: ['ap-sniffer-chan-width']
+            type: str
+            description: Channel bandwidth for sniffer.
+            choices: ['320MHz', '240MHz', '160MHz', '80MHz', '40MHz', '20MHz']
+          ai_darrp_support:
+            aliases: ['ai-darrp-support']
+            type: str
+            description: Enable/disable support for FortiAIOps to retrieve Distributed Automatic Radio Resource Provisioning
+            choices: ['disable', 'enable']
+          cca_threshold:
+            aliases: ['cca-threshold']
+            type: str
+            description: Configure Clear Channel Assessment
+          vap_status:
+            aliases: ['vap-status']
+            type: str
+            description: Enable/disable all configured SSIDs on this radio
+            choices: ['disable', 'enable']
+          vap10:
+            type: str
+            description: Virtual Access Point
+          vap11:
+            type: str
+            description: Virtual Access Point
+          vap12:
+            type: str
+            description: Virtual Access Point
+          vap13:
+            type: str
+            description: Virtual Access Point
+          vap14:
+            type: str
+            description: Virtual Access Point
+          vap15:
+            type: str
+            description: Virtual Access Point
+          vap16:
+            type: str
+            description: Virtual Access Point
+          vap9:
+            type: str
+            description: Virtual Access Point
+      radio_3:
+        aliases: ['radio-3']
+        type: dict
+        description: Radio 3.
+        suboptions:
+          airtime_fairness:
+            aliases: ['airtime-fairness']
+            type: str
+            description: Enable/disable airtime fairness
+            choices: ['disable', 'enable']
+          amsdu:
+            type: str
+            description: Enable/disable 802.
+            choices: ['disable', 'enable']
+          ap_sniffer_addr:
+            aliases: ['ap-sniffer-addr']
+            type: str
+            description: MAC address to monitor.
+          ap_sniffer_bufsize:
+            aliases: ['ap-sniffer-bufsize']
+            type: int
+            description: Sniffer buffer size
+          ap_sniffer_chan:
+            aliases: ['ap-sniffer-chan']
+            type: int
+            description: Channel on which to operate the sniffer
+          ap_sniffer_ctl:
+            aliases: ['ap-sniffer-ctl']
+            type: str
+            description: Enable/disable sniffer on WiFi control frame
+            choices: ['disable', 'enable']
+          ap_sniffer_data:
+            aliases: ['ap-sniffer-data']
+            type: str
+            description: Enable/disable sniffer on WiFi data frame
+            choices: ['disable', 'enable']
+          ap_sniffer_mgmt_beacon:
+            aliases: ['ap-sniffer-mgmt-beacon']
+            type: str
+            description: Enable/disable sniffer on WiFi management Beacon frames
+            choices: ['disable', 'enable']
+          ap_sniffer_mgmt_other:
+            aliases: ['ap-sniffer-mgmt-other']
+            type: str
+            description: Enable/disable sniffer on WiFi management other frames
+            choices: ['disable', 'enable']
+          ap_sniffer_mgmt_probe:
+            aliases: ['ap-sniffer-mgmt-probe']
+            type: str
+            description: Enable/disable sniffer on WiFi management probe frames
+            choices: ['disable', 'enable']
+          auto_power_high:
+            aliases: ['auto-power-high']
+            type: int
+            description: The upper bound of automatic transmit power adjustment in dBm
+          auto_power_level:
+            aliases: ['auto-power-level']
+            type: str
+            description: Enable/disable automatic power-level adjustment to prevent co-channel interference
+            choices: ['disable', 'enable']
+          auto_power_low:
+            aliases: ['auto-power-low']
+            type: int
+            description: The lower bound of automatic transmit power adjustment in dBm
+          auto_power_target:
+            aliases: ['auto-power-target']
+            type: str
+            description: The target of automatic transmit power adjustment in dBm.
+          band:
+            type: str
+            description: WiFi band that Radio 3 operates on.
+            choices: ['802.11b', '802.11a', '802.11g', '802.11n', '802.11ac', '802.11n-5G',
+                      '802.11ax-5G', '802.11ax', '802.11ac-2G', '802.11g-only', '802.11n-only',
+                      '802.11n,g-only', '802.11ac-only', '802.11ac,n-only', '802.11n-5G-only',
+                      '802.11ax-5G-only', '802.11ax,ac-only', '802.11ax,ac,n-only',
+                      '802.11ax-only', '802.11ax,n-only', '802.11ax,n,g-only', '802.11ax-6G',
+                      '802.11n-2G', '802.11ac-5G', '802.11ax-2G', '802.11be-2G', '802.11be-5G',
+                      '802.11be-6G']
+          band_5g_type:
+            aliases: ['band-5g-type']
+            type: str
+            description: WiFi 5G band type.
+            choices: ['5g-full', '5g-high', '5g-low']
+          bandwidth_admission_control:
+            aliases: ['bandwidth-admission-control']
+            type: str
+            description: Enable/disable WiFi multimedia
+            choices: ['disable', 'enable']
+          bandwidth_capacity:
+            aliases: ['bandwidth-capacity']
+            type: int
+            description: Maximum bandwidth capacity allowed
+          beacon_interval:
+            aliases: ['beacon-interval']
+            type: int
+            description: Beacon interval.
+          bss_color:
+            aliases: ['bss-color']
+            type: int
+            description: BSS color value for this 11ax radio
+          call_admission_control:
+            aliases: ['call-admission-control']
+            type: str
+            description: Enable/disable WiFi multimedia
+            choices: ['disable', 'enable']
+          call_capacity:
+            aliases: ['call-capacity']
+            type: int
+            description: Maximum number of Voice over WLAN
+          channel:
+            type: raw
+            description: (list) Selected list of wireless radio channels.
+          channel_bonding:
+            aliases: ['channel-bonding']
+            type: str
+            description: Channel bandwidth
+            choices: ['80MHz', '40MHz', '20MHz', '160MHz', '320MHz', '240MHz']
+          channel_utilization:
+            aliases: ['channel-utilization']
+            type: str
+            description: Enable/disable measuring channel utilization.
+            choices: ['disable', 'enable']
+          coexistence:
+            type: str
+            description: Enable/disable allowing both HT20 and HT40 on the same radio
+            choices: ['disable', 'enable']
+          darrp:
+            type: str
+            description: Enable/disable Distributed Automatic Radio Resource Provisioning
+            choices: ['disable', 'enable']
+          drma:
+            type: str
+            description: Enable/disable dynamic radio mode assignment
+            choices: ['disable', 'enable']
+          drma_sensitivity:
+            aliases: ['drma-sensitivity']
+            type: str
+            description: Network Coverage Factor
+            choices: ['low', 'medium', 'high']
+          dtim:
+            type: int
+            description: Delivery Traffic Indication Map
+          frag_threshold:
+            aliases: ['frag-threshold']
+            type: int
+            description: Maximum packet size that can be sent without fragmentation
+          max_clients:
+            aliases: ['max-clients']
+            type: int
+            description: Maximum number of stations
+          max_distance:
+            aliases: ['max-distance']
+            type: int
+            description: Maximum expected distance between the AP and clients
+          mode:
+            type: str
+            description: Mode of radio 3.
+            choices: ['disabled', 'ap', 'monitor', 'sniffer', 'sam']
+          power_level:
+            aliases: ['power-level']
+            type: int
+            description: Radio power level as a percentage of the maximum transmit power
+          powersave_optimize:
+            aliases: ['powersave-optimize']
+            type: list
+            elements: str
+            description: Enable client power-saving features such as TIM, AC VO, and OBSS etc.
+            choices: ['tim', 'ac-vo', 'no-obss-scan', 'no-11b-rate', 'client-rate-follow']
+          protection_mode:
+            aliases: ['protection-mode']
+            type: str
+            description: Enable/disable 802.
+            choices: ['rtscts', 'ctsonly', 'disable']
+          radio_id:
+            aliases: ['radio-id']
+            type: int
+            description: Radio id.
+          rts_threshold:
+            aliases: ['rts-threshold']
+            type: int
+            description: Maximum packet size for RTS transmissions, specifying the maximum size of a data packet before RTS/CTS
+          short_guard_interval:
+            aliases: ['short-guard-interval']
+            type: str
+            description: Use either the short guard interval
+            choices: ['disable', 'enable']
+          spectrum_analysis:
+            aliases: ['spectrum-analysis']
+            type: str
+            description: Enable/disable spectrum analysis to find interference that would negatively impact wireless performance.
+            choices: ['disable', 'enable', 'scan-only']
+          transmit_optimize:
+            aliases: ['transmit-optimize']
+            type: list
+            elements: str
+            description: Packet transmission optimization options including power saving, aggregation limiting, retry limiting, etc.
+            choices: ['disable', 'power-save', 'aggr-limit', 'retry-limit', 'send-bar']
+          vap_all:
+            aliases: ['vap-all']
+            type: str
+            description: Configure method for assigning SSIDs to this FortiAP
+            choices: ['disable', 'enable', 'tunnel', 'bridge', 'manual']
+          vap1:
+            type: str
+            description: Virtual Access Point
+          vap2:
+            type: str
+            description: Virtual Access Point
+          vap3:
+            type: str
+            description: Virtual Access Point
+          vap4:
+            type: str
+            description: Virtual Access Point
+          vap5:
+            type: str
+            description: Virtual Access Point
+          vap6:
+            type: str
+            description: Virtual Access Point
+          vap7:
+            type: str
+            description: Virtual Access Point
+          vap8:
+            type: str
+            description: Virtual Access Point
+          vaps:
+            type: raw
+            description: (list or str) Manually selected list of Virtual Access Points
+          wids_profile:
+            aliases: ['wids-profile']
+            type: str
+            description: Wireless Intrusion Detection System
+          zero_wait_dfs:
+            aliases: ['zero-wait-dfs']
+            type: str
+            description: Enable/disable zero wait DFS on radio
+            choices: ['disable', 'enable']
+          frequency_handoff:
+            aliases: ['frequency-handoff']
+            type: str
+            description: Enable/disable frequency handoff of clients to other channels
+            choices: ['disable', 'enable']
+          ap_handoff:
+            aliases: ['ap-handoff']
+            type: str
+            description: Enable/disable AP handoff of clients to other APs
+            choices: ['disable', 'enable']
+          iperf_protocol:
+            aliases: ['iperf-protocol']
+            type: str
+            description: Iperf test protocol
+            choices: ['udp', 'tcp']
+          iperf_server_port:
+            aliases: ['iperf-server-port']
+            type: int
+            description: Iperf service port number.
+          power_mode:
+            aliases: ['power-mode']
+            type: str
+            description: Set radio effective isotropic radiated power
+            choices: ['dBm', 'percentage']
+          power_value:
+            aliases: ['power-value']
+            type: int
+            description: Radio EIRP power in dBm
+          sam_bssid:
+            aliases: ['sam-bssid']
+            type: str
+            description: BSSID for WiFi network.
+          sam_captive_portal:
+            aliases: ['sam-captive-portal']
+            type: str
+            description: Enable/disable Captive Portal Authentication
+            choices: ['disable', 'enable']
+          sam_password:
+            aliases: ['sam-password']
+            type: raw
+            description: (list) Passphrase for WiFi network connection.
+          sam_report_intv:
+            aliases: ['sam-report-intv']
+            type: int
+            description: SAM report interval
+          sam_security_type:
+            aliases: ['sam-security-type']
+            type: str
+            description: Select WiFi network security type
+            choices: ['open', 'wpa-personal', 'wpa-enterprise', 'owe', 'wpa3-sae']
+          sam_server:
+            aliases: ['sam-server']
+            type: str
+            description: SAM test server IP address or domain name.
+          sam_ssid:
+            aliases: ['sam-ssid']
+            type: str
+            description: SSID for WiFi network.
+          sam_test:
+            aliases: ['sam-test']
+            type: str
+            description: Select SAM test type
+            choices: ['ping', 'iperf']
+          sam_username:
+            aliases: ['sam-username']
+            type: str
+            description: Username for WiFi network connection.
+          arrp_profile:
+            aliases: ['arrp-profile']
+            type: str
+            description: Distributed Automatic Radio Resource Provisioning
+          bss_color_mode:
+            aliases: ['bss-color-mode']
+            type: str
+            description: BSS color mode for this 11ax radio
+            choices: ['auto', 'static']
+          sam_cwp_failure_string:
+            aliases: ['sam-cwp-failure-string']
+            type: str
+            description: Failure identification on the page after an incorrect login.
+          sam_cwp_match_string:
+            aliases: ['sam-cwp-match-string']
+            type: str
+            description: Identification string from the captive portal login form.
+          sam_cwp_password:
+            aliases: ['sam-cwp-password']
+            type: raw
+            description: (list) Password for captive portal authentication.
+          sam_cwp_success_string:
+            aliases: ['sam-cwp-success-string']
+            type: str
+            description: Success identification on the page after a successful login.
+          sam_cwp_test_url:
+            aliases: ['sam-cwp-test-url']
+            type: str
+            description: Website the client is trying to access.
+          sam_cwp_username:
+            aliases: ['sam-cwp-username']
+            type: str
+            description: Username for captive portal authentication.
+          sam_server_fqdn:
+            aliases: ['sam-server-fqdn']
+            type: str
+            description: SAM test server domain name.
+          sam_server_ip:
+            aliases: ['sam-server-ip']
+            type: str
+            description: SAM test server IP address.
+          sam_server_type:
+            aliases: ['sam-server-type']
+            type: str
+            description: Select SAM server type
+            choices: ['ip', 'fqdn']
+          d80211d:
+            aliases: ['80211d']
+            type: str
+            description: Enable/disable 802.
+            choices: ['disable', 'enable']
+          optional_antenna:
+            aliases: ['optional-antenna']
+            type: str
+            description: Optional antenna used on FAP
+            choices: ['none', 'FANT-04ABGN-0606-O-N', 'FANT-04ABGN-1414-P-N',
+                      'FANT-04ABGN-8065-P-N', 'FANT-04ABGN-0606-O-R', 'FANT-04ABGN-0606-P-R',
+                      'FANT-10ACAX-1213-D-N', 'FANT-08ABGN-1213-D-R', 'custom',
+                      'FANT-04BEAX-0606-P-R']
+          mimo_mode:
+            aliases: ['mimo-mode']
+            type: str
+            description: Configure radio MIMO mode
+            choices: ['default', '1x1', '2x2', '3x3', '4x4', '8x8']
+          optional_antenna_gain:
+            aliases: ['optional-antenna-gain']
+            type: str
+            description: Optional antenna gain in dBi
+          sam_ca_certificate:
+            aliases: ['sam-ca-certificate']
+            type: str
+            description: CA certificate for WPA2/WPA3-ENTERPRISE.
+          sam_client_certificate:
+            aliases: ['sam-client-certificate']
+            type: str
+            description: Client certificate for WPA2/WPA3-ENTERPRISE.
+          sam_eap_method:
+            aliases: ['sam-eap-method']
+            type: str
+            description: Select WPA2/WPA3-ENTERPRISE EAP Method
+            choices: ['tls', 'peap', 'both']
+          sam_private_key:
+            aliases: ['sam-private-key']
+            type: str
+            description: Private key for WPA2/WPA3-ENTERPRISE.
+          sam_private_key_password:
+            aliases: ['sam-private-key-password']
+            type: raw
+            description: (list) Password for private key file for WPA2/WPA3-ENTERPRISE.
+          channel_bonding_ext:
+            aliases: ['channel-bonding-ext']
+            type: str
+            description: Channel bandwidth extension
+            choices: ['320MHz-1', '320MHz-2']
+          d80211mc:
+            aliases: ['80211mc']
+            type: str
+            description: Enable/disable 802.
+            choices: ['disable', 'enable']
+          ap_sniffer_chan_width:
+            aliases: ['ap-sniffer-chan-width']
+            type: str
+            description: Channel bandwidth for sniffer.
+            choices: ['320MHz', '240MHz', '160MHz', '80MHz', '40MHz', '20MHz']
+          ai_darrp_support:
+            aliases: ['ai-darrp-support']
+            type: str
+            description: Enable/disable support for FortiAIOps to retrieve Distributed Automatic Radio Resource Provisioning
+            choices: ['disable', 'enable']
+          cca_threshold:
+            aliases: ['cca-threshold']
+            type: str
+            description: Configure Clear Channel Assessment
+          vap_status:
+            aliases: ['vap-status']
+            type: str
+            description: Enable/disable all configured SSIDs on this radio
+            choices: ['disable', 'enable']
+          vap10:
+            type: str
+            description: Virtual Access Point
+          vap11:
+            type: str
+            description: Virtual Access Point
+          vap12:
+            type: str
+            description: Virtual Access Point
+          vap13:
+            type: str
+            description: Virtual Access Point
+          vap14:
+            type: str
+            description: Virtual Access Point
+          vap15:
+            type: str
+            description: Virtual Access Point
+          vap16:
+            type: str
+            description: Virtual Access Point
+          vap9:
+            type: str
+            description: Virtual Access Point
+      radio_4:
+        aliases: ['radio-4']
+        type: dict
+        description: Radio 4.
+        suboptions:
+          airtime_fairness:
+            aliases: ['airtime-fairness']
+            type: str
+            description: Enable/disable airtime fairness
+            choices: ['disable', 'enable']
+          amsdu:
+            type: str
+            description: Enable/disable 802.
+            choices: ['disable', 'enable']
+          ap_sniffer_addr:
+            aliases: ['ap-sniffer-addr']
+            type: str
+            description: MAC address to monitor.
+          ap_sniffer_bufsize:
+            aliases: ['ap-sniffer-bufsize']
+            type: int
+            description: Sniffer buffer size
+          ap_sniffer_chan:
+            aliases: ['ap-sniffer-chan']
+            type: int
+            description: Channel on which to operate the sniffer
+          ap_sniffer_ctl:
+            aliases: ['ap-sniffer-ctl']
+            type: str
+            description: Enable/disable sniffer on WiFi control frame
+            choices: ['disable', 'enable']
+          ap_sniffer_data:
+            aliases: ['ap-sniffer-data']
+            type: str
+            description: Enable/disable sniffer on WiFi data frame
+            choices: ['disable', 'enable']
+          ap_sniffer_mgmt_beacon:
+            aliases: ['ap-sniffer-mgmt-beacon']
+            type: str
+            description: Enable/disable sniffer on WiFi management Beacon frames
+            choices: ['disable', 'enable']
+          ap_sniffer_mgmt_other:
+            aliases: ['ap-sniffer-mgmt-other']
+            type: str
+            description: Enable/disable sniffer on WiFi management other frames
+            choices: ['disable', 'enable']
+          ap_sniffer_mgmt_probe:
+            aliases: ['ap-sniffer-mgmt-probe']
+            type: str
+            description: Enable/disable sniffer on WiFi management probe frames
+            choices: ['disable', 'enable']
+          auto_power_high:
+            aliases: ['auto-power-high']
+            type: int
+            description: The upper bound of automatic transmit power adjustment in dBm
+          auto_power_level:
+            aliases: ['auto-power-level']
+            type: str
+            description: Enable/disable automatic power-level adjustment to prevent co-channel interference
+            choices: ['disable', 'enable']
+          auto_power_low:
+            aliases: ['auto-power-low']
+            type: int
+            description: The lower bound of automatic transmit power adjustment in dBm
+          auto_power_target:
+            aliases: ['auto-power-target']
+            type: str
+            description: The target of automatic transmit power adjustment in dBm.
+          band:
+            type: str
+            description: WiFi band that Radio 3 operates on.
+            choices: ['802.11b', '802.11a', '802.11g', '802.11n', '802.11ac', '802.11n-5G',
+                      '802.11ax-5G', '802.11ax', '802.11ac-2G', '802.11g-only', '802.11n-only',
+                      '802.11n,g-only', '802.11ac-only', '802.11ac,n-only', '802.11n-5G-only',
+                      '802.11ax-5G-only', '802.11ax,ac-only', '802.11ax,ac,n-only',
+                      '802.11ax-only', '802.11ax,n-only', '802.11ax,n,g-only', '802.11ax-6G',
+                      '802.11n-2G', '802.11ac-5G', '802.11ax-2G', '802.11be-2G', '802.11be-5G',
+                      '802.11be-6G']
+          band_5g_type:
+            aliases: ['band-5g-type']
+            type: str
+            description: WiFi 5G band type.
+            choices: ['5g-full', '5g-high', '5g-low']
+          bandwidth_admission_control:
+            aliases: ['bandwidth-admission-control']
+            type: str
+            description: Enable/disable WiFi multimedia
+            choices: ['disable', 'enable']
+          bandwidth_capacity:
+            aliases: ['bandwidth-capacity']
+            type: int
+            description: Maximum bandwidth capacity allowed
+          beacon_interval:
+            aliases: ['beacon-interval']
+            type: int
+            description: Beacon interval.
+          bss_color:
+            aliases: ['bss-color']
+            type: int
+            description: BSS color value for this 11ax radio
+          call_admission_control:
+            aliases: ['call-admission-control']
+            type: str
+            description: Enable/disable WiFi multimedia
+            choices: ['disable', 'enable']
+          call_capacity:
+            aliases: ['call-capacity']
+            type: int
+            description: Maximum number of Voice over WLAN
+          channel:
+            type: raw
+            description: (list) Selected list of wireless radio channels.
+          channel_bonding:
+            aliases: ['channel-bonding']
+            type: str
+            description: Channel bandwidth
+            choices: ['80MHz', '40MHz', '20MHz', '160MHz', '320MHz', '240MHz']
+          channel_utilization:
+            aliases: ['channel-utilization']
+            type: str
+            description: Enable/disable measuring channel utilization.
+            choices: ['disable', 'enable']
+          coexistence:
+            type: str
+            description: Enable/disable allowing both HT20 and HT40 on the same radio
+            choices: ['disable', 'enable']
+          darrp:
+            type: str
+            description: Enable/disable Distributed Automatic Radio Resource Provisioning
+            choices: ['disable', 'enable']
+          drma:
+            type: str
+            description: Enable/disable dynamic radio mode assignment
+            choices: ['disable', 'enable']
+          drma_sensitivity:
+            aliases: ['drma-sensitivity']
+            type: str
+            description: Network Coverage Factor
+            choices: ['low', 'medium', 'high']
+          dtim:
+            type: int
+            description: Delivery Traffic Indication Map
+          frag_threshold:
+            aliases: ['frag-threshold']
+            type: int
+            description: Maximum packet size that can be sent without fragmentation
+          max_clients:
+            aliases: ['max-clients']
+            type: int
+            description: Maximum number of stations
+          max_distance:
+            aliases: ['max-distance']
+            type: int
+            description: Maximum expected distance between the AP and clients
+          mode:
+            type: str
+            description: Mode of radio 3.
+            choices: ['ap', 'monitor', 'sniffer', 'disabled', 'sam']
+          power_level:
+            aliases: ['power-level']
+            type: int
+            description: Radio power level as a percentage of the maximum transmit power
+          powersave_optimize:
+            aliases: ['powersave-optimize']
+            type: list
+            elements: str
+            description: Enable client power-saving features such as TIM, AC VO, and OBSS etc.
+            choices: ['tim', 'ac-vo', 'no-obss-scan', 'no-11b-rate', 'client-rate-follow']
+          protection_mode:
+            aliases: ['protection-mode']
+            type: str
+            description: Enable/disable 802.
+            choices: ['rtscts', 'ctsonly', 'disable']
+          radio_id:
+            aliases: ['radio-id']
+            type: int
+            description: Radio id.
+          rts_threshold:
+            aliases: ['rts-threshold']
+            type: int
+            description: Maximum packet size for RTS transmissions, specifying the maximum size of a data packet before RTS/CTS
+          short_guard_interval:
+            aliases: ['short-guard-interval']
+            type: str
+            description: Use either the short guard interval
+            choices: ['disable', 'enable']
+          spectrum_analysis:
+            aliases: ['spectrum-analysis']
+            type: str
+            description: Enable/disable spectrum analysis to find interference that would negatively impact wireless performance.
+            choices: ['disable', 'enable', 'scan-only']
+          transmit_optimize:
+            aliases: ['transmit-optimize']
+            type: list
+            elements: str
+            description: Packet transmission optimization options including power saving, aggregation limiting, retry limiting, etc.
+            choices: ['disable', 'power-save', 'aggr-limit', 'retry-limit', 'send-bar']
+          vap_all:
+            aliases: ['vap-all']
+            type: str
+            description: Configure method for assigning SSIDs to this FortiAP
+            choices: ['disable', 'enable', 'tunnel', 'bridge', 'manual']
+          vap1:
+            type: str
+            description: Virtual Access Point
+          vap2:
+            type: str
+            description: Virtual Access Point
+          vap3:
+            type: str
+            description: Virtual Access Point
+          vap4:
+            type: str
+            description: Virtual Access Point
+          vap5:
+            type: str
+            description: Virtual Access Point
+          vap6:
+            type: str
+            description: Virtual Access Point
+          vap7:
+            type: str
+            description: Virtual Access Point
+          vap8:
+            type: str
+            description: Virtual Access Point
+          vaps:
+            type: raw
+            description: (list or str) Manually selected list of Virtual Access Points
+          wids_profile:
+            aliases: ['wids-profile']
+            type: str
+            description: Wireless Intrusion Detection System
+          zero_wait_dfs:
+            aliases: ['zero-wait-dfs']
+            type: str
+            description: Enable/disable zero wait DFS on radio
+            choices: ['disable', 'enable']
+          frequency_handoff:
+            aliases: ['frequency-handoff']
+            type: str
+            description: Enable/disable frequency handoff of clients to other channels
+            choices: ['disable', 'enable']
+          ap_handoff:
+            aliases: ['ap-handoff']
+            type: str
+            description: Enable/disable AP handoff of clients to other APs
+            choices: ['disable', 'enable']
+          iperf_protocol:
+            aliases: ['iperf-protocol']
+            type: str
+            description: Iperf test protocol
+            choices: ['udp', 'tcp']
+          iperf_server_port:
+            aliases: ['iperf-server-port']
+            type: int
+            description: Iperf service port number.
+          power_mode:
+            aliases: ['power-mode']
+            type: str
+            description: Set radio effective isotropic radiated power
+            choices: ['dBm', 'percentage']
+          power_value:
+            aliases: ['power-value']
+            type: int
+            description: Radio EIRP power in dBm
+          sam_bssid:
+            aliases: ['sam-bssid']
+            type: str
+            description: BSSID for WiFi network.
+          sam_captive_portal:
+            aliases: ['sam-captive-portal']
+            type: str
+            description: Enable/disable Captive Portal Authentication
+            choices: ['disable', 'enable']
+          sam_password:
+            aliases: ['sam-password']
+            type: raw
+            description: (list) Passphrase for WiFi network connection.
+          sam_report_intv:
+            aliases: ['sam-report-intv']
+            type: int
+            description: SAM report interval
+          sam_security_type:
+            aliases: ['sam-security-type']
+            type: str
+            description: Select WiFi network security type
+            choices: ['open', 'wpa-personal', 'wpa-enterprise', 'owe', 'wpa3-sae']
+          sam_server:
+            aliases: ['sam-server']
+            type: str
+            description: SAM test server IP address or domain name.
+          sam_ssid:
+            aliases: ['sam-ssid']
+            type: str
+            description: SSID for WiFi network.
+          sam_test:
+            aliases: ['sam-test']
+            type: str
+            description: Select SAM test type
+            choices: ['ping', 'iperf']
+          sam_username:
+            aliases: ['sam-username']
+            type: str
+            description: Username for WiFi network connection.
+          arrp_profile:
+            aliases: ['arrp-profile']
+            type: str
+            description: Distributed Automatic Radio Resource Provisioning
+          bss_color_mode:
+            aliases: ['bss-color-mode']
+            type: str
+            description: BSS color mode for this 11ax radio
+            choices: ['auto', 'static']
+          sam_cwp_failure_string:
+            aliases: ['sam-cwp-failure-string']
+            type: str
+            description: Failure identification on the page after an incorrect login.
+          sam_cwp_match_string:
+            aliases: ['sam-cwp-match-string']
+            type: str
+            description: Identification string from the captive portal login form.
+          sam_cwp_password:
+            aliases: ['sam-cwp-password']
+            type: raw
+            description: (list) Password for captive portal authentication.
+          sam_cwp_success_string:
+            aliases: ['sam-cwp-success-string']
+            type: str
+            description: Success identification on the page after a successful login.
+          sam_cwp_test_url:
+            aliases: ['sam-cwp-test-url']
+            type: str
+            description: Website the client is trying to access.
+          sam_cwp_username:
+            aliases: ['sam-cwp-username']
+            type: str
+            description: Username for captive portal authentication.
+          sam_server_fqdn:
+            aliases: ['sam-server-fqdn']
+            type: str
+            description: SAM test server domain name.
+          sam_server_ip:
+            aliases: ['sam-server-ip']
+            type: str
+            description: SAM test server IP address.
+          sam_server_type:
+            aliases: ['sam-server-type']
+            type: str
+            description: Select SAM server type
+            choices: ['ip', 'fqdn']
+          d80211d:
+            aliases: ['80211d']
+            type: str
+            description: Enable/disable 802.
+            choices: ['disable', 'enable']
+          optional_antenna:
+            aliases: ['optional-antenna']
+            type: str
+            description: Optional antenna used on FAP
+            choices: ['none', 'FANT-04ABGN-0606-O-N', 'FANT-04ABGN-1414-P-N',
+                      'FANT-04ABGN-8065-P-N', 'FANT-04ABGN-0606-O-R', 'FANT-04ABGN-0606-P-R',
+                      'FANT-10ACAX-1213-D-N', 'FANT-08ABGN-1213-D-R', 'custom',
+                      'FANT-04BEAX-0606-P-R']
+          mimo_mode:
+            aliases: ['mimo-mode']
+            type: str
+            description: Configure radio MIMO mode
+            choices: ['default', '1x1', '2x2', '3x3', '4x4', '8x8']
+          optional_antenna_gain:
+            aliases: ['optional-antenna-gain']
+            type: str
+            description: Optional antenna gain in dBi
+          sam_ca_certificate:
+            aliases: ['sam-ca-certificate']
+            type: str
+            description: CA certificate for WPA2/WPA3-ENTERPRISE.
+          sam_client_certificate:
+            aliases: ['sam-client-certificate']
+            type: str
+            description: Client certificate for WPA2/WPA3-ENTERPRISE.
+          sam_eap_method:
+            aliases: ['sam-eap-method']
+            type: str
+            description: Select WPA2/WPA3-ENTERPRISE EAP Method
+            choices: ['tls', 'peap', 'both']
+          sam_private_key:
+            aliases: ['sam-private-key']
+            type: str
+            description: Private key for WPA2/WPA3-ENTERPRISE.
+          sam_private_key_password:
+            aliases: ['sam-private-key-password']
+            type: raw
+            description: (list) Password for private key file for WPA2/WPA3-ENTERPRISE.
+          channel_bonding_ext:
+            aliases: ['channel-bonding-ext']
+            type: str
+            description: Channel bandwidth extension
+            choices: ['320MHz-1', '320MHz-2']
+          d80211mc:
+            aliases: ['80211mc']
+            type: str
+            description: Enable/disable 802.
+            choices: ['disable', 'enable']
+          ap_sniffer_chan_width:
+            aliases: ['ap-sniffer-chan-width']
+            type: str
+            description: Channel bandwidth for sniffer.
+            choices: ['320MHz', '240MHz', '160MHz', '80MHz', '40MHz', '20MHz']
+          ai_darrp_support:
+            aliases: ['ai-darrp-support']
+            type: str
+            description: Enable/disable support for FortiAIOps to retrieve Distributed Automatic Radio Resource Provisioning
+            choices: ['disable', 'enable']
+          cca_threshold:
+            aliases: ['cca-threshold']
+            type: str
+            description: Configure Clear Channel Assessment
+          vap_status:
+            aliases: ['vap-status']
+            type: str
+            description: Enable/disable all configured SSIDs on this radio
+            choices: ['disable', 'enable']
+          vap10:
+            type: str
+            description: Virtual Access Point
+          vap11:
+            type: str
+            description: Virtual Access Point
+          vap12:
+            type: str
+            description: Virtual Access Point
+          vap13:
+            type: str
+            description: Virtual Access Point
+          vap14:
+            type: str
+            description: Virtual Access Point
+          vap15:
+            type: str
+            description: Virtual Access Point
+          vap16:
+            type: str
+            description: Virtual Access Point
+          vap9:
+            type: str
+            description: Virtual Access Point
+      console_login:
+        aliases: ['console-login']
+        type: str
+        description: Enable/disable FortiAP console login access
+        choices: ['disable', 'enable']
+      esl_ses_dongle:
+        aliases: ['esl-ses-dongle']
+        type: dict
+        description: Esl ses dongle.
+        suboptions:
+          apc_addr_type:
+            aliases: ['apc-addr-type']
+            type: str
+            description: ESL SES-imagotag APC address type
+            choices: ['fqdn', 'ip']
+          apc_fqdn:
+            aliases: ['apc-fqdn']
+            type: str
+            description: FQDN of ESL SES-imagotag Access Point Controller
+          apc_ip:
+            aliases: ['apc-ip']
+            type: str
+            description: IP address of ESL SES-imagotag Access Point Controller
+          apc_port:
+            aliases: ['apc-port']
+            type: int
+            description: Port of ESL SES-imagotag Access Point Controller
+          coex_level:
+            aliases: ['coex-level']
+            type: str
+            description: ESL SES-imagotag dongle coexistence level
+            choices: ['none']
+          compliance_level:
+            aliases: ['compliance-level']
+            type: str
+            description: Compliance levels for the ESL solution integration
+            choices: ['compliance-level-2']
+          esl_channel:
+            aliases: ['esl-channel']
+            type: str
+            description: ESL SES-imagotag dongle channel
+            choices: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '127', '-1']
+          output_power:
+            aliases: ['output-power']
+            type: str
+            description: ESL SES-imagotag dongle output power
+            choices: ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']
+          scd_enable:
+            aliases: ['scd-enable']
+            type: str
+            description: Enable/disable ESL SES-imagotag Serial Communication Daemon
+            choices: ['disable', 'enable']
+          tls_cert_verification:
+            aliases: ['tls-cert-verification']
+            type: str
+            description: Enable/disable TLS certificate verification
+            choices: ['disable', 'enable']
+          tls_fqdn_verification:
+            aliases: ['tls-fqdn-verification']
+            type: str
+            description: Enable/disable TLS certificate verification
+            choices: ['disable', 'enable']
+      indoor_outdoor_deployment:
+        aliases: ['indoor-outdoor-deployment']
+        type: str
+        description: Set to allow indoor/outdoor-only channels under regulatory rules
+        choices: ['platform-determined', 'outdoor', 'indoor']
+      syslog_profile:
+        aliases: ['syslog-profile']
+        type: str
+        description: System log server configuration profile name.
+      wan_port_auth:
+        aliases: ['wan-port-auth']
+        type: str
+        description: Set WAN port authentication mode
+        choices: ['none', '802.1x']
+      wan_port_auth_methods:
+        aliases: ['wan-port-auth-methods']
+        type: str
+        description: WAN port 802.
+        choices: ['all', 'EAP-FAST', 'EAP-TLS', 'EAP-PEAP']
+      wan_port_auth_password:
+        aliases: ['wan-port-auth-password']
+        type: raw
+        description: (list) Set WAN port 802.
+      wan_port_auth_usrname:
+        aliases: ['wan-port-auth-usrname']
+        type: str
+        description: Set WAN port 802.
+      _is_factory_setting:
+        type: str
+        description: Is factory setting.
+        choices: ['disable', 'enable', 'ext']
+      unii_4_5ghz_band:
+        aliases: ['unii-4-5ghz-band']
+        type: str
+        description: Enable/disable UNII-4 5Ghz band channels
+        choices: ['disable', 'enable']
+      bonjour_profile:
+        aliases: ['bonjour-profile']
+        type: str
+        description: Bonjour profile name.
+      wan_port_auth_macsec:
+        aliases: ['wan-port-auth-macsec']
+        type: str
+        description: Enable/disable WAN port 802.
+        choices: ['disable', 'enable']
+      usb_port:
+        aliases: ['usb-port']
+        type: str
+        description: Enable/disable USB port of the WTP
+        choices: ['disable', 'enable']
+      admin_auth_tacacs_:
+        aliases: ['admin-auth-tacacs+']
+        type: raw
+        description: (list) Remote authentication server for admin user.
+      admin_restrict_local:
+        aliases: ['admin-restrict-local']
+        type: str
+        description: Enable/disable local admin authentication restriction when remote authenticator is up and running
+        choices: ['disable', 'enable']
+      apcfg_mesh:
+        aliases: ['apcfg-mesh']
+        type: str
+        description: Enable/disable AP local mesh configuration
+        choices: ['disable', 'enable']
+      apcfg_mesh_ap_type:
+        aliases: ['apcfg-mesh-ap-type']
+        type: str
+        description: Mesh AP Type
+        choices: ['auto', 'ethernet', 'mesh']
+      apcfg_mesh_eth_bridge:
+        aliases: ['apcfg-mesh-eth-bridge']
+        type: str
+        description: Enable/disable mesh ethernet bridge
+        choices: ['disable', 'enable']
+      apcfg_mesh_passwd:
+        aliases: ['apcfg-mesh-passwd']
+        type: raw
+        description: (list) Apcfg mesh passwd.
+      apcfg_mesh_ssid:
+        aliases: ['apcfg-mesh-ssid']
+        type: raw
+        description: (list) Mesh SSID
+      default_mesh_root:
+        aliases: ['default-mesh-root']
+        type: str
+        description: Configure default mesh root SSID when it is not included by radios SSID configuration.
+        choices: ['disable', 'enable']
+      apcfg_auto_cert:
+        aliases: ['apcfg-auto-cert']
+        type: str
+        description: Enable/disable AP local auto cert configuration
+        choices: ['disable', 'enable']
+      apcfg_auto_cert_auto_regen_days:
+        aliases: ['apcfg-auto-cert-auto-regen-days']
+        type: int
+        description: Number of days to wait before expiry of an updated local certificate is requested
+      apcfg_auto_cert_crypto_algo:
+        aliases: ['apcfg-auto-cert-crypto-algo']
+        type: str
+        description: Cryptography algorithm
+        choices: ['rsa-1024', 'rsa-1536', 'rsa-2048', 'rsa-4096', 'ec-secp256r1', 'ec-secp384r1',
+                  'ec-secp521r1']
+      apcfg_auto_cert_enroll_protocol:
+        aliases: ['apcfg-auto-cert-enroll-protocol']
+        type: str
+        description: Certificate enrollment protocol
+        choices: ['none', 'scep', 'est']
+      apcfg_auto_cert_est_ca_id:
+        aliases: ['apcfg-auto-cert-est-ca-id']
+        type: str
+        description: CA identifier of the CA server for signing via EST.
+      apcfg_auto_cert_est_http_password:
+        aliases: ['apcfg-auto-cert-est-http-password']
+        type: raw
+        description: (list) HTTP Authentication password for signing via EST.
+      apcfg_auto_cert_est_http_username:
+        aliases: ['apcfg-auto-cert-est-http-username']
+        type: str
+        description: HTTP Authentication username for signing via EST.
+      apcfg_auto_cert_est_https_ca:
+        aliases: ['apcfg-auto-cert-est-https-ca']
+        type: raw
+        description: (list) PEM format https CA Certificate.
+      apcfg_auto_cert_est_server:
+        aliases: ['apcfg-auto-cert-est-server']
+        type: str
+        description: Address and port for EST server
+      apcfg_auto_cert_est_subject:
+        aliases: ['apcfg-auto-cert-est-subject']
+        type: str
+        description: Subject e.
+      apcfg_auto_cert_est_subject_alt_name:
+        aliases: ['apcfg-auto-cert-est-subject-alt-name']
+        type: str
+        description: Subject alternative name
+      apcfg_auto_cert_scep_ca_id:
+        aliases: ['apcfg-auto-cert-scep-ca-id']
+        type: str
+        description: CA identifier of the CA server for signing via SCEP.
+      apcfg_auto_cert_scep_ec_name:
+        aliases: ['apcfg-auto-cert-scep-ec-name']
+        type: str
+        description: Elliptic curve name
+        choices: ['secp256r1', 'secp384r1', 'secp521r1']
+      apcfg_auto_cert_scep_https_ca:
+        aliases: ['apcfg-auto-cert-scep-https-ca']
+        type: raw
+        description: (list) PEM format https CA Certificate.
+      apcfg_auto_cert_scep_keysize:
+        aliases: ['apcfg-auto-cert-scep-keysize']
+        type: str
+        description: Key size
+        choices: ['1024', '1536', '2048', '4096']
+      apcfg_auto_cert_scep_keytype:
+        aliases: ['apcfg-auto-cert-scep-keytype']
+        type: str
+        description: Key type
+        choices: ['rsa', 'ec']
+      apcfg_auto_cert_scep_password:
+        aliases: ['apcfg-auto-cert-scep-password']
+        type: raw
+        description: (list) SCEP server challenge password for auto-regeneration.
+      apcfg_auto_cert_scep_sub_fully_dn:
+        aliases: ['apcfg-auto-cert-scep-sub-fully-dn']
+        type: str
+        description: Full DN of the subject
+      apcfg_auto_cert_scep_subject_alt_name:
+        aliases: ['apcfg-auto-cert-scep-subject-alt-name']
+        type: str
+        description: Subject alternative name
+      apcfg_auto_cert_scep_url:
+        aliases: ['apcfg-auto-cert-scep-url']
+        type: str
+        description: SCEP server URL.
+      lw_profile:
+        aliases: ['lw-profile']
+        type: raw
+        description: (list) LoRaWAN profile name.
+      80211mc_mode:
+        aliases: ['80211mc-mode']
+        type: str
+        description: Set 802.
+        choices: ['auto', 'initiator', 'responder']
+      ipsec_offload:
+        aliases: ['ipsec-offload']
+        type: str
+        description: Enable/disable data channel IPSec offloading
+        choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -2685,6 +2813,16 @@ EXAMPLES = '''
           #   d80211mc: <value in [disable, enable]>
           #   ap_sniffer_chan_width: <value in [320MHz, 240MHz, 160MHz, ...]>
           #   ai_darrp_support: <value in [disable, enable]>
+          #   cca_threshold: <string>
+          #   vap_status: <value in [disable, enable]>
+          #   vap10: <string>
+          #   vap11: <string>
+          #   vap12: <string>
+          #   vap13: <string>
+          #   vap14: <string>
+          #   vap15: <string>
+          #   vap16: <string>
+          #   vap9: <string>
           # radio_2:
           #   airtime_fairness: <value in [disable, enable]>
           #   amsdu: <value in [disable, enable]>
@@ -2781,6 +2919,16 @@ EXAMPLES = '''
           #   d80211mc: <value in [disable, enable]>
           #   ap_sniffer_chan_width: <value in [320MHz, 240MHz, 160MHz, ...]>
           #   ai_darrp_support: <value in [disable, enable]>
+          #   cca_threshold: <string>
+          #   vap_status: <value in [disable, enable]>
+          #   vap10: <string>
+          #   vap11: <string>
+          #   vap12: <string>
+          #   vap13: <string>
+          #   vap14: <string>
+          #   vap15: <string>
+          #   vap16: <string>
+          #   vap9: <string>
           # radio_3:
           #   airtime_fairness: <value in [disable, enable]>
           #   amsdu: <value in [disable, enable]>
@@ -2877,6 +3025,16 @@ EXAMPLES = '''
           #   d80211mc: <value in [disable, enable]>
           #   ap_sniffer_chan_width: <value in [320MHz, 240MHz, 160MHz, ...]>
           #   ai_darrp_support: <value in [disable, enable]>
+          #   cca_threshold: <string>
+          #   vap_status: <value in [disable, enable]>
+          #   vap10: <string>
+          #   vap11: <string>
+          #   vap12: <string>
+          #   vap13: <string>
+          #   vap14: <string>
+          #   vap15: <string>
+          #   vap16: <string>
+          #   vap9: <string>
           # radio_4:
           #   airtime_fairness: <value in [disable, enable]>
           #   amsdu: <value in [disable, enable]>
@@ -2973,6 +3131,16 @@ EXAMPLES = '''
           #   d80211mc: <value in [disable, enable]>
           #   ap_sniffer_chan_width: <value in [320MHz, 240MHz, 160MHz, ...]>
           #   ai_darrp_support: <value in [disable, enable]>
+          #   cca_threshold: <string>
+          #   vap_status: <value in [disable, enable]>
+          #   vap10: <string>
+          #   vap11: <string>
+          #   vap12: <string>
+          #   vap13: <string>
+          #   vap14: <string>
+          #   vap15: <string>
+          #   vap16: <string>
+          #   vap9: <string>
           # console_login: <value in [disable, enable]>
           # esl_ses_dongle:
           #   apc_addr_type: <value in [fqdn, ip]>
@@ -3026,46 +3194,48 @@ EXAMPLES = '''
           # apcfg_auto_cert_scep_subject_alt_name: <string>
           # apcfg_auto_cert_scep_url: <string>
           # lw_profile: <list or string>
+          # 80211mc_mode: <value in [auto, initiator, responder]>
+          # ipsec_offload: <value in [disable, enable]>
 '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -3125,7 +3295,7 @@ def main():
                 'login-passwd-change': {'choices': ['no', 'yes', 'default'], 'type': 'str'},
                 'max-clients': {'type': 'int'},
                 'name': {'required': True, 'type': 'str'},
-                'poe-mode': {'choices': ['auto', '8023af', '8023at', 'power-adapter', 'full', 'high', 'low'], 'type': 'str'},
+                'poe-mode': {'choices': ['auto', '8023af', '8023at', 'power-adapter', 'full', 'high', 'low', 'high-pse'], 'type': 'str'},
                 'split-tunneling-acl': {'type': 'list', 'options': {'dest-ip': {'type': 'str'}, 'id': {'type': 'int'}}, 'elements': 'dict'},
                 'split-tunneling-acl-local-ap-subnet': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'split-tunneling-acl-path': {'choices': ['tunnel', 'local'], 'type': 'str'},
@@ -3247,19 +3417,19 @@ def main():
                         'polestar-server-path': {'v_range': [['7.4.1', '']], 'type': 'str'},
                         'polestar-server-port': {'v_range': [['7.4.1', '']], 'type': 'int'},
                         'polestar-server-token': {'v_range': [['7.4.1', '']], 'no_log': True, 'type': 'str'},
-                        'ble-rtls': {'v_range': [['7.4.4', '7.4.10'], ['7.6.2', '']], 'choices': ['none', 'polestar', 'evresys'], 'type': 'str'},
-                        'ble-rtls-accumulation-interval': {'v_range': [['7.4.4', '7.4.10'], ['7.6.2', '']], 'type': 'int'},
-                        'ble-rtls-asset-addrgrp-list': {'v_range': [['7.4.4', '7.4.10'], ['7.6.2', '']], 'type': 'raw'},
-                        'ble-rtls-asset-uuid-list1': {'v_range': [['7.4.4', '7.4.10'], ['7.6.2', '']], 'type': 'str'},
-                        'ble-rtls-asset-uuid-list2': {'v_range': [['7.4.4', '7.4.10'], ['7.6.2', '']], 'type': 'str'},
-                        'ble-rtls-asset-uuid-list3': {'v_range': [['7.4.4', '7.4.10'], ['7.6.2', '']], 'type': 'str'},
-                        'ble-rtls-asset-uuid-list4': {'v_range': [['7.4.4', '7.4.10'], ['7.6.2', '']], 'type': 'str'},
-                        'ble-rtls-protocol': {'v_range': [['7.4.4', '7.4.10'], ['7.6.2', '']], 'choices': ['WSS'], 'type': 'str'},
-                        'ble-rtls-reporting-interval': {'v_range': [['7.4.4', '7.4.10'], ['7.6.2', '']], 'type': 'int'},
-                        'ble-rtls-server-fqdn': {'v_range': [['7.4.4', '7.4.10'], ['7.6.2', '']], 'type': 'str'},
-                        'ble-rtls-server-path': {'v_range': [['7.4.4', '7.4.10'], ['7.6.2', '']], 'type': 'str'},
-                        'ble-rtls-server-port': {'v_range': [['7.4.4', '7.4.10'], ['7.6.2', '']], 'type': 'int'},
-                        'ble-rtls-server-token': {'v_range': [['7.4.4', '7.4.10'], ['7.6.2', '']], 'no_log': True, 'type': 'str'}
+                        'ble-rtls': {'v_range': [['7.4.4', '7.4.11'], ['7.6.2', '']], 'choices': ['none', 'polestar', 'evresys'], 'type': 'str'},
+                        'ble-rtls-accumulation-interval': {'v_range': [['7.4.4', '7.4.11'], ['7.6.2', '']], 'type': 'int'},
+                        'ble-rtls-asset-addrgrp-list': {'v_range': [['7.4.4', '7.4.11'], ['7.6.2', '']], 'type': 'raw'},
+                        'ble-rtls-asset-uuid-list1': {'v_range': [['7.4.4', '7.4.11'], ['7.6.2', '']], 'type': 'str'},
+                        'ble-rtls-asset-uuid-list2': {'v_range': [['7.4.4', '7.4.11'], ['7.6.2', '']], 'type': 'str'},
+                        'ble-rtls-asset-uuid-list3': {'v_range': [['7.4.4', '7.4.11'], ['7.6.2', '']], 'type': 'str'},
+                        'ble-rtls-asset-uuid-list4': {'v_range': [['7.4.4', '7.4.11'], ['7.6.2', '']], 'type': 'str'},
+                        'ble-rtls-protocol': {'v_range': [['7.4.4', '7.4.11'], ['7.6.2', '']], 'choices': ['WSS'], 'type': 'str'},
+                        'ble-rtls-reporting-interval': {'v_range': [['7.4.4', '7.4.11'], ['7.6.2', '']], 'type': 'int'},
+                        'ble-rtls-server-fqdn': {'v_range': [['7.4.4', '7.4.11'], ['7.6.2', '']], 'type': 'str'},
+                        'ble-rtls-server-path': {'v_range': [['7.4.4', '7.4.11'], ['7.6.2', '']], 'type': 'str'},
+                        'ble-rtls-server-port': {'v_range': [['7.4.4', '7.4.11'], ['7.6.2', '']], 'type': 'int'},
+                        'ble-rtls-server-token': {'v_range': [['7.4.4', '7.4.11'], ['7.6.2', '']], 'no_log': True, 'type': 'str'}
                     }
                 },
                 'platform': {
@@ -3278,7 +3448,7 @@ def main():
                                 'U223EV', 'U321EV', 'U323EV', '224E', 'U422EV', 'U24JEV', '321E', 'U431F', 'U433F', '231E', '431F', '433F', '231F',
                                 '432F', '234F', '23JF', 'U231F', '831F', 'U234F', 'U432F', '431FL', '432FR', '433FL', '231FL', '231G', '233G', '431G',
                                 '433G', 'U231G', 'U441G', '234G', '432G', '441K', '443K', '241K', '243K', '231K', '23JK', '222KL', '244K', '432K', 'MVP',
-                                '231KD'
+                                '231KD', '221K', '435K'
                             ],
                             'type': 'str'
                         },
@@ -3352,7 +3522,7 @@ def main():
                         'rts-threshold': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
                         'short-guard-interval': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'spectrum-analysis': {
-                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.6.7']],
                             'choices': ['disable', 'enable', 'scan-only'],
                             'type': 'str'
                         },
@@ -3431,7 +3601,17 @@ def main():
                             'choices': ['320MHz', '240MHz', '160MHz', '80MHz', '40MHz', '20MHz'],
                             'type': 'str'
                         },
-                        'ai-darrp-support': {'v_range': [['7.6.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                        'ai-darrp-support': {'v_range': [['7.6.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'cca-threshold': {'v_range': [['8.0.0', '']], 'type': 'str'},
+                        'vap-status': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'vap10': {'v_range': [['8.0.0', '']], 'type': 'str'},
+                        'vap11': {'v_range': [['8.0.0', '']], 'type': 'str'},
+                        'vap12': {'v_range': [['8.0.0', '']], 'type': 'str'},
+                        'vap13': {'v_range': [['8.0.0', '']], 'type': 'str'},
+                        'vap14': {'v_range': [['8.0.0', '']], 'type': 'str'},
+                        'vap15': {'v_range': [['8.0.0', '']], 'type': 'str'},
+                        'vap16': {'v_range': [['8.0.0', '']], 'type': 'str'},
+                        'vap9': {'v_range': [['8.0.0', '']], 'type': 'str'}
                     }
                 },
                 'radio-2': {
@@ -3501,7 +3681,7 @@ def main():
                         'rts-threshold': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
                         'short-guard-interval': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'spectrum-analysis': {
-                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.6.7']],
                             'choices': ['disable', 'enable', 'scan-only'],
                             'type': 'str'
                         },
@@ -3580,7 +3760,17 @@ def main():
                             'choices': ['320MHz', '240MHz', '160MHz', '80MHz', '40MHz', '20MHz'],
                             'type': 'str'
                         },
-                        'ai-darrp-support': {'v_range': [['7.6.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                        'ai-darrp-support': {'v_range': [['7.6.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'cca-threshold': {'v_range': [['8.0.0', '']], 'type': 'str'},
+                        'vap-status': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'vap10': {'v_range': [['8.0.0', '']], 'type': 'str'},
+                        'vap11': {'v_range': [['8.0.0', '']], 'type': 'str'},
+                        'vap12': {'v_range': [['8.0.0', '']], 'type': 'str'},
+                        'vap13': {'v_range': [['8.0.0', '']], 'type': 'str'},
+                        'vap14': {'v_range': [['8.0.0', '']], 'type': 'str'},
+                        'vap15': {'v_range': [['8.0.0', '']], 'type': 'str'},
+                        'vap16': {'v_range': [['8.0.0', '']], 'type': 'str'},
+                        'vap9': {'v_range': [['8.0.0', '']], 'type': 'str'}
                     }
                 },
                 'radio-3': {
@@ -3650,7 +3840,7 @@ def main():
                         'rts-threshold': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
                         'short-guard-interval': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'spectrum-analysis': {
-                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.6.7']],
                             'choices': ['disable', 'enable', 'scan-only'],
                             'type': 'str'
                         },
@@ -3729,7 +3919,17 @@ def main():
                             'choices': ['320MHz', '240MHz', '160MHz', '80MHz', '40MHz', '20MHz'],
                             'type': 'str'
                         },
-                        'ai-darrp-support': {'v_range': [['7.6.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                        'ai-darrp-support': {'v_range': [['7.6.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'cca-threshold': {'v_range': [['8.0.0', '']], 'type': 'str'},
+                        'vap-status': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'vap10': {'v_range': [['8.0.0', '']], 'type': 'str'},
+                        'vap11': {'v_range': [['8.0.0', '']], 'type': 'str'},
+                        'vap12': {'v_range': [['8.0.0', '']], 'type': 'str'},
+                        'vap13': {'v_range': [['8.0.0', '']], 'type': 'str'},
+                        'vap14': {'v_range': [['8.0.0', '']], 'type': 'str'},
+                        'vap15': {'v_range': [['8.0.0', '']], 'type': 'str'},
+                        'vap16': {'v_range': [['8.0.0', '']], 'type': 'str'},
+                        'vap9': {'v_range': [['8.0.0', '']], 'type': 'str'}
                     }
                 },
                 'radio-4': {
@@ -3799,7 +3999,7 @@ def main():
                         'rts-threshold': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
                         'short-guard-interval': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'spectrum-analysis': {
-                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.6.7']],
                             'choices': ['disable', 'enable', 'scan-only'],
                             'type': 'str'
                         },
@@ -3878,7 +4078,17 @@ def main():
                             'choices': ['320MHz', '240MHz', '160MHz', '80MHz', '40MHz', '20MHz'],
                             'type': 'str'
                         },
-                        'ai-darrp-support': {'v_range': [['7.6.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                        'ai-darrp-support': {'v_range': [['7.6.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'cca-threshold': {'v_range': [['8.0.0', '']], 'type': 'str'},
+                        'vap-status': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'vap10': {'v_range': [['8.0.0', '']], 'type': 'str'},
+                        'vap11': {'v_range': [['8.0.0', '']], 'type': 'str'},
+                        'vap12': {'v_range': [['8.0.0', '']], 'type': 'str'},
+                        'vap13': {'v_range': [['8.0.0', '']], 'type': 'str'},
+                        'vap14': {'v_range': [['8.0.0', '']], 'type': 'str'},
+                        'vap15': {'v_range': [['8.0.0', '']], 'type': 'str'},
+                        'vap16': {'v_range': [['8.0.0', '']], 'type': 'str'},
+                        'vap9': {'v_range': [['8.0.0', '']], 'type': 'str'}
                     }
                 },
                 'console-login': {'v_range': [['6.2.9', '6.2.13'], ['6.4.8', '6.4.15'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
@@ -3946,7 +4156,9 @@ def main():
                 'apcfg-auto-cert-scep-sub-fully-dn': {'v_range': [['7.6.5', '']], 'type': 'str'},
                 'apcfg-auto-cert-scep-subject-alt-name': {'v_range': [['7.6.5', '']], 'type': 'str'},
                 'apcfg-auto-cert-scep-url': {'v_range': [['7.6.5', '']], 'type': 'str'},
-                'lw-profile': {'v_range': [['7.6.5', '']], 'type': 'raw'}
+                'lw-profile': {'v_range': [['7.6.5', '']], 'type': 'raw'},
+                '80211mc-mode': {'v_range': [['8.0.0', '']], 'choices': ['auto', 'initiator', 'responder'], 'type': 'str'},
+                'ipsec-offload': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

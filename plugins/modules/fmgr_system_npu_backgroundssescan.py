@@ -15,57 +15,57 @@ module: fmgr_system_npu_backgroundssescan
 short_description: Configure driver background scan for SSE.
 version_added: "2.2.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.partial_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.partial_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  system_npu_backgroundssescan:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      scan:
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
-        type: str
-        required: true
-    system_npu_backgroundssescan:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            scan:
-                type: str
-                description: Enable/disable background SSE scan by driver thread
-                choices: ['disable', 'enable']
-            stats_update_interval:
-                aliases: ['stats-update-interval']
-                type: int
-                description: Stats update interval
-            udp_keepalive_interval:
-                aliases: ['udp-keepalive-interval']
-                type: int
-                description: UDP keepalive interval
-            scan_stale:
-                aliases: ['scan-stale']
-                type: int
-                description: Configure scanning of active or stale sessions
-            scan_vt:
-                aliases: ['scan-vt']
-                type: int
-                description: Select version/type to scan
-            stats_qual_access:
-                aliases: ['stats-qual-access']
-                type: int
-                description: Statistics update access qualification in seconds
-            stats_qual_duration:
-                aliases: ['stats-qual-duration']
-                type: int
-                description: Statistics update duration qualification in seconds
-            udp_qual_access:
-                aliases: ['udp-qual-access']
-                type: int
-                description: UDP keepalive access qualification in seconds
-            udp_qual_duration:
-                aliases: ['udp-qual-duration']
-                type: int
-                description: UDP keepalive duration qualification in seconds
+        description: Enable/disable background SSE scan by driver thread
+        choices: ['disable', 'enable']
+      stats_update_interval:
+        aliases: ['stats-update-interval']
+        type: int
+        description: Stats update interval
+      udp_keepalive_interval:
+        aliases: ['udp-keepalive-interval']
+        type: int
+        description: UDP keepalive interval
+      scan_stale:
+        aliases: ['scan-stale']
+        type: int
+        description: Configure scanning of active or stale sessions
+      scan_vt:
+        aliases: ['scan-vt']
+        type: int
+        description: Select version/type to scan
+      stats_qual_access:
+        aliases: ['stats-qual-access']
+        type: int
+        description: Statistics update access qualification in seconds
+      stats_qual_duration:
+        aliases: ['stats-qual-duration']
+        type: int
+        description: Statistics update duration qualification in seconds
+      udp_qual_access:
+        aliases: ['udp-qual-access']
+        type: int
+        description: UDP keepalive access qualification in seconds
+      udp_qual_duration:
+        aliases: ['udp-qual-duration']
+        type: int
+        description: UDP keepalive duration qualification in seconds
 '''
 
 EXAMPLES = '''
@@ -92,42 +92,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

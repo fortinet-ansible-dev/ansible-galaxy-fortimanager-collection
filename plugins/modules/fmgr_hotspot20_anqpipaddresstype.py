@@ -15,37 +15,37 @@ module: fmgr_hotspot20_anqpipaddresstype
 short_description: Configure IP address type availability.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  hotspot20_anqpipaddresstype:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      ipv4_address_type:
+        aliases: ['ipv4-address-type']
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: IPv4 address type.
+        choices: ['not-available', 'not-known', 'public', 'port-restricted',
+                  'single-NATed-private', 'double-NATed-private',
+                  'port-restricted-and-single-NATed', 'port-restricted-and-double-NATed']
+      ipv6_address_type:
+        aliases: ['ipv6-address-type']
         type: str
+        description: IPv6 address type.
+        choices: ['not-available', 'available', 'not-known']
+      name:
+        type: str
+        description: IP type name.
         required: true
-    hotspot20_anqpipaddresstype:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            ipv4_address_type:
-                aliases: ['ipv4-address-type']
-                type: str
-                description: IPv4 address type.
-                choices: ['not-available', 'not-known', 'public', 'port-restricted',
-                          'single-NATed-private', 'double-NATed-private',
-                          'port-restricted-and-single-NATed', 'port-restricted-and-double-NATed']
-            ipv6_address_type:
-                aliases: ['ipv6-address-type']
-                type: str
-                description: IPv6 address type.
-                choices: ['not-available', 'available', 'not-known']
-            name:
-                type: str
-                description: IP type name.
-                required: true
 '''
 
 EXAMPLES = '''
@@ -67,42 +67,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

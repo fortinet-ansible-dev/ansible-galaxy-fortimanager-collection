@@ -15,93 +15,93 @@ module: fmgr_fmg_script
 short_description: Fmg script
 version_added: "2.13.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  fmg_script:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      content:
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Content.
+      desc:
         type: str
+        description: Desc.
+      filter_build:
+        type: int
+        description: Filter build.
+      filter_device:
+        type: int
+        description: Filter device.
+      filter_hostname:
+        type: str
+        description: Filter hostname.
+      filter_ostype:
+        type: int
+        description: Filter ostype.
+      filter_osver:
+        type: int
+        description: Filter osver.
+      filter_platform:
+        type: str
+        description: Filter platform.
+      filter_serial:
+        type: str
+        description: Filter serial.
+      member:
+        type: list
+        elements: str
+        description: Member.
+      name:
+        type: str
+        description: Name.
         required: true
-    fmg_script:
-        description: The top level parameters set.
-        required: false
-        type: dict
+      schedule:
+        type: list
+        elements: dict
+        description: Schedule.
         suboptions:
-            content:
-                type: str
-                description: Content.
-            desc:
-                type: str
-                description: Desc.
-            filter_build:
-                type: int
-                description: Filter build.
-            filter_device:
-                type: int
-                description: Filter device.
-            filter_hostname:
-                type: str
-                description: Filter hostname.
-            filter_ostype:
-                type: int
-                description: Filter ostype.
-            filter_osver:
-                type: int
-                description: Filter osver.
-            filter_platform:
-                type: str
-                description: Filter platform.
-            filter_serial:
-                type: str
-                description: Filter serial.
-            member:
-                type: list
-                elements: str
-                description: Member.
-            name:
-                type: str
-                description: Name.
-                required: true
-            schedule:
-                type: list
-                elements: dict
-                description: Schedule.
-                suboptions:
-                    datetime:
-                        type: str
-                        description: Datetime.
-                    day_of_week:
-                        aliases: ['day-of-week']
-                        type: int
-                        description: Day of week.
-                    device:
-                        type: int
-                        description: Device.
-                    run_on_db:
-                        aliases: ['run-on-db']
-                        type: int
-                        description: Run on db.
-                    timestamp:
-                        type: int
-                        description: Timestamp.
-                    type:
-                        type: str
-                        description: Type.
-                        choices: ['auto', 'onetime', 'daily', 'weekly', 'monthly']
-                    user:
-                        type: str
-                        description: User.
-            target:
-                type: str
-                description: Target.
-                choices: ['devdb', 'remote', 'adomdb']
-            type:
-                type: str
-                description: Type.
-                choices: ['cli', 'tcl', 'cligrp', 'tclgrp', 'jinja']
+          datetime:
+            type: str
+            description: Datetime.
+          day_of_week:
+            aliases: ['day-of-week']
+            type: int
+            description: Day of week.
+          device:
+            type: int
+            description: Device.
+          run_on_db:
+            aliases: ['run-on-db']
+            type: int
+            description: Run on db.
+          timestamp:
+            type: int
+            description: Timestamp.
+          type:
+            type: str
+            description: Type.
+            choices: ['auto', 'onetime', 'daily', 'weekly', 'monthly']
+          user:
+            type: str
+            description: User.
+      target:
+        type: str
+        description: Target.
+        choices: ['devdb', 'remote', 'adomdb']
+      type:
+        type: str
+        description: Type.
+        choices: ['cli', 'tcl', 'cligrp', 'tclgrp', 'jinja']
 '''
 
 EXAMPLES = '''
@@ -156,42 +156,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

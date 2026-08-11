@@ -15,45 +15,45 @@ module: fmgr_application_internetservicecustom_disableentry_iprange
 short_description: IP ranges in the disable entry.
 version_added: "2.2.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  internet-service-custom:
+    description: Deprecated, please use "internet_service_custom"
+    type: str
+  internet_service_custom:
+    description: The parameter (internet-service-custom) in requested url.
+    type: str
+  disable-entry:
+    description: Deprecated, please use "disable_entry"
+    type: str
+  disable_entry:
+    description: The parameter (disable-entry) in requested url.
+    type: str
+  application_internetservicecustom_disableentry_iprange:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      end_ip:
+        aliases: ['end-ip']
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
-        type: str
+        description: End IP address.
+      id:
+        type: int
+        description: Disable entry range ID.
         required: true
-    internet-service-custom:
-        description: Deprecated, please use "internet_service_custom"
+      start_ip:
+        aliases: ['start-ip']
         type: str
-    internet_service_custom:
-        description: The parameter (internet-service-custom) in requested url.
-        type: str
-    disable-entry:
-        description: Deprecated, please use "disable_entry"
-        type: str
-    disable_entry:
-        description: The parameter (disable-entry) in requested url.
-        type: str
-    application_internetservicecustom_disableentry_iprange:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            end_ip:
-                aliases: ['end-ip']
-                type: str
-                description: End IP address.
-            id:
-                type: int
-                description: Disable entry range ID.
-                required: true
-            start_ip:
-                aliases: ['start-ip']
-                type: str
-                description: Start IP address.
+        description: Start IP address.
 '''
 
 EXAMPLES = '''
@@ -77,42 +77,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

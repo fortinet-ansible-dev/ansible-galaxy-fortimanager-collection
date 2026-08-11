@@ -15,219 +15,219 @@ module: fmgr_pkg_footer_shapingpolicy
 short_description: Configure shaping policies.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  pkg:
+    description: The parameter (pkg) in requested url.
+    type: str
+    required: true
+  pkg_footer_shapingpolicy:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      app_category:
+        aliases: ['app-category']
+        type: raw
+        description: (list or str) App category.
+      app_group:
+        aliases: ['app-group']
+        type: raw
+        description: (list or str) App group.
+      application:
+        type: raw
+        description: (list) Application.
+      class_id:
+        aliases: ['class-id']
+        type: raw
+        description: (int or str) Class id.
+      comment:
         type: str
-    pkg:
-        description: The parameter (pkg) in requested url.
+        description: Comment.
+      diffserv_forward:
+        aliases: ['diffserv-forward']
         type: str
+        description: Diffserv forward.
+        choices: ['disable', 'enable']
+      diffserv_reverse:
+        aliases: ['diffserv-reverse']
+        type: str
+        description: Diffserv reverse.
+        choices: ['disable', 'enable']
+      diffservcode_forward:
+        aliases: ['diffservcode-forward']
+        type: str
+        description: Diffservcode forward.
+      diffservcode_rev:
+        aliases: ['diffservcode-rev']
+        type: str
+        description: Diffservcode rev.
+      dstaddr:
+        type: raw
+        description: (list or str) Dstaddr.
+      dstaddr6:
+        type: raw
+        description: (list or str) Dstaddr6.
+      dstintf:
+        type: raw
+        description: (list or str) Dstintf.
+      groups:
+        type: raw
+        description: (list or str) Groups.
+      id:
+        type: int
+        description: Id.
         required: true
-    pkg_footer_shapingpolicy:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            app_category:
-                aliases: ['app-category']
-                type: raw
-                description: (list or str) App category.
-            app_group:
-                aliases: ['app-group']
-                type: raw
-                description: (list or str) App group.
-            application:
-                type: raw
-                description: (list) Application.
-            class_id:
-                aliases: ['class-id']
-                type: raw
-                description: (int or str) Class id.
-            comment:
-                type: str
-                description: Comment.
-            diffserv_forward:
-                aliases: ['diffserv-forward']
-                type: str
-                description: Diffserv forward.
-                choices: ['disable', 'enable']
-            diffserv_reverse:
-                aliases: ['diffserv-reverse']
-                type: str
-                description: Diffserv reverse.
-                choices: ['disable', 'enable']
-            diffservcode_forward:
-                aliases: ['diffservcode-forward']
-                type: str
-                description: Diffservcode forward.
-            diffservcode_rev:
-                aliases: ['diffservcode-rev']
-                type: str
-                description: Diffservcode rev.
-            dstaddr:
-                type: raw
-                description: (list or str) Dstaddr.
-            dstaddr6:
-                type: raw
-                description: (list or str) Dstaddr6.
-            dstintf:
-                type: raw
-                description: (list or str) Dstintf.
-            groups:
-                type: raw
-                description: (list or str) Groups.
-            id:
-                type: int
-                description: Id.
-                required: true
-            internet_service:
-                aliases: ['internet-service']
-                type: str
-                description: Internet service.
-                choices: ['disable', 'enable']
-            internet_service_custom:
-                aliases: ['internet-service-custom']
-                type: raw
-                description: (list or str) Internet service custom.
-            internet_service_custom_group:
-                aliases: ['internet-service-custom-group']
-                type: raw
-                description: (list or str) Internet service custom group.
-            internet_service_group:
-                aliases: ['internet-service-group']
-                type: raw
-                description: (list or str) Internet service group.
-            internet_service_id:
-                aliases: ['internet-service-id']
-                type: raw
-                description: (list or str) Internet service id.
-            internet_service_src:
-                aliases: ['internet-service-src']
-                type: str
-                description: Internet service src.
-                choices: ['disable', 'enable']
-            internet_service_src_custom:
-                aliases: ['internet-service-src-custom']
-                type: raw
-                description: (list or str) Internet service src custom.
-            internet_service_src_custom_group:
-                aliases: ['internet-service-src-custom-group']
-                type: raw
-                description: (list or str) Internet service src custom group.
-            internet_service_src_group:
-                aliases: ['internet-service-src-group']
-                type: raw
-                description: (list or str) Internet service src group.
-            internet_service_src_id:
-                aliases: ['internet-service-src-id']
-                type: raw
-                description: (list or str) Internet service src id.
-            ip_version:
-                aliases: ['ip-version']
-                type: str
-                description: Ip version.
-                choices: ['4', '6']
-            per_ip_shaper:
-                aliases: ['per-ip-shaper']
-                type: str
-                description: Per ip shaper.
-            schedule:
-                type: str
-                description: Schedule.
-            service:
-                type: raw
-                description: (list or str) Service.
-            srcaddr:
-                type: raw
-                description: (list or str) Srcaddr.
-            srcaddr6:
-                type: raw
-                description: (list or str) Srcaddr6.
-            srcintf:
-                type: raw
-                description: (list or str) Srcintf.
-            status:
-                type: str
-                description: Status.
-                choices: ['disable', 'enable']
-            tos:
-                type: str
-                description: Tos.
-            tos_mask:
-                aliases: ['tos-mask']
-                type: str
-                description: Tos mask.
-            tos_negate:
-                aliases: ['tos-negate']
-                type: str
-                description: Tos negate.
-                choices: ['disable', 'enable']
-            traffic_shaper:
-                aliases: ['traffic-shaper']
-                type: str
-                description: Traffic shaper.
-            traffic_shaper_reverse:
-                aliases: ['traffic-shaper-reverse']
-                type: str
-                description: Traffic shaper reverse.
-            url_category:
-                aliases: ['url-category']
-                type: raw
-                description: (list or str) Url category.
-            users:
-                type: raw
-                description: (list or str) Users.
-            uuid:
-                type: str
-                description: Uuid.
-            internet_service_name:
-                aliases: ['internet-service-name']
-                type: raw
-                description: (list or str) Internet service name.
-            internet_service_src_name:
-                aliases: ['internet-service-src-name']
-                type: raw
-                description: (list or str) Internet service src name.
-            class_id_reverse:
-                aliases: ['class-id-reverse']
-                type: int
-                description: Class id reverse.
-            service_type:
-                aliases: ['service-type']
-                type: str
-                description: Service type.
-                choices: ['service', 'internet-service']
-            uuid_idx:
-                aliases: ['uuid-idx']
-                type: int
-                description: Uuid idx.
-            cos:
-                type: str
-                description: VLAN CoS bit pattern.
-            cos_mask:
-                aliases: ['cos-mask']
-                type: str
-                description: VLAN CoS evaluated bits.
-            traffic_type:
-                aliases: ['traffic-type']
-                type: str
-                description: Traffic type.
-                choices: ['forwarding', 'local-in', 'local-out']
-            http_response_match:
-                aliases: ['http-response-match']
-                type: str
-                description: Http response match.
-                choices: ['disable', 'enable']
-            internet_service_fortiguard:
-                aliases: ['internet-service-fortiguard']
-                type: raw
-                description: (list) FortiGuard Internet Service name.
-            internet_service_src_fortiguard:
-                aliases: ['internet-service-src-fortiguard']
-                type: raw
-                description: (list) FortiGuard Internet Service source name.
+      internet_service:
+        aliases: ['internet-service']
+        type: str
+        description: Internet service.
+        choices: ['disable', 'enable']
+      internet_service_custom:
+        aliases: ['internet-service-custom']
+        type: raw
+        description: (list or str) Internet service custom.
+      internet_service_custom_group:
+        aliases: ['internet-service-custom-group']
+        type: raw
+        description: (list or str) Internet service custom group.
+      internet_service_group:
+        aliases: ['internet-service-group']
+        type: raw
+        description: (list or str) Internet service group.
+      internet_service_id:
+        aliases: ['internet-service-id']
+        type: raw
+        description: (list or str) Internet service id.
+      internet_service_src:
+        aliases: ['internet-service-src']
+        type: str
+        description: Internet service src.
+        choices: ['disable', 'enable']
+      internet_service_src_custom:
+        aliases: ['internet-service-src-custom']
+        type: raw
+        description: (list or str) Internet service src custom.
+      internet_service_src_custom_group:
+        aliases: ['internet-service-src-custom-group']
+        type: raw
+        description: (list or str) Internet service src custom group.
+      internet_service_src_group:
+        aliases: ['internet-service-src-group']
+        type: raw
+        description: (list or str) Internet service src group.
+      internet_service_src_id:
+        aliases: ['internet-service-src-id']
+        type: raw
+        description: (list or str) Internet service src id.
+      ip_version:
+        aliases: ['ip-version']
+        type: str
+        description: Ip version.
+        choices: ['4', '6']
+      per_ip_shaper:
+        aliases: ['per-ip-shaper']
+        type: str
+        description: Per ip shaper.
+      schedule:
+        type: str
+        description: Schedule.
+      service:
+        type: raw
+        description: (list or str) Service.
+      srcaddr:
+        type: raw
+        description: (list or str) Srcaddr.
+      srcaddr6:
+        type: raw
+        description: (list or str) Srcaddr6.
+      srcintf:
+        type: raw
+        description: (list or str) Srcintf.
+      status:
+        type: str
+        description: Status.
+        choices: ['disable', 'enable']
+      tos:
+        type: str
+        description: Tos.
+      tos_mask:
+        aliases: ['tos-mask']
+        type: str
+        description: Tos mask.
+      tos_negate:
+        aliases: ['tos-negate']
+        type: str
+        description: Tos negate.
+        choices: ['disable', 'enable']
+      traffic_shaper:
+        aliases: ['traffic-shaper']
+        type: str
+        description: Traffic shaper.
+      traffic_shaper_reverse:
+        aliases: ['traffic-shaper-reverse']
+        type: str
+        description: Traffic shaper reverse.
+      url_category:
+        aliases: ['url-category']
+        type: raw
+        description: (list or str) Url category.
+      users:
+        type: raw
+        description: (list or str) Users.
+      uuid:
+        type: str
+        description: Uuid.
+      internet_service_name:
+        aliases: ['internet-service-name']
+        type: raw
+        description: (list or str) Internet service name.
+      internet_service_src_name:
+        aliases: ['internet-service-src-name']
+        type: raw
+        description: (list or str) Internet service src name.
+      class_id_reverse:
+        aliases: ['class-id-reverse']
+        type: int
+        description: Class id reverse.
+      service_type:
+        aliases: ['service-type']
+        type: str
+        description: Service type.
+        choices: ['service', 'internet-service']
+      uuid_idx:
+        aliases: ['uuid-idx']
+        type: int
+        description: Uuid idx.
+      cos:
+        type: str
+        description: VLAN CoS bit pattern.
+      cos_mask:
+        aliases: ['cos-mask']
+        type: str
+        description: VLAN CoS evaluated bits.
+      traffic_type:
+        aliases: ['traffic-type']
+        type: str
+        description: Traffic type.
+        choices: ['forwarding', 'local-in', 'local-out']
+      http_response_match:
+        aliases: ['http-response-match']
+        type: str
+        description: Http response match.
+        choices: ['disable', 'enable']
+      internet_service_fortiguard:
+        aliases: ['internet-service-fortiguard']
+        type: raw
+        description: (list) FortiGuard Internet Service name.
+      internet_service_src_fortiguard:
+        aliases: ['internet-service-src-fortiguard']
+        type: raw
+        description: (list) FortiGuard Internet Service source name.
 '''
 
 EXAMPLES = '''
@@ -297,42 +297,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -398,7 +398,7 @@ def main():
                 'cos': {'v_range': [['7.4.0', '']], 'type': 'str'},
                 'cos-mask': {'v_range': [['7.4.0', '']], 'type': 'str'},
                 'traffic-type': {'v_range': [['7.4.0', '']], 'choices': ['forwarding', 'local-in', 'local-out'], 'type': 'str'},
-                'http-response-match': {'v_range': [['7.4.7', '7.4.10'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'http-response-match': {'v_range': [['7.4.7', '7.4.11'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'internet-service-fortiguard': {'v_range': [['7.6.4', '']], 'type': 'raw'},
                 'internet-service-src-fortiguard': {'v_range': [['7.6.4', '']], 'type': 'raw'}
             }

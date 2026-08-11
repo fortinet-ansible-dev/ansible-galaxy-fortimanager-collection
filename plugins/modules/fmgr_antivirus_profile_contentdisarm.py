@@ -15,125 +15,125 @@ module: fmgr_antivirus_profile_contentdisarm
 short_description: AV Content Disarm and Reconstruction settings.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.partial_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.partial_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  profile:
+    description: The parameter (profile) in requested url.
+    type: str
+    required: true
+  antivirus_profile_contentdisarm:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      cover_page:
+        aliases: ['cover-page']
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Enable/disable inserting a cover page into the disarmed document.
+        choices: ['disable', 'enable']
+      detect_only:
+        aliases: ['detect-only']
         type: str
-        required: true
-    profile:
-        description: The parameter (profile) in requested url.
+        description: Enable/disable only detect disarmable files, do not alter content.
+        choices: ['disable', 'enable']
+      office_embed:
+        aliases: ['office-embed']
         type: str
-        required: true
-    antivirus_profile_contentdisarm:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            cover_page:
-                aliases: ['cover-page']
-                type: str
-                description: Enable/disable inserting a cover page into the disarmed document.
-                choices: ['disable', 'enable']
-            detect_only:
-                aliases: ['detect-only']
-                type: str
-                description: Enable/disable only detect disarmable files, do not alter content.
-                choices: ['disable', 'enable']
-            office_embed:
-                aliases: ['office-embed']
-                type: str
-                description: Enable/disable stripping of embedded objects in Microsoft Office documents.
-                choices: ['disable', 'enable']
-            office_hylink:
-                aliases: ['office-hylink']
-                type: str
-                description: Enable/disable stripping of hyperlinks in Microsoft Office documents.
-                choices: ['disable', 'enable']
-            office_linked:
-                aliases: ['office-linked']
-                type: str
-                description: Enable/disable stripping of linked objects in Microsoft Office documents.
-                choices: ['disable', 'enable']
-            office_macro:
-                aliases: ['office-macro']
-                type: str
-                description: Enable/disable stripping of macros in Microsoft Office documents.
-                choices: ['disable', 'enable']
-            original_file_destination:
-                aliases: ['original-file-destination']
-                type: str
-                description: Destination to send original file if active content is removed.
-                choices: ['fortisandbox', 'quarantine', 'discard']
-            pdf_act_form:
-                aliases: ['pdf-act-form']
-                type: str
-                description: Enable/disable stripping of actions that submit data to other targets in PDF documents.
-                choices: ['disable', 'enable']
-            pdf_act_gotor:
-                aliases: ['pdf-act-gotor']
-                type: str
-                description: Enable/disable stripping of links to other PDFs in PDF documents.
-                choices: ['disable', 'enable']
-            pdf_act_java:
-                aliases: ['pdf-act-java']
-                type: str
-                description: Enable/disable stripping of actions that execute JavaScript code in PDF documents.
-                choices: ['disable', 'enable']
-            pdf_act_launch:
-                aliases: ['pdf-act-launch']
-                type: str
-                description: Enable/disable stripping of links to external applications in PDF documents.
-                choices: ['disable', 'enable']
-            pdf_act_movie:
-                aliases: ['pdf-act-movie']
-                type: str
-                description: Enable/disable stripping of embedded movies in PDF documents.
-                choices: ['disable', 'enable']
-            pdf_act_sound:
-                aliases: ['pdf-act-sound']
-                type: str
-                description: Enable/disable stripping of embedded sound files in PDF documents.
-                choices: ['disable', 'enable']
-            pdf_embedfile:
-                aliases: ['pdf-embedfile']
-                type: str
-                description: Enable/disable stripping of embedded files in PDF documents.
-                choices: ['disable', 'enable']
-            pdf_hyperlink:
-                aliases: ['pdf-hyperlink']
-                type: str
-                description: Enable/disable stripping of hyperlinks from PDF documents.
-                choices: ['disable', 'enable']
-            pdf_javacode:
-                aliases: ['pdf-javacode']
-                type: str
-                description: Enable/disable stripping of JavaScript code in PDF documents.
-                choices: ['disable', 'enable']
-            office_action:
-                aliases: ['office-action']
-                type: str
-                description: Enable/disable stripping of PowerPoint action events in Microsoft Office documents.
-                choices: ['disable', 'enable']
-            office_dde:
-                aliases: ['office-dde']
-                type: str
-                description: Enable/disable stripping of Dynamic Data Exchange events in Microsoft Office documents.
-                choices: ['disable', 'enable']
-            error_action:
-                aliases: ['error-action']
-                type: str
-                description: Action to be taken if CDR engine encounters an unrecoverable error.
-                choices: ['block', 'log-only', 'ignore']
-            analytics_suspicious:
-                aliases: ['analytics-suspicious']
-                type: str
-                description: Enable/disable using CDR as a secondary method for determining suspicous files for analytics.
-                choices: ['disable', 'enable']
+        description: Enable/disable stripping of embedded objects in Microsoft Office documents.
+        choices: ['disable', 'enable']
+      office_hylink:
+        aliases: ['office-hylink']
+        type: str
+        description: Enable/disable stripping of hyperlinks in Microsoft Office documents.
+        choices: ['disable', 'enable']
+      office_linked:
+        aliases: ['office-linked']
+        type: str
+        description: Enable/disable stripping of linked objects in Microsoft Office documents.
+        choices: ['disable', 'enable']
+      office_macro:
+        aliases: ['office-macro']
+        type: str
+        description: Enable/disable stripping of macros in Microsoft Office documents.
+        choices: ['disable', 'enable']
+      original_file_destination:
+        aliases: ['original-file-destination']
+        type: str
+        description: Destination to send original file if active content is removed.
+        choices: ['fortisandbox', 'quarantine', 'discard']
+      pdf_act_form:
+        aliases: ['pdf-act-form']
+        type: str
+        description: Enable/disable stripping of actions that submit data to other targets in PDF documents.
+        choices: ['disable', 'enable']
+      pdf_act_gotor:
+        aliases: ['pdf-act-gotor']
+        type: str
+        description: Enable/disable stripping of links to other PDFs in PDF documents.
+        choices: ['disable', 'enable']
+      pdf_act_java:
+        aliases: ['pdf-act-java']
+        type: str
+        description: Enable/disable stripping of actions that execute JavaScript code in PDF documents.
+        choices: ['disable', 'enable']
+      pdf_act_launch:
+        aliases: ['pdf-act-launch']
+        type: str
+        description: Enable/disable stripping of links to external applications in PDF documents.
+        choices: ['disable', 'enable']
+      pdf_act_movie:
+        aliases: ['pdf-act-movie']
+        type: str
+        description: Enable/disable stripping of embedded movies in PDF documents.
+        choices: ['disable', 'enable']
+      pdf_act_sound:
+        aliases: ['pdf-act-sound']
+        type: str
+        description: Enable/disable stripping of embedded sound files in PDF documents.
+        choices: ['disable', 'enable']
+      pdf_embedfile:
+        aliases: ['pdf-embedfile']
+        type: str
+        description: Enable/disable stripping of embedded files in PDF documents.
+        choices: ['disable', 'enable']
+      pdf_hyperlink:
+        aliases: ['pdf-hyperlink']
+        type: str
+        description: Enable/disable stripping of hyperlinks from PDF documents.
+        choices: ['disable', 'enable']
+      pdf_javacode:
+        aliases: ['pdf-javacode']
+        type: str
+        description: Enable/disable stripping of JavaScript code in PDF documents.
+        choices: ['disable', 'enable']
+      office_action:
+        aliases: ['office-action']
+        type: str
+        description: Enable/disable stripping of PowerPoint action events in Microsoft Office documents.
+        choices: ['disable', 'enable']
+      office_dde:
+        aliases: ['office-dde']
+        type: str
+        description: Enable/disable stripping of Dynamic Data Exchange events in Microsoft Office documents.
+        choices: ['disable', 'enable']
+      error_action:
+        aliases: ['error-action']
+        type: str
+        description: Action to be taken if CDR engine encounters an unrecoverable error.
+        choices: ['block', 'log-only', 'ignore']
+      analytics_suspicious:
+        aliases: ['analytics-suspicious']
+        type: str
+        description: Enable/disable using CDR as a secondary method for determining suspicous files for analytics.
+        choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -172,42 +172,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

@@ -15,90 +15,90 @@ module: fmgr_cifs_profile
 short_description: Configure CIFS profile.
 version_added: "2.1.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  cifs_profile:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      domain_controller:
+        aliases: ['domain-controller']
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Domain for which to decrypt CIFS traffic.
+      name:
         type: str
+        description: Profile name.
         required: true
-    cifs_profile:
-        description: The top level parameters set.
-        required: false
-        type: dict
+      server_credential_type:
+        aliases: ['server-credential-type']
+        type: str
+        description: CIFS server credential type.
+        choices: ['none', 'credential-replication', 'credential-keytab']
+      server_keytab:
+        aliases: ['server-keytab']
+        type: list
+        elements: dict
+        description: Server keytab.
         suboptions:
-            domain_controller:
-                aliases: ['domain-controller']
+          keytab:
+            type: str
+            description: Base64 encoded keytab file containing credential of the server.
+          principal:
+            type: str
+            description: Service principal.
+          password:
+            type: raw
+            description: (list) Password for keytab.
+      file_filter:
+        aliases: ['file-filter']
+        type: dict
+        description: File filter.
+        suboptions:
+          entries:
+            type: list
+            elements: dict
+            description: Entries.
+            suboptions:
+              action:
                 type: str
-                description: Domain for which to decrypt CIFS traffic.
-            name:
+                description: Action taken for matched file.
+                choices: ['block', 'log']
+              comment:
                 type: str
-                description: Profile name.
-                required: true
-            server_credential_type:
-                aliases: ['server-credential-type']
+                description: Comment.
+              direction:
                 type: str
-                description: CIFS server credential type.
-                choices: ['none', 'credential-replication', 'credential-keytab']
-            server_keytab:
-                aliases: ['server-keytab']
+                description: Match files transmitted in the sessions originating or reply direction.
+                choices: ['incoming', 'outgoing', 'any']
+              file_type:
+                aliases: ['file-type']
+                type: raw
+                description: (list or str) Select file type.
+              filter:
+                type: str
+                description: Add a file filter.
+              protocol:
                 type: list
-                elements: dict
-                description: Server keytab.
-                suboptions:
-                    keytab:
-                        type: str
-                        description: Base64 encoded keytab file containing credential of the server.
-                    principal:
-                        type: str
-                        description: Service principal.
-                    password:
-                        type: raw
-                        description: (list) Password for keytab.
-            file_filter:
-                aliases: ['file-filter']
-                type: dict
-                description: File filter.
-                suboptions:
-                    entries:
-                        type: list
-                        elements: dict
-                        description: Entries.
-                        suboptions:
-                            action:
-                                type: str
-                                description: Action taken for matched file.
-                                choices: ['block', 'log']
-                            comment:
-                                type: str
-                                description: Comment.
-                            direction:
-                                type: str
-                                description: Match files transmitted in the sessions originating or reply direction.
-                                choices: ['incoming', 'outgoing', 'any']
-                            file_type:
-                                aliases: ['file-type']
-                                type: raw
-                                description: (list or str) Select file type.
-                            filter:
-                                type: str
-                                description: Add a file filter.
-                            protocol:
-                                type: list
-                                elements: str
-                                description: Protocols to apply with.
-                                choices: ['cifs']
-                    log:
-                        type: str
-                        description: Enable/disable file filter logging.
-                        choices: ['disable', 'enable']
-                    status:
-                        type: str
-                        description: Enable/disable file filter.
-                        choices: ['disable', 'enable']
+                elements: str
+                description: Protocols to apply with.
+                choices: ['cifs']
+          log:
+            type: str
+            description: Enable/disable file filter logging.
+            choices: ['disable', 'enable']
+          status:
+            type: str
+            description: Enable/disable file filter.
+            choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -134,42 +134,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -186,19 +186,23 @@ def main():
         'adom': {'required': True, 'type': 'str'},
         'revision_note': {'type': 'str'},
         'cifs_profile': {
-            'type': 'dict', 'v_range': [['6.2.0', '']],
+            'type': 'dict', 'v_range': [['6.2.0', '7.6.7']],
             'options': {
-                'domain-controller': {'v_range': [['6.2.0', '']], 'type': 'str'},
-                'name': {'v_range': [['6.2.0', '']], 'required': True, 'type': 'str'},
-                'server-credential-type': {'v_range': [['6.2.0', '']], 'choices': ['none', 'credential-replication', 'credential-keytab'], 'type': 'str'},
+                'domain-controller': {'v_range': [['6.2.0', '7.6.7']], 'type': 'str'},
+                'name': {'v_range': [['6.2.0', '7.6.7']], 'required': True, 'type': 'str'},
+                'server-credential-type': {
+                    'v_range': [['6.2.0', '7.6.7']],
+                    'choices': ['none', 'credential-replication', 'credential-keytab'],
+                    'type': 'str'
+                },
                 'server-keytab': {
-                    'v_range': [['6.2.0', '']],
+                    'v_range': [['6.2.0', '7.6.7']],
                     'no_log': True,
                     'type': 'list',
                     'options': {
-                        'keytab': {'v_range': [['6.2.0', '']], 'no_log': True, 'type': 'str'},
-                        'principal': {'v_range': [['6.2.0', '']], 'type': 'str'},
-                        'password': {'v_range': [['6.2.2', '']], 'no_log': True, 'type': 'raw'}
+                        'keytab': {'v_range': [['6.2.0', '7.6.7']], 'no_log': True, 'type': 'str'},
+                        'principal': {'v_range': [['6.2.0', '7.6.7']], 'type': 'str'},
+                        'password': {'v_range': [['6.2.2', '7.6.7']], 'no_log': True, 'type': 'raw'}
                     },
                     'elements': 'dict'
                 },

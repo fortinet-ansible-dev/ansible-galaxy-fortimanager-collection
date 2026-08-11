@@ -15,49 +15,49 @@ module: fmgr_system_localinpolicy
 short_description: IPv4 local in policy configuration.
 version_added: "2.1.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    system_localinpolicy:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            action:
-                type: str
-                description:
-                    - Action performed on traffic matching this policy.
-                    - drop - Drop traffic matching this policy
-                    - reject - Reject traffic matching this policy.
-                    - accept - Allow traffic matching this policy.
-                choices: ['drop', 'reject', 'accept']
-            dport:
-                type: int
-                description: Destination port number
-            dst:
-                type: str
-                description: Destination IP and mask.
-            id:
-                type: int
-                description: Entry number.
-                required: true
-            intf:
-                type: str
-                description: Incoming interface name.
-            protocol:
-                type: str
-                description:
-                    - Traffic protocol.
-                    - tcp - TCP only.
-                    - udp - UDP only.
-                    - tcp_udp - Both TCP and UDP.
-                choices: ['tcp', 'udp', 'tcp_udp']
-            src:
-                type: str
-                description: Source IP and mask.
-            description:
-                type: str
-                description: Description.
+  system_localinpolicy:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      action:
+        type: str
+        description:
+          - Action performed on traffic matching this policy.
+          - drop - Drop traffic matching this policy
+          - reject - Reject traffic matching this policy.
+          - accept - Allow traffic matching this policy.
+        choices: ['drop', 'reject', 'accept']
+      dport:
+        type: int
+        description: Destination port number
+      dst:
+        type: str
+        description: Destination IP and mask.
+      id:
+        type: int
+        description: Entry number.
+        required: true
+      intf:
+        type: str
+        description: Incoming interface name.
+      protocol:
+        type: str
+        description:
+          - Traffic protocol.
+          - tcp - TCP only.
+          - udp - UDP only.
+          - tcp_udp - Both TCP and UDP.
+        choices: ['tcp', 'udp', 'tcp_udp']
+      src:
+        type: str
+        description: Source IP and mask.
+      description:
+        type: str
+        description: Description.
 '''
 
 EXAMPLES = '''
@@ -83,42 +83,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

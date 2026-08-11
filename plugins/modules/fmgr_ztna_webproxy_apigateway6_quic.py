@@ -15,67 +15,67 @@ module: fmgr_ztna_webproxy_apigateway6_quic
 short_description: QUIC setting.
 version_added: "2.14.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.partial_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.partial_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  web-proxy:
+    description: Deprecated, please use "web_proxy"
+    type: str
+  web_proxy:
+    description: The parameter (web-proxy) in requested url.
+    type: str
+  api-gateway6:
+    description: Deprecated, please use "api_gateway6"
+    type: str
+  api_gateway6:
+    description: The parameter (api-gateway6) in requested url.
+    type: str
+  ztna_webproxy_apigateway6_quic:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      ack_delay_exponent:
+        aliases: ['ack-delay-exponent']
+        type: int
+        description: ACK delay exponent
+      active_connection_id_limit:
+        aliases: ['active-connection-id-limit']
+        type: int
+        description: Active connection ID limit
+      active_migration:
+        aliases: ['active-migration']
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Enable/disable active migration
+        choices: ['disable', 'enable']
+      grease_quic_bit:
+        aliases: ['grease-quic-bit']
         type: str
-        required: true
-    web-proxy:
-        description: Deprecated, please use "web_proxy"
-        type: str
-    web_proxy:
-        description: The parameter (web-proxy) in requested url.
-        type: str
-    api-gateway6:
-        description: Deprecated, please use "api_gateway6"
-        type: str
-    api_gateway6:
-        description: The parameter (api-gateway6) in requested url.
-        type: str
-    ztna_webproxy_apigateway6_quic:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            ack_delay_exponent:
-                aliases: ['ack-delay-exponent']
-                type: int
-                description: ACK delay exponent
-            active_connection_id_limit:
-                aliases: ['active-connection-id-limit']
-                type: int
-                description: Active connection ID limit
-            active_migration:
-                aliases: ['active-migration']
-                type: str
-                description: Enable/disable active migration
-                choices: ['disable', 'enable']
-            grease_quic_bit:
-                aliases: ['grease-quic-bit']
-                type: str
-                description: Enable/disable grease QUIC bit
-                choices: ['disable', 'enable']
-            max_ack_delay:
-                aliases: ['max-ack-delay']
-                type: int
-                description: Maximum ACK delay in milliseconds
-            max_datagram_frame_size:
-                aliases: ['max-datagram-frame-size']
-                type: int
-                description: Maximum datagram frame size in bytes
-            max_idle_timeout:
-                aliases: ['max-idle-timeout']
-                type: int
-                description: Maximum idle timeout milliseconds
-            max_udp_payload_size:
-                aliases: ['max-udp-payload-size']
-                type: int
-                description: Maximum UDP payload size in bytes
+        description: Enable/disable grease QUIC bit
+        choices: ['disable', 'enable']
+      max_ack_delay:
+        aliases: ['max-ack-delay']
+        type: int
+        description: Maximum ACK delay in milliseconds
+      max_datagram_frame_size:
+        aliases: ['max-datagram-frame-size']
+        type: int
+        description: Maximum datagram frame size in bytes
+      max_idle_timeout:
+        aliases: ['max-idle-timeout']
+        type: int
+        description: Maximum idle timeout milliseconds
+      max_udp_payload_size:
+        aliases: ['max-udp-payload-size']
+        type: int
+        description: Maximum UDP payload size in bytes
 '''
 
 EXAMPLES = '''
@@ -103,42 +103,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

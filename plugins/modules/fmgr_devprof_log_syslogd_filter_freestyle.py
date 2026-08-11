@@ -15,40 +15,40 @@ module: fmgr_devprof_log_syslogd_filter_freestyle
 short_description: Free style filters.
 version_added: "2.2.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    adom:
-        description: The parameter (adom) in requested url.
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  devprof:
+    description: The parameter (devprof) in requested url.
+    type: str
+    required: true
+  devprof_log_syslogd_filter_freestyle:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      category:
         type: str
-        required: true
-    devprof:
-        description: The parameter (devprof) in requested url.
+        description: Log category.
+        choices: ['traffic', 'event', 'virus', 'webfilter', 'attack', 'spam', 'voip', 'dlp',
+                  'app-ctrl', 'anomaly', 'waf', 'gtp', 'dns', 'ssh', 'ssl', 'file-filter', 'icap',
+                  'ztna', 'virtual-patch', 'debug']
+      filter:
         type: str
+        description: Free style filter string.
+      filter_type:
+        aliases: ['filter-type']
+        type: str
+        description: Include/exclude logs that match the filter.
+        choices: ['include', 'exclude']
+      id:
+        type: int
+        description: Entry ID.
         required: true
-    devprof_log_syslogd_filter_freestyle:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            category:
-                type: str
-                description: Log category.
-                choices: ['traffic', 'event', 'virus', 'webfilter', 'attack', 'spam', 'voip',
-                          'dlp', 'app-ctrl', 'anomaly', 'waf', 'gtp', 'dns', 'ssh', 'ssl',
-                          'file-filter', 'icap', 'ztna', 'virtual-patch', 'debug']
-            filter:
-                type: str
-                description: Free style filter string.
-            filter_type:
-                aliases: ['filter-type']
-                type: str
-                description: Include/exclude logs that match the filter.
-                choices: ['include', 'exclude']
-            id:
-                type: int
-                description: Entry ID.
-                required: true
 '''
 
 EXAMPLES = '''
@@ -72,42 +72,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

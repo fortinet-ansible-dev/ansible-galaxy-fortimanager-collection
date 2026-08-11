@@ -15,48 +15,48 @@ module: fmgr_dynamic_log_npuserver_servergroup
 short_description: Dynamic log npu server server group
 version_added: "2.14.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  dynamic_log_npuserver_servergroup:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      description:
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
-        type: str
-        required: true
-    dynamic_log_npuserver_servergroup:
-        description: The top level parameters set.
-        required: false
-        type: dict
+        description: Description.
+      dynamic_mapping:
+        type: list
+        elements: dict
+        description: Dynamic mapping.
         suboptions:
-            description:
+          _scope:
+            type: list
+            elements: dict
+            description: Scope.
+            suboptions:
+              name:
                 type: str
-                description: Description.
-            dynamic_mapping:
-                type: list
-                elements: dict
-                description: Dynamic mapping.
-                suboptions:
-                    _scope:
-                        type: list
-                        elements: dict
-                        description: Scope.
-                        suboptions:
-                            name:
-                                type: str
-                                description: Name.
-                            vdom:
-                                type: str
-                                description: Vdom.
-                    group_name:
-                        aliases: ['group-name']
-                        type: str
-                        description: Group name.
-            group_name:
-                aliases: ['group-name']
+                description: Name.
+              vdom:
                 type: str
-                description: Group name.
+                description: Vdom.
+          group_name:
+            aliases: ['group-name']
+            type: str
+            description: Group name.
+      group_name:
+        aliases: ['group-name']
+        type: str
+        description: Group name.
 '''
 
 EXAMPLES = '''
@@ -82,42 +82,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -134,27 +134,27 @@ def main():
         'adom': {'required': True, 'type': 'str'},
         'revision_note': {'type': 'str'},
         'dynamic_log_npuserver_servergroup': {
-            'type': 'dict', 'v_range': [['7.0.15', '7.0.16'], ['7.4.8', '7.4.10'], ['7.6.5', '']],
+            'type': 'dict', 'v_range': [['7.0.15', '7.0.16'], ['7.4.8', '7.4.11'], ['7.6.5', '']],
             'options': {
-                'description': {'v_range': [['7.0.15', '7.0.16'], ['7.4.8', '7.4.10'], ['7.6.5', '']], 'type': 'str'},
+                'description': {'v_range': [['7.0.15', '7.0.16'], ['7.4.8', '7.4.11'], ['7.6.5', '']], 'type': 'str'},
                 'dynamic_mapping': {
-                    'v_range': [['7.0.15', '7.0.16'], ['7.4.8', '7.4.10'], ['7.6.5', '']],
+                    'v_range': [['7.0.15', '7.0.16'], ['7.4.8', '7.4.11'], ['7.6.5', '']],
                     'type': 'list',
                     'options': {
                         '_scope': {
-                            'v_range': [['7.0.15', '7.0.16'], ['7.4.8', '7.4.10'], ['7.6.5', '']],
+                            'v_range': [['7.0.15', '7.0.16'], ['7.4.8', '7.4.11'], ['7.6.5', '']],
                             'type': 'list',
                             'options': {
-                                'name': {'v_range': [['7.0.15', '7.0.16'], ['7.4.8', '7.4.10'], ['7.6.5', '']], 'type': 'str'},
-                                'vdom': {'v_range': [['7.0.15', '7.0.16'], ['7.4.8', '7.4.10'], ['7.6.5', '']], 'type': 'str'}
+                                'name': {'v_range': [['7.0.15', '7.0.16'], ['7.4.8', '7.4.11'], ['7.6.5', '']], 'type': 'str'},
+                                'vdom': {'v_range': [['7.0.15', '7.0.16'], ['7.4.8', '7.4.11'], ['7.6.5', '']], 'type': 'str'}
                             },
                             'elements': 'dict'
                         },
-                        'group-name': {'v_range': [['7.0.15', '7.0.16'], ['7.4.8', '7.4.10'], ['7.6.5', '']], 'type': 'str'}
+                        'group-name': {'v_range': [['7.0.15', '7.0.16'], ['7.4.8', '7.4.11'], ['7.6.5', '']], 'type': 'str'}
                     },
                     'elements': 'dict'
                 },
-                'group-name': {'v_range': [['7.0.15', '7.0.16'], ['7.4.8', '7.4.10'], ['7.6.5', '']], 'type': 'str'}
+                'group-name': {'v_range': [['7.0.15', '7.0.16'], ['7.4.8', '7.4.11'], ['7.6.5', '']], 'type': 'str'}
             }
         }
     }

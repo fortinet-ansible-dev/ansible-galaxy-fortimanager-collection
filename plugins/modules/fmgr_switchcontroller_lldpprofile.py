@@ -15,159 +15,159 @@ module: fmgr_switchcontroller_lldpprofile
 short_description: Configure FortiSwitch LLDP profiles.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  switchcontroller_lldpprofile:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      802_1_tlvs:
+        aliases: ['802.1-tlvs']
+        type: list
+        elements: str
+        description: Transmitted IEEE 802.
+        choices: ['port-vlan-id']
+      802_3_tlvs:
+        aliases: ['802.3-tlvs']
+        type: list
+        elements: str
+        description: Transmitted IEEE 802.
+        choices: ['max-frame-size', 'power-negotiation', 'eee-negotiation']
+      auto_isl:
+        aliases: ['auto-isl']
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
-        type: str
-        required: true
-    switchcontroller_lldpprofile:
-        description: The top level parameters set.
-        required: false
-        type: dict
+        description: Enable/disable auto inter-switch LAG.
+        choices: ['disable', 'enable']
+      auto_isl_hello_timer:
+        aliases: ['auto-isl-hello-timer']
+        type: int
+        description: Auto inter-switch LAG hello timer duration
+      auto_isl_port_group:
+        aliases: ['auto-isl-port-group']
+        type: int
+        description: Auto inter-switch LAG port group ID
+      auto_isl_receive_timeout:
+        aliases: ['auto-isl-receive-timeout']
+        type: int
+        description: Auto inter-switch LAG timeout if no response is received
+      custom_tlvs:
+        aliases: ['custom-tlvs']
+        type: list
+        elements: dict
+        description: Custom tlvs.
         suboptions:
-            802_1_tlvs:
-                aliases: ['802.1-tlvs']
-                type: list
-                elements: str
-                description: Transmitted IEEE 802.
-                choices: ['port-vlan-id']
-            802_3_tlvs:
-                aliases: ['802.3-tlvs']
-                type: list
-                elements: str
-                description: Transmitted IEEE 802.
-                choices: ['max-frame-size', 'power-negotiation']
-            auto_isl:
-                aliases: ['auto-isl']
-                type: str
-                description: Enable/disable auto inter-switch LAG.
-                choices: ['disable', 'enable']
-            auto_isl_hello_timer:
-                aliases: ['auto-isl-hello-timer']
-                type: int
-                description: Auto inter-switch LAG hello timer duration
-            auto_isl_port_group:
-                aliases: ['auto-isl-port-group']
-                type: int
-                description: Auto inter-switch LAG port group ID
-            auto_isl_receive_timeout:
-                aliases: ['auto-isl-receive-timeout']
-                type: int
-                description: Auto inter-switch LAG timeout if no response is received
-            custom_tlvs:
-                aliases: ['custom-tlvs']
-                type: list
-                elements: dict
-                description: Custom tlvs.
-                suboptions:
-                    information_string:
-                        aliases: ['information-string']
-                        type: str
-                        description: Organizationally defined information string
-                    name:
-                        type: str
-                        description: TLV name
-                    oui:
-                        type: str
-                        description: Organizationally unique identifier
-                    subtype:
-                        type: int
-                        description: Organizationally defined subtype
-            med_network_policy:
-                aliases: ['med-network-policy']
-                type: list
-                elements: dict
-                description: Med network policy.
-                suboptions:
-                    dscp:
-                        type: int
-                        description: Advertised Differentiated Services Code Point
-                    name:
-                        type: str
-                        description: Policy type name.
-                    priority:
-                        type: int
-                        description: Advertised Layer 2 priority
-                    status:
-                        type: str
-                        description: Enable or disable this TLV.
-                        choices: ['disable', 'enable']
-                    vlan:
-                        type: int
-                        description: ID of VLAN to advertise, if configured on port
-                    vlan_intf:
-                        aliases: ['vlan-intf']
-                        type: str
-                        description: VLAN interface to advertise; if configured on port.
-                    assign_vlan:
-                        aliases: ['assign-vlan']
-                        type: str
-                        description: Enable/disable VLAN assignment when this profile is applied on managed FortiSwitch port.
-                        choices: ['disable', 'enable']
-            med_tlvs:
-                aliases: ['med-tlvs']
-                type: list
-                elements: str
-                description: Transmitted LLDP-MED TLVs
-                choices: ['inventory-management', 'network-policy', 'power-management',
-                          'location-identification']
-            name:
-                type: str
-                description: Profile name.
-                required: true
-            med_location_service:
-                aliases: ['med-location-service']
-                type: list
-                elements: dict
-                description: Med location service.
-                suboptions:
-                    name:
-                        type: str
-                        description: Location service type name.
-                    status:
-                        type: str
-                        description: Enable or disable this TLV.
-                        choices: ['disable', 'enable']
-                    sys_location_id:
-                        aliases: ['sys-location-id']
-                        type: str
-                        description: Location service ID.
-            auto_mclag_icl:
-                aliases: ['auto-mclag-icl']
-                type: str
-                description: Enable/disable MCLAG inter chassis link.
-                choices: ['disable', 'enable']
-            auto_isl_auth:
-                aliases: ['auto-isl-auth']
-                type: str
-                description: Auto inter-switch LAG authentication mode.
-                choices: ['legacy', 'strict', 'relax']
-            auto_isl_auth_encrypt:
-                aliases: ['auto-isl-auth-encrypt']
-                type: str
-                description: Auto inter-switch LAG encryption mode.
-                choices: ['none', 'mixed', 'must']
-            auto_isl_auth_identity:
-                aliases: ['auto-isl-auth-identity']
-                type: str
-                description: Auto inter-switch LAG authentication identity.
-            auto_isl_auth_macsec_profile:
-                aliases: ['auto-isl-auth-macsec-profile']
-                type: str
-                description: Auto inter-switch LAG macsec profile for encryption.
-            auto_isl_auth_reauth:
-                aliases: ['auto-isl-auth-reauth']
-                type: int
-                description: Auto inter-switch LAG authentication reauth period in seconds
-            auto_isl_auth_user:
-                aliases: ['auto-isl-auth-user']
-                type: str
-                description: Auto inter-switch LAG authentication user certificate.
+          information_string:
+            aliases: ['information-string']
+            type: str
+            description: Organizationally defined information string
+          name:
+            type: str
+            description: TLV name
+          oui:
+            type: str
+            description: Organizationally unique identifier
+          subtype:
+            type: int
+            description: Organizationally defined subtype
+      med_network_policy:
+        aliases: ['med-network-policy']
+        type: list
+        elements: dict
+        description: Med network policy.
+        suboptions:
+          dscp:
+            type: int
+            description: Advertised Differentiated Services Code Point
+          name:
+            type: str
+            description: Policy type name.
+          priority:
+            type: int
+            description: Advertised Layer 2 priority
+          status:
+            type: str
+            description: Enable or disable this TLV.
+            choices: ['disable', 'enable']
+          vlan:
+            type: int
+            description: ID of VLAN to advertise, if configured on port
+          vlan_intf:
+            aliases: ['vlan-intf']
+            type: str
+            description: VLAN interface to advertise; if configured on port.
+          assign_vlan:
+            aliases: ['assign-vlan']
+            type: str
+            description: Enable/disable VLAN assignment when this profile is applied on managed FortiSwitch port.
+            choices: ['disable', 'enable']
+      med_tlvs:
+        aliases: ['med-tlvs']
+        type: list
+        elements: str
+        description: Transmitted LLDP-MED TLVs
+        choices: ['inventory-management', 'network-policy', 'power-management',
+                  'location-identification']
+      name:
+        type: str
+        description: Profile name.
+        required: true
+      med_location_service:
+        aliases: ['med-location-service']
+        type: list
+        elements: dict
+        description: Med location service.
+        suboptions:
+          name:
+            type: str
+            description: Location service type name.
+          status:
+            type: str
+            description: Enable or disable this TLV.
+            choices: ['disable', 'enable']
+          sys_location_id:
+            aliases: ['sys-location-id']
+            type: str
+            description: Location service ID.
+      auto_mclag_icl:
+        aliases: ['auto-mclag-icl']
+        type: str
+        description: Enable/disable MCLAG inter chassis link.
+        choices: ['disable', 'enable']
+      auto_isl_auth:
+        aliases: ['auto-isl-auth']
+        type: str
+        description: Auto inter-switch LAG authentication mode.
+        choices: ['legacy', 'strict', 'relax']
+      auto_isl_auth_encrypt:
+        aliases: ['auto-isl-auth-encrypt']
+        type: str
+        description: Auto inter-switch LAG encryption mode.
+        choices: ['none', 'mixed', 'must']
+      auto_isl_auth_identity:
+        aliases: ['auto-isl-auth-identity']
+        type: str
+        description: Auto inter-switch LAG authentication identity.
+      auto_isl_auth_macsec_profile:
+        aliases: ['auto-isl-auth-macsec-profile']
+        type: str
+        description: Auto inter-switch LAG macsec profile for encryption.
+      auto_isl_auth_reauth:
+        aliases: ['auto-isl-auth-reauth']
+        type: int
+        description: Auto inter-switch LAG authentication reauth period in seconds
+      auto_isl_auth_user:
+        aliases: ['auto-isl-auth-user']
+        type: str
+        description: Auto inter-switch LAG authentication user certificate.
 '''
 
 EXAMPLES = '''
@@ -184,7 +184,7 @@ EXAMPLES = '''
         switchcontroller_lldpprofile:
           name: "your value" # Required variable, string
           # 802_1_tlvs: ["port-vlan-id"]
-          # 802_3_tlvs: ["max-frame-size", "power-negotiation"]
+          # 802_3_tlvs: ["max-frame-size", "power-negotiation", "eee-negotiation"]
           # auto_isl: <value in [disable, enable]>
           # auto_isl_hello_timer: <integer>
           # auto_isl_port_group: <integer>
@@ -219,42 +219,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -274,7 +274,7 @@ def main():
             'type': 'dict', 'v_range': [['6.0.0', '']],
             'options': {
                 '802.1-tlvs': {'type': 'list', 'choices': ['port-vlan-id'], 'elements': 'str'},
-                '802.3-tlvs': {'type': 'list', 'choices': ['max-frame-size', 'power-negotiation'], 'elements': 'str'},
+                '802.3-tlvs': {'type': 'list', 'choices': ['max-frame-size', 'power-negotiation', 'eee-negotiation'], 'elements': 'str'},
                 'auto-isl': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'auto-isl-hello-timer': {'type': 'int'},
                 'auto-isl-port-group': {'type': 'int'},

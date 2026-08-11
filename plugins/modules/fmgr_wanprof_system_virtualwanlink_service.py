@@ -15,239 +15,239 @@ module: fmgr_wanprof_system_virtualwanlink_service
 short_description: Create SD-WAN rules or priority rules
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    adom:
-        description: The parameter (adom) in requested url.
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  wanprof:
+    description: The parameter (wanprof) in requested url.
+    type: str
+    required: true
+  wanprof_system_virtualwanlink_service:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      addr_mode:
+        aliases: ['addr-mode']
         type: str
-        required: true
-    wanprof:
-        description: The parameter (wanprof) in requested url.
+        description: Address mode
+        choices: ['ipv4', 'ipv6']
+      bandwidth_weight:
+        aliases: ['bandwidth-weight']
+        type: int
+        description: Coefficient of reciprocal of available bidirectional bandwidth in the formula of custom-profile-1.
+      default:
         type: str
+        description: Enable/disable use of SD-WAN as default service.
+        choices: ['disable', 'enable']
+      dscp_forward:
+        aliases: ['dscp-forward']
+        type: str
+        description: Enable/disable forward traffic DSCP tag.
+        choices: ['disable', 'enable']
+      dscp_forward_tag:
+        aliases: ['dscp-forward-tag']
+        type: str
+        description: Forward traffic DSCP tag.
+      dscp_reverse:
+        aliases: ['dscp-reverse']
+        type: str
+        description: Enable/disable reverse traffic DSCP tag.
+        choices: ['disable', 'enable']
+      dscp_reverse_tag:
+        aliases: ['dscp-reverse-tag']
+        type: str
+        description: Reverse traffic DSCP tag.
+      dst:
+        type: raw
+        description: (list or str) Destination address name.
+      dst_negate:
+        aliases: ['dst-negate']
+        type: str
+        description: Enable/disable negation of destination address match.
+        choices: ['disable', 'enable']
+      dst6:
+        type: raw
+        description: (list or str) Destination address6 name.
+      end_port:
+        aliases: ['end-port']
+        type: int
+        description: End destination port number.
+      gateway:
+        type: str
+        description: Enable/disable SD-WAN service gateway.
+        choices: ['disable', 'enable']
+      groups:
+        type: raw
+        description: (list or str) User groups.
+      health_check:
+        aliases: ['health-check']
+        type: str
+        description: Health check.
+      hold_down_time:
+        aliases: ['hold-down-time']
+        type: int
+        description: Waiting period in seconds when switching from the back-up member to the primary member
+      id:
+        type: int
+        description: Priority rule ID
         required: true
-    wanprof_system_virtualwanlink_service:
-        description: The top level parameters set.
-        required: false
-        type: dict
+      internet_service:
+        aliases: ['internet-service']
+        type: str
+        description: Enable/disable use of Internet service for application-based load balancing.
+        choices: ['disable', 'enable']
+      internet_service_ctrl:
+        aliases: ['internet-service-ctrl']
+        type: raw
+        description: (list) Control-based Internet Service ID list.
+      internet_service_ctrl_group:
+        aliases: ['internet-service-ctrl-group']
+        type: raw
+        description: (list or str) Control-based Internet Service group list.
+      internet_service_custom:
+        aliases: ['internet-service-custom']
+        type: raw
+        description: (list or str) Custom Internet service name list.
+      internet_service_custom_group:
+        aliases: ['internet-service-custom-group']
+        type: raw
+        description: (list or str) Custom Internet Service group list.
+      internet_service_group:
+        aliases: ['internet-service-group']
+        type: raw
+        description: (list or str) Internet Service group list.
+      internet_service_id:
+        aliases: ['internet-service-id']
+        type: raw
+        description: (list or str) Internet service ID list.
+      jitter_weight:
+        aliases: ['jitter-weight']
+        type: int
+        description: Coefficient of jitter in the formula of custom-profile-1.
+      latency_weight:
+        aliases: ['latency-weight']
+        type: int
+        description: Coefficient of latency in the formula of custom-profile-1.
+      link_cost_factor:
+        aliases: ['link-cost-factor']
+        type: str
+        description: Link cost factor.
+        choices: ['latency', 'jitter', 'packet-loss', 'inbandwidth', 'outbandwidth',
+                  'bibandwidth', 'custom-profile-1']
+      link_cost_threshold:
+        aliases: ['link-cost-threshold']
+        type: int
+        description: Percentage threshold change of link cost values that will result in policy route regeneration
+      member:
+        type: str
+        description: Member sequence number.
+      mode:
+        type: str
+        description: Control how the priority rule sets the priority of interfaces in the SD-WAN.
+        choices: ['auto', 'manual', 'priority', 'sla', 'load-balance']
+      name:
+        type: str
+        description: Priority rule name.
+      packet_loss_weight:
+        aliases: ['packet-loss-weight']
+        type: int
+        description: Coefficient of packet-loss in the formula of custom-profile-1.
+      priority_members:
+        aliases: ['priority-members']
+        type: raw
+        description: (list or str) Member sequence number list.
+      protocol:
+        type: int
+        description: Protocol number.
+      quality_link:
+        aliases: ['quality-link']
+        type: int
+        description: Quality grade.
+      route_tag:
+        aliases: ['route-tag']
+        type: int
+        description: IPv4 route map route-tag.
+      sla:
+        type: list
+        elements: dict
+        description: Sla.
         suboptions:
-            addr_mode:
-                aliases: ['addr-mode']
-                type: str
-                description: Address mode
-                choices: ['ipv4', 'ipv6']
-            bandwidth_weight:
-                aliases: ['bandwidth-weight']
-                type: int
-                description: Coefficient of reciprocal of available bidirectional bandwidth in the formula of custom-profile-1.
-            default:
-                type: str
-                description: Enable/disable use of SD-WAN as default service.
-                choices: ['disable', 'enable']
-            dscp_forward:
-                aliases: ['dscp-forward']
-                type: str
-                description: Enable/disable forward traffic DSCP tag.
-                choices: ['disable', 'enable']
-            dscp_forward_tag:
-                aliases: ['dscp-forward-tag']
-                type: str
-                description: Forward traffic DSCP tag.
-            dscp_reverse:
-                aliases: ['dscp-reverse']
-                type: str
-                description: Enable/disable reverse traffic DSCP tag.
-                choices: ['disable', 'enable']
-            dscp_reverse_tag:
-                aliases: ['dscp-reverse-tag']
-                type: str
-                description: Reverse traffic DSCP tag.
-            dst:
-                type: raw
-                description: (list or str) Destination address name.
-            dst_negate:
-                aliases: ['dst-negate']
-                type: str
-                description: Enable/disable negation of destination address match.
-                choices: ['disable', 'enable']
-            dst6:
-                type: raw
-                description: (list or str) Destination address6 name.
-            end_port:
-                aliases: ['end-port']
-                type: int
-                description: End destination port number.
-            gateway:
-                type: str
-                description: Enable/disable SD-WAN service gateway.
-                choices: ['disable', 'enable']
-            groups:
-                type: raw
-                description: (list or str) User groups.
-            health_check:
-                aliases: ['health-check']
-                type: str
-                description: Health check.
-            hold_down_time:
-                aliases: ['hold-down-time']
-                type: int
-                description: Waiting period in seconds when switching from the back-up member to the primary member
-            id:
-                type: int
-                description: Priority rule ID
-                required: true
-            internet_service:
-                aliases: ['internet-service']
-                type: str
-                description: Enable/disable use of Internet service for application-based load balancing.
-                choices: ['disable', 'enable']
-            internet_service_ctrl:
-                aliases: ['internet-service-ctrl']
-                type: raw
-                description: (list) Control-based Internet Service ID list.
-            internet_service_ctrl_group:
-                aliases: ['internet-service-ctrl-group']
-                type: raw
-                description: (list or str) Control-based Internet Service group list.
-            internet_service_custom:
-                aliases: ['internet-service-custom']
-                type: raw
-                description: (list or str) Custom Internet service name list.
-            internet_service_custom_group:
-                aliases: ['internet-service-custom-group']
-                type: raw
-                description: (list or str) Custom Internet Service group list.
-            internet_service_group:
-                aliases: ['internet-service-group']
-                type: raw
-                description: (list or str) Internet Service group list.
-            internet_service_id:
-                aliases: ['internet-service-id']
-                type: raw
-                description: (list or str) Internet service ID list.
-            jitter_weight:
-                aliases: ['jitter-weight']
-                type: int
-                description: Coefficient of jitter in the formula of custom-profile-1.
-            latency_weight:
-                aliases: ['latency-weight']
-                type: int
-                description: Coefficient of latency in the formula of custom-profile-1.
-            link_cost_factor:
-                aliases: ['link-cost-factor']
-                type: str
-                description: Link cost factor.
-                choices: ['latency', 'jitter', 'packet-loss', 'inbandwidth', 'outbandwidth',
-                          'bibandwidth', 'custom-profile-1']
-            link_cost_threshold:
-                aliases: ['link-cost-threshold']
-                type: int
-                description: Percentage threshold change of link cost values that will result in policy route regeneration
-            member:
-                type: str
-                description: Member sequence number.
-            mode:
-                type: str
-                description: Control how the priority rule sets the priority of interfaces in the SD-WAN.
-                choices: ['auto', 'manual', 'priority', 'sla', 'load-balance']
-            name:
-                type: str
-                description: Priority rule name.
-            packet_loss_weight:
-                aliases: ['packet-loss-weight']
-                type: int
-                description: Coefficient of packet-loss in the formula of custom-profile-1.
-            priority_members:
-                aliases: ['priority-members']
-                type: raw
-                description: (list or str) Member sequence number list.
-            protocol:
-                type: int
-                description: Protocol number.
-            quality_link:
-                aliases: ['quality-link']
-                type: int
-                description: Quality grade.
-            route_tag:
-                aliases: ['route-tag']
-                type: int
-                description: IPv4 route map route-tag.
-            sla:
-                type: list
-                elements: dict
-                description: Sla.
-                suboptions:
-                    health_check:
-                        aliases: ['health-check']
-                        type: str
-                        description: Virtual WAN Link health-check.
-                    id:
-                        type: int
-                        description: SLA ID.
-            src:
-                type: raw
-                description: (list or str) Source address name.
-            src_negate:
-                aliases: ['src-negate']
-                type: str
-                description: Enable/disable negation of source address match.
-                choices: ['disable', 'enable']
-            src6:
-                type: raw
-                description: (list or str) Source address6 name.
-            start_port:
-                aliases: ['start-port']
-                type: int
-                description: Start destination port number.
-            status:
-                type: str
-                description: Enable/disable SD-WAN service.
-                choices: ['disable', 'enable']
-            tos:
-                type: str
-                description: Type of service bit pattern.
-            tos_mask:
-                aliases: ['tos-mask']
-                type: str
-                description: Type of service evaluated bits.
-            users:
-                type: raw
-                description: (list or str) User name.
-            internet_service_app_ctrl:
-                aliases: ['internet-service-app-ctrl']
-                type: raw
-                description: (list) Application control based Internet Service ID list.
-            internet_service_app_ctrl_group:
-                aliases: ['internet-service-app-ctrl-group']
-                type: raw
-                description: (list or str) Application control based Internet Service group list.
-            role:
-                type: str
-                description: Service role to work with neighbor.
-                choices: ['primary', 'secondary', 'standalone']
-            sla_compare_method:
-                aliases: ['sla-compare-method']
-                type: str
-                description: Method to compare SLA value for sla and load balance mode.
-                choices: ['order', 'number']
-            standalone_action:
-                aliases: ['standalone-action']
-                type: str
-                description: Enable/disable service when selected neighbor role is standalone while service role is not standalone.
-                choices: ['disable', 'enable']
-            input_device:
-                aliases: ['input-device']
-                type: raw
-                description: (list or str) Source interface name.
-            internet_service_name:
-                aliases: ['internet-service-name']
-                type: str
-                description: Internet service name list.
-            input_device_negate:
-                aliases: ['input-device-negate']
-                type: str
-                description: Enable/disable negation of input device match.
-                choices: ['disable', 'enable']
+          health_check:
+            aliases: ['health-check']
+            type: str
+            description: Virtual WAN Link health-check.
+          id:
+            type: int
+            description: SLA ID.
+      src:
+        type: raw
+        description: (list or str) Source address name.
+      src_negate:
+        aliases: ['src-negate']
+        type: str
+        description: Enable/disable negation of source address match.
+        choices: ['disable', 'enable']
+      src6:
+        type: raw
+        description: (list or str) Source address6 name.
+      start_port:
+        aliases: ['start-port']
+        type: int
+        description: Start destination port number.
+      status:
+        type: str
+        description: Enable/disable SD-WAN service.
+        choices: ['disable', 'enable']
+      tos:
+        type: str
+        description: Type of service bit pattern.
+      tos_mask:
+        aliases: ['tos-mask']
+        type: str
+        description: Type of service evaluated bits.
+      users:
+        type: raw
+        description: (list or str) User name.
+      internet_service_app_ctrl:
+        aliases: ['internet-service-app-ctrl']
+        type: raw
+        description: (list) Application control based Internet Service ID list.
+      internet_service_app_ctrl_group:
+        aliases: ['internet-service-app-ctrl-group']
+        type: raw
+        description: (list or str) Application control based Internet Service group list.
+      role:
+        type: str
+        description: Service role to work with neighbor.
+        choices: ['primary', 'secondary', 'standalone']
+      sla_compare_method:
+        aliases: ['sla-compare-method']
+        type: str
+        description: Method to compare SLA value for sla and load balance mode.
+        choices: ['order', 'number']
+      standalone_action:
+        aliases: ['standalone-action']
+        type: str
+        description: Enable/disable service when selected neighbor role is standalone while service role is not standalone.
+        choices: ['disable', 'enable']
+      input_device:
+        aliases: ['input-device']
+        type: raw
+        description: (list or str) Source interface name.
+      internet_service_name:
+        aliases: ['internet-service-name']
+        type: str
+        description: Internet service name list.
+      input_device_negate:
+        aliases: ['input-device-negate']
+        type: str
+        description: Enable/disable negation of input device match.
+        choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -321,42 +321,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

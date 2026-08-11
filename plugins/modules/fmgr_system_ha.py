@@ -15,127 +15,127 @@ module: fmgr_system_ha
 short_description: HA configuration.
 version_added: "1.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.partial_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.partial_crud
 options:
-    system_ha:
-        description: The top level parameters set.
-        required: false
-        type: dict
+  system_ha:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      clusterid:
+        type: int
+        description: Cluster ID range
+      file_quota:
+        aliases: ['file-quota']
+        type: int
+        description: File quota in MB
+      hb_interval:
+        aliases: ['hb-interval']
+        type: int
+        description: Heartbeat interval
+      hb_lost_threshold:
+        aliases: ['hb-lost-threshold']
+        type: int
+        description: Heartbeat lost threshold
+      mode:
+        type: str
+        description:
+          - Mode.
+          - standalone - Standalone.
+          - master - Master.
+          - slave - Slave.
+        choices: ['standalone', 'master', 'slave', 'primary', 'secondary']
+      password:
+        type: raw
+        description: (list) Group password.
+      peer:
+        type: list
+        elements: dict
+        description: Peer.
         suboptions:
-            clusterid:
-                type: int
-                description: Cluster ID range
-            file_quota:
-                aliases: ['file-quota']
-                type: int
-                description: File quota in MB
-            hb_interval:
-                aliases: ['hb-interval']
-                type: int
-                description: Heartbeat interval
-            hb_lost_threshold:
-                aliases: ['hb-lost-threshold']
-                type: int
-                description: Heartbeat lost threshold
-            mode:
-                type: str
-                description:
-                    - Mode.
-                    - standalone - Standalone.
-                    - master - Master.
-                    - slave - Slave.
-                choices: ['standalone', 'master', 'slave', 'primary', 'secondary']
-            password:
-                type: raw
-                description: (list) Group password.
-            peer:
-                type: list
-                elements: dict
-                description: Peer.
-                suboptions:
-                    id:
-                        type: int
-                        description: Id.
-                    ip:
-                        type: str
-                        description: IP address of peer.
-                    ip6:
-                        type: str
-                        description: IP address
-                    serial_number:
-                        aliases: ['serial-number']
-                        type: str
-                        description: Serial number of peer.
-                    status:
-                        type: str
-                        description:
-                            - Peer admin status.
-                            - disable - Disable.
-                            - enable - Enable.
-                        choices: ['disable', 'enable']
-            local_cert:
-                aliases: ['local-cert']
-                type: str
-                description: Set the ha local certificate.
-            failover_mode:
-                aliases: ['failover-mode']
-                type: str
-                description:
-                    - HA failover mode.
-                    - manual - Manual Failove
-                    - vrrp - Use VRRP
-                choices: ['manual', 'vrrp']
-            monitored_interfaces:
-                aliases: ['monitored-interfaces']
-                type: list
-                elements: dict
-                description: Monitored interfaces.
-                suboptions:
-                    interface_name:
-                        aliases: ['interface-name']
-                        type: str
-                        description: Interface name.
-            monitored_ips:
-                aliases: ['monitored-ips']
-                type: list
-                elements: dict
-                description: Monitored ips.
-                suboptions:
-                    id:
-                        type: int
-                        description: Id.
-                    interface:
-                        type: str
-                        description: Interface name.
-                    ip:
-                        type: str
-                        description: IP address.
-            priority:
-                type: int
-                description: Runtime priority [1
-            unicast:
-                type: str
-                description:
-                    - Use unitcast for VRRP message.
-                    - disable - Disable.
-                    - enable - Enable.
-                choices: ['disable', 'enable']
-            vip:
-                type: str
-                description: Virtual IP.
-            vrrp_adv_interval:
-                aliases: ['vrrp-adv-interval']
-                type: int
-                description: VRRP advert interval [1 - 30 seconnds]
-            vrrp_interface:
-                aliases: ['vrrp-interface']
-                type: str
-                description: VRRP and vip interface.
-            vip_interface:
-                aliases: ['vip-interface']
-                type: str
-                description: Vip interface.
+          id:
+            type: int
+            description: Id.
+          ip:
+            type: str
+            description: IP address of peer.
+          ip6:
+            type: str
+            description: IP address
+          serial_number:
+            aliases: ['serial-number']
+            type: str
+            description: Serial number of peer.
+          status:
+            type: str
+            description:
+              - Peer admin status.
+              - disable - Disable.
+              - enable - Enable.
+            choices: ['disable', 'enable']
+      local_cert:
+        aliases: ['local-cert']
+        type: str
+        description: Set the ha local certificate.
+      failover_mode:
+        aliases: ['failover-mode']
+        type: str
+        description:
+          - HA failover mode.
+          - manual - Manual Failove
+          - vrrp - Use VRRP
+        choices: ['manual', 'vrrp']
+      monitored_interfaces:
+        aliases: ['monitored-interfaces']
+        type: list
+        elements: dict
+        description: Monitored interfaces.
+        suboptions:
+          interface_name:
+            aliases: ['interface-name']
+            type: str
+            description: Interface name.
+      monitored_ips:
+        aliases: ['monitored-ips']
+        type: list
+        elements: dict
+        description: Monitored ips.
+        suboptions:
+          id:
+            type: int
+            description: Id.
+          interface:
+            type: str
+            description: Interface name.
+          ip:
+            type: str
+            description: IP address.
+      priority:
+        type: int
+        description: Runtime priority [1
+      unicast:
+        type: str
+        description:
+          - Use unitcast for VRRP message.
+          - disable - Disable.
+          - enable - Enable.
+        choices: ['disable', 'enable']
+      vip:
+        type: str
+        description: Virtual IP.
+      vrrp_adv_interval:
+        aliases: ['vrrp-adv-interval']
+        type: int
+        description: VRRP advert interval [1 - 30 seconnds]
+      vrrp_interface:
+        aliases: ['vrrp-interface']
+        type: str
+        description: VRRP and vip interface.
+      vip_interface:
+        aliases: ['vip-interface']
+        type: str
+        description: Vip interface.
 '''
 
 EXAMPLES = '''
@@ -178,42 +178,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

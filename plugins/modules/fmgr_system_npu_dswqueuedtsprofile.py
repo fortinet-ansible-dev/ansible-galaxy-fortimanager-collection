@@ -15,55 +15,53 @@ module: fmgr_system_npu_dswqueuedtsprofile
 short_description: Configure NPU DSW Queue DTS profile.
 version_added: "2.2.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  system_npu_dswqueuedtsprofile:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      iport:
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Set NPU DSW DTS in port.
+        choices: ['EIF0', 'eif0', 'EIF1', 'eif1', 'EIF2', 'eif2', 'EIF3', 'eif3', 'EIF4', 'eif4',
+                  'EIF5', 'eif5', 'EIF6', 'eif6', 'EIF7', 'eif7', 'HTX0', 'htx0', 'HTX1', 'htx1',
+                  'SSE0', 'sse0', 'SSE1', 'sse1', 'SSE2', 'sse2', 'SSE3', 'sse3', 'RLT', 'rlt',
+                  'DFR', 'dfr', 'IPSECI', 'ipseci', 'IPSECO', 'ipseco', 'IPTI', 'ipti', 'IPTO',
+                  'ipto', 'VEP0', 'vep0', 'VEP2', 'vep2', 'VEP4', 'vep4', 'VEP6', 'vep6', 'IVS',
+                  'ivs', 'L2TI1', 'l2ti1', 'L2TO', 'l2to', 'L2TI0', 'l2ti0', 'PLE', 'ple',
+                  'SPATH', 'spath', 'QTM', 'qtm']
+      name:
         type: str
+        description: Name.
         required: true
-    system_npu_dswqueuedtsprofile:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            iport:
-                type: str
-                description: Set NPU DSW DTS in port.
-                choices: ['EIF0', 'eif0', 'EIF1', 'eif1', 'EIF2', 'eif2', 'EIF3', 'eif3', 'EIF4',
-                          'eif4', 'EIF5', 'eif5', 'EIF6', 'eif6', 'EIF7', 'eif7', 'HTX0', 'htx0',
-                          'HTX1', 'htx1', 'SSE0', 'sse0', 'SSE1', 'sse1', 'SSE2', 'sse2', 'SSE3',
-                          'sse3', 'RLT', 'rlt', 'DFR', 'dfr', 'IPSECI', 'ipseci', 'IPSECO',
-                          'ipseco', 'IPTI', 'ipti', 'IPTO', 'ipto', 'VEP0', 'vep0', 'VEP2',
-                          'vep2', 'VEP4', 'vep4', 'VEP6', 'vep6', 'IVS', 'ivs', 'L2TI1', 'l2ti1',
-                          'L2TO', 'l2to', 'L2TI0', 'l2ti0', 'PLE', 'ple', 'SPATH', 'spath', 'QTM',
-                          'qtm']
-            name:
-                type: str
-                description: Name.
-                required: true
-            oport:
-                type: str
-                description: Set NPU DSW DTS out port.
-                choices: ['EIF0', 'eif0', 'EIF1', 'eif1', 'EIF2', 'eif2', 'EIF3', 'eif3', 'EIF4',
-                          'eif4', 'EIF5', 'eif5', 'EIF6', 'eif6', 'EIF7', 'eif7', 'HRX', 'hrx',
-                          'SSE0', 'sse0', 'SSE1', 'sse1', 'SSE2', 'sse2', 'SSE3', 'sse3', 'RLT',
-                          'rlt', 'DFR', 'dfr', 'IPSECI', 'ipseci', 'IPSECO', 'ipseco', 'IPTI',
-                          'ipti', 'IPTO', 'ipto', 'VEP0', 'vep0', 'VEP2', 'vep2', 'VEP4', 'vep4',
-                          'VEP6', 'vep6', 'IVS', 'ivs', 'L2TI1', 'l2ti1', 'L2TO', 'l2to', 'L2TI0',
-                          'l2ti0', 'PLE', 'ple', 'SYNK', 'sync', 'NSS', 'nss', 'TSK', 'tsk',
-                          'QTM', 'qtm', 'l2tO']
-            profile_id:
-                aliases: ['profile-id']
-                type: int
-                description: Set NPU DSW DTS profile ID.
-            queue_select:
-                aliases: ['queue-select']
-                type: int
-                description: Set NPU DSW DTS queue ID select
+      oport:
+        type: str
+        description: Set NPU DSW DTS out port.
+        choices: ['EIF0', 'eif0', 'EIF1', 'eif1', 'EIF2', 'eif2', 'EIF3', 'eif3', 'EIF4', 'eif4',
+                  'EIF5', 'eif5', 'EIF6', 'eif6', 'EIF7', 'eif7', 'HRX', 'hrx', 'SSE0', 'sse0',
+                  'SSE1', 'sse1', 'SSE2', 'sse2', 'SSE3', 'sse3', 'RLT', 'rlt', 'DFR', 'dfr',
+                  'IPSECI', 'ipseci', 'IPSECO', 'ipseco', 'IPTI', 'ipti', 'IPTO', 'ipto', 'VEP0',
+                  'vep0', 'VEP2', 'vep2', 'VEP4', 'vep4', 'VEP6', 'vep6', 'IVS', 'ivs', 'L2TI1',
+                  'l2ti1', 'L2TO', 'l2to', 'L2TI0', 'l2ti0', 'PLE', 'ple', 'SYNK', 'sync', 'NSS',
+                  'nss', 'TSK', 'tsk', 'QTM', 'qtm', 'l2tO']
+      profile_id:
+        aliases: ['profile-id']
+        type: int
+        description: Set NPU DSW DTS profile ID.
+      queue_select:
+        aliases: ['queue-select']
+        type: int
+        description: Set NPU DSW DTS queue ID select
 '''
 
 EXAMPLES = '''
@@ -87,42 +85,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

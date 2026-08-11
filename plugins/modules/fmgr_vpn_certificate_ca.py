@@ -15,89 +15,89 @@ module: fmgr_vpn_certificate_ca
 short_description: CA certificate.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  vpn_certificate_ca:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      _private_key:
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Private key.
+      auto_update_days:
+        aliases: ['auto-update-days']
+        type: int
+        description: Number of days to wait before requesting an updated CA certificate
+      auto_update_days_warning:
+        aliases: ['auto-update-days-warning']
+        type: int
+        description: Number of days before an expiry-warning message is generated
+      ca:
         type: str
+        description: CA certificate as a PEM file.
+      last_updated:
+        aliases: ['last-updated']
+        type: int
+        description: Time at which CA was last updated.
+      name:
+        type: str
+        description: Name.
         required: true
-    vpn_certificate_ca:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            _private_key:
-                type: str
-                description: Private key.
-            auto_update_days:
-                aliases: ['auto-update-days']
-                type: int
-                description: Number of days to wait before requesting an updated CA certificate
-            auto_update_days_warning:
-                aliases: ['auto-update-days-warning']
-                type: int
-                description: Number of days before an expiry-warning message is generated
-            ca:
-                type: str
-                description: CA certificate as a PEM file.
-            last_updated:
-                aliases: ['last-updated']
-                type: int
-                description: Time at which CA was last updated.
-            name:
-                type: str
-                description: Name.
-                required: true
-            range:
-                type: str
-                description: Either global or VDOM IP address range for the CA certificate.
-                choices: ['global', 'vdom']
-            scep_url:
-                aliases: ['scep-url']
-                type: str
-                description: URL of the SCEP server.
-            source:
-                type: str
-                description: CA certificate source type.
-                choices: ['factory', 'user', 'bundle', 'fortiguard']
-            source_ip:
-                aliases: ['source-ip']
-                type: str
-                description: Source IP address for communications to the SCEP server.
-            trusted:
-                type: str
-                description: Enable/disable as a trusted CA.
-                choices: ['disable', 'enable']
-            ssl_inspection_trusted:
-                aliases: ['ssl-inspection-trusted']
-                type: str
-                description: Enable/disable this CA as a trusted CA for SSL inspection.
-                choices: ['disable', 'enable']
-            ca_identifier:
-                aliases: ['ca-identifier']
-                type: str
-                description: CA identifier of the SCEP server.
-            obsolete:
-                type: str
-                description: Enable/disable this CA as obsoleted.
-                choices: ['disable', 'enable']
-            est_url:
-                aliases: ['est-url']
-                type: str
-                description: URL of the EST server.
-            fabric_ca:
-                aliases: ['fabric-ca']
-                type: str
-                description: Enable/disable synchronization of CA across Security Fabric.
-                choices: ['disable', 'enable']
-            non_fabric_name:
-                aliases: ['non-fabric-name']
-                type: str
-                description: Name used prior to becoming a Security Fabric synchronized CA.
+      range:
+        type: str
+        description: Either global or VDOM IP address range for the CA certificate.
+        choices: ['global', 'vdom']
+      scep_url:
+        aliases: ['scep-url']
+        type: str
+        description: URL of the SCEP server.
+      source:
+        type: str
+        description: CA certificate source type.
+        choices: ['factory', 'user', 'bundle', 'fortiguard']
+      source_ip:
+        aliases: ['source-ip']
+        type: str
+        description: Source IP address for communications to the SCEP server.
+      trusted:
+        type: str
+        description: Enable/disable as a trusted CA.
+        choices: ['disable', 'enable']
+      ssl_inspection_trusted:
+        aliases: ['ssl-inspection-trusted']
+        type: str
+        description: Enable/disable this CA as a trusted CA for SSL inspection.
+        choices: ['disable', 'enable']
+      ca_identifier:
+        aliases: ['ca-identifier']
+        type: str
+        description: CA identifier of the SCEP server.
+      obsolete:
+        type: str
+        description: Enable/disable this CA as obsoleted.
+        choices: ['disable', 'enable']
+      est_url:
+        aliases: ['est-url']
+        type: str
+        description: URL of the EST server.
+      fabric_ca:
+        aliases: ['fabric-ca']
+        type: str
+        description: Enable/disable synchronization of CA across Security Fabric.
+        choices: ['disable', 'enable']
+      non_fabric_name:
+        aliases: ['non-fabric-name']
+        type: str
+        description: Name used prior to becoming a Security Fabric synchronized CA.
 '''
 
 EXAMPLES = '''
@@ -133,42 +133,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

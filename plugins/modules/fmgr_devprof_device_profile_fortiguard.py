@@ -15,58 +15,57 @@ module: fmgr_devprof_device_profile_fortiguard
 short_description: System template device profile fortiguard
 version_added: "1.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.partial_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.partial_crud
 options:
-    adom:
-        description: The parameter (adom) in requested url.
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  devprof:
+    description: The parameter (devprof) in requested url.
+    type: str
+    required: true
+  devprof_device_profile_fortiguard:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      target:
         type: str
-        required: true
-    devprof:
-        description: The parameter (devprof) in requested url.
+        description: Target.
+        choices: ['none', 'direct', 'this-fmg']
+      target_ip:
+        aliases: ['target-ip']
         type: str
-        required: true
-    devprof_device_profile_fortiguard:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            target:
-                type: str
-                description: Target.
-                choices: ['none', 'direct', 'this-fmg']
-            target_ip:
-                aliases: ['target-ip']
-                type: str
-                description: Target ip.
-            auto_firmware_upgrade:
-                aliases: ['auto-firmware-upgrade']
-                type: str
-                description: Auto firmware upgrade.
-                choices: ['disable', 'enable']
-            auto_firmware_upgrade_day:
-                aliases: ['auto-firmware-upgrade-day']
-                type: list
-                elements: str
-                description: Auto firmware upgrade day.
-                choices: ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday',
-                          'saturday']
-            auto_firmware_upgrade_delay:
-                aliases: ['auto-firmware-upgrade-delay']
-                type: int
-                description: Auto firmware upgrade delay.
-            auto_firmware_upgrade_end_hour:
-                aliases: ['auto-firmware-upgrade-end-hour']
-                type: int
-                description: Auto firmware upgrade end hour.
-            auto_firmware_upgrade_start_hour:
-                aliases: ['auto-firmware-upgrade-start-hour']
-                type: int
-                description: Auto firmware upgrade start hour.
-            vrf_select:
-                aliases: ['vrf-select']
-                type: int
-                description: Vrf select.
+        description: Target ip.
+      auto_firmware_upgrade:
+        aliases: ['auto-firmware-upgrade']
+        type: str
+        description: Auto firmware upgrade.
+        choices: ['disable', 'enable']
+      auto_firmware_upgrade_day:
+        aliases: ['auto-firmware-upgrade-day']
+        type: list
+        elements: str
+        description: Auto firmware upgrade day.
+        choices: ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday']
+      auto_firmware_upgrade_delay:
+        aliases: ['auto-firmware-upgrade-delay']
+        type: int
+        description: Auto firmware upgrade delay.
+      auto_firmware_upgrade_end_hour:
+        aliases: ['auto-firmware-upgrade-end-hour']
+        type: int
+        description: Auto firmware upgrade end hour.
+      auto_firmware_upgrade_start_hour:
+        aliases: ['auto-firmware-upgrade-start-hour']
+        type: int
+        description: Auto firmware upgrade start hour.
+      vrf_select:
+        aliases: ['vrf-select']
+        type: int
+        description: Vrf select.
 '''
 
 EXAMPLES = '''
@@ -94,42 +93,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

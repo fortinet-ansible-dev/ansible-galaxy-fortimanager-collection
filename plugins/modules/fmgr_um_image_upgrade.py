@@ -15,54 +15,54 @@ module: fmgr_um_image_upgrade
 short_description: The older API for updating the firmware of specific device.
 version_added: "2.2.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
+  - fortinet.fortimanager.general
 options:
-    um_image_upgrade:
-        description: The top level parameters set.
-        required: false
-        type: dict
+  um_image_upgrade:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      adom:
+        type: str
+        description: Adom.
+      create_task:
+        type: str
+        description: Create task.
+      device:
+        type: list
+        elements: dict
+        description: Device.
         suboptions:
-            adom:
-                type: str
-                description: Adom.
-            create_task:
-                type: str
-                description: Create task.
-            device:
-                type: list
-                elements: dict
-                description: Device.
-                suboptions:
-                    name:
-                        type: str
-                        description: Name.
-                    vdom:
-                        type: str
-                        description: Vdom.
-            flags:
-                type: str
-                description: Flags.
-                choices: ['f_boot_alt_partition', 'f_skip_retrieve', 'f_skip_multi_steps',
-                          'f_skip_fortiguard_img', 'f_preview']
-            image:
-                type: dict
-                description: Image.
-                suboptions:
-                    build:
-                        type: str
-                        description: Build.
-                    id:
-                        type: raw
-                        description: (list) Id.
-                    model:
-                        type: str
-                        description: Model.
-                    release:
-                        type: str
-                        description: Release.
-            schedule_time:
-                type: str
-                description: Schedule time.
+          name:
+            type: str
+            description: Name.
+          vdom:
+            type: str
+            description: Vdom.
+      flags:
+        type: str
+        description: Flags.
+        choices: ['f_boot_alt_partition', 'f_skip_retrieve', 'f_skip_multi_steps',
+                  'f_skip_fortiguard_img', 'f_preview']
+      image:
+        type: dict
+        description: Image.
+        suboptions:
+          build:
+            type: str
+            description: Build.
+          id:
+            type: raw
+            description: (list) Id.
+          model:
+            type: str
+            description: Model.
+          release:
+            type: str
+            description: Release.
+      schedule_time:
+        type: str
+        description: Schedule time.
 '''
 
 EXAMPLES = '''
@@ -91,42 +91,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

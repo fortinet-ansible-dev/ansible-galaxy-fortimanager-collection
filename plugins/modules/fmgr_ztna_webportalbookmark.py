@@ -15,153 +15,157 @@ module: fmgr_ztna_webportalbookmark
 short_description: Configure ztna web-portal bookmark.
 version_added: "2.12.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
-        type: str
-    adom:
-        description: The parameter (adom) in requested url.
-        type: str
-        required: true
-    ztna_webportalbookmark:
-        description: The top level parameters set.
-        required: false
-        type: dict
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  ztna_webportalbookmark:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      bookmarks:
+        type: list
+        elements: dict
+        description: Bookmarks.
         suboptions:
-            bookmarks:
-                type: list
-                elements: dict
-                description: Bookmarks.
-                suboptions:
-                    apptype:
-                        type: str
-                        description: Application type.
-                        choices: ['web', 'telnet', 'ssh', 'ftp', 'smb', 'vnc', 'rdp', 'sftp']
-                    color_depth:
-                        aliases: ['color-depth']
-                        type: str
-                        description: Color depth per pixel.
-                        choices: ['8', '16', '32']
-                    description:
-                        type: str
-                        description: Description.
-                    domain:
-                        type: str
-                        description: Login domain.
-                    folder:
-                        type: str
-                        description: Network shared file folder parameter.
-                    height:
-                        type: int
-                        description: Screen height
-                    host:
-                        type: str
-                        description: Host name/IP parameter.
-                    keyboard_layout:
-                        aliases: ['keyboard-layout']
-                        type: str
-                        description: Keyboard layout.
-                        choices: ['da', 'de', 'de-ch', 'en-uk', 'en-us', 'es', 'fi', 'fr',
-                                  'fr-be', 'fr-ca', 'fr-ch', 'hr', 'hu', 'it', 'ja', 'lt', 'mk',
-                                  'no', 'pt', 'pt-br', 'ru', 'sl', 'sv', 'ar-101', 'ar-102',
-                                  'ar-102-azerty', 'can-mul', 'cz', 'cz-qwerty', 'cz-pr', 'nl',
-                                  'de-ibm', 'en-uk-ext', 'en-us-dvorak', 'es-var', 'fi-sami',
-                                  'hu-101', 'it-142', 'ko', 'lt-ibm', 'lt-std', 'lav-std',
-                                  'lav-leg', 'mk-std', 'no-sami', 'pol-214', 'pol-pr',
-                                  'pt-br-abnt2', 'ru-mne', 'ru-t', 'sv-sami', 'tuk', 'tur-f',
-                                  'tur-q', 'zh-sym-sg-us', 'zh-sym-us', 'zh-tr-hk', 'zh-tr-mo',
-                                  'zh-tr-us', 'fr-apple', 'la-am', 'ja-106']
-                    load_balancing_info:
-                        aliases: ['load-balancing-info']
-                        type: str
-                        description: The load balancing information or cookie which should be provided to the connection broker.
-                    logon_password:
-                        aliases: ['logon-password']
-                        type: list
-                        elements: str
-                        description: Logon password.
-                    logon_user:
-                        aliases: ['logon-user']
-                        type: str
-                        description: Logon user.
-                    name:
-                        type: str
-                        description: Bookmark name.
-                    port:
-                        type: int
-                        description: Remote port.
-                    preconnection_blob:
-                        aliases: ['preconnection-blob']
-                        type: str
-                        description: An arbitrary string which identifies the RDP source.
-                    preconnection_id:
-                        aliases: ['preconnection-id']
-                        type: int
-                        description: The numeric ID of the RDP source
-                    restricted_admin:
-                        aliases: ['restricted-admin']
-                        type: str
-                        description: Enable/disable restricted admin mode for RDP.
-                        choices: ['disable', 'enable']
-                    security:
-                        type: str
-                        description: Security mode for RDP connection
-                        choices: ['rdp', 'nla', 'tls', 'any']
-                    send_preconnection_id:
-                        aliases: ['send-preconnection-id']
-                        type: str
-                        description: Enable/disable sending of preconnection ID.
-                        choices: ['disable', 'enable']
-                    sso:
-                        type: str
-                        description: Single sign-on.
-                        choices: ['disable', 'enable']
-                    url:
-                        type: str
-                        description: URL parameter.
-                    vnc_keyboard_layout:
-                        aliases: ['vnc-keyboard-layout']
-                        type: str
-                        description: Keyboard layout.
-                        choices: ['da', 'de', 'de-ch', 'en-uk', 'es', 'fi', 'fr', 'fr-be', 'it',
-                                  'no', 'pt', 'sv', 'nl', 'en-uk-ext', 'it-142', 'pt-br-abnt2',
-                                  'default', 'fr-ca-mul', 'gd', 'us-intl']
-                    width:
-                        type: int
-                        description: Screen width
-            groups:
-                type: list
-                elements: str
-                description: User groups.
-            name:
-                type: str
-                description: Bookmark name.
-                required: true
-            type:
-                type: str
-                description: Type.
-                choices: ['user', 'ldap-dynamic', 'saml-dynamic']
-            users:
-                type: list
-                elements: str
-                description: User name.
-            llm_secure_proxy:
-                aliases: ['llm-secure-proxy']
-                type: dict
-                description: Llm secure proxy.
-                suboptions:
-                    all_llm_servers:
-                        aliases: ['all-llm-servers']
-                        type: str
-                        description: All llm servers.
-                        choices: ['disable', 'enable']
-                    llm_servers:
-                        aliases: ['llm-servers']
-                        type: list
-                        elements: str
-                        description: Llm servers.
+          apptype:
+            type: str
+            description: Application type.
+            choices: ['web', 'telnet', 'ssh', 'ftp', 'smb', 'vnc', 'rdp', 'sftp']
+          color_depth:
+            aliases: ['color-depth']
+            type: str
+            description: Color depth per pixel.
+            choices: ['8', '16', '32']
+          description:
+            type: str
+            description: Description.
+          domain:
+            type: str
+            description: Login domain.
+          folder:
+            type: str
+            description: Network shared file folder parameter.
+          height:
+            type: int
+            description: Screen height
+          host:
+            type: str
+            description: Host name/IP parameter.
+          keyboard_layout:
+            aliases: ['keyboard-layout']
+            type: str
+            description: Keyboard layout.
+            choices: ['da', 'de', 'de-ch', 'en-uk', 'en-us', 'es', 'fi', 'fr', 'fr-be', 'fr-ca',
+                      'fr-ch', 'hr', 'hu', 'it', 'ja', 'lt', 'mk', 'no', 'pt', 'pt-br', 'ru',
+                      'sl', 'sv', 'ar-101', 'ar-102', 'ar-102-azerty', 'can-mul', 'cz',
+                      'cz-qwerty', 'cz-pr', 'nl', 'de-ibm', 'en-uk-ext', 'en-us-dvorak', 'es-var',
+                      'fi-sami', 'hu-101', 'it-142', 'ko', 'lt-ibm', 'lt-std', 'lav-std',
+                      'lav-leg', 'mk-std', 'no-sami', 'pol-214', 'pol-pr', 'pt-br-abnt2',
+                      'ru-mne', 'ru-t', 'sv-sami', 'tuk', 'tur-f', 'tur-q', 'zh-sym-sg-us',
+                      'zh-sym-us', 'zh-tr-hk', 'zh-tr-mo', 'zh-tr-us', 'fr-apple', 'la-am',
+                      'ja-106']
+          load_balancing_info:
+            aliases: ['load-balancing-info']
+            type: str
+            description: The load balancing information or cookie which should be provided to the connection broker.
+          logon_password:
+            aliases: ['logon-password']
+            type: list
+            elements: str
+            description: Logon password.
+          logon_user:
+            aliases: ['logon-user']
+            type: str
+            description: Logon user.
+          name:
+            type: str
+            description: Bookmark name.
+          port:
+            type: int
+            description: Remote port.
+          preconnection_blob:
+            aliases: ['preconnection-blob']
+            type: str
+            description: An arbitrary string which identifies the RDP source.
+          preconnection_id:
+            aliases: ['preconnection-id']
+            type: int
+            description: The numeric ID of the RDP source
+          restricted_admin:
+            aliases: ['restricted-admin']
+            type: str
+            description: Enable/disable restricted admin mode for RDP.
+            choices: ['disable', 'enable']
+          security:
+            type: str
+            description: Security mode for RDP connection
+            choices: ['rdp', 'nla', 'tls', 'any']
+          send_preconnection_id:
+            aliases: ['send-preconnection-id']
+            type: str
+            description: Enable/disable sending of preconnection ID.
+            choices: ['disable', 'enable']
+          sso:
+            type: str
+            description: Single sign-on.
+            choices: ['disable', 'enable']
+          url:
+            type: str
+            description: URL parameter.
+          vnc_keyboard_layout:
+            aliases: ['vnc-keyboard-layout']
+            type: str
+            description: Keyboard layout.
+            choices: ['da', 'de', 'de-ch', 'en-uk', 'es', 'fi', 'fr', 'fr-be', 'it', 'no', 'pt',
+                      'sv', 'nl', 'en-uk-ext', 'it-142', 'pt-br-abnt2', 'default', 'fr-ca-mul',
+                      'gd', 'us-intl']
+          width:
+            type: int
+            description: Screen width
+          verify_cert:
+            aliases: ['verify-cert']
+            type: str
+            description: Enable/disable certificate verification of the real server.
+            choices: ['disable', 'enable']
+      groups:
+        type: list
+        elements: str
+        description: User groups.
+      name:
+        type: str
+        description: Bookmark name.
+        required: true
+      type:
+        type: str
+        description: Type.
+        choices: ['user', 'ldap-dynamic', 'saml-dynamic']
+      users:
+        type: list
+        elements: str
+        description: User name.
+      llm_secure_proxy:
+        aliases: ['llm-secure-proxy']
+        type: dict
+        description: Llm secure proxy.
+        suboptions:
+          all_llm_servers:
+            aliases: ['all-llm-servers']
+            type: str
+            description: All llm servers.
+            choices: ['disable', 'enable']
+          llm_servers:
+            aliases: ['llm-servers']
+            type: list
+            elements: str
+            description: Llm servers.
 '''
 
 EXAMPLES = '''
@@ -200,6 +204,7 @@ EXAMPLES = '''
           #     url: <string>
           #     vnc_keyboard_layout: <value in [da, de, de-ch, ...]>
           #     width: <integer>
+          #     verify_cert: <value in [disable, enable]>
           # groups: <list or string>
           # type: <value in [user, ldap-dynamic, saml-dynamic]>
           # users: <list or string>
@@ -210,42 +215,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -306,7 +311,8 @@ def main():
                             ],
                             'type': 'str'
                         },
-                        'width': {'v_range': [['7.6.4', '']], 'type': 'int'}
+                        'width': {'v_range': [['7.6.4', '']], 'type': 'int'},
+                        'verify-cert': {'v_range': [['7.6.7', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
                     },
                     'elements': 'dict'
                 },

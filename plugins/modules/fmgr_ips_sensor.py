@@ -15,279 +15,297 @@ module: fmgr_ips_sensor
 short_description: Configure IPS sensor.
 version_added: "1.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  ips_sensor:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      block_malicious_url:
+        aliases: ['block-malicious-url']
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Enable/disable malicious URL blocking.
+        choices: ['disable', 'enable']
+      comment:
         type: str
-        required: true
-    ips_sensor:
-        description: The top level parameters set.
-        required: false
-        type: dict
+        description: Comment.
+      entries:
+        type: list
+        elements: dict
+        description: Entries.
         suboptions:
-            block_malicious_url:
-                aliases: ['block-malicious-url']
+          action:
+            type: str
+            description: Action taken with traffic in which signatures are detected.
+            choices: ['pass', 'block', 'reset', 'default']
+          application:
+            type: raw
+            description: (list) Applications to be protected.
+          exempt_ip:
+            aliases: ['exempt-ip']
+            type: list
+            elements: dict
+            description: Exempt ip.
+            suboptions:
+              dst_ip:
+                aliases: ['dst-ip']
                 type: str
-                description: Enable/disable malicious URL blocking.
-                choices: ['disable', 'enable']
-            comment:
+                description: Destination IP address and netmask.
+              id:
+                type: int
+                description: Exempt IP ID.
+              src_ip:
+                aliases: ['src-ip']
                 type: str
-                description: Comment.
-            entries:
-                type: list
-                elements: dict
-                description: Entries.
-                suboptions:
-                    action:
-                        type: str
-                        description: Action taken with traffic in which signatures are detected.
-                        choices: ['pass', 'block', 'reset', 'default']
-                    application:
-                        type: raw
-                        description: (list) Applications to be protected.
-                    exempt_ip:
-                        aliases: ['exempt-ip']
-                        type: list
-                        elements: dict
-                        description: Exempt ip.
-                        suboptions:
-                            dst_ip:
-                                aliases: ['dst-ip']
-                                type: str
-                                description: Destination IP address and netmask.
-                            id:
-                                type: int
-                                description: Exempt IP ID.
-                            src_ip:
-                                aliases: ['src-ip']
-                                type: str
-                                description: Source IP address and netmask.
-                    id:
-                        type: int
-                        description: Rule ID in IPS database
-                    location:
-                        type: raw
-                        description: (list) Protect client or server traffic.
-                    log:
-                        type: str
-                        description: Enable/disable logging of signatures included in filter.
-                        choices: ['disable', 'enable']
-                    log_attack_context:
-                        aliases: ['log-attack-context']
-                        type: str
-                        description: Enable/disable logging of attack context
-                        choices: ['disable', 'enable']
-                    log_packet:
-                        aliases: ['log-packet']
-                        type: str
-                        description: Enable/disable packet logging.
-                        choices: ['disable', 'enable']
-                    os:
-                        type: raw
-                        description: (list) Operating systems to be protected.
-                    protocol:
-                        type: raw
-                        description: (list) Protocols to be examined.
-                    quarantine:
-                        type: str
-                        description: Quarantine method.
-                        choices: ['none', 'attacker', 'both', 'interface']
-                    quarantine_expiry:
-                        aliases: ['quarantine-expiry']
-                        type: str
-                        description: Duration of quarantine.
-                    quarantine_log:
-                        aliases: ['quarantine-log']
-                        type: str
-                        description: Enable/disable quarantine logging.
-                        choices: ['disable', 'enable']
-                    rate_count:
-                        aliases: ['rate-count']
-                        type: int
-                        description: Count of the rate.
-                    rate_duration:
-                        aliases: ['rate-duration']
-                        type: int
-                        description: Duration
-                    rate_mode:
-                        aliases: ['rate-mode']
-                        type: str
-                        description: Rate limit mode.
-                        choices: ['periodical', 'continuous']
-                    rate_track:
-                        aliases: ['rate-track']
-                        type: str
-                        description: Track the packet protocol field.
-                        choices: ['none', 'src-ip', 'dest-ip', 'dhcp-client-mac', 'dns-domain']
-                    rule:
-                        type: raw
-                        description: (list or str) Identifies the predefined or custom IPS signatures to add to the sensor.
-                    severity:
-                        type: raw
-                        description: (list) Relative severity of the signature, from info to critical.
-                    status:
-                        type: str
-                        description: Status of the signatures included in filter.
-                        choices: ['disable', 'enable', 'default']
-                    tags:
-                        type: str
-                        description: Assign a custom tag filter to the IPS sensor.
-                    cve:
-                        type: raw
-                        description: (list) List of CVE IDs of the signatures to add to the sensor
-                    default_action:
-                        aliases: ['default-action']
-                        type: str
-                        description: Signature default action filter.
-                        choices: ['block', 'pass', 'all', 'drop']
-                    default_status:
-                        aliases: ['default-status']
-                        type: str
-                        description: Signature default status filter.
-                        choices: ['disable', 'enable', 'all']
-                    last_modified:
-                        aliases: ['last-modified']
-                        type: raw
-                        description: (list or str) Filter by signature last modified date.
-                    vuln_type:
-                        aliases: ['vuln-type']
-                        type: raw
-                        description: (list) List of signature vulnerability types to filter by.
-            extended_log:
-                aliases: ['extended-log']
+                description: Source IP address and netmask.
+          id:
+            type: int
+            description: Rule ID in IPS database
+          location:
+            type: raw
+            description: (list) Protect client or server traffic.
+          log:
+            type: str
+            description: Enable/disable logging of signatures included in filter.
+            choices: ['disable', 'enable']
+          log_attack_context:
+            aliases: ['log-attack-context']
+            type: str
+            description: Enable/disable logging of attack context
+            choices: ['disable', 'enable']
+          log_packet:
+            aliases: ['log-packet']
+            type: str
+            description: Enable/disable packet logging.
+            choices: ['disable', 'enable']
+          os:
+            type: raw
+            description: (list) Operating systems to be protected.
+          protocol:
+            type: raw
+            description: (list) Protocols to be examined.
+          quarantine:
+            type: str
+            description: Quarantine method.
+            choices: ['none', 'attacker', 'both', 'interface']
+          quarantine_expiry:
+            aliases: ['quarantine-expiry']
+            type: str
+            description: Duration of quarantine.
+          quarantine_log:
+            aliases: ['quarantine-log']
+            type: str
+            description: Enable/disable quarantine logging.
+            choices: ['disable', 'enable']
+          rate_count:
+            aliases: ['rate-count']
+            type: int
+            description: Count of the rate.
+          rate_duration:
+            aliases: ['rate-duration']
+            type: int
+            description: Duration
+          rate_mode:
+            aliases: ['rate-mode']
+            type: str
+            description: Rate limit mode.
+            choices: ['periodical', 'continuous']
+          rate_track:
+            aliases: ['rate-track']
+            type: str
+            description: Track the packet protocol field.
+            choices: ['none', 'src-ip', 'dest-ip', 'dhcp-client-mac', 'dns-domain']
+          rule:
+            type: raw
+            description: (list or str) Identifies the predefined or custom IPS signatures to add to the sensor.
+          severity:
+            type: raw
+            description: (list) Relative severity of the signature, from info to critical.
+          status:
+            type: str
+            description: Status of the signatures included in filter.
+            choices: ['disable', 'enable', 'default']
+          tags:
+            type: str
+            description: Assign a custom tag filter to the IPS sensor.
+          cve:
+            type: raw
+            description: (list) List of CVE IDs of the signatures to add to the sensor
+          default_action:
+            aliases: ['default-action']
+            type: str
+            description: Signature default action filter.
+            choices: ['block', 'pass', 'all', 'drop']
+          default_status:
+            aliases: ['default-status']
+            type: str
+            description: Signature default status filter.
+            choices: ['disable', 'enable', 'all']
+          last_modified:
+            aliases: ['last-modified']
+            type: raw
+            description: (list or str) Filter by signature last modified date.
+          vuln_type:
+            aliases: ['vuln-type']
+            type: raw
+            description: (list) List of signature vulnerability types to filter by.
+      extended_log:
+        aliases: ['extended-log']
+        type: str
+        description: Enable/disable extended logging.
+        choices: ['disable', 'enable']
+      filter:
+        type: list
+        elements: dict
+        description: Filter.
+        suboptions:
+          action:
+            type: str
+            description: Action of selected rules.
+            choices: ['pass', 'block', 'default', 'reset']
+          application:
+            type: raw
+            description: (list) Vulnerable application filter.
+          location:
+            type: raw
+            description: (list) Vulnerability location filter.
+          log:
+            type: str
+            description: Enable/disable logging of selected rules.
+            choices: ['disable', 'enable', 'default']
+          log_packet:
+            aliases: ['log-packet']
+            type: str
+            description: Enable/disable packet logging of selected rules.
+            choices: ['disable', 'enable', 'default']
+          name:
+            type: str
+            description: Filter name.
+          os:
+            type: raw
+            description: (list) Vulnerable OS filter.
+          protocol:
+            type: raw
+            description: (list) Vulnerable protocol filter.
+          quarantine:
+            type: str
+            description: Quarantine IP or interface.
+            choices: ['none', 'attacker', 'both', 'interface']
+          quarantine_expiry:
+            aliases: ['quarantine-expiry']
+            type: int
+            description: Duration of quarantine in minute.
+          quarantine_log:
+            aliases: ['quarantine-log']
+            type: str
+            description: Enable/disable logging of selected quarantine.
+            choices: ['disable', 'enable']
+          severity:
+            type: raw
+            description: (list) Vulnerability severity filter.
+          status:
+            type: str
+            description: Selected rules status.
+            choices: ['disable', 'enable', 'default']
+      name:
+        type: str
+        description: Sensor name.
+        required: true
+      override:
+        type: list
+        elements: dict
+        description: Override.
+        suboptions:
+          action:
+            type: str
+            description: Action of override rule.
+            choices: ['pass', 'block', 'reset']
+          exempt_ip:
+            aliases: ['exempt-ip']
+            type: list
+            elements: dict
+            description: Exempt ip.
+            suboptions:
+              dst_ip:
+                aliases: ['dst-ip']
                 type: str
-                description: Enable/disable extended logging.
-                choices: ['disable', 'enable']
-            filter:
-                type: list
-                elements: dict
-                description: Filter.
-                suboptions:
-                    action:
-                        type: str
-                        description: Action of selected rules.
-                        choices: ['pass', 'block', 'default', 'reset']
-                    application:
-                        type: raw
-                        description: (list) Vulnerable application filter.
-                    location:
-                        type: raw
-                        description: (list) Vulnerability location filter.
-                    log:
-                        type: str
-                        description: Enable/disable logging of selected rules.
-                        choices: ['disable', 'enable', 'default']
-                    log_packet:
-                        aliases: ['log-packet']
-                        type: str
-                        description: Enable/disable packet logging of selected rules.
-                        choices: ['disable', 'enable', 'default']
-                    name:
-                        type: str
-                        description: Filter name.
-                    os:
-                        type: raw
-                        description: (list) Vulnerable OS filter.
-                    protocol:
-                        type: raw
-                        description: (list) Vulnerable protocol filter.
-                    quarantine:
-                        type: str
-                        description: Quarantine IP or interface.
-                        choices: ['none', 'attacker', 'both', 'interface']
-                    quarantine_expiry:
-                        aliases: ['quarantine-expiry']
-                        type: int
-                        description: Duration of quarantine in minute.
-                    quarantine_log:
-                        aliases: ['quarantine-log']
-                        type: str
-                        description: Enable/disable logging of selected quarantine.
-                        choices: ['disable', 'enable']
-                    severity:
-                        type: raw
-                        description: (list) Vulnerability severity filter.
-                    status:
-                        type: str
-                        description: Selected rules status.
-                        choices: ['disable', 'enable', 'default']
-            name:
+                description: Destination IP address and netmask.
+              id:
+                type: int
+                description: Exempt IP ID.
+              src_ip:
+                aliases: ['src-ip']
                 type: str
-                description: Sensor name.
-                required: true
-            override:
-                type: list
-                elements: dict
-                description: Override.
-                suboptions:
-                    action:
-                        type: str
-                        description: Action of override rule.
-                        choices: ['pass', 'block', 'reset']
-                    exempt_ip:
-                        aliases: ['exempt-ip']
-                        type: list
-                        elements: dict
-                        description: Exempt ip.
-                        suboptions:
-                            dst_ip:
-                                aliases: ['dst-ip']
-                                type: str
-                                description: Destination IP address and netmask.
-                            id:
-                                type: int
-                                description: Exempt IP ID.
-                            src_ip:
-                                aliases: ['src-ip']
-                                type: str
-                                description: Source IP address and netmask.
-                    log:
-                        type: str
-                        description: Enable/disable logging.
-                        choices: ['disable', 'enable']
-                    log_packet:
-                        aliases: ['log-packet']
-                        type: str
-                        description: Enable/disable packet logging.
-                        choices: ['disable', 'enable']
-                    quarantine:
-                        type: str
-                        description: Quarantine IP or interface.
-                        choices: ['none', 'attacker', 'both', 'interface']
-                    quarantine_expiry:
-                        aliases: ['quarantine-expiry']
-                        type: int
-                        description: Duration of quarantine in minute.
-                    quarantine_log:
-                        aliases: ['quarantine-log']
-                        type: str
-                        description: Enable/disable logging of selected quarantine.
-                        choices: ['disable', 'enable']
-                    rule_id:
-                        aliases: ['rule-id']
-                        type: int
-                        description: Override rule ID.
-                    status:
-                        type: str
-                        description: Enable/disable status of override rule.
-                        choices: ['disable', 'enable']
-            replacemsg_group:
-                aliases: ['replacemsg-group']
-                type: str
-                description: Replacement message group.
-            scan_botnet_connections:
-                aliases: ['scan-botnet-connections']
-                type: str
-                description: Block or monitor connections to Botnet servers, or disable Botnet scanning.
-                choices: ['disable', 'block', 'monitor']
-            _baseline:
-                type: str
-                description: Baseline.
+                description: Source IP address and netmask.
+          log:
+            type: str
+            description: Enable/disable logging.
+            choices: ['disable', 'enable']
+          log_packet:
+            aliases: ['log-packet']
+            type: str
+            description: Enable/disable packet logging.
+            choices: ['disable', 'enable']
+          quarantine:
+            type: str
+            description: Quarantine IP or interface.
+            choices: ['none', 'attacker', 'both', 'interface']
+          quarantine_expiry:
+            aliases: ['quarantine-expiry']
+            type: int
+            description: Duration of quarantine in minute.
+          quarantine_log:
+            aliases: ['quarantine-log']
+            type: str
+            description: Enable/disable logging of selected quarantine.
+            choices: ['disable', 'enable']
+          rule_id:
+            aliases: ['rule-id']
+            type: int
+            description: Override rule ID.
+          status:
+            type: str
+            description: Enable/disable status of override rule.
+            choices: ['disable', 'enable']
+      replacemsg_group:
+        aliases: ['replacemsg-group']
+        type: str
+        description: Replacement message group.
+      scan_botnet_connections:
+        aliases: ['scan-botnet-connections']
+        type: str
+        description: Block or monitor connections to Botnet servers, or disable Botnet scanning.
+        choices: ['disable', 'block', 'monitor']
+      _baseline:
+        type: str
+        description: Baseline.
+      fabric_force_sync:
+        aliases: ['fabric-force-sync']
+        type: str
+        description: Enable/disable forced synchronization of configuration objects from the root FortiGate unit to the downstream devices.
+        choices: ['disable', 'enable']
+      fabric_object:
+        aliases: ['fabric-object']
+        type: str
+        description: Security Fabric global object setting.
+        choices: ['disable', 'enable']
+      fabric_object_source:
+        aliases: ['fabric-object-source']
+        type: str
+        description: Source of truth for fabric object.
+        choices: ['member', 'local', 'root']
+      uuid:
+        type: str
+        description: Universally Unique Identifier
 '''
 
 EXAMPLES = '''
@@ -330,42 +348,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -415,7 +433,7 @@ def main():
                         'rule': {'type': 'raw'},
                         'severity': {'type': 'raw'},
                         'status': {'choices': ['disable', 'enable', 'default'], 'type': 'str'},
-                        'tags': {'v_range': [['6.2.0', '6.4.15'], ['7.4.8', '7.4.10']], 'type': 'str'},
+                        'tags': {'v_range': [['6.2.0', '6.4.15'], ['7.4.8', '7.4.11']], 'type': 'str'},
                         'cve': {'v_range': [['6.4.2', '']], 'type': 'raw'},
                         'default-action': {'v_range': [['7.2.0', '']], 'choices': ['block', 'pass', 'all', 'drop'], 'type': 'str'},
                         'default-status': {'v_range': [['7.2.0', '']], 'choices': ['disable', 'enable', 'all'], 'type': 'str'},
@@ -473,7 +491,11 @@ def main():
                 },
                 'replacemsg-group': {'type': 'str'},
                 'scan-botnet-connections': {'v_range': [['6.2.0', '']], 'choices': ['disable', 'block', 'monitor'], 'type': 'str'},
-                '_baseline': {'v_range': [['7.0.1', '7.0.2']], 'type': 'str'}
+                '_baseline': {'v_range': [['7.0.1', '7.0.2']], 'type': 'str'},
+                'fabric-force-sync': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'fabric-object': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'fabric-object-source': {'v_range': [['8.0.0', '']], 'choices': ['member', 'local', 'root'], 'type': 'str'},
+                'uuid': {'v_range': [['8.0.0', '']], 'type': 'str'}
             }
         }
     }

@@ -15,123 +15,123 @@ module: fmgr_devprof_log_fortianalyzercloud_setting
 short_description: Global FortiAnalyzer Cloud settings.
 version_added: "2.1.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.partial_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.partial_crud
 options:
-    adom:
-        description: The parameter (adom) in requested url.
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  devprof:
+    description: The parameter (devprof) in requested url.
+    type: str
+    required: true
+  devprof_log_fortianalyzercloud_setting:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      __change_ip:
+        type: int
+        description: Hidden attribute.
+      access_config:
+        aliases: ['access-config']
         type: str
-        required: true
-    devprof:
-        description: The parameter (devprof) in requested url.
+        description: Enable/disable FortiAnalyzer access to configuration and data.
+        choices: ['disable', 'enable']
+      certificate:
         type: str
-        required: true
-    devprof_log_fortianalyzercloud_setting:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            __change_ip:
-                type: int
-                description: Hidden attribute.
-            access_config:
-                aliases: ['access-config']
-                type: str
-                description: Enable/disable FortiAnalyzer access to configuration and data.
-                choices: ['disable', 'enable']
-            certificate:
-                type: str
-                description: Certificate used to communicate with FortiAnalyzer.
-            conn_timeout:
-                aliases: ['conn-timeout']
-                type: int
-                description: FortiAnalyzer connection time-out in seconds
-            enc_algorithm:
-                aliases: ['enc-algorithm']
-                type: str
-                description: Configure the level of SSL protection for secure communication with FortiAnalyzer.
-                choices: ['high', 'low', 'high-medium', 'low-medium']
-            hmac_algorithm:
-                aliases: ['hmac-algorithm']
-                type: str
-                description: FortiAnalyzer IPsec tunnel HMAC algorithm.
-                choices: ['sha256', 'sha1']
-            ips_archive:
-                aliases: ['ips-archive']
-                type: str
-                description: Enable/disable IPS packet archive logging.
-                choices: ['disable', 'enable']
-            monitor_failure_retry_period:
-                aliases: ['monitor-failure-retry-period']
-                type: int
-                description: Time between FortiAnalyzer connection retries in seconds
-            monitor_keepalive_period:
-                aliases: ['monitor-keepalive-period']
-                type: int
-                description: Time between OFTP keepalives in seconds
-            source_ip:
-                aliases: ['source-ip']
-                type: str
-                description: Source IPv4 or IPv6 address used to communicate with FortiAnalyzer.
-            ssl_min_proto_version:
-                aliases: ['ssl-min-proto-version']
-                type: str
-                description: Minimum supported protocol version for SSL/TLS connections
-                choices: ['default', 'TLSv1-1', 'TLSv1-2', 'SSLv3', 'TLSv1', 'TLSv1-3']
-            status:
-                type: str
-                description: Enable/disable logging to FortiAnalyzer.
-                choices: ['disable', 'enable']
-            upload_day:
-                aliases: ['upload-day']
-                type: str
-                description: Day of week
-            upload_interval:
-                aliases: ['upload-interval']
-                type: str
-                description: Frequency to upload log files to FortiAnalyzer.
-                choices: ['daily', 'weekly', 'monthly']
-            upload_option:
-                aliases: ['upload-option']
-                type: str
-                description: Enable/disable logging to hard disk and then uploading to FortiAnalyzer.
-                choices: ['store-and-upload', 'realtime', '1-minute', '5-minute']
-            upload_time:
-                aliases: ['upload-time']
-                type: str
-                description: Time to upload logs
-            max_log_rate:
-                aliases: ['max-log-rate']
-                type: int
-                description: FortiAnalyzer maximum log rate in MBps
-            priority:
-                type: str
-                description: Set log transmission priority.
-                choices: ['low', 'default']
-            interface:
-                type: str
-                description: Specify outgoing interface to reach server.
-            interface_select_method:
-                aliases: ['interface-select-method']
-                type: str
-                description: Specify how to select outgoing interface to reach server.
-                choices: ['auto', 'sdwan', 'specify']
-            preshared_key:
-                aliases: ['preshared-key']
-                type: str
-                description: Preshared-key used for auto-authorization on FortiAnalyzer.
-            certificate_verification:
-                aliases: ['certificate-verification']
-                type: str
-                description: Enable/disable identity verification of FortiAnalyzer by use of certificate.
-                choices: ['disable', 'enable']
-            serial:
-                type: raw
-                description: (list) Serial numbers of the FortiAnalyzer.
-            vrf_select:
-                aliases: ['vrf-select']
-                type: int
-                description: VRF ID used for connection to server.
+        description: Certificate used to communicate with FortiAnalyzer.
+      conn_timeout:
+        aliases: ['conn-timeout']
+        type: int
+        description: FortiAnalyzer connection time-out in seconds
+      enc_algorithm:
+        aliases: ['enc-algorithm']
+        type: str
+        description: Configure the level of SSL protection for secure communication with FortiAnalyzer.
+        choices: ['high', 'low', 'high-medium', 'low-medium']
+      hmac_algorithm:
+        aliases: ['hmac-algorithm']
+        type: str
+        description: FortiAnalyzer IPsec tunnel HMAC algorithm.
+        choices: ['sha256', 'sha1']
+      ips_archive:
+        aliases: ['ips-archive']
+        type: str
+        description: Enable/disable IPS packet archive logging.
+        choices: ['disable', 'enable']
+      monitor_failure_retry_period:
+        aliases: ['monitor-failure-retry-period']
+        type: int
+        description: Time between FortiAnalyzer connection retries in seconds
+      monitor_keepalive_period:
+        aliases: ['monitor-keepalive-period']
+        type: int
+        description: Time between OFTP keepalives in seconds
+      source_ip:
+        aliases: ['source-ip']
+        type: str
+        description: Source IPv4 or IPv6 address used to communicate with FortiAnalyzer.
+      ssl_min_proto_version:
+        aliases: ['ssl-min-proto-version']
+        type: str
+        description: Minimum supported protocol version for SSL/TLS connections
+        choices: ['default', 'TLSv1-1', 'TLSv1-2', 'SSLv3', 'TLSv1', 'TLSv1-3']
+      status:
+        type: str
+        description: Enable/disable logging to FortiAnalyzer.
+        choices: ['disable', 'enable']
+      upload_day:
+        aliases: ['upload-day']
+        type: str
+        description: Day of week
+      upload_interval:
+        aliases: ['upload-interval']
+        type: str
+        description: Frequency to upload log files to FortiAnalyzer.
+        choices: ['daily', 'weekly', 'monthly']
+      upload_option:
+        aliases: ['upload-option']
+        type: str
+        description: Enable/disable logging to hard disk and then uploading to FortiAnalyzer.
+        choices: ['store-and-upload', 'realtime', '1-minute', '5-minute']
+      upload_time:
+        aliases: ['upload-time']
+        type: str
+        description: Time to upload logs
+      max_log_rate:
+        aliases: ['max-log-rate']
+        type: int
+        description: FortiAnalyzer maximum log rate in MBps
+      priority:
+        type: str
+        description: Set log transmission priority.
+        choices: ['low', 'default']
+      interface:
+        type: str
+        description: Specify outgoing interface to reach server.
+      interface_select_method:
+        aliases: ['interface-select-method']
+        type: str
+        description: Specify how to select outgoing interface to reach server.
+        choices: ['auto', 'sdwan', 'specify']
+      preshared_key:
+        aliases: ['preshared-key']
+        type: str
+        description: Preshared-key used for auto-authorization on FortiAnalyzer.
+      certificate_verification:
+        aliases: ['certificate-verification']
+        type: str
+        description: Enable/disable identity verification of FortiAnalyzer by use of certificate.
+        choices: ['disable', 'enable']
+      serial:
+        type: raw
+        description: (list) Serial numbers of the FortiAnalyzer.
+      vrf_select:
+        aliases: ['vrf-select']
+        type: int
+        description: VRF ID used for connection to server.
 '''
 
 EXAMPLES = '''
@@ -174,42 +174,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

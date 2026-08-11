@@ -15,967 +15,978 @@ module: fmgr_user_radius
 short_description: Configure RADIUS server entries.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
-        type: str
-    adom:
-        description: The parameter (adom) in requested url.
-        type: str
-        required: true
-    user_radius:
-        description: The top level parameters set.
-        required: false
-        type: dict
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  user_radius:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      accounting_server:
+        aliases: ['accounting-server']
+        type: list
+        elements: dict
+        description: Accounting server.
         suboptions:
-            accounting_server:
-                aliases: ['accounting-server']
-                type: list
-                elements: dict
-                description: Accounting server.
-                suboptions:
-                    id:
-                        type: int
-                        description: ID
-                    port:
-                        type: int
-                        description: RADIUS accounting port number.
-                    secret:
-                        type: raw
-                        description: (list) Secret key.
-                    server:
-                        type: str
-                        description: No description
-                    source_ip:
-                        aliases: ['source-ip']
-                        type: str
-                        description: Source IP address for communications to the RADIUS server.
-                    status:
-                        type: str
-                        description: Status.
-                        choices: ['disable', 'enable']
-                    interface:
-                        type: str
-                        description: Specify outgoing interface to reach server.
-                    interface_select_method:
-                        aliases: ['interface-select-method']
-                        type: str
-                        description: Specify how to select outgoing interface to reach server.
-                        choices: ['auto', 'sdwan', 'specify']
-                    vrf_select:
-                        aliases: ['vrf-select']
-                        type: int
-                        description: VRF ID used for connection to server.
-            acct_all_servers:
-                aliases: ['acct-all-servers']
+          id:
+            type: int
+            description: ID
+          port:
+            type: int
+            description: RADIUS accounting port number.
+          secret:
+            type: raw
+            description: (list) Secret key.
+          server:
+            type: str
+            description: No description
+          source_ip:
+            aliases: ['source-ip']
+            type: str
+            description: Source IP address for communications to the RADIUS server.
+          status:
+            type: str
+            description: Status.
+            choices: ['disable', 'enable']
+          interface:
+            type: str
+            description: Specify outgoing interface to reach server.
+          interface_select_method:
+            aliases: ['interface-select-method']
+            type: str
+            description: Specify how to select outgoing interface to reach server.
+            choices: ['auto', 'sdwan', 'specify']
+          vrf_select:
+            aliases: ['vrf-select']
+            type: int
+            description: VRF ID used for connection to server.
+      acct_all_servers:
+        aliases: ['acct-all-servers']
+        type: str
+        description: Enable/disable sending of accounting messages to all configured servers
+        choices: ['disable', 'enable']
+      acct_interim_interval:
+        aliases: ['acct-interim-interval']
+        type: int
+        description: Time in seconds between each accounting interim update message.
+      all_usergroup:
+        aliases: ['all-usergroup']
+        type: str
+        description: Enable/disable automatically including this RADIUS server in all user groups.
+        choices: ['disable', 'enable']
+      auth_type:
+        aliases: ['auth-type']
+        type: str
+        description: Authentication methods/protocols permitted for this RADIUS server.
+        choices: ['pap', 'chap', 'ms_chap', 'ms_chap_v2', 'auto']
+      class:
+        type: raw
+        description: (list) Class attribute name
+      dynamic_mapping:
+        type: list
+        elements: dict
+        description: Dynamic mapping.
+        suboptions:
+          _scope:
+            type: list
+            elements: dict
+            description: Scope.
+            suboptions:
+              name:
                 type: str
-                description: Enable/disable sending of accounting messages to all configured servers
-                choices: ['disable', 'enable']
-            acct_interim_interval:
-                aliases: ['acct-interim-interval']
+                description: Name.
+              vdom:
+                type: str
+                description: Vdom.
+          acct_all_servers:
+            aliases: ['acct-all-servers']
+            type: str
+            description: Acct all servers.
+            choices: ['disable', 'enable']
+          acct_interim_interval:
+            aliases: ['acct-interim-interval']
+            type: int
+            description: Acct interim interval.
+          all_usergroup:
+            aliases: ['all-usergroup']
+            type: str
+            description: All usergroup.
+            choices: ['disable', 'enable']
+          auth_type:
+            aliases: ['auth-type']
+            type: str
+            description: Auth type.
+            choices: ['pap', 'chap', 'ms_chap', 'ms_chap_v2', 'auto']
+          class:
+            type: raw
+            description: (list) Class.
+          dp_carrier_endpoint_attribute:
+            aliases: ['dp-carrier-endpoint-attribute']
+            type: str
+            description: Dp carrier endpoint attribute.
+            choices: ['User-Name', 'User-Password', 'CHAP-Password', 'NAS-IP-Address', 'NAS-Port',
+                      'Service-Type', 'Framed-Protocol', 'Framed-IP-Address', 'Framed-IP-Netmask',
+                      'Framed-Routing', 'Filter-Id', 'Framed-MTU', 'Framed-Compression',
+                      'Login-IP-Host', 'Login-Service', 'Login-TCP-Port', 'Reply-Message',
+                      'Callback-Number', 'Callback-Id', 'Framed-Route', 'Framed-IPX-Network',
+                      'State', 'Class', 'Vendor-Specific', 'Session-Timeout', 'Idle-Timeout',
+                      'Termination-Action', 'Called-Station-Id', 'Calling-Station-Id',
+                      'NAS-Identifier', 'Proxy-State', 'Login-LAT-Service', 'Login-LAT-Node',
+                      'Login-LAT-Group', 'Framed-AppleTalk-Link', 'Framed-AppleTalk-Network',
+                      'Framed-AppleTalk-Zone', 'Acct-Status-Type', 'Acct-Delay-Time',
+                      'Acct-Input-Octets', 'Acct-Output-Octets', 'Acct-Session-Id',
+                      'Acct-Authentic', 'Acct-Session-Time', 'Acct-Input-Packets',
+                      'Acct-Output-Packets', 'Acct-Terminate-Cause', 'Acct-Multi-Session-Id',
+                      'Acct-Link-Count', 'CHAP-Challenge', 'NAS-Port-Type', 'Port-Limit',
+                      'Login-LAT-Port']
+          dp_carrier_endpoint_block_attribute:
+            aliases: ['dp-carrier-endpoint-block-attribute']
+            type: str
+            description: Dp carrier endpoint block attribute.
+            choices: ['User-Name', 'User-Password', 'CHAP-Password', 'NAS-IP-Address', 'NAS-Port',
+                      'Service-Type', 'Framed-Protocol', 'Framed-IP-Address', 'Framed-IP-Netmask',
+                      'Framed-Routing', 'Filter-Id', 'Framed-MTU', 'Framed-Compression',
+                      'Login-IP-Host', 'Login-Service', 'Login-TCP-Port', 'Reply-Message',
+                      'Callback-Number', 'Callback-Id', 'Framed-Route', 'Framed-IPX-Network',
+                      'State', 'Class', 'Vendor-Specific', 'Session-Timeout', 'Idle-Timeout',
+                      'Termination-Action', 'Called-Station-Id', 'Calling-Station-Id',
+                      'NAS-Identifier', 'Proxy-State', 'Login-LAT-Service', 'Login-LAT-Node',
+                      'Login-LAT-Group', 'Framed-AppleTalk-Link', 'Framed-AppleTalk-Network',
+                      'Framed-AppleTalk-Zone', 'Acct-Status-Type', 'Acct-Delay-Time',
+                      'Acct-Input-Octets', 'Acct-Output-Octets', 'Acct-Session-Id',
+                      'Acct-Authentic', 'Acct-Session-Time', 'Acct-Input-Packets',
+                      'Acct-Output-Packets', 'Acct-Terminate-Cause', 'Acct-Multi-Session-Id',
+                      'Acct-Link-Count', 'CHAP-Challenge', 'NAS-Port-Type', 'Port-Limit',
+                      'Login-LAT-Port']
+          dp_context_timeout:
+            aliases: ['dp-context-timeout']
+            type: int
+            description: Dp context timeout.
+          dp_flush_ip_session:
+            aliases: ['dp-flush-ip-session']
+            type: str
+            description: Dp flush ip session.
+            choices: ['disable', 'enable']
+          dp_hold_time:
+            aliases: ['dp-hold-time']
+            type: int
+            description: Dp hold time.
+          dp_http_header:
+            aliases: ['dp-http-header']
+            type: str
+            description: Dp http header.
+          dp_http_header_fallback:
+            aliases: ['dp-http-header-fallback']
+            type: str
+            description: Dp http header fallback.
+            choices: ['ip-header-address', 'default-profile']
+          dp_http_header_status:
+            aliases: ['dp-http-header-status']
+            type: str
+            description: Dp http header status.
+            choices: ['disable', 'enable']
+          dp_http_header_suppress:
+            aliases: ['dp-http-header-suppress']
+            type: str
+            description: Dp http header suppress.
+            choices: ['disable', 'enable']
+          dp_log_dyn_flags:
+            aliases: ['dp-log-dyn_flags']
+            type: list
+            elements: str
+            description: Dp log dyn flags.
+            choices: ['none', 'protocol-error', 'profile-missing', 'context-missing',
+                      'accounting-stop-missed', 'accounting-event', 'radiusd-other',
+                      'endpoint-block']
+          dp_log_period:
+            aliases: ['dp-log-period']
+            type: int
+            description: Dp log period.
+          dp_mem_percent:
+            aliases: ['dp-mem-percent']
+            type: int
+            description: Dp mem percent.
+          dp_profile_attribute:
+            aliases: ['dp-profile-attribute']
+            type: str
+            description: Dp profile attribute.
+            choices: ['User-Name', 'User-Password', 'CHAP-Password', 'NAS-IP-Address', 'NAS-Port',
+                      'Service-Type', 'Framed-Protocol', 'Framed-IP-Address', 'Framed-IP-Netmask',
+                      'Framed-Routing', 'Filter-Id', 'Framed-MTU', 'Framed-Compression',
+                      'Login-IP-Host', 'Login-Service', 'Login-TCP-Port', 'Reply-Message',
+                      'Callback-Number', 'Callback-Id', 'Framed-Route', 'Framed-IPX-Network',
+                      'State', 'Class', 'Vendor-Specific', 'Session-Timeout', 'Idle-Timeout',
+                      'Termination-Action', 'Called-Station-Id', 'Calling-Station-Id',
+                      'NAS-Identifier', 'Proxy-State', 'Login-LAT-Service', 'Login-LAT-Node',
+                      'Login-LAT-Group', 'Framed-AppleTalk-Link', 'Framed-AppleTalk-Network',
+                      'Framed-AppleTalk-Zone', 'Acct-Status-Type', 'Acct-Delay-Time',
+                      'Acct-Input-Octets', 'Acct-Output-Octets', 'Acct-Session-Id',
+                      'Acct-Authentic', 'Acct-Session-Time', 'Acct-Input-Packets',
+                      'Acct-Output-Packets', 'Acct-Terminate-Cause', 'Acct-Multi-Session-Id',
+                      'Acct-Link-Count', 'CHAP-Challenge', 'NAS-Port-Type', 'Port-Limit',
+                      'Login-LAT-Port']
+          dp_profile_attribute_key:
+            aliases: ['dp-profile-attribute-key']
+            type: str
+            description: Dp profile attribute key.
+          dp_radius_response:
+            aliases: ['dp-radius-response']
+            type: str
+            description: Dp radius response.
+            choices: ['disable', 'enable']
+          dp_radius_server_port:
+            aliases: ['dp-radius-server-port']
+            type: int
+            description: Dp radius server port.
+          dp_secret:
+            aliases: ['dp-secret']
+            type: raw
+            description: (list) Dp secret.
+          dp_validate_request_secret:
+            aliases: ['dp-validate-request-secret']
+            type: str
+            description: Dp validate request secret.
+            choices: ['disable', 'enable']
+          dynamic_profile:
+            aliases: ['dynamic-profile']
+            type: str
+            description: Dynamic profile.
+            choices: ['disable', 'enable']
+          endpoint_translation:
+            aliases: ['endpoint-translation']
+            type: str
+            description: Endpoint translation.
+            choices: ['disable', 'enable']
+          ep_carrier_endpoint_convert_hex:
+            aliases: ['ep-carrier-endpoint-convert-hex']
+            type: str
+            description: Ep carrier endpoint convert hex.
+            choices: ['disable', 'enable']
+          ep_carrier_endpoint_header:
+            aliases: ['ep-carrier-endpoint-header']
+            type: str
+            description: Ep carrier endpoint header.
+          ep_carrier_endpoint_header_suppress:
+            aliases: ['ep-carrier-endpoint-header-suppress']
+            type: str
+            description: Ep carrier endpoint header suppress.
+            choices: ['disable', 'enable']
+          ep_carrier_endpoint_prefix:
+            aliases: ['ep-carrier-endpoint-prefix']
+            type: str
+            description: Ep carrier endpoint prefix.
+            choices: ['disable', 'enable']
+          ep_carrier_endpoint_prefix_range_max:
+            aliases: ['ep-carrier-endpoint-prefix-range-max']
+            type: int
+            description: Ep carrier endpoint prefix range max.
+          ep_carrier_endpoint_prefix_range_min:
+            aliases: ['ep-carrier-endpoint-prefix-range-min']
+            type: int
+            description: Ep carrier endpoint prefix range min.
+          ep_carrier_endpoint_prefix_string:
+            aliases: ['ep-carrier-endpoint-prefix-string']
+            type: str
+            description: Ep carrier endpoint prefix string.
+          ep_carrier_endpoint_source:
+            aliases: ['ep-carrier-endpoint-source']
+            type: str
+            description: Ep carrier endpoint source.
+            choices: ['http-header', 'cookie']
+          ep_ip_header:
+            aliases: ['ep-ip-header']
+            type: str
+            description: Ep ip header.
+          ep_ip_header_suppress:
+            aliases: ['ep-ip-header-suppress']
+            type: str
+            description: Ep ip header suppress.
+            choices: ['disable', 'enable']
+          ep_missing_header_fallback:
+            aliases: ['ep-missing-header-fallback']
+            type: str
+            description: Ep missing header fallback.
+            choices: ['session-ip', 'policy-profile']
+          ep_profile_query_type:
+            aliases: ['ep-profile-query-type']
+            type: str
+            description: Ep profile query type.
+            choices: ['session-ip', 'extract-ip', 'extract-carrier-endpoint']
+          h3c_compatibility:
+            aliases: ['h3c-compatibility']
+            type: str
+            description: H3c compatibility.
+            choices: ['disable', 'enable']
+          nas_ip:
+            aliases: ['nas-ip']
+            type: str
+            description: Nas ip.
+          password_encoding:
+            aliases: ['password-encoding']
+            type: str
+            description: Password encoding.
+            choices: ['ISO-8859-1', 'auto']
+          password_renewal:
+            aliases: ['password-renewal']
+            type: str
+            description: Password renewal.
+            choices: ['disable', 'enable']
+          radius_coa:
+            aliases: ['radius-coa']
+            type: str
+            description: Radius coa.
+            choices: ['disable', 'enable']
+          radius_port:
+            aliases: ['radius-port']
+            type: int
+            description: Radius port.
+          rsso:
+            type: str
+            description: Rsso.
+            choices: ['disable', 'enable']
+          rsso_context_timeout:
+            aliases: ['rsso-context-timeout']
+            type: int
+            description: Rsso context timeout.
+          rsso_endpoint_attribute:
+            aliases: ['rsso-endpoint-attribute']
+            type: str
+            description: Rsso endpoint attribute.
+            choices: ['User-Name', 'User-Password', 'CHAP-Password', 'NAS-IP-Address', 'NAS-Port',
+                      'Service-Type', 'Framed-Protocol', 'Framed-IP-Address', 'Framed-IP-Netmask',
+                      'Framed-Routing', 'Filter-Id', 'Framed-MTU', 'Framed-Compression',
+                      'Login-IP-Host', 'Login-Service', 'Login-TCP-Port', 'Reply-Message',
+                      'Callback-Number', 'Callback-Id', 'Framed-Route', 'Framed-IPX-Network',
+                      'State', 'Class', 'Session-Timeout', 'Idle-Timeout', 'Termination-Action',
+                      'Called-Station-Id', 'Calling-Station-Id', 'NAS-Identifier', 'Proxy-State',
+                      'Login-LAT-Service', 'Login-LAT-Node', 'Login-LAT-Group',
+                      'Framed-AppleTalk-Link', 'Framed-AppleTalk-Network',
+                      'Framed-AppleTalk-Zone', 'Acct-Status-Type', 'Acct-Delay-Time',
+                      'Acct-Input-Octets', 'Acct-Output-Octets', 'Acct-Session-Id',
+                      'Acct-Authentic', 'Acct-Session-Time', 'Acct-Input-Packets',
+                      'Acct-Output-Packets', 'Acct-Terminate-Cause', 'Acct-Multi-Session-Id',
+                      'Acct-Link-Count', 'CHAP-Challenge', 'NAS-Port-Type', 'Port-Limit',
+                      'Login-LAT-Port']
+          rsso_endpoint_block_attribute:
+            aliases: ['rsso-endpoint-block-attribute']
+            type: str
+            description: Rsso endpoint block attribute.
+            choices: ['User-Name', 'User-Password', 'CHAP-Password', 'NAS-IP-Address', 'NAS-Port',
+                      'Service-Type', 'Framed-Protocol', 'Framed-IP-Address', 'Framed-IP-Netmask',
+                      'Framed-Routing', 'Filter-Id', 'Framed-MTU', 'Framed-Compression',
+                      'Login-IP-Host', 'Login-Service', 'Login-TCP-Port', 'Reply-Message',
+                      'Callback-Number', 'Callback-Id', 'Framed-Route', 'Framed-IPX-Network',
+                      'State', 'Class', 'Session-Timeout', 'Idle-Timeout', 'Termination-Action',
+                      'Called-Station-Id', 'Calling-Station-Id', 'NAS-Identifier', 'Proxy-State',
+                      'Login-LAT-Service', 'Login-LAT-Node', 'Login-LAT-Group',
+                      'Framed-AppleTalk-Link', 'Framed-AppleTalk-Network',
+                      'Framed-AppleTalk-Zone', 'Acct-Status-Type', 'Acct-Delay-Time',
+                      'Acct-Input-Octets', 'Acct-Output-Octets', 'Acct-Session-Id',
+                      'Acct-Authentic', 'Acct-Session-Time', 'Acct-Input-Packets',
+                      'Acct-Output-Packets', 'Acct-Terminate-Cause', 'Acct-Multi-Session-Id',
+                      'Acct-Link-Count', 'CHAP-Challenge', 'NAS-Port-Type', 'Port-Limit',
+                      'Login-LAT-Port']
+          rsso_ep_one_ip_only:
+            aliases: ['rsso-ep-one-ip-only']
+            type: str
+            description: Rsso ep one ip only.
+            choices: ['disable', 'enable']
+          rsso_flush_ip_session:
+            aliases: ['rsso-flush-ip-session']
+            type: str
+            description: Rsso flush ip session.
+            choices: ['disable', 'enable']
+          rsso_log_flags:
+            aliases: ['rsso-log-flags']
+            type: list
+            elements: str
+            description: Rsso log flags.
+            choices: ['none', 'protocol-error', 'profile-missing', 'context-missing',
+                      'accounting-stop-missed', 'accounting-event', 'radiusd-other',
+                      'endpoint-block']
+          rsso_log_period:
+            aliases: ['rsso-log-period']
+            type: int
+            description: Rsso log period.
+          rsso_radius_response:
+            aliases: ['rsso-radius-response']
+            type: str
+            description: Rsso radius response.
+            choices: ['disable', 'enable']
+          rsso_radius_server_port:
+            aliases: ['rsso-radius-server-port']
+            type: int
+            description: Rsso radius server port.
+          rsso_secret:
+            aliases: ['rsso-secret']
+            type: raw
+            description: (list) Rsso secret.
+          rsso_validate_request_secret:
+            aliases: ['rsso-validate-request-secret']
+            type: str
+            description: Rsso validate request secret.
+            choices: ['disable', 'enable']
+          secondary_secret:
+            aliases: ['secondary-secret']
+            type: raw
+            description: (list) Secondary secret.
+          secondary_server:
+            aliases: ['secondary-server']
+            type: str
+            description: Secondary server.
+          secret:
+            type: raw
+            description: (list) Secret.
+          server:
+            type: str
+            description: Server.
+          source_ip:
+            aliases: ['source-ip']
+            type: str
+            description: Source ip.
+          sso_attribute:
+            aliases: ['sso-attribute']
+            type: str
+            description: Sso attribute.
+            choices: ['User-Name', 'User-Password', 'CHAP-Password', 'NAS-IP-Address', 'NAS-Port',
+                      'Service-Type', 'Framed-Protocol', 'Framed-IP-Address', 'Framed-IP-Netmask',
+                      'Framed-Routing', 'Filter-Id', 'Framed-MTU', 'Framed-Compression',
+                      'Login-IP-Host', 'Login-Service', 'Login-TCP-Port', 'Reply-Message',
+                      'Callback-Number', 'Callback-Id', 'Framed-Route', 'Framed-IPX-Network',
+                      'State', 'Class', 'Session-Timeout', 'Idle-Timeout', 'Termination-Action',
+                      'Called-Station-Id', 'Calling-Station-Id', 'NAS-Identifier', 'Proxy-State',
+                      'Login-LAT-Service', 'Login-LAT-Node', 'Login-LAT-Group',
+                      'Framed-AppleTalk-Link', 'Framed-AppleTalk-Network',
+                      'Framed-AppleTalk-Zone', 'Acct-Status-Type', 'Acct-Delay-Time',
+                      'Acct-Input-Octets', 'Acct-Output-Octets', 'Acct-Session-Id',
+                      'Acct-Authentic', 'Acct-Session-Time', 'Acct-Input-Packets',
+                      'Acct-Output-Packets', 'Acct-Terminate-Cause', 'Acct-Multi-Session-Id',
+                      'Acct-Link-Count', 'CHAP-Challenge', 'NAS-Port-Type', 'Port-Limit',
+                      'Login-LAT-Port']
+          sso_attribute_key:
+            aliases: ['sso-attribute-key']
+            type: str
+            description: Sso attribute key.
+          sso_attribute_value_override:
+            aliases: ['sso-attribute-value-override']
+            type: str
+            description: Sso attribute value override.
+            choices: ['disable', 'enable']
+          tertiary_secret:
+            aliases: ['tertiary-secret']
+            type: raw
+            description: (list) Tertiary secret.
+          tertiary_server:
+            aliases: ['tertiary-server']
+            type: str
+            description: Tertiary server.
+          timeout:
+            type: int
+            description: Timeout.
+          use_group_for_profile:
+            aliases: ['use-group-for-profile']
+            type: str
+            description: Use group for profile.
+            choices: ['disable', 'enable']
+          use_management_vdom:
+            aliases: ['use-management-vdom']
+            type: str
+            description: Use management vdom.
+            choices: ['disable', 'enable']
+          username_case_sensitive:
+            aliases: ['username-case-sensitive']
+            type: str
+            description: Username case sensitive.
+            choices: ['disable', 'enable']
+          interface:
+            type: str
+            description: Interface.
+          interface_select_method:
+            aliases: ['interface-select-method']
+            type: str
+            description: Interface select method.
+            choices: ['auto', 'sdwan', 'specify']
+          group_override_attr_type:
+            aliases: ['group-override-attr-type']
+            type: str
+            description: Group override attr type.
+            choices: ['filter-Id', 'class']
+          switch_controller_acct_fast_framedip_detect:
+            aliases: ['switch-controller-acct-fast-framedip-detect']
+            type: int
+            description: Switch controller acct fast framedip detect.
+          accounting_server:
+            aliases: ['accounting-server']
+            type: list
+            elements: dict
+            description: Accounting server.
+            suboptions:
+              id:
                 type: int
-                description: Time in seconds between each accounting interim update message.
-            all_usergroup:
-                aliases: ['all-usergroup']
+                description: Id.
+              interface:
                 type: str
-                description: Enable/disable automatically including this RADIUS server in all user groups.
-                choices: ['disable', 'enable']
-            auth_type:
-                aliases: ['auth-type']
-                type: str
-                description: Authentication methods/protocols permitted for this RADIUS server.
-                choices: ['pap', 'chap', 'ms_chap', 'ms_chap_v2', 'auto']
-            class:
-                type: raw
-                description: (list) Class attribute name
-            dynamic_mapping:
-                type: list
-                elements: dict
-                description: Dynamic mapping.
-                suboptions:
-                    _scope:
-                        type: list
-                        elements: dict
-                        description: Scope.
-                        suboptions:
-                            name:
-                                type: str
-                                description: Name.
-                            vdom:
-                                type: str
-                                description: Vdom.
-                    acct_all_servers:
-                        aliases: ['acct-all-servers']
-                        type: str
-                        description: Acct all servers.
-                        choices: ['disable', 'enable']
-                    acct_interim_interval:
-                        aliases: ['acct-interim-interval']
-                        type: int
-                        description: Acct interim interval.
-                    all_usergroup:
-                        aliases: ['all-usergroup']
-                        type: str
-                        description: All usergroup.
-                        choices: ['disable', 'enable']
-                    auth_type:
-                        aliases: ['auth-type']
-                        type: str
-                        description: Auth type.
-                        choices: ['pap', 'chap', 'ms_chap', 'ms_chap_v2', 'auto']
-                    class:
-                        type: raw
-                        description: (list) Class.
-                    dp_carrier_endpoint_attribute:
-                        aliases: ['dp-carrier-endpoint-attribute']
-                        type: str
-                        description: Dp carrier endpoint attribute.
-                        choices: ['User-Name', 'User-Password', 'CHAP-Password', 'NAS-IP-Address',
-                                  'NAS-Port', 'Service-Type', 'Framed-Protocol',
-                                  'Framed-IP-Address', 'Framed-IP-Netmask', 'Framed-Routing',
-                                  'Filter-Id', 'Framed-MTU', 'Framed-Compression',
-                                  'Login-IP-Host', 'Login-Service', 'Login-TCP-Port',
-                                  'Reply-Message', 'Callback-Number', 'Callback-Id',
-                                  'Framed-Route', 'Framed-IPX-Network', 'State', 'Class',
-                                  'Vendor-Specific', 'Session-Timeout', 'Idle-Timeout',
-                                  'Termination-Action', 'Called-Station-Id', 'Calling-Station-Id',
-                                  'NAS-Identifier', 'Proxy-State', 'Login-LAT-Service',
-                                  'Login-LAT-Node', 'Login-LAT-Group', 'Framed-AppleTalk-Link',
-                                  'Framed-AppleTalk-Network', 'Framed-AppleTalk-Zone',
-                                  'Acct-Status-Type', 'Acct-Delay-Time', 'Acct-Input-Octets',
-                                  'Acct-Output-Octets', 'Acct-Session-Id', 'Acct-Authentic',
-                                  'Acct-Session-Time', 'Acct-Input-Packets',
-                                  'Acct-Output-Packets', 'Acct-Terminate-Cause',
-                                  'Acct-Multi-Session-Id', 'Acct-Link-Count', 'CHAP-Challenge',
-                                  'NAS-Port-Type', 'Port-Limit', 'Login-LAT-Port']
-                    dp_carrier_endpoint_block_attribute:
-                        aliases: ['dp-carrier-endpoint-block-attribute']
-                        type: str
-                        description: Dp carrier endpoint block attribute.
-                        choices: ['User-Name', 'User-Password', 'CHAP-Password', 'NAS-IP-Address',
-                                  'NAS-Port', 'Service-Type', 'Framed-Protocol',
-                                  'Framed-IP-Address', 'Framed-IP-Netmask', 'Framed-Routing',
-                                  'Filter-Id', 'Framed-MTU', 'Framed-Compression',
-                                  'Login-IP-Host', 'Login-Service', 'Login-TCP-Port',
-                                  'Reply-Message', 'Callback-Number', 'Callback-Id',
-                                  'Framed-Route', 'Framed-IPX-Network', 'State', 'Class',
-                                  'Vendor-Specific', 'Session-Timeout', 'Idle-Timeout',
-                                  'Termination-Action', 'Called-Station-Id', 'Calling-Station-Id',
-                                  'NAS-Identifier', 'Proxy-State', 'Login-LAT-Service',
-                                  'Login-LAT-Node', 'Login-LAT-Group', 'Framed-AppleTalk-Link',
-                                  'Framed-AppleTalk-Network', 'Framed-AppleTalk-Zone',
-                                  'Acct-Status-Type', 'Acct-Delay-Time', 'Acct-Input-Octets',
-                                  'Acct-Output-Octets', 'Acct-Session-Id', 'Acct-Authentic',
-                                  'Acct-Session-Time', 'Acct-Input-Packets',
-                                  'Acct-Output-Packets', 'Acct-Terminate-Cause',
-                                  'Acct-Multi-Session-Id', 'Acct-Link-Count', 'CHAP-Challenge',
-                                  'NAS-Port-Type', 'Port-Limit', 'Login-LAT-Port']
-                    dp_context_timeout:
-                        aliases: ['dp-context-timeout']
-                        type: int
-                        description: Dp context timeout.
-                    dp_flush_ip_session:
-                        aliases: ['dp-flush-ip-session']
-                        type: str
-                        description: Dp flush ip session.
-                        choices: ['disable', 'enable']
-                    dp_hold_time:
-                        aliases: ['dp-hold-time']
-                        type: int
-                        description: Dp hold time.
-                    dp_http_header:
-                        aliases: ['dp-http-header']
-                        type: str
-                        description: Dp http header.
-                    dp_http_header_fallback:
-                        aliases: ['dp-http-header-fallback']
-                        type: str
-                        description: Dp http header fallback.
-                        choices: ['ip-header-address', 'default-profile']
-                    dp_http_header_status:
-                        aliases: ['dp-http-header-status']
-                        type: str
-                        description: Dp http header status.
-                        choices: ['disable', 'enable']
-                    dp_http_header_suppress:
-                        aliases: ['dp-http-header-suppress']
-                        type: str
-                        description: Dp http header suppress.
-                        choices: ['disable', 'enable']
-                    dp_log_dyn_flags:
-                        aliases: ['dp-log-dyn_flags']
-                        type: list
-                        elements: str
-                        description: Dp log dyn flags.
-                        choices: ['none', 'protocol-error', 'profile-missing', 'context-missing',
-                                  'accounting-stop-missed', 'accounting-event', 'radiusd-other',
-                                  'endpoint-block']
-                    dp_log_period:
-                        aliases: ['dp-log-period']
-                        type: int
-                        description: Dp log period.
-                    dp_mem_percent:
-                        aliases: ['dp-mem-percent']
-                        type: int
-                        description: Dp mem percent.
-                    dp_profile_attribute:
-                        aliases: ['dp-profile-attribute']
-                        type: str
-                        description: Dp profile attribute.
-                        choices: ['User-Name', 'User-Password', 'CHAP-Password', 'NAS-IP-Address',
-                                  'NAS-Port', 'Service-Type', 'Framed-Protocol',
-                                  'Framed-IP-Address', 'Framed-IP-Netmask', 'Framed-Routing',
-                                  'Filter-Id', 'Framed-MTU', 'Framed-Compression',
-                                  'Login-IP-Host', 'Login-Service', 'Login-TCP-Port',
-                                  'Reply-Message', 'Callback-Number', 'Callback-Id',
-                                  'Framed-Route', 'Framed-IPX-Network', 'State', 'Class',
-                                  'Vendor-Specific', 'Session-Timeout', 'Idle-Timeout',
-                                  'Termination-Action', 'Called-Station-Id', 'Calling-Station-Id',
-                                  'NAS-Identifier', 'Proxy-State', 'Login-LAT-Service',
-                                  'Login-LAT-Node', 'Login-LAT-Group', 'Framed-AppleTalk-Link',
-                                  'Framed-AppleTalk-Network', 'Framed-AppleTalk-Zone',
-                                  'Acct-Status-Type', 'Acct-Delay-Time', 'Acct-Input-Octets',
-                                  'Acct-Output-Octets', 'Acct-Session-Id', 'Acct-Authentic',
-                                  'Acct-Session-Time', 'Acct-Input-Packets',
-                                  'Acct-Output-Packets', 'Acct-Terminate-Cause',
-                                  'Acct-Multi-Session-Id', 'Acct-Link-Count', 'CHAP-Challenge',
-                                  'NAS-Port-Type', 'Port-Limit', 'Login-LAT-Port']
-                    dp_profile_attribute_key:
-                        aliases: ['dp-profile-attribute-key']
-                        type: str
-                        description: Dp profile attribute key.
-                    dp_radius_response:
-                        aliases: ['dp-radius-response']
-                        type: str
-                        description: Dp radius response.
-                        choices: ['disable', 'enable']
-                    dp_radius_server_port:
-                        aliases: ['dp-radius-server-port']
-                        type: int
-                        description: Dp radius server port.
-                    dp_secret:
-                        aliases: ['dp-secret']
-                        type: raw
-                        description: (list) Dp secret.
-                    dp_validate_request_secret:
-                        aliases: ['dp-validate-request-secret']
-                        type: str
-                        description: Dp validate request secret.
-                        choices: ['disable', 'enable']
-                    dynamic_profile:
-                        aliases: ['dynamic-profile']
-                        type: str
-                        description: Dynamic profile.
-                        choices: ['disable', 'enable']
-                    endpoint_translation:
-                        aliases: ['endpoint-translation']
-                        type: str
-                        description: Endpoint translation.
-                        choices: ['disable', 'enable']
-                    ep_carrier_endpoint_convert_hex:
-                        aliases: ['ep-carrier-endpoint-convert-hex']
-                        type: str
-                        description: Ep carrier endpoint convert hex.
-                        choices: ['disable', 'enable']
-                    ep_carrier_endpoint_header:
-                        aliases: ['ep-carrier-endpoint-header']
-                        type: str
-                        description: Ep carrier endpoint header.
-                    ep_carrier_endpoint_header_suppress:
-                        aliases: ['ep-carrier-endpoint-header-suppress']
-                        type: str
-                        description: Ep carrier endpoint header suppress.
-                        choices: ['disable', 'enable']
-                    ep_carrier_endpoint_prefix:
-                        aliases: ['ep-carrier-endpoint-prefix']
-                        type: str
-                        description: Ep carrier endpoint prefix.
-                        choices: ['disable', 'enable']
-                    ep_carrier_endpoint_prefix_range_max:
-                        aliases: ['ep-carrier-endpoint-prefix-range-max']
-                        type: int
-                        description: Ep carrier endpoint prefix range max.
-                    ep_carrier_endpoint_prefix_range_min:
-                        aliases: ['ep-carrier-endpoint-prefix-range-min']
-                        type: int
-                        description: Ep carrier endpoint prefix range min.
-                    ep_carrier_endpoint_prefix_string:
-                        aliases: ['ep-carrier-endpoint-prefix-string']
-                        type: str
-                        description: Ep carrier endpoint prefix string.
-                    ep_carrier_endpoint_source:
-                        aliases: ['ep-carrier-endpoint-source']
-                        type: str
-                        description: Ep carrier endpoint source.
-                        choices: ['http-header', 'cookie']
-                    ep_ip_header:
-                        aliases: ['ep-ip-header']
-                        type: str
-                        description: Ep ip header.
-                    ep_ip_header_suppress:
-                        aliases: ['ep-ip-header-suppress']
-                        type: str
-                        description: Ep ip header suppress.
-                        choices: ['disable', 'enable']
-                    ep_missing_header_fallback:
-                        aliases: ['ep-missing-header-fallback']
-                        type: str
-                        description: Ep missing header fallback.
-                        choices: ['session-ip', 'policy-profile']
-                    ep_profile_query_type:
-                        aliases: ['ep-profile-query-type']
-                        type: str
-                        description: Ep profile query type.
-                        choices: ['session-ip', 'extract-ip', 'extract-carrier-endpoint']
-                    h3c_compatibility:
-                        aliases: ['h3c-compatibility']
-                        type: str
-                        description: H3c compatibility.
-                        choices: ['disable', 'enable']
-                    nas_ip:
-                        aliases: ['nas-ip']
-                        type: str
-                        description: Nas ip.
-                    password_encoding:
-                        aliases: ['password-encoding']
-                        type: str
-                        description: Password encoding.
-                        choices: ['ISO-8859-1', 'auto']
-                    password_renewal:
-                        aliases: ['password-renewal']
-                        type: str
-                        description: Password renewal.
-                        choices: ['disable', 'enable']
-                    radius_coa:
-                        aliases: ['radius-coa']
-                        type: str
-                        description: Radius coa.
-                        choices: ['disable', 'enable']
-                    radius_port:
-                        aliases: ['radius-port']
-                        type: int
-                        description: Radius port.
-                    rsso:
-                        type: str
-                        description: Rsso.
-                        choices: ['disable', 'enable']
-                    rsso_context_timeout:
-                        aliases: ['rsso-context-timeout']
-                        type: int
-                        description: Rsso context timeout.
-                    rsso_endpoint_attribute:
-                        aliases: ['rsso-endpoint-attribute']
-                        type: str
-                        description: Rsso endpoint attribute.
-                        choices: ['User-Name', 'User-Password', 'CHAP-Password', 'NAS-IP-Address',
-                                  'NAS-Port', 'Service-Type', 'Framed-Protocol',
-                                  'Framed-IP-Address', 'Framed-IP-Netmask', 'Framed-Routing',
-                                  'Filter-Id', 'Framed-MTU', 'Framed-Compression',
-                                  'Login-IP-Host', 'Login-Service', 'Login-TCP-Port',
-                                  'Reply-Message', 'Callback-Number', 'Callback-Id',
-                                  'Framed-Route', 'Framed-IPX-Network', 'State', 'Class',
-                                  'Session-Timeout', 'Idle-Timeout', 'Termination-Action',
-                                  'Called-Station-Id', 'Calling-Station-Id', 'NAS-Identifier',
-                                  'Proxy-State', 'Login-LAT-Service', 'Login-LAT-Node',
-                                  'Login-LAT-Group', 'Framed-AppleTalk-Link',
-                                  'Framed-AppleTalk-Network', 'Framed-AppleTalk-Zone',
-                                  'Acct-Status-Type', 'Acct-Delay-Time', 'Acct-Input-Octets',
-                                  'Acct-Output-Octets', 'Acct-Session-Id', 'Acct-Authentic',
-                                  'Acct-Session-Time', 'Acct-Input-Packets',
-                                  'Acct-Output-Packets', 'Acct-Terminate-Cause',
-                                  'Acct-Multi-Session-Id', 'Acct-Link-Count', 'CHAP-Challenge',
-                                  'NAS-Port-Type', 'Port-Limit', 'Login-LAT-Port']
-                    rsso_endpoint_block_attribute:
-                        aliases: ['rsso-endpoint-block-attribute']
-                        type: str
-                        description: Rsso endpoint block attribute.
-                        choices: ['User-Name', 'User-Password', 'CHAP-Password', 'NAS-IP-Address',
-                                  'NAS-Port', 'Service-Type', 'Framed-Protocol',
-                                  'Framed-IP-Address', 'Framed-IP-Netmask', 'Framed-Routing',
-                                  'Filter-Id', 'Framed-MTU', 'Framed-Compression',
-                                  'Login-IP-Host', 'Login-Service', 'Login-TCP-Port',
-                                  'Reply-Message', 'Callback-Number', 'Callback-Id',
-                                  'Framed-Route', 'Framed-IPX-Network', 'State', 'Class',
-                                  'Session-Timeout', 'Idle-Timeout', 'Termination-Action',
-                                  'Called-Station-Id', 'Calling-Station-Id', 'NAS-Identifier',
-                                  'Proxy-State', 'Login-LAT-Service', 'Login-LAT-Node',
-                                  'Login-LAT-Group', 'Framed-AppleTalk-Link',
-                                  'Framed-AppleTalk-Network', 'Framed-AppleTalk-Zone',
-                                  'Acct-Status-Type', 'Acct-Delay-Time', 'Acct-Input-Octets',
-                                  'Acct-Output-Octets', 'Acct-Session-Id', 'Acct-Authentic',
-                                  'Acct-Session-Time', 'Acct-Input-Packets',
-                                  'Acct-Output-Packets', 'Acct-Terminate-Cause',
-                                  'Acct-Multi-Session-Id', 'Acct-Link-Count', 'CHAP-Challenge',
-                                  'NAS-Port-Type', 'Port-Limit', 'Login-LAT-Port']
-                    rsso_ep_one_ip_only:
-                        aliases: ['rsso-ep-one-ip-only']
-                        type: str
-                        description: Rsso ep one ip only.
-                        choices: ['disable', 'enable']
-                    rsso_flush_ip_session:
-                        aliases: ['rsso-flush-ip-session']
-                        type: str
-                        description: Rsso flush ip session.
-                        choices: ['disable', 'enable']
-                    rsso_log_flags:
-                        aliases: ['rsso-log-flags']
-                        type: list
-                        elements: str
-                        description: Rsso log flags.
-                        choices: ['none', 'protocol-error', 'profile-missing', 'context-missing',
-                                  'accounting-stop-missed', 'accounting-event', 'radiusd-other',
-                                  'endpoint-block']
-                    rsso_log_period:
-                        aliases: ['rsso-log-period']
-                        type: int
-                        description: Rsso log period.
-                    rsso_radius_response:
-                        aliases: ['rsso-radius-response']
-                        type: str
-                        description: Rsso radius response.
-                        choices: ['disable', 'enable']
-                    rsso_radius_server_port:
-                        aliases: ['rsso-radius-server-port']
-                        type: int
-                        description: Rsso radius server port.
-                    rsso_secret:
-                        aliases: ['rsso-secret']
-                        type: raw
-                        description: (list) Rsso secret.
-                    rsso_validate_request_secret:
-                        aliases: ['rsso-validate-request-secret']
-                        type: str
-                        description: Rsso validate request secret.
-                        choices: ['disable', 'enable']
-                    secondary_secret:
-                        aliases: ['secondary-secret']
-                        type: raw
-                        description: (list) Secondary secret.
-                    secondary_server:
-                        aliases: ['secondary-server']
-                        type: str
-                        description: Secondary server.
-                    secret:
-                        type: raw
-                        description: (list) Secret.
-                    server:
-                        type: str
-                        description: Server.
-                    source_ip:
-                        aliases: ['source-ip']
-                        type: str
-                        description: Source ip.
-                    sso_attribute:
-                        aliases: ['sso-attribute']
-                        type: str
-                        description: Sso attribute.
-                        choices: ['User-Name', 'User-Password', 'CHAP-Password', 'NAS-IP-Address',
-                                  'NAS-Port', 'Service-Type', 'Framed-Protocol',
-                                  'Framed-IP-Address', 'Framed-IP-Netmask', 'Framed-Routing',
-                                  'Filter-Id', 'Framed-MTU', 'Framed-Compression',
-                                  'Login-IP-Host', 'Login-Service', 'Login-TCP-Port',
-                                  'Reply-Message', 'Callback-Number', 'Callback-Id',
-                                  'Framed-Route', 'Framed-IPX-Network', 'State', 'Class',
-                                  'Session-Timeout', 'Idle-Timeout', 'Termination-Action',
-                                  'Called-Station-Id', 'Calling-Station-Id', 'NAS-Identifier',
-                                  'Proxy-State', 'Login-LAT-Service', 'Login-LAT-Node',
-                                  'Login-LAT-Group', 'Framed-AppleTalk-Link',
-                                  'Framed-AppleTalk-Network', 'Framed-AppleTalk-Zone',
-                                  'Acct-Status-Type', 'Acct-Delay-Time', 'Acct-Input-Octets',
-                                  'Acct-Output-Octets', 'Acct-Session-Id', 'Acct-Authentic',
-                                  'Acct-Session-Time', 'Acct-Input-Packets',
-                                  'Acct-Output-Packets', 'Acct-Terminate-Cause',
-                                  'Acct-Multi-Session-Id', 'Acct-Link-Count', 'CHAP-Challenge',
-                                  'NAS-Port-Type', 'Port-Limit', 'Login-LAT-Port']
-                    sso_attribute_key:
-                        aliases: ['sso-attribute-key']
-                        type: str
-                        description: Sso attribute key.
-                    sso_attribute_value_override:
-                        aliases: ['sso-attribute-value-override']
-                        type: str
-                        description: Sso attribute value override.
-                        choices: ['disable', 'enable']
-                    tertiary_secret:
-                        aliases: ['tertiary-secret']
-                        type: raw
-                        description: (list) Tertiary secret.
-                    tertiary_server:
-                        aliases: ['tertiary-server']
-                        type: str
-                        description: Tertiary server.
-                    timeout:
-                        type: int
-                        description: Timeout.
-                    use_group_for_profile:
-                        aliases: ['use-group-for-profile']
-                        type: str
-                        description: Use group for profile.
-                        choices: ['disable', 'enable']
-                    use_management_vdom:
-                        aliases: ['use-management-vdom']
-                        type: str
-                        description: Use management vdom.
-                        choices: ['disable', 'enable']
-                    username_case_sensitive:
-                        aliases: ['username-case-sensitive']
-                        type: str
-                        description: Username case sensitive.
-                        choices: ['disable', 'enable']
-                    interface:
-                        type: str
-                        description: Interface.
-                    interface_select_method:
-                        aliases: ['interface-select-method']
-                        type: str
-                        description: Interface select method.
-                        choices: ['auto', 'sdwan', 'specify']
-                    group_override_attr_type:
-                        aliases: ['group-override-attr-type']
-                        type: str
-                        description: Group override attr type.
-                        choices: ['filter-Id', 'class']
-                    switch_controller_acct_fast_framedip_detect:
-                        aliases: ['switch-controller-acct-fast-framedip-detect']
-                        type: int
-                        description: Switch controller acct fast framedip detect.
-                    accounting_server:
-                        aliases: ['accounting-server']
-                        type: list
-                        elements: dict
-                        description: Accounting server.
-                        suboptions:
-                            id:
-                                type: int
-                                description: Id.
-                            interface:
-                                type: str
-                                description: Interface.
-                            interface_select_method:
-                                aliases: ['interface-select-method']
-                                type: str
-                                description: Interface select method.
-                                choices: ['auto', 'sdwan', 'specify']
-                            port:
-                                type: int
-                                description: Port.
-                            secret:
-                                type: raw
-                                description: (list) Secret.
-                            server:
-                                type: str
-                                description: Server.
-                            source_ip:
-                                aliases: ['source-ip']
-                                type: str
-                                description: Source ip.
-                            status:
-                                type: str
-                                description: Status.
-                                choices: ['disable', 'enable']
-                            vrf_select:
-                                aliases: ['vrf-select']
-                                type: int
-                                description: VRF ID used for connection to server.
-                    switch_controller_service_type:
-                        aliases: ['switch-controller-service-type']
-                        type: list
-                        elements: str
-                        description: Switch controller service type.
-                        choices: ['login', 'framed', 'callback-login', 'callback-framed',
-                                  'outbound', 'administrative', 'nas-prompt', 'authenticate-only',
-                                  'callback-nas-prompt', 'call-check', 'callback-administrative']
-                    delimiter:
-                        type: str
-                        description: Configure delimiter to be used for separating profile group names in the SSO attribute
-                        choices: ['plus', 'comma']
-                    mac_case:
-                        aliases: ['mac-case']
-                        type: str
-                        description: MAC authentication case
-                        choices: ['uppercase', 'lowercase']
-                    mac_password_delimiter:
-                        aliases: ['mac-password-delimiter']
-                        type: str
-                        description: MAC authentication password delimiter
-                        choices: ['hyphen', 'single-hyphen', 'colon', 'none']
-                    mac_username_delimiter:
-                        aliases: ['mac-username-delimiter']
-                        type: str
-                        description: MAC authentication username delimiter
-                        choices: ['hyphen', 'single-hyphen', 'colon', 'none']
-                    nas_id:
-                        aliases: ['nas-id']
-                        type: str
-                        description: Custom NAS identifier.
-                    nas_id_type:
-                        aliases: ['nas-id-type']
-                        type: str
-                        description: NAS identifier type configuration
-                        choices: ['legacy', 'custom', 'hostname']
-                    ca_cert:
-                        aliases: ['ca-cert']
-                        type: str
-                        description: CA of server to trust under TLS.
-                    client_cert:
-                        aliases: ['client-cert']
-                        type: str
-                        description: Client certificate to use under TLS.
-                    server_identity_check:
-                        aliases: ['server-identity-check']
-                        type: str
-                        description: Enable/disable RADIUS server identity check
-                        choices: ['disable', 'enable']
-                    status_ttl:
-                        aliases: ['status-ttl']
-                        type: int
-                        description: Time for which server reachability is cached so that when a server is unreachable, it will not be retried for at l...
-                    tls_min_proto_version:
-                        aliases: ['tls-min-proto-version']
-                        type: str
-                        description: Minimum supported protocol version for TLS connections
-                        choices: ['default', 'TLSv1', 'TLSv1-1', 'TLSv1-2', 'SSLv3', 'TLSv1-3']
-                    transport_protocol:
-                        aliases: ['transport-protocol']
-                        type: str
-                        description: Transport protocol to be used
-                        choices: ['udp', 'tcp', 'tls']
-                    account_key_cert_field:
-                        aliases: ['account-key-cert-field']
-                        type: str
-                        description: Define subject identity field in certificate for user access right checking.
-                        choices: ['othername', 'rfc822name', 'dnsname', 'cn']
-                    account_key_processing:
-                        aliases: ['account-key-processing']
-                        type: str
-                        description: Account key processing operation.
-                        choices: ['same', 'strip']
-                    call_station_id_type:
-                        aliases: ['call-station-id-type']
-                        type: str
-                        description: Calling & Called station identifier type configuration
-                        choices: ['legacy', 'IP', 'MAC']
-                    switch_controller_nas_ip_dynamic:
-                        aliases: ['switch-controller-nas-ip-dynamic']
-                        type: str
-                        description: Enable/Disable switch-controller nas-ip dynamic to dynamically set nas-ip.
-                        choices: ['disable', 'enable']
-                    source_ip_interface:
-                        aliases: ['source-ip-interface']
-                        type: raw
-                        description: (list) Source interface for communication with the RADIUS server.
-                    require_message_authenticator:
-                        aliases: ['require-message-authenticator']
-                        type: str
-                        description: Require message authenticator in authentication response.
-                        choices: ['disable', 'enable']
-                    vrf_select:
-                        aliases: ['vrf-select']
-                        type: int
-                        description: VRF ID used for connection to server.
-            h3c_compatibility:
-                aliases: ['h3c-compatibility']
-                type: str
-                description: Enable/disable compatibility with the H3C, a mechanism that performs security checking for authentication.
-                choices: ['disable', 'enable']
-            name:
-                type: str
-                description: RADIUS server entry name.
-                required: true
-            nas_ip:
-                aliases: ['nas-ip']
-                type: str
-                description: IP address used to communicate with the RADIUS server and used as NAS-IP-Address and Called-Station-ID attributes.
-            password_encoding:
-                aliases: ['password-encoding']
-                type: str
-                description: Password encoding.
-                choices: ['ISO-8859-1', 'auto']
-            password_renewal:
-                aliases: ['password-renewal']
-                type: str
-                description: Enable/disable password renewal.
-                choices: ['disable', 'enable']
-            radius_coa:
-                aliases: ['radius-coa']
-                type: str
-                description: Enable to allow a mechanism to change the attributes of an authentication, authorization, and accounting session after it ...
-                choices: ['disable', 'enable']
-            radius_port:
-                aliases: ['radius-port']
-                type: int
-                description: RADIUS service port number.
-            rsso:
-                type: str
-                description: Enable/disable RADIUS based single sign on feature.
-                choices: ['disable', 'enable']
-            rsso_context_timeout:
-                aliases: ['rsso-context-timeout']
-                type: int
-                description: Time in seconds before the logged out user is removed from the user context list of logged on users.
-            rsso_endpoint_attribute:
-                aliases: ['rsso-endpoint-attribute']
-                type: str
-                description: RADIUS attributes used to extract the user end point identifer from the RADIUS Start record.
-                choices: ['User-Name', 'User-Password', 'CHAP-Password', 'NAS-IP-Address',
-                          'NAS-Port', 'Service-Type', 'Framed-Protocol', 'Framed-IP-Address',
-                          'Framed-IP-Netmask', 'Framed-Routing', 'Filter-Id', 'Framed-MTU',
-                          'Framed-Compression', 'Login-IP-Host', 'Login-Service',
-                          'Login-TCP-Port', 'Reply-Message', 'Callback-Number', 'Callback-Id',
-                          'Framed-Route', 'Framed-IPX-Network', 'State', 'Class',
-                          'Session-Timeout', 'Idle-Timeout', 'Termination-Action',
-                          'Called-Station-Id', 'Calling-Station-Id', 'NAS-Identifier',
-                          'Proxy-State', 'Login-LAT-Service', 'Login-LAT-Node', 'Login-LAT-Group',
-                          'Framed-AppleTalk-Link', 'Framed-AppleTalk-Network',
-                          'Framed-AppleTalk-Zone', 'Acct-Status-Type', 'Acct-Delay-Time',
-                          'Acct-Input-Octets', 'Acct-Output-Octets', 'Acct-Session-Id',
-                          'Acct-Authentic', 'Acct-Session-Time', 'Acct-Input-Packets',
-                          'Acct-Output-Packets', 'Acct-Terminate-Cause', 'Acct-Multi-Session-Id',
-                          'Acct-Link-Count', 'CHAP-Challenge', 'NAS-Port-Type', 'Port-Limit',
-                          'Login-LAT-Port']
-            rsso_endpoint_block_attribute:
-                aliases: ['rsso-endpoint-block-attribute']
-                type: str
-                description: RADIUS attributes used to block a user.
-                choices: ['User-Name', 'User-Password', 'CHAP-Password', 'NAS-IP-Address',
-                          'NAS-Port', 'Service-Type', 'Framed-Protocol', 'Framed-IP-Address',
-                          'Framed-IP-Netmask', 'Framed-Routing', 'Filter-Id', 'Framed-MTU',
-                          'Framed-Compression', 'Login-IP-Host', 'Login-Service',
-                          'Login-TCP-Port', 'Reply-Message', 'Callback-Number', 'Callback-Id',
-                          'Framed-Route', 'Framed-IPX-Network', 'State', 'Class',
-                          'Session-Timeout', 'Idle-Timeout', 'Termination-Action',
-                          'Called-Station-Id', 'Calling-Station-Id', 'NAS-Identifier',
-                          'Proxy-State', 'Login-LAT-Service', 'Login-LAT-Node', 'Login-LAT-Group',
-                          'Framed-AppleTalk-Link', 'Framed-AppleTalk-Network',
-                          'Framed-AppleTalk-Zone', 'Acct-Status-Type', 'Acct-Delay-Time',
-                          'Acct-Input-Octets', 'Acct-Output-Octets', 'Acct-Session-Id',
-                          'Acct-Authentic', 'Acct-Session-Time', 'Acct-Input-Packets',
-                          'Acct-Output-Packets', 'Acct-Terminate-Cause', 'Acct-Multi-Session-Id',
-                          'Acct-Link-Count', 'CHAP-Challenge', 'NAS-Port-Type', 'Port-Limit',
-                          'Login-LAT-Port']
-            rsso_ep_one_ip_only:
-                aliases: ['rsso-ep-one-ip-only']
-                type: str
-                description: Enable/disable the replacement of old IP addresses with new ones for the same endpoint on RADIUS accounting Start messages.
-                choices: ['disable', 'enable']
-            rsso_flush_ip_session:
-                aliases: ['rsso-flush-ip-session']
-                type: str
-                description: Enable/disable flushing user IP sessions on RADIUS accounting Stop messages.
-                choices: ['disable', 'enable']
-            rsso_log_flags:
-                aliases: ['rsso-log-flags']
-                type: list
-                elements: str
-                description: Events to log.
-                choices: ['none', 'protocol-error', 'profile-missing', 'context-missing',
-                          'accounting-stop-missed', 'accounting-event', 'radiusd-other',
-                          'endpoint-block']
-            rsso_log_period:
-                aliases: ['rsso-log-period']
-                type: int
-                description: Time interval in seconds that group event log messages will be generated for dynamic profile events.
-            rsso_radius_response:
-                aliases: ['rsso-radius-response']
-                type: str
-                description: Enable/disable sending RADIUS response packets after receiving Start and Stop records.
-                choices: ['disable', 'enable']
-            rsso_radius_server_port:
-                aliases: ['rsso-radius-server-port']
-                type: int
-                description: UDP port to listen on for RADIUS Start and Stop records.
-            rsso_secret:
-                aliases: ['rsso-secret']
-                type: raw
-                description: (list) RADIUS secret used by the RADIUS accounting server.
-            rsso_validate_request_secret:
-                aliases: ['rsso-validate-request-secret']
-                type: str
-                description: Enable/disable validating the RADIUS request shared secret in the Start or End record.
-                choices: ['disable', 'enable']
-            secondary_secret:
-                aliases: ['secondary-secret']
-                type: raw
-                description: (list) Secret key to access the secondary server.
-            secondary_server:
-                aliases: ['secondary-server']
-                type: str
-                description: No description
-            secret:
-                type: raw
-                description: (list) Pre-shared secret key used to access the primary RADIUS server.
-            server:
-                type: str
-                description: Primary RADIUS server CN domain name or IP address.
-            source_ip:
-                aliases: ['source-ip']
-                type: str
-                description: Source IP address for communications to the RADIUS server.
-            sso_attribute:
-                aliases: ['sso-attribute']
-                type: str
-                description: RADIUS attribute that contains the profile group name to be extracted from the RADIUS Start record.
-                choices: ['User-Name', 'User-Password', 'CHAP-Password', 'NAS-IP-Address',
-                          'NAS-Port', 'Service-Type', 'Framed-Protocol', 'Framed-IP-Address',
-                          'Framed-IP-Netmask', 'Framed-Routing', 'Filter-Id', 'Framed-MTU',
-                          'Framed-Compression', 'Login-IP-Host', 'Login-Service',
-                          'Login-TCP-Port', 'Reply-Message', 'Callback-Number', 'Callback-Id',
-                          'Framed-Route', 'Framed-IPX-Network', 'State', 'Class',
-                          'Session-Timeout', 'Idle-Timeout', 'Termination-Action',
-                          'Called-Station-Id', 'Calling-Station-Id', 'NAS-Identifier',
-                          'Proxy-State', 'Login-LAT-Service', 'Login-LAT-Node', 'Login-LAT-Group',
-                          'Framed-AppleTalk-Link', 'Framed-AppleTalk-Network',
-                          'Framed-AppleTalk-Zone', 'Acct-Status-Type', 'Acct-Delay-Time',
-                          'Acct-Input-Octets', 'Acct-Output-Octets', 'Acct-Session-Id',
-                          'Acct-Authentic', 'Acct-Session-Time', 'Acct-Input-Packets',
-                          'Acct-Output-Packets', 'Acct-Terminate-Cause', 'Acct-Multi-Session-Id',
-                          'Acct-Link-Count', 'CHAP-Challenge', 'NAS-Port-Type', 'Port-Limit',
-                          'Login-LAT-Port']
-            sso_attribute_key:
-                aliases: ['sso-attribute-key']
-                type: str
-                description: Key prefix for SSO group value in the SSO attribute.
-            sso_attribute_value_override:
-                aliases: ['sso-attribute-value-override']
-                type: str
-                description: Enable/disable override old attribute value with new value for the same endpoint.
-                choices: ['disable', 'enable']
-            tertiary_secret:
-                aliases: ['tertiary-secret']
-                type: raw
-                description: (list) Secret key to access the tertiary server.
-            tertiary_server:
-                aliases: ['tertiary-server']
-                type: str
-                description: No description
-            timeout:
-                type: int
-                description: Time in seconds between re-sending authentication requests.
-            use_management_vdom:
-                aliases: ['use-management-vdom']
-                type: str
-                description: Enable/disable using management VDOM to send requests.
-                choices: ['disable', 'enable']
-            username_case_sensitive:
-                aliases: ['username-case-sensitive']
-                type: str
-                description: Enable/disable case sensitive user names.
-                choices: ['disable', 'enable']
-            interface:
-                type: str
-                description: Specify outgoing interface to reach server.
-            interface_select_method:
+                description: Interface.
+              interface_select_method:
                 aliases: ['interface-select-method']
                 type: str
-                description: Specify how to select outgoing interface to reach server.
+                description: Interface select method.
                 choices: ['auto', 'sdwan', 'specify']
-            group_override_attr_type:
-                aliases: ['group-override-attr-type']
-                type: str
-                description: RADIUS attribute type to override user group information.
-                choices: ['filter-Id', 'class']
-            switch_controller_acct_fast_framedip_detect:
-                aliases: ['switch-controller-acct-fast-framedip-detect']
+              port:
                 type: int
-                description: Switch controller accounting message Framed-IP detection from DHCP snooping
-            switch_controller_service_type:
-                aliases: ['switch-controller-service-type']
-                type: list
-                elements: str
-                description: RADIUS service type.
-                choices: ['login', 'framed', 'callback-login', 'callback-framed', 'outbound',
-                          'administrative', 'nas-prompt', 'authenticate-only',
-                          'callback-nas-prompt', 'call-check', 'callback-administrative']
-            delimiter:
-                type: str
-                description: Configure delimiter to be used for separating profile group names in the SSO attribute
-                choices: ['plus', 'comma']
-            mac_case:
-                aliases: ['mac-case']
-                type: str
-                description: MAC authentication case
-                choices: ['uppercase', 'lowercase']
-            mac_password_delimiter:
-                aliases: ['mac-password-delimiter']
-                type: str
-                description: MAC authentication password delimiter
-                choices: ['hyphen', 'single-hyphen', 'colon', 'none']
-            mac_username_delimiter:
-                aliases: ['mac-username-delimiter']
-                type: str
-                description: MAC authentication username delimiter
-                choices: ['hyphen', 'single-hyphen', 'colon', 'none']
-            nas_id:
-                aliases: ['nas-id']
-                type: str
-                description: Custom NAS identifier.
-            nas_id_type:
-                aliases: ['nas-id-type']
-                type: str
-                description: NAS identifier type configuration
-                choices: ['legacy', 'custom', 'hostname']
-            ca_cert:
-                aliases: ['ca-cert']
-                type: str
-                description: CA of server to trust under TLS.
-            client_cert:
-                aliases: ['client-cert']
-                type: str
-                description: Client certificate to use under TLS.
-            server_identity_check:
-                aliases: ['server-identity-check']
-                type: str
-                description: Enable/disable RADIUS server identity check
-                choices: ['disable', 'enable']
-            status_ttl:
-                aliases: ['status-ttl']
-                type: int
-                description: Time for which server reachability is cached so that when a server is unreachable, it will not be retried for at least thi...
-            tls_min_proto_version:
-                aliases: ['tls-min-proto-version']
-                type: str
-                description: Minimum supported protocol version for TLS connections
-                choices: ['default', 'TLSv1', 'TLSv1-1', 'TLSv1-2', 'SSLv3', 'TLSv1-3']
-            transport_protocol:
-                aliases: ['transport-protocol']
-                type: str
-                description: Transport protocol to be used
-                choices: ['udp', 'tcp', 'tls']
-            account_key_cert_field:
-                aliases: ['account-key-cert-field']
-                type: str
-                description: Define subject identity field in certificate for user access right checking.
-                choices: ['othername', 'rfc822name', 'dnsname', 'cn']
-            account_key_processing:
-                aliases: ['account-key-processing']
-                type: str
-                description: Account key processing operation.
-                choices: ['same', 'strip']
-            call_station_id_type:
-                aliases: ['call-station-id-type']
-                type: str
-                description: Calling & Called station identifier type configuration
-                choices: ['legacy', 'IP', 'MAC']
-            switch_controller_nas_ip_dynamic:
-                aliases: ['switch-controller-nas-ip-dynamic']
-                type: str
-                description: Enable/Disable switch-controller nas-ip dynamic to dynamically set nas-ip.
-                choices: ['disable', 'enable']
-            source_ip_interface:
-                aliases: ['source-ip-interface']
+                description: Port.
+              secret:
                 type: raw
-                description: (list) Source interface for communication with the RADIUS server.
-            require_message_authenticator:
-                aliases: ['require-message-authenticator']
+                description: (list) Secret.
+              server:
                 type: str
-                description: Require message authenticator in authentication response.
+                description: Server.
+              source_ip:
+                aliases: ['source-ip']
+                type: str
+                description: Source ip.
+              status:
+                type: str
+                description: Status.
                 choices: ['disable', 'enable']
-            vrf_select:
+              vrf_select:
                 aliases: ['vrf-select']
                 type: int
                 description: VRF ID used for connection to server.
+          switch_controller_service_type:
+            aliases: ['switch-controller-service-type']
+            type: list
+            elements: str
+            description: Switch controller service type.
+            choices: ['login', 'framed', 'callback-login', 'callback-framed', 'outbound',
+                      'administrative', 'nas-prompt', 'authenticate-only', 'callback-nas-prompt',
+                      'call-check', 'callback-administrative']
+          delimiter:
+            type: str
+            description: Configure delimiter to be used for separating profile group names in the SSO attribute
+            choices: ['plus', 'comma']
+          mac_case:
+            aliases: ['mac-case']
+            type: str
+            description: MAC authentication case
+            choices: ['uppercase', 'lowercase']
+          mac_password_delimiter:
+            aliases: ['mac-password-delimiter']
+            type: str
+            description: MAC authentication password delimiter
+            choices: ['hyphen', 'single-hyphen', 'colon', 'none']
+          mac_username_delimiter:
+            aliases: ['mac-username-delimiter']
+            type: str
+            description: MAC authentication username delimiter
+            choices: ['hyphen', 'single-hyphen', 'colon', 'none']
+          nas_id:
+            aliases: ['nas-id']
+            type: str
+            description: Custom NAS identifier.
+          nas_id_type:
+            aliases: ['nas-id-type']
+            type: str
+            description: NAS identifier type configuration
+            choices: ['legacy', 'custom', 'hostname']
+          ca_cert:
+            aliases: ['ca-cert']
+            type: str
+            description: CA of server to trust under TLS.
+          client_cert:
+            aliases: ['client-cert']
+            type: str
+            description: Client certificate to use under TLS.
+          server_identity_check:
+            aliases: ['server-identity-check']
+            type: str
+            description: Enable/disable RADIUS server identity check
+            choices: ['disable', 'enable']
+          status_ttl:
+            aliases: ['status-ttl']
+            type: int
+            description: Time for which server reachability is cached so that when a server is unreachable, it will not be retried for at least this pe...
+          tls_min_proto_version:
+            aliases: ['tls-min-proto-version']
+            type: str
+            description: Minimum supported protocol version for TLS connections
+            choices: ['default', 'TLSv1', 'TLSv1-1', 'TLSv1-2', 'SSLv3', 'TLSv1-3']
+          transport_protocol:
+            aliases: ['transport-protocol']
+            type: str
+            description: Transport protocol to be used
+            choices: ['udp', 'tcp', 'tls']
+          account_key_cert_field:
+            aliases: ['account-key-cert-field']
+            type: str
+            description: Define subject identity field in certificate for user access right checking.
+            choices: ['othername', 'rfc822name', 'dnsname', 'cn']
+          account_key_processing:
+            aliases: ['account-key-processing']
+            type: str
+            description: Account key processing operation.
+            choices: ['same', 'strip']
+          call_station_id_type:
+            aliases: ['call-station-id-type']
+            type: str
+            description: Calling & Called station identifier type configuration
+            choices: ['legacy', 'IP', 'MAC']
+          switch_controller_nas_ip_dynamic:
+            aliases: ['switch-controller-nas-ip-dynamic']
+            type: str
+            description: Enable/Disable switch-controller nas-ip dynamic to dynamically set nas-ip.
+            choices: ['disable', 'enable']
+          source_ip_interface:
+            aliases: ['source-ip-interface']
+            type: raw
+            description: (list) Source interface for communication with the RADIUS server.
+          require_message_authenticator:
+            aliases: ['require-message-authenticator']
+            type: str
+            description: Require message authenticator in authentication response.
+            choices: ['disable', 'enable']
+          vrf_select:
+            aliases: ['vrf-select']
+            type: int
+            description: VRF ID used for connection to server.
+          fabric_force_sync:
+            aliases: ['fabric-force-sync']
+            type: str
+            description: Enable/disable forced synchronization of configuration objects from the root FortiGate unit to the downstream devices.
+            choices: ['disable', 'enable']
+          fabric_object:
+            aliases: ['fabric-object']
+            type: str
+            description: Security Fabric global object setting.
+            choices: ['disable', 'enable']
+          fabric_object_source:
+            aliases: ['fabric-object-source']
+            type: str
+            description: Source of truth for fabric object.
+            choices: ['member', 'local', 'root']
+          uuid:
+            type: str
+            description: Universally Unique Identifier
+      h3c_compatibility:
+        aliases: ['h3c-compatibility']
+        type: str
+        description: Enable/disable compatibility with the H3C, a mechanism that performs security checking for authentication.
+        choices: ['disable', 'enable']
+      name:
+        type: str
+        description: RADIUS server entry name.
+        required: true
+      nas_ip:
+        aliases: ['nas-ip']
+        type: str
+        description: IP address used to communicate with the RADIUS server and used as NAS-IP-Address and Called-Station-ID attributes.
+      password_encoding:
+        aliases: ['password-encoding']
+        type: str
+        description: Password encoding.
+        choices: ['ISO-8859-1', 'auto']
+      password_renewal:
+        aliases: ['password-renewal']
+        type: str
+        description: Enable/disable password renewal.
+        choices: ['disable', 'enable']
+      radius_coa:
+        aliases: ['radius-coa']
+        type: str
+        description: Enable to allow a mechanism to change the attributes of an authentication, authorization, and accounting session after it is authe...
+        choices: ['disable', 'enable']
+      radius_port:
+        aliases: ['radius-port']
+        type: int
+        description: RADIUS service port number.
+      rsso:
+        type: str
+        description: Enable/disable RADIUS based single sign on feature.
+        choices: ['disable', 'enable']
+      rsso_context_timeout:
+        aliases: ['rsso-context-timeout']
+        type: int
+        description: Time in seconds before the logged out user is removed from the user context list of logged on users.
+      rsso_endpoint_attribute:
+        aliases: ['rsso-endpoint-attribute']
+        type: str
+        description: RADIUS attributes used to extract the user end point identifer from the RADIUS Start record.
+        choices: ['User-Name', 'User-Password', 'CHAP-Password', 'NAS-IP-Address', 'NAS-Port',
+                  'Service-Type', 'Framed-Protocol', 'Framed-IP-Address', 'Framed-IP-Netmask',
+                  'Framed-Routing', 'Filter-Id', 'Framed-MTU', 'Framed-Compression',
+                  'Login-IP-Host', 'Login-Service', 'Login-TCP-Port', 'Reply-Message',
+                  'Callback-Number', 'Callback-Id', 'Framed-Route', 'Framed-IPX-Network', 'State',
+                  'Class', 'Session-Timeout', 'Idle-Timeout', 'Termination-Action',
+                  'Called-Station-Id', 'Calling-Station-Id', 'NAS-Identifier', 'Proxy-State',
+                  'Login-LAT-Service', 'Login-LAT-Node', 'Login-LAT-Group',
+                  'Framed-AppleTalk-Link', 'Framed-AppleTalk-Network', 'Framed-AppleTalk-Zone',
+                  'Acct-Status-Type', 'Acct-Delay-Time', 'Acct-Input-Octets',
+                  'Acct-Output-Octets', 'Acct-Session-Id', 'Acct-Authentic', 'Acct-Session-Time',
+                  'Acct-Input-Packets', 'Acct-Output-Packets', 'Acct-Terminate-Cause',
+                  'Acct-Multi-Session-Id', 'Acct-Link-Count', 'CHAP-Challenge', 'NAS-Port-Type',
+                  'Port-Limit', 'Login-LAT-Port']
+      rsso_endpoint_block_attribute:
+        aliases: ['rsso-endpoint-block-attribute']
+        type: str
+        description: RADIUS attributes used to block a user.
+        choices: ['User-Name', 'User-Password', 'CHAP-Password', 'NAS-IP-Address', 'NAS-Port',
+                  'Service-Type', 'Framed-Protocol', 'Framed-IP-Address', 'Framed-IP-Netmask',
+                  'Framed-Routing', 'Filter-Id', 'Framed-MTU', 'Framed-Compression',
+                  'Login-IP-Host', 'Login-Service', 'Login-TCP-Port', 'Reply-Message',
+                  'Callback-Number', 'Callback-Id', 'Framed-Route', 'Framed-IPX-Network', 'State',
+                  'Class', 'Session-Timeout', 'Idle-Timeout', 'Termination-Action',
+                  'Called-Station-Id', 'Calling-Station-Id', 'NAS-Identifier', 'Proxy-State',
+                  'Login-LAT-Service', 'Login-LAT-Node', 'Login-LAT-Group',
+                  'Framed-AppleTalk-Link', 'Framed-AppleTalk-Network', 'Framed-AppleTalk-Zone',
+                  'Acct-Status-Type', 'Acct-Delay-Time', 'Acct-Input-Octets',
+                  'Acct-Output-Octets', 'Acct-Session-Id', 'Acct-Authentic', 'Acct-Session-Time',
+                  'Acct-Input-Packets', 'Acct-Output-Packets', 'Acct-Terminate-Cause',
+                  'Acct-Multi-Session-Id', 'Acct-Link-Count', 'CHAP-Challenge', 'NAS-Port-Type',
+                  'Port-Limit', 'Login-LAT-Port']
+      rsso_ep_one_ip_only:
+        aliases: ['rsso-ep-one-ip-only']
+        type: str
+        description: Enable/disable the replacement of old IP addresses with new ones for the same endpoint on RADIUS accounting Start messages.
+        choices: ['disable', 'enable']
+      rsso_flush_ip_session:
+        aliases: ['rsso-flush-ip-session']
+        type: str
+        description: Enable/disable flushing user IP sessions on RADIUS accounting Stop messages.
+        choices: ['disable', 'enable']
+      rsso_log_flags:
+        aliases: ['rsso-log-flags']
+        type: list
+        elements: str
+        description: Events to log.
+        choices: ['none', 'protocol-error', 'profile-missing', 'context-missing',
+                  'accounting-stop-missed', 'accounting-event', 'radiusd-other', 'endpoint-block']
+      rsso_log_period:
+        aliases: ['rsso-log-period']
+        type: int
+        description: Time interval in seconds that group event log messages will be generated for dynamic profile events.
+      rsso_radius_response:
+        aliases: ['rsso-radius-response']
+        type: str
+        description: Enable/disable sending RADIUS response packets after receiving Start and Stop records.
+        choices: ['disable', 'enable']
+      rsso_radius_server_port:
+        aliases: ['rsso-radius-server-port']
+        type: int
+        description: UDP port to listen on for RADIUS Start and Stop records.
+      rsso_secret:
+        aliases: ['rsso-secret']
+        type: raw
+        description: (list) RADIUS secret used by the RADIUS accounting server.
+      rsso_validate_request_secret:
+        aliases: ['rsso-validate-request-secret']
+        type: str
+        description: Enable/disable validating the RADIUS request shared secret in the Start or End record.
+        choices: ['disable', 'enable']
+      secondary_secret:
+        aliases: ['secondary-secret']
+        type: raw
+        description: (list) Secret key to access the secondary server.
+      secondary_server:
+        aliases: ['secondary-server']
+        type: str
+        description: No description
+      secret:
+        type: raw
+        description: (list) Pre-shared secret key used to access the primary RADIUS server.
+      server:
+        type: str
+        description: Primary RADIUS server CN domain name or IP address.
+      source_ip:
+        aliases: ['source-ip']
+        type: str
+        description: Source IP address for communications to the RADIUS server.
+      sso_attribute:
+        aliases: ['sso-attribute']
+        type: str
+        description: RADIUS attribute that contains the profile group name to be extracted from the RADIUS Start record.
+        choices: ['User-Name', 'User-Password', 'CHAP-Password', 'NAS-IP-Address', 'NAS-Port',
+                  'Service-Type', 'Framed-Protocol', 'Framed-IP-Address', 'Framed-IP-Netmask',
+                  'Framed-Routing', 'Filter-Id', 'Framed-MTU', 'Framed-Compression',
+                  'Login-IP-Host', 'Login-Service', 'Login-TCP-Port', 'Reply-Message',
+                  'Callback-Number', 'Callback-Id', 'Framed-Route', 'Framed-IPX-Network', 'State',
+                  'Class', 'Session-Timeout', 'Idle-Timeout', 'Termination-Action',
+                  'Called-Station-Id', 'Calling-Station-Id', 'NAS-Identifier', 'Proxy-State',
+                  'Login-LAT-Service', 'Login-LAT-Node', 'Login-LAT-Group',
+                  'Framed-AppleTalk-Link', 'Framed-AppleTalk-Network', 'Framed-AppleTalk-Zone',
+                  'Acct-Status-Type', 'Acct-Delay-Time', 'Acct-Input-Octets',
+                  'Acct-Output-Octets', 'Acct-Session-Id', 'Acct-Authentic', 'Acct-Session-Time',
+                  'Acct-Input-Packets', 'Acct-Output-Packets', 'Acct-Terminate-Cause',
+                  'Acct-Multi-Session-Id', 'Acct-Link-Count', 'CHAP-Challenge', 'NAS-Port-Type',
+                  'Port-Limit', 'Login-LAT-Port']
+      sso_attribute_key:
+        aliases: ['sso-attribute-key']
+        type: str
+        description: Key prefix for SSO group value in the SSO attribute.
+      sso_attribute_value_override:
+        aliases: ['sso-attribute-value-override']
+        type: str
+        description: Enable/disable override old attribute value with new value for the same endpoint.
+        choices: ['disable', 'enable']
+      tertiary_secret:
+        aliases: ['tertiary-secret']
+        type: raw
+        description: (list) Secret key to access the tertiary server.
+      tertiary_server:
+        aliases: ['tertiary-server']
+        type: str
+        description: No description
+      timeout:
+        type: int
+        description: Time in seconds between re-sending authentication requests.
+      use_management_vdom:
+        aliases: ['use-management-vdom']
+        type: str
+        description: Enable/disable using management VDOM to send requests.
+        choices: ['disable', 'enable']
+      username_case_sensitive:
+        aliases: ['username-case-sensitive']
+        type: str
+        description: Enable/disable case sensitive user names.
+        choices: ['disable', 'enable']
+      interface:
+        type: str
+        description: Specify outgoing interface to reach server.
+      interface_select_method:
+        aliases: ['interface-select-method']
+        type: str
+        description: Specify how to select outgoing interface to reach server.
+        choices: ['auto', 'sdwan', 'specify']
+      group_override_attr_type:
+        aliases: ['group-override-attr-type']
+        type: str
+        description: RADIUS attribute type to override user group information.
+        choices: ['filter-Id', 'class']
+      switch_controller_acct_fast_framedip_detect:
+        aliases: ['switch-controller-acct-fast-framedip-detect']
+        type: int
+        description: Switch controller accounting message Framed-IP detection from DHCP snooping
+      switch_controller_service_type:
+        aliases: ['switch-controller-service-type']
+        type: list
+        elements: str
+        description: RADIUS service type.
+        choices: ['login', 'framed', 'callback-login', 'callback-framed', 'outbound',
+                  'administrative', 'nas-prompt', 'authenticate-only', 'callback-nas-prompt',
+                  'call-check', 'callback-administrative']
+      delimiter:
+        type: str
+        description: Configure delimiter to be used for separating profile group names in the SSO attribute
+        choices: ['plus', 'comma']
+      mac_case:
+        aliases: ['mac-case']
+        type: str
+        description: MAC authentication case
+        choices: ['uppercase', 'lowercase']
+      mac_password_delimiter:
+        aliases: ['mac-password-delimiter']
+        type: str
+        description: MAC authentication password delimiter
+        choices: ['hyphen', 'single-hyphen', 'colon', 'none']
+      mac_username_delimiter:
+        aliases: ['mac-username-delimiter']
+        type: str
+        description: MAC authentication username delimiter
+        choices: ['hyphen', 'single-hyphen', 'colon', 'none']
+      nas_id:
+        aliases: ['nas-id']
+        type: str
+        description: Custom NAS identifier.
+      nas_id_type:
+        aliases: ['nas-id-type']
+        type: str
+        description: NAS identifier type configuration
+        choices: ['legacy', 'custom', 'hostname']
+      ca_cert:
+        aliases: ['ca-cert']
+        type: str
+        description: CA of server to trust under TLS.
+      client_cert:
+        aliases: ['client-cert']
+        type: str
+        description: Client certificate to use under TLS.
+      server_identity_check:
+        aliases: ['server-identity-check']
+        type: str
+        description: Enable/disable RADIUS server identity check
+        choices: ['disable', 'enable']
+      status_ttl:
+        aliases: ['status-ttl']
+        type: int
+        description: Time for which server reachability is cached so that when a server is unreachable, it will not be retried for at least this period...
+      tls_min_proto_version:
+        aliases: ['tls-min-proto-version']
+        type: str
+        description: Minimum supported protocol version for TLS connections
+        choices: ['default', 'TLSv1', 'TLSv1-1', 'TLSv1-2', 'SSLv3', 'TLSv1-3']
+      transport_protocol:
+        aliases: ['transport-protocol']
+        type: str
+        description: Transport protocol to be used
+        choices: ['udp', 'tcp', 'tls']
+      account_key_cert_field:
+        aliases: ['account-key-cert-field']
+        type: str
+        description: Define subject identity field in certificate for user access right checking.
+        choices: ['othername', 'rfc822name', 'dnsname', 'cn']
+      account_key_processing:
+        aliases: ['account-key-processing']
+        type: str
+        description: Account key processing operation.
+        choices: ['same', 'strip']
+      call_station_id_type:
+        aliases: ['call-station-id-type']
+        type: str
+        description: Calling & Called station identifier type configuration
+        choices: ['legacy', 'IP', 'MAC']
+      switch_controller_nas_ip_dynamic:
+        aliases: ['switch-controller-nas-ip-dynamic']
+        type: str
+        description: Enable/Disable switch-controller nas-ip dynamic to dynamically set nas-ip.
+        choices: ['disable', 'enable']
+      source_ip_interface:
+        aliases: ['source-ip-interface']
+        type: raw
+        description: (list) Source interface for communication with the RADIUS server.
+      require_message_authenticator:
+        aliases: ['require-message-authenticator']
+        type: str
+        description: Require message authenticator in authentication response.
+        choices: ['disable', 'enable']
+      vrf_select:
+        aliases: ['vrf-select']
+        type: int
+        description: VRF ID used for connection to server.
+      fabric_force_sync:
+        aliases: ['fabric-force-sync']
+        type: str
+        description: Enable/disable forced synchronization of configuration objects from the root FortiGate unit to the downstream devices.
+        choices: ['disable', 'enable']
+      fabric_object:
+        aliases: ['fabric-object']
+        type: str
+        description: Security Fabric global object setting.
+        choices: ['disable', 'enable']
+      fabric_object_source:
+        aliases: ['fabric-object-source']
+        type: str
+        description: Source of truth for fabric object.
+        choices: ['member', 'local', 'root']
+      uuid:
+        type: str
+        description: Universally Unique Identifier
 '''
 
 EXAMPLES = '''
@@ -1018,42 +1029,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -1324,11 +1335,15 @@ def main():
                         },
                         'source-ip-interface': {'v_range': [['7.6.0', '']], 'type': 'raw'},
                         'require-message-authenticator': {
-                            'v_range': [['7.2.10', '7.2.12'], ['7.4.6', '7.4.10'], ['7.6.2', '']],
+                            'v_range': [['7.2.10', '7.2.12'], ['7.4.6', '7.4.11'], ['7.6.2', '']],
                             'choices': ['disable', 'enable'],
                             'type': 'str'
                         },
-                        'vrf-select': {'v_range': [['7.6.2', '']], 'type': 'int'}
+                        'vrf-select': {'v_range': [['7.6.2', '']], 'type': 'int'},
+                        'fabric-force-sync': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'fabric-object': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'fabric-object-source': {'v_range': [['8.0.0', '']], 'choices': ['member', 'local', 'root'], 'type': 'str'},
+                        'uuid': {'v_range': [['8.0.0', '']], 'type': 'str'}
                     },
                     'elements': 'dict'
                 },
@@ -1445,11 +1460,15 @@ def main():
                 'switch-controller-nas-ip-dynamic': {'v_range': [['7.2.6', '7.2.12'], ['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'source-ip-interface': {'v_range': [['7.6.0', '']], 'type': 'raw'},
                 'require-message-authenticator': {
-                    'v_range': [['7.2.10', '7.2.12'], ['7.4.6', '7.4.10'], ['7.6.2', '']],
+                    'v_range': [['7.2.10', '7.2.12'], ['7.4.6', '7.4.11'], ['7.6.2', '']],
                     'choices': ['disable', 'enable'],
                     'type': 'str'
                 },
-                'vrf-select': {'v_range': [['7.6.2', '']], 'type': 'int'}
+                'vrf-select': {'v_range': [['7.6.2', '']], 'type': 'int'},
+                'fabric-force-sync': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'fabric-object': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'fabric-object-source': {'v_range': [['8.0.0', '']], 'choices': ['member', 'local', 'root'], 'type': 'str'},
+                'uuid': {'v_range': [['8.0.0', '']], 'type': 'str'}
             }
         }
     }

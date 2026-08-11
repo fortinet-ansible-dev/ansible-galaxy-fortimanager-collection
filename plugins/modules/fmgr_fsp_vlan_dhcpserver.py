@@ -15,418 +15,453 @@ module: fmgr_fsp_vlan_dhcpserver
 short_description: Configure DHCP servers.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.partial_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.partial_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  vlan:
+    description: The parameter (vlan) in requested url.
+    type: str
+    required: true
+  fsp_vlan_dhcpserver:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      auto_configuration:
+        aliases: ['auto-configuration']
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Auto configuration.
+        choices: ['disable', 'enable']
+      conflicted_ip_timeout:
+        aliases: ['conflicted-ip-timeout']
+        type: int
+        description: Conflicted ip timeout.
+      ddns_auth:
+        aliases: ['ddns-auth']
         type: str
-        required: true
-    vlan:
-        description: The parameter (vlan) in requested url.
+        description: Ddns auth.
+        choices: ['disable', 'tsig']
+      ddns_key:
+        aliases: ['ddns-key']
+        type: raw
+        description: (list or str) Ddns key.
+      ddns_keyname:
+        aliases: ['ddns-keyname']
         type: str
-        required: true
-    fsp_vlan_dhcpserver:
-        description: The top level parameters set.
-        required: false
-        type: dict
+        description: Ddns keyname.
+      ddns_server_ip:
+        aliases: ['ddns-server-ip']
+        type: str
+        description: Ddns server ip.
+      ddns_ttl:
+        aliases: ['ddns-ttl']
+        type: int
+        description: Ddns ttl.
+      ddns_update:
+        aliases: ['ddns-update']
+        type: str
+        description: Ddns update.
+        choices: ['disable', 'enable']
+      ddns_update_override:
+        aliases: ['ddns-update-override']
+        type: str
+        description: Ddns update override.
+        choices: ['disable', 'enable']
+      ddns_zone:
+        aliases: ['ddns-zone']
+        type: str
+        description: Ddns zone.
+      default_gateway:
+        aliases: ['default-gateway']
+        type: str
+        description: Default gateway.
+      dns_server1:
+        aliases: ['dns-server1']
+        type: str
+        description: Dns server1.
+      dns_server2:
+        aliases: ['dns-server2']
+        type: str
+        description: Dns server2.
+      dns_server3:
+        aliases: ['dns-server3']
+        type: str
+        description: Dns server3.
+      dns_service:
+        aliases: ['dns-service']
+        type: str
+        description: Dns service.
+        choices: ['default', 'specify', 'local']
+      domain:
+        type: str
+        description: Domain.
+      enable:
+        type: str
+        description: Enable.
+        choices: ['disable', 'enable']
+      exclude_range:
+        aliases: ['exclude-range']
+        type: list
+        elements: dict
+        description: Exclude range.
         suboptions:
-            auto_configuration:
-                aliases: ['auto-configuration']
-                type: str
-                description: Auto configuration.
-                choices: ['disable', 'enable']
-            conflicted_ip_timeout:
-                aliases: ['conflicted-ip-timeout']
-                type: int
-                description: Conflicted ip timeout.
-            ddns_auth:
-                aliases: ['ddns-auth']
-                type: str
-                description: Ddns auth.
-                choices: ['disable', 'tsig']
-            ddns_key:
-                aliases: ['ddns-key']
-                type: raw
-                description: (list or str) Ddns key.
-            ddns_keyname:
-                aliases: ['ddns-keyname']
-                type: str
-                description: Ddns keyname.
-            ddns_server_ip:
-                aliases: ['ddns-server-ip']
-                type: str
-                description: Ddns server ip.
-            ddns_ttl:
-                aliases: ['ddns-ttl']
-                type: int
-                description: Ddns ttl.
-            ddns_update:
-                aliases: ['ddns-update']
-                type: str
-                description: Ddns update.
-                choices: ['disable', 'enable']
-            ddns_update_override:
-                aliases: ['ddns-update-override']
-                type: str
-                description: Ddns update override.
-                choices: ['disable', 'enable']
-            ddns_zone:
-                aliases: ['ddns-zone']
-                type: str
-                description: Ddns zone.
-            default_gateway:
-                aliases: ['default-gateway']
-                type: str
-                description: Default gateway.
-            dns_server1:
-                aliases: ['dns-server1']
-                type: str
-                description: Dns server1.
-            dns_server2:
-                aliases: ['dns-server2']
-                type: str
-                description: Dns server2.
-            dns_server3:
-                aliases: ['dns-server3']
-                type: str
-                description: Dns server3.
-            dns_service:
-                aliases: ['dns-service']
-                type: str
-                description: Dns service.
-                choices: ['default', 'specify', 'local']
-            domain:
-                type: str
-                description: Domain.
-            enable:
-                type: str
-                description: Enable.
-                choices: ['disable', 'enable']
-            exclude_range:
-                aliases: ['exclude-range']
-                type: list
-                elements: dict
-                description: Exclude range.
-                suboptions:
-                    end_ip:
-                        aliases: ['end-ip']
-                        type: str
-                        description: End ip.
-                    id:
-                        type: int
-                        description: Id.
-                    start_ip:
-                        aliases: ['start-ip']
-                        type: str
-                        description: Start ip.
-                    vci_match:
-                        aliases: ['vci-match']
-                        type: str
-                        description: Enable/disable vendor class identifier
-                        choices: ['disable', 'enable']
-                    vci_string:
-                        aliases: ['vci-string']
-                        type: raw
-                        description: (list) One or more VCI strings in quotes separated by spaces.
-                    lease_time:
-                        aliases: ['lease-time']
-                        type: int
-                        description: Lease time in seconds, 0 means default lease time.
-                    uci_match:
-                        aliases: ['uci-match']
-                        type: str
-                        description: Enable/disable user class identifier
-                        choices: ['disable', 'enable']
-                    uci_string:
-                        aliases: ['uci-string']
-                        type: raw
-                        description: (list) One or more UCI strings in quotes separated by spaces.
-            filename:
-                type: str
-                description: Filename.
-            forticlient_on_net_status:
-                aliases: ['forticlient-on-net-status']
-                type: str
-                description: Forticlient on net status.
-                choices: ['disable', 'enable']
-            id:
-                type: int
-                description: Id.
-            interface:
-                type: str
-                description: Interface.
-            ip_mode:
-                aliases: ['ip-mode']
-                type: str
-                description: Ip mode.
-                choices: ['range', 'usrgrp']
-            ip_range:
-                aliases: ['ip-range']
-                type: list
-                elements: dict
-                description: Ip range.
-                suboptions:
-                    end_ip:
-                        aliases: ['end-ip']
-                        type: str
-                        description: End ip.
-                    id:
-                        type: int
-                        description: Id.
-                    start_ip:
-                        aliases: ['start-ip']
-                        type: str
-                        description: Start ip.
-                    vci_match:
-                        aliases: ['vci-match']
-                        type: str
-                        description: Enable/disable vendor class identifier
-                        choices: ['disable', 'enable']
-                    vci_string:
-                        aliases: ['vci-string']
-                        type: raw
-                        description: (list) One or more VCI strings in quotes separated by spaces.
-                    lease_time:
-                        aliases: ['lease-time']
-                        type: int
-                        description: Lease time in seconds, 0 means default lease time.
-                    uci_match:
-                        aliases: ['uci-match']
-                        type: str
-                        description: Enable/disable user class identifier
-                        choices: ['disable', 'enable']
-                    uci_string:
-                        aliases: ['uci-string']
-                        type: raw
-                        description: (list) One or more UCI strings in quotes separated by spaces.
-            ipsec_lease_hold:
-                aliases: ['ipsec-lease-hold']
-                type: int
-                description: Ipsec lease hold.
-            lease_time:
-                aliases: ['lease-time']
-                type: int
-                description: Lease time.
-            mac_acl_default_action:
-                aliases: ['mac-acl-default-action']
-                type: str
-                description: Mac acl default action.
-                choices: ['assign', 'block']
-            netmask:
-                type: str
-                description: Netmask.
-            next_server:
-                aliases: ['next-server']
-                type: str
-                description: Next server.
-            ntp_server1:
-                aliases: ['ntp-server1']
-                type: str
-                description: Ntp server1.
-            ntp_server2:
-                aliases: ['ntp-server2']
-                type: str
-                description: Ntp server2.
-            ntp_server3:
-                aliases: ['ntp-server3']
-                type: str
-                description: Ntp server3.
-            ntp_service:
-                aliases: ['ntp-service']
-                type: str
-                description: Ntp service.
-                choices: ['default', 'specify', 'local']
-            option1:
-                type: raw
-                description: (list) Option1.
-            option2:
-                type: raw
-                description: (list) Option2.
-            option3:
-                type: raw
-                description: (list) Option3.
-            option4:
-                type: str
-                description: Option4.
-            option5:
-                type: str
-                description: Option5.
-            option6:
-                type: str
-                description: Option6.
-            options:
-                type: list
-                elements: dict
-                description: Options.
-                suboptions:
-                    code:
-                        type: int
-                        description: Code.
-                    id:
-                        type: int
-                        description: Id.
-                    ip:
-                        type: raw
-                        description: (list) Ip.
-                    type:
-                        type: str
-                        description: Type.
-                        choices: ['hex', 'string', 'ip', 'fqdn']
-                    value:
-                        type: str
-                        description: Value.
-                    vci_match:
-                        aliases: ['vci-match']
-                        type: str
-                        description: Enable/disable vendor class identifier
-                        choices: ['disable', 'enable']
-                    vci_string:
-                        aliases: ['vci-string']
-                        type: raw
-                        description: (list) One or more VCI strings in quotes separated by spaces.
-                    uci_match:
-                        aliases: ['uci-match']
-                        type: str
-                        description: Enable/disable user class identifier
-                        choices: ['disable', 'enable']
-                    uci_string:
-                        aliases: ['uci-string']
-                        type: raw
-                        description: (list) One or more UCI strings in quotes separated by spaces.
-            reserved_address:
-                aliases: ['reserved-address']
-                type: list
-                elements: dict
-                description: Reserved address.
-                suboptions:
-                    action:
-                        type: str
-                        description: Action.
-                        choices: ['assign', 'block', 'reserved']
-                    circuit_id:
-                        aliases: ['circuit-id']
-                        type: str
-                        description: Circuit id.
-                    circuit_id_type:
-                        aliases: ['circuit-id-type']
-                        type: str
-                        description: Circuit id type.
-                        choices: ['hex', 'string']
-                    description:
-                        type: str
-                        description: Description.
-                    id:
-                        type: int
-                        description: Id.
-                    ip:
-                        type: str
-                        description: Ip.
-                    mac:
-                        type: str
-                        description: Mac.
-                    remote_id:
-                        aliases: ['remote-id']
-                        type: str
-                        description: Remote id.
-                    remote_id_type:
-                        aliases: ['remote-id-type']
-                        type: str
-                        description: Remote id type.
-                        choices: ['hex', 'string']
-                    type:
-                        type: str
-                        description: Type.
-                        choices: ['mac', 'option82']
-            server_type:
-                aliases: ['server-type']
-                type: str
-                description: Server type.
-                choices: ['regular', 'ipsec']
-            status:
-                type: str
-                description: Status.
-                choices: ['disable', 'enable']
-            tftp_server:
-                aliases: ['tftp-server']
-                type: raw
-                description: (list) Tftp server.
-            timezone:
-                type: str
-                description: Timezone.
-                choices: ['00', '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11',
-                          '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23',
-                          '24', '25', '26', '27', '28', '29', '30', '31', '32', '33', '34', '35',
-                          '36', '37', '38', '39', '40', '41', '42', '43', '44', '45', '46', '47',
-                          '48', '49', '50', '51', '52', '53', '54', '55', '56', '57', '58', '59',
-                          '60', '61', '62', '63', '64', '65', '66', '67', '68', '69', '70', '71',
-                          '72', '73', '74', '75', '76', '77', '78', '79', '80', '81', '82', '83',
-                          '84', '85', '86', '87']
-            timezone_option:
-                aliases: ['timezone-option']
-                type: str
-                description: Timezone option.
-                choices: ['disable', 'default', 'specify']
-            vci_match:
-                aliases: ['vci-match']
-                type: str
-                description: Vci match.
-                choices: ['disable', 'enable']
-            vci_string:
-                aliases: ['vci-string']
-                type: raw
-                description: (list) Vci string.
-            wifi_ac1:
-                aliases: ['wifi-ac1']
-                type: str
-                description: Wifi ac1.
-            wifi_ac2:
-                aliases: ['wifi-ac2']
-                type: str
-                description: Wifi ac2.
-            wifi_ac3:
-                aliases: ['wifi-ac3']
-                type: str
-                description: Wifi ac3.
-            wins_server1:
-                aliases: ['wins-server1']
-                type: str
-                description: Wins server1.
-            wins_server2:
-                aliases: ['wins-server2']
-                type: str
-                description: Wins server2.
-            dns_server4:
-                aliases: ['dns-server4']
-                type: str
-                description: Dns server4.
-            wifi_ac_service:
-                aliases: ['wifi-ac-service']
-                type: str
-                description: Wifi ac service.
-                choices: ['specify', 'local']
-            auto_managed_status:
-                aliases: ['auto-managed-status']
-                type: str
-                description: Auto managed status.
-                choices: ['disable', 'enable']
-            dhcp_settings_from_fortiipam:
-                aliases: ['dhcp-settings-from-fortiipam']
-                type: str
-                description: Dhcp settings from fortiipam.
-                choices: ['disable', 'enable']
-            relay_agent:
-                aliases: ['relay-agent']
-                type: str
-                description: Relay agent IP.
-            shared_subnet:
-                aliases: ['shared-subnet']
-                type: str
-                description: Enable/disable shared subnet.
-                choices: ['disable', 'enable']
+          end_ip:
+            aliases: ['end-ip']
+            type: str
+            description: End ip.
+          id:
+            type: int
+            description: Id.
+          start_ip:
+            aliases: ['start-ip']
+            type: str
+            description: Start ip.
+          vci_match:
+            aliases: ['vci-match']
+            type: str
+            description: Enable/disable vendor class identifier
+            choices: ['disable', 'enable']
+          vci_string:
+            aliases: ['vci-string']
+            type: raw
+            description: (list) One or more VCI strings in quotes separated by spaces.
+          lease_time:
+            aliases: ['lease-time']
+            type: int
+            description: Lease time in seconds, 0 means default lease time.
+          uci_match:
+            aliases: ['uci-match']
+            type: str
+            description: Enable/disable user class identifier
+            choices: ['disable', 'enable']
+          uci_string:
+            aliases: ['uci-string']
+            type: raw
+            description: (list) One or more UCI strings in quotes separated by spaces.
+          oui_match:
+            aliases: ['oui-match']
+            type: str
+            description: Enable/disable organizationally unique identifier
+            choices: ['disable', 'enable']
+          oui_string:
+            aliases: ['oui-string']
+            type: raw
+            description: (list) One or more OUI strings in quotes separated by spaces
+          vendor:
+            type: str
+            description: Vendor this ip-range will be assigned to.
+      filename:
+        type: str
+        description: Filename.
+      forticlient_on_net_status:
+        aliases: ['forticlient-on-net-status']
+        type: str
+        description: Forticlient on net status.
+        choices: ['disable', 'enable']
+      id:
+        type: int
+        description: Id.
+      interface:
+        type: str
+        description: Interface.
+      ip_mode:
+        aliases: ['ip-mode']
+        type: str
+        description: Ip mode.
+        choices: ['range', 'usrgrp']
+      ip_range:
+        aliases: ['ip-range']
+        type: list
+        elements: dict
+        description: Ip range.
+        suboptions:
+          end_ip:
+            aliases: ['end-ip']
+            type: str
+            description: End ip.
+          id:
+            type: int
+            description: Id.
+          start_ip:
+            aliases: ['start-ip']
+            type: str
+            description: Start ip.
+          vci_match:
+            aliases: ['vci-match']
+            type: str
+            description: Enable/disable vendor class identifier
+            choices: ['disable', 'enable']
+          vci_string:
+            aliases: ['vci-string']
+            type: raw
+            description: (list) One or more VCI strings in quotes separated by spaces.
+          lease_time:
+            aliases: ['lease-time']
+            type: int
+            description: Lease time in seconds, 0 means default lease time.
+          uci_match:
+            aliases: ['uci-match']
+            type: str
+            description: Enable/disable user class identifier
+            choices: ['disable', 'enable']
+          uci_string:
+            aliases: ['uci-string']
+            type: raw
+            description: (list) One or more UCI strings in quotes separated by spaces.
+          oui_match:
+            aliases: ['oui-match']
+            type: str
+            description: Enable/disable organizationally unique identifier
+            choices: ['disable', 'enable']
+          oui_string:
+            aliases: ['oui-string']
+            type: raw
+            description: (list) One or more OUI strings in quotes separated by spaces
+          vendor:
+            type: str
+            description: Vendor this ip-range will be assigned to.
+      ipsec_lease_hold:
+        aliases: ['ipsec-lease-hold']
+        type: int
+        description: Ipsec lease hold.
+      lease_time:
+        aliases: ['lease-time']
+        type: int
+        description: Lease time.
+      mac_acl_default_action:
+        aliases: ['mac-acl-default-action']
+        type: str
+        description: Mac acl default action.
+        choices: ['assign', 'block']
+      netmask:
+        type: str
+        description: Netmask.
+      next_server:
+        aliases: ['next-server']
+        type: str
+        description: Next server.
+      ntp_server1:
+        aliases: ['ntp-server1']
+        type: str
+        description: Ntp server1.
+      ntp_server2:
+        aliases: ['ntp-server2']
+        type: str
+        description: Ntp server2.
+      ntp_server3:
+        aliases: ['ntp-server3']
+        type: str
+        description: Ntp server3.
+      ntp_service:
+        aliases: ['ntp-service']
+        type: str
+        description: Ntp service.
+        choices: ['default', 'specify', 'local']
+      option1:
+        type: raw
+        description: (list) Option1.
+      option2:
+        type: raw
+        description: (list) Option2.
+      option3:
+        type: raw
+        description: (list) Option3.
+      option4:
+        type: str
+        description: Option4.
+      option5:
+        type: str
+        description: Option5.
+      option6:
+        type: str
+        description: Option6.
+      options:
+        type: list
+        elements: dict
+        description: Options.
+        suboptions:
+          code:
+            type: int
+            description: Code.
+          id:
+            type: int
+            description: Id.
+          ip:
+            type: raw
+            description: (list) Ip.
+          type:
+            type: str
+            description: Type.
+            choices: ['hex', 'string', 'ip', 'fqdn']
+          value:
+            type: str
+            description: Value.
+          vci_match:
+            aliases: ['vci-match']
+            type: str
+            description: Enable/disable vendor class identifier
+            choices: ['disable', 'enable']
+          vci_string:
+            aliases: ['vci-string']
+            type: raw
+            description: (list) One or more VCI strings in quotes separated by spaces.
+          uci_match:
+            aliases: ['uci-match']
+            type: str
+            description: Enable/disable user class identifier
+            choices: ['disable', 'enable']
+          uci_string:
+            aliases: ['uci-string']
+            type: raw
+            description: (list) One or more UCI strings in quotes separated by spaces.
+      reserved_address:
+        aliases: ['reserved-address']
+        type: list
+        elements: dict
+        description: Reserved address.
+        suboptions:
+          action:
+            type: str
+            description: Action.
+            choices: ['assign', 'block', 'reserved']
+          circuit_id:
+            aliases: ['circuit-id']
+            type: str
+            description: Circuit id.
+          circuit_id_type:
+            aliases: ['circuit-id-type']
+            type: str
+            description: Circuit id type.
+            choices: ['hex', 'string']
+          description:
+            type: str
+            description: Description.
+          id:
+            type: int
+            description: Id.
+          ip:
+            type: str
+            description: Ip.
+          mac:
+            type: str
+            description: Mac.
+          remote_id:
+            aliases: ['remote-id']
+            type: str
+            description: Remote id.
+          remote_id_type:
+            aliases: ['remote-id-type']
+            type: str
+            description: Remote id type.
+            choices: ['hex', 'string']
+          type:
+            type: str
+            description: Type.
+            choices: ['mac', 'option82']
+      server_type:
+        aliases: ['server-type']
+        type: str
+        description: Server type.
+        choices: ['regular', 'ipsec']
+      status:
+        type: str
+        description: Status.
+        choices: ['disable', 'enable']
+      tftp_server:
+        aliases: ['tftp-server']
+        type: raw
+        description: (list) Tftp server.
+      timezone:
+        type: str
+        description: Timezone.
+        choices: ['00', '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12',
+                  '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25',
+                  '26', '27', '28', '29', '30', '31', '32', '33', '34', '35', '36', '37', '38',
+                  '39', '40', '41', '42', '43', '44', '45', '46', '47', '48', '49', '50', '51',
+                  '52', '53', '54', '55', '56', '57', '58', '59', '60', '61', '62', '63', '64',
+                  '65', '66', '67', '68', '69', '70', '71', '72', '73', '74', '75', '76', '77',
+                  '78', '79', '80', '81', '82', '83', '84', '85', '86', '87']
+      timezone_option:
+        aliases: ['timezone-option']
+        type: str
+        description: Timezone option.
+        choices: ['disable', 'default', 'specify']
+      vci_match:
+        aliases: ['vci-match']
+        type: str
+        description: Vci match.
+        choices: ['disable', 'enable']
+      vci_string:
+        aliases: ['vci-string']
+        type: raw
+        description: (list) Vci string.
+      wifi_ac1:
+        aliases: ['wifi-ac1']
+        type: str
+        description: Wifi ac1.
+      wifi_ac2:
+        aliases: ['wifi-ac2']
+        type: str
+        description: Wifi ac2.
+      wifi_ac3:
+        aliases: ['wifi-ac3']
+        type: str
+        description: Wifi ac3.
+      wins_server1:
+        aliases: ['wins-server1']
+        type: str
+        description: Wins server1.
+      wins_server2:
+        aliases: ['wins-server2']
+        type: str
+        description: Wins server2.
+      dns_server4:
+        aliases: ['dns-server4']
+        type: str
+        description: Dns server4.
+      wifi_ac_service:
+        aliases: ['wifi-ac-service']
+        type: str
+        description: Wifi ac service.
+        choices: ['specify', 'local']
+      auto_managed_status:
+        aliases: ['auto-managed-status']
+        type: str
+        description: Auto managed status.
+        choices: ['disable', 'enable']
+      dhcp_settings_from_fortiipam:
+        aliases: ['dhcp-settings-from-fortiipam']
+        type: str
+        description: Dhcp settings from fortiipam.
+        choices: ['disable', 'enable']
+      relay_agent:
+        aliases: ['relay-agent']
+        type: str
+        description: Relay agent IP.
+      shared_subnet:
+        aliases: ['shared-subnet']
+        type: str
+        description: Enable/disable shared subnet.
+        choices: ['disable', 'enable']
+      template:
+        type: raw
+        description: (list) DHCP template associated with the server.
+      template_subnet:
+        aliases: ['template-subnet']
+        type: raw
+        description: (list) Configure template subnet.
+      template_subnet_from_interface:
+        aliases: ['template-subnet-from-interface']
+        type: str
+        description: Use interface subnet as DHCP template subnet.
+        choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -467,6 +502,9 @@ EXAMPLES = '''
           #     lease_time: <integer>
           #     uci_match: <value in [disable, enable]>
           #     uci_string: <list or string>
+          #     oui_match: <value in [disable, enable]>
+          #     oui_string: <list or string>
+          #     vendor: <string>
           # filename: <string>
           # forticlient_on_net_status: <value in [disable, enable]>
           # id: <integer>
@@ -481,6 +519,9 @@ EXAMPLES = '''
           #     lease_time: <integer>
           #     uci_match: <value in [disable, enable]>
           #     uci_string: <list or string>
+          #     oui_match: <value in [disable, enable]>
+          #     oui_string: <list or string>
+          #     vendor: <string>
           # ipsec_lease_hold: <integer>
           # lease_time: <integer>
           # mac_acl_default_action: <value in [assign, block]>
@@ -535,46 +576,49 @@ EXAMPLES = '''
           # dhcp_settings_from_fortiipam: <value in [disable, enable]>
           # relay_agent: <string>
           # shared_subnet: <value in [disable, enable]>
+          # template: <list or string>
+          # template_subnet: <list or string>
+          # template_subnet_from_interface: <value in [disable, enable]>
 '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -621,7 +665,10 @@ def main():
                         'vci-string': {'v_range': [['7.2.1', '']], 'type': 'raw'},
                         'lease-time': {'v_range': [['7.2.2', '']], 'type': 'int'},
                         'uci-match': {'v_range': [['7.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'uci-string': {'v_range': [['7.2.2', '']], 'type': 'raw'}
+                        'uci-string': {'v_range': [['7.2.2', '']], 'type': 'raw'},
+                        'oui-match': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'oui-string': {'v_range': [['8.0.0', '']], 'type': 'raw'},
+                        'vendor': {'v_range': [['8.0.0', '']], 'type': 'str'}
                     },
                     'elements': 'dict'
                 },
@@ -640,7 +687,10 @@ def main():
                         'vci-string': {'v_range': [['7.2.1', '']], 'type': 'raw'},
                         'lease-time': {'v_range': [['7.2.2', '']], 'type': 'int'},
                         'uci-match': {'v_range': [['7.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'uci-string': {'v_range': [['7.2.2', '']], 'type': 'raw'}
+                        'uci-string': {'v_range': [['7.2.2', '']], 'type': 'raw'},
+                        'oui-match': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'oui-string': {'v_range': [['8.0.0', '']], 'type': 'raw'},
+                        'vendor': {'v_range': [['8.0.0', '']], 'type': 'str'}
                     },
                     'elements': 'dict'
                 },
@@ -716,7 +766,10 @@ def main():
                 'auto-managed-status': {'v_range': [['6.4.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'dhcp-settings-from-fortiipam': {'v_range': [['6.4.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'relay-agent': {'v_range': [['7.4.0', '']], 'type': 'str'},
-                'shared-subnet': {'v_range': [['7.4.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'shared-subnet': {'v_range': [['7.4.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'template': {'v_range': [['8.0.0', '']], 'type': 'raw'},
+                'template-subnet': {'v_range': [['8.0.0', '']], 'type': 'raw'},
+                'template-subnet-from-interface': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

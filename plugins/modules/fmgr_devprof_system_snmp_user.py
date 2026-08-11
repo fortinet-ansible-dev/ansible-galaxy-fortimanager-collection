@@ -15,135 +15,134 @@ module: fmgr_devprof_system_snmp_user
 short_description: SNMP user configuration.
 version_added: "1.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    adom:
-        description: The parameter (adom) in requested url.
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  devprof:
+    description: The parameter (devprof) in requested url.
+    type: str
+    required: true
+  devprof_system_snmp_user:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      auth_proto:
+        aliases: ['auth-proto']
         type: str
-        required: true
-    devprof:
-        description: The parameter (devprof) in requested url.
+        description: Authentication protocol.
+        choices: ['md5', 'sha', 'sha224', 'sha256', 'sha384', 'sha512']
+      auth_pwd:
+        aliases: ['auth-pwd']
+        type: raw
+        description: (list) Password for authentication protocol.
+      events:
+        type: list
+        elements: str
+        description: SNMP notifications
+        choices: ['cpu-high', 'mem-low', 'log-full', 'intf-ip', 'vpn-tun-up', 'vpn-tun-down',
+                  'ha-switch', 'fm-conf-change', 'ips-signature', 'ips-anomaly',
+                  'temperature-high', 'voltage-alert', 'av-virus', 'av-oversize', 'av-pattern',
+                  'av-fragmented', 'ha-hb-failure', 'fan-failure', 'ha-member-up',
+                  'ha-member-down', 'ent-conf-change', 'av-conserve', 'av-bypass',
+                  'av-oversize-passed', 'av-oversize-blocked', 'ips-pkg-update', 'fm-if-change',
+                  'power-supply-failure', 'amc-bypass', 'faz-disconnect', 'bgp-established',
+                  'bgp-backward-transition', 'wc-ap-up', 'wc-ap-down', 'fswctl-session-up',
+                  'fswctl-session-down', 'ips-fail-open', 'load-balance-real-server-down',
+                  'device-new', 'enter-intf-bypass', 'exit-intf-bypass', 'per-cpu-high',
+                  'power-blade-down', 'confsync_failure', 'dhcp', 'pool-usage',
+                  'power-redundancy-degrade', 'power-redundancy-failure', 'ospf-nbr-state-change',
+                  'ospf-virtnbr-state-change', 'disk-failure', 'disk-overload',
+                  'faz-main-failover', 'faz-alt-failover', 'slbc', 'faz', 'power-supply',
+                  'ippool', 'interface', 'security_level_change', 'cert-expiry', 'dio', 'sensor',
+                  'bfd', 'fsso']
+      ha_direct:
+        aliases: ['ha-direct']
         type: str
+        description: Enable/disable direct management of HA cluster members.
+        choices: ['disable', 'enable']
+      name:
+        type: str
+        description: SNMP user name.
         required: true
-    devprof_system_snmp_user:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            auth_proto:
-                aliases: ['auth-proto']
-                type: str
-                description: Authentication protocol.
-                choices: ['md5', 'sha', 'sha224', 'sha256', 'sha384', 'sha512']
-            auth_pwd:
-                aliases: ['auth-pwd']
-                type: raw
-                description: (list) Password for authentication protocol.
-            events:
-                type: list
-                elements: str
-                description: SNMP notifications
-                choices: ['cpu-high', 'mem-low', 'log-full', 'intf-ip', 'vpn-tun-up',
-                          'vpn-tun-down', 'ha-switch', 'fm-conf-change', 'ips-signature',
-                          'ips-anomaly', 'temperature-high', 'voltage-alert', 'av-virus',
-                          'av-oversize', 'av-pattern', 'av-fragmented', 'ha-hb-failure',
-                          'fan-failure', 'ha-member-up', 'ha-member-down', 'ent-conf-change',
-                          'av-conserve', 'av-bypass', 'av-oversize-passed', 'av-oversize-blocked',
-                          'ips-pkg-update', 'fm-if-change', 'power-supply-failure', 'amc-bypass',
-                          'faz-disconnect', 'bgp-established', 'bgp-backward-transition',
-                          'wc-ap-up', 'wc-ap-down', 'fswctl-session-up', 'fswctl-session-down',
-                          'ips-fail-open', 'load-balance-real-server-down', 'device-new',
-                          'enter-intf-bypass', 'exit-intf-bypass', 'per-cpu-high',
-                          'power-blade-down', 'confsync_failure', 'dhcp', 'pool-usage',
-                          'power-redundancy-degrade', 'power-redundancy-failure',
-                          'ospf-nbr-state-change', 'ospf-virtnbr-state-change', 'disk-failure',
-                          'disk-overload', 'faz-main-failover', 'faz-alt-failover', 'slbc', 'faz',
-                          'power-supply', 'ippool', 'interface', 'security_level_change',
-                          'cert-expiry', 'dio', 'sensor', 'bfd']
-            ha_direct:
-                aliases: ['ha-direct']
-                type: str
-                description: Enable/disable direct management of HA cluster members.
-                choices: ['disable', 'enable']
-            name:
-                type: str
-                description: SNMP user name.
-                required: true
-            notify_hosts:
-                aliases: ['notify-hosts']
-                type: raw
-                description: (list) SNMP managers to send notifications
-            notify_hosts6:
-                aliases: ['notify-hosts6']
-                type: str
-                description: IPv6 SNMP managers to send notifications
-            priv_proto:
-                aliases: ['priv-proto']
-                type: str
-                description: Privacy
-                choices: ['aes', 'des', 'aes256', 'aes256cisco']
-            priv_pwd:
-                aliases: ['priv-pwd']
-                type: raw
-                description: (list) Password for privacy
-            queries:
-                type: str
-                description: Enable/disable SNMP queries for this user.
-                choices: ['disable', 'enable']
-            query_port:
-                aliases: ['query-port']
-                type: int
-                description: SNMPv3 query port
-            security_level:
-                aliases: ['security-level']
-                type: str
-                description: Security level for message authentication and encryption.
-                choices: ['no-auth-no-priv', 'auth-no-priv', 'auth-priv']
-            source_ip:
-                aliases: ['source-ip']
-                type: str
-                description: Source IP for SNMP trap.
-            source_ipv6:
-                aliases: ['source-ipv6']
-                type: str
-                description: Source IPv6 for SNMP trap.
-            status:
-                type: str
-                description: Enable/disable this SNMP user.
-                choices: ['disable', 'enable']
-            trap_lport:
-                aliases: ['trap-lport']
-                type: int
-                description: SNMPv3 local trap port
-            trap_rport:
-                aliases: ['trap-rport']
-                type: int
-                description: SNMPv3 trap remote port
-            trap_status:
-                aliases: ['trap-status']
-                type: str
-                description: Enable/disable traps for this SNMP user.
-                choices: ['disable', 'enable']
-            mib_view:
-                aliases: ['mib-view']
-                type: str
-                description: SNMP access control MIB view.
-            vdoms:
-                type: raw
-                description: (list) SNMP access control VDOMs.
-            interface:
-                type: raw
-                description: (list) Specify outgoing interface to reach server.
-            interface_select_method:
-                aliases: ['interface-select-method']
-                type: str
-                description: Specify how to select outgoing interface to reach server.
-                choices: ['auto', 'sdwan', 'specify']
-            vrf_select:
-                aliases: ['vrf-select']
-                type: int
-                description: VRF ID used for connection to server.
+      notify_hosts:
+        aliases: ['notify-hosts']
+        type: raw
+        description: (list) SNMP managers to send notifications
+      notify_hosts6:
+        aliases: ['notify-hosts6']
+        type: str
+        description: IPv6 SNMP managers to send notifications
+      priv_proto:
+        aliases: ['priv-proto']
+        type: str
+        description: Privacy
+        choices: ['aes', 'des', 'aes256', 'aes256cisco']
+      priv_pwd:
+        aliases: ['priv-pwd']
+        type: raw
+        description: (list) Password for privacy
+      queries:
+        type: str
+        description: Enable/disable SNMP queries for this user.
+        choices: ['disable', 'enable']
+      query_port:
+        aliases: ['query-port']
+        type: int
+        description: SNMPv3 query port
+      security_level:
+        aliases: ['security-level']
+        type: str
+        description: Security level for message authentication and encryption.
+        choices: ['no-auth-no-priv', 'auth-no-priv', 'auth-priv']
+      source_ip:
+        aliases: ['source-ip']
+        type: str
+        description: Source IP for SNMP trap.
+      source_ipv6:
+        aliases: ['source-ipv6']
+        type: str
+        description: Source IPv6 for SNMP trap.
+      status:
+        type: str
+        description: Enable/disable this SNMP user.
+        choices: ['disable', 'enable']
+      trap_lport:
+        aliases: ['trap-lport']
+        type: int
+        description: SNMPv3 local trap port
+      trap_rport:
+        aliases: ['trap-rport']
+        type: int
+        description: SNMPv3 trap remote port
+      trap_status:
+        aliases: ['trap-status']
+        type: str
+        description: Enable/disable traps for this SNMP user.
+        choices: ['disable', 'enable']
+      mib_view:
+        aliases: ['mib-view']
+        type: str
+        description: SNMP access control MIB view.
+      vdoms:
+        type: raw
+        description: (list) SNMP access control VDOMs.
+      interface:
+        type: raw
+        description: (list) Specify outgoing interface to reach server.
+      interface_select_method:
+        aliases: ['interface-select-method']
+        type: str
+        description: Specify how to select outgoing interface to reach server.
+        choices: ['auto', 'sdwan', 'specify']
+      vrf_select:
+        aliases: ['vrf-select']
+        type: int
+        description: VRF ID used for connection to server.
 '''
 
 EXAMPLES = '''
@@ -234,42 +233,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -305,7 +304,7 @@ def main():
                         'ips-fail-open', 'load-balance-real-server-down', 'device-new', 'enter-intf-bypass', 'exit-intf-bypass', 'per-cpu-high',
                         'power-blade-down', 'confsync_failure', 'dhcp', 'pool-usage', 'power-redundancy-degrade', 'power-redundancy-failure',
                         'ospf-nbr-state-change', 'ospf-virtnbr-state-change', 'disk-failure', 'disk-overload', 'faz-main-failover', 'faz-alt-failover',
-                        'slbc', 'faz', 'power-supply', 'ippool', 'interface', 'security_level_change', 'cert-expiry', 'dio', 'sensor', 'bfd'
+                        'slbc', 'faz', 'power-supply', 'ippool', 'interface', 'security_level_change', 'cert-expiry', 'dio', 'sensor', 'bfd', 'fsso'
                     ],
                     'elements': 'str'
                 },

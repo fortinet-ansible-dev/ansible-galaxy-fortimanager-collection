@@ -15,250 +15,288 @@ module: fmgr_firewall_address_dynamicmapping
 short_description: Configure IPv4 addresses.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
-        type: str
-    adom:
-        description: The parameter (adom) in requested url.
-        type: str
-        required: true
-    address:
-        description: The parameter (address) in requested url.
-        type: str
-        required: true
-    firewall_address_dynamicmapping:
-        description: The top level parameters set.
-        required: false
-        type: dict
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  address:
+    description: The parameter (address) in requested url.
+    type: str
+    required: true
+  firewall_address_dynamicmapping:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      _scope:
+        type: list
+        elements: dict
+        description: Scope.
         suboptions:
-            _scope:
-                type: list
-                elements: dict
-                description: Scope.
-                suboptions:
-                    name:
-                        type: str
-                        description: Name.
-                    vdom:
-                        type: str
-                        description: Vdom.
-            allow_routing:
-                aliases: ['allow-routing']
-                type: str
-                description: Allow routing.
-                choices: ['disable', 'enable']
-            associated_interface:
-                aliases: ['associated-interface']
-                type: str
-                description: Associated interface.
-            cache_ttl:
-                aliases: ['cache-ttl']
-                type: int
-                description: Cache ttl.
-            color:
-                type: int
-                description: Color.
-            comment:
-                type: raw
-                description: (dict or str) Comment.
-            country:
-                type: str
-                description: Country.
-            end_ip:
-                aliases: ['end-ip']
-                type: str
-                description: End ip.
-            end_mac:
-                aliases: ['end-mac']
-                type: str
-                description: End mac.
-            epg_name:
-                aliases: ['epg-name']
-                type: str
-                description: Epg name.
-            filter:
-                type: str
-                description: Filter.
-            fqdn:
-                type: str
-                description: Fqdn.
-            interface:
-                type: str
-                description: Interface.
-            obj_id:
-                aliases: ['obj-id']
-                type: str
-                description: Obj id.
-            organization:
-                type: str
-                description: Organization.
-            policy_group:
-                aliases: ['policy-group']
-                type: str
-                description: Policy group.
-            sdn:
-                type: str
-                description: Sdn.
-                choices: ['aci', 'aws', 'nsx', 'nuage', 'azure', 'gcp', 'oci', 'openstack']
-            sdn_addr_type:
-                aliases: ['sdn-addr-type']
-                type: str
-                description: Sdn addr type.
-                choices: ['private', 'public', 'all']
-            sdn_tag:
-                aliases: ['sdn-tag']
-                type: str
-                description: Sdn tag.
-            start_ip:
-                aliases: ['start-ip']
-                type: str
-                description: Start ip.
-            start_mac:
-                aliases: ['start-mac']
-                type: str
-                description: Start mac.
-            subnet:
-                type: str
-                description: Subnet.
-            subnet_name:
-                aliases: ['subnet-name']
-                type: str
-                description: Subnet name.
-            tags:
-                type: raw
-                description: (list or str) Tags.
-            tenant:
-                type: str
-                description: Tenant.
-            type:
-                type: str
-                description: Type.
-                choices: ['ipmask', 'iprange', 'fqdn', 'wildcard', 'geography', 'url',
-                          'wildcard-fqdn', 'nsx', 'aws', 'dynamic', 'interface-subnet', 'mac',
-                          'fqdn-group', 'route-tag']
-            url:
-                type: str
-                description: Url.
-            uuid:
-                type: str
-                description: Uuid.
-            visibility:
-                type: str
-                description: Visibility.
-                choices: ['disable', 'enable']
-            wildcard:
-                type: str
-                description: Wildcard.
-            wildcard_fqdn:
-                aliases: ['wildcard-fqdn']
-                type: str
-                description: Wildcard fqdn.
-            _image_base64:
-                aliases: ['_image-base64']
-                type: str
-                description: Image base64.
-            clearpass_spt:
-                aliases: ['clearpass-spt']
-                type: str
-                description: Clearpass spt.
-                choices: ['unknown', 'healthy', 'quarantine', 'checkup', 'transition', 'infected',
-                          'transient']
-            fsso_group:
-                aliases: ['fsso-group']
-                type: raw
-                description: (list or str) Fsso group.
-            sub_type:
-                aliases: ['sub-type']
-                type: str
-                description: Sub type.
-                choices: ['sdn', 'clearpass-spt', 'fsso', 'ems-tag', 'swc-tag', 'fortivoice-tag',
-                          'fortinac-tag', 'fortipolicy-tag', 'device-identification', 'rsso',
-                          'external-resource', 'obsolete', 'telemetry']
-            global_object:
-                aliases: ['global-object']
-                type: int
-                description: Global object.
-            obj_tag:
-                aliases: ['obj-tag']
-                type: str
-                description: Obj tag.
-            obj_type:
-                aliases: ['obj-type']
-                type: str
-                description: Obj type.
-                choices: ['ip', 'mac']
-            fabric_object:
-                aliases: ['fabric-object']
-                type: str
-                description: Security Fabric global object setting.
-                choices: ['disable', 'enable']
-            macaddr:
-                type: raw
-                description: (list) Multiple MAC address ranges.
-            node_ip_only:
-                aliases: ['node-ip-only']
-                type: str
-                description: Enable/disable collection of node addresses only in Kubernetes.
-                choices: ['disable', 'enable']
-            dirty:
-                type: str
-                description: To be deleted address.
-                choices: ['dirty', 'clean']
-            pattern_end:
-                aliases: ['pattern-end']
-                type: int
-                description: Pattern end.
-            pattern_start:
-                aliases: ['pattern-start']
-                type: int
-                description: Pattern start.
-            tag_detection_level:
-                aliases: ['tag-detection-level']
-                type: str
-                description: Tag detection level of dynamic address object.
-            tag_type:
-                aliases: ['tag-type']
-                type: str
-                description: Tag type of dynamic address object.
-            hw_model:
-                aliases: ['hw-model']
-                type: str
-                description: Dynamic address matching hardware model.
-            hw_vendor:
-                aliases: ['hw-vendor']
-                type: str
-                description: Dynamic address matching hardware vendor.
-            os:
-                type: str
-                description: Dynamic address matching operating system.
-            route_tag:
-                aliases: ['route-tag']
-                type: int
-                description: Route-tag address.
-            sw_version:
-                aliases: ['sw-version']
-                type: str
-                description: Dynamic address matching software version.
-            sso_attribute_value:
-                aliases: ['sso-attribute-value']
-                type: raw
-                description: (list) Name
-            agent_id:
-                aliases: ['agent-id']
-                type: raw
-                description: (list) Telemetry agent id.
-            tag_uuid:
-                aliases: ['tag-uuid']
-                type: str
-                description: Foreign UUID of dynamic address object.
-            passive_fqdn_learning:
-                aliases: ['passive-fqdn-learning']
-                type: str
-                description: Enable/disable passive learning of FQDNs.
-                choices: ['disable', 'enable']
+          name:
+            type: str
+            description: Name.
+          vdom:
+            type: str
+            description: Vdom.
+      allow_routing:
+        aliases: ['allow-routing']
+        type: str
+        description: Allow routing.
+        choices: ['disable', 'enable']
+      associated_interface:
+        aliases: ['associated-interface']
+        type: str
+        description: Associated interface.
+      cache_ttl:
+        aliases: ['cache-ttl']
+        type: int
+        description: Cache ttl.
+      color:
+        type: int
+        description: Color.
+      comment:
+        type: raw
+        description: (dict or str) Comment.
+      country:
+        type: str
+        description: Country.
+      end_ip:
+        aliases: ['end-ip']
+        type: str
+        description: End ip.
+      end_mac:
+        aliases: ['end-mac']
+        type: str
+        description: End mac.
+      epg_name:
+        aliases: ['epg-name']
+        type: str
+        description: Epg name.
+      filter:
+        type: str
+        description: Filter.
+      fqdn:
+        type: str
+        description: Fqdn.
+      interface:
+        type: str
+        description: Interface.
+      obj_id:
+        aliases: ['obj-id']
+        type: str
+        description: Obj id.
+      organization:
+        type: str
+        description: Organization.
+      policy_group:
+        aliases: ['policy-group']
+        type: str
+        description: Policy group.
+      sdn:
+        type: str
+        description: Sdn.
+        choices: ['aci', 'aws', 'nsx', 'nuage', 'azure', 'gcp', 'oci', 'openstack']
+      sdn_addr_type:
+        aliases: ['sdn-addr-type']
+        type: str
+        description: Sdn addr type.
+        choices: ['private', 'public', 'all']
+      sdn_tag:
+        aliases: ['sdn-tag']
+        type: str
+        description: Sdn tag.
+      start_ip:
+        aliases: ['start-ip']
+        type: str
+        description: Start ip.
+      start_mac:
+        aliases: ['start-mac']
+        type: str
+        description: Start mac.
+      subnet:
+        type: str
+        description: Subnet.
+      subnet_name:
+        aliases: ['subnet-name']
+        type: str
+        description: Subnet name.
+      tags:
+        type: raw
+        description: (list or str) Tags.
+      tenant:
+        type: str
+        description: Tenant.
+      type:
+        type: str
+        description: Type.
+        choices: ['ipmask', 'iprange', 'fqdn', 'wildcard', 'geography', 'url', 'wildcard-fqdn',
+                  'nsx', 'aws', 'dynamic', 'interface-subnet', 'mac', 'fqdn-group', 'route-tag',
+                  'ipam']
+      url:
+        type: str
+        description: Url.
+      uuid:
+        type: str
+        description: Uuid.
+      visibility:
+        type: str
+        description: Visibility.
+        choices: ['disable', 'enable']
+      wildcard:
+        type: str
+        description: Wildcard.
+      wildcard_fqdn:
+        aliases: ['wildcard-fqdn']
+        type: str
+        description: Wildcard fqdn.
+      _image_base64:
+        aliases: ['_image-base64']
+        type: str
+        description: Image base64.
+      clearpass_spt:
+        aliases: ['clearpass-spt']
+        type: str
+        description: Clearpass spt.
+        choices: ['unknown', 'healthy', 'quarantine', 'checkup', 'transition', 'infected',
+                  'transient']
+      fsso_group:
+        aliases: ['fsso-group']
+        type: raw
+        description: (list or str) Fsso group.
+      sub_type:
+        aliases: ['sub-type']
+        type: str
+        description: Sub type.
+        choices: ['sdn', 'clearpass-spt', 'fsso', 'ems-tag', 'swc-tag', 'fortivoice-tag',
+                  'fortinac-tag', 'fortipolicy-tag', 'device-identification', 'rsso',
+                  'external-resource', 'obsolete', 'telemetry', '8021x']
+      global_object:
+        aliases: ['global-object']
+        type: int
+        description: Global object.
+      obj_tag:
+        aliases: ['obj-tag']
+        type: str
+        description: Obj tag.
+      obj_type:
+        aliases: ['obj-type']
+        type: str
+        description: Obj type.
+        choices: ['ip', 'mac']
+      fabric_object:
+        aliases: ['fabric-object']
+        type: str
+        description: Security Fabric global object setting.
+        choices: ['disable', 'enable']
+      macaddr:
+        type: raw
+        description: (list) Multiple MAC address ranges.
+      node_ip_only:
+        aliases: ['node-ip-only']
+        type: str
+        description: Enable/disable collection of node addresses only in Kubernetes.
+        choices: ['disable', 'enable']
+      dirty:
+        type: str
+        description: To be deleted address.
+        choices: ['dirty', 'clean']
+      pattern_end:
+        aliases: ['pattern-end']
+        type: int
+        description: Pattern end.
+      pattern_start:
+        aliases: ['pattern-start']
+        type: int
+        description: Pattern start.
+      tag_detection_level:
+        aliases: ['tag-detection-level']
+        type: str
+        description: Tag detection level of dynamic address object.
+      tag_type:
+        aliases: ['tag-type']
+        type: str
+        description: Tag type of dynamic address object.
+      hw_model:
+        aliases: ['hw-model']
+        type: str
+        description: Dynamic address matching hardware model.
+      hw_vendor:
+        aliases: ['hw-vendor']
+        type: str
+        description: Dynamic address matching hardware vendor.
+      os:
+        type: str
+        description: Dynamic address matching operating system.
+      route_tag:
+        aliases: ['route-tag']
+        type: int
+        description: Route-tag address.
+      sw_version:
+        aliases: ['sw-version']
+        type: str
+        description: Dynamic address matching software version.
+      sso_attribute_value:
+        aliases: ['sso-attribute-value']
+        type: raw
+        description: (list) Name
+      agent_id:
+        aliases: ['agent-id']
+        type: raw
+        description: (list) Telemetry agent id.
+      tag_uuid:
+        aliases: ['tag-uuid']
+        type: str
+        description: Foreign UUID of dynamic address object.
+      passive_fqdn_learning:
+        aliases: ['passive-fqdn-learning']
+        type: str
+        description: Enable/disable passive learning of FQDNs.
+        choices: ['disable', 'enable']
+      obsolete:
+        type: int
+        description: Obsolete.
+      custom_tags:
+        aliases: ['custom-tags']
+        type: raw
+        description: (list) Custom tags.
+      display_with:
+        aliases: ['display-with']
+        type: str
+        description: Display object with first tag, all tags, or just the icon & color.
+        choices: ['all-tags', 'first-tag-only', 'icon-and-color']
+      fabric_force_sync:
+        aliases: ['fabric-force-sync']
+        type: str
+        description: Enable/disable forced synchronization of configuration objects from the root FortiGate unit to the downstream devices.
+        choices: ['disable', 'enable']
+      fabric_object_source:
+        aliases: ['fabric-object-source']
+        type: str
+        description: Source of truth for fabric object.
+        choices: ['member', 'local', 'root']
+      hw_version:
+        aliases: ['hw-version']
+        type: str
+        description: Dynamic address matching hardware version.
+      ipam_allocate_unique:
+        aliases: ['ipam-allocate-unique']
+        type: str
+        description: Allocate unique subnet for FortiIPAM managed fabric-object address.
+        choices: ['disable', 'enable']
+      managed_subnetwork_size:
+        aliases: ['managed-subnetwork-size']
+        type: str
+        description: Number of IP addresses to be allocated by FortiIPAM for this address.
+        choices: ['4', '8', '16', '32', '64', '128', '256', '512', '1024', '2048', '4096', '8192',
+                  '16384', '32768', '65536', '131072', '262144', '524288', '1048576', '2097152',
+                  '4194304', '8388608', '16777216']
 '''
 
 EXAMPLES = '''
@@ -311,42 +349,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -394,7 +432,7 @@ def main():
                 'type': {
                     'choices': [
                         'ipmask', 'iprange', 'fqdn', 'wildcard', 'geography', 'url', 'wildcard-fqdn', 'nsx', 'aws', 'dynamic', 'interface-subnet', 'mac',
-                        'fqdn-group', 'route-tag'
+                        'fqdn-group', 'route-tag', 'ipam'
                     ],
                     'type': 'str'
                 },
@@ -414,7 +452,7 @@ def main():
                     'v_range': [['6.2.2', '']],
                     'choices': [
                         'sdn', 'clearpass-spt', 'fsso', 'ems-tag', 'swc-tag', 'fortivoice-tag', 'fortinac-tag', 'fortipolicy-tag',
-                        'device-identification', 'rsso', 'external-resource', 'obsolete', 'telemetry'
+                        'device-identification', 'rsso', 'external-resource', 'obsolete', 'telemetry', '8021x'
                     ],
                     'type': 'str'
                 },
@@ -437,7 +475,22 @@ def main():
                 'sso-attribute-value': {'v_range': [['7.6.2', '']], 'type': 'raw'},
                 'agent-id': {'v_range': [['7.6.4', '']], 'type': 'raw'},
                 'tag-uuid': {'v_range': [['7.6.4', '']], 'type': 'str'},
-                'passive-fqdn-learning': {'v_range': [['7.6.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'passive-fqdn-learning': {'v_range': [['7.6.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'obsolete': {'v_range': [['7.6.7', '']], 'type': 'int'},
+                'custom-tags': {'v_range': [['8.0.0', '']], 'type': 'raw'},
+                'display-with': {'v_range': [['8.0.0', '']], 'choices': ['all-tags', 'first-tag-only', 'icon-and-color'], 'type': 'str'},
+                'fabric-force-sync': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'fabric-object-source': {'v_range': [['8.0.0', '']], 'choices': ['member', 'local', 'root'], 'type': 'str'},
+                'hw-version': {'v_range': [['8.0.0', '']], 'type': 'str'},
+                'ipam-allocate-unique': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'managed-subnetwork-size': {
+                    'v_range': [['8.0.0', '']],
+                    'choices': [
+                        '4', '8', '16', '32', '64', '128', '256', '512', '1024', '2048', '4096', '8192', '16384', '32768', '65536', '131072', '262144',
+                        '524288', '1048576', '2097152', '4194304', '8388608', '16777216'
+                    ],
+                    'type': 'str'
+                }
             }
         }
     }

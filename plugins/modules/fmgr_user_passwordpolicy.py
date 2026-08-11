@@ -15,76 +15,76 @@ module: fmgr_user_passwordpolicy
 short_description: Configure user password policy.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  user_passwordpolicy:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      expire_days:
+        aliases: ['expire-days']
+        type: int
+        description: Time in days before the users password expires.
+      name:
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
-        type: str
+        description: Password policy name.
         required: true
-    user_passwordpolicy:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            expire_days:
-                aliases: ['expire-days']
-                type: int
-                description: Time in days before the users password expires.
-            name:
-                type: str
-                description: Password policy name.
-                required: true
-            warn_days:
-                aliases: ['warn-days']
-                type: int
-                description: Time in days before a password expiration warning message is displayed to the user upon login.
-            expired_password_renewal:
-                aliases: ['expired-password-renewal']
-                type: str
-                description: Enable/disable renewal of a password that already is expired.
-                choices: ['disable', 'enable']
-            expire_status:
-                aliases: ['expire-status']
-                type: str
-                description: Enable/disable password expiration.
-                choices: ['disable', 'enable']
-            min_change_characters:
-                aliases: ['min-change-characters']
-                type: int
-                description: Minimum number of unique characters in new password which do not exist in old password
-            min_lower_case_letter:
-                aliases: ['min-lower-case-letter']
-                type: int
-                description: Minimum number of lowercase characters in password
-            min_non_alphanumeric:
-                aliases: ['min-non-alphanumeric']
-                type: int
-                description: Minimum number of non-alphanumeric characters in password
-            min_number:
-                aliases: ['min-number']
-                type: int
-                description: Minimum number of numeric characters in password
-            min_upper_case_letter:
-                aliases: ['min-upper-case-letter']
-                type: int
-                description: Minimum number of uppercase characters in password
-            minimum_length:
-                aliases: ['minimum-length']
-                type: int
-                description: Minimum password length
-            reuse_password:
-                aliases: ['reuse-password']
-                type: str
-                description: Enable/disable reuse of password.
-                choices: ['disable', 'enable']
-            reuse_password_limit:
-                aliases: ['reuse-password-limit']
-                type: int
-                description: Number of times passwords can be reused
+      warn_days:
+        aliases: ['warn-days']
+        type: int
+        description: Time in days before a password expiration warning message is displayed to the user upon login.
+      expired_password_renewal:
+        aliases: ['expired-password-renewal']
+        type: str
+        description: Enable/disable renewal of a password that already is expired.
+        choices: ['disable', 'enable']
+      expire_status:
+        aliases: ['expire-status']
+        type: str
+        description: Enable/disable password expiration.
+        choices: ['disable', 'enable']
+      min_change_characters:
+        aliases: ['min-change-characters']
+        type: int
+        description: Minimum number of unique characters in new password which do not exist in old password
+      min_lower_case_letter:
+        aliases: ['min-lower-case-letter']
+        type: int
+        description: Minimum number of lowercase characters in password
+      min_non_alphanumeric:
+        aliases: ['min-non-alphanumeric']
+        type: int
+        description: Minimum number of non-alphanumeric characters in password
+      min_number:
+        aliases: ['min-number']
+        type: int
+        description: Minimum number of numeric characters in password
+      min_upper_case_letter:
+        aliases: ['min-upper-case-letter']
+        type: int
+        description: Minimum number of uppercase characters in password
+      minimum_length:
+        aliases: ['minimum-length']
+        type: int
+        description: Minimum password length
+      reuse_password:
+        aliases: ['reuse-password']
+        type: str
+        description: Enable/disable reuse of password.
+        choices: ['disable', 'enable']
+      reuse_password_limit:
+        aliases: ['reuse-password-limit']
+        type: int
+        description: Number of times passwords can be reused
 '''
 
 EXAMPLES = '''
@@ -116,42 +116,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

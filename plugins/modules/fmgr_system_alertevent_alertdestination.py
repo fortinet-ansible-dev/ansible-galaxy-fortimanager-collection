@@ -15,46 +15,46 @@ module: fmgr_system_alertevent_alertdestination
 short_description: Alert destination.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    alert-event:
-        description: Deprecated, please use "alert_event"
+  alert-event:
+    description: Deprecated, please use "alert_event"
+    type: str
+  alert_event:
+    description: The parameter (alert-event) in requested url.
+    type: str
+  system_alertevent_alertdestination:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      from:
         type: str
-    alert_event:
-        description: The parameter (alert-event) in requested url.
+        description: Sender email address to use in alert emails.
+      smtp_name:
+        aliases: ['smtp-name']
         type: str
-    system_alertevent_alertdestination:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            from:
-                type: str
-                description: Sender email address to use in alert emails.
-            smtp_name:
-                aliases: ['smtp-name']
-                type: str
-                description: SMTP server name.
-            snmp_name:
-                aliases: ['snmp-name']
-                type: str
-                description: SNMP trap name.
-            syslog_name:
-                aliases: ['syslog-name']
-                type: str
-                description: Syslog server name.
-            to:
-                type: str
-                description: Recipient email address to use in alert emails.
-            type:
-                type: str
-                description:
-                    - Destination type.
-                    - mail - Send email alert.
-                    - snmp - Send SNMP trap.
-                    - syslog - Send syslog message.
-                choices: ['mail', 'snmp', 'syslog']
+        description: SMTP server name.
+      snmp_name:
+        aliases: ['snmp-name']
+        type: str
+        description: SNMP trap name.
+      syslog_name:
+        aliases: ['syslog-name']
+        type: str
+        description: Syslog server name.
+      to:
+        type: str
+        description: Recipient email address to use in alert emails.
+      type:
+        type: str
+        description:
+          - Destination type.
+          - mail - Send email alert.
+          - snmp - Send SNMP trap.
+          - syslog - Send syslog message.
+        choices: ['mail', 'snmp', 'syslog']
 '''
 
 EXAMPLES = '''
@@ -79,42 +79,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

@@ -15,56 +15,56 @@ module: fmgr_firewall_accessproxyvirtualhost
 short_description: Configure Access Proxy virtual hosts.
 version_added: "2.1.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  firewall_accessproxyvirtualhost:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      host:
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: The host name.
+      host_type:
+        aliases: ['host-type']
         type: str
+        description: Type of host pattern.
+        choices: ['sub-string', 'wildcard', 'fqdn']
+      name:
+        type: str
+        description: Virtual host name.
         required: true
-    firewall_accessproxyvirtualhost:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            host:
-                type: str
-                description: The host name.
-            host_type:
-                aliases: ['host-type']
-                type: str
-                description: Type of host pattern.
-                choices: ['sub-string', 'wildcard']
-            name:
-                type: str
-                description: Virtual host name.
-                required: true
-            ssl_certificate:
-                aliases: ['ssl-certificate']
-                type: str
-                description: SSL certificate for this host.
-            replacemsg_group:
-                aliases: ['replacemsg-group']
-                type: str
-                description: Access-proxy-virtual-host replacement message override group.
-            client_cert:
-                aliases: ['client-cert']
-                type: str
-                description: Enable/disable requesting client certificate.
-                choices: ['disable', 'enable']
-            empty_cert_action:
-                aliases: ['empty-cert-action']
-                type: str
-                description: Action for an empty client certificate.
-                choices: ['block', 'accept', 'accept-unmanageable']
-            user_agent_detect:
-                aliases: ['user-agent-detect']
-                type: str
-                description: Enable/disable detecting device type by HTTP user-agent if no client certificate is provided.
-                choices: ['disable', 'enable']
+      ssl_certificate:
+        aliases: ['ssl-certificate']
+        type: str
+        description: SSL certificate for this host.
+      replacemsg_group:
+        aliases: ['replacemsg-group']
+        type: str
+        description: Access-proxy-virtual-host replacement message override group.
+      client_cert:
+        aliases: ['client-cert']
+        type: str
+        description: Enable/disable requesting client certificate.
+        choices: ['disable', 'enable']
+      empty_cert_action:
+        aliases: ['empty-cert-action']
+        type: str
+        description: Action for an empty client certificate.
+        choices: ['block', 'accept', 'accept-unmanageable']
+      user_agent_detect:
+        aliases: ['user-agent-detect']
+        type: str
+        description: Enable/disable detecting device type by HTTP user-agent if no client certificate is provided.
+        choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -81,7 +81,7 @@ EXAMPLES = '''
         firewall_accessproxyvirtualhost:
           name: "your value" # Required variable, string
           # host: <string>
-          # host_type: <value in [sub-string, wildcard]>
+          # host_type: <value in [sub-string, wildcard, fqdn]>
           # ssl_certificate: <string>
           # replacemsg_group: <string>
           # client_cert: <value in [disable, enable]>
@@ -91,42 +91,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -146,7 +146,7 @@ def main():
             'type': 'dict', 'v_range': [['7.0.1', '']],
             'options': {
                 'host': {'v_range': [['7.0.1', '']], 'type': 'str'},
-                'host-type': {'v_range': [['7.0.1', '']], 'choices': ['sub-string', 'wildcard'], 'type': 'str'},
+                'host-type': {'v_range': [['7.0.1', '']], 'choices': ['sub-string', 'wildcard', 'fqdn'], 'type': 'str'},
                 'name': {'v_range': [['7.0.1', '']], 'required': True, 'type': 'str'},
                 'ssl-certificate': {'v_range': [['7.0.1', '']], 'type': 'str'},
                 'replacemsg-group': {'v_range': [['7.0.5', '7.0.16'], ['7.2.1', '']], 'type': 'str'},

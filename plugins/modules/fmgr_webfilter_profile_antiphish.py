@@ -15,98 +15,98 @@ module: fmgr_webfilter_profile_antiphish
 short_description: AntiPhishing profile.
 version_added: "2.1.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.partial_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.partial_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  profile:
+    description: The parameter (profile) in requested url.
+    type: str
+    required: true
+  webfilter_profile_antiphish:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      check_basic_auth:
+        aliases: ['check-basic-auth']
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Enable/disable checking of HTTP Basic Auth field for known credentials.
+        choices: ['disable', 'enable']
+      check_uri:
+        aliases: ['check-uri']
         type: str
-        required: true
-    profile:
-        description: The parameter (profile) in requested url.
-        type: str
-        required: true
-    webfilter_profile_antiphish:
-        description: The top level parameters set.
-        required: false
-        type: dict
+        description: Enable/disable checking of GET URI parameters for known credentials.
+        choices: ['disable', 'enable']
+      custom_patterns:
+        aliases: ['custom-patterns']
+        type: list
+        elements: dict
+        description: Custom patterns.
         suboptions:
-            check_basic_auth:
-                aliases: ['check-basic-auth']
-                type: str
-                description: Enable/disable checking of HTTP Basic Auth field for known credentials.
-                choices: ['disable', 'enable']
-            check_uri:
-                aliases: ['check-uri']
-                type: str
-                description: Enable/disable checking of GET URI parameters for known credentials.
-                choices: ['disable', 'enable']
-            custom_patterns:
-                aliases: ['custom-patterns']
-                type: list
-                elements: dict
-                description: Custom patterns.
-                suboptions:
-                    category:
-                        type: str
-                        description: Category that the pattern matches.
-                        choices: ['username', 'password']
-                    pattern:
-                        type: str
-                        description: Target pattern.
-                    type:
-                        type: str
-                        description: Pattern will be treated either as a regex pattern or literal string.
-                        choices: ['regex', 'literal']
-            default_action:
-                aliases: ['default-action']
-                type: str
-                description: Action to be taken when there is no matching rule.
-                choices: ['log', 'block', 'exempt']
-            domain_controller:
-                aliases: ['domain-controller']
-                type: str
-                description: Domain for which to verify received credentials against.
-            inspection_entries:
-                aliases: ['inspection-entries']
-                type: list
-                elements: dict
-                description: Inspection entries.
-                suboptions:
-                    action:
-                        type: str
-                        description: Action to be taken upon an AntiPhishing match.
-                        choices: ['log', 'block', 'exempt']
-                    fortiguard_category:
-                        aliases: ['fortiguard-category']
-                        type: raw
-                        description: (list) FortiGuard category to match.
-                    name:
-                        type: str
-                        description: Inspection target name.
-            max_body_len:
-                aliases: ['max-body-len']
-                type: int
-                description: Maximum size of a POST body to check for credentials.
-            status:
-                type: str
-                description: Toggle AntiPhishing functionality.
-                choices: ['disable', 'enable']
-            check_username_only:
-                aliases: ['check-username-only']
-                type: str
-                description: Enable/disable acting only on valid username credentials.
-                choices: ['disable', 'enable']
-            authentication:
-                type: str
-                description: Authentication methods.
-                choices: ['domain-controller', 'ldap']
-            ldap:
-                type: str
-                description: LDAP server for which to verify received credentials against.
+          category:
+            type: str
+            description: Category that the pattern matches.
+            choices: ['username', 'password']
+          pattern:
+            type: str
+            description: Target pattern.
+          type:
+            type: str
+            description: Pattern will be treated either as a regex pattern or literal string.
+            choices: ['regex', 'literal']
+      default_action:
+        aliases: ['default-action']
+        type: str
+        description: Action to be taken when there is no matching rule.
+        choices: ['log', 'block', 'exempt']
+      domain_controller:
+        aliases: ['domain-controller']
+        type: str
+        description: Domain for which to verify received credentials against.
+      inspection_entries:
+        aliases: ['inspection-entries']
+        type: list
+        elements: dict
+        description: Inspection entries.
+        suboptions:
+          action:
+            type: str
+            description: Action to be taken upon an AntiPhishing match.
+            choices: ['log', 'block', 'exempt']
+          fortiguard_category:
+            aliases: ['fortiguard-category']
+            type: raw
+            description: (list) FortiGuard category to match.
+          name:
+            type: str
+            description: Inspection target name.
+      max_body_len:
+        aliases: ['max-body-len']
+        type: int
+        description: Maximum size of a POST body to check for credentials.
+      status:
+        type: str
+        description: Toggle AntiPhishing functionality.
+        choices: ['disable', 'enable']
+      check_username_only:
+        aliases: ['check-username-only']
+        type: str
+        description: Enable/disable acting only on valid username credentials.
+        choices: ['disable', 'enable']
+      authentication:
+        type: str
+        description: Authentication methods.
+        choices: ['domain-controller', 'ldap']
+      ldap:
+        type: str
+        description: LDAP server for which to verify received credentials against.
 '''
 
 EXAMPLES = '''
@@ -142,42 +142,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

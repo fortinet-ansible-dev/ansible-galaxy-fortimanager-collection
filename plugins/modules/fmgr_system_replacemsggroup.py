@@ -15,719 +15,732 @@ module: fmgr_system_replacemsggroup
 short_description: Configure replacement message groups.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
-        type: str
-    adom:
-        description: The parameter (adom) in requested url.
-        type: str
-        required: true
-    system_replacemsggroup:
-        description: The top level parameters set.
-        required: false
-        type: dict
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  system_replacemsggroup:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      admin:
+        type: list
+        elements: dict
+        description: Admin.
         suboptions:
-            admin:
-                type: list
-                elements: dict
-                description: Admin.
-                suboptions:
-                    buffer:
-                        type: str
-                        description: Message string.
-                    format:
-                        type: str
-                        description: Format flag.
-                        choices: ['none', 'text', 'html', 'wml']
-                    header:
-                        type: str
-                        description: Header flag.
-                        choices: ['none', 'http', '8bit']
-                    msg_type:
-                        aliases: ['msg-type']
-                        type: str
-                        description: Message type.
-            alertmail:
-                type: list
-                elements: dict
-                description: Alertmail.
-                suboptions:
-                    buffer:
-                        type: str
-                        description: Message string.
-                    format:
-                        type: str
-                        description: Format flag.
-                        choices: ['none', 'text', 'html', 'wml']
-                    header:
-                        type: str
-                        description: Header flag.
-                        choices: ['none', 'http', '8bit']
-                    msg_type:
-                        aliases: ['msg-type']
-                        type: str
-                        description: Message type.
-                    id:
-                        type: int
-                        description: Id.
-            auth:
-                type: list
-                elements: dict
-                description: Auth.
-                suboptions:
-                    buffer:
-                        type: str
-                        description: Message string.
-                    format:
-                        type: str
-                        description: Format flag.
-                        choices: ['none', 'text', 'html', 'wml']
-                    header:
-                        type: str
-                        description: Header flag.
-                        choices: ['none', 'http', '8bit']
-                    msg_type:
-                        aliases: ['msg-type']
-                        type: str
-                        description: Message type.
-            comment:
-                type: str
-                description: Comment.
-            custom_message:
-                aliases: ['custom-message']
-                type: list
-                elements: dict
-                description: Custom message.
-                suboptions:
-                    buffer:
-                        type: str
-                        description: Message string.
-                    format:
-                        type: str
-                        description: Format flag.
-                        choices: ['none', 'text', 'html', 'wml']
-                    header:
-                        type: str
-                        description: Header flag.
-                        choices: ['none', 'http', '8bit']
-                    msg_type:
-                        aliases: ['msg-type']
-                        type: str
-                        description: Message type.
-            device_detection_portal:
-                aliases: ['device-detection-portal']
-                type: list
-                elements: dict
-                description: Device detection portal.
-                suboptions:
-                    buffer:
-                        type: str
-                        description: Message string.
-                    format:
-                        type: str
-                        description: Format flag.
-                        choices: ['none', 'text', 'html', 'wml']
-                    header:
-                        type: str
-                        description: Header flag.
-                        choices: ['none', 'http', '8bit']
-                    msg_type:
-                        aliases: ['msg-type']
-                        type: str
-                        description: Message type.
-            ec:
-                type: list
-                elements: dict
-                description: Ec.
-                suboptions:
-                    buffer:
-                        type: str
-                        description: Message string.
-                    format:
-                        type: str
-                        description: Format flag.
-                        choices: ['none', 'text', 'html', 'wml']
-                    header:
-                        type: str
-                        description: Header flag.
-                        choices: ['none', 'http', '8bit']
-                    msg_type:
-                        aliases: ['msg-type']
-                        type: str
-                        description: Message type.
-            fortiguard_wf:
-                aliases: ['fortiguard-wf']
-                type: list
-                elements: dict
-                description: Fortiguard wf.
-                suboptions:
-                    buffer:
-                        type: str
-                        description: Message string.
-                    format:
-                        type: str
-                        description: Format flag.
-                        choices: ['none', 'text', 'html', 'wml']
-                    header:
-                        type: str
-                        description: Header flag.
-                        choices: ['none', 'http', '8bit']
-                    msg_type:
-                        aliases: ['msg-type']
-                        type: str
-                        description: Message type.
-            ftp:
-                type: list
-                elements: dict
-                description: Ftp.
-                suboptions:
-                    buffer:
-                        type: str
-                        description: Message string.
-                    format:
-                        type: str
-                        description: Format flag.
-                        choices: ['none', 'text', 'html', 'wml']
-                    header:
-                        type: str
-                        description: Header flag.
-                        choices: ['none', 'http', '8bit']
-                    msg_type:
-                        aliases: ['msg-type']
-                        type: str
-                        description: Message type.
-            group_type:
-                aliases: ['group-type']
-                type: str
-                description: Group type.
-                choices: ['default', 'utm', 'auth', 'ec', 'captive-portal']
-            http:
-                type: list
-                elements: dict
-                description: Http.
-                suboptions:
-                    buffer:
-                        type: str
-                        description: Message string.
-                    format:
-                        type: str
-                        description: Format flag.
-                        choices: ['none', 'text', 'html', 'wml']
-                    header:
-                        type: str
-                        description: Header flag.
-                        choices: ['none', 'http', '8bit']
-                    msg_type:
-                        aliases: ['msg-type']
-                        type: str
-                        description: Message type.
-            icap:
-                type: list
-                elements: dict
-                description: Icap.
-                suboptions:
-                    buffer:
-                        type: str
-                        description: Message string.
-                    format:
-                        type: str
-                        description: Format flag.
-                        choices: ['none', 'text', 'html', 'wml']
-                    header:
-                        type: str
-                        description: Header flag.
-                        choices: ['none', 'http', '8bit']
-                    msg_type:
-                        aliases: ['msg-type']
-                        type: str
-                        description: Message type.
-            mail:
-                type: list
-                elements: dict
-                description: Mail.
-                suboptions:
-                    buffer:
-                        type: str
-                        description: Message string.
-                    format:
-                        type: str
-                        description: Format flag.
-                        choices: ['none', 'text', 'html', 'wml']
-                    header:
-                        type: str
-                        description: Header flag.
-                        choices: ['none', 'http', '8bit']
-                    msg_type:
-                        aliases: ['msg-type']
-                        type: str
-                        description: Message type.
-            mm1:
-                type: list
-                elements: dict
-                description: Mm1.
-                suboptions:
-                    add_smil:
-                        aliases: ['add-smil']
-                        type: str
-                        description: Add message encapsulation
-                        choices: ['disable', 'enable']
-                    charset:
-                        type: str
-                        description: Character encoding used for replacement message
-                        choices: ['us-ascii', 'utf-8']
-                    class:
-                        type: str
-                        description: Message class
-                        choices: ['personal', 'advertisement', 'information', 'automatic',
-                                  'not-included']
-                    format:
-                        type: str
-                        description: Format flag.
-                        choices: ['none', 'text', 'html', 'wml']
-                    from:
-                        type: str
-                        description: From address
-                    from_sender:
-                        aliases: ['from-sender']
-                        type: str
-                        description: Notification message sent from recipient
-                        choices: ['disable', 'enable']
-                    header:
-                        type: str
-                        description: Header flag.
-                        choices: ['none', 'http', '8bit']
-                    image:
-                        type: str
-                        description: Message string.
-                    fmgr_message:
-                        type: str
-                        description: Message text
-                    msg_type:
-                        aliases: ['msg-type']
-                        type: str
-                        description: Message type.
-                    priority:
-                        type: str
-                        description: Message priority
-                        choices: ['low', 'normal', 'high', 'not-included']
-                    rsp_status:
-                        aliases: ['rsp-status']
-                        type: str
-                        description: Response status code
-                        choices: ['ok', 'err-unspecified', 'err-srv-denied',
-                                  'err-msg-fmt-corrupt', 'err-snd-addr-unresolv',
-                                  'err-msg-not-found', 'err-net-prob', 'err-content-not-accept',
-                                  'err-unsupp-msg']
-                    rsp_text:
-                        aliases: ['rsp-text']
-                        type: str
-                        description: Response text
-                    sender_visibility:
-                        aliases: ['sender-visibility']
-                        type: str
-                        description: Sender visibility
-                        choices: ['hide', 'show', 'not-specified']
-                    smil_part:
-                        aliases: ['smil-part']
-                        type: str
-                        description: Message encapsulation text
-                    subject:
-                        type: str
-                        description: Subject text string
-            mm3:
-                type: list
-                elements: dict
-                description: Mm3.
-                suboptions:
-                    add_html:
-                        aliases: ['add-html']
-                        type: str
-                        description: Add message encapsulation
-                        choices: ['disable', 'enable']
-                    charset:
-                        type: str
-                        description: Character encoding used for replacement message
-                        choices: ['us-ascii', 'utf-8']
-                    format:
-                        type: str
-                        description: Format flag.
-                        choices: ['none', 'text', 'html', 'wml']
-                    from:
-                        type: str
-                        description: From address
-                    from_sender:
-                        aliases: ['from-sender']
-                        type: str
-                        description: Notification message sent from recipient
-                        choices: ['disable', 'enable']
-                    header:
-                        type: str
-                        description: Header flag.
-                        choices: ['none', 'http', '8bit']
-                    html_part:
-                        aliases: ['html-part']
-                        type: str
-                        description: Message encapsulation text
-                    image:
-                        type: str
-                        description: Message string.
-                    fmgr_message:
-                        type: str
-                        description: Message text
-                    msg_type:
-                        aliases: ['msg-type']
-                        type: str
-                        description: Message type.
-                    priority:
-                        type: str
-                        description: Message priority
-                        choices: ['low', 'normal', 'high', 'not-included']
-                    subject:
-                        type: str
-                        description: Subject text string
-            mm4:
-                type: list
-                elements: dict
-                description: Mm4.
-                suboptions:
-                    add_smil:
-                        aliases: ['add-smil']
-                        type: str
-                        description: Add message encapsulation
-                        choices: ['disable', 'enable']
-                    charset:
-                        type: str
-                        description: Character encoding used for replacement message
-                        choices: ['us-ascii', 'utf-8']
-                    class:
-                        type: str
-                        description: Message class
-                        choices: ['personal', 'advertisement', 'informational', 'auto',
-                                  'not-included']
-                    domain:
-                        type: str
-                        description: From address domain
-                    format:
-                        type: str
-                        description: Format flag.
-                        choices: ['none', 'text', 'html', 'wml']
-                    from:
-                        type: str
-                        description: From address
-                    from_sender:
-                        aliases: ['from-sender']
-                        type: str
-                        description: Notification message sent from recipient
-                        choices: ['disable', 'enable']
-                    header:
-                        type: str
-                        description: Header flag.
-                        choices: ['none', 'http', '8bit']
-                    image:
-                        type: str
-                        description: Message string.
-                    fmgr_message:
-                        type: str
-                        description: Message text
-                    msg_type:
-                        aliases: ['msg-type']
-                        type: str
-                        description: Message type.
-                    priority:
-                        type: str
-                        description: Message priority
-                        choices: ['low', 'normal', 'high', 'not-included']
-                    rsp_status:
-                        aliases: ['rsp-status']
-                        type: str
-                        description: Response status
-                        choices: ['ok', 'err-unspecified', 'err-srv-denied',
-                                  'err-msg-fmt-corrupt', 'err-snd-addr-unresolv', 'err-net-prob',
-                                  'err-content-not-accept', 'err-unsupp-msg']
-                    smil_part:
-                        aliases: ['smil-part']
-                        type: str
-                        description: Message encapsulation text
-                    subject:
-                        type: str
-                        description: Subject text string
-            mm7:
-                type: list
-                elements: dict
-                description: Mm7.
-                suboptions:
-                    add_smil:
-                        aliases: ['add-smil']
-                        type: str
-                        description: Add message encapsulation
-                        choices: ['disable', 'enable']
-                    addr_type:
-                        aliases: ['addr-type']
-                        type: str
-                        description: From address type
-                        choices: ['rfc2822-addr', 'number', 'short-code']
-                    allow_content_adaptation:
-                        aliases: ['allow-content-adaptation']
-                        type: str
-                        description: Allow content adaptations
-                        choices: ['disable', 'enable']
-                    charset:
-                        type: str
-                        description: Character encoding used for replacement message
-                        choices: ['us-ascii', 'utf-8']
-                    class:
-                        type: str
-                        description: Message class
-                        choices: ['personal', 'advertisement', 'informational', 'auto',
-                                  'not-included']
-                    format:
-                        type: str
-                        description: Format flag.
-                        choices: ['none', 'text', 'html', 'wml']
-                    from:
-                        type: str
-                        description: From address
-                    from_sender:
-                        aliases: ['from-sender']
-                        type: str
-                        description: Notification message sent from recipient
-                        choices: ['disable', 'enable']
-                    header:
-                        type: str
-                        description: Header flag.
-                        choices: ['none', 'http', '8bit']
-                    image:
-                        type: str
-                        description: Message string.
-                    fmgr_message:
-                        type: str
-                        description: Message text
-                    msg_type:
-                        aliases: ['msg-type']
-                        type: str
-                        description: Message type.
-                    priority:
-                        type: str
-                        description: Message priority
-                        choices: ['low', 'normal', 'high', 'not-included']
-                    rsp_status:
-                        aliases: ['rsp-status']
-                        type: str
-                        description: Response status
-                        choices: ['success', 'partial-success', 'client-err', 'oper-restrict',
-                                  'addr-err', 'addr-not-found', 'content-refused',
-                                  'msg-id-not-found', 'link-id-not-found', 'msg-fmt-corrupt',
-                                  'app-id-not-found', 'repl-app-id-not-found', 'srv-err',
-                                  'not-possible', 'msg-rejected', 'multiple-addr-not-supp',
-                                  'app-addr-not-supp', 'gen-service-err', 'improper-ident',
-                                  'unsupp-ver', 'unsupp-oper', 'validation-err', 'service-err',
-                                  'service-unavail', 'service-denied', 'app-denied']
-                    smil_part:
-                        aliases: ['smil-part']
-                        type: str
-                        description: Message encapsulation text
-                    subject:
-                        type: str
-                        description: Subject text string
-            mms:
-                type: list
-                elements: dict
-                description: Mms.
-                suboptions:
-                    buffer:
-                        type: str
-                        description: Message string.
-                    charset:
-                        type: str
-                        description: Character encoding used for replacement message
-                        choices: ['us-ascii', 'utf-8']
-                    format:
-                        type: str
-                        description: Format flag.
-                        choices: ['none', 'text', 'html', 'wml']
-                    header:
-                        type: str
-                        description: Header flag.
-                        choices: ['none', 'http', '8bit']
-                    image:
-                        type: str
-                        description: Message string.
-                    msg_type:
-                        aliases: ['msg-type']
-                        type: str
-                        description: Message type.
-            nac_quar:
-                aliases: ['nac-quar']
-                type: list
-                elements: dict
-                description: Nac quar.
-                suboptions:
-                    buffer:
-                        type: str
-                        description: Message string.
-                    format:
-                        type: str
-                        description: Format flag.
-                        choices: ['none', 'text', 'html', 'wml']
-                    header:
-                        type: str
-                        description: Header flag.
-                        choices: ['none', 'http', '8bit']
-                    msg_type:
-                        aliases: ['msg-type']
-                        type: str
-                        description: Message type.
-                    id:
-                        type: int
-                        description: Id.
-            name:
-                type: str
-                description: Group name.
-                required: true
-            nntp:
-                type: list
-                elements: dict
-                description: Nntp.
-                suboptions:
-                    buffer:
-                        type: str
-                        description: Message string.
-                    format:
-                        type: str
-                        description: Format flag.
-                        choices: ['none', 'text', 'html', 'wml']
-                    header:
-                        type: str
-                        description: Header flag.
-                        choices: ['none', 'http', '8bit']
-                    msg_type:
-                        aliases: ['msg-type']
-                        type: str
-                        description: Message type.
-            spam:
-                type: list
-                elements: dict
-                description: Spam.
-                suboptions:
-                    buffer:
-                        type: str
-                        description: Message string.
-                    format:
-                        type: str
-                        description: Format flag.
-                        choices: ['none', 'text', 'html', 'wml']
-                    header:
-                        type: str
-                        description: Header flag.
-                        choices: ['none', 'http', '8bit']
-                    msg_type:
-                        aliases: ['msg-type']
-                        type: str
-                        description: Message type.
-            sslvpn:
-                type: list
-                elements: dict
-                description: Sslvpn.
-                suboptions:
-                    buffer:
-                        type: str
-                        description: Message string.
-                    format:
-                        type: str
-                        description: Format flag.
-                        choices: ['none', 'text', 'html', 'wml']
-                    header:
-                        type: str
-                        description: Header flag.
-                        choices: ['none', 'http', '8bit']
-                    msg_type:
-                        aliases: ['msg-type']
-                        type: str
-                        description: Message type.
-            traffic_quota:
-                aliases: ['traffic-quota']
-                type: list
-                elements: dict
-                description: Traffic quota.
-                suboptions:
-                    buffer:
-                        type: str
-                        description: Message string.
-                    format:
-                        type: str
-                        description: Format flag.
-                        choices: ['none', 'text', 'html', 'wml']
-                    header:
-                        type: str
-                        description: Header flag.
-                        choices: ['none', 'http', '8bit']
-                    msg_type:
-                        aliases: ['msg-type']
-                        type: str
-                        description: Message type.
-            utm:
-                type: list
-                elements: dict
-                description: Utm.
-                suboptions:
-                    buffer:
-                        type: str
-                        description: Message string.
-                    format:
-                        type: str
-                        description: Format flag.
-                        choices: ['none', 'text', 'html', 'wml']
-                    header:
-                        type: str
-                        description: Header flag.
-                        choices: ['none', 'http', '8bit']
-                    msg_type:
-                        aliases: ['msg-type']
-                        type: str
-                        description: Message type.
-            webproxy:
-                type: list
-                elements: dict
-                description: Webproxy.
-                suboptions:
-                    buffer:
-                        type: str
-                        description: Message string.
-                    format:
-                        type: str
-                        description: Format flag.
-                        choices: ['none', 'text', 'html', 'wml']
-                    header:
-                        type: str
-                        description: Header flag.
-                        choices: ['none', 'http', '8bit']
-                    msg_type:
-                        aliases: ['msg-type']
-                        type: str
-                        description: Message type.
-            automation:
-                type: list
-                elements: dict
-                description: Automation.
-                suboptions:
-                    buffer:
-                        type: str
-                        description: Message string.
-                    format:
-                        type: str
-                        description: Format flag.
-                        choices: ['none', 'text', 'html']
-                    header:
-                        type: str
-                        description: Header flag.
-                        choices: ['none', 'http', '8bit']
-                    msg_type:
-                        aliases: ['msg-type']
-                        type: str
-                        description: Message type.
+          buffer:
+            type: str
+            description: Message string.
+          format:
+            type: str
+            description: Format flag.
+            choices: ['none', 'text', 'html', 'wml']
+          header:
+            type: str
+            description: Header flag.
+            choices: ['none', 'http', '8bit']
+          msg_type:
+            aliases: ['msg-type']
+            type: str
+            description: Message type.
+      alertmail:
+        type: list
+        elements: dict
+        description: Alertmail.
+        suboptions:
+          buffer:
+            type: str
+            description: Message string.
+          format:
+            type: str
+            description: Format flag.
+            choices: ['none', 'text', 'html', 'wml']
+          header:
+            type: str
+            description: Header flag.
+            choices: ['none', 'http', '8bit']
+          msg_type:
+            aliases: ['msg-type']
+            type: str
+            description: Message type.
+          id:
+            type: int
+            description: Id.
+      auth:
+        type: list
+        elements: dict
+        description: Auth.
+        suboptions:
+          buffer:
+            type: str
+            description: Message string.
+          format:
+            type: str
+            description: Format flag.
+            choices: ['none', 'text', 'html', 'wml']
+          header:
+            type: str
+            description: Header flag.
+            choices: ['none', 'http', '8bit']
+          msg_type:
+            aliases: ['msg-type']
+            type: str
+            description: Message type.
+      comment:
+        type: str
+        description: Comment.
+      custom_message:
+        aliases: ['custom-message']
+        type: list
+        elements: dict
+        description: Custom message.
+        suboptions:
+          buffer:
+            type: str
+            description: Message string.
+          format:
+            type: str
+            description: Format flag.
+            choices: ['none', 'text', 'html', 'wml']
+          header:
+            type: str
+            description: Header flag.
+            choices: ['none', 'http', '8bit']
+          msg_type:
+            aliases: ['msg-type']
+            type: str
+            description: Message type.
+      device_detection_portal:
+        aliases: ['device-detection-portal']
+        type: list
+        elements: dict
+        description: Device detection portal.
+        suboptions:
+          buffer:
+            type: str
+            description: Message string.
+          format:
+            type: str
+            description: Format flag.
+            choices: ['none', 'text', 'html', 'wml']
+          header:
+            type: str
+            description: Header flag.
+            choices: ['none', 'http', '8bit']
+          msg_type:
+            aliases: ['msg-type']
+            type: str
+            description: Message type.
+      ec:
+        type: list
+        elements: dict
+        description: Ec.
+        suboptions:
+          buffer:
+            type: str
+            description: Message string.
+          format:
+            type: str
+            description: Format flag.
+            choices: ['none', 'text', 'html', 'wml']
+          header:
+            type: str
+            description: Header flag.
+            choices: ['none', 'http', '8bit']
+          msg_type:
+            aliases: ['msg-type']
+            type: str
+            description: Message type.
+      fortiguard_wf:
+        aliases: ['fortiguard-wf']
+        type: list
+        elements: dict
+        description: Fortiguard wf.
+        suboptions:
+          buffer:
+            type: str
+            description: Message string.
+          format:
+            type: str
+            description: Format flag.
+            choices: ['none', 'text', 'html', 'wml']
+          header:
+            type: str
+            description: Header flag.
+            choices: ['none', 'http', '8bit']
+          msg_type:
+            aliases: ['msg-type']
+            type: str
+            description: Message type.
+      ftp:
+        type: list
+        elements: dict
+        description: Ftp.
+        suboptions:
+          buffer:
+            type: str
+            description: Message string.
+          format:
+            type: str
+            description: Format flag.
+            choices: ['none', 'text', 'html', 'wml']
+          header:
+            type: str
+            description: Header flag.
+            choices: ['none', 'http', '8bit']
+          msg_type:
+            aliases: ['msg-type']
+            type: str
+            description: Message type.
+      group_type:
+        aliases: ['group-type']
+        type: str
+        description: Group type.
+        choices: ['default', 'utm', 'auth', 'ec', 'captive-portal']
+      http:
+        type: list
+        elements: dict
+        description: Http.
+        suboptions:
+          buffer:
+            type: str
+            description: Message string.
+          format:
+            type: str
+            description: Format flag.
+            choices: ['none', 'text', 'html', 'wml']
+          header:
+            type: str
+            description: Header flag.
+            choices: ['none', 'http', '8bit']
+          msg_type:
+            aliases: ['msg-type']
+            type: str
+            description: Message type.
+      icap:
+        type: list
+        elements: dict
+        description: Icap.
+        suboptions:
+          buffer:
+            type: str
+            description: Message string.
+          format:
+            type: str
+            description: Format flag.
+            choices: ['none', 'text', 'html', 'wml']
+          header:
+            type: str
+            description: Header flag.
+            choices: ['none', 'http', '8bit']
+          msg_type:
+            aliases: ['msg-type']
+            type: str
+            description: Message type.
+      mail:
+        type: list
+        elements: dict
+        description: Mail.
+        suboptions:
+          buffer:
+            type: str
+            description: Message string.
+          format:
+            type: str
+            description: Format flag.
+            choices: ['none', 'text', 'html', 'wml']
+          header:
+            type: str
+            description: Header flag.
+            choices: ['none', 'http', '8bit']
+          msg_type:
+            aliases: ['msg-type']
+            type: str
+            description: Message type.
+      mm1:
+        type: list
+        elements: dict
+        description: Mm1.
+        suboptions:
+          add_smil:
+            aliases: ['add-smil']
+            type: str
+            description: Add message encapsulation
+            choices: ['disable', 'enable']
+          charset:
+            type: str
+            description: Character encoding used for replacement message
+            choices: ['us-ascii', 'utf-8']
+          class:
+            type: str
+            description: Message class
+            choices: ['personal', 'advertisement', 'information', 'automatic', 'not-included']
+          format:
+            type: str
+            description: Format flag.
+            choices: ['none', 'text', 'html', 'wml']
+          from:
+            type: str
+            description: From address
+          from_sender:
+            aliases: ['from-sender']
+            type: str
+            description: Notification message sent from recipient
+            choices: ['disable', 'enable']
+          header:
+            type: str
+            description: Header flag.
+            choices: ['none', 'http', '8bit']
+          image:
+            type: str
+            description: Message string.
+          fmgr_message:
+            type: str
+            description: Message text
+          msg_type:
+            aliases: ['msg-type']
+            type: str
+            description: Message type.
+          priority:
+            type: str
+            description: Message priority
+            choices: ['low', 'normal', 'high', 'not-included']
+          rsp_status:
+            aliases: ['rsp-status']
+            type: str
+            description: Response status code
+            choices: ['ok', 'err-unspecified', 'err-srv-denied', 'err-msg-fmt-corrupt',
+                      'err-snd-addr-unresolv', 'err-msg-not-found', 'err-net-prob',
+                      'err-content-not-accept', 'err-unsupp-msg']
+          rsp_text:
+            aliases: ['rsp-text']
+            type: str
+            description: Response text
+          sender_visibility:
+            aliases: ['sender-visibility']
+            type: str
+            description: Sender visibility
+            choices: ['hide', 'show', 'not-specified']
+          smil_part:
+            aliases: ['smil-part']
+            type: str
+            description: Message encapsulation text
+          subject:
+            type: str
+            description: Subject text string
+      mm3:
+        type: list
+        elements: dict
+        description: Mm3.
+        suboptions:
+          add_html:
+            aliases: ['add-html']
+            type: str
+            description: Add message encapsulation
+            choices: ['disable', 'enable']
+          charset:
+            type: str
+            description: Character encoding used for replacement message
+            choices: ['us-ascii', 'utf-8']
+          format:
+            type: str
+            description: Format flag.
+            choices: ['none', 'text', 'html', 'wml']
+          from:
+            type: str
+            description: From address
+          from_sender:
+            aliases: ['from-sender']
+            type: str
+            description: Notification message sent from recipient
+            choices: ['disable', 'enable']
+          header:
+            type: str
+            description: Header flag.
+            choices: ['none', 'http', '8bit']
+          html_part:
+            aliases: ['html-part']
+            type: str
+            description: Message encapsulation text
+          image:
+            type: str
+            description: Message string.
+          fmgr_message:
+            type: str
+            description: Message text
+          msg_type:
+            aliases: ['msg-type']
+            type: str
+            description: Message type.
+          priority:
+            type: str
+            description: Message priority
+            choices: ['low', 'normal', 'high', 'not-included']
+          subject:
+            type: str
+            description: Subject text string
+      mm4:
+        type: list
+        elements: dict
+        description: Mm4.
+        suboptions:
+          add_smil:
+            aliases: ['add-smil']
+            type: str
+            description: Add message encapsulation
+            choices: ['disable', 'enable']
+          charset:
+            type: str
+            description: Character encoding used for replacement message
+            choices: ['us-ascii', 'utf-8']
+          class:
+            type: str
+            description: Message class
+            choices: ['personal', 'advertisement', 'informational', 'auto', 'not-included']
+          domain:
+            type: str
+            description: From address domain
+          format:
+            type: str
+            description: Format flag.
+            choices: ['none', 'text', 'html', 'wml']
+          from:
+            type: str
+            description: From address
+          from_sender:
+            aliases: ['from-sender']
+            type: str
+            description: Notification message sent from recipient
+            choices: ['disable', 'enable']
+          header:
+            type: str
+            description: Header flag.
+            choices: ['none', 'http', '8bit']
+          image:
+            type: str
+            description: Message string.
+          fmgr_message:
+            type: str
+            description: Message text
+          msg_type:
+            aliases: ['msg-type']
+            type: str
+            description: Message type.
+          priority:
+            type: str
+            description: Message priority
+            choices: ['low', 'normal', 'high', 'not-included']
+          rsp_status:
+            aliases: ['rsp-status']
+            type: str
+            description: Response status
+            choices: ['ok', 'err-unspecified', 'err-srv-denied', 'err-msg-fmt-corrupt',
+                      'err-snd-addr-unresolv', 'err-net-prob', 'err-content-not-accept',
+                      'err-unsupp-msg']
+          smil_part:
+            aliases: ['smil-part']
+            type: str
+            description: Message encapsulation text
+          subject:
+            type: str
+            description: Subject text string
+      mm7:
+        type: list
+        elements: dict
+        description: Mm7.
+        suboptions:
+          add_smil:
+            aliases: ['add-smil']
+            type: str
+            description: Add message encapsulation
+            choices: ['disable', 'enable']
+          addr_type:
+            aliases: ['addr-type']
+            type: str
+            description: From address type
+            choices: ['rfc2822-addr', 'number', 'short-code']
+          allow_content_adaptation:
+            aliases: ['allow-content-adaptation']
+            type: str
+            description: Allow content adaptations
+            choices: ['disable', 'enable']
+          charset:
+            type: str
+            description: Character encoding used for replacement message
+            choices: ['us-ascii', 'utf-8']
+          class:
+            type: str
+            description: Message class
+            choices: ['personal', 'advertisement', 'informational', 'auto', 'not-included']
+          format:
+            type: str
+            description: Format flag.
+            choices: ['none', 'text', 'html', 'wml']
+          from:
+            type: str
+            description: From address
+          from_sender:
+            aliases: ['from-sender']
+            type: str
+            description: Notification message sent from recipient
+            choices: ['disable', 'enable']
+          header:
+            type: str
+            description: Header flag.
+            choices: ['none', 'http', '8bit']
+          image:
+            type: str
+            description: Message string.
+          fmgr_message:
+            type: str
+            description: Message text
+          msg_type:
+            aliases: ['msg-type']
+            type: str
+            description: Message type.
+          priority:
+            type: str
+            description: Message priority
+            choices: ['low', 'normal', 'high', 'not-included']
+          rsp_status:
+            aliases: ['rsp-status']
+            type: str
+            description: Response status
+            choices: ['success', 'partial-success', 'client-err', 'oper-restrict', 'addr-err',
+                      'addr-not-found', 'content-refused', 'msg-id-not-found',
+                      'link-id-not-found', 'msg-fmt-corrupt', 'app-id-not-found',
+                      'repl-app-id-not-found', 'srv-err', 'not-possible', 'msg-rejected',
+                      'multiple-addr-not-supp', 'app-addr-not-supp', 'gen-service-err',
+                      'improper-ident', 'unsupp-ver', 'unsupp-oper', 'validation-err',
+                      'service-err', 'service-unavail', 'service-denied', 'app-denied']
+          smil_part:
+            aliases: ['smil-part']
+            type: str
+            description: Message encapsulation text
+          subject:
+            type: str
+            description: Subject text string
+      mms:
+        type: list
+        elements: dict
+        description: Mms.
+        suboptions:
+          buffer:
+            type: str
+            description: Message string.
+          charset:
+            type: str
+            description: Character encoding used for replacement message
+            choices: ['us-ascii', 'utf-8']
+          format:
+            type: str
+            description: Format flag.
+            choices: ['none', 'text', 'html', 'wml']
+          header:
+            type: str
+            description: Header flag.
+            choices: ['none', 'http', '8bit']
+          image:
+            type: str
+            description: Message string.
+          msg_type:
+            aliases: ['msg-type']
+            type: str
+            description: Message type.
+      nac_quar:
+        aliases: ['nac-quar']
+        type: list
+        elements: dict
+        description: Nac quar.
+        suboptions:
+          buffer:
+            type: str
+            description: Message string.
+          format:
+            type: str
+            description: Format flag.
+            choices: ['none', 'text', 'html', 'wml']
+          header:
+            type: str
+            description: Header flag.
+            choices: ['none', 'http', '8bit']
+          msg_type:
+            aliases: ['msg-type']
+            type: str
+            description: Message type.
+          id:
+            type: int
+            description: Id.
+      name:
+        type: str
+        description: Group name.
+        required: true
+      nntp:
+        type: list
+        elements: dict
+        description: Nntp.
+        suboptions:
+          buffer:
+            type: str
+            description: Message string.
+          format:
+            type: str
+            description: Format flag.
+            choices: ['none', 'text', 'html', 'wml']
+          header:
+            type: str
+            description: Header flag.
+            choices: ['none', 'http', '8bit']
+          msg_type:
+            aliases: ['msg-type']
+            type: str
+            description: Message type.
+      spam:
+        type: list
+        elements: dict
+        description: Spam.
+        suboptions:
+          buffer:
+            type: str
+            description: Message string.
+          format:
+            type: str
+            description: Format flag.
+            choices: ['none', 'text', 'html', 'wml']
+          header:
+            type: str
+            description: Header flag.
+            choices: ['none', 'http', '8bit']
+          msg_type:
+            aliases: ['msg-type']
+            type: str
+            description: Message type.
+      sslvpn:
+        type: list
+        elements: dict
+        description: Sslvpn.
+        suboptions:
+          buffer:
+            type: str
+            description: Message string.
+          format:
+            type: str
+            description: Format flag.
+            choices: ['none', 'text', 'html', 'wml']
+          header:
+            type: str
+            description: Header flag.
+            choices: ['none', 'http', '8bit']
+          msg_type:
+            aliases: ['msg-type']
+            type: str
+            description: Message type.
+      traffic_quota:
+        aliases: ['traffic-quota']
+        type: list
+        elements: dict
+        description: Traffic quota.
+        suboptions:
+          buffer:
+            type: str
+            description: Message string.
+          format:
+            type: str
+            description: Format flag.
+            choices: ['none', 'text', 'html', 'wml']
+          header:
+            type: str
+            description: Header flag.
+            choices: ['none', 'http', '8bit']
+          msg_type:
+            aliases: ['msg-type']
+            type: str
+            description: Message type.
+      utm:
+        type: list
+        elements: dict
+        description: Utm.
+        suboptions:
+          buffer:
+            type: str
+            description: Message string.
+          format:
+            type: str
+            description: Format flag.
+            choices: ['none', 'text', 'html', 'wml']
+          header:
+            type: str
+            description: Header flag.
+            choices: ['none', 'http', '8bit']
+          msg_type:
+            aliases: ['msg-type']
+            type: str
+            description: Message type.
+      webproxy:
+        type: list
+        elements: dict
+        description: Webproxy.
+        suboptions:
+          buffer:
+            type: str
+            description: Message string.
+          format:
+            type: str
+            description: Format flag.
+            choices: ['none', 'text', 'html', 'wml']
+          header:
+            type: str
+            description: Header flag.
+            choices: ['none', 'http', '8bit']
+          msg_type:
+            aliases: ['msg-type']
+            type: str
+            description: Message type.
+      automation:
+        type: list
+        elements: dict
+        description: Automation.
+        suboptions:
+          buffer:
+            type: str
+            description: Message string.
+          format:
+            type: str
+            description: Format flag.
+            choices: ['none', 'text', 'html']
+          header:
+            type: str
+            description: Header flag.
+            choices: ['none', 'http', '8bit']
+          msg_type:
+            aliases: ['msg-type']
+            type: str
+            description: Message type.
+      fabric_force_sync:
+        aliases: ['fabric-force-sync']
+        type: str
+        description: Enable/disable forced synchronization of configuration objects from the root FortiGate unit to the downstream devices.
+        choices: ['disable', 'enable']
+      fabric_object:
+        aliases: ['fabric-object']
+        type: str
+        description: Security Fabric global object setting.
+        choices: ['disable', 'enable']
+      fabric_object_source:
+        aliases: ['fabric-object-source']
+        type: str
+        description: Source of truth for fabric object.
+        choices: ['member', 'local', 'root']
+      uuid:
+        type: str
+        description: Universally Unique Identifier
 '''
 
 EXAMPLES = '''
@@ -769,42 +782,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -840,7 +853,7 @@ def main():
                         'format': {'choices': ['none', 'text', 'html', 'wml'], 'type': 'str'},
                         'header': {'choices': ['none', 'http', '8bit'], 'type': 'str'},
                         'msg-type': {'type': 'str'},
-                        'id': {'v_range': [['6.4.11', '6.4.15'], ['7.0.6', '7.0.16'], ['7.2.3', '']], 'type': 'int'}
+                        'id': {'v_range': [['6.4.11', '6.4.15'], ['7.0.6', '7.0.16'], ['7.2.3', '7.6.7']], 'type': 'int'}
                     },
                     'elements': 'dict'
                 },
@@ -866,23 +879,24 @@ def main():
                     'elements': 'dict'
                 },
                 'device-detection-portal': {
+                    'v_range': [['6.0.0', '7.6.7']],
                     'type': 'list',
                     'options': {
-                        'buffer': {'type': 'str'},
-                        'format': {'choices': ['none', 'text', 'html', 'wml'], 'type': 'str'},
-                        'header': {'choices': ['none', 'http', '8bit'], 'type': 'str'},
-                        'msg-type': {'type': 'str'}
+                        'buffer': {'v_range': [['6.0.0', '7.6.7']], 'type': 'str'},
+                        'format': {'v_range': [['6.0.0', '7.6.7']], 'choices': ['none', 'text', 'html', 'wml'], 'type': 'str'},
+                        'header': {'v_range': [['6.0.0', '7.6.7']], 'choices': ['none', 'http', '8bit'], 'type': 'str'},
+                        'msg-type': {'v_range': [['6.0.0', '7.6.7']], 'type': 'str'}
                     },
                     'elements': 'dict'
                 },
                 'ec': {
-                    'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']],
+                    'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.11']],
                     'type': 'list',
                     'options': {
-                        'buffer': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']], 'type': 'str'},
-                        'format': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']], 'choices': ['none', 'text', 'html', 'wml'], 'type': 'str'},
-                        'header': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']], 'choices': ['none', 'http', '8bit'], 'type': 'str'},
-                        'msg-type': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']], 'type': 'str'}
+                        'buffer': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.11']], 'type': 'str'},
+                        'format': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.11']], 'choices': ['none', 'text', 'html', 'wml'], 'type': 'str'},
+                        'header': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.11']], 'choices': ['none', 'http', '8bit'], 'type': 'str'},
+                        'msg-type': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.11']], 'type': 'str'}
                     },
                     'elements': 'dict'
                 },
@@ -1079,18 +1093,19 @@ def main():
                         'format': {'choices': ['none', 'text', 'html', 'wml'], 'type': 'str'},
                         'header': {'choices': ['none', 'http', '8bit'], 'type': 'str'},
                         'msg-type': {'type': 'str'},
-                        'id': {'v_range': [['6.4.11', '6.4.15'], ['7.0.6', '7.0.16'], ['7.2.3', '']], 'type': 'int'}
+                        'id': {'v_range': [['6.4.11', '6.4.15'], ['7.0.6', '7.0.16'], ['7.2.3', '7.6.7']], 'type': 'int'}
                     },
                     'elements': 'dict'
                 },
                 'name': {'required': True, 'type': 'str'},
                 'nntp': {
+                    'v_range': [['6.0.0', '7.6.7']],
                     'type': 'list',
                     'options': {
-                        'buffer': {'type': 'str'},
-                        'format': {'choices': ['none', 'text', 'html', 'wml'], 'type': 'str'},
-                        'header': {'choices': ['none', 'http', '8bit'], 'type': 'str'},
-                        'msg-type': {'type': 'str'}
+                        'buffer': {'v_range': [['6.0.0', '7.6.7']], 'type': 'str'},
+                        'format': {'v_range': [['6.0.0', '7.6.7']], 'choices': ['none', 'text', 'html', 'wml'], 'type': 'str'},
+                        'header': {'v_range': [['6.0.0', '7.6.7']], 'choices': ['none', 'http', '8bit'], 'type': 'str'},
+                        'msg-type': {'v_range': [['6.0.0', '7.6.7']], 'type': 'str'}
                     },
                     'elements': 'dict'
                 },
@@ -1154,7 +1169,11 @@ def main():
                         'msg-type': {'v_range': [['7.0.0', '']], 'type': 'str'}
                     },
                     'elements': 'dict'
-                }
+                },
+                'fabric-force-sync': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'fabric-object': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'fabric-object-source': {'v_range': [['8.0.0', '']], 'choices': ['member', 'local', 'root'], 'type': 'str'},
+                'uuid': {'v_range': [['8.0.0', '']], 'type': 'str'}
             }
         }
     }

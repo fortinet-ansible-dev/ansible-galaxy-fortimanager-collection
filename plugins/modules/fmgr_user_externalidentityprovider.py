@@ -15,72 +15,72 @@ module: fmgr_user_externalidentityprovider
 short_description: Configure external identity provider.
 version_added: "2.6.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  user_externalidentityprovider:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      group_attr_name:
+        aliases: ['group-attr-name']
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Group attribute name in authentication query.
+      interface:
+        type: list
+        elements: str
+        description: Specify outgoing interface to reach server.
+      interface_select_method:
+        aliases: ['interface-select-method']
         type: str
+        description: Specify how to select outgoing interface to reach server.
+        choices: ['auto', 'sdwan', 'specify']
+      name:
+        type: str
+        description: External identity provider name.
         required: true
-    user_externalidentityprovider:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            group_attr_name:
-                aliases: ['group-attr-name']
-                type: str
-                description: Group attribute name in authentication query.
-            interface:
-                type: list
-                elements: str
-                description: Specify outgoing interface to reach server.
-            interface_select_method:
-                aliases: ['interface-select-method']
-                type: str
-                description: Specify how to select outgoing interface to reach server.
-                choices: ['auto', 'sdwan', 'specify']
-            name:
-                type: str
-                description: External identity provider name.
-                required: true
-            port:
-                type: int
-                description: External identity provider service port number
-            server_identity_check:
-                aliases: ['server-identity-check']
-                type: str
-                description: Enable/disable servers identity check against its certificate and subject alternative name
-                choices: ['disable', 'enable']
-            source_ip:
-                aliases: ['source-ip']
-                type: str
-                description: Use this IPv4/v6 address to connect to the external identity provider.
-            timeout:
-                type: int
-                description: Connection timeout value in seconds
-            type:
-                type: str
-                description: External identity provider type.
-                choices: ['ms-graph']
-            url:
-                type: str
-                description: Url.
-            user_attr_name:
-                aliases: ['user-attr-name']
-                type: str
-                description: User attribute name in authentication query.
-            version:
-                type: str
-                description: External identity API version.
-                choices: ['beta', 'v1.0']
-            vrf_select:
-                aliases: ['vrf-select']
-                type: int
-                description: VRF ID used for connection to server.
+      port:
+        type: int
+        description: External identity provider service port number
+      server_identity_check:
+        aliases: ['server-identity-check']
+        type: str
+        description: Enable/disable servers identity check against its certificate and subject alternative name
+        choices: ['disable', 'enable']
+      source_ip:
+        aliases: ['source-ip']
+        type: str
+        description: Use this IPv4/v6 address to connect to the external identity provider.
+      timeout:
+        type: int
+        description: Connection timeout value in seconds
+      type:
+        type: str
+        description: External identity provider type.
+        choices: ['ms-graph']
+      url:
+        type: str
+        description: Url.
+      user_attr_name:
+        aliases: ['user-attr-name']
+        type: str
+        description: User attribute name in authentication query.
+      version:
+        type: str
+        description: External identity API version.
+        choices: ['beta', 'v1.0']
+      vrf_select:
+        aliases: ['vrf-select']
+        type: int
+        description: VRF ID used for connection to server.
 '''
 
 EXAMPLES = '''
@@ -112,42 +112,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

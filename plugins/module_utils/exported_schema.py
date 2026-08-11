@@ -77,10 +77,10 @@ SCHEMA_DATA = '''
     "antivirus_profile": {
         "stated": true,
         "options": {
-            "analytics-bl-filetype": {"type": "str"},
+            "analytics-bl-filetype": {"v_range": [["6.0.0", "7.6.7"]], "type": "str"},
             "analytics-db": {"choices": ["disable", "enable"], "type": "str"},
             "analytics-max-upload": {"type": "int"},
-            "analytics-wl-filetype": {"type": "str"},
+            "analytics-wl-filetype": {"v_range": [["6.0.0", "7.6.7"]], "type": "str"},
             "av-block-log": {"choices": ["disable", "enable"], "type": "str"},
             "av-virus-log": {"choices": ["disable", "enable"], "type": "str"},
             "comment": {"type": "str"},
@@ -114,7 +114,7 @@ SCHEMA_DATA = '''
                     },
                     "emulator": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", ""]], "choices": ["disable", "enable"], "type": "str"},
                     "options": {
-                        "v_range": [["6.2.8", "6.2.13"], ["6.4.5", ""]],
+                        "v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.6.7"]],
                         "type": "list",
                         "choices": ["scan", "quarantine", "avmonitor"],
                         "elements": "str"
@@ -185,7 +185,7 @@ SCHEMA_DATA = '''
                     },
                     "emulator": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", ""]], "choices": ["disable", "enable"], "type": "str"},
                     "options": {
-                        "v_range": [["6.2.8", "6.2.13"], ["6.4.5", ""]],
+                        "v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.6.7"]],
                         "type": "list",
                         "choices": ["scan", "file-filter", "quarantine", "avquery", "avmonitor"],
                         "elements": "str"
@@ -227,7 +227,7 @@ SCHEMA_DATA = '''
                     "content-disarm": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", ""]], "choices": ["disable", "enable"], "type": "str"},
                     "emulator": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", ""]], "choices": ["disable", "enable"], "type": "str"},
                     "options": {
-                        "v_range": [["6.2.8", "6.2.13"], ["6.4.5", ""]],
+                        "v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.6.7"]],
                         "type": "list",
                         "choices": ["scan", "file-filter", "quarantine", "avquery", "avmonitor", "strict-file"],
                         "elements": "str"
@@ -276,7 +276,7 @@ SCHEMA_DATA = '''
                     "emulator": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", ""]], "choices": ["disable", "enable"], "type": "str"},
                     "executables": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", ""]], "choices": ["default", "virus"], "type": "str"},
                     "options": {
-                        "v_range": [["6.2.8", "6.2.13"], ["6.4.5", ""]],
+                        "v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.6.7"]],
                         "type": "list",
                         "choices": ["scan", "file-filter", "quarantine", "avquery", "avmonitor"],
                         "elements": "str"
@@ -318,7 +318,7 @@ SCHEMA_DATA = '''
                     "emulator": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", ""]], "choices": ["disable", "enable"], "type": "str"},
                     "executables": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", ""]], "choices": ["default", "virus"], "type": "str"},
                     "options": {
-                        "v_range": [["6.2.8", "6.2.13"], ["6.4.5", ""]],
+                        "v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.6.7"]],
                         "type": "list",
                         "choices": ["scan", "quarantine", "avquery", "avmonitor"],
                         "elements": "str"
@@ -368,7 +368,7 @@ SCHEMA_DATA = '''
                     },
                     "emulator": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", ""]], "choices": ["disable", "enable"], "type": "str"},
                     "options": {
-                        "v_range": [["6.2.8", "6.2.13"], ["6.4.5", ""]],
+                        "v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.6.7"]],
                         "type": "list",
                         "choices": ["scan", "file-filter", "quarantine", "avquery", "avmonitor"],
                         "elements": "str"
@@ -388,11 +388,11 @@ SCHEMA_DATA = '''
                 }
             },
             "outbreak-prevention": {
-                "v_range": [["6.2.8", "6.2.13"], ["6.4.5", ""]],
+                "v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.6.7"]],
                 "type": "dict",
                 "options": {
-                    "external-blocklist": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", ""]], "choices": ["disable", "enable"], "type": "str"},
-                    "ftgd-service": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", ""]], "choices": ["disable", "enable"], "type": "str"}
+                    "external-blocklist": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
+                    "ftgd-service": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"}
                 }
             },
             "pop3": {
@@ -419,7 +419,7 @@ SCHEMA_DATA = '''
                     "emulator": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", ""]], "choices": ["disable", "enable"], "type": "str"},
                     "executables": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", ""]], "choices": ["default", "virus"], "type": "str"},
                     "options": {
-                        "v_range": [["6.2.8", "6.2.13"], ["6.4.5", ""]],
+                        "v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.6.7"]],
                         "type": "list",
                         "choices": ["scan", "file-filter", "quarantine", "avquery", "avmonitor"],
                         "elements": "str"
@@ -462,7 +462,7 @@ SCHEMA_DATA = '''
                     "emulator": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", ""]], "choices": ["disable", "enable"], "type": "str"},
                     "executables": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", ""]], "choices": ["default", "virus"], "type": "str"},
                     "options": {
-                        "v_range": [["6.2.8", "6.2.13"], ["6.4.5", ""]],
+                        "v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.6.7"]],
                         "type": "list",
                         "choices": ["scan", "file-filter", "quarantine", "avquery", "avmonitor"],
                         "elements": "str"
@@ -503,7 +503,7 @@ SCHEMA_DATA = '''
                     },
                     "emulator": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", ""]], "choices": ["disable", "enable"], "type": "str"},
                     "options": {
-                        "v_range": [["6.2.8", "6.2.13"], ["6.4.5", ""]],
+                        "v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.6.7"]],
                         "type": "list",
                         "choices": ["avmonitor", "quarantine", "scan"],
                         "elements": "str"
@@ -571,7 +571,41 @@ SCHEMA_DATA = '''
             "fortisandbox-timeout-action": {"v_range": [["7.2.0", ""]], "choices": ["log-only", "block", "ignore"], "type": "str"},
             "fortiai-error-action": {"v_range": [["7.0.1", ""]], "choices": ["block", "log-only", "ignore"], "type": "str"},
             "fortiai-timeout-action": {"v_range": [["7.0.2", ""]], "choices": ["block", "log-only", "ignore"], "type": "str"},
-            "fortisandbox-scan-timeout": {"v_range": [["7.6.5", ""]], "type": "int"}
+            "fortisandbox-scan-timeout": {"v_range": [["7.6.5", ""]], "type": "int"},
+            "websocket": {
+                "v_range": [["7.6.7", ""]],
+                "type": "dict",
+                "options": {
+                    "archive-block": {
+                        "v_range": [["7.6.7", ""]],
+                        "type": "list",
+                        "choices": ["encrypted", "corrupted", "multipart", "nested", "mailbomb", "unhandled", "partiallycorrupted", "timeout"],
+                        "elements": "str"
+                    },
+                    "archive-log": {
+                        "v_range": [["7.6.7", ""]],
+                        "type": "list",
+                        "choices": ["encrypted", "corrupted", "multipart", "nested", "mailbomb", "unhandled", "partiallycorrupted", "timeout"],
+                        "elements": "str"
+                    },
+                    "av-scan": {"v_range": [["7.6.7", ""]], "choices": ["disable", "block", "monitor"], "type": "str"},
+                    "emulator": {"v_range": [["7.6.7", ""]], "choices": ["disable", "enable"], "type": "str"},
+                    "external-blocklist": {"v_range": [["7.6.7", ""]], "choices": ["disable", "block", "monitor"], "type": "str"},
+                    "fortindr": {"v_range": [["7.6.7", ""]], "choices": ["disable", "block", "monitor"], "type": "str"},
+                    "fortisandbox": {"v_range": [["7.6.7", ""]], "choices": ["disable", "block", "monitor"], "type": "str"},
+                    "malware-stream": {"v_range": [["7.6.7", ""]], "choices": ["disable", "block", "monitor"], "type": "str"},
+                    "outbreak-prevention": {"v_range": [["7.6.7", ""]], "choices": ["disable", "block", "monitor"], "type": "str"},
+                    "quarantine": {"v_range": [["7.6.7", ""]], "choices": ["disable", "enable"], "type": "str"}
+                }
+            },
+            "analytics-ignore-mpip": {"v_range": [["8.0.0", ""]], "type": "raw"},
+            "fabric-force-sync": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object-source": {"v_range": [["8.0.0", ""]], "choices": ["member", "local", "root"], "type": "str"},
+            "fortisandbox-destination": {"v_range": [["8.0.0", ""]], "choices": ["auto", "sandbox", "sandbox-cloud"], "type": "str"},
+            "outbreak-prevention-error-action": {"v_range": [["8.0.0", ""]], "choices": ["block", "log-only", "ignore"], "type": "str"},
+            "outbreak-prevention-timeout-action": {"v_range": [["8.0.0", ""]], "choices": ["block", "log-only", "ignore"], "type": "str"},
+            "uuid": {"v_range": [["8.0.0", ""]], "type": "str"}
         }
     },
     "antivirus_profile_cifs": {
@@ -590,7 +624,7 @@ SCHEMA_DATA = '''
                 "elements": "str"
             },
             "emulator": {"v_range": [["6.2.0", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "options": {"v_range": [["6.2.0", ""]], "type": "list", "choices": ["scan", "quarantine", "avmonitor"], "elements": "str"},
+            "options": {"v_range": [["6.2.0", "7.6.7"]], "type": "list", "choices": ["scan", "quarantine", "avmonitor"], "elements": "str"},
             "outbreak-prevention": {
                 "v_range": [["6.2.0", ""]],
                 "choices": ["disabled", "files", "full-archive", "disable", "block", "monitor"],
@@ -644,7 +678,12 @@ SCHEMA_DATA = '''
                 "elements": "str"
             },
             "emulator": {"choices": ["disable", "enable"], "type": "str"},
-            "options": {"type": "list", "choices": ["scan", "file-filter", "quarantine", "avquery", "avmonitor"], "elements": "str"},
+            "options": {
+                "v_range": [["6.0.0", "7.6.7"]],
+                "type": "list",
+                "choices": ["scan", "file-filter", "quarantine", "avquery", "avmonitor"],
+                "elements": "str"
+            },
             "outbreak-prevention": {"choices": ["disabled", "files", "full-archive", "disable", "block", "monitor"], "type": "str"},
             "av-scan": {"v_range": [["7.0.0", ""]], "choices": ["disable", "monitor", "block"], "type": "str"},
             "external-blocklist": {"v_range": [["7.0.0", ""]], "choices": ["disable", "monitor", "block"], "type": "str"},
@@ -670,7 +709,12 @@ SCHEMA_DATA = '''
             },
             "content-disarm": {"choices": ["disable", "enable"], "type": "str"},
             "emulator": {"choices": ["disable", "enable"], "type": "str"},
-            "options": {"type": "list", "choices": ["scan", "file-filter", "quarantine", "avquery", "avmonitor", "strict-file"], "elements": "str"},
+            "options": {
+                "v_range": [["6.0.0", "7.6.7"]],
+                "type": "list",
+                "choices": ["scan", "file-filter", "quarantine", "avquery", "avmonitor", "strict-file"],
+                "elements": "str"
+            },
             "outbreak-prevention": {"choices": ["disabled", "files", "full-archive", "disable", "block", "monitor"], "type": "str"},
             "av-optimize": {"v_range": [["6.2.0", "7.6.2"]], "choices": ["disable", "enable"], "type": "str"},
             "av-scan": {"v_range": [["7.0.0", ""]], "choices": ["disable", "monitor", "block"], "type": "str"},
@@ -699,7 +743,12 @@ SCHEMA_DATA = '''
             "content-disarm": {"choices": ["disable", "enable"], "type": "str"},
             "emulator": {"choices": ["disable", "enable"], "type": "str"},
             "executables": {"choices": ["default", "virus"], "type": "str"},
-            "options": {"type": "list", "choices": ["scan", "file-filter", "quarantine", "avquery", "avmonitor"], "elements": "str"},
+            "options": {
+                "v_range": [["6.0.0", "7.6.7"]],
+                "type": "list",
+                "choices": ["scan", "file-filter", "quarantine", "avquery", "avmonitor"],
+                "elements": "str"
+            },
             "outbreak-prevention": {"choices": ["disabled", "files", "full-archive", "disable", "block", "monitor"], "type": "str"},
             "av-scan": {"v_range": [["7.0.0", ""]], "choices": ["disable", "monitor", "block"], "type": "str"},
             "external-blocklist": {"v_range": [["7.0.0", ""]], "choices": ["disable", "monitor", "block"], "type": "str"},
@@ -725,7 +774,7 @@ SCHEMA_DATA = '''
             },
             "emulator": {"choices": ["disable", "enable"], "type": "str"},
             "executables": {"choices": ["default", "virus"], "type": "str"},
-            "options": {"type": "list", "choices": ["scan", "quarantine", "avquery", "avmonitor"], "elements": "str"},
+            "options": {"v_range": [["6.0.0", "7.6.7"]], "type": "list", "choices": ["scan", "quarantine", "avquery", "avmonitor"], "elements": "str"},
             "outbreak-prevention": {"choices": ["disabled", "files", "full-archive", "disable", "block", "monitor"], "type": "str"},
             "av-scan": {"v_range": [["7.0.0", ""]], "choices": ["disable", "monitor", "block"], "type": "str"},
             "external-blocklist": {"v_range": [["7.0.0", ""]], "choices": ["disable", "monitor", "block"], "type": "str"},
@@ -758,7 +807,12 @@ SCHEMA_DATA = '''
                 "elements": "str"
             },
             "emulator": {"choices": ["disable", "enable"], "type": "str"},
-            "options": {"type": "list", "choices": ["scan", "file-filter", "quarantine", "avquery", "avmonitor"], "elements": "str"},
+            "options": {
+                "v_range": [["6.0.0", "7.6.7"]],
+                "type": "list",
+                "choices": ["scan", "file-filter", "quarantine", "avquery", "avmonitor"],
+                "elements": "str"
+            },
             "outbreak-prevention": {"choices": ["disabled", "files", "full-archive", "disable", "block", "monitor"], "type": "str"},
             "av-scan": {"v_range": [["7.0.0", ""]], "choices": ["disable", "monitor", "block"], "type": "str"},
             "external-blocklist": {"v_range": [["7.0.0", ""]], "choices": ["disable", "monitor", "block"], "type": "str"},
@@ -772,8 +826,8 @@ SCHEMA_DATA = '''
     "antivirus_profile_outbreakprevention": {
         "stated": false,
         "options": {
-            "external-blocklist": {"v_range": [["6.2.0", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "ftgd-service": {"v_range": [["6.2.0", ""]], "choices": ["disable", "enable"], "type": "str"}
+            "external-blocklist": {"v_range": [["6.2.0", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
+            "ftgd-service": {"v_range": [["6.2.0", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"}
         }
     },
     "antivirus_profile_pop3": {
@@ -792,7 +846,12 @@ SCHEMA_DATA = '''
             "content-disarm": {"choices": ["disable", "enable"], "type": "str"},
             "emulator": {"choices": ["disable", "enable"], "type": "str"},
             "executables": {"choices": ["default", "virus"], "type": "str"},
-            "options": {"type": "list", "choices": ["scan", "file-filter", "quarantine", "avquery", "avmonitor"], "elements": "str"},
+            "options": {
+                "v_range": [["6.0.0", "7.6.7"]],
+                "type": "list",
+                "choices": ["scan", "file-filter", "quarantine", "avquery", "avmonitor"],
+                "elements": "str"
+            },
             "outbreak-prevention": {"choices": ["disabled", "files", "full-archive", "disable", "block", "monitor"], "type": "str"},
             "av-scan": {"v_range": [["7.0.0", ""]], "choices": ["disable", "monitor", "block"], "type": "str"},
             "external-blocklist": {"v_range": [["7.0.0", ""]], "choices": ["disable", "monitor", "block"], "type": "str"},
@@ -839,7 +898,12 @@ SCHEMA_DATA = '''
             "content-disarm": {"choices": ["disable", "enable"], "type": "str"},
             "emulator": {"choices": ["disable", "enable"], "type": "str"},
             "executables": {"choices": ["default", "virus"], "type": "str"},
-            "options": {"type": "list", "choices": ["scan", "file-filter", "quarantine", "avquery", "avmonitor"], "elements": "str"},
+            "options": {
+                "v_range": [["6.0.0", "7.6.7"]],
+                "type": "list",
+                "choices": ["scan", "file-filter", "quarantine", "avquery", "avmonitor"],
+                "elements": "str"
+            },
             "outbreak-prevention": {"choices": ["disabled", "files", "full-archive", "disable", "block", "monitor"], "type": "str"},
             "av-scan": {"v_range": [["7.0.0", ""]], "choices": ["disable", "monitor", "block"], "type": "str"},
             "external-blocklist": {"v_range": [["7.0.0", ""]], "choices": ["disable", "monitor", "block"], "type": "str"},
@@ -866,7 +930,7 @@ SCHEMA_DATA = '''
                 "elements": "str"
             },
             "emulator": {"v_range": [["6.2.2", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "options": {"v_range": [["6.2.2", ""]], "type": "list", "choices": ["avmonitor", "quarantine", "scan"], "elements": "str"},
+            "options": {"v_range": [["6.2.2", "7.6.7"]], "type": "list", "choices": ["avmonitor", "quarantine", "scan"], "elements": "str"},
             "outbreak-prevention": {
                 "v_range": [["6.2.2", ""]],
                 "choices": ["disabled", "files", "full-archive", "disable", "block", "monitor"],
@@ -879,6 +943,31 @@ SCHEMA_DATA = '''
             "fortisandbox": {"v_range": [["7.2.0", ""]], "choices": ["disable", "block", "monitor"], "type": "str"},
             "fortiai": {"v_range": [["7.0.1", ""]], "choices": ["disable", "monitor", "block"], "type": "str"},
             "malware-stream": {"v_range": [["7.6.3", ""]], "choices": ["disable", "monitor", "block"], "type": "str"}
+        }
+    },
+    "antivirus_profile_websocket": {
+        "stated": false,
+        "options": {
+            "archive-block": {
+                "v_range": [["7.6.7", ""]],
+                "type": "list",
+                "choices": ["encrypted", "corrupted", "multipart", "nested", "mailbomb", "unhandled", "partiallycorrupted", "timeout"],
+                "elements": "str"
+            },
+            "archive-log": {
+                "v_range": [["7.6.7", ""]],
+                "type": "list",
+                "choices": ["encrypted", "corrupted", "multipart", "nested", "mailbomb", "unhandled", "partiallycorrupted", "timeout"],
+                "elements": "str"
+            },
+            "av-scan": {"v_range": [["7.6.7", ""]], "choices": ["disable", "block", "monitor"], "type": "str"},
+            "emulator": {"v_range": [["7.6.7", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "external-blocklist": {"v_range": [["7.6.7", ""]], "choices": ["disable", "block", "monitor"], "type": "str"},
+            "fortindr": {"v_range": [["7.6.7", ""]], "choices": ["disable", "block", "monitor"], "type": "str"},
+            "fortisandbox": {"v_range": [["7.6.7", ""]], "choices": ["disable", "block", "monitor"], "type": "str"},
+            "malware-stream": {"v_range": [["7.6.7", ""]], "choices": ["disable", "block", "monitor"], "type": "str"},
+            "outbreak-prevention": {"v_range": [["7.6.7", ""]], "choices": ["disable", "block", "monitor"], "type": "str"},
+            "quarantine": {"v_range": [["7.6.7", ""]], "choices": ["disable", "enable"], "type": "str"}
         }
     },
     "apcfgprofile": {
@@ -1155,11 +1244,12 @@ SCHEMA_DATA = '''
                     "session-ttl": {"type": "int"},
                     "shaper": {"type": "str"},
                     "shaper-reverse": {"type": "str"},
-                    "sub-category": {"type": "raw"},
+                    "sub-category": {"v_range": [["6.0.0", "7.6.7"]], "type": "raw"},
                     "technology": {"type": "raw"},
                     "vendor": {"type": "raw"},
-                    "tags": {"v_range": [["6.2.0", "6.4.15"], ["7.4.8", "7.4.10"]], "type": "str"},
-                    "exclusion": {"v_range": [["6.2.7", "6.2.13"], ["6.4.3", ""]], "type": "raw"}
+                    "tags": {"v_range": [["6.2.0", "6.4.15"], ["7.4.8", "7.4.11"]], "type": "str"},
+                    "exclusion": {"v_range": [["6.2.7", "6.2.13"], ["6.4.3", ""]], "type": "raw"},
+                    "classification": {"v_range": [["8.0.0", ""]], "choices": ["none", "sanctioned", "unsanctioned", "unclassified"], "type": "str"}
                 },
                 "elements": "dict"
             },
@@ -1168,7 +1258,7 @@ SCHEMA_DATA = '''
             "options": {"type": "list", "choices": ["allow-dns", "allow-icmp", "allow-http", "allow-ssl", "allow-quic"], "elements": "str"},
             "other-application-action": {"choices": ["pass", "block"], "type": "str"},
             "other-application-log": {"choices": ["disable", "enable"], "type": "str"},
-            "p2p-black-list": {"type": "list", "choices": ["skype", "edonkey", "bittorrent"], "elements": "str"},
+            "p2p-black-list": {"v_range": [["6.0.0", "7.6.7"]], "type": "list", "choices": ["skype", "edonkey", "bittorrent"], "elements": "str"},
             "replacemsg-group": {"type": "str"},
             "unknown-application-action": {"choices": ["pass", "block"], "type": "str"},
             "unknown-application-log": {"choices": ["disable", "enable"], "type": "str"},
@@ -1191,7 +1281,11 @@ SCHEMA_DATA = '''
             },
             "enforce-default-app-port": {"v_range": [["6.2.0", ""]], "choices": ["disable", "enable"], "type": "str"},
             "force-inclusion-ssl-di-sigs": {"v_range": [["6.2.5", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "p2p-block-list": {"v_range": [["7.0.0", ""]], "type": "list", "choices": ["skype", "edonkey", "bittorrent"], "elements": "str"}
+            "p2p-block-list": {"v_range": [["7.0.0", ""]], "type": "list", "choices": ["skype", "edonkey", "bittorrent"], "elements": "str"},
+            "fabric-force-sync": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object-source": {"v_range": [["8.0.0", ""]], "choices": ["member", "local", "root"], "type": "str"},
+            "uuid": {"v_range": [["8.0.0", ""]], "type": "str"}
         }
     },
     "application_list_defaultnetworkservices": {
@@ -1250,11 +1344,12 @@ SCHEMA_DATA = '''
             "session-ttl": {"type": "int"},
             "shaper": {"type": "str"},
             "shaper-reverse": {"type": "str"},
-            "sub-category": {"type": "raw"},
+            "sub-category": {"v_range": [["6.0.0", "7.6.7"]], "type": "raw"},
             "technology": {"type": "raw"},
             "vendor": {"type": "raw"},
-            "tags": {"v_range": [["6.2.0", "6.4.15"], ["7.4.8", "7.4.10"]], "type": "str"},
-            "exclusion": {"v_range": [["6.2.7", "6.2.13"], ["6.4.3", ""]], "type": "raw"}
+            "tags": {"v_range": [["6.2.0", "6.4.15"], ["7.4.8", "7.4.11"]], "type": "str"},
+            "exclusion": {"v_range": [["6.2.7", "6.2.13"], ["6.4.3", ""]], "type": "raw"},
+            "classification": {"v_range": [["8.0.0", ""]], "choices": ["none", "sanctioned", "unsanctioned", "unclassified"], "type": "str"}
         }
     },
     "application_list_entries_parameters": {
@@ -1321,7 +1416,7 @@ SCHEMA_DATA = '''
                 "type": "list",
                 "choices": [
                     "ntlm", "basic", "digest", "form", "negotiate", "fsso", "rsso", "ssh-publickey", "saml", "cert", "x-auth-user", "saml-sp",
-                    "entra-sso", "ztna-relay", "oidc"
+                    "entra-sso", "ztna-relay", "oidc", "bearer"
                 ],
                 "elements": "str"
             },
@@ -1337,12 +1432,12 @@ SCHEMA_DATA = '''
             "external-idp": {"v_range": [["7.6.2", ""]], "type": "raw"},
             "digest-algo": {"v_range": [["7.6.3", ""]], "type": "list", "choices": ["md5", "sha-256"], "elements": "str"},
             "group-attr-type": {"v_range": [["7.6.3", ""]], "choices": ["display-name", "external-id"], "type": "str"},
-            "search-all-ldap-databases": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "saml-idp-portal": {"v_range": [["7.4.8", "7.4.10"]], "type": "str"},
+            "search-all-ldap-databases": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "saml-idp-portal": {"v_range": [["7.4.8", "7.4.11"]], "type": "str"},
             "oidc-server": {"v_range": [["7.6.4", ""]], "type": "raw"},
             "oidc-timeout": {"v_range": [["7.6.4", ""]], "type": "int"},
             "digest-rfc2069": {"v_range": [["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "auth-user-header": {"v_range": [["7.4.9", "7.4.10"], ["7.6.5", ""]], "type": "str"},
+            "auth-user-header": {"v_range": [["7.4.9", "7.4.11"], ["7.6.5", ""]], "type": "str"},
             "captcha": {"v_range": [["7.6.5", ""]], "choices": ["disable", "enable"], "type": "str"},
             "captcha-secret-key": {"v_range": [["7.6.5", ""]], "no_log": true, "type": "str"},
             "captcha-site-key": {"v_range": [["7.6.5", ""]], "no_log": true, "type": "str"},
@@ -1351,7 +1446,10 @@ SCHEMA_DATA = '''
                 "choices": ["google-recaptcha-v2-checkbox", "google-recaptcha-v2-invisible", "google-recaptcha-v3", "cloudflare-turnstile"],
                 "type": "str"
             },
-            "cert-http-header": {"v_range": [["7.6.5", ""]], "choices": ["disable", "enable"], "type": "str"}
+            "cert-http-header": {"v_range": [["7.6.5", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "bearer-format": {"v_range": [["7.6.7", ""]], "choices": ["standard", "raw"], "type": "str"},
+            "bearer-header": {"v_range": [["7.6.7", ""]], "type": "str"},
+            "bearer-type": {"v_range": [["7.6.7", ""]], "choices": ["access-token"], "type": "str"}
         }
     },
     "bleprofile": {
@@ -1509,7 +1607,11 @@ SCHEMA_DATA = '''
                 },
                 "elements": "dict"
             },
-            "comment": {"v_range": [["7.4.3", ""]], "type": "str"}
+            "comment": {"v_range": [["7.4.3", ""]], "type": "str"},
+            "fabric-force-sync": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object-source": {"v_range": [["8.0.0", ""]], "choices": ["member", "local", "root"], "type": "str"},
+            "uuid": {"v_range": [["8.0.0", ""]], "type": "str"}
         }
     },
     "casb_profile_saasapplication": {
@@ -1705,7 +1807,11 @@ SCHEMA_DATA = '''
                     "optional": {"v_range": [["7.6.3", ""]], "choices": ["disable", "enable"], "type": "str"}
                 },
                 "elements": "dict"
-            }
+            },
+            "category": {"v_range": [["8.0.0", ""]], "type": "str"},
+            "display-name": {"v_range": [["8.0.0", ""]], "type": "str"},
+            "icon-id": {"v_range": [["8.0.0", ""]], "type": "int"},
+            "popularity": {"v_range": [["8.0.0", ""]], "type": "int"}
         }
     },
     "casb_saasapplication_inputattributes": {
@@ -1795,7 +1901,7 @@ SCHEMA_DATA = '''
                                 "choices": ["domains", "host", "path", "header", "header-value", "method", "body"],
                                 "type": "str"
                             },
-                            "body-type": {"v_range": [["7.6.2", ""]], "choices": ["json"], "type": "str"},
+                            "body-type": {"v_range": [["7.6.2", ""]], "choices": ["json", "form"], "type": "str"},
                             "jq": {"v_range": [["7.6.2", ""]], "type": "str"}
                         },
                         "elements": "dict"
@@ -1809,7 +1915,7 @@ SCHEMA_DATA = '''
                                 "v_range": [["7.6.2", ""]],
                                 "type": "list",
                                 "options": {
-                                    "body-type": {"v_range": [["7.6.2", ""]], "choices": ["json"], "type": "str"},
+                                    "body-type": {"v_range": [["7.6.2", ""]], "choices": ["json", "form"], "type": "str"},
                                     "direction": {"v_range": [["7.6.2", ""]], "choices": ["request", "response"], "type": "str"},
                                     "header-name": {"v_range": [["7.6.2", ""]], "type": "str"},
                                     "id": {"v_range": [["7.6.2", ""]], "type": "int"},
@@ -1820,6 +1926,29 @@ SCHEMA_DATA = '''
                             "jq": {"v_range": [["7.6.2", ""]], "type": "str"},
                             "status": {"v_range": [["7.6.2", ""]], "choices": ["disable", "enable"], "type": "str"},
                             "type": {"v_range": [["7.6.2", ""]], "choices": ["json-query"], "type": "str"}
+                        }
+                    },
+                    "tenant-session-extraction": {
+                        "v_range": [["8.0.0", ""]],
+                        "type": "dict",
+                        "options": {
+                            "filters": {
+                                "v_range": [["8.0.0", ""]],
+                                "type": "list",
+                                "options": {
+                                    "body-type": {"v_range": [["8.0.0", ""]], "choices": ["json", "form"], "type": "str"},
+                                    "cookie-name": {"v_range": [["8.0.0", ""]], "type": "str"},
+                                    "direction": {"v_range": [["8.0.0", ""]], "choices": ["request", "response"], "type": "str"},
+                                    "header-name": {"v_range": [["8.0.0", ""]], "type": "str"},
+                                    "id": {"v_range": [["8.0.0", ""]], "type": "int"},
+                                    "place": {"v_range": [["8.0.0", ""]], "choices": ["header", "path", "body", "cookie"], "type": "str"}
+                                },
+                                "elements": "dict"
+                            },
+                            "jq": {"v_range": [["8.0.0", ""]], "type": "str"},
+                            "session-match": {"v_range": [["8.0.0", ""]], "type": "str"},
+                            "session-source": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+                            "status": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"}
                         }
                     }
                 },
@@ -1898,7 +2027,7 @@ SCHEMA_DATA = '''
                         "choices": ["domains", "host", "path", "header", "header-value", "method", "body"],
                         "type": "str"
                     },
-                    "body-type": {"v_range": [["7.6.2", ""]], "choices": ["json"], "type": "str"},
+                    "body-type": {"v_range": [["7.6.2", ""]], "choices": ["json", "form"], "type": "str"},
                     "jq": {"v_range": [["7.6.2", ""]], "type": "str"}
                 },
                 "elements": "dict"
@@ -1912,7 +2041,7 @@ SCHEMA_DATA = '''
                         "v_range": [["7.6.2", ""]],
                         "type": "list",
                         "options": {
-                            "body-type": {"v_range": [["7.6.2", ""]], "choices": ["json"], "type": "str"},
+                            "body-type": {"v_range": [["7.6.2", ""]], "choices": ["json", "form"], "type": "str"},
                             "direction": {"v_range": [["7.6.2", ""]], "choices": ["request", "response"], "type": "str"},
                             "header-name": {"v_range": [["7.6.2", ""]], "type": "str"},
                             "id": {"v_range": [["7.6.2", ""]], "type": "int"},
@@ -1923,6 +2052,29 @@ SCHEMA_DATA = '''
                     "jq": {"v_range": [["7.6.2", ""]], "type": "str"},
                     "status": {"v_range": [["7.6.2", ""]], "choices": ["disable", "enable"], "type": "str"},
                     "type": {"v_range": [["7.6.2", ""]], "choices": ["json-query"], "type": "str"}
+                }
+            },
+            "tenant-session-extraction": {
+                "v_range": [["8.0.0", ""]],
+                "type": "dict",
+                "options": {
+                    "filters": {
+                        "v_range": [["8.0.0", ""]],
+                        "type": "list",
+                        "options": {
+                            "body-type": {"v_range": [["8.0.0", ""]], "choices": ["json", "form"], "type": "str"},
+                            "cookie-name": {"v_range": [["8.0.0", ""]], "type": "str"},
+                            "direction": {"v_range": [["8.0.0", ""]], "choices": ["request", "response"], "type": "str"},
+                            "header-name": {"v_range": [["8.0.0", ""]], "type": "str"},
+                            "id": {"v_range": [["8.0.0", ""]], "type": "int"},
+                            "place": {"v_range": [["8.0.0", ""]], "choices": ["header", "path", "body", "cookie"], "type": "str"}
+                        },
+                        "elements": "dict"
+                    },
+                    "jq": {"v_range": [["8.0.0", ""]], "type": "str"},
+                    "session-match": {"v_range": [["8.0.0", ""]], "type": "str"},
+                    "session-source": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+                    "status": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"}
                 }
             }
         }
@@ -1939,7 +2091,7 @@ SCHEMA_DATA = '''
             "methods": {"v_range": [["7.4.1", ""]], "type": "list", "elements": "str"},
             "negate": {"v_range": [["7.4.1", ""]], "choices": ["disable", "enable"], "type": "str"},
             "type": {"v_range": [["7.4.1", ""]], "choices": ["domains", "host", "path", "header", "header-value", "method", "body"], "type": "str"},
-            "body-type": {"v_range": [["7.6.2", ""]], "choices": ["json"], "type": "str"},
+            "body-type": {"v_range": [["7.6.2", ""]], "choices": ["json", "form"], "type": "str"},
             "jq": {"v_range": [["7.6.2", ""]], "type": "str"}
         }
     },
@@ -1950,7 +2102,7 @@ SCHEMA_DATA = '''
                 "v_range": [["7.6.2", ""]],
                 "type": "list",
                 "options": {
-                    "body-type": {"v_range": [["7.6.2", ""]], "choices": ["json"], "type": "str"},
+                    "body-type": {"v_range": [["7.6.2", ""]], "choices": ["json", "form"], "type": "str"},
                     "direction": {"v_range": [["7.6.2", ""]], "choices": ["request", "response"], "type": "str"},
                     "header-name": {"v_range": [["7.6.2", ""]], "type": "str"},
                     "id": {"v_range": [["7.6.2", ""]], "type": "int"},
@@ -1966,11 +2118,44 @@ SCHEMA_DATA = '''
     "casb_useractivity_match_tenantextraction_filters": {
         "stated": true,
         "options": {
-            "body-type": {"v_range": [["7.6.2", ""]], "choices": ["json"], "type": "str"},
+            "body-type": {"v_range": [["7.6.2", ""]], "choices": ["json", "form"], "type": "str"},
             "direction": {"v_range": [["7.6.2", ""]], "choices": ["request", "response"], "type": "str"},
             "header-name": {"v_range": [["7.6.2", ""]], "type": "str"},
             "id": {"v_range": [["7.6.2", ""]], "required": true, "type": "int"},
             "place": {"v_range": [["7.6.2", ""]], "choices": ["path", "header", "body"], "type": "str"}
+        }
+    },
+    "casb_useractivity_match_tenantsessionextraction": {
+        "stated": false,
+        "options": {
+            "filters": {
+                "v_range": [["8.0.0", ""]],
+                "type": "list",
+                "options": {
+                    "body-type": {"v_range": [["8.0.0", ""]], "choices": ["json", "form"], "type": "str"},
+                    "cookie-name": {"v_range": [["8.0.0", ""]], "type": "str"},
+                    "direction": {"v_range": [["8.0.0", ""]], "choices": ["request", "response"], "type": "str"},
+                    "header-name": {"v_range": [["8.0.0", ""]], "type": "str"},
+                    "id": {"v_range": [["8.0.0", ""]], "type": "int"},
+                    "place": {"v_range": [["8.0.0", ""]], "choices": ["header", "path", "body", "cookie"], "type": "str"}
+                },
+                "elements": "dict"
+            },
+            "jq": {"v_range": [["8.0.0", ""]], "type": "str"},
+            "session-match": {"v_range": [["8.0.0", ""]], "type": "str"},
+            "session-source": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "status": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"}
+        }
+    },
+    "casb_useractivity_match_tenantsessionextraction_filters": {
+        "stated": true,
+        "options": {
+            "body-type": {"v_range": [["8.0.0", ""]], "choices": ["json", "form"], "type": "str"},
+            "cookie-name": {"v_range": [["8.0.0", ""]], "type": "str"},
+            "direction": {"v_range": [["8.0.0", ""]], "choices": ["request", "response"], "type": "str"},
+            "header-name": {"v_range": [["8.0.0", ""]], "type": "str"},
+            "id": {"v_range": [["8.0.0", ""]], "required": true, "type": "int"},
+            "place": {"v_range": [["8.0.0", ""]], "choices": ["header", "path", "body", "cookie"], "type": "str"}
         }
     },
     "certificate_template": {
@@ -1993,7 +2178,19 @@ SCHEMA_DATA = '''
             "type": {"choices": ["external", "local"], "type": "str"},
             "curve-name": {"v_range": [["6.2.1", ""]], "choices": ["secp256r1", "secp384r1", "secp521r1"], "type": "str"},
             "scep-ca-identifier": {"v_range": [["7.0.4", ""]], "type": "str"},
-            "subject-alt-name": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "str"}
+            "subject-alt-name": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "str"},
+            "enroll-protocol": {"v_range": [["7.6.7", "7.6.7"]], "choices": ["scep", "est"], "type": "str"},
+            "est-ca-id": {"v_range": [["7.6.7", "7.6.7"]], "type": "str"},
+            "est-client-cert": {"v_range": [["7.6.7", "7.6.7"]], "type": "raw"},
+            "est-http-password": {"v_range": [["7.6.7", "7.6.7"]], "no_log": true, "type": "raw"},
+            "est-http-username": {"v_range": [["7.6.7", "7.6.7"]], "type": "str"},
+            "est-regeneration-method": {"v_range": [["7.6.7", "7.6.7"]], "choices": ["create-new-key", "use-existing-key"], "type": "str"},
+            "est-server-cert": {"v_range": [["7.6.7", "7.6.7"]], "type": "raw"},
+            "est-server-url": {"v_range": [["7.6.7", "7.6.7"]], "type": "str"},
+            "est-srp-password": {"v_range": [["7.6.7", "7.6.7"]], "no_log": true, "type": "raw"},
+            "est-srp-username": {"v_range": [["7.6.7", "7.6.7"]], "type": "str"},
+            "source-ip": {"v_range": [["7.6.7", "7.6.7"]], "type": "str"},
+            "validity": {"v_range": [["8.0.0", ""]], "type": "int"}
         }
     },
     "cifs_domaincontroller": {
@@ -2011,17 +2208,17 @@ SCHEMA_DATA = '''
     "cifs_profile": {
         "stated": true,
         "options": {
-            "domain-controller": {"v_range": [["6.2.0", ""]], "type": "str"},
-            "name": {"v_range": [["6.2.0", ""]], "required": true, "type": "str"},
-            "server-credential-type": {"v_range": [["6.2.0", ""]], "choices": ["none", "credential-replication", "credential-keytab"], "type": "str"},
+            "domain-controller": {"v_range": [["6.2.0", "7.6.7"]], "type": "str"},
+            "name": {"v_range": [["6.2.0", "7.6.7"]], "required": true, "type": "str"},
+            "server-credential-type": {"v_range": [["6.2.0", "7.6.7"]], "choices": ["none", "credential-replication", "credential-keytab"], "type": "str"},
             "server-keytab": {
-                "v_range": [["6.2.0", ""]],
+                "v_range": [["6.2.0", "7.6.7"]],
                 "no_log": true,
                 "type": "list",
                 "options": {
-                    "keytab": {"v_range": [["6.2.0", ""]], "no_log": true, "type": "str"},
-                    "principal": {"v_range": [["6.2.0", ""]], "type": "str"},
-                    "password": {"v_range": [["6.2.2", ""]], "no_log": true, "type": "raw"}
+                    "keytab": {"v_range": [["6.2.0", "7.6.7"]], "no_log": true, "type": "str"},
+                    "principal": {"v_range": [["6.2.0", "7.6.7"]], "type": "str"},
+                    "password": {"v_range": [["6.2.2", "7.6.7"]], "no_log": true, "type": "raw"}
                 },
                 "elements": "dict"
             },
@@ -2082,9 +2279,9 @@ SCHEMA_DATA = '''
     "cifs_profile_serverkeytab": {
         "stated": true,
         "options": {
-            "keytab": {"v_range": [["6.2.0", ""]], "no_log": true, "type": "str"},
-            "principal": {"v_range": [["6.2.0", ""]], "type": "str"},
-            "password": {"v_range": [["6.2.2", ""]], "no_log": true, "type": "raw"}
+            "keytab": {"v_range": [["6.2.0", "7.6.7"]], "no_log": true, "type": "str"},
+            "principal": {"v_range": [["6.2.0", "7.6.7"]], "type": "str"},
+            "password": {"v_range": [["6.2.2", "7.6.7"]], "no_log": true, "type": "raw"}
         }
     },
     "cloud_orchestaws": {
@@ -2332,14 +2529,22 @@ SCHEMA_DATA = '''
     "credentialstore_domaincontroller": {
         "stated": true,
         "options": {
-            "domain-name": {"v_range": [["6.4.0", ""]], "type": "str"},
-            "ip": {"v_range": [["6.4.0", ""]], "type": "str"},
-            "ip6": {"v_range": [["6.4.0", ""]], "type": "str"},
-            "password": {"v_range": [["6.4.0", ""]], "no_log": true, "type": "raw"},
-            "port": {"v_range": [["6.4.0", ""]], "type": "int"},
-            "server-name": {"v_range": [["6.4.0", ""]], "type": "str"},
-            "username": {"v_range": [["6.4.0", ""]], "type": "str"},
-            "hostname": {"v_range": [["6.4.2", ""]], "type": "str"}
+            "domain-name": {"v_range": [["6.4.0", "7.6.7"]], "type": "str"},
+            "ip": {"v_range": [["6.4.0", "7.6.7"]], "type": "str"},
+            "ip6": {"v_range": [["6.4.0", "7.6.7"]], "type": "str"},
+            "password": {"v_range": [["6.4.0", "7.6.7"]], "no_log": true, "type": "raw"},
+            "port": {"v_range": [["6.4.0", "7.6.7"]], "type": "int"},
+            "server-name": {"v_range": [["6.4.0", "7.6.7"]], "type": "str"},
+            "username": {"v_range": [["6.4.0", "7.6.7"]], "type": "str"},
+            "hostname": {"v_range": [["6.4.2", "7.6.7"]], "type": "str"}
+        }
+    },
+    "deployment_get_controller_status": {
+        "stated": true,
+        "options": {
+            "adom": {"v_range": [["7.4.11", "7.4.11"], ["7.6.7", ""]], "type": "list", "elements": "str"},
+            "ctype": {"v_range": [["7.4.11", "7.4.11"], ["7.6.7", ""]], "type": "list", "choices": ["wtp", "fext", "fsw"], "elements": "str"},
+            "device": {"v_range": [["7.4.11", "7.4.11"], ["7.6.7", ""]], "type": "list", "elements": "str"}
         }
     },
     "devprof_device_profile_fortianalyzer": {
@@ -2532,12 +2737,12 @@ SCHEMA_DATA = '''
             "sniffer-traffic": {"v_range": [["7.0.4", "7.0.16"], ["7.2.1", ""]], "choices": ["disable", "enable"], "type": "str"},
             "voip": {"v_range": [["7.0.4", "7.0.16"], ["7.2.1", ""]], "choices": ["disable", "enable"], "type": "str"},
             "ztna-traffic": {"v_range": [["7.0.4", "7.0.16"], ["7.2.1", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "filter-type": {"v_range": [["7.0.4", "7.0.16"], ["7.2.1", ""]], "choices": ["include", "exclude"], "type": "str"},
-            "filter": {"v_range": [["7.0.4", "7.0.16"], ["7.2.1", ""]], "type": "str"},
+            "filter-type": {"v_range": [["7.0.4", "7.0.16"], ["7.2.1", "7.6.7"]], "choices": ["include", "exclude"], "type": "str"},
+            "filter": {"v_range": [["7.0.4", "7.0.16"], ["7.2.1", "7.6.7"]], "type": "str"},
             "cifs": {"v_range": [["7.0.4", "7.0.16"]], "choices": ["disable", "enable"], "type": "str"},
             "ssl": {"v_range": [["7.0.4", "7.0.16"]], "choices": ["disable", "enable"], "type": "str"},
-            "dns": {"v_range": [["7.0.4", "7.0.16"], ["7.2.1", "7.2.1"], ["7.4.8", "7.4.10"]], "choices": ["disable", "enable"], "type": "str"},
-            "ssh": {"v_range": [["7.0.4", "7.0.16"], ["7.2.1", "7.2.1"], ["7.4.8", "7.4.10"]], "choices": ["disable", "enable"], "type": "str"},
+            "dns": {"v_range": [["7.0.4", "7.0.16"], ["7.2.1", "7.2.1"], ["7.4.8", "7.4.11"]], "choices": ["disable", "enable"], "type": "str"},
+            "ssh": {"v_range": [["7.0.4", "7.0.16"], ["7.2.1", "7.2.1"], ["7.4.8", "7.4.11"]], "choices": ["disable", "enable"], "type": "str"},
             "netscan-discovery": {"v_range": [["7.0.4", "7.0.16"]], "choices": ["disable", "enable"], "type": "str"},
             "netscan-vulnerability": {"v_range": [["7.0.4", "7.0.16"]], "choices": ["disable", "enable"], "type": "str"},
             "forti-switch": {"v_range": [["7.4.2", ""]], "choices": ["disable", "enable"], "type": "str"},
@@ -2617,7 +2822,7 @@ SCHEMA_DATA = '''
             },
             "status": {"v_range": [["6.0.0", "6.2.5"], ["6.2.7", "6.4.1"], ["6.4.3", ""]], "choices": ["disable", "enable"], "type": "str"},
             "reliable": {
-                "v_range": [["6.2.0", "6.2.5"], ["6.2.7", "6.4.1"], ["6.4.3", "6.4.15"], ["7.4.8", "7.4.10"]],
+                "v_range": [["6.2.0", "6.2.5"], ["6.2.7", "6.4.1"], ["6.4.3", "6.4.15"], ["7.4.8", "7.4.11"]],
                 "choices": ["disable", "enable"],
                 "type": "str"
             },
@@ -2642,23 +2847,24 @@ SCHEMA_DATA = '''
             "source-ip-interface": {"v_range": [["7.6.0", ""]], "type": "raw"},
             "vrf-select": {"v_range": [["7.6.2", ""]], "type": "int"},
             "log-templates": {
-                "v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]],
+                "v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]],
                 "type": "list",
                 "options": {
                     "category": {
-                        "v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]],
+                        "v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]],
                         "choices": [
                             "app-ctrl", "attack", "dlp", "event", "traffic", "virus", "voip", "webfilter", "spam", "anomaly", "waf", "dns", "ssh", "ssl",
                             "file-filter", "icap", "virtual-patch"
                         ],
                         "type": "str"
                     },
-                    "empty-value-indicator": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "str"},
-                    "id": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "int"},
-                    "template": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "str"}
+                    "empty-value-indicator": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "str"},
+                    "id": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "int"},
+                    "template": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "str"}
                 },
                 "elements": "dict"
-            }
+            },
+            "custom-log-format": {"v_range": [["8.0.0", ""]], "type": "raw"}
         }
     },
     "devprof_log_syslogd_setting_customfieldname": {
@@ -2673,16 +2879,16 @@ SCHEMA_DATA = '''
         "stated": true,
         "options": {
             "category": {
-                "v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]],
+                "v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]],
                 "choices": [
                     "app-ctrl", "attack", "dlp", "event", "traffic", "virus", "voip", "webfilter", "spam", "anomaly", "waf", "dns", "ssh", "ssl",
                     "file-filter", "icap", "virtual-patch"
                 ],
                 "type": "str"
             },
-            "empty-value-indicator": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "str"},
-            "id": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "required": true, "type": "int"},
-            "template": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "str"}
+            "empty-value-indicator": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "str"},
+            "id": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "required": true, "type": "int"},
+            "template": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "str"}
         }
     },
     "devprof_system_centralmanagement": {
@@ -2705,7 +2911,7 @@ SCHEMA_DATA = '''
                     "server-type": {
                         "v_range": [["6.0.0", "6.2.5"], ["6.2.7", "6.4.1"], ["6.4.3", ""]],
                         "type": "list",
-                        "choices": ["update", "rating", "iot-query", "iot-collect", "vpatch-query"],
+                        "choices": ["update", "rating", "iot-query", "iot-collect", "vpatch-query", "iotv-query"],
                         "elements": "str"
                     }
                 },
@@ -2747,7 +2953,8 @@ SCHEMA_DATA = '''
             },
             "modem-upgrade-time": {"v_range": [["7.2.6", "7.2.12"], ["7.4.3", ""]], "type": "str"},
             "vrf-select": {"v_range": [["7.6.2", ""]], "type": "int"},
-            "fmg-update-http-header": {"v_range": [["7.6.3", ""]], "choices": ["disable", "enable"], "type": "str"}
+            "fmg-update-http-header": {"v_range": [["7.6.3", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "use-default-servers-as-main": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"}
         }
     },
     "devprof_system_centralmanagement_serverlist": {
@@ -2761,7 +2968,7 @@ SCHEMA_DATA = '''
             "server-type": {
                 "v_range": [["6.0.0", "6.2.5"], ["6.2.7", "6.4.1"], ["6.4.3", ""]],
                 "type": "list",
-                "choices": ["update", "rating", "iot-query", "iot-collect", "vpatch-query"],
+                "choices": ["update", "rating", "iot-query", "iot-collect", "vpatch-query", "iotv-query"],
                 "elements": "str"
             }
         }
@@ -2782,7 +2989,7 @@ SCHEMA_DATA = '''
             "primary": {"v_range": [["6.0.0", "6.2.5"], ["6.2.7", "6.4.1"], ["7.6.5", ""]], "type": "str"},
             "secondary": {"v_range": [["6.0.0", "6.2.5"], ["6.2.7", "6.4.1"], ["7.6.5", ""]], "type": "str"},
             "dns-over-tls": {
-                "v_range": [["6.2.0", "6.2.5"], ["6.2.7", "6.4.1"], ["7.6.5", ""]],
+                "v_range": [["6.2.0", "6.2.5"], ["6.2.7", "6.4.1"], ["7.6.5", "7.6.7"]],
                 "choices": ["disable", "enable", "enforce"],
                 "type": "str"
             },
@@ -2851,7 +3058,7 @@ SCHEMA_DATA = '''
             },
             "admintimeout": {"v_range": [["6.0.0", "6.2.5"], ["6.2.7", "6.4.1"], ["6.4.3", ""]], "type": "int"},
             "gui-ipv6": {"v_range": [["6.0.0", "6.2.5"], ["6.2.7", "6.4.1"], ["6.4.3", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "gui-lines-per-page": {"v_range": [["6.0.0", "6.2.5"], ["6.2.7", "6.4.1"], ["6.4.3", ""]], "type": "int"},
+            "gui-lines-per-page": {"v_range": [["6.0.0", "6.2.5"], ["6.2.7", "6.4.1"], ["6.4.3", "7.6.7"]], "type": "int"},
             "gui-theme": {
                 "v_range": [["6.0.0", "6.2.5"], ["6.2.7", "6.4.1"], ["6.4.3", ""]],
                 "choices": [
@@ -3272,10 +3479,10 @@ SCHEMA_DATA = '''
             "sslvpn-kxp-hardware-acceleration": {"v_range": [["7.2.6", "7.2.12"], ["7.4.3", ""]], "choices": ["disable", "enable"], "type": "str"},
             "sslvpn-plugin-version-check": {"v_range": [["7.2.6", "7.2.12"], ["7.4.3", ""]], "choices": ["disable", "enable"], "type": "str"},
             "fortiipam-integration": {"v_range": [["7.2.6", "7.2.12"], ["7.4.3", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "gui-firmware-upgrade-setup-warning": {"v_range": [["7.2.6", "7.2.12"], ["7.4.3", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "log-uuid-policy": {"v_range": [["7.2.6", "7.2.12"], ["7.4.3", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "per-user-bwl": {"v_range": [["7.2.6", "7.2.12"], ["7.4.3", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "gui-fortisandbox-cloud": {"v_range": [["7.2.6", "7.2.12"], ["7.4.3", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "gui-firmware-upgrade-setup-warning": {"v_range": [["7.2.6", "7.2.12"], ["7.4.3", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
+            "log-uuid-policy": {"v_range": [["7.2.6", "7.2.12"], ["7.4.3", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
+            "per-user-bwl": {"v_range": [["7.2.6", "7.2.12"], ["7.4.3", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
+            "gui-fortisandbox-cloud": {"v_range": [["7.2.6", "7.2.12"], ["7.4.3", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
             "fortitoken-cloud-service": {"v_range": [["7.2.6", "7.2.12"], ["7.4.3", "7.6.2"]], "choices": ["disable", "enable"], "type": "str"},
             "hw-switch-ether-filter": {"v_range": [["7.2.6", "7.2.12"], ["7.4.3", "7.6.2"]], "choices": ["disable", "enable"], "type": "str"},
             "virtual-server-count": {"v_range": [["7.2.6", "7.2.12"], ["7.4.3", "7.6.2"]], "type": "int"},
@@ -3299,56 +3506,68 @@ SCHEMA_DATA = '''
             "auth-session-auto-backup": {"v_range": [["7.6.0", ""]], "choices": ["disable", "enable"], "type": "str"},
             "scim-https-port": {"v_range": [["7.6.0", ""]], "type": "int"},
             "httpd-max-worker-count": {"v_range": [["7.6.0", ""]], "type": "int"},
-            "rest-api-key-url-query": {"v_range": [["7.4.4", "7.4.10"], ["7.6.2", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "rest-api-key-url-query": {"v_range": [["7.4.4", "7.4.11"], ["7.6.2", ""]], "choices": ["disable", "enable"], "type": "str"},
             "single-vdom-npuvlink": {"v_range": [["7.6.2", ""]], "choices": ["disable", "enable"], "type": "str"},
             "slbc-fragment-mem-thresholds": {"v_range": [["7.6.2", ""]], "type": "int"},
             "upgrade-report": {"v_range": [["7.6.2", ""]], "choices": ["disable", "enable"], "type": "str"},
             "application-bandwidth-tracking": {"v_range": [["7.6.2", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "fortitoken-cloud-region": {"v_range": [["7.4.7", "7.4.10"], ["7.6.4", ""]], "no_log": true, "type": "str"},
-            "black-box-interval": {"v_range": [["7.2.10", "7.2.12"], ["7.4.7", "7.4.10"], ["7.6.3", ""]], "type": "int"},
-            "black-box": {"v_range": [["7.2.10", "7.2.12"], ["7.4.7", "7.4.10"], ["7.6.3", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fortitoken-cloud-region": {"v_range": [["7.4.7", "7.4.11"], ["7.6.4", ""]], "no_log": true, "type": "str"},
+            "black-box-interval": {"v_range": [["7.2.10", "7.2.12"], ["7.4.7", "7.4.11"], ["7.6.3", ""]], "type": "int"},
+            "black-box": {"v_range": [["7.2.10", "7.2.12"], ["7.4.7", "7.4.11"], ["7.6.3", ""]], "choices": ["disable", "enable"], "type": "str"},
             "tls-session-cache": {"v_range": [["7.6.3", ""]], "choices": ["disable", "enable"], "type": "str"},
             "wad-p2s-max-body-size": {"v_range": [["7.6.3", ""]], "type": "int"},
             "telemetry-controller": {"v_range": [["7.6.3", ""]], "choices": ["disable", "enable"], "type": "str"},
             "telemetry-data-port": {"v_range": [["7.6.3", ""]], "type": "int"},
-            "user-device-store-max-device-mem": {"v_range": [["7.4.8", "7.4.10"], ["7.6.3", ""]], "type": "int"},
+            "user-device-store-max-device-mem": {"v_range": [["7.4.8", "7.4.11"], ["7.6.3", ""]], "type": "int"},
             "sslvpn-affinity": {"v_range": [["7.6.3", ""]], "type": "str"},
-            "admin-timeout": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "int"},
-            "username-case-sensitivity": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "proxy-auth-machine-timeout": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "int"},
-            "fin-wait-timeout": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "int"},
-            "udp-stream-timeout": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "int"},
-            "license-overlimit": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "choices": ["block", "bypass"], "type": "str"},
-            "tcp-random-source-port": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "close-wait-timeout": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "int"},
-            "img-cache-mode": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "choices": ["stop", "rolling"], "type": "str"},
-            "max-session-per-user": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "int"},
-            "update-tls-finger-print": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "kernel-panic-debug": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "syn-recv-timeout": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "int"},
-            "resigned-pkey-period": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "no_log": true, "type": "int"},
-            "kernel-panic-timeout": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "int"},
-            "v-tpm": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "time-wait-timeout": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "int"},
-            "established-timeout": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "int"},
-            "syn-sent-timeout": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "int"},
-            "last-ack-timeout": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "int"},
-            "max-img-cache-size": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "int"},
-            "http-view": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "conntrack": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "int"},
-            "kernel-panic-on-warn": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "crwl-log": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "udp-timeout": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "int"},
-            "geoip-full-db": {"v_range": [["7.4.8", "7.4.10"], ["7.6.5", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "fortiguard-audit-result-submission": {"v_range": [["7.4.8", "7.4.10"]], "choices": ["disable", "enable"], "type": "str"},
-            "ldap-server-algorithm": {"v_range": [["7.4.8", "7.4.10"]], "choices": ["primary-secondary", "round-robin"], "type": "str"},
+            "admin-timeout": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "int"},
+            "username-case-sensitivity": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "proxy-auth-machine-timeout": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "int"},
+            "fin-wait-timeout": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "int"},
+            "udp-stream-timeout": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "int"},
+            "license-overlimit": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "choices": ["block", "bypass"], "type": "str"},
+            "tcp-random-source-port": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "close-wait-timeout": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "int"},
+            "img-cache-mode": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "choices": ["stop", "rolling"], "type": "str"},
+            "max-session-per-user": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "int"},
+            "update-tls-finger-print": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "kernel-panic-debug": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "syn-recv-timeout": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "int"},
+            "resigned-pkey-period": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "no_log": true, "type": "int"},
+            "kernel-panic-timeout": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "int"},
+            "v-tpm": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "time-wait-timeout": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "int"},
+            "established-timeout": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "int"},
+            "syn-sent-timeout": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "int"},
+            "last-ack-timeout": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "int"},
+            "max-img-cache-size": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "int"},
+            "http-view": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "conntrack": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "int"},
+            "kernel-panic-on-warn": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "crwl-log": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "udp-timeout": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "int"},
+            "geoip-full-db": {"v_range": [["7.4.8", "7.4.11"], ["7.6.5", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fortiguard-audit-result-submission": {"v_range": [["7.4.8", "7.4.11"]], "choices": ["disable", "enable"], "type": "str"},
+            "ldap-server-algorithm": {"v_range": [["7.4.8", "7.4.11"]], "choices": ["primary-secondary", "round-robin"], "type": "str"},
             "router-affinity": {"v_range": [["7.6.4", ""]], "type": "str"},
             "ipv6-snat-route-change": {"v_range": [["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "web-svc-auto-restart-time-threshold": {"v_range": [["7.4.9", "7.4.10"], ["7.6.5", ""]], "type": "int"},
-            "web-svc-auto-restart-mem-threshold": {"v_range": [["7.4.9", "7.4.10"], ["7.6.5", ""]], "type": "int"},
-            "web-svc-auto-restart": {"v_range": [["7.4.9", "7.4.10"], ["7.6.5", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "web-svc-auto-restart-time-threshold": {"v_range": [["7.4.9", "7.4.11"], ["7.6.5", ""]], "type": "int"},
+            "web-svc-auto-restart-mem-threshold": {"v_range": [["7.4.9", "7.4.11"], ["7.6.5", ""]], "type": "int"},
+            "web-svc-auto-restart": {"v_range": [["7.4.9", "7.4.11"], ["7.6.5", ""]], "choices": ["disable", "enable"], "type": "str"},
             "log-daemon-cpu-threshold": {"v_range": [["7.6.5", ""]], "type": "int"},
-            "wad-worker-dev-cache": {"v_range": [["7.6.5", ""]], "type": "int"}
+            "wad-worker-dev-cache": {"v_range": [["7.6.5", ""]], "type": "int"},
+            "gui-login-request-rate-limit": {"v_range": [["7.6.7", ""]], "type": "int"},
+            "admin-http-request-body-timeout": {"v_range": [["7.6.7", ""]], "type": "int"},
+            "admin-http-rate-limit-exempt-auth": {"v_range": [["7.6.7", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "admin-http-request-header-timeout": {"v_range": [["7.6.7", ""]], "type": "int"},
+            "admin-http-unauthenticated-request-body-timeout": {"v_range": [["7.6.7", ""]], "type": "int"},
+            "admin-http-login-request-size-limit": {"v_range": [["7.6.7", "7.6.7"]], "type": "int"},
+            "admin-http-json-request-limit": {"v_range": [["7.6.7", "7.6.7"]], "type": "int"},
+            "admin-http-rate-limit-max-requests": {"v_range": [["7.6.7", ""]], "type": "int"},
+            "log-fsck-timeout": {"v_range": [["8.0.0", ""]], "type": "int"},
+            "gui-restrict-theme-change": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "gui-custom-theme": {"v_range": [["8.0.0", ""]], "type": "raw"},
+            "tcp-congestion-control": {"v_range": [["8.0.0", ""]], "choices": ["cubic", "bbr"], "type": "str"}
         }
     },
     "devprof_system_ntp": {
@@ -3443,27 +3662,27 @@ SCHEMA_DATA = '''
     "devprof_system_replacemsg_devicedetectionportal": {
         "stated": false,
         "options": {
-            "buffer": {"v_range": [["6.0.0", "6.2.5"], ["6.2.7", "6.4.1"], ["6.4.3", ""]], "type": "str"},
-            "format": {"v_range": [["6.0.0", "6.2.5"], ["6.2.7", "6.4.1"], ["6.4.3", ""]], "choices": ["none", "text", "html", "wml"], "type": "str"},
-            "header": {"v_range": [["6.0.0", "6.2.5"], ["6.2.7", "6.4.1"], ["6.4.3", ""]], "choices": ["none", "http", "8bit"], "type": "str"},
-            "msg-type": {"v_range": [["6.0.0", "6.2.5"], ["6.2.7", "6.4.1"], ["6.4.3", ""]], "type": "str"}
+            "buffer": {"v_range": [["6.0.0", "6.2.5"], ["6.2.7", "6.4.1"], ["6.4.3", "7.6.7"]], "type": "str"},
+            "format": {"v_range": [["6.0.0", "6.2.5"], ["6.2.7", "6.4.1"], ["6.4.3", "7.6.7"]], "choices": ["none", "text", "html", "wml"], "type": "str"},
+            "header": {"v_range": [["6.0.0", "6.2.5"], ["6.2.7", "6.4.1"], ["6.4.3", "7.6.7"]], "choices": ["none", "http", "8bit"], "type": "str"},
+            "msg-type": {"v_range": [["6.0.0", "6.2.5"], ["6.2.7", "6.4.1"], ["6.4.3", "7.6.7"]], "type": "str"}
         }
     },
     "devprof_system_replacemsg_ec": {
         "stated": false,
         "options": {
-            "buffer": {"v_range": [["6.0.0", "6.2.5"], ["6.2.7", "6.4.1"], ["6.4.3", "7.2.1"], ["7.4.8", "7.4.10"]], "type": "str"},
+            "buffer": {"v_range": [["6.0.0", "6.2.5"], ["6.2.7", "6.4.1"], ["6.4.3", "7.2.1"], ["7.4.8", "7.4.11"]], "type": "str"},
             "format": {
-                "v_range": [["6.0.0", "6.2.5"], ["6.2.7", "6.4.1"], ["6.4.3", "7.2.1"], ["7.4.8", "7.4.10"]],
+                "v_range": [["6.0.0", "6.2.5"], ["6.2.7", "6.4.1"], ["6.4.3", "7.2.1"], ["7.4.8", "7.4.11"]],
                 "choices": ["none", "text", "html", "wml"],
                 "type": "str"
             },
             "header": {
-                "v_range": [["6.0.0", "6.2.5"], ["6.2.7", "6.4.1"], ["6.4.3", "7.2.1"], ["7.4.8", "7.4.10"]],
+                "v_range": [["6.0.0", "6.2.5"], ["6.2.7", "6.4.1"], ["6.4.3", "7.2.1"], ["7.4.8", "7.4.11"]],
                 "choices": ["none", "http", "8bit"],
                 "type": "str"
             },
-            "msg-type": {"v_range": [["6.0.0", "6.2.5"], ["6.2.7", "6.4.1"], ["6.4.3", "7.2.1"], ["7.4.8", "7.4.10"]], "type": "str"}
+            "msg-type": {"v_range": [["6.0.0", "6.2.5"], ["6.2.7", "6.4.1"], ["6.4.3", "7.2.1"], ["7.4.8", "7.4.11"]], "type": "str"}
         }
     },
     "devprof_system_replacemsg_fortiguardwf": {
@@ -3525,10 +3744,10 @@ SCHEMA_DATA = '''
     "devprof_system_replacemsg_nntp": {
         "stated": false,
         "options": {
-            "buffer": {"v_range": [["6.0.0", "6.2.5"], ["6.2.7", "6.4.1"], ["6.4.3", ""]], "type": "str"},
-            "format": {"v_range": [["6.0.0", "6.2.5"], ["6.2.7", "6.4.1"], ["6.4.3", ""]], "choices": ["none", "text", "html", "wml"], "type": "str"},
-            "header": {"v_range": [["6.0.0", "6.2.5"], ["6.2.7", "6.4.1"], ["6.4.3", ""]], "choices": ["none", "http", "8bit"], "type": "str"},
-            "msg-type": {"v_range": [["6.0.0", "6.2.5"], ["6.2.7", "6.4.1"], ["6.4.3", ""]], "type": "str"}
+            "buffer": {"v_range": [["6.0.0", "6.2.5"], ["6.2.7", "6.4.1"], ["6.4.3", "7.6.7"]], "type": "str"},
+            "format": {"v_range": [["6.0.0", "6.2.5"], ["6.2.7", "6.4.1"], ["6.4.3", "7.6.7"]], "choices": ["none", "text", "html", "wml"], "type": "str"},
+            "header": {"v_range": [["6.0.0", "6.2.5"], ["6.2.7", "6.4.1"], ["6.4.3", "7.6.7"]], "choices": ["none", "http", "8bit"], "type": "str"},
+            "msg-type": {"v_range": [["6.0.0", "6.2.5"], ["6.2.7", "6.4.1"], ["6.4.3", "7.6.7"]], "type": "str"}
         }
     },
     "devprof_system_replacemsg_spam": {
@@ -3595,7 +3814,7 @@ SCHEMA_DATA = '''
                     "load-balance-real-server-down", "device-new", "enter-intf-bypass", "exit-intf-bypass", "per-cpu-high", "power-blade-down",
                     "confsync_failure", "dhcp", "pool-usage", "power-redundancy-degrade", "power-redundancy-failure", "ospf-nbr-state-change",
                     "ospf-virtnbr-state-change", "disk-failure", "disk-overload", "faz-main-failover", "faz-alt-failover", "slbc", "faz", "power-supply",
-                    "ippool", "interface", "security_level_change", "cert-expiry", "dio", "sensor", "bfd"
+                    "ippool", "interface", "security_level_change", "cert-expiry", "dio", "sensor", "bfd", "fsso"
                 ],
                 "elements": "str"
             },
@@ -3711,7 +3930,7 @@ SCHEMA_DATA = '''
                     "load-balance-real-server-down", "device-new", "enter-intf-bypass", "exit-intf-bypass", "per-cpu-high", "power-blade-down",
                     "confsync_failure", "dhcp", "pool-usage", "power-redundancy-degrade", "power-redundancy-failure", "ospf-nbr-state-change",
                     "ospf-virtnbr-state-change", "disk-failure", "disk-overload", "faz-main-failover", "faz-alt-failover", "slbc", "faz", "power-supply",
-                    "ippool", "interface", "security_level_change", "cert-expiry", "dio", "sensor", "bfd"
+                    "ippool", "interface", "security_level_change", "cert-expiry", "dio", "sensor", "bfd", "fsso"
                 ],
                 "elements": "str"
             },
@@ -3797,7 +4016,9 @@ SCHEMA_DATA = '''
                 ],
                 "type": "str"
             },
-            "wifi-ssid": {"v_range": [["7.6.5", ""]], "type": "str"}
+            "wifi-ssid": {"v_range": [["7.6.5", ""]], "type": "str"},
+            "alias": {"v_range": [["8.0.0", ""]], "type": "str"},
+            "mode": {"v_range": [["8.0.0", ""]], "choices": ["static", "dhcp", "pppoe", "pppoa", "ipoa", "eoa"], "type": "str"}
         }
     },
     "devprof_system_template_interface_iprange": {
@@ -3822,7 +4043,11 @@ SCHEMA_DATA = '''
             "name": {"v_range": [["7.4.2", ""]], "required": true, "type": "str"},
             "protocol-version-invalid": {"v_range": [["7.4.2", ""]], "choices": ["block", "reset", "monitor", "allow"], "type": "str"},
             "request-error-flag-set": {"v_range": [["7.4.2", ""]], "choices": ["block", "reset", "monitor", "allow"], "type": "str"},
-            "track-requests-answers": {"v_range": [["7.4.2", ""]], "choices": ["disable", "enable"], "type": "str"}
+            "track-requests-answers": {"v_range": [["7.4.2", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-force-sync": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object-source": {"v_range": [["8.0.0", ""]], "choices": ["member", "local", "root"], "type": "str"},
+            "uuid": {"v_range": [["8.0.0", ""]], "type": "str"}
         }
     },
     "dlp_datatype": {
@@ -3884,26 +4109,30 @@ SCHEMA_DATA = '''
         "stated": true,
         "options": {
             "columns": {
-                "v_range": [["7.4.7", "7.4.10"], ["7.6.3", ""]],
+                "v_range": [["7.4.7", "7.4.11"], ["7.6.3", ""]],
                 "type": "list",
                 "options": {
-                    "index": {"v_range": [["7.4.7", "7.4.10"], ["7.6.3", ""]], "type": "int"},
-                    "optional": {"v_range": [["7.4.7", "7.4.10"], ["7.6.3", ""]], "choices": ["disable", "enable"], "type": "str"},
-                    "type": {"v_range": [["7.4.7", "7.4.10"], ["7.6.3", ""]], "type": "list", "elements": "str"}
+                    "index": {"v_range": [["7.4.7", "7.4.11"], ["7.6.3", ""]], "type": "int"},
+                    "optional": {"v_range": [["7.4.7", "7.4.11"], ["7.6.3", ""]], "choices": ["disable", "enable"], "type": "str"},
+                    "type": {"v_range": [["7.4.7", "7.4.11"], ["7.6.3", ""]], "type": "list", "elements": "str"}
                 },
                 "elements": "dict"
             },
-            "data": {"v_range": [["7.4.7", "7.4.10"], ["7.6.3", ""]], "type": "list", "elements": "str"},
-            "name": {"v_range": [["7.4.7", "7.4.10"], ["7.6.3", ""]], "required": true, "type": "str"},
-            "optional": {"v_range": [["7.4.7", "7.4.10"], ["7.6.3", ""]], "type": "int"}
+            "data": {"v_range": [["7.4.7", "7.4.11"], ["7.6.3", ""]], "type": "list", "elements": "str"},
+            "name": {"v_range": [["7.4.7", "7.4.11"], ["7.6.3", ""]], "required": true, "type": "str"},
+            "optional": {"v_range": [["7.4.7", "7.4.11"], ["7.6.3", ""]], "type": "int"},
+            "fabric-force-sync": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object-source": {"v_range": [["8.0.0", ""]], "choices": ["member", "local", "root"], "type": "str"},
+            "uuid": {"v_range": [["8.0.0", ""]], "type": "str"}
         }
     },
     "dlp_exactdatamatch_columns": {
         "stated": true,
         "options": {
-            "index": {"v_range": [["7.4.7", "7.4.10"], ["7.6.3", ""]], "type": "int"},
-            "optional": {"v_range": [["7.4.7", "7.4.10"], ["7.6.3", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "type": {"v_range": [["7.4.7", "7.4.10"], ["7.6.3", ""]], "type": "list", "elements": "str"}
+            "index": {"v_range": [["7.4.7", "7.4.11"], ["7.6.3", ""]], "type": "int"},
+            "optional": {"v_range": [["7.4.7", "7.4.11"], ["7.6.3", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "type": {"v_range": [["7.4.7", "7.4.11"], ["7.6.3", ""]], "type": "list", "elements": "str"}
         }
     },
     "dlp_filepattern": {
@@ -3930,7 +4159,11 @@ SCHEMA_DATA = '''
                 "elements": "dict"
             },
             "id": {"required": true, "type": "int"},
-            "name": {"type": "str"}
+            "name": {"type": "str"},
+            "fabric-force-sync": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object-source": {"v_range": [["8.0.0", ""]], "choices": ["member", "local", "root"], "type": "str"},
+            "uuid": {"v_range": [["8.0.0", ""]], "type": "str"}
         }
     },
     "dlp_filepattern_entries": {
@@ -3950,7 +4183,7 @@ SCHEMA_DATA = '''
             "pattern": {"type": "str"}
         }
     },
-    "dlp_fpsensitivity": {"stated": true, "options": {"name": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "required": true, "type": "str"}}},
+    "dlp_fpsensitivity": {"stated": true, "options": {"name": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "required": true, "type": "str"}}},
     "dlp_label": {
         "stated": true,
         "options": {
@@ -3969,7 +4202,11 @@ SCHEMA_DATA = '''
             },
             "mpip-type": {"v_range": [["7.6.3", ""]], "choices": ["local", "remote"], "type": "str"},
             "name": {"v_range": [["7.6.3", ""]], "required": true, "type": "str"},
-            "type": {"v_range": [["7.6.3", ""]], "choices": ["mpip", "fortidata"], "type": "str"}
+            "type": {"v_range": [["7.6.3", ""]], "choices": ["mpip", "fortidata"], "type": "str"},
+            "fabric-force-sync": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object-source": {"v_range": [["8.0.0", ""]], "choices": ["member", "local", "root"], "type": "str"},
+            "uuid": {"v_range": [["8.0.0", ""]], "type": "str"}
         }
     },
     "dlp_label_entries": {
@@ -3991,7 +4228,7 @@ SCHEMA_DATA = '''
             "full-archive-proto": {
                 "v_range": [["7.2.0", ""]],
                 "type": "list",
-                "choices": ["smtp", "pop3", "imap", "http-post", "http-get", "ftp", "nntp", "mapi", "ssh", "cifs"],
+                "choices": ["smtp", "pop3", "imap", "http-post", "http-get", "ftp", "nntp", "mapi", "ssh", "cifs", "websocket"],
                 "elements": "str"
             },
             "nac-quar-log": {"v_range": [["7.2.0", ""]], "choices": ["disable", "enable"], "type": "str"},
@@ -4014,7 +4251,7 @@ SCHEMA_DATA = '''
                     "proto": {
                         "v_range": [["7.2.0", ""]],
                         "type": "list",
-                        "choices": ["smtp", "pop3", "imap", "http-post", "http-get", "ftp", "nntp", "mapi", "ssh", "cifs"],
+                        "choices": ["smtp", "pop3", "imap", "http-post", "http-get", "ftp", "nntp", "mapi", "ssh", "cifs", "websocket"],
                         "elements": "str"
                     },
                     "sensitivity": {"v_range": [["7.2.0", ""]], "type": "raw"},
@@ -4027,10 +4264,15 @@ SCHEMA_DATA = '''
             "summary-proto": {
                 "v_range": [["7.2.0", ""]],
                 "type": "list",
-                "choices": ["smtp", "pop3", "imap", "http-post", "http-get", "ftp", "nntp", "mapi", "ssh", "cifs"],
+                "choices": ["smtp", "pop3", "imap", "http-post", "http-get", "ftp", "nntp", "mapi", "ssh", "cifs", "websocket"],
                 "elements": "str"
             },
-            "fortidata-error-action": {"v_range": [["7.6.4", ""]], "choices": ["block", "log-only", "ignore"], "type": "str"}
+            "fortidata-error-action": {"v_range": [["7.6.4", ""]], "choices": ["block", "log-only", "ignore"], "type": "str"},
+            "fabric-force-sync": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object-source": {"v_range": [["8.0.0", ""]], "choices": ["member", "local", "root"], "type": "str"},
+            "fortidata-scan-timeout": {"v_range": [["8.0.0", ""]], "type": "int"},
+            "uuid": {"v_range": [["8.0.0", ""]], "type": "str"}
         }
     },
     "dlp_profile_rule": {
@@ -4049,7 +4291,7 @@ SCHEMA_DATA = '''
             "proto": {
                 "v_range": [["7.2.0", ""]],
                 "type": "list",
-                "choices": ["smtp", "pop3", "imap", "http-post", "http-get", "ftp", "nntp", "mapi", "ssh", "cifs"],
+                "choices": ["smtp", "pop3", "imap", "http-post", "http-get", "ftp", "nntp", "mapi", "ssh", "cifs", "websocket"],
                 "elements": "str"
             },
             "sensitivity": {"v_range": [["7.2.0", ""]], "type": "raw"},
@@ -4083,7 +4325,7 @@ SCHEMA_DATA = '''
                         ],
                         "type": "str"
                     },
-                    "fp-sensitivity": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "type": "raw"},
+                    "fp-sensitivity": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "type": "raw"},
                     "id": {"type": "int"},
                     "match-percentage": {"type": "int"},
                     "name": {"type": "str"},
@@ -4137,7 +4379,11 @@ SCHEMA_DATA = '''
             },
             "eval": {"v_range": [["7.2.0", ""]], "type": "str"},
             "match-type": {"v_range": [["7.2.0", ""]], "choices": ["match-all", "match-any", "match-eval"], "type": "str"},
-            "fgd-id": {"v_range": [["7.6.0", ""]], "type": "int"}
+            "fgd-id": {"v_range": [["7.6.0", ""]], "type": "int"},
+            "fabric-force-sync": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object-source": {"v_range": [["8.0.0", ""]], "choices": ["member", "local", "root"], "type": "str"},
+            "uuid": {"v_range": [["8.0.0", ""]], "type": "str"}
         }
     },
     "dlp_sensor_entries": {
@@ -4165,7 +4411,7 @@ SCHEMA_DATA = '''
                 "choices": ["credit-card", "ssn", "regexp", "file-type", "file-size", "fingerprint", "watermark", "encrypted", "file-type-and-size"],
                 "type": "str"
             },
-            "fp-sensitivity": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "type": "raw"},
+            "fp-sensitivity": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "type": "raw"},
             "id": {"required": true, "type": "int"},
             "match-percentage": {"type": "int"},
             "name": {"type": "str"},
@@ -4200,7 +4446,11 @@ SCHEMA_DATA = '''
                 "elements": "dict"
             },
             "id": {"required": true, "type": "int"},
-            "name": {"type": "str"}
+            "name": {"type": "str"},
+            "fabric-force-sync": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object-source": {"v_range": [["8.0.0", ""]], "choices": ["member", "local", "root"], "type": "str"},
+            "uuid": {"v_range": [["8.0.0", ""]], "type": "str"}
         }
     },
     "dnsfilter_domainfilter_entries": {
@@ -4281,7 +4531,11 @@ SCHEMA_DATA = '''
                 "options": {"urlfilter-table": {"v_range": [["6.2.8", "6.2.13"]], "type": "int"}}
             },
             "transparent-dns-database": {"v_range": [["7.4.1", ""]], "type": "raw"},
-            "strip-ech": {"v_range": [["7.4.3", ""]], "choices": ["disable", "enable"], "type": "str"}
+            "strip-ech": {"v_range": [["7.4.3", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-force-sync": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object-source": {"v_range": [["8.0.0", ""]], "choices": ["member", "local", "root"], "type": "str"},
+            "uuid": {"v_range": [["8.0.0", ""]], "type": "str"}
         }
     },
     "dnsfilter_profile_dnstranslation": {
@@ -4480,8 +4734,12 @@ SCHEMA_DATA = '''
                     "log_disk_quota_split_ratio": {"type": "int"},
                     "log_file_retention_hours": {"type": "int"},
                     "meta fields": {"type": "dict"},
-                    "mig_mr": {"type": "int"},
-                    "mig_os_ver": {"choices": ["unknown", "0.0", "1.0", "2.0", "3.0", "4.0", "5.0", "6.0", "7.0", "8.0", "9.0"], "type": "str"},
+                    "mig_mr": {"v_range": [["6.0.0", "7.6.6"], ["8.0.0", ""]], "type": "int"},
+                    "mig_os_ver": {
+                        "v_range": [["6.0.0", "7.6.6"], ["8.0.0", ""]],
+                        "choices": ["unknown", "0.0", "1.0", "2.0", "3.0", "4.0", "5.0", "6.0", "7.0", "8.0", "9.0"],
+                        "type": "str"
+                    },
                     "mode": {"choices": ["ems", "gms", "provider"], "type": "str"},
                     "mr": {"type": "int"},
                     "name": {"type": "str"},
@@ -4490,7 +4748,7 @@ SCHEMA_DATA = '''
                         "type": "raw",
                         "choices": [
                             "fos", "foc", "fml", "fch", "fwb", "log", "fct", "faz", "fsa", "fsw", "fmg", "fdd", "fac", "fpx", "fna", "fdc", "ffw", "fsr",
-                            "fad", "fap", "fxt", "fts", "fai", "fwc", "fis", "fed", "fabric", "fpa", "fca", "ftc", "fss", "sim", "fra"
+                            "fad", "fap", "fxt", "fts", "fai", "fwc", "fis", "fed", "fabric", "fpa", "fca", "ftc", "fss", "sim", "fra", "fdt"
                         ]
                     },
                     "state": {"type": "int"},
@@ -4600,7 +4858,7 @@ SCHEMA_DATA = '''
                     "os_type": {
                         "choices": [
                             "unknown", "fos", "fsw", "foc", "fml", "faz", "fwb", "fch", "fct", "log", "fmg", "fsa", "fdd", "fac", "fpx", "fna", "fdc",
-                            "ffw", "fsr", "fad", "fap", "fxt", "fts", "fai", "fwc", "fis", "fed", "fpa", "fca", "ftc", "fss", "fra", "sim"
+                            "ffw", "fsr", "fad", "fap", "fxt", "fts", "fai", "fwc", "fis", "fed", "fpa", "fca", "ftc", "fss", "fra", "sim", "fdt"
                         ],
                         "type": "str"
                     },
@@ -4647,8 +4905,8 @@ SCHEMA_DATA = '''
                     "cluster_worker": {"v_range": [["7.6.0", ""]], "type": "str"},
                     "ha.vsn": {"v_range": [["7.2.6", "7.2.12"], ["7.4.4", ""]], "type": "str"},
                     "ha_upgrade_mode": {"v_range": [["7.4.4", ""]], "type": "int"},
-                    "vm_payg_status": {"v_range": [["7.4.4", "7.4.10"], ["7.6.2", ""]], "type": "int"},
-                    "sov_sase_license": {"v_range": [["7.4.7", "7.4.10"], ["7.6.4", ""]], "type": "str"},
+                    "vm_payg_status": {"v_range": [["7.4.4", "7.4.11"], ["7.6.2", ""]], "type": "int"},
+                    "sov_sase_license": {"v_range": [["7.4.7", "7.4.11"], ["7.6.4", ""]], "type": "str"},
                     "tunnel_sn": {"v_range": [["7.6.5", ""]], "type": "str"}
                 },
                 "elements": "dict"
@@ -4704,8 +4962,12 @@ SCHEMA_DATA = '''
             "log_disk_quota_split_ratio": {"type": "int"},
             "log_file_retention_hours": {"type": "int"},
             "meta fields": {"type": "dict"},
-            "mig_mr": {"type": "int"},
-            "mig_os_ver": {"choices": ["unknown", "0.0", "1.0", "2.0", "3.0", "4.0", "5.0", "6.0", "7.0", "8.0", "9.0"], "type": "str"},
+            "mig_mr": {"v_range": [["6.0.0", "7.6.6"], ["8.0.0", ""]], "type": "int"},
+            "mig_os_ver": {
+                "v_range": [["6.0.0", "7.6.6"], ["8.0.0", ""]],
+                "choices": ["unknown", "0.0", "1.0", "2.0", "3.0", "4.0", "5.0", "6.0", "7.0", "8.0", "9.0"],
+                "type": "str"
+            },
             "mode": {"choices": ["ems", "gms", "provider"], "type": "str"},
             "mr": {"type": "int"},
             "name": {"required": true, "type": "str"},
@@ -4714,7 +4976,7 @@ SCHEMA_DATA = '''
                 "type": "raw",
                 "choices": [
                     "fos", "foc", "fml", "fch", "fwb", "log", "fct", "faz", "fsa", "fsw", "fmg", "fdd", "fac", "fpx", "fna", "fdc", "ffw", "fsr", "fad",
-                    "fap", "fxt", "fts", "fai", "fwc", "fis", "fed", "fabric", "fpa", "fca", "ftc", "fss", "sim", "fra"
+                    "fap", "fxt", "fts", "fai", "fwc", "fis", "fed", "fabric", "fpa", "fca", "ftc", "fss", "sim", "fra", "fdt"
                 ]
             },
             "state": {"type": "int"},
@@ -4824,7 +5086,7 @@ SCHEMA_DATA = '''
             "os_type": {
                 "choices": [
                     "unknown", "fos", "fsw", "foc", "fml", "faz", "fwb", "fch", "fct", "log", "fmg", "fsa", "fdd", "fac", "fpx", "fna", "fdc", "ffw",
-                    "fsr", "fad", "fap", "fxt", "fts", "fai", "fwc", "fis", "fed", "fpa", "fca", "ftc", "fss", "fra", "sim"
+                    "fsr", "fad", "fap", "fxt", "fts", "fai", "fwc", "fis", "fed", "fpa", "fca", "ftc", "fss", "fra", "sim", "fdt"
                 ],
                 "type": "str"
             },
@@ -4871,8 +5133,8 @@ SCHEMA_DATA = '''
             "cluster_worker": {"v_range": [["7.6.0", ""]], "type": "str"},
             "ha.vsn": {"v_range": [["7.2.6", "7.2.12"], ["7.4.4", ""]], "type": "str"},
             "ha_upgrade_mode": {"v_range": [["7.4.4", ""]], "type": "int"},
-            "vm_payg_status": {"v_range": [["7.4.4", "7.4.10"], ["7.6.2", ""]], "type": "int"},
-            "sov_sase_license": {"v_range": [["7.4.7", "7.4.10"], ["7.6.4", ""]], "type": "str"},
+            "vm_payg_status": {"v_range": [["7.4.4", "7.4.11"], ["7.6.2", ""]], "type": "int"},
+            "sov_sase_license": {"v_range": [["7.4.7", "7.4.11"], ["7.6.4", ""]], "type": "str"},
             "tunnel_sn": {"v_range": [["7.6.5", ""]], "type": "str"}
         }
     },
@@ -4907,7 +5169,7 @@ SCHEMA_DATA = '''
             "os_type": {
                 "choices": [
                     "unknown", "fos", "fsw", "foc", "fml", "faz", "fwb", "fch", "fct", "log", "fmg", "fsa", "fdd", "fac", "fpx", "fna", "fdc", "ffw",
-                    "fsr", "fad", "fap", "fxt", "fts", "fai", "fwc", "fis", "fed", "fpa", "fca", "ftc", "fss", "fra", "sim"
+                    "fsr", "fad", "fap", "fxt", "fts", "fai", "fwc", "fis", "fed", "fpa", "fca", "ftc", "fss", "fra", "sim", "fdt"
                 ],
                 "type": "str"
             },
@@ -5199,40 +5461,40 @@ SCHEMA_DATA = '''
     "dynamic_log_npuserver_servergroup": {
         "stated": true,
         "options": {
-            "description": {"v_range": [["7.0.15", "7.0.16"], ["7.4.8", "7.4.10"], ["7.6.5", ""]], "type": "str"},
+            "description": {"v_range": [["7.0.15", "7.0.16"], ["7.4.8", "7.4.11"], ["7.6.5", ""]], "type": "str"},
             "dynamic_mapping": {
-                "v_range": [["7.0.15", "7.0.16"], ["7.4.8", "7.4.10"], ["7.6.5", ""]],
+                "v_range": [["7.0.15", "7.0.16"], ["7.4.8", "7.4.11"], ["7.6.5", ""]],
                 "type": "list",
                 "options": {
                     "_scope": {
-                        "v_range": [["7.0.15", "7.0.16"], ["7.4.8", "7.4.10"], ["7.6.5", ""]],
+                        "v_range": [["7.0.15", "7.0.16"], ["7.4.8", "7.4.11"], ["7.6.5", ""]],
                         "type": "list",
                         "options": {
-                            "name": {"v_range": [["7.0.15", "7.0.16"], ["7.4.8", "7.4.10"], ["7.6.5", ""]], "type": "str"},
-                            "vdom": {"v_range": [["7.0.15", "7.0.16"], ["7.4.8", "7.4.10"], ["7.6.5", ""]], "type": "str"}
+                            "name": {"v_range": [["7.0.15", "7.0.16"], ["7.4.8", "7.4.11"], ["7.6.5", ""]], "type": "str"},
+                            "vdom": {"v_range": [["7.0.15", "7.0.16"], ["7.4.8", "7.4.11"], ["7.6.5", ""]], "type": "str"}
                         },
                         "elements": "dict"
                     },
-                    "group-name": {"v_range": [["7.0.15", "7.0.16"], ["7.4.8", "7.4.10"], ["7.6.5", ""]], "type": "str"}
+                    "group-name": {"v_range": [["7.0.15", "7.0.16"], ["7.4.8", "7.4.11"], ["7.6.5", ""]], "type": "str"}
                 },
                 "elements": "dict"
             },
-            "group-name": {"v_range": [["7.0.15", "7.0.16"], ["7.4.8", "7.4.10"], ["7.6.5", ""]], "type": "str"}
+            "group-name": {"v_range": [["7.0.15", "7.0.16"], ["7.4.8", "7.4.11"], ["7.6.5", ""]], "type": "str"}
         }
     },
     "dynamic_log_npuserver_servergroup_dynamicmapping": {
         "stated": true,
         "options": {
             "_scope": {
-                "v_range": [["7.0.15", "7.0.16"], ["7.4.8", "7.4.10"], ["7.6.5", ""]],
+                "v_range": [["7.0.15", "7.0.16"], ["7.4.8", "7.4.11"], ["7.6.5", ""]],
                 "type": "list",
                 "options": {
-                    "name": {"v_range": [["7.0.15", "7.0.16"], ["7.4.8", "7.4.10"], ["7.6.5", ""]], "type": "str"},
-                    "vdom": {"v_range": [["7.0.15", "7.0.16"], ["7.4.8", "7.4.10"], ["7.6.5", ""]], "type": "str"}
+                    "name": {"v_range": [["7.0.15", "7.0.16"], ["7.4.8", "7.4.11"], ["7.6.5", ""]], "type": "str"},
+                    "vdom": {"v_range": [["7.0.15", "7.0.16"], ["7.4.8", "7.4.11"], ["7.6.5", ""]], "type": "str"}
                 },
                 "elements": "dict"
             },
-            "group-name": {"v_range": [["7.0.15", "7.0.16"], ["7.4.8", "7.4.10"], ["7.6.5", ""]], "type": "str"}
+            "group-name": {"v_range": [["7.0.15", "7.0.16"], ["7.4.8", "7.4.11"], ["7.6.5", ""]], "type": "str"}
         }
     },
     "dynamic_multicast_interface": {
@@ -5474,7 +5736,11 @@ SCHEMA_DATA = '''
                 "elements": "dict"
             },
             "id": {"v_range": [["7.0.0", ""]], "required": true, "type": "int"},
-            "name": {"v_range": [["7.0.0", ""]], "type": "str"}
+            "name": {"v_range": [["7.0.0", ""]], "type": "str"},
+            "fabric-force-sync": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object-source": {"v_range": [["8.0.0", ""]], "choices": ["member", "local", "root"], "type": "str"},
+            "uuid": {"v_range": [["8.0.0", ""]], "type": "str"}
         }
     },
     "emailfilter_blockallowlist_entries": {
@@ -5495,39 +5761,39 @@ SCHEMA_DATA = '''
     "emailfilter_bwl": {
         "stated": true,
         "options": {
-            "comment": {"v_range": [["6.2.0", ""]], "type": "str"},
+            "comment": {"v_range": [["6.2.0", "7.6.7"]], "type": "str"},
             "entries": {
-                "v_range": [["6.2.0", ""]],
+                "v_range": [["6.2.0", "7.6.7"]],
                 "type": "list",
                 "options": {
-                    "action": {"v_range": [["6.2.0", ""]], "choices": ["spam", "clear", "reject"], "type": "str"},
-                    "addr-type": {"v_range": [["6.2.0", ""]], "choices": ["ipv4", "ipv6"], "type": "str"},
-                    "email-pattern": {"v_range": [["6.2.0", ""]], "type": "str"},
-                    "id": {"v_range": [["6.2.0", ""]], "type": "int"},
-                    "ip4-subnet": {"v_range": [["6.2.0", ""]], "type": "str"},
-                    "ip6-subnet": {"v_range": [["6.2.0", ""]], "type": "str"},
-                    "pattern-type": {"v_range": [["6.2.0", ""]], "choices": ["wildcard", "regexp"], "type": "str"},
-                    "status": {"v_range": [["6.2.0", ""]], "choices": ["disable", "enable"], "type": "str"},
-                    "type": {"v_range": [["6.2.0", ""]], "choices": ["ip", "email"], "type": "str"}
+                    "action": {"v_range": [["6.2.0", "7.6.7"]], "choices": ["spam", "clear", "reject"], "type": "str"},
+                    "addr-type": {"v_range": [["6.2.0", "7.6.7"]], "choices": ["ipv4", "ipv6"], "type": "str"},
+                    "email-pattern": {"v_range": [["6.2.0", "7.6.7"]], "type": "str"},
+                    "id": {"v_range": [["6.2.0", "7.6.7"]], "type": "int"},
+                    "ip4-subnet": {"v_range": [["6.2.0", "7.6.7"]], "type": "str"},
+                    "ip6-subnet": {"v_range": [["6.2.0", "7.6.7"]], "type": "str"},
+                    "pattern-type": {"v_range": [["6.2.0", "7.6.7"]], "choices": ["wildcard", "regexp"], "type": "str"},
+                    "status": {"v_range": [["6.2.0", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
+                    "type": {"v_range": [["6.2.0", "7.6.7"]], "choices": ["ip", "email"], "type": "str"}
                 },
                 "elements": "dict"
             },
-            "id": {"v_range": [["6.2.0", ""]], "required": true, "type": "int"},
-            "name": {"v_range": [["6.2.0", ""]], "type": "str"}
+            "id": {"v_range": [["6.2.0", "7.6.7"]], "required": true, "type": "int"},
+            "name": {"v_range": [["6.2.0", "7.6.7"]], "type": "str"}
         }
     },
     "emailfilter_bwl_entries": {
         "stated": true,
         "options": {
-            "action": {"v_range": [["6.2.0", ""]], "choices": ["spam", "clear", "reject"], "type": "str"},
-            "addr-type": {"v_range": [["6.2.0", ""]], "choices": ["ipv4", "ipv6"], "type": "str"},
-            "email-pattern": {"v_range": [["6.2.0", ""]], "type": "str"},
-            "id": {"v_range": [["6.2.0", ""]], "required": true, "type": "int"},
-            "ip4-subnet": {"v_range": [["6.2.0", ""]], "type": "str"},
-            "ip6-subnet": {"v_range": [["6.2.0", ""]], "type": "str"},
-            "pattern-type": {"v_range": [["6.2.0", ""]], "choices": ["wildcard", "regexp"], "type": "str"},
-            "status": {"v_range": [["6.2.0", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "type": {"v_range": [["6.2.0", ""]], "choices": ["ip", "email"], "type": "str"}
+            "action": {"v_range": [["6.2.0", "7.6.7"]], "choices": ["spam", "clear", "reject"], "type": "str"},
+            "addr-type": {"v_range": [["6.2.0", "7.6.7"]], "choices": ["ipv4", "ipv6"], "type": "str"},
+            "email-pattern": {"v_range": [["6.2.0", "7.6.7"]], "type": "str"},
+            "id": {"v_range": [["6.2.0", "7.6.7"]], "required": true, "type": "int"},
+            "ip4-subnet": {"v_range": [["6.2.0", "7.6.7"]], "type": "str"},
+            "ip6-subnet": {"v_range": [["6.2.0", "7.6.7"]], "type": "str"},
+            "pattern-type": {"v_range": [["6.2.0", "7.6.7"]], "choices": ["wildcard", "regexp"], "type": "str"},
+            "status": {"v_range": [["6.2.0", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
+            "type": {"v_range": [["6.2.0", "7.6.7"]], "choices": ["ip", "email"], "type": "str"}
         }
     },
     "emailfilter_bword": {
@@ -5554,7 +5820,11 @@ SCHEMA_DATA = '''
                 "elements": "dict"
             },
             "id": {"v_range": [["6.2.0", ""]], "required": true, "type": "int"},
-            "name": {"v_range": [["6.2.0", ""]], "type": "str"}
+            "name": {"v_range": [["6.2.0", ""]], "type": "str"},
+            "fabric-force-sync": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object-source": {"v_range": [["8.0.0", ""]], "choices": ["member", "local", "root"], "type": "str"},
+            "uuid": {"v_range": [["8.0.0", ""]], "type": "str"}
         }
     },
     "emailfilter_bword_entries": {
@@ -5590,7 +5860,11 @@ SCHEMA_DATA = '''
                 "elements": "dict"
             },
             "id": {"v_range": [["6.2.0", ""]], "required": true, "type": "int"},
-            "name": {"v_range": [["6.2.0", ""]], "type": "str"}
+            "name": {"v_range": [["6.2.0", ""]], "type": "str"},
+            "fabric-force-sync": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object-source": {"v_range": [["8.0.0", ""]], "choices": ["member", "local", "root"], "type": "str"},
+            "uuid": {"v_range": [["8.0.0", ""]], "type": "str"}
         }
     },
     "emailfilter_dnsbl_entries": {
@@ -5627,7 +5901,11 @@ SCHEMA_DATA = '''
                 "elements": "dict"
             },
             "id": {"v_range": [["6.2.0", ""]], "required": true, "type": "int"},
-            "name": {"v_range": [["6.2.0", ""]], "type": "str"}
+            "name": {"v_range": [["6.2.0", ""]], "type": "str"},
+            "fabric-force-sync": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object-source": {"v_range": [["8.0.0", ""]], "choices": ["member", "local", "root"], "type": "str"},
+            "uuid": {"v_range": [["8.0.0", ""]], "type": "str"}
         }
     },
     "emailfilter_iptrust_entries": {
@@ -5658,7 +5936,11 @@ SCHEMA_DATA = '''
                 "elements": "dict"
             },
             "id": {"v_range": [["6.2.0", ""]], "required": true, "type": "int"},
-            "name": {"v_range": [["6.2.0", ""]], "type": "str"}
+            "name": {"v_range": [["6.2.0", ""]], "type": "str"},
+            "fabric-force-sync": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object-source": {"v_range": [["8.0.0", ""]], "choices": ["member", "local", "root"], "type": "str"},
+            "uuid": {"v_range": [["8.0.0", ""]], "type": "str"}
         }
     },
     "emailfilter_mheader_entries": {
@@ -5689,7 +5971,7 @@ SCHEMA_DATA = '''
                 "elements": "str"
             },
             "replacemsg-group": {"v_range": [["6.2.0", ""]], "type": "str"},
-            "spam-bwl-table": {"v_range": [["6.2.0", ""]], "type": "str"},
+            "spam-bwl-table": {"v_range": [["6.2.0", "7.6.7"]], "type": "str"},
             "spam-bword-table": {"v_range": [["6.2.0", ""]], "type": "str"},
             "spam-bword-threshold": {"v_range": [["6.2.0", ""]], "type": "int"},
             "spam-filtering": {"v_range": [["6.2.0", ""]], "choices": ["disable", "enable"], "type": "str"},
@@ -5703,7 +5985,7 @@ SCHEMA_DATA = '''
                 "v_range": [["6.2.8", "6.2.13"], ["6.4.5", ""]],
                 "type": "dict",
                 "options": {
-                    "log": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", ""]], "choices": ["disable", "enable"], "type": "str"},
+                    "log": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
                     "log-all": {"v_range": [["6.4.5", ""]], "choices": ["disable", "enable"], "type": "str"}
                 }
             },
@@ -5712,7 +5994,7 @@ SCHEMA_DATA = '''
                 "type": "dict",
                 "options": {
                     "action": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", ""]], "choices": ["pass", "tag"], "type": "str"},
-                    "log": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", ""]], "choices": ["disable", "enable"], "type": "str"},
+                    "log": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
                     "log-all": {"v_range": [["6.4.5", ""]], "choices": ["disable", "enable"], "type": "str"},
                     "tag-msg": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", ""]], "type": "str"},
                     "tag-type": {
@@ -5728,7 +6010,7 @@ SCHEMA_DATA = '''
                 "type": "dict",
                 "options": {
                     "action": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", ""]], "choices": ["pass", "discard"], "type": "str"},
-                    "log": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", ""]], "choices": ["disable", "enable"], "type": "str"},
+                    "log": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
                     "log-all": {"v_range": [["6.4.5", ""]], "choices": ["disable", "enable"], "type": "str"}
                 }
             },
@@ -5736,21 +6018,21 @@ SCHEMA_DATA = '''
                 "v_range": [["6.2.8", "6.2.13"], ["6.4.5", ""]],
                 "type": "dict",
                 "options": {
-                    "log": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", ""]], "choices": ["disable", "enable"], "type": "str"},
+                    "log": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
                     "log-all": {"v_range": [["6.4.5", ""]], "choices": ["disable", "enable"], "type": "str"}
                 }
             },
             "other-webmails": {
-                "v_range": [["6.4.5", ""]],
+                "v_range": [["6.4.5", "7.6.7"]],
                 "type": "dict",
-                "options": {"log-all": {"v_range": [["6.4.5", ""]], "choices": ["disable", "enable"], "type": "str"}}
+                "options": {"log-all": {"v_range": [["6.4.5", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"}}
             },
             "pop3": {
                 "v_range": [["6.2.8", "6.2.13"], ["6.4.5", ""]],
                 "type": "dict",
                 "options": {
                     "action": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", ""]], "choices": ["pass", "tag"], "type": "str"},
-                    "log": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", ""]], "choices": ["disable", "enable"], "type": "str"},
+                    "log": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
                     "log-all": {"v_range": [["6.4.5", ""]], "choices": ["disable", "enable"], "type": "str"},
                     "tag-msg": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", ""]], "type": "str"},
                     "tag-type": {
@@ -5768,7 +6050,7 @@ SCHEMA_DATA = '''
                     "action": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", ""]], "choices": ["pass", "tag", "discard"], "type": "str"},
                     "hdrip": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", ""]], "choices": ["disable", "enable"], "type": "str"},
                     "local-override": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", ""]], "choices": ["disable", "enable"], "type": "str"},
-                    "log": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", ""]], "choices": ["disable", "enable"], "type": "str"},
+                    "log": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
                     "log-all": {"v_range": [["6.4.5", ""]], "choices": ["disable", "enable"], "type": "str"},
                     "tag-msg": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", ""]], "type": "str"},
                     "tag-type": {
@@ -5807,7 +6089,11 @@ SCHEMA_DATA = '''
                     "status": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.6.2"]], "choices": ["disable", "enable"], "type": "str"}
                 }
             },
-            "spam-bal-table": {"v_range": [["7.0.0", ""]], "type": "str"}
+            "spam-bal-table": {"v_range": [["7.0.0", ""]], "type": "str"},
+            "fabric-force-sync": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object-source": {"v_range": [["8.0.0", ""]], "choices": ["member", "local", "root"], "type": "str"},
+            "uuid": {"v_range": [["8.0.0", ""]], "type": "str"}
         }
     },
     "emailfilter_profile_filefilter": {
@@ -5847,7 +6133,7 @@ SCHEMA_DATA = '''
     "emailfilter_profile_gmail": {
         "stated": false,
         "options": {
-            "log": {"v_range": [["6.2.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "log": {"v_range": [["6.2.0", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
             "log-all": {"v_range": [["6.4.2", ""]], "choices": ["disable", "enable"], "type": "str"}
         }
     },
@@ -5855,7 +6141,7 @@ SCHEMA_DATA = '''
         "stated": false,
         "options": {
             "action": {"v_range": [["6.2.0", ""]], "choices": ["pass", "tag"], "type": "str"},
-            "log": {"v_range": [["6.2.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "log": {"v_range": [["6.2.0", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
             "tag-msg": {"v_range": [["6.2.0", ""]], "type": "str"},
             "tag-type": {"v_range": [["6.2.0", ""]], "type": "list", "choices": ["subject", "header", "spaminfo"], "elements": "str"},
             "log-all": {"v_range": [["6.4.2", ""]], "choices": ["disable", "enable"], "type": "str"}
@@ -5865,26 +6151,26 @@ SCHEMA_DATA = '''
         "stated": false,
         "options": {
             "action": {"v_range": [["6.2.0", ""]], "choices": ["pass", "discard"], "type": "str"},
-            "log": {"v_range": [["6.2.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "log": {"v_range": [["6.2.0", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
             "log-all": {"v_range": [["6.4.2", ""]], "choices": ["disable", "enable"], "type": "str"}
         }
     },
     "emailfilter_profile_msnhotmail": {
         "stated": false,
         "options": {
-            "log": {"v_range": [["6.2.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "log": {"v_range": [["6.2.0", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
             "log-all": {"v_range": [["6.4.2", ""]], "choices": ["disable", "enable"], "type": "str"}
         }
     },
     "emailfilter_profile_otherwebmails": {
         "stated": false,
-        "options": {"log-all": {"v_range": [["6.4.2", ""]], "choices": ["disable", "enable"], "type": "str"}}
+        "options": {"log-all": {"v_range": [["6.4.2", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"}}
     },
     "emailfilter_profile_pop3": {
         "stated": false,
         "options": {
             "action": {"v_range": [["6.2.0", ""]], "choices": ["pass", "tag"], "type": "str"},
-            "log": {"v_range": [["6.2.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "log": {"v_range": [["6.2.0", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
             "tag-msg": {"v_range": [["6.2.0", ""]], "type": "str"},
             "tag-type": {"v_range": [["6.2.0", ""]], "type": "list", "choices": ["subject", "header", "spaminfo"], "elements": "str"},
             "log-all": {"v_range": [["6.4.2", ""]], "choices": ["disable", "enable"], "type": "str"}
@@ -5896,7 +6182,7 @@ SCHEMA_DATA = '''
             "action": {"v_range": [["6.2.0", ""]], "choices": ["pass", "tag", "discard"], "type": "str"},
             "hdrip": {"v_range": [["6.2.0", ""]], "choices": ["disable", "enable"], "type": "str"},
             "local-override": {"v_range": [["6.2.0", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "log": {"v_range": [["6.2.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "log": {"v_range": [["6.2.0", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
             "tag-msg": {"v_range": [["6.2.0", ""]], "type": "str"},
             "tag-type": {"v_range": [["6.2.0", ""]], "type": "list", "choices": ["subject", "header", "spaminfo"], "elements": "str"},
             "log-all": {"v_range": [["6.4.2", ""]], "choices": ["disable", "enable"], "type": "str"}
@@ -5915,7 +6201,7 @@ SCHEMA_DATA = '''
                 "type": "list",
                 "choices": [
                     "fabric-auth", "silent-approval", "websocket", "websocket-malware", "push-ca-certs", "common-tags-api", "tenant-id",
-                    "single-vdom-connector", "client-avatars", "fgt-sysinfo-api", "ztna-server-info", "used-tags"
+                    "single-vdom-connector", "client-avatars", "fgt-sysinfo-api", "ztna-server-info", "used-tags", "crl", "tag-def"
                 ],
                 "elements": "str"
             },
@@ -5934,8 +6220,8 @@ SCHEMA_DATA = '''
             "server": {"v_range": [["7.0.2", ""]], "type": "str"},
             "source-ip": {"v_range": [["7.0.2", ""]], "type": "str"},
             "websocket-override": {"v_range": [["7.0.2", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "status-check-interval": {"v_range": [["7.0.2", ""]], "type": "int"},
-            "certificate": {"v_range": [["7.0.2", ""]], "type": "str"},
+            "status-check-interval": {"v_range": [["7.0.2", "7.6.7"]], "type": "int"},
+            "certificate": {"v_range": [["7.0.2", "7.6.7"]], "type": "str"},
             "admin-username": {"v_range": [["7.0.2", "7.6.2"]], "type": "str"},
             "serial-number": {"v_range": [["7.0.2", ""]], "type": "str"},
             "admin-password": {"v_range": [["7.0.2", "7.6.2"]], "no_log": true, "type": "raw"},
@@ -5977,7 +6263,7 @@ SCHEMA_DATA = '''
             "signal-period": {"v_range": [["6.4.4", ""]], "type": "int"},
             "signal-threshold": {"v_range": [["6.4.4", ""]], "type": "int"},
             "slot": {"v_range": [["6.4.4", ""]], "choices": ["sim1", "sim2"], "type": "str"},
-            "status": {"v_range": [["6.4.4", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "status": {"v_range": [["6.4.4", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
             "type": {"v_range": [["6.4.4", ""]], "choices": ["carrier", "slot", "iccid", "generic"], "type": "str"},
             "username": {"v_range": [["6.4.4", ""]], "type": "str"}
         }
@@ -6739,7 +7025,7 @@ SCHEMA_DATA = '''
                 "choices": [
                     "FX201E", "FX211E", "FX200F", "FXA11F", "FXE11F", "FXA21F", "FXE21F", "FXA22F", "FXE22F", "FX212F", "FX311F", "FX312F", "FX511F",
                     "FVG21F", "FVA21F", "FVG22F", "FVA22F", "FX04DA", "FX04DN", "FX04DI", "FXR51G", "FG", "BS10FW", "BS20GW", "BS20GN", "FXN51G",
-                    "FXW51G", "FVG51G", "FXE11G", "FX211G"
+                    "FXW51G", "FVG51G", "FXE11G", "FX211G", "FWE50G", "FWA50G"
                 ],
                 "type": "str"
             },
@@ -7396,38 +7682,43 @@ SCHEMA_DATA = '''
         "stated": true,
         "options": {
             "allowaccess": {
-                "v_range": [["7.4.7", "7.4.10"], ["7.6.3", ""]],
+                "v_range": [["7.4.7", "7.4.11"], ["7.6.3", ""]],
                 "type": "list",
                 "choices": ["http", "ssh", "telnet", "snmp", "https", "ping"],
                 "elements": "str"
             },
-            "auth-server-address": {"v_range": [["7.4.7", "7.4.10"], ["7.6.3", ""]], "type": "str"},
-            "auth-server-port": {"v_range": [["7.4.7", "7.4.10"], ["7.6.3", ""]], "type": "int"},
-            "auth-server-secret": {"v_range": [["7.4.7", "7.4.10"], ["7.6.3", ""]], "no_log": true, "type": "str"},
-            "broadcast-ssid": {"v_range": [["7.4.7", "7.4.10"], ["7.6.3", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "bss-color-partial": {"v_range": [["7.4.7", "7.4.10"], ["7.6.3", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "dtim": {"v_range": [["7.4.7", "7.4.10"], ["7.6.3", ""]], "type": "int"},
-            "end-ip": {"v_range": [["7.4.7", "7.4.10"], ["7.6.3", ""]], "type": "str"},
-            "ip-address": {"v_range": [["7.4.7", "7.4.10"], ["7.6.3", ""]], "type": "list", "elements": "str"},
-            "max-clients": {"v_range": [["7.4.7", "7.4.10"], ["7.6.3", ""]], "type": "int"},
-            "mu-mimo": {"v_range": [["7.4.7", "7.4.10"], ["7.6.3", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "name": {"v_range": [["7.4.7", "7.4.10"], ["7.6.3", ""]], "required": true, "type": "str"},
-            "passphrase": {"v_range": [["7.4.7", "7.4.10"], ["7.6.3", ""]], "no_log": true, "type": "list", "elements": "str"},
-            "pmf": {"v_range": [["7.4.7", "7.4.10"], ["7.6.3", ""]], "choices": ["disabled", "optional", "required"], "type": "str"},
-            "rts-threshold": {"v_range": [["7.4.7", "7.4.10"], ["7.6.3", ""]], "type": "int"},
-            "sae-password": {"v_range": [["7.4.7", "7.4.10"], ["7.6.3", ""]], "no_log": true, "type": "list", "elements": "str"},
+            "auth-server-address": {"v_range": [["7.4.7", "7.4.11"], ["7.6.3", ""]], "type": "str"},
+            "auth-server-port": {"v_range": [["7.4.7", "7.4.11"], ["7.6.3", ""]], "type": "int"},
+            "auth-server-secret": {"v_range": [["7.4.7", "7.4.11"], ["7.6.3", ""]], "no_log": true, "type": "str"},
+            "broadcast-ssid": {"v_range": [["7.4.7", "7.4.11"], ["7.6.3", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "bss-color-partial": {"v_range": [["7.4.7", "7.4.11"], ["7.6.3", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "dtim": {"v_range": [["7.4.7", "7.4.11"], ["7.6.3", ""]], "type": "int"},
+            "end-ip": {"v_range": [["7.4.7", "7.4.11"], ["7.6.3", ""]], "type": "str"},
+            "ip-address": {"v_range": [["7.4.7", "7.4.11"], ["7.6.3", ""]], "type": "list", "elements": "str"},
+            "max-clients": {"v_range": [["7.4.7", "7.4.11"], ["7.6.3", ""]], "type": "int"},
+            "mu-mimo": {"v_range": [["7.4.7", "7.4.11"], ["7.6.3", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "name": {"v_range": [["7.4.7", "7.4.11"], ["7.6.3", ""]], "required": true, "type": "str"},
+            "passphrase": {"v_range": [["7.4.7", "7.4.11"], ["7.6.3", ""]], "no_log": true, "type": "list", "elements": "str"},
+            "pmf": {"v_range": [["7.4.7", "7.4.11"], ["7.6.3", ""]], "choices": ["disabled", "optional", "required"], "type": "str"},
+            "rts-threshold": {"v_range": [["7.4.7", "7.4.11"], ["7.6.3", ""]], "type": "int"},
+            "sae-password": {"v_range": [["7.4.7", "7.4.11"], ["7.6.3", ""]], "no_log": true, "type": "list", "elements": "str"},
             "security": {
-                "v_range": [["7.4.7", "7.4.10"], ["7.6.3", ""]],
+                "v_range": [["7.4.7", "7.4.11"], ["7.6.3", ""]],
                 "choices": [
                     "OPEN", "WPA2-Personal", "WPA-WPA2-Personal", "WPA3-SAE", "WPA3-SAE-Transition", "WPA2-Enterprise", "WPA3-Enterprise-only",
                     "WPA3-Enterprise-transition", "WPA3-Enterprise-192-bit"
                 ],
                 "type": "str"
             },
-            "ssid": {"v_range": [["7.4.7", "7.4.10"], ["7.6.3", ""]], "type": "str"},
-            "start-ip": {"v_range": [["7.4.7", "7.4.10"], ["7.6.3", ""]], "type": "str"},
-            "target-wake-time": {"v_range": [["7.4.7", "7.4.10"], ["7.6.3", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "type": {"v_range": [["7.4.7", "7.4.10"], ["7.6.3", ""]], "choices": ["local-vap", "lan-ext-vap"], "type": "str"}
+            "ssid": {"v_range": [["7.4.7", "7.4.11"], ["7.6.3", ""]], "type": "str"},
+            "start-ip": {"v_range": [["7.4.7", "7.4.11"], ["7.6.3", ""]], "type": "str"},
+            "target-wake-time": {"v_range": [["7.4.7", "7.4.11"], ["7.6.3", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "type": {"v_range": [["7.4.7", "7.4.11"], ["7.6.3", ""]], "choices": ["local-vap", "lan-ext-vap"], "type": "str"},
+            "security-exempt-list": {"v_range": [["8.0.0", ""]], "type": "list", "elements": "str"},
+            "security-external-web": {"v_range": [["8.0.0", ""]], "type": "str"},
+            "security-groups": {"v_range": [["8.0.0", ""]], "type": "list", "elements": "str"},
+            "security-mode": {"v_range": [["8.0.0", ""]], "choices": ["none", "captive-portal"], "type": "str"},
+            "security-redirect-url": {"v_range": [["8.0.0", ""]], "type": "str"}
         }
     },
     "filefilter_profile": {
@@ -7443,7 +7734,7 @@ SCHEMA_DATA = '''
                 "v_range": [["6.4.1", ""]],
                 "type": "list",
                 "options": {
-                    "action": {"v_range": [["6.4.1", ""]], "choices": ["log-only", "block"], "type": "str"},
+                    "action": {"v_range": [["6.4.1", ""]], "choices": ["log-only", "block", "warning"], "type": "str"},
                     "comment": {"v_range": [["6.4.1", ""]], "type": "str"},
                     "direction": {"v_range": [["6.4.1", ""]], "choices": ["any", "incoming", "outgoing"], "type": "str"},
                     "file-type": {"v_range": [["6.4.1", ""]], "type": "raw"},
@@ -7452,19 +7743,23 @@ SCHEMA_DATA = '''
                     "protocol": {
                         "v_range": [["6.4.1", ""]],
                         "type": "list",
-                        "choices": ["imap", "smtp", "pop3", "http", "ftp", "mapi", "cifs", "ssh"],
+                        "choices": ["imap", "smtp", "pop3", "http", "ftp", "mapi", "cifs", "ssh", "websocket"],
                         "elements": "str"
                     }
                 },
                 "elements": "dict"
             },
-            "scan-archive-contents": {"v_range": [["6.4.1", ""]], "choices": ["disable", "enable"], "type": "str"}
+            "scan-archive-contents": {"v_range": [["6.4.1", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-force-sync": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object-source": {"v_range": [["8.0.0", ""]], "choices": ["member", "local", "root"], "type": "str"},
+            "uuid": {"v_range": [["8.0.0", ""]], "type": "str"}
         }
     },
     "filefilter_profile_rules": {
         "stated": true,
         "options": {
-            "action": {"v_range": [["6.4.1", ""]], "choices": ["log-only", "block"], "type": "str"},
+            "action": {"v_range": [["6.4.1", ""]], "choices": ["log-only", "block", "warning"], "type": "str"},
             "comment": {"v_range": [["6.4.1", ""]], "type": "str"},
             "direction": {"v_range": [["6.4.1", ""]], "choices": ["any", "incoming", "outgoing"], "type": "str"},
             "file-type": {"v_range": [["6.4.1", ""]], "type": "raw"},
@@ -7473,7 +7768,7 @@ SCHEMA_DATA = '''
             "protocol": {
                 "v_range": [["6.4.1", ""]],
                 "type": "list",
-                "choices": ["imap", "smtp", "pop3", "http", "ftp", "mapi", "cifs", "ssh"],
+                "choices": ["imap", "smtp", "pop3", "http", "ftp", "mapi", "cifs", "ssh", "websocket"],
                 "elements": "str"
             }
         }
@@ -7523,7 +7818,7 @@ SCHEMA_DATA = '''
                             "translate-host": {"v_range": [["7.2.2", ""]], "choices": ["disable", "enable"], "type": "str"},
                             "external-auth": {"v_range": [["7.4.0", ""]], "choices": ["disable", "enable"], "type": "str"},
                             "tunnel-encryption": {"v_range": [["7.4.0", ""]], "choices": ["disable", "enable"], "type": "str"},
-                            "verify-cert": {"v_range": [["7.4.8", "7.4.10"], ["7.6.3", ""]], "choices": ["disable", "enable"], "type": "str"}
+                            "verify-cert": {"v_range": [["7.4.8", "7.4.11"], ["7.6.3", ""]], "choices": ["disable", "enable"], "type": "str"}
                         },
                         "elements": "dict"
                     },
@@ -7695,7 +7990,7 @@ SCHEMA_DATA = '''
                             "translate-host": {"v_range": [["7.2.2", ""]], "choices": ["disable", "enable"], "type": "str"},
                             "external-auth": {"v_range": [["7.4.0", ""]], "choices": ["disable", "enable"], "type": "str"},
                             "tunnel-encryption": {"v_range": [["7.4.0", ""]], "choices": ["disable", "enable"], "type": "str"},
-                            "verify-cert": {"v_range": [["7.4.8", "7.4.10"], ["7.6.3", ""]], "choices": ["disable", "enable"], "type": "str"}
+                            "verify-cert": {"v_range": [["7.4.8", "7.4.11"], ["7.6.3", ""]], "choices": ["disable", "enable"], "type": "str"}
                         },
                         "elements": "dict"
                     },
@@ -7839,7 +8134,7 @@ SCHEMA_DATA = '''
                             "translate-host": {"v_range": [["7.2.2", ""]], "choices": ["disable", "enable"], "type": "str"},
                             "external-auth": {"v_range": [["7.4.0", ""]], "choices": ["disable", "enable"], "type": "str"},
                             "tunnel-encryption": {"v_range": [["7.4.0", ""]], "choices": ["disable", "enable"], "type": "str"},
-                            "verify-cert": {"v_range": [["7.4.8", "7.4.10"], ["7.6.3", ""]], "choices": ["disable", "enable"], "type": "str"}
+                            "verify-cert": {"v_range": [["7.4.8", "7.4.11"], ["7.6.3", ""]], "choices": ["disable", "enable"], "type": "str"}
                         },
                         "elements": "dict"
                     },
@@ -7965,7 +8260,7 @@ SCHEMA_DATA = '''
                             "translate-host": {"v_range": [["7.2.2", ""]], "choices": ["disable", "enable"], "type": "str"},
                             "external-auth": {"v_range": [["7.4.0", ""]], "choices": ["disable", "enable"], "type": "str"},
                             "tunnel-encryption": {"v_range": [["7.4.0", ""]], "choices": ["disable", "enable"], "type": "str"},
-                            "verify-cert": {"v_range": [["7.4.8", "7.4.10"], ["7.6.3", ""]], "choices": ["disable", "enable"], "type": "str"}
+                            "verify-cert": {"v_range": [["7.4.8", "7.4.11"], ["7.6.3", ""]], "choices": ["disable", "enable"], "type": "str"}
                         },
                         "elements": "dict"
                     },
@@ -8102,7 +8397,7 @@ SCHEMA_DATA = '''
                     "translate-host": {"v_range": [["7.2.2", ""]], "choices": ["disable", "enable"], "type": "str"},
                     "external-auth": {"v_range": [["7.4.0", ""]], "choices": ["disable", "enable"], "type": "str"},
                     "tunnel-encryption": {"v_range": [["7.4.0", ""]], "choices": ["disable", "enable"], "type": "str"},
-                    "verify-cert": {"v_range": [["7.4.8", "7.4.10"], ["7.6.3", ""]], "choices": ["disable", "enable"], "type": "str"}
+                    "verify-cert": {"v_range": [["7.4.8", "7.4.11"], ["7.6.3", ""]], "choices": ["disable", "enable"], "type": "str"}
                 },
                 "elements": "dict"
             },
@@ -8213,7 +8508,7 @@ SCHEMA_DATA = '''
                     "translate-host": {"v_range": [["7.2.2", ""]], "choices": ["disable", "enable"], "type": "str"},
                     "external-auth": {"v_range": [["7.4.0", ""]], "choices": ["disable", "enable"], "type": "str"},
                     "tunnel-encryption": {"v_range": [["7.4.0", ""]], "choices": ["disable", "enable"], "type": "str"},
-                    "verify-cert": {"v_range": [["7.4.8", "7.4.10"], ["7.6.3", ""]], "choices": ["disable", "enable"], "type": "str"}
+                    "verify-cert": {"v_range": [["7.4.8", "7.4.11"], ["7.6.3", ""]], "choices": ["disable", "enable"], "type": "str"}
                 },
                 "elements": "dict"
             },
@@ -8322,7 +8617,7 @@ SCHEMA_DATA = '''
             "translate-host": {"v_range": [["7.2.2", ""]], "choices": ["disable", "enable"], "type": "str"},
             "external-auth": {"v_range": [["7.4.0", ""]], "choices": ["disable", "enable"], "type": "str"},
             "tunnel-encryption": {"v_range": [["7.4.0", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "verify-cert": {"v_range": [["7.4.8", "7.4.10"], ["7.6.3", ""]], "choices": ["disable", "enable"], "type": "str"}
+            "verify-cert": {"v_range": [["7.4.8", "7.4.11"], ["7.6.3", ""]], "choices": ["disable", "enable"], "type": "str"}
         }
     },
     "firewall_accessproxy6_apigateway6_sslciphersuites": {
@@ -8397,7 +8692,7 @@ SCHEMA_DATA = '''
             "translate-host": {"v_range": [["7.2.2", ""]], "choices": ["disable", "enable"], "type": "str"},
             "external-auth": {"v_range": [["7.4.0", ""]], "choices": ["disable", "enable"], "type": "str"},
             "tunnel-encryption": {"v_range": [["7.4.0", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "verify-cert": {"v_range": [["7.4.8", "7.4.10"], ["7.6.3", ""]], "choices": ["disable", "enable"], "type": "str"}
+            "verify-cert": {"v_range": [["7.4.8", "7.4.11"], ["7.6.3", ""]], "choices": ["disable", "enable"], "type": "str"}
         }
     },
     "firewall_accessproxy6_apigateway_sslciphersuites": {
@@ -8477,7 +8772,7 @@ SCHEMA_DATA = '''
                     "translate-host": {"v_range": [["7.2.2", ""]], "choices": ["disable", "enable"], "type": "str"},
                     "external-auth": {"v_range": [["7.4.0", ""]], "choices": ["disable", "enable"], "type": "str"},
                     "tunnel-encryption": {"v_range": [["7.4.0", ""]], "choices": ["disable", "enable"], "type": "str"},
-                    "verify-cert": {"v_range": [["7.4.8", "7.4.10"], ["7.6.3", ""]], "choices": ["disable", "enable"], "type": "str"}
+                    "verify-cert": {"v_range": [["7.4.8", "7.4.11"], ["7.6.3", ""]], "choices": ["disable", "enable"], "type": "str"}
                 },
                 "elements": "dict"
             },
@@ -8588,7 +8883,7 @@ SCHEMA_DATA = '''
                     "translate-host": {"v_range": [["7.2.2", ""]], "choices": ["disable", "enable"], "type": "str"},
                     "external-auth": {"v_range": [["7.4.0", ""]], "choices": ["disable", "enable"], "type": "str"},
                     "tunnel-encryption": {"v_range": [["7.4.0", ""]], "choices": ["disable", "enable"], "type": "str"},
-                    "verify-cert": {"v_range": [["7.4.8", "7.4.10"], ["7.6.3", ""]], "choices": ["disable", "enable"], "type": "str"}
+                    "verify-cert": {"v_range": [["7.4.8", "7.4.11"], ["7.6.3", ""]], "choices": ["disable", "enable"], "type": "str"}
                 },
                 "elements": "dict"
             },
@@ -8698,7 +8993,7 @@ SCHEMA_DATA = '''
             "translate-host": {"v_range": [["7.2.2", ""]], "choices": ["disable", "enable"], "type": "str"},
             "external-auth": {"v_range": [["7.4.0", ""]], "choices": ["disable", "enable"], "type": "str"},
             "tunnel-encryption": {"v_range": [["7.4.0", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "verify-cert": {"v_range": [["7.4.8", "7.4.10"], ["7.6.3", ""]], "choices": ["disable", "enable"], "type": "str"}
+            "verify-cert": {"v_range": [["7.4.8", "7.4.11"], ["7.6.3", ""]], "choices": ["disable", "enable"], "type": "str"}
         }
     },
     "firewall_accessproxy_apigateway6_sslciphersuites": {
@@ -8773,7 +9068,7 @@ SCHEMA_DATA = '''
             "translate-host": {"v_range": [["7.2.2", ""]], "choices": ["disable", "enable"], "type": "str"},
             "external-auth": {"v_range": [["7.4.0", ""]], "choices": ["disable", "enable"], "type": "str"},
             "tunnel-encryption": {"v_range": [["7.4.0", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "verify-cert": {"v_range": [["7.4.8", "7.4.10"], ["7.6.3", ""]], "choices": ["disable", "enable"], "type": "str"}
+            "verify-cert": {"v_range": [["7.4.8", "7.4.11"], ["7.6.3", ""]], "choices": ["disable", "enable"], "type": "str"}
         }
     },
     "firewall_accessproxy_apigateway_sslciphersuites": {
@@ -8891,7 +9186,7 @@ SCHEMA_DATA = '''
         "stated": true,
         "options": {
             "host": {"v_range": [["7.0.1", ""]], "type": "str"},
-            "host-type": {"v_range": [["7.0.1", ""]], "choices": ["sub-string", "wildcard"], "type": "str"},
+            "host-type": {"v_range": [["7.0.1", ""]], "choices": ["sub-string", "wildcard", "fqdn"], "type": "str"},
             "name": {"v_range": [["7.0.1", ""]], "required": true, "type": "str"},
             "ssl-certificate": {"v_range": [["7.0.1", ""]], "type": "str"},
             "replacemsg-group": {"v_range": [["7.0.5", "7.0.16"], ["7.2.1", ""]], "type": "str"},
@@ -8940,7 +9235,7 @@ SCHEMA_DATA = '''
                     "type": {
                         "choices": [
                             "ipmask", "iprange", "fqdn", "wildcard", "geography", "url", "wildcard-fqdn", "nsx", "aws", "dynamic", "interface-subnet",
-                            "mac", "fqdn-group", "route-tag"
+                            "mac", "fqdn-group", "route-tag", "ipam"
                         ],
                         "type": "str"
                     },
@@ -8960,7 +9255,7 @@ SCHEMA_DATA = '''
                         "v_range": [["6.2.2", ""]],
                         "choices": [
                             "sdn", "clearpass-spt", "fsso", "ems-tag", "swc-tag", "fortivoice-tag", "fortinac-tag", "fortipolicy-tag",
-                            "device-identification", "rsso", "external-resource", "obsolete", "telemetry"
+                            "device-identification", "rsso", "external-resource", "obsolete", "telemetry", "8021x"
                         ],
                         "type": "str"
                     },
@@ -8983,7 +9278,22 @@ SCHEMA_DATA = '''
                     "sso-attribute-value": {"v_range": [["7.6.2", ""]], "type": "raw"},
                     "agent-id": {"v_range": [["7.6.4", ""]], "type": "raw"},
                     "tag-uuid": {"v_range": [["7.6.4", ""]], "type": "str"},
-                    "passive-fqdn-learning": {"v_range": [["7.6.5", ""]], "choices": ["disable", "enable"], "type": "str"}
+                    "passive-fqdn-learning": {"v_range": [["7.6.5", ""]], "choices": ["disable", "enable"], "type": "str"},
+                    "obsolete": {"v_range": [["7.6.7", ""]], "type": "int"},
+                    "custom-tags": {"v_range": [["8.0.0", ""]], "type": "raw"},
+                    "display-with": {"v_range": [["8.0.0", ""]], "choices": ["all-tags", "first-tag-only", "icon-and-color"], "type": "str"},
+                    "fabric-force-sync": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+                    "fabric-object-source": {"v_range": [["8.0.0", ""]], "choices": ["member", "local", "root"], "type": "str"},
+                    "hw-version": {"v_range": [["8.0.0", ""]], "type": "str"},
+                    "ipam-allocate-unique": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+                    "managed-subnetwork-size": {
+                        "v_range": [["8.0.0", ""]],
+                        "choices": [
+                            "4", "8", "16", "32", "64", "128", "256", "512", "1024", "2048", "4096", "8192", "16384", "32768", "65536", "131072",
+                            "262144", "524288", "1048576", "2097152", "4194304", "8388608", "16777216"
+                        ],
+                        "type": "str"
+                    }
                 },
                 "elements": "dict"
             },
@@ -9014,7 +9324,7 @@ SCHEMA_DATA = '''
             "type": {
                 "choices": [
                     "ipmask", "iprange", "fqdn", "wildcard", "geography", "url", "wildcard-fqdn", "nsx", "aws", "dynamic", "interface-subnet", "mac",
-                    "fqdn-group", "route-tag"
+                    "fqdn-group", "route-tag", "ipam"
                 ],
                 "type": "str"
             },
@@ -9022,11 +9332,11 @@ SCHEMA_DATA = '''
             "visibility": {"v_range": [["6.0.0", "7.6.2"]], "choices": ["disable", "enable"], "type": "str"},
             "wildcard": {"type": "str"},
             "wildcard-fqdn": {"type": "str"},
-            "end-mac": {"v_range": [["6.2.0", ""]], "type": "str"},
+            "end-mac": {"v_range": [["6.2.0", "7.6.7"]], "type": "str"},
             "interface": {"v_range": [["6.2.0", ""]], "type": "str"},
             "sdn-addr-type": {"v_range": [["6.2.0", ""]], "choices": ["private", "public", "all"], "type": "str"},
-            "start-mac": {"v_range": [["6.2.0", ""]], "type": "str"},
-            "tags": {"v_range": [["6.2.0", "6.4.15"], ["7.4.8", "7.4.10"]], "type": "str"},
+            "start-mac": {"v_range": [["6.2.0", "7.6.7"]], "type": "str"},
+            "tags": {"v_range": [["6.2.0", "6.4.15"], ["7.4.8", "7.4.11"]], "type": "str"},
             "profile-list": {
                 "v_range": [["6.2.0", "6.2.13"]],
                 "type": "list",
@@ -9044,11 +9354,11 @@ SCHEMA_DATA = '''
                 "v_range": [["6.2.2", ""]],
                 "choices": [
                     "sdn", "clearpass-spt", "fsso", "ems-tag", "swc-tag", "fortivoice-tag", "fortinac-tag", "fortipolicy-tag", "device-identification",
-                    "rsso", "external-resource", "obsolete", "telemetry"
+                    "rsso", "external-resource", "obsolete", "telemetry", "8021x"
                 ],
                 "type": "str"
             },
-            "global-object": {"v_range": [["6.4.0", ""]], "type": "int"},
+            "global-object": {"v_range": [["6.4.0", "7.6.7"]], "type": "int"},
             "obj-tag": {"v_range": [["6.4.2", ""]], "type": "str"},
             "obj-type": {"v_range": [["6.4.2", ""]], "choices": ["ip", "mac"], "type": "str"},
             "fabric-object": {"v_range": [["6.4.4", ""]], "choices": ["disable", "enable"], "type": "str"},
@@ -9063,11 +9373,26 @@ SCHEMA_DATA = '''
             "route-tag": {"v_range": [["7.4.0", ""]], "type": "int"},
             "sw-version": {"v_range": [["7.4.0", ""]], "type": "str"},
             "sso-attribute-value": {"v_range": [["7.6.2", ""]], "type": "raw"},
-            "pattern-end": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "int"},
-            "pattern-start": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "int"},
+            "pattern-end": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "int"},
+            "pattern-start": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "int"},
             "tag-uuid": {"v_range": [["7.6.4", ""]], "type": "str"},
             "agent-id": {"v_range": [["7.6.4", ""]], "type": "raw"},
-            "passive-fqdn-learning": {"v_range": [["7.6.5", ""]], "choices": ["disable", "enable"], "type": "str"}
+            "passive-fqdn-learning": {"v_range": [["7.6.5", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "obsolete": {"v_range": [["7.6.7", ""]], "type": "int"},
+            "custom-tags": {"v_range": [["8.0.0", ""]], "type": "raw"},
+            "display-with": {"v_range": [["8.0.0", ""]], "choices": ["all-tags", "first-tag-only", "icon-and-color"], "type": "str"},
+            "fabric-force-sync": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object-source": {"v_range": [["8.0.0", ""]], "choices": ["member", "local", "root"], "type": "str"},
+            "hw-version": {"v_range": [["8.0.0", ""]], "type": "str"},
+            "ipam-allocate-unique": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "managed-subnetwork-size": {
+                "v_range": [["8.0.0", ""]],
+                "choices": [
+                    "4", "8", "16", "32", "64", "128", "256", "512", "1024", "2048", "4096", "8192", "16384", "32768", "65536", "131072", "262144",
+                    "524288", "1048576", "2097152", "4194304", "8388608", "16777216"
+                ],
+                "type": "str"
+            }
         }
     },
     "firewall_address6": {
@@ -9120,10 +9445,20 @@ SCHEMA_DATA = '''
                     "sdn-tag": {"v_range": [["7.2.1", ""]], "type": "str"},
                     "tenant": {"v_range": [["7.2.1", ""]], "type": "str"},
                     "route-tag": {"v_range": [["7.4.0", ""]], "type": "int"},
-                    "filter": {"v_range": [["7.4.4", "7.4.10"], ["7.6.2", ""]], "type": "str"},
-                    "sdn-addr-type": {"v_range": [["7.4.4", "7.4.10"], ["7.6.2", ""]], "choices": ["all", "private", "public"], "type": "str"},
+                    "filter": {"v_range": [["7.4.4", "7.4.11"], ["7.6.2", ""]], "type": "str"},
+                    "sdn-addr-type": {"v_range": [["7.4.4", "7.4.11"], ["7.6.2", ""]], "choices": ["all", "private", "public"], "type": "str"},
                     "wildcard": {"v_range": [["7.6.4", ""]], "type": "str"},
-                    "passive-fqdn-learning": {"v_range": [["7.6.5", ""]], "choices": ["disable", "enable"], "type": "str"}
+                    "passive-fqdn-learning": {"v_range": [["7.6.5", ""]], "choices": ["disable", "enable"], "type": "str"},
+                    "obsolete": {"v_range": [["7.6.7", ""]], "type": "int"},
+                    "custom-tags": {"v_range": [["8.0.0", ""]], "type": "raw"},
+                    "display-with": {"v_range": [["8.0.0", ""]], "choices": ["all-tags", "first-tag-only", "icon-and-color"], "type": "str"},
+                    "fabric-force-sync": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+                    "fabric-object-source": {"v_range": [["8.0.0", ""]], "choices": ["member", "local", "root"], "type": "str"},
+                    "obj-tag": {"v_range": [["8.0.0", ""]], "type": "str"},
+                    "sub-type": {"v_range": [["8.0.0", ""]], "choices": ["sdn", "ems-tag", "8021x"], "type": "str"},
+                    "tag-detection-level": {"v_range": [["8.0.0", ""]], "type": "str"},
+                    "tag-type": {"v_range": [["8.0.0", ""]], "type": "str"},
+                    "tag-uuid": {"v_range": [["8.0.0", ""]], "type": "str"}
                 },
                 "elements": "dict"
             },
@@ -9155,7 +9490,7 @@ SCHEMA_DATA = '''
             "type": {"choices": ["ipprefix", "iprange", "nsx", "dynamic", "fqdn", "template", "mac", "geography", "route-tag", "wildcard"], "type": "str"},
             "uuid": {"type": "str"},
             "visibility": {"v_range": [["6.0.0", "7.6.2"]], "choices": ["disable", "enable"], "type": "str"},
-            "tags": {"v_range": [["6.2.0", "6.4.15"], ["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "str"},
+            "tags": {"v_range": [["6.2.0", "6.4.15"], ["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "str"},
             "profile-list": {
                 "v_range": [["6.2.0", "6.2.13"]],
                 "type": "list",
@@ -9163,20 +9498,30 @@ SCHEMA_DATA = '''
                 "elements": "dict"
             },
             "_image-base64": {"v_range": [["6.2.2", ""]], "type": "str"},
-            "end-mac": {"v_range": [["6.2.5", "6.2.13"], ["6.4.1", ""]], "type": "str"},
-            "start-mac": {"v_range": [["6.2.5", "6.2.13"], ["6.4.1", ""]], "type": "str"},
+            "end-mac": {"v_range": [["6.2.5", "6.2.13"], ["6.4.1", "7.6.7"]], "type": "str"},
+            "start-mac": {"v_range": [["6.2.5", "6.2.13"], ["6.4.1", "7.6.7"]], "type": "str"},
             "country": {"v_range": [["6.4.0", ""]], "type": "str"},
-            "global-object": {"v_range": [["6.4.0", ""]], "type": "int"},
+            "global-object": {"v_range": [["6.4.0", "7.6.7"]], "type": "int"},
             "fabric-object": {"v_range": [["6.4.4", ""]], "choices": ["disable", "enable"], "type": "str"},
             "macaddr": {"v_range": [["7.0.0", ""]], "type": "raw"},
             "epg-name": {"v_range": [["7.2.1", ""]], "type": "str"},
             "sdn-tag": {"v_range": [["7.2.1", ""]], "type": "str"},
             "tenant": {"v_range": [["7.2.1", ""]], "type": "str"},
             "route-tag": {"v_range": [["7.4.0", ""]], "type": "int"},
-            "filter": {"v_range": [["7.4.4", "7.4.10"], ["7.6.2", ""]], "type": "str"},
-            "sdn-addr-type": {"v_range": [["7.4.4", "7.4.10"], ["7.6.2", ""]], "choices": ["all", "private", "public"], "type": "str"},
+            "filter": {"v_range": [["7.4.4", "7.4.11"], ["7.6.2", ""]], "type": "str"},
+            "sdn-addr-type": {"v_range": [["7.4.4", "7.4.11"], ["7.6.2", ""]], "choices": ["all", "private", "public"], "type": "str"},
             "wildcard": {"v_range": [["7.6.4", ""]], "type": "str"},
-            "passive-fqdn-learning": {"v_range": [["7.6.5", ""]], "choices": ["disable", "enable"], "type": "str"}
+            "passive-fqdn-learning": {"v_range": [["7.6.5", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "obsolete": {"v_range": [["7.6.7", ""]], "type": "int"},
+            "custom-tags": {"v_range": [["8.0.0", ""]], "type": "raw"},
+            "display-with": {"v_range": [["8.0.0", ""]], "choices": ["all-tags", "first-tag-only", "icon-and-color"], "type": "str"},
+            "fabric-force-sync": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object-source": {"v_range": [["8.0.0", ""]], "choices": ["member", "local", "root"], "type": "str"},
+            "obj-tag": {"v_range": [["8.0.0", ""]], "type": "str"},
+            "sub-type": {"v_range": [["8.0.0", ""]], "choices": ["sdn", "ems-tag", "8021x"], "type": "str"},
+            "tag-detection-level": {"v_range": [["8.0.0", ""]], "type": "str"},
+            "tag-type": {"v_range": [["8.0.0", ""]], "type": "str"},
+            "tag-uuid": {"v_range": [["8.0.0", ""]], "type": "str"}
         }
     },
     "firewall_address6_dynamicmapping": {
@@ -9220,10 +9565,20 @@ SCHEMA_DATA = '''
             "sdn-tag": {"v_range": [["7.2.1", ""]], "type": "str"},
             "tenant": {"v_range": [["7.2.1", ""]], "type": "str"},
             "route-tag": {"v_range": [["7.4.0", ""]], "type": "int"},
-            "filter": {"v_range": [["7.4.4", "7.4.10"], ["7.6.2", ""]], "type": "str"},
-            "sdn-addr-type": {"v_range": [["7.4.4", "7.4.10"], ["7.6.2", ""]], "choices": ["all", "private", "public"], "type": "str"},
+            "filter": {"v_range": [["7.4.4", "7.4.11"], ["7.6.2", ""]], "type": "str"},
+            "sdn-addr-type": {"v_range": [["7.4.4", "7.4.11"], ["7.6.2", ""]], "choices": ["all", "private", "public"], "type": "str"},
             "wildcard": {"v_range": [["7.6.4", ""]], "type": "str"},
-            "passive-fqdn-learning": {"v_range": [["7.6.5", ""]], "choices": ["disable", "enable"], "type": "str"}
+            "passive-fqdn-learning": {"v_range": [["7.6.5", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "obsolete": {"v_range": [["7.6.7", ""]], "type": "int"},
+            "custom-tags": {"v_range": [["8.0.0", ""]], "type": "raw"},
+            "display-with": {"v_range": [["8.0.0", ""]], "choices": ["all-tags", "first-tag-only", "icon-and-color"], "type": "str"},
+            "fabric-force-sync": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object-source": {"v_range": [["8.0.0", ""]], "choices": ["member", "local", "root"], "type": "str"},
+            "obj-tag": {"v_range": [["8.0.0", ""]], "type": "str"},
+            "sub-type": {"v_range": [["8.0.0", ""]], "choices": ["sdn", "ems-tag", "8021x"], "type": "str"},
+            "tag-detection-level": {"v_range": [["8.0.0", ""]], "type": "str"},
+            "tag-type": {"v_range": [["8.0.0", ""]], "type": "str"},
+            "tag-uuid": {"v_range": [["8.0.0", ""]], "type": "str"}
         }
     },
     "firewall_address6_dynamicmapping_subnetsegment": {
@@ -9270,7 +9625,9 @@ SCHEMA_DATA = '''
             "subnet-segment-count": {"type": "int"},
             "_image-base64": {"v_range": [["6.2.2", ""]], "type": "str"},
             "fabric-object": {"v_range": [["7.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "uuid": {"v_range": [["7.6.0", ""]], "type": "str"}
+            "uuid": {"v_range": [["7.6.0", ""]], "type": "str"},
+            "fabric-force-sync": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object-source": {"v_range": [["8.0.0", ""]], "choices": ["member", "local", "root"], "type": "str"}
         }
     },
     "firewall_address6template_subnetsegment": {
@@ -9315,7 +9672,7 @@ SCHEMA_DATA = '''
             "type": {
                 "choices": [
                     "ipmask", "iprange", "fqdn", "wildcard", "geography", "url", "wildcard-fqdn", "nsx", "aws", "dynamic", "interface-subnet", "mac",
-                    "fqdn-group", "route-tag"
+                    "fqdn-group", "route-tag", "ipam"
                 ],
                 "type": "str"
             },
@@ -9335,7 +9692,7 @@ SCHEMA_DATA = '''
                 "v_range": [["6.2.2", ""]],
                 "choices": [
                     "sdn", "clearpass-spt", "fsso", "ems-tag", "swc-tag", "fortivoice-tag", "fortinac-tag", "fortipolicy-tag", "device-identification",
-                    "rsso", "external-resource", "obsolete", "telemetry"
+                    "rsso", "external-resource", "obsolete", "telemetry", "8021x"
                 ],
                 "type": "str"
             },
@@ -9358,7 +9715,22 @@ SCHEMA_DATA = '''
             "sso-attribute-value": {"v_range": [["7.6.2", ""]], "type": "raw"},
             "agent-id": {"v_range": [["7.6.4", ""]], "type": "raw"},
             "tag-uuid": {"v_range": [["7.6.4", ""]], "type": "str"},
-            "passive-fqdn-learning": {"v_range": [["7.6.5", ""]], "choices": ["disable", "enable"], "type": "str"}
+            "passive-fqdn-learning": {"v_range": [["7.6.5", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "obsolete": {"v_range": [["7.6.7", ""]], "type": "int"},
+            "custom-tags": {"v_range": [["8.0.0", ""]], "type": "raw"},
+            "display-with": {"v_range": [["8.0.0", ""]], "choices": ["all-tags", "first-tag-only", "icon-and-color"], "type": "str"},
+            "fabric-force-sync": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object-source": {"v_range": [["8.0.0", ""]], "choices": ["member", "local", "root"], "type": "str"},
+            "hw-version": {"v_range": [["8.0.0", ""]], "type": "str"},
+            "ipam-allocate-unique": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "managed-subnetwork-size": {
+                "v_range": [["8.0.0", ""]],
+                "choices": [
+                    "4", "8", "16", "32", "64", "128", "256", "512", "1024", "2048", "4096", "8192", "16384", "32768", "65536", "131072", "262144",
+                    "524288", "1048576", "2097152", "4194304", "8388608", "16777216"
+                ],
+                "type": "str"
+            }
         }
     },
     "firewall_address_list": {
@@ -9395,9 +9767,13 @@ SCHEMA_DATA = '''
                     "visibility": {"choices": ["disable", "enable"], "type": "str"},
                     "_image-base64": {"v_range": [["6.2.2", ""]], "type": "str"},
                     "global-object": {"v_range": [["6.4.0", ""]], "type": "int"},
-                    "type": {"v_range": [["6.4.0", ""]], "choices": ["default", "array", "folder"], "type": "str"},
+                    "type": {"v_range": [["6.4.0", ""]], "choices": ["default", "array", "folder", "dynamic-tag"], "type": "str"},
                     "fabric-object": {"v_range": [["6.4.4", ""]], "choices": ["disable", "enable"], "type": "str"},
-                    "category": {"v_range": [["7.0.0", ""]], "choices": ["default", "ztna-ems-tag", "ztna-geo-tag", "telemetry"], "type": "str"}
+                    "category": {"v_range": [["7.0.0", ""]], "choices": ["default", "ztna-ems-tag", "ztna-geo-tag", "telemetry"], "type": "str"},
+                    "custom-tags": {"v_range": [["8.0.0", ""]], "type": "raw"},
+                    "display-with": {"v_range": [["8.0.0", ""]], "choices": ["all-tags", "first-tag-only", "icon-and-color"], "type": "str"},
+                    "fabric-force-sync": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+                    "fabric-object-source": {"v_range": [["8.0.0", ""]], "choices": ["member", "local", "root"], "type": "str"}
                 },
                 "elements": "dict"
             },
@@ -9408,12 +9784,16 @@ SCHEMA_DATA = '''
             "visibility": {"v_range": [["6.0.0", "7.6.2"]], "choices": ["disable", "enable"], "type": "str"},
             "exclude": {"v_range": [["6.2.0", ""]], "choices": ["disable", "enable"], "type": "str"},
             "exclude-member": {"v_range": [["6.2.0", ""]], "type": "raw"},
-            "tags": {"v_range": [["6.2.0", "6.4.15"], ["7.4.8", "7.4.10"]], "type": "str"},
+            "tags": {"v_range": [["6.2.0", "6.4.15"], ["7.4.8", "7.4.11"]], "type": "str"},
             "_image-base64": {"v_range": [["6.2.2", ""]], "type": "str"},
-            "global-object": {"v_range": [["6.4.0", ""]], "type": "int"},
-            "type": {"v_range": [["6.4.0", ""]], "choices": ["default", "array", "folder"], "type": "str"},
+            "global-object": {"v_range": [["6.4.0", "7.6.7"]], "type": "int"},
+            "type": {"v_range": [["6.4.0", ""]], "choices": ["default", "array", "folder", "dynamic-tag"], "type": "str"},
             "fabric-object": {"v_range": [["6.4.4", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "category": {"v_range": [["7.0.0", ""]], "choices": ["default", "ztna-ems-tag", "ztna-geo-tag", "telemetry"], "type": "str"}
+            "category": {"v_range": [["7.0.0", ""]], "choices": ["default", "ztna-ems-tag", "ztna-geo-tag", "telemetry"], "type": "str"},
+            "custom-tags": {"v_range": [["8.0.0", ""]], "type": "raw"},
+            "display-with": {"v_range": [["8.0.0", ""]], "choices": ["all-tags", "first-tag-only", "icon-and-color"], "type": "str"},
+            "fabric-force-sync": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object-source": {"v_range": [["8.0.0", ""]], "choices": ["member", "local", "root"], "type": "str"}
         }
     },
     "firewall_addrgrp6": {
@@ -9435,7 +9815,13 @@ SCHEMA_DATA = '''
                     "global-object": {"v_range": [["6.4.0", ""]], "type": "int"},
                     "fabric-object": {"v_range": [["6.4.4", ""]], "choices": ["disable", "enable"], "type": "str"},
                     "exclude": {"v_range": [["7.4.0", ""]], "choices": ["disable", "enable"], "type": "str"},
-                    "exclude-member": {"v_range": [["7.4.0", ""]], "type": "raw"}
+                    "exclude-member": {"v_range": [["7.4.0", ""]], "type": "raw"},
+                    "category": {"v_range": [["8.0.0", ""]], "choices": ["default", "ztna-ems-tag"], "type": "str"},
+                    "custom-tags": {"v_range": [["8.0.0", ""]], "type": "raw"},
+                    "display-with": {"v_range": [["8.0.0", ""]], "choices": ["all-tags", "first-tag-only", "icon-and-color"], "type": "str"},
+                    "fabric-force-sync": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+                    "fabric-object-source": {"v_range": [["8.0.0", ""]], "choices": ["member", "local", "root"], "type": "str"},
+                    "type": {"v_range": [["8.0.0", ""]], "choices": ["default", "dynamic-tag"], "type": "str"}
                 },
                 "elements": "dict"
             },
@@ -9444,12 +9830,18 @@ SCHEMA_DATA = '''
             "tagging": {"type": "list", "options": {"category": {"type": "str"}, "name": {"type": "str"}, "tags": {"type": "raw"}}, "elements": "dict"},
             "uuid": {"type": "str"},
             "visibility": {"v_range": [["6.0.0", "7.6.2"]], "choices": ["disable", "enable"], "type": "str"},
-            "tags": {"v_range": [["6.2.0", "6.4.15"], ["7.4.8", "7.4.10"]], "type": "str"},
+            "tags": {"v_range": [["6.2.0", "6.4.15"], ["7.4.8", "7.4.11"]], "type": "str"},
             "_image-base64": {"v_range": [["6.2.2", ""]], "type": "str"},
-            "global-object": {"v_range": [["6.4.0", ""]], "type": "int"},
+            "global-object": {"v_range": [["6.4.0", "7.6.7"]], "type": "int"},
             "fabric-object": {"v_range": [["6.4.4", ""]], "choices": ["disable", "enable"], "type": "str"},
             "exclude": {"v_range": [["7.4.0", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "exclude-member": {"v_range": [["7.4.0", ""]], "type": "raw"}
+            "exclude-member": {"v_range": [["7.4.0", ""]], "type": "raw"},
+            "category": {"v_range": [["8.0.0", ""]], "choices": ["default", "ztna-ems-tag"], "type": "str"},
+            "custom-tags": {"v_range": [["8.0.0", ""]], "type": "raw"},
+            "display-with": {"v_range": [["8.0.0", ""]], "choices": ["all-tags", "first-tag-only", "icon-and-color"], "type": "str"},
+            "fabric-force-sync": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object-source": {"v_range": [["8.0.0", ""]], "choices": ["member", "local", "root"], "type": "str"},
+            "type": {"v_range": [["8.0.0", ""]], "choices": ["default", "dynamic-tag"], "type": "str"}
         }
     },
     "firewall_addrgrp6_dynamicmapping": {
@@ -9466,7 +9858,13 @@ SCHEMA_DATA = '''
             "global-object": {"v_range": [["6.4.0", ""]], "type": "int"},
             "fabric-object": {"v_range": [["6.4.4", ""]], "choices": ["disable", "enable"], "type": "str"},
             "exclude": {"v_range": [["7.4.0", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "exclude-member": {"v_range": [["7.4.0", ""]], "type": "raw"}
+            "exclude-member": {"v_range": [["7.4.0", ""]], "type": "raw"},
+            "category": {"v_range": [["8.0.0", ""]], "choices": ["default", "ztna-ems-tag"], "type": "str"},
+            "custom-tags": {"v_range": [["8.0.0", ""]], "type": "raw"},
+            "display-with": {"v_range": [["8.0.0", ""]], "choices": ["all-tags", "first-tag-only", "icon-and-color"], "type": "str"},
+            "fabric-force-sync": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object-source": {"v_range": [["8.0.0", ""]], "choices": ["member", "local", "root"], "type": "str"},
+            "type": {"v_range": [["8.0.0", ""]], "choices": ["default", "dynamic-tag"], "type": "str"}
         }
     },
     "firewall_addrgrp6_tagging": {
@@ -9488,9 +9886,13 @@ SCHEMA_DATA = '''
             "visibility": {"choices": ["disable", "enable"], "type": "str"},
             "_image-base64": {"v_range": [["6.2.2", ""]], "type": "str"},
             "global-object": {"v_range": [["6.4.0", ""]], "type": "int"},
-            "type": {"v_range": [["6.4.0", ""]], "choices": ["default", "array", "folder"], "type": "str"},
+            "type": {"v_range": [["6.4.0", ""]], "choices": ["default", "array", "folder", "dynamic-tag"], "type": "str"},
             "fabric-object": {"v_range": [["6.4.4", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "category": {"v_range": [["7.0.0", ""]], "choices": ["default", "ztna-ems-tag", "ztna-geo-tag", "telemetry"], "type": "str"}
+            "category": {"v_range": [["7.0.0", ""]], "choices": ["default", "ztna-ems-tag", "ztna-geo-tag", "telemetry"], "type": "str"},
+            "custom-tags": {"v_range": [["8.0.0", ""]], "type": "raw"},
+            "display-with": {"v_range": [["8.0.0", ""]], "choices": ["all-tags", "first-tag-only", "icon-and-color"], "type": "str"},
+            "fabric-force-sync": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object-source": {"v_range": [["8.0.0", ""]], "choices": ["member", "local", "root"], "type": "str"}
         }
     },
     "firewall_addrgrp_tagging": {
@@ -9660,6 +10062,19 @@ SCHEMA_DATA = '''
             "user-input": {"v_range": [["7.4.1", "7.4.1"]], "type": "list", "elements": "str"}
         }
     },
+    "firewall_customtag": {
+        "stated": true,
+        "options": {
+            "abbreviation": {"v_range": [["8.0.0", ""]], "type": "str"},
+            "color": {"v_range": [["8.0.0", ""]], "type": "int"},
+            "comment": {"v_range": [["8.0.0", ""]], "type": "str"},
+            "fabric-force-sync": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object-source": {"v_range": [["8.0.0", ""]], "choices": ["member", "local", "root"], "type": "str"},
+            "name": {"v_range": [["8.0.0", ""]], "required": true, "type": "str"},
+            "uuid": {"v_range": [["8.0.0", ""]], "type": "str"}
+        }
+    },
     "firewall_decryptedtrafficmirror": {
         "stated": true,
         "options": {
@@ -9781,8 +10196,8 @@ SCHEMA_DATA = '''
                 "elements": "dict"
             },
             "ie-remover": {"choices": ["disable", "enable"], "type": "str"},
-            "ie-white-list-v0v1": {"type": "str"},
-            "ie-white-list-v2": {"type": "str"},
+            "ie-white-list-v0v1": {"v_range": [["6.0.0", "7.6.7"]], "type": "str"},
+            "ie-white-list-v2": {"v_range": [["6.0.0", "7.6.7"]], "type": "str"},
             "imsi": {
                 "type": "list",
                 "options": {
@@ -9911,7 +10326,11 @@ SCHEMA_DATA = '''
                     "rat-type": {
                         "v_range": [["6.2.1", ""]],
                         "type": "list",
-                        "choices": ["any", "utran", "geran", "wlan", "gan", "hspa", "eutran", "virtual", "nbiot", "ltem", "nr"],
+                        "choices": [
+                            "any", "utran", "geran", "wlan", "gan", "hspa", "eutran", "virtual", "nbiot", "ltem", "nr", "wb-eutran-leo", "wb-eutran-meo",
+                            "wb-eutran-geo", "wb-eutran-othersat", "nbiot-leo", "nbiot-meo", "nbiot-geo", "nbiot-othersat", "ltem-leo", "ltem-meo",
+                            "ltem-geo", "ltem-othersat"
+                        ],
                         "elements": "str"
                     },
                     "uli": {"v_range": [["6.2.1", ""]], "type": "raw"}
@@ -10309,7 +10728,11 @@ SCHEMA_DATA = '''
             "rat-type": {
                 "v_range": [["6.2.1", ""]],
                 "type": "list",
-                "choices": ["any", "utran", "geran", "wlan", "gan", "hspa", "eutran", "virtual", "nbiot", "ltem", "nr"],
+                "choices": [
+                    "any", "utran", "geran", "wlan", "gan", "hspa", "eutran", "virtual", "nbiot", "ltem", "nr", "wb-eutran-leo", "wb-eutran-meo",
+                    "wb-eutran-geo", "wb-eutran-othersat", "nbiot-leo", "nbiot-meo", "nbiot-geo", "nbiot-othersat", "ltem-leo", "ltem-meo", "ltem-geo",
+                    "ltem-othersat"
+                ],
                 "elements": "str"
             },
             "uli": {"v_range": [["6.2.1", ""]], "type": "raw"}
@@ -10337,21 +10760,21 @@ SCHEMA_DATA = '''
             "database": {"choices": ["isdb", "irdb"], "type": "str"},
             "direction": {"choices": ["src", "dst", "both"], "type": "str"},
             "entry": {
-                "v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]],
+                "v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]],
                 "type": "list",
                 "options": {
-                    "id": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "type": "int"},
-                    "ip-number": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "type": "int"},
-                    "ip-range-number": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "type": "int"},
-                    "port": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "type": "raw"},
-                    "protocol": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "type": "int"}
+                    "id": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "type": "int"},
+                    "ip-number": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "type": "int"},
+                    "ip-range-number": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "type": "int"},
+                    "port": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "type": "raw"},
+                    "protocol": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "type": "int"}
                 },
                 "elements": "dict"
             },
             "icon-id": {"type": "int"},
             "id": {"type": "int"},
             "name": {"type": "str"},
-            "offset": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "type": "int"},
+            "offset": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "type": "int"},
             "reputation": {"v_range": [["6.0.0", "7.6.2"]], "type": "int"},
             "sld-id": {"v_range": [["6.0.0", "7.6.2"]], "type": "int"},
             "extra-ip-range-number": {"v_range": [["6.2.0", ""]], "type": "int"},
@@ -10375,11 +10798,11 @@ SCHEMA_DATA = '''
     "firewall_internetservice_entry": {
         "stated": true,
         "options": {
-            "id": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "required": true, "type": "int"},
-            "ip-number": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "type": "int"},
-            "ip-range-number": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "type": "int"},
-            "port": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "type": "raw"},
-            "protocol": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "type": "int"}
+            "id": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "required": true, "type": "int"},
+            "ip-number": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "type": "int"},
+            "ip-range-number": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "type": "int"},
+            "port": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "type": "raw"},
+            "protocol": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "type": "int"}
         }
     },
     "firewall_internetserviceaddition": {
@@ -10440,22 +10863,22 @@ SCHEMA_DATA = '''
         "options": {
             "comment": {"type": "str"},
             "disable-entry": {
-                "v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]],
+                "v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]],
                 "type": "list",
                 "options": {
-                    "id": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "type": "int"},
+                    "id": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "type": "int"},
                     "ip-range": {
-                        "v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]],
+                        "v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]],
                         "type": "list",
                         "options": {
-                            "end-ip": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "type": "str"},
-                            "id": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "type": "int"},
-                            "start-ip": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "type": "str"}
+                            "end-ip": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "type": "str"},
+                            "id": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "type": "int"},
+                            "start-ip": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "type": "str"}
                         },
                         "elements": "dict"
                     },
-                    "port": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "type": "raw"},
-                    "protocol": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "type": "int"}
+                    "port": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "type": "raw"},
+                    "protocol": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "type": "int"}
                 },
                 "elements": "dict"
             },
@@ -10475,36 +10898,40 @@ SCHEMA_DATA = '''
                 },
                 "elements": "dict"
             },
-            "master-service-id": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "type": "str"},
+            "master-service-id": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "type": "str"},
             "name": {"required": true, "type": "str"},
             "reputation": {"v_range": [["6.2.0", ""]], "type": "int"},
-            "id": {"v_range": [["6.4.2", ""]], "type": "int"}
+            "id": {"v_range": [["6.4.2", ""]], "type": "int"},
+            "fabric-force-sync": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object-source": {"v_range": [["8.0.0", ""]], "choices": ["member", "local", "root"], "type": "str"},
+            "uuid": {"v_range": [["8.0.0", ""]], "type": "str"}
         }
     },
     "firewall_internetservicecustom_disableentry": {
         "stated": true,
         "options": {
-            "id": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "required": true, "type": "int"},
+            "id": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "required": true, "type": "int"},
             "ip-range": {
-                "v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]],
+                "v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]],
                 "type": "list",
                 "options": {
-                    "end-ip": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "type": "str"},
-                    "id": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "type": "int"},
-                    "start-ip": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "type": "str"}
+                    "end-ip": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "type": "str"},
+                    "id": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "type": "int"},
+                    "start-ip": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "type": "str"}
                 },
                 "elements": "dict"
             },
-            "port": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "type": "raw"},
-            "protocol": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "type": "int"}
+            "port": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "type": "raw"},
+            "protocol": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "type": "int"}
         }
     },
     "firewall_internetservicecustom_disableentry_iprange": {
         "stated": true,
         "options": {
-            "end-ip": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "type": "str"},
-            "id": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "required": true, "type": "int"},
-            "start-ip": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "type": "str"}
+            "end-ip": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "type": "str"},
+            "id": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "required": true, "type": "int"},
+            "start-ip": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "type": "str"}
         }
     },
     "firewall_internetservicecustom_entry": {
@@ -10528,165 +10955,173 @@ SCHEMA_DATA = '''
     },
     "firewall_internetservicecustomgroup": {
         "stated": true,
-        "options": {"comment": {"type": "str"}, "member": {"type": "raw"}, "name": {"required": true, "type": "str"}}
+        "options": {
+            "comment": {"type": "str"},
+            "member": {"type": "raw"},
+            "name": {"required": true, "type": "str"},
+            "fabric-force-sync": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object-source": {"v_range": [["8.0.0", ""]], "choices": ["member", "local", "root"], "type": "str"},
+            "uuid": {"v_range": [["8.0.0", ""]], "type": "str"}
+        }
     },
     "firewall_internetserviceextension": {
         "stated": true,
         "options": {
-            "comment": {"v_range": [["7.4.7", "7.4.10"], ["7.6.4", ""]], "type": "str"},
+            "comment": {"v_range": [["7.4.7", "7.4.11"], ["7.6.4", ""]], "type": "str"},
             "disable-entry": {
-                "v_range": [["7.4.7", "7.4.10"], ["7.6.4", ""]],
+                "v_range": [["7.4.7", "7.4.11"], ["7.6.4", ""]],
                 "type": "list",
                 "options": {
-                    "addr-mode": {"v_range": [["7.4.7", "7.4.10"], ["7.6.4", ""]], "choices": ["ipv4", "ipv6"], "type": "str"},
-                    "id": {"v_range": [["7.4.7", "7.4.10"], ["7.6.4", ""]], "type": "int"},
+                    "addr-mode": {"v_range": [["7.4.7", "7.4.11"], ["7.6.4", ""]], "choices": ["ipv4", "ipv6"], "type": "str"},
+                    "id": {"v_range": [["7.4.7", "7.4.11"], ["7.6.4", ""]], "type": "int"},
                     "ip-range": {
-                        "v_range": [["7.4.7", "7.4.10"], ["7.6.4", ""]],
+                        "v_range": [["7.4.7", "7.4.11"], ["7.6.4", ""]],
                         "type": "list",
                         "options": {
-                            "end-ip": {"v_range": [["7.4.7", "7.4.10"], ["7.6.4", ""]], "type": "str"},
-                            "id": {"v_range": [["7.4.7", "7.4.10"], ["7.6.4", ""]], "type": "int"},
-                            "start-ip": {"v_range": [["7.4.7", "7.4.10"], ["7.6.4", ""]], "type": "str"}
+                            "end-ip": {"v_range": [["7.4.7", "7.4.11"], ["7.6.4", ""]], "type": "str"},
+                            "id": {"v_range": [["7.4.7", "7.4.11"], ["7.6.4", ""]], "type": "int"},
+                            "start-ip": {"v_range": [["7.4.7", "7.4.11"], ["7.6.4", ""]], "type": "str"}
                         },
                         "elements": "dict"
                     },
                     "ip6-range": {
-                        "v_range": [["7.4.7", "7.4.10"], ["7.6.4", ""]],
+                        "v_range": [["7.4.7", "7.4.11"], ["7.6.4", ""]],
                         "type": "list",
                         "options": {
-                            "end-ip6": {"v_range": [["7.4.7", "7.4.10"], ["7.6.4", ""]], "type": "str"},
-                            "id": {"v_range": [["7.4.7", "7.4.10"], ["7.6.4", ""]], "type": "int"},
-                            "start-ip6": {"v_range": [["7.4.7", "7.4.10"], ["7.6.4", ""]], "type": "str"}
+                            "end-ip6": {"v_range": [["7.4.7", "7.4.11"], ["7.6.4", ""]], "type": "str"},
+                            "id": {"v_range": [["7.4.7", "7.4.11"], ["7.6.4", ""]], "type": "int"},
+                            "start-ip6": {"v_range": [["7.4.7", "7.4.11"], ["7.6.4", ""]], "type": "str"}
                         },
                         "elements": "dict"
                     },
                     "port-range": {
-                        "v_range": [["7.4.7", "7.4.10"], ["7.6.4", ""]],
+                        "v_range": [["7.4.7", "7.4.11"], ["7.6.4", ""]],
                         "type": "list",
                         "options": {
-                            "end-port": {"v_range": [["7.4.7", "7.4.10"], ["7.6.4", ""]], "type": "int"},
-                            "id": {"v_range": [["7.4.7", "7.4.10"], ["7.6.4", ""]], "type": "int"},
-                            "start-port": {"v_range": [["7.4.7", "7.4.10"], ["7.6.4", ""]], "type": "int"}
+                            "end-port": {"v_range": [["7.4.7", "7.4.11"], ["7.6.4", ""]], "type": "int"},
+                            "id": {"v_range": [["7.4.7", "7.4.11"], ["7.6.4", ""]], "type": "int"},
+                            "start-port": {"v_range": [["7.4.7", "7.4.11"], ["7.6.4", ""]], "type": "int"}
                         },
                         "elements": "dict"
                     },
-                    "protocol": {"v_range": [["7.4.7", "7.4.10"], ["7.6.4", ""]], "type": "int"}
+                    "protocol": {"v_range": [["7.4.7", "7.4.11"], ["7.6.4", ""]], "type": "int"}
                 },
                 "elements": "dict"
             },
             "entry": {
-                "v_range": [["7.4.7", "7.4.10"], ["7.6.4", ""]],
+                "v_range": [["7.4.7", "7.4.11"], ["7.6.4", ""]],
                 "type": "list",
                 "options": {
-                    "addr-mode": {"v_range": [["7.4.7", "7.4.10"], ["7.6.4", ""]], "choices": ["ipv4", "ipv6"], "type": "str"},
-                    "dst": {"v_range": [["7.4.7", "7.4.10"], ["7.6.4", ""]], "type": "list", "elements": "str"},
-                    "dst6": {"v_range": [["7.4.7", "7.4.10"], ["7.6.4", ""]], "type": "list", "elements": "str"},
-                    "id": {"v_range": [["7.4.7", "7.4.10"], ["7.6.4", ""]], "type": "int"},
+                    "addr-mode": {"v_range": [["7.4.7", "7.4.11"], ["7.6.4", ""]], "choices": ["ipv4", "ipv6"], "type": "str"},
+                    "dst": {"v_range": [["7.4.7", "7.4.11"], ["7.6.4", ""]], "type": "list", "elements": "str"},
+                    "dst6": {"v_range": [["7.4.7", "7.4.11"], ["7.6.4", ""]], "type": "list", "elements": "str"},
+                    "id": {"v_range": [["7.4.7", "7.4.11"], ["7.6.4", ""]], "type": "int"},
                     "port-range": {
-                        "v_range": [["7.4.7", "7.4.10"], ["7.6.4", ""]],
+                        "v_range": [["7.4.7", "7.4.11"], ["7.6.4", ""]],
                         "type": "list",
                         "options": {
-                            "end-port": {"v_range": [["7.4.7", "7.4.10"], ["7.6.4", ""]], "type": "int"},
-                            "id": {"v_range": [["7.4.7", "7.4.10"], ["7.6.4", ""]], "type": "int"},
-                            "start-port": {"v_range": [["7.4.7", "7.4.10"], ["7.6.4", ""]], "type": "int"}
+                            "end-port": {"v_range": [["7.4.7", "7.4.11"], ["7.6.4", ""]], "type": "int"},
+                            "id": {"v_range": [["7.4.7", "7.4.11"], ["7.6.4", ""]], "type": "int"},
+                            "start-port": {"v_range": [["7.4.7", "7.4.11"], ["7.6.4", ""]], "type": "int"}
                         },
                         "elements": "dict"
                     },
-                    "protocol": {"v_range": [["7.4.7", "7.4.10"], ["7.6.4", ""]], "type": "int"}
+                    "protocol": {"v_range": [["7.4.7", "7.4.11"], ["7.6.4", ""]], "type": "int"}
                 },
                 "elements": "dict"
             },
-            "id": {"v_range": [["7.4.7", "7.4.10"], ["7.6.4", ""]], "required": true, "type": "list", "elements": "str"}
+            "id": {"v_range": [["7.4.7", "7.4.11"], ["7.6.4", ""]], "required": true, "type": "list", "elements": "str"}
         }
     },
     "firewall_internetserviceextension_disableentry": {
         "stated": true,
         "options": {
-            "addr-mode": {"v_range": [["7.4.7", "7.4.10"], ["7.6.4", ""]], "choices": ["ipv4", "ipv6"], "type": "str"},
-            "id": {"v_range": [["7.4.7", "7.4.10"], ["7.6.4", ""]], "required": true, "type": "int"},
+            "addr-mode": {"v_range": [["7.4.7", "7.4.11"], ["7.6.4", ""]], "choices": ["ipv4", "ipv6"], "type": "str"},
+            "id": {"v_range": [["7.4.7", "7.4.11"], ["7.6.4", ""]], "required": true, "type": "int"},
             "ip-range": {
-                "v_range": [["7.4.7", "7.4.10"], ["7.6.4", ""]],
+                "v_range": [["7.4.7", "7.4.11"], ["7.6.4", ""]],
                 "type": "list",
                 "options": {
-                    "end-ip": {"v_range": [["7.4.7", "7.4.10"], ["7.6.4", ""]], "type": "str"},
-                    "id": {"v_range": [["7.4.7", "7.4.10"], ["7.6.4", ""]], "type": "int"},
-                    "start-ip": {"v_range": [["7.4.7", "7.4.10"], ["7.6.4", ""]], "type": "str"}
+                    "end-ip": {"v_range": [["7.4.7", "7.4.11"], ["7.6.4", ""]], "type": "str"},
+                    "id": {"v_range": [["7.4.7", "7.4.11"], ["7.6.4", ""]], "type": "int"},
+                    "start-ip": {"v_range": [["7.4.7", "7.4.11"], ["7.6.4", ""]], "type": "str"}
                 },
                 "elements": "dict"
             },
             "ip6-range": {
-                "v_range": [["7.4.7", "7.4.10"], ["7.6.4", ""]],
+                "v_range": [["7.4.7", "7.4.11"], ["7.6.4", ""]],
                 "type": "list",
                 "options": {
-                    "end-ip6": {"v_range": [["7.4.7", "7.4.10"], ["7.6.4", ""]], "type": "str"},
-                    "id": {"v_range": [["7.4.7", "7.4.10"], ["7.6.4", ""]], "type": "int"},
-                    "start-ip6": {"v_range": [["7.4.7", "7.4.10"], ["7.6.4", ""]], "type": "str"}
+                    "end-ip6": {"v_range": [["7.4.7", "7.4.11"], ["7.6.4", ""]], "type": "str"},
+                    "id": {"v_range": [["7.4.7", "7.4.11"], ["7.6.4", ""]], "type": "int"},
+                    "start-ip6": {"v_range": [["7.4.7", "7.4.11"], ["7.6.4", ""]], "type": "str"}
                 },
                 "elements": "dict"
             },
             "port-range": {
-                "v_range": [["7.4.7", "7.4.10"], ["7.6.4", ""]],
+                "v_range": [["7.4.7", "7.4.11"], ["7.6.4", ""]],
                 "type": "list",
                 "options": {
-                    "end-port": {"v_range": [["7.4.7", "7.4.10"], ["7.6.4", ""]], "type": "int"},
-                    "id": {"v_range": [["7.4.7", "7.4.10"], ["7.6.4", ""]], "type": "int"},
-                    "start-port": {"v_range": [["7.4.7", "7.4.10"], ["7.6.4", ""]], "type": "int"}
+                    "end-port": {"v_range": [["7.4.7", "7.4.11"], ["7.6.4", ""]], "type": "int"},
+                    "id": {"v_range": [["7.4.7", "7.4.11"], ["7.6.4", ""]], "type": "int"},
+                    "start-port": {"v_range": [["7.4.7", "7.4.11"], ["7.6.4", ""]], "type": "int"}
                 },
                 "elements": "dict"
             },
-            "protocol": {"v_range": [["7.4.7", "7.4.10"], ["7.6.4", ""]], "type": "int"}
+            "protocol": {"v_range": [["7.4.7", "7.4.11"], ["7.6.4", ""]], "type": "int"}
         }
     },
     "firewall_internetserviceextension_disableentry_ip6range": {
         "stated": true,
         "options": {
-            "end-ip6": {"v_range": [["7.4.7", "7.4.10"], ["7.6.4", ""]], "type": "str"},
-            "id": {"v_range": [["7.4.7", "7.4.10"], ["7.6.4", ""]], "required": true, "type": "int"},
-            "start-ip6": {"v_range": [["7.4.7", "7.4.10"], ["7.6.4", ""]], "type": "str"}
+            "end-ip6": {"v_range": [["7.4.7", "7.4.11"], ["7.6.4", ""]], "type": "str"},
+            "id": {"v_range": [["7.4.7", "7.4.11"], ["7.6.4", ""]], "required": true, "type": "int"},
+            "start-ip6": {"v_range": [["7.4.7", "7.4.11"], ["7.6.4", ""]], "type": "str"}
         }
     },
     "firewall_internetserviceextension_disableentry_iprange": {
         "stated": true,
         "options": {
-            "end-ip": {"v_range": [["7.4.7", "7.4.10"], ["7.6.4", ""]], "type": "str"},
-            "id": {"v_range": [["7.4.7", "7.4.10"], ["7.6.4", ""]], "required": true, "type": "int"},
-            "start-ip": {"v_range": [["7.4.7", "7.4.10"], ["7.6.4", ""]], "type": "str"}
+            "end-ip": {"v_range": [["7.4.7", "7.4.11"], ["7.6.4", ""]], "type": "str"},
+            "id": {"v_range": [["7.4.7", "7.4.11"], ["7.6.4", ""]], "required": true, "type": "int"},
+            "start-ip": {"v_range": [["7.4.7", "7.4.11"], ["7.6.4", ""]], "type": "str"}
         }
     },
     "firewall_internetserviceextension_disableentry_portrange": {
         "stated": true,
         "options": {
-            "end-port": {"v_range": [["7.4.7", "7.4.10"], ["7.6.4", ""]], "type": "int"},
-            "id": {"v_range": [["7.4.7", "7.4.10"], ["7.6.4", ""]], "required": true, "type": "int"},
-            "start-port": {"v_range": [["7.4.7", "7.4.10"], ["7.6.4", ""]], "type": "int"}
+            "end-port": {"v_range": [["7.4.7", "7.4.11"], ["7.6.4", ""]], "type": "int"},
+            "id": {"v_range": [["7.4.7", "7.4.11"], ["7.6.4", ""]], "required": true, "type": "int"},
+            "start-port": {"v_range": [["7.4.7", "7.4.11"], ["7.6.4", ""]], "type": "int"}
         }
     },
     "firewall_internetserviceextension_entry": {
         "stated": true,
         "options": {
-            "addr-mode": {"v_range": [["7.4.7", "7.4.10"], ["7.6.4", ""]], "choices": ["ipv4", "ipv6"], "type": "str"},
-            "dst": {"v_range": [["7.4.7", "7.4.10"], ["7.6.4", ""]], "type": "list", "elements": "str"},
-            "dst6": {"v_range": [["7.4.7", "7.4.10"], ["7.6.4", ""]], "type": "list", "elements": "str"},
-            "id": {"v_range": [["7.4.7", "7.4.10"], ["7.6.4", ""]], "required": true, "type": "int"},
+            "addr-mode": {"v_range": [["7.4.7", "7.4.11"], ["7.6.4", ""]], "choices": ["ipv4", "ipv6"], "type": "str"},
+            "dst": {"v_range": [["7.4.7", "7.4.11"], ["7.6.4", ""]], "type": "list", "elements": "str"},
+            "dst6": {"v_range": [["7.4.7", "7.4.11"], ["7.6.4", ""]], "type": "list", "elements": "str"},
+            "id": {"v_range": [["7.4.7", "7.4.11"], ["7.6.4", ""]], "required": true, "type": "int"},
             "port-range": {
-                "v_range": [["7.4.7", "7.4.10"], ["7.6.4", ""]],
+                "v_range": [["7.4.7", "7.4.11"], ["7.6.4", ""]],
                 "type": "list",
                 "options": {
-                    "end-port": {"v_range": [["7.4.7", "7.4.10"], ["7.6.4", ""]], "type": "int"},
-                    "id": {"v_range": [["7.4.7", "7.4.10"], ["7.6.4", ""]], "type": "int"},
-                    "start-port": {"v_range": [["7.4.7", "7.4.10"], ["7.6.4", ""]], "type": "int"}
+                    "end-port": {"v_range": [["7.4.7", "7.4.11"], ["7.6.4", ""]], "type": "int"},
+                    "id": {"v_range": [["7.4.7", "7.4.11"], ["7.6.4", ""]], "type": "int"},
+                    "start-port": {"v_range": [["7.4.7", "7.4.11"], ["7.6.4", ""]], "type": "int"}
                 },
                 "elements": "dict"
             },
-            "protocol": {"v_range": [["7.4.7", "7.4.10"], ["7.6.4", ""]], "type": "int"}
+            "protocol": {"v_range": [["7.4.7", "7.4.11"], ["7.6.4", ""]], "type": "int"}
         }
     },
     "firewall_internetserviceextension_entry_portrange": {
         "stated": true,
         "options": {
-            "end-port": {"v_range": [["7.4.7", "7.4.10"], ["7.6.4", ""]], "type": "int"},
-            "id": {"v_range": [["7.4.7", "7.4.10"], ["7.6.4", ""]], "required": true, "type": "int"},
-            "start-port": {"v_range": [["7.4.7", "7.4.10"], ["7.6.4", ""]], "type": "int"}
+            "end-port": {"v_range": [["7.4.7", "7.4.11"], ["7.6.4", ""]], "type": "int"},
+            "id": {"v_range": [["7.4.7", "7.4.11"], ["7.6.4", ""]], "required": true, "type": "int"},
+            "start-port": {"v_range": [["7.4.7", "7.4.11"], ["7.6.4", ""]], "type": "int"}
         }
     },
     "firewall_internetservicegroup": {
@@ -10695,7 +11130,11 @@ SCHEMA_DATA = '''
             "comment": {"type": "str"},
             "member": {"type": "raw"},
             "name": {"required": true, "type": "str"},
-            "direction": {"v_range": [["6.2.0", ""]], "choices": ["both", "source", "destination"], "type": "str"}
+            "direction": {"v_range": [["6.2.0", ""]], "choices": ["both", "source", "destination"], "type": "str"},
+            "fabric-force-sync": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object-source": {"v_range": [["8.0.0", ""]], "choices": ["member", "local", "root"], "type": "str"},
+            "uuid": {"v_range": [["8.0.0", ""]], "type": "str"}
         }
     },
     "firewall_internetservicename": {
@@ -10706,7 +11145,11 @@ SCHEMA_DATA = '''
             "internet-service-id": {"v_range": [["6.4.0", ""]], "type": "str"},
             "name": {"v_range": [["6.4.0", ""]], "required": true, "type": "str"},
             "region-id": {"v_range": [["6.4.0", ""]], "type": "int"},
-            "type": {"v_range": [["6.4.0", ""]], "choices": ["default", "location"], "type": "str"}
+            "type": {"v_range": [["6.4.0", ""]], "choices": ["default", "location"], "type": "str"},
+            "fabric-force-sync": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object-source": {"v_range": [["8.0.0", ""]], "choices": ["member", "local", "root"], "type": "str"},
+            "uuid": {"v_range": [["8.0.0", ""]], "type": "str"}
         }
     },
     "firewall_ippool": {
@@ -10758,7 +11201,11 @@ SCHEMA_DATA = '''
                     "privileged-port-use-pba": {"v_range": [["7.6.0", ""]], "choices": ["disable", "enable"], "type": "str"},
                     "source-prefix6": {"v_range": [["7.6.0", ""]], "type": "str"},
                     "tcp-session-quota": {"v_range": [["7.6.0", ""]], "type": "int"},
-                    "udp-session-quota": {"v_range": [["7.6.0", ""]], "type": "int"}
+                    "udp-session-quota": {"v_range": [["7.6.0", ""]], "type": "int"},
+                    "fabric-force-sync": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+                    "fabric-object": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+                    "fabric-object-source": {"v_range": [["8.0.0", ""]], "choices": ["member", "local", "root"], "type": "str"},
+                    "uuid": {"v_range": [["8.0.0", ""]], "type": "str"}
                 },
                 "elements": "dict"
             },
@@ -10795,7 +11242,11 @@ SCHEMA_DATA = '''
             "privileged-port-use-pba": {"v_range": [["7.6.0", ""]], "choices": ["disable", "enable"], "type": "str"},
             "source-prefix6": {"v_range": [["7.6.0", ""]], "type": "str"},
             "tcp-session-quota": {"v_range": [["7.6.0", ""]], "type": "int"},
-            "udp-session-quota": {"v_range": [["7.6.0", ""]], "type": "int"}
+            "udp-session-quota": {"v_range": [["7.6.0", ""]], "type": "int"},
+            "fabric-force-sync": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object-source": {"v_range": [["8.0.0", ""]], "choices": ["member", "local", "root"], "type": "str"},
+            "uuid": {"v_range": [["8.0.0", ""]], "type": "str"}
         }
     },
     "firewall_ippool6": {
@@ -10813,7 +11264,11 @@ SCHEMA_DATA = '''
                     "nat46": {"v_range": [["7.0.1", ""]], "choices": ["disable", "enable"], "type": "str"},
                     "external-prefix": {"v_range": [["7.6.0", ""]], "type": "str"},
                     "internal-prefix": {"v_range": [["7.6.0", ""]], "type": "str"},
-                    "type": {"v_range": [["7.6.0", ""]], "choices": ["overload", "nptv6"], "type": "str"}
+                    "type": {"v_range": [["7.6.0", ""]], "choices": ["overload", "nptv6"], "type": "str"},
+                    "fabric-force-sync": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+                    "fabric-object": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+                    "fabric-object-source": {"v_range": [["8.0.0", ""]], "choices": ["member", "local", "root"], "type": "str"},
+                    "uuid": {"v_range": [["8.0.0", ""]], "type": "str"}
                 },
                 "elements": "dict"
             },
@@ -10824,7 +11279,11 @@ SCHEMA_DATA = '''
             "nat46": {"v_range": [["7.0.1", ""]], "choices": ["disable", "enable"], "type": "str"},
             "external-prefix": {"v_range": [["7.6.0", ""]], "type": "str"},
             "internal-prefix": {"v_range": [["7.6.0", ""]], "type": "str"},
-            "type": {"v_range": [["7.6.0", ""]], "choices": ["overload", "nptv6"], "type": "str"}
+            "type": {"v_range": [["7.6.0", ""]], "choices": ["overload", "nptv6"], "type": "str"},
+            "fabric-force-sync": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object-source": {"v_range": [["8.0.0", ""]], "choices": ["member", "local", "root"], "type": "str"},
+            "uuid": {"v_range": [["8.0.0", ""]], "type": "str"}
         }
     },
     "firewall_ippool6_dynamicmapping": {
@@ -10838,7 +11297,11 @@ SCHEMA_DATA = '''
             "nat46": {"v_range": [["7.0.1", ""]], "choices": ["disable", "enable"], "type": "str"},
             "external-prefix": {"v_range": [["7.6.0", ""]], "type": "str"},
             "internal-prefix": {"v_range": [["7.6.0", ""]], "type": "str"},
-            "type": {"v_range": [["7.6.0", ""]], "choices": ["overload", "nptv6"], "type": "str"}
+            "type": {"v_range": [["7.6.0", ""]], "choices": ["overload", "nptv6"], "type": "str"},
+            "fabric-force-sync": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object-source": {"v_range": [["8.0.0", ""]], "choices": ["member", "local", "root"], "type": "str"},
+            "uuid": {"v_range": [["8.0.0", ""]], "type": "str"}
         }
     },
     "firewall_ippool_dynamicmapping": {
@@ -10882,7 +11345,11 @@ SCHEMA_DATA = '''
             "privileged-port-use-pba": {"v_range": [["7.6.0", ""]], "choices": ["disable", "enable"], "type": "str"},
             "source-prefix6": {"v_range": [["7.6.0", ""]], "type": "str"},
             "tcp-session-quota": {"v_range": [["7.6.0", ""]], "type": "int"},
-            "udp-session-quota": {"v_range": [["7.6.0", ""]], "type": "int"}
+            "udp-session-quota": {"v_range": [["7.6.0", ""]], "type": "int"},
+            "fabric-force-sync": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object-source": {"v_range": [["8.0.0", ""]], "choices": ["member", "local", "root"], "type": "str"},
+            "uuid": {"v_range": [["8.0.0", ""]], "type": "str"}
         }
     },
     "firewall_ippoolgrp": {
@@ -11307,7 +11774,9 @@ SCHEMA_DATA = '''
             "tagging": {"type": "list", "options": {"category": {"type": "str"}, "name": {"type": "str"}, "tags": {"type": "raw"}}, "elements": "dict"},
             "type": {"choices": ["multicastrange", "broadcastmask"], "type": "str"},
             "visibility": {"v_range": [["6.0.0", "7.6.2"]], "choices": ["disable", "enable"], "type": "str"},
-            "tags": {"v_range": [["6.2.0", "6.4.15"]], "type": "str"}
+            "tags": {"v_range": [["6.2.0", "6.4.15"]], "type": "str"},
+            "custom-tags": {"v_range": [["8.0.0", ""]], "type": "raw"},
+            "display-with": {"v_range": [["8.0.0", ""]], "choices": ["all-tags", "first-tag-only", "icon-and-color"], "type": "str"}
         }
     },
     "firewall_multicastaddress6": {
@@ -11319,7 +11788,9 @@ SCHEMA_DATA = '''
             "name": {"required": true, "type": "str"},
             "tagging": {"type": "list", "options": {"category": {"type": "str"}, "name": {"type": "str"}, "tags": {"type": "raw"}}, "elements": "dict"},
             "visibility": {"v_range": [["6.0.0", "7.6.2"]], "choices": ["disable", "enable"], "type": "str"},
-            "tags": {"v_range": [["6.2.0", "6.4.15"]], "type": "str"}
+            "tags": {"v_range": [["6.2.0", "6.4.15"]], "type": "str"},
+            "custom-tags": {"v_range": [["8.0.0", ""]], "type": "raw"},
+            "display-with": {"v_range": [["8.0.0", ""]], "choices": ["all-tags", "first-tag-only", "icon-and-color"], "type": "str"}
         }
     },
     "firewall_multicastaddress6_tagging": {
@@ -11337,7 +11808,11 @@ SCHEMA_DATA = '''
             "filter": {"v_range": [["7.2.2", ""]], "type": "str"},
             "id": {"v_range": [["7.2.2", ""]], "required": true, "type": "int"},
             "name": {"v_range": [["7.2.2", ""]], "type": "str"},
-            "sdn": {"v_range": [["7.2.2", ""]], "type": "str"}
+            "sdn": {"v_range": [["7.2.2", ""]], "type": "str"},
+            "fabric-force-sync": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object-source": {"v_range": [["8.0.0", ""]], "choices": ["member", "local", "root"], "type": "str"},
+            "uuid": {"v_range": [["8.0.0", ""]], "type": "str"}
         }
     },
     "firewall_pfcp": {
@@ -11369,13 +11844,13 @@ SCHEMA_DATA = '''
             "mms-profile": {"v_range": [["6.0.0", "7.6.2"]], "type": "str"},
             "name": {"required": true, "type": "str"},
             "profile-protocol-options": {"type": "str"},
-            "spamfilter-profile": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "type": "str"},
+            "spamfilter-profile": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "type": "str"},
             "ssh-filter-profile": {"type": "str"},
             "ssl-ssh-profile": {"type": "str"},
             "voip-profile": {"type": "str"},
             "waf-profile": {"type": "str"},
             "webfilter-profile": {"type": "str"},
-            "cifs-profile": {"v_range": [["6.2.0", ""]], "type": "str"},
+            "cifs-profile": {"v_range": [["6.2.0", "7.6.7"]], "type": "str"},
             "emailfilter-profile": {"v_range": [["6.2.0", ""]], "type": "str"},
             "casi-profile": {"v_range": [["6.2.0", "6.2.13"]], "type": "str"},
             "file-filter-profile": {"v_range": [["6.4.1", ""]], "type": "str"},
@@ -11387,10 +11862,14 @@ SCHEMA_DATA = '''
             "virtual-patch-profile": {"v_range": [["7.4.1", ""]], "type": "str"},
             "diameter-filter-profile": {"v_range": [["7.4.2", ""]], "type": "str"},
             "telemetry-profile": {"v_range": [["7.6.3", ""]], "type": "raw"},
-            "ia-profile": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "raw"},
-            "isolator-profile": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "raw"},
-            "redirect-profile": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "raw"},
-            "llm-profile": {"v_range": [["7.6.5", ""]], "type": "raw"}
+            "ia-profile": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "raw"},
+            "isolator-profile": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "raw"},
+            "redirect-profile": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "raw"},
+            "llm-profile": {"v_range": [["7.6.5", ""]], "type": "raw"},
+            "fabric-force-sync": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object-source": {"v_range": [["8.0.0", ""]], "choices": ["member", "local", "root"], "type": "str"},
+            "uuid": {"v_range": [["8.0.0", ""]], "type": "str"}
         }
     },
     "firewall_profileprotocoloptions": {
@@ -11402,31 +11881,31 @@ SCHEMA_DATA = '''
             "replacemsg-group": {"type": "str"},
             "rpc-over-http": {"choices": ["disable", "enable"], "type": "str"},
             "switching-protocols-log": {"choices": ["disable", "enable"], "type": "str"},
-            "feature-set": {"v_range": [["6.4.0", ""]], "choices": ["proxy", "flow"], "type": "str"},
+            "feature-set": {"v_range": [["6.4.0", "7.6.7"]], "choices": ["proxy", "flow"], "type": "str"},
             "cifs": {
                 "v_range": [["6.2.8", "6.2.13"], ["6.4.5", ""]],
                 "type": "dict",
                 "options": {
                     "domain-controller": {"v_range": [["6.4.5", ""]], "type": "str"},
                     "file-filter": {
-                        "v_range": [["6.4.5", ""]],
+                        "v_range": [["6.4.5", "7.6.7"]],
                         "type": "dict",
                         "options": {
                             "entries": {
-                                "v_range": [["6.4.5", ""]],
+                                "v_range": [["6.4.5", "7.6.7"]],
                                 "type": "list",
                                 "options": {
-                                    "action": {"v_range": [["6.4.5", ""]], "choices": ["log", "block"], "type": "str"},
-                                    "comment": {"v_range": [["6.4.5", ""]], "type": "str"},
-                                    "direction": {"v_range": [["6.4.5", ""]], "choices": ["any", "incoming", "outgoing"], "type": "str"},
-                                    "file-type": {"v_range": [["6.4.5", ""]], "type": "raw"},
-                                    "filter": {"v_range": [["6.4.5", ""]], "type": "str"},
-                                    "protocol": {"v_range": [["6.4.5", ""]], "type": "list", "choices": ["cifs"], "elements": "str"}
+                                    "action": {"v_range": [["6.4.5", "7.6.7"]], "choices": ["log", "block"], "type": "str"},
+                                    "comment": {"v_range": [["6.4.5", "7.6.7"]], "type": "str"},
+                                    "direction": {"v_range": [["6.4.5", "7.6.7"]], "choices": ["any", "incoming", "outgoing"], "type": "str"},
+                                    "file-type": {"v_range": [["6.4.5", "7.6.7"]], "type": "raw"},
+                                    "filter": {"v_range": [["6.4.5", "7.6.7"]], "type": "str"},
+                                    "protocol": {"v_range": [["6.4.5", "7.6.7"]], "type": "list", "choices": ["cifs"], "elements": "str"}
                                 },
                                 "elements": "dict"
                             },
-                            "log": {"v_range": [["6.4.5", ""]], "choices": ["disable", "enable"], "type": "str"},
-                            "status": {"v_range": [["6.4.5", ""]], "choices": ["disable", "enable"], "type": "str"}
+                            "log": {"v_range": [["6.4.5", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
+                            "status": {"v_range": [["6.4.5", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"}
                         }
                     },
                     "options": {"v_range": [["6.4.5", ""]], "type": "list", "choices": ["oversize"], "elements": "str"},
@@ -11501,8 +11980,8 @@ SCHEMA_DATA = '''
                     "block-page-status-code": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", ""]], "type": "int"},
                     "comfort-amount": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", ""]], "type": "int"},
                     "comfort-interval": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", ""]], "type": "int"},
-                    "fortinet-bar": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", ""]], "choices": ["disable", "enable"], "type": "str"},
-                    "fortinet-bar-port": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", ""]], "type": "int"},
+                    "fortinet-bar": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
+                    "fortinet-bar-port": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.6.7"]], "type": "int"},
                     "inspect-all": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", ""]], "choices": ["disable", "enable"], "type": "str"},
                     "options": {
                         "v_range": [["6.2.8", "6.2.13"], ["6.4.5", ""]],
@@ -11554,9 +12033,19 @@ SCHEMA_DATA = '''
                         "type": "str"
                     },
                     "http-0.9": {"v_range": [["7.6.2", ""]], "choices": ["block", "allow"], "type": "str"},
-                    "dns-protection": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
-                    "encrypted-file": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "choices": ["block", "pass", "inspect"], "type": "str"},
-                    "encrypted-file-log": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"}
+                    "dns-protection": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
+                    "encrypted-file": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "choices": ["block", "pass", "inspect"], "type": "str"},
+                    "encrypted-file-log": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
+                    "streaming-content-scan-type": {
+                        "v_range": [["7.6.7", ""]],
+                        "type": "list",
+                        "choices": [
+                            "flv", "octet", "dvi", "rtmp", "mms-framed", "msmediaview", "pncmd", "rtsp-tunnel", "audio", "audio-accp", "audio-mpeg",
+                            "pn-realaudio", "pn-realaudio-plugin", "mixed", "x-mixed", "event-stream", "video", "video-mp4", "video-mpeg", "video-xflv",
+                            "video-xasf"
+                        ],
+                        "elements": "str"
+                    }
                 }
             },
             "imap": {
@@ -11578,7 +12067,7 @@ SCHEMA_DATA = '''
                     "status": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", ""]], "choices": ["disable", "enable"], "type": "str"},
                     "uncompressed-nest-limit": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", ""]], "type": "int"},
                     "uncompressed-oversize-limit": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", ""]], "type": "int"},
-                    "address-ip-rating": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"}
+                    "address-ip-rating": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"}
                 }
             },
             "mail-signature": {
@@ -11692,27 +12181,51 @@ SCHEMA_DATA = '''
                     "tcp-window-minimum": {"v_range": [["7.0.0", ""]], "type": "int"},
                     "tcp-window-size": {"v_range": [["7.0.0", ""]], "type": "int"},
                     "tcp-window-type": {"v_range": [["7.0.0", ""]], "choices": ["system", "static", "dynamic", "auto-tuning"], "type": "str"},
-                    "explicit-ftp-tls": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"}
+                    "explicit-ftp-tls": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"}
                 }
             },
             "proxy-redirect": {
-                "v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]],
+                "v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]],
                 "type": "dict",
                 "options": {
-                    "ports": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "raw"},
-                    "status": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"}
+                    "ports": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "raw"},
+                    "status": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"}
                 }
             },
             "rtmp": {
-                "v_range": [["7.4.8", "7.4.10"]],
+                "v_range": [["7.4.8", "7.4.11"]],
                 "type": "dict",
                 "options": {
-                    "http-tunnel": {"v_range": [["7.4.8", "7.4.10"]], "choices": ["disable", "enable"], "type": "str"},
-                    "ports": {"v_range": [["7.4.8", "7.4.10"]], "type": "raw"},
-                    "rtmpt": {"v_range": [["7.4.8", "7.4.10"]], "choices": ["disable", "enable"], "type": "str"},
-                    "status": {"v_range": [["7.4.8", "7.4.10"]], "choices": ["disable", "enable"], "type": "str"}
+                    "http-tunnel": {"v_range": [["7.4.8", "7.4.11"]], "choices": ["disable", "enable"], "type": "str"},
+                    "ports": {"v_range": [["7.4.8", "7.4.11"]], "type": "raw"},
+                    "rtmpt": {"v_range": [["7.4.8", "7.4.11"]], "choices": ["disable", "enable"], "type": "str"},
+                    "status": {"v_range": [["7.4.8", "7.4.11"]], "choices": ["disable", "enable"], "type": "str"}
                 }
-            }
+            },
+            "websocket": {
+                "v_range": [["7.6.7", ""]],
+                "type": "dict",
+                "options": {
+                    "comfort-amount": {"v_range": [["7.6.7", ""]], "type": "int"},
+                    "comfort-interval": {"v_range": [["7.6.7", ""]], "type": "int"},
+                    "options": {"v_range": [["7.6.7", ""]], "type": "list", "choices": ["oversize", "clientcomfort", "servercomfort"], "elements": "str"},
+                    "oversize-limit": {"v_range": [["7.6.7", ""]], "type": "int"},
+                    "scan-bzip2": {"v_range": [["7.6.7", ""]], "choices": ["disable", "enable"], "type": "str"},
+                    "status": {"v_range": [["7.6.7", ""]], "choices": ["disable", "enable"], "type": "str"},
+                    "stream-based-uncompressed-limit": {"v_range": [["7.6.7", ""]], "type": "int"},
+                    "tcp-window-maximum": {"v_range": [["7.6.7", ""]], "type": "int"},
+                    "tcp-window-minimum": {"v_range": [["7.6.7", ""]], "type": "int"},
+                    "tcp-window-size": {"v_range": [["7.6.7", ""]], "type": "int"},
+                    "tcp-window-type": {"v_range": [["7.6.7", ""]], "choices": ["system", "static", "dynamic", "auto-tuning"], "type": "str"},
+                    "tunnel-non-websocket": {"v_range": [["7.6.7", ""]], "choices": ["disable", "enable"], "type": "str"},
+                    "uncompressed-nest-limit": {"v_range": [["7.6.7", ""]], "type": "int"},
+                    "uncompressed-oversize-limit": {"v_range": [["7.6.7", ""]], "type": "int"}
+                }
+            },
+            "fabric-force-sync": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object-source": {"v_range": [["8.0.0", ""]], "choices": ["member", "local", "root"], "type": "str"},
+            "uuid": {"v_range": [["8.0.0", ""]], "type": "str"}
         }
     },
     "firewall_profileprotocoloptions_cifs": {
@@ -11731,24 +12244,24 @@ SCHEMA_DATA = '''
             "uncompressed-oversize-limit": {"v_range": [["6.4.0", ""]], "type": "int"},
             "domain-controller": {"v_range": [["6.4.2", ""]], "type": "str"},
             "file-filter": {
-                "v_range": [["6.4.2", ""]],
+                "v_range": [["6.4.2", "7.6.7"]],
                 "type": "dict",
                 "options": {
                     "entries": {
-                        "v_range": [["6.4.2", ""]],
+                        "v_range": [["6.4.2", "7.6.7"]],
                         "type": "list",
                         "options": {
-                            "action": {"v_range": [["6.4.2", ""]], "choices": ["log", "block"], "type": "str"},
-                            "comment": {"v_range": [["6.4.2", ""]], "type": "str"},
-                            "direction": {"v_range": [["6.4.2", ""]], "choices": ["any", "incoming", "outgoing"], "type": "str"},
-                            "file-type": {"v_range": [["6.4.2", ""]], "type": "raw"},
-                            "filter": {"v_range": [["6.4.2", ""]], "type": "str"},
-                            "protocol": {"v_range": [["6.4.2", ""]], "type": "list", "choices": ["cifs"], "elements": "str"}
+                            "action": {"v_range": [["6.4.2", "7.6.7"]], "choices": ["log", "block"], "type": "str"},
+                            "comment": {"v_range": [["6.4.2", "7.6.7"]], "type": "str"},
+                            "direction": {"v_range": [["6.4.2", "7.6.7"]], "choices": ["any", "incoming", "outgoing"], "type": "str"},
+                            "file-type": {"v_range": [["6.4.2", "7.6.7"]], "type": "raw"},
+                            "filter": {"v_range": [["6.4.2", "7.6.7"]], "type": "str"},
+                            "protocol": {"v_range": [["6.4.2", "7.6.7"]], "type": "list", "choices": ["cifs"], "elements": "str"}
                         },
                         "elements": "dict"
                     },
-                    "log": {"v_range": [["6.4.2", ""]], "choices": ["disable", "enable"], "type": "str"},
-                    "status": {"v_range": [["6.4.2", ""]], "choices": ["disable", "enable"], "type": "str"}
+                    "log": {"v_range": [["6.4.2", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
+                    "status": {"v_range": [["6.4.2", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"}
                 }
             },
             "server-credential-type": {"v_range": [["6.4.2", ""]], "choices": ["none", "credential-replication", "credential-keytab"], "type": "str"},
@@ -11769,31 +12282,31 @@ SCHEMA_DATA = '''
         "stated": false,
         "options": {
             "entries": {
-                "v_range": [["6.4.2", ""]],
+                "v_range": [["6.4.2", "7.6.7"]],
                 "type": "list",
                 "options": {
-                    "action": {"v_range": [["6.4.2", ""]], "choices": ["log", "block"], "type": "str"},
-                    "comment": {"v_range": [["6.4.2", ""]], "type": "str"},
-                    "direction": {"v_range": [["6.4.2", ""]], "choices": ["any", "incoming", "outgoing"], "type": "str"},
-                    "file-type": {"v_range": [["6.4.2", ""]], "type": "raw"},
-                    "filter": {"v_range": [["6.4.2", ""]], "type": "str"},
-                    "protocol": {"v_range": [["6.4.2", ""]], "type": "list", "choices": ["cifs"], "elements": "str"}
+                    "action": {"v_range": [["6.4.2", "7.6.7"]], "choices": ["log", "block"], "type": "str"},
+                    "comment": {"v_range": [["6.4.2", "7.6.7"]], "type": "str"},
+                    "direction": {"v_range": [["6.4.2", "7.6.7"]], "choices": ["any", "incoming", "outgoing"], "type": "str"},
+                    "file-type": {"v_range": [["6.4.2", "7.6.7"]], "type": "raw"},
+                    "filter": {"v_range": [["6.4.2", "7.6.7"]], "type": "str"},
+                    "protocol": {"v_range": [["6.4.2", "7.6.7"]], "type": "list", "choices": ["cifs"], "elements": "str"}
                 },
                 "elements": "dict"
             },
-            "log": {"v_range": [["6.4.2", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "status": {"v_range": [["6.4.2", ""]], "choices": ["disable", "enable"], "type": "str"}
+            "log": {"v_range": [["6.4.2", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
+            "status": {"v_range": [["6.4.2", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"}
         }
     },
     "firewall_profileprotocoloptions_cifs_filefilter_entries": {
         "stated": true,
         "options": {
-            "action": {"v_range": [["6.4.2", ""]], "choices": ["log", "block"], "type": "str"},
-            "comment": {"v_range": [["6.4.2", ""]], "type": "str"},
-            "direction": {"v_range": [["6.4.2", ""]], "choices": ["any", "incoming", "outgoing"], "type": "str"},
-            "file-type": {"v_range": [["6.4.2", ""]], "type": "raw"},
-            "filter": {"v_range": [["6.4.2", ""]], "type": "str"},
-            "protocol": {"v_range": [["6.4.2", ""]], "type": "list", "choices": ["cifs"], "elements": "str"}
+            "action": {"v_range": [["6.4.2", "7.6.7"]], "choices": ["log", "block"], "type": "str"},
+            "comment": {"v_range": [["6.4.2", "7.6.7"]], "type": "str"},
+            "direction": {"v_range": [["6.4.2", "7.6.7"]], "choices": ["any", "incoming", "outgoing"], "type": "str"},
+            "file-type": {"v_range": [["6.4.2", "7.6.7"]], "type": "raw"},
+            "filter": {"v_range": [["6.4.2", "7.6.7"]], "type": "str"},
+            "protocol": {"v_range": [["6.4.2", "7.6.7"]], "type": "list", "choices": ["cifs"], "elements": "str"}
         }
     },
     "firewall_profileprotocoloptions_cifs_serverkeytab": {
@@ -11840,8 +12353,8 @@ SCHEMA_DATA = '''
             "block-page-status-code": {"type": "int"},
             "comfort-amount": {"type": "int"},
             "comfort-interval": {"type": "int"},
-            "fortinet-bar": {"choices": ["disable", "enable"], "type": "str"},
-            "fortinet-bar-port": {"type": "int"},
+            "fortinet-bar": {"v_range": [["6.0.0", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
+            "fortinet-bar-port": {"v_range": [["6.0.0", "7.6.7"]], "type": "int"},
             "http-policy": {"v_range": [["6.0.0", "7.2.1"]], "choices": ["disable", "enable"], "type": "str"},
             "inspect-all": {"choices": ["disable", "enable"], "type": "str"},
             "options": {
@@ -11883,9 +12396,19 @@ SCHEMA_DATA = '''
             "unknown-content-encoding": {"v_range": [["7.2.2", ""]], "choices": ["block", "inspect", "bypass"], "type": "str"},
             "domain-fronting": {"v_range": [["7.4.8", ""]], "choices": ["block", "monitor", "allow", "disable", "enable", "strict"], "type": "str"},
             "http-0.9": {"v_range": [["7.6.2", ""]], "choices": ["block", "allow"], "type": "str"},
-            "dns-protection": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "encrypted-file": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "choices": ["block", "pass", "inspect"], "type": "str"},
-            "encrypted-file-log": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"}
+            "dns-protection": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "encrypted-file": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "choices": ["block", "pass", "inspect"], "type": "str"},
+            "encrypted-file-log": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "streaming-content-scan-type": {
+                "v_range": [["7.6.7", ""]],
+                "type": "list",
+                "choices": [
+                    "flv", "octet", "dvi", "rtmp", "mms-framed", "msmediaview", "pncmd", "rtsp-tunnel", "audio", "audio-accp", "audio-mpeg",
+                    "pn-realaudio", "pn-realaudio-plugin", "mixed", "x-mixed", "event-stream", "video", "video-mp4", "video-mpeg", "video-xflv",
+                    "video-xasf"
+                ],
+                "elements": "str"
+            }
         }
     },
     "firewall_profileprotocoloptions_imap": {
@@ -11901,7 +12424,7 @@ SCHEMA_DATA = '''
             "uncompressed-oversize-limit": {"type": "int"},
             "ssl-offloaded": {"v_range": [["6.2.2", ""]], "choices": ["no", "yes"], "type": "str"},
             "proxy-after-tcp-handshake": {"v_range": [["6.4.0", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "address-ip-rating": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"}
+            "address-ip-rating": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"}
         }
     },
     "firewall_profileprotocoloptions_mailsignature": {
@@ -11952,17 +12475,17 @@ SCHEMA_DATA = '''
     "firewall_profileprotocoloptions_proxyredirect": {
         "stated": false,
         "options": {
-            "ports": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "list", "elements": "int"},
-            "status": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"}
+            "ports": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "list", "elements": "int"},
+            "status": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"}
         }
     },
     "firewall_profileprotocoloptions_rtmp": {
         "stated": false,
         "options": {
-            "http-tunnel": {"v_range": [["7.4.8", "7.4.10"]], "choices": ["disable", "enable"], "type": "str"},
-            "ports": {"v_range": [["7.4.8", "7.4.10"]], "type": "list", "elements": "int"},
-            "rtmpt": {"v_range": [["7.4.8", "7.4.10"]], "choices": ["disable", "enable"], "type": "str"},
-            "status": {"v_range": [["7.4.8", "7.4.10"]], "choices": ["disable", "enable"], "type": "str"}
+            "http-tunnel": {"v_range": [["7.4.8", "7.4.11"]], "choices": ["disable", "enable"], "type": "str"},
+            "ports": {"v_range": [["7.4.8", "7.4.11"]], "type": "list", "elements": "int"},
+            "rtmpt": {"v_range": [["7.4.8", "7.4.11"]], "choices": ["disable", "enable"], "type": "str"},
+            "status": {"v_range": [["7.4.8", "7.4.11"]], "choices": ["disable", "enable"], "type": "str"}
         }
     },
     "firewall_profileprotocoloptions_smtp": {
@@ -11997,7 +12520,26 @@ SCHEMA_DATA = '''
             "tcp-window-minimum": {"v_range": [["7.0.0", ""]], "type": "int"},
             "tcp-window-size": {"v_range": [["7.0.0", ""]], "type": "int"},
             "tcp-window-type": {"v_range": [["7.0.0", ""]], "choices": ["system", "static", "dynamic", "auto-tuning"], "type": "str"},
-            "explicit-ftp-tls": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"}
+            "explicit-ftp-tls": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"}
+        }
+    },
+    "firewall_profileprotocoloptions_websocket": {
+        "stated": false,
+        "options": {
+            "comfort-amount": {"v_range": [["7.6.7", ""]], "type": "int"},
+            "comfort-interval": {"v_range": [["7.6.7", ""]], "type": "int"},
+            "options": {"v_range": [["7.6.7", ""]], "type": "list", "choices": ["oversize", "clientcomfort", "servercomfort"], "elements": "str"},
+            "oversize-limit": {"v_range": [["7.6.7", ""]], "type": "int"},
+            "scan-bzip2": {"v_range": [["7.6.7", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "status": {"v_range": [["7.6.7", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "stream-based-uncompressed-limit": {"v_range": [["7.6.7", ""]], "type": "int"},
+            "tcp-window-maximum": {"v_range": [["7.6.7", ""]], "type": "int"},
+            "tcp-window-minimum": {"v_range": [["7.6.7", ""]], "type": "int"},
+            "tcp-window-size": {"v_range": [["7.6.7", ""]], "type": "int"},
+            "tcp-window-type": {"v_range": [["7.6.7", ""]], "choices": ["system", "static", "dynamic", "auto-tuning"], "type": "str"},
+            "tunnel-non-websocket": {"v_range": [["7.6.7", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "uncompressed-nest-limit": {"v_range": [["7.6.7", ""]], "type": "int"},
+            "uncompressed-oversize-limit": {"v_range": [["7.6.7", ""]], "type": "int"}
         }
     },
     "firewall_proxyaddress": {
@@ -12023,7 +12565,7 @@ SCHEMA_DATA = '''
             "host-regex": {"type": "str"},
             "method": {
                 "type": "list",
-                "choices": ["delete", "get", "head", "options", "post", "put", "trace", "connect", "other", "patch", "update"],
+                "choices": ["delete", "get", "head", "options", "post", "put", "trace", "connect", "other", "patch", "update", "query"],
                 "elements": "str"
             },
             "name": {"required": true, "type": "str"},
@@ -12041,14 +12583,16 @@ SCHEMA_DATA = '''
             "ua": {"type": "list", "choices": ["chrome", "ms", "firefox", "safari", "other", "ie", "edge"], "elements": "str"},
             "uuid": {"type": "str"},
             "visibility": {"v_range": [["6.0.0", "7.6.2"]], "choices": ["disable", "enable"], "type": "str"},
-            "tags": {"v_range": [["6.2.0", "6.4.15"], ["7.4.8", "7.4.10"]], "type": "str"},
+            "tags": {"v_range": [["6.2.0", "6.4.15"], ["7.4.8", "7.4.11"]], "type": "str"},
             "_image-base64": {"v_range": [["6.2.2", ""]], "type": "str"},
             "application": {"v_range": [["7.2.1", ""]], "type": "raw"},
             "ua-max-ver": {"v_range": [["7.2.2", ""]], "type": "str"},
             "ua-min-ver": {"v_range": [["7.2.2", ""]], "type": "str"},
-            "post-arg": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "url-list": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "raw"},
-            "llm-servers": {"v_range": [["7.6.5", ""]], "type": "raw"}
+            "post-arg": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "url-list": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "raw"},
+            "llm-servers": {"v_range": [["7.6.5", ""]], "type": "raw"},
+            "custom-tags": {"v_range": [["8.0.0", ""]], "type": "raw"},
+            "display-with": {"v_range": [["8.0.0", ""]], "choices": ["all-tags", "first-tag-only", "icon-and-color"], "type": "str"}
         }
     },
     "firewall_proxyaddress6": {
@@ -12077,7 +12621,7 @@ SCHEMA_DATA = '''
             "method": {
                 "v_range": [["7.6.4", ""]],
                 "type": "list",
-                "choices": ["delete", "get", "head", "options", "post", "put", "trace", "connect"],
+                "choices": ["delete", "get", "head", "options", "post", "put", "trace", "connect", "patch", "query", "other", "update"],
                 "elements": "str"
             },
             "name": {"v_range": [["7.6.4", ""]], "required": true, "type": "str"},
@@ -12108,7 +12652,9 @@ SCHEMA_DATA = '''
             "ua-min-ver": {"v_range": [["7.6.4", ""]], "type": "str"},
             "url-list": {"v_range": [["7.6.4", ""]], "type": "list", "elements": "str"},
             "uuid": {"v_range": [["7.6.4", ""]], "type": "str"},
-            "llm-servers": {"v_range": [["7.6.5", ""]], "type": "list", "elements": "str"}
+            "llm-servers": {"v_range": [["7.6.5", ""]], "type": "list", "elements": "str"},
+            "custom-tags": {"v_range": [["8.0.0", ""]], "type": "list", "elements": "str"},
+            "display-with": {"v_range": [["8.0.0", ""]], "choices": ["all-tags", "first-tag-only", "icon-and-color"], "type": "str"}
         }
     },
     "firewall_proxyaddress6_headergroup": {
@@ -12152,9 +12698,11 @@ SCHEMA_DATA = '''
             "type": {"choices": ["src", "dst"], "type": "str"},
             "uuid": {"type": "str"},
             "visibility": {"v_range": [["6.0.0", "7.6.2"]], "choices": ["disable", "enable"], "type": "str"},
-            "tags": {"v_range": [["6.2.0", "6.4.15"], ["7.4.8", "7.4.10"]], "type": "str"},
+            "tags": {"v_range": [["6.2.0", "6.4.15"], ["7.4.8", "7.4.11"]], "type": "str"},
             "_image-base64": {"v_range": [["6.2.2", ""]], "type": "str"},
-            "logic-type": {"v_range": [["7.4.9", "7.4.10"], ["7.6.5", ""]], "choices": ["or", "and"], "type": "str"}
+            "logic-type": {"v_range": [["7.4.9", "7.4.11"], ["7.6.5", ""]], "choices": ["or", "and"], "type": "str"},
+            "custom-tags": {"v_range": [["8.0.0", ""]], "type": "raw"},
+            "display-with": {"v_range": [["8.0.0", ""]], "choices": ["all-tags", "first-tag-only", "icon-and-color"], "type": "str"}
         }
     },
     "firewall_proxyaddrgrp6": {
@@ -12176,7 +12724,9 @@ SCHEMA_DATA = '''
             },
             "type": {"v_range": [["7.6.4", ""]], "choices": ["src", "dst"], "type": "str"},
             "uuid": {"v_range": [["7.6.4", ""]], "type": "str"},
-            "logic-type": {"v_range": [["7.6.5", ""]], "choices": ["or", "and"], "type": "str"}
+            "logic-type": {"v_range": [["7.6.5", ""]], "choices": ["or", "and"], "type": "str"},
+            "custom-tags": {"v_range": [["8.0.0", ""]], "type": "list", "elements": "str"},
+            "display-with": {"v_range": [["8.0.0", ""]], "choices": ["all-tags", "first-tag-only", "icon-and-color"], "type": "str"}
         }
     },
     "firewall_proxyaddrgrp6_tagging": {
@@ -12197,9 +12747,11 @@ SCHEMA_DATA = '''
             "color": {"type": "int"},
             "member": {"type": "raw"},
             "name": {"required": true, "type": "str"},
-            "global-object": {"v_range": [["6.4.0", ""]], "type": "int"},
+            "global-object": {"v_range": [["6.4.0", "7.6.7"]], "type": "int"},
             "fabric-object": {"v_range": [["6.4.4", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "uuid": {"v_range": [["7.6.0", ""]], "type": "str"}
+            "uuid": {"v_range": [["7.6.0", ""]], "type": "str"},
+            "fabric-force-sync": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object-source": {"v_range": [["8.0.0", ""]], "choices": ["member", "local", "root"], "type": "str"}
         }
     },
     "firewall_schedule_onetime": {
@@ -12210,11 +12762,13 @@ SCHEMA_DATA = '''
             "expiration-days": {"type": "int"},
             "name": {"required": true, "type": "str"},
             "start": {"type": "str"},
-            "global-object": {"v_range": [["6.4.0", ""]], "type": "int"},
+            "global-object": {"v_range": [["6.4.0", "7.6.7"]], "type": "int"},
             "fabric-object": {"v_range": [["6.4.4", ""]], "choices": ["disable", "enable"], "type": "str"},
             "end-utc": {"v_range": [["7.2.2", ""]], "type": "str"},
             "start-utc": {"v_range": [["7.2.2", ""]], "type": "str"},
-            "uuid": {"v_range": [["7.6.0", ""]], "type": "str"}
+            "uuid": {"v_range": [["7.6.0", ""]], "type": "str"},
+            "fabric-force-sync": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object-source": {"v_range": [["8.0.0", ""]], "choices": ["member", "local", "root"], "type": "str"}
         }
     },
     "firewall_schedule_recurring": {
@@ -12225,14 +12779,16 @@ SCHEMA_DATA = '''
             "end": {"type": "str"},
             "name": {"required": true, "type": "str"},
             "start": {"type": "str"},
-            "global-object": {"v_range": [["6.4.0", ""]], "type": "int"},
+            "global-object": {"v_range": [["6.4.0", "7.6.7"]], "type": "int"},
             "fabric-object": {"v_range": [["6.4.4", ""]], "choices": ["disable", "enable"], "type": "str"},
             "uuid": {"v_range": [["7.6.0", ""]], "type": "str"},
             "label-day": {
                 "v_range": [["7.6.5", ""]],
                 "choices": ["none", "over-night", "early-morning", "morning", "midday", "afternoon", "evening", "night", "late-night"],
                 "type": "str"
-            }
+            },
+            "fabric-force-sync": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object-source": {"v_range": [["8.0.0", ""]], "choices": ["member", "local", "root"], "type": "str"}
         }
     },
     "firewall_service_category": {
@@ -12240,9 +12796,11 @@ SCHEMA_DATA = '''
         "options": {
             "comment": {"type": "str"},
             "name": {"required": true, "type": "str"},
-            "global-object": {"v_range": [["6.4.0", ""]], "type": "int"},
+            "global-object": {"v_range": [["6.4.0", "7.6.7"]], "type": "int"},
             "fabric-object": {"v_range": [["6.4.4", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "uuid": {"v_range": [["7.6.0", ""]], "type": "str"}
+            "uuid": {"v_range": [["7.6.0", ""]], "type": "str"},
+            "fabric-force-sync": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object-source": {"v_range": [["8.0.0", ""]], "choices": ["member", "local", "root"], "type": "str"}
         }
     },
     "firewall_service_custom": {
@@ -12285,11 +12843,13 @@ SCHEMA_DATA = '''
             "udp-portrange": {"type": "str"},
             "visibility": {"choices": ["disable", "enable"], "type": "str"},
             "explicit-proxy": {"v_range": [["6.2.0", "6.2.13"]], "choices": ["disable", "enable"], "type": "str"},
-            "global-object": {"v_range": [["6.4.0", ""]], "type": "int"},
+            "global-object": {"v_range": [["6.4.0", "7.6.7"]], "type": "int"},
             "fabric-object": {"v_range": [["6.4.4", ""]], "choices": ["disable", "enable"], "type": "str"},
             "tcp-rst-timer": {"v_range": [["7.0.0", ""]], "type": "int"},
             "uuid": {"v_range": [["7.4.2", ""]], "type": "str"},
-            "udplite-portrange": {"v_range": [["7.6.0", ""]], "type": "str"}
+            "udplite-portrange": {"v_range": [["7.6.0", ""]], "type": "str"},
+            "fabric-force-sync": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object-source": {"v_range": [["8.0.0", ""]], "choices": ["member", "local", "root"], "type": "str"}
         }
     },
     "firewall_service_group": {
@@ -12301,9 +12861,11 @@ SCHEMA_DATA = '''
             "name": {"required": true, "type": "str"},
             "proxy": {"choices": ["disable", "enable"], "type": "str"},
             "explicit-proxy": {"v_range": [["6.2.0", "6.2.13"]], "choices": ["disable", "enable"], "type": "str"},
-            "global-object": {"v_range": [["6.4.0", ""]], "type": "int"},
+            "global-object": {"v_range": [["6.4.0", "7.6.7"]], "type": "int"},
             "fabric-object": {"v_range": [["6.4.4", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "uuid": {"v_range": [["7.4.2", ""]], "type": "str"}
+            "uuid": {"v_range": [["7.4.2", ""]], "type": "str"},
+            "fabric-force-sync": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object-source": {"v_range": [["8.0.0", ""]], "choices": ["member", "local", "root"], "type": "str"}
         }
     },
     "firewall_shaper_peripshaper": {
@@ -12318,7 +12880,11 @@ SCHEMA_DATA = '''
             "max-concurrent-session": {"type": "int"},
             "name": {"required": true, "type": "str"},
             "max-concurrent-tcp-session": {"v_range": [["7.0.0", ""]], "type": "int"},
-            "max-concurrent-udp-session": {"v_range": [["7.0.0", ""]], "type": "int"}
+            "max-concurrent-udp-session": {"v_range": [["7.0.0", ""]], "type": "int"},
+            "fabric-force-sync": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object-source": {"v_range": [["8.0.0", ""]], "choices": ["member", "local", "root"], "type": "str"},
+            "uuid": {"v_range": [["8.0.0", ""]], "type": "str"}
         }
     },
     "firewall_shaper_trafficshaper": {
@@ -12342,7 +12908,11 @@ SCHEMA_DATA = '''
             "cos-marking": {"v_range": [["7.4.0", ""]], "choices": ["disable", "enable"], "type": "str"},
             "cos-marking-method": {"v_range": [["7.4.0", ""]], "choices": ["multi-stage", "static"], "type": "str"},
             "exceed-cos": {"v_range": [["7.4.0", ""]], "type": "str"},
-            "maximum-cos": {"v_range": [["7.4.0", ""]], "type": "str"}
+            "maximum-cos": {"v_range": [["7.4.0", ""]], "type": "str"},
+            "fabric-force-sync": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object-source": {"v_range": [["8.0.0", ""]], "choices": ["member", "local", "root"], "type": "str"},
+            "uuid": {"v_range": [["8.0.0", ""]], "type": "str"}
         }
     },
     "firewall_shapingprofile": {
@@ -12371,28 +12941,28 @@ SCHEMA_DATA = '''
             "type": {"v_range": [["6.2.1", ""]], "choices": ["policing", "queuing"], "type": "str"},
             "npu-offloading": {"v_range": [["7.2.6", "7.2.12"], ["7.4.4", ""]], "choices": ["disable", "enable"], "type": "str"},
             "classes": {
-                "v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]],
+                "v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]],
                 "type": "list",
                 "options": {
-                    "class-id": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "int"},
-                    "guaranteed-bandwidth": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "int"},
-                    "maximum-bandwidth": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "int"},
-                    "name": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "str"},
-                    "priority": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "choices": ["top", "critical", "high", "medium", "low"], "type": "str"}
+                    "class-id": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "int"},
+                    "guaranteed-bandwidth": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "int"},
+                    "maximum-bandwidth": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "int"},
+                    "name": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "str"},
+                    "priority": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "choices": ["top", "critical", "high", "medium", "low"], "type": "str"}
                 },
                 "elements": "dict"
             },
-            "default-class": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "int"}
+            "default-class": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "int"}
         }
     },
     "firewall_shapingprofile_classes": {
         "stated": true,
         "options": {
-            "class-id": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "int"},
-            "guaranteed-bandwidth": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "int"},
-            "maximum-bandwidth": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "int"},
-            "name": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "required": true, "type": "str"},
-            "priority": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "choices": ["top", "critical", "high", "medium", "low"], "type": "str"}
+            "class-id": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "int"},
+            "guaranteed-bandwidth": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "int"},
+            "maximum-bandwidth": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "int"},
+            "name": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "required": true, "type": "str"},
+            "priority": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "choices": ["top", "critical", "high", "medium", "low"], "type": "str"}
         }
     },
     "firewall_shapingprofile_shapingentries": {
@@ -12443,7 +13013,7 @@ SCHEMA_DATA = '''
                     "type": {"choices": ["fortiguard-category", "address", "address6", "wildcard-fqdn", "regex", "finger-print"], "type": "str"},
                     "wildcard-fqdn": {"type": "str"},
                     "finger-print-category": {
-                        "v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]],
+                        "v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]],
                         "choices": ["unknown", "firefox", "chrome", "safari", "edge", "ie", "android", "ios", "windows"],
                         "type": "str"
                     }
@@ -12473,8 +13043,8 @@ SCHEMA_DATA = '''
             },
             "untrusted-caname": {"type": "str"},
             "use-ssl-server": {"choices": ["disable", "enable"], "type": "str"},
-            "whitelist": {"choices": ["disable", "enable"], "type": "str"},
-            "block-blacklisted-certificates": {"v_range": [["6.2.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "whitelist": {"v_range": [["6.0.0", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
+            "block-blacklisted-certificates": {"v_range": [["6.2.0", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
             "certname": {"v_range": [["6.2.0", "6.2.13"]], "type": "str"},
             "ssl-invalid-server-cert-log": {"v_range": [["6.2.0", "6.2.13"]], "choices": ["disable", "enable"], "type": "str"},
             "ssl-negotiation-log": {"v_range": [["6.4.0", ""]], "choices": ["disable", "enable"], "type": "str"},
@@ -12501,12 +13071,12 @@ SCHEMA_DATA = '''
                     },
                     "invalid-server-cert": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.6.2"]], "choices": ["allow", "block"], "type": "str"},
                     "allow-invalid-server-cert": {
-                        "v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.2.1"], ["7.4.8", "7.4.10"]],
+                        "v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.2.1"], ["7.4.8", "7.4.11"]],
                         "choices": ["disable", "enable"],
                         "type": "str"
                     },
                     "untrusted-cert": {
-                        "v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.2.1"], ["7.4.8", "7.4.10"]],
+                        "v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.2.1"], ["7.4.8", "7.4.11"]],
                         "choices": ["allow", "block", "ignore"],
                         "type": "str"
                     },
@@ -12546,12 +13116,12 @@ SCHEMA_DATA = '''
                     },
                     "invalid-server-cert": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.6.2"]], "choices": ["allow", "block"], "type": "str"},
                     "allow-invalid-server-cert": {
-                        "v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.2.1"], ["7.4.8", "7.4.10"]],
+                        "v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.2.1"], ["7.4.8", "7.4.11"]],
                         "choices": ["disable", "enable"],
                         "type": "str"
                     },
                     "untrusted-cert": {
-                        "v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.2.1"], ["7.4.8", "7.4.10"]],
+                        "v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.2.1"], ["7.4.8", "7.4.11"]],
                         "choices": ["allow", "block", "ignore"],
                         "type": "str"
                     },
@@ -12591,12 +13161,12 @@ SCHEMA_DATA = '''
                     },
                     "invalid-server-cert": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.6.2"]], "choices": ["allow", "block"], "type": "str"},
                     "allow-invalid-server-cert": {
-                        "v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.2.1"], ["7.4.8", "7.4.10"]],
+                        "v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.2.1"], ["7.4.8", "7.4.11"]],
                         "choices": ["disable", "enable"],
                         "type": "str"
                     },
                     "untrusted-cert": {
-                        "v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.2.1"], ["7.4.8", "7.4.10"]],
+                        "v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.2.1"], ["7.4.8", "7.4.11"]],
                         "choices": ["allow", "block", "ignore"],
                         "type": "str"
                     },
@@ -12632,12 +13202,12 @@ SCHEMA_DATA = '''
                     },
                     "invalid-server-cert": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.6.2"]], "choices": ["allow", "block"], "type": "str"},
                     "allow-invalid-server-cert": {
-                        "v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.2.1"], ["7.4.8", "7.4.10"]],
+                        "v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.2.1"], ["7.4.8", "7.4.11"]],
                         "choices": ["disable", "enable"],
                         "type": "str"
                     },
                     "untrusted-cert": {
-                        "v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.2.1"], ["7.4.8", "7.4.10"]],
+                        "v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.2.1"], ["7.4.8", "7.4.11"]],
                         "choices": ["allow", "block", "ignore"],
                         "type": "str"
                     },
@@ -12673,12 +13243,12 @@ SCHEMA_DATA = '''
                     },
                     "invalid-server-cert": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.6.2"]], "choices": ["allow", "block"], "type": "str"},
                     "allow-invalid-server-cert": {
-                        "v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.2.1"], ["7.4.8", "7.4.10"]],
+                        "v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.2.1"], ["7.4.8", "7.4.11"]],
                         "choices": ["disable", "enable"],
                         "type": "str"
                     },
                     "untrusted-cert": {
-                        "v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.2.1"], ["7.4.8", "7.4.10"]],
+                        "v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.2.1"], ["7.4.8", "7.4.11"]],
                         "choices": ["allow", "block", "ignore"],
                         "type": "str"
                     },
@@ -12742,12 +13312,12 @@ SCHEMA_DATA = '''
                     },
                     "invalid-server-cert": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.6.2"]], "choices": ["allow", "block"], "type": "str"},
                     "allow-invalid-server-cert": {
-                        "v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.2.1"], ["7.4.8", "7.4.10"]],
+                        "v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.2.1"], ["7.4.8", "7.4.11"]],
                         "choices": ["disable", "enable"],
                         "type": "str"
                     },
                     "untrusted-cert": {
-                        "v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.2.1"], ["7.4.8", "7.4.10"]],
+                        "v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.2.1"], ["7.4.8", "7.4.11"]],
                         "choices": ["allow", "block", "ignore"],
                         "type": "str"
                     },
@@ -12801,19 +13371,23 @@ SCHEMA_DATA = '''
                 "elements": "dict"
             },
             "ssl-client-certificate": {
-                "v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]],
+                "v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]],
                 "type": "dict",
                 "options": {
-                    "caname": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "raw"},
-                    "cert": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "raw"},
-                    "keyring-list": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "no_log": true, "type": "raw"},
+                    "caname": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "raw"},
+                    "cert": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "raw"},
+                    "keyring-list": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "no_log": true, "type": "raw"},
                     "status": {
-                        "v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]],
+                        "v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]],
                         "choices": ["do-not-offer", "keyring-list", "ca-sign", "static"],
                         "type": "str"
                     }
                 }
-            }
+            },
+            "fabric-force-sync": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object-source": {"v_range": [["8.0.0", ""]], "choices": ["member", "local", "root"], "type": "str"},
+            "uuid": {"v_range": [["8.0.0", ""]], "type": "str"}
         }
     },
     "firewall_sslsshprofile_dot": {
@@ -12843,12 +13417,12 @@ SCHEMA_DATA = '''
     "firewall_sslsshprofile_ftps": {
         "stated": false,
         "options": {
-            "allow-invalid-server-cert": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "choices": ["disable", "enable"], "type": "str"},
+            "allow-invalid-server-cert": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "choices": ["disable", "enable"], "type": "str"},
             "client-cert-request": {"v_range": [["6.0.0", "7.6.2"]], "choices": ["bypass", "inspect", "block"], "type": "str"},
             "ports": {"type": "raw"},
             "status": {"choices": ["disable", "deep-inspection"], "type": "str"},
             "unsupported-ssl": {"v_range": [["6.0.0", "7.6.2"]], "choices": ["bypass", "inspect", "block"], "type": "str"},
-            "untrusted-cert": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "choices": ["allow", "block", "ignore"], "type": "str"},
+            "untrusted-cert": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "choices": ["allow", "block", "ignore"], "type": "str"},
             "invalid-server-cert": {"v_range": [["6.2.0", "7.6.2"]], "choices": ["allow", "block"], "type": "str"},
             "sni-server-cert-check": {"v_range": [["6.2.0", ""]], "choices": ["disable", "enable", "strict"], "type": "str"},
             "untrusted-server-cert": {"v_range": [["6.2.0", ""]], "choices": ["allow", "block", "ignore"], "type": "str"},
@@ -12866,12 +13440,12 @@ SCHEMA_DATA = '''
     "firewall_sslsshprofile_https": {
         "stated": false,
         "options": {
-            "allow-invalid-server-cert": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "choices": ["disable", "enable"], "type": "str"},
+            "allow-invalid-server-cert": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "choices": ["disable", "enable"], "type": "str"},
             "client-cert-request": {"v_range": [["6.0.0", "7.6.2"]], "choices": ["bypass", "inspect", "block"], "type": "str"},
             "ports": {"type": "raw"},
             "status": {"choices": ["disable", "certificate-inspection", "deep-inspection"], "type": "str"},
             "unsupported-ssl": {"v_range": [["6.0.0", "7.6.2"]], "choices": ["bypass", "inspect", "block"], "type": "str"},
-            "untrusted-cert": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "choices": ["allow", "block", "ignore"], "type": "str"},
+            "untrusted-cert": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "choices": ["allow", "block", "ignore"], "type": "str"},
             "invalid-server-cert": {"v_range": [["6.2.0", "7.6.2"]], "choices": ["allow", "block"], "type": "str"},
             "sni-server-cert-check": {"v_range": [["6.2.0", ""]], "choices": ["disable", "enable", "strict"], "type": "str"},
             "untrusted-server-cert": {"v_range": [["6.2.0", ""]], "choices": ["allow", "block", "ignore"], "type": "str"},
@@ -12894,12 +13468,12 @@ SCHEMA_DATA = '''
     "firewall_sslsshprofile_imaps": {
         "stated": false,
         "options": {
-            "allow-invalid-server-cert": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "choices": ["disable", "enable"], "type": "str"},
+            "allow-invalid-server-cert": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "choices": ["disable", "enable"], "type": "str"},
             "client-cert-request": {"v_range": [["6.0.0", "7.6.2"]], "choices": ["bypass", "inspect", "block"], "type": "str"},
             "ports": {"type": "raw"},
             "status": {"choices": ["disable", "deep-inspection"], "type": "str"},
             "unsupported-ssl": {"v_range": [["6.0.0", "7.6.2"]], "choices": ["bypass", "inspect", "block"], "type": "str"},
-            "untrusted-cert": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "choices": ["allow", "block", "ignore"], "type": "str"},
+            "untrusted-cert": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "choices": ["allow", "block", "ignore"], "type": "str"},
             "invalid-server-cert": {"v_range": [["6.2.0", "7.6.2"]], "choices": ["allow", "block"], "type": "str"},
             "sni-server-cert-check": {"v_range": [["6.2.0", ""]], "choices": ["disable", "enable", "strict"], "type": "str"},
             "untrusted-server-cert": {"v_range": [["6.2.0", ""]], "choices": ["allow", "block", "ignore"], "type": "str"},
@@ -12918,12 +13492,12 @@ SCHEMA_DATA = '''
     "firewall_sslsshprofile_pop3s": {
         "stated": false,
         "options": {
-            "allow-invalid-server-cert": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "choices": ["disable", "enable"], "type": "str"},
+            "allow-invalid-server-cert": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "choices": ["disable", "enable"], "type": "str"},
             "client-cert-request": {"v_range": [["6.0.0", "7.6.2"]], "choices": ["bypass", "inspect", "block"], "type": "str"},
             "ports": {"type": "raw"},
             "status": {"choices": ["disable", "deep-inspection"], "type": "str"},
             "unsupported-ssl": {"v_range": [["6.0.0", "7.6.2"]], "choices": ["bypass", "inspect", "block"], "type": "str"},
-            "untrusted-cert": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "choices": ["allow", "block", "ignore"], "type": "str"},
+            "untrusted-cert": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "choices": ["allow", "block", "ignore"], "type": "str"},
             "invalid-server-cert": {"v_range": [["6.2.0", "7.6.2"]], "choices": ["allow", "block"], "type": "str"},
             "sni-server-cert-check": {"v_range": [["6.2.0", ""]], "choices": ["disable", "enable", "strict"], "type": "str"},
             "untrusted-server-cert": {"v_range": [["6.2.0", ""]], "choices": ["allow", "block", "ignore"], "type": "str"},
@@ -12942,12 +13516,12 @@ SCHEMA_DATA = '''
     "firewall_sslsshprofile_smtps": {
         "stated": false,
         "options": {
-            "allow-invalid-server-cert": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "choices": ["disable", "enable"], "type": "str"},
+            "allow-invalid-server-cert": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "choices": ["disable", "enable"], "type": "str"},
             "client-cert-request": {"v_range": [["6.0.0", "7.6.2"]], "choices": ["bypass", "inspect", "block"], "type": "str"},
             "ports": {"type": "raw"},
             "status": {"choices": ["disable", "deep-inspection"], "type": "str"},
             "unsupported-ssl": {"v_range": [["6.0.0", "7.6.2"]], "choices": ["bypass", "inspect", "block"], "type": "str"},
-            "untrusted-cert": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "choices": ["allow", "block", "ignore"], "type": "str"},
+            "untrusted-cert": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "choices": ["allow", "block", "ignore"], "type": "str"},
             "invalid-server-cert": {"v_range": [["6.2.0", "7.6.2"]], "choices": ["allow", "block"], "type": "str"},
             "sni-server-cert-check": {"v_range": [["6.2.0", ""]], "choices": ["disable", "enable", "strict"], "type": "str"},
             "untrusted-server-cert": {"v_range": [["6.2.0", ""]], "choices": ["allow", "block", "ignore"], "type": "str"},
@@ -12981,11 +13555,11 @@ SCHEMA_DATA = '''
     "firewall_sslsshprofile_ssl": {
         "stated": false,
         "options": {
-            "allow-invalid-server-cert": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "choices": ["disable", "enable"], "type": "str"},
+            "allow-invalid-server-cert": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "choices": ["disable", "enable"], "type": "str"},
             "client-cert-request": {"v_range": [["6.0.0", "7.6.2"]], "choices": ["bypass", "inspect", "block"], "type": "str"},
             "inspect-all": {"choices": ["disable", "certificate-inspection", "deep-inspection"], "type": "str"},
             "unsupported-ssl": {"v_range": [["6.0.0", "7.6.2"]], "choices": ["bypass", "inspect", "block"], "type": "str"},
-            "untrusted-cert": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "choices": ["allow", "block", "ignore"], "type": "str"},
+            "untrusted-cert": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "choices": ["allow", "block", "ignore"], "type": "str"},
             "invalid-server-cert": {"v_range": [["6.2.0", "7.6.2"]], "choices": ["allow", "block"], "type": "str"},
             "sni-server-cert-check": {"v_range": [["6.2.0", ""]], "choices": ["disable", "enable", "strict"], "type": "str"},
             "untrusted-server-cert": {"v_range": [["6.2.0", ""]], "choices": ["allow", "block", "ignore"], "type": "str"},
@@ -13005,10 +13579,10 @@ SCHEMA_DATA = '''
     "firewall_sslsshprofile_sslclientcertificate": {
         "stated": false,
         "options": {
-            "caname": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "list", "elements": "str"},
-            "cert": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "list", "elements": "str"},
-            "keyring-list": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "no_log": true, "type": "list", "elements": "str"},
-            "status": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "choices": ["do-not-offer", "keyring-list", "ca-sign", "static"], "type": "str"}
+            "caname": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "list", "elements": "str"},
+            "cert": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "list", "elements": "str"},
+            "keyring-list": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "no_log": true, "type": "list", "elements": "str"},
+            "status": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "choices": ["do-not-offer", "keyring-list", "ca-sign", "static"], "type": "str"}
         }
     },
     "firewall_sslsshprofile_sslexempt": {
@@ -13022,7 +13596,7 @@ SCHEMA_DATA = '''
             "type": {"choices": ["fortiguard-category", "address", "address6", "wildcard-fqdn", "regex", "finger-print"], "type": "str"},
             "wildcard-fqdn": {"type": "str"},
             "finger-print-category": {
-                "v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]],
+                "v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]],
                 "choices": ["unknown", "firefox", "chrome", "safari", "edge", "ie", "android", "ios", "windows"],
                 "type": "str"
             }
@@ -13049,7 +13623,14 @@ SCHEMA_DATA = '''
     },
     "firewall_trafficclass": {
         "stated": true,
-        "options": {"class-id": {"v_range": [["6.2.2", ""]], "type": "int"}, "class-name": {"v_range": [["6.2.2", ""]], "type": "str"}}
+        "options": {
+            "class-id": {"v_range": [["6.2.2", ""]], "type": "int"},
+            "class-name": {"v_range": [["6.2.2", ""]], "type": "str"},
+            "fabric-force-sync": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object-source": {"v_range": [["8.0.0", ""]], "choices": ["member", "local", "root"], "type": "str"},
+            "uuid": {"v_range": [["8.0.0", ""]], "type": "str"}
+        }
     },
     "firewall_vendormac": {
         "stated": false,
@@ -13125,7 +13706,7 @@ SCHEMA_DATA = '''
                             "type": {"v_range": [["6.4.0", ""]], "choices": ["ip", "address"], "type": "str"},
                             "translate-host": {"v_range": [["7.2.2", ""]], "choices": ["disable", "enable"], "type": "str"},
                             "health-check-proto": {"v_range": [["7.2.3", ""]], "choices": ["ping", "http"], "type": "str"},
-                            "verify-cert": {"v_range": [["7.4.7", "7.4.10"], ["7.6.3", ""]], "choices": ["disable", "enable"], "type": "str"}
+                            "verify-cert": {"v_range": [["7.4.7", "7.4.11"], ["7.6.3", ""]], "choices": ["disable", "enable"], "type": "str"}
                         },
                         "elements": "dict"
                     },
@@ -13232,7 +13813,13 @@ SCHEMA_DATA = '''
                     "client-cert": {"v_range": [["7.6.2", ""]], "choices": ["disable", "enable"], "type": "str"},
                     "empty-cert-action": {"v_range": [["7.6.2", ""]], "choices": ["accept", "block", "accept-unmanageable"], "type": "str"},
                     "user-agent-detect": {"v_range": [["7.6.2", ""]], "choices": ["disable", "enable"], "type": "str"},
-                    "vip-id": {"v_range": [["7.6.5", ""]], "type": "int"}
+                    "vip-id": {"v_range": [["7.6.5", ""]], "type": "int"},
+                    "auth-portal": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+                    "auth-virtual-host": {"v_range": [["8.0.0", ""]], "type": "raw"},
+                    "log-blocked-traffic": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+                    "ssl-http-strip-secure-cookies": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+                    "ssl-server-client-certificate": {"v_range": [["8.0.0", ""]], "type": "raw"},
+                    "ssl-upstream": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"}
                 },
                 "elements": "dict"
             },
@@ -13283,8 +13870,8 @@ SCHEMA_DATA = '''
                     "id": {"v_range": [["6.4.0", ""]], "type": "int"},
                     "type": {"v_range": [["6.4.0", ""]], "choices": ["ip", "address"], "type": "str"},
                     "translate-host": {"v_range": [["7.2.2", ""]], "choices": ["disable", "enable"], "type": "str"},
-                    "verify-cert": {"v_range": [["7.4.8", "7.4.10"], ["7.6.3", ""]], "choices": ["disable", "enable"], "type": "str"},
-                    "health-check-proto": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "choices": ["ping", "http"], "type": "str"}
+                    "verify-cert": {"v_range": [["7.4.8", "7.4.11"], ["7.6.3", ""]], "choices": ["disable", "enable"], "type": "str"},
+                    "health-check-proto": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "choices": ["ping", "http"], "type": "str"}
                 },
                 "elements": "dict"
             },
@@ -13444,7 +14031,13 @@ SCHEMA_DATA = '''
             "client-cert": {"v_range": [["7.6.2", ""]], "choices": ["disable", "enable"], "type": "str"},
             "empty-cert-action": {"v_range": [["7.6.2", ""]], "choices": ["accept", "block", "accept-unmanageable"], "type": "str"},
             "user-agent-detect": {"v_range": [["7.6.2", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "vip-id": {"v_range": [["7.6.5", ""]], "type": "int"}
+            "vip-id": {"v_range": [["7.6.5", ""]], "type": "int"},
+            "auth-portal": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "auth-virtual-host": {"v_range": [["8.0.0", ""]], "type": "raw"},
+            "log-blocked-traffic": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "ssl-http-strip-secure-cookies": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "ssl-server-client-certificate": {"v_range": [["8.0.0", ""]], "type": "raw"},
+            "ssl-upstream": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"}
         }
     },
     "firewall_vip46": {
@@ -13507,7 +14100,7 @@ SCHEMA_DATA = '''
             "src-filter": {"type": "raw"},
             "type": {"choices": ["static-nat", "server-load-balance"], "type": "str"},
             "uuid": {"type": "str"},
-            "srcintf-filter": {"v_range": [["6.2.7", "6.2.13"], ["6.4.4", ""]], "type": "raw"}
+            "srcintf-filter": {"v_range": [["6.2.7", "6.2.13"], ["6.4.4", "7.6.7"]], "type": "raw"}
         }
     },
     "firewall_vip46_dynamicmapping": {
@@ -13708,7 +14301,11 @@ SCHEMA_DATA = '''
                     "client-cert": {"v_range": [["7.6.2", ""]], "choices": ["disable", "enable"], "type": "str"},
                     "empty-cert-action": {"v_range": [["7.6.2", ""]], "choices": ["accept", "block", "accept-unmanageable"], "type": "str"},
                     "user-agent-detect": {"v_range": [["7.6.2", ""]], "choices": ["disable", "enable"], "type": "str"},
-                    "vip-id": {"v_range": [["7.6.5", ""]], "type": "int"}
+                    "vip-id": {"v_range": [["7.6.5", ""]], "type": "int"},
+                    "auth-virtual-host": {"v_range": [["8.0.0", ""]], "type": "raw"},
+                    "ssl-http-strip-secure-cookies": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+                    "ssl-server-client-certificate": {"v_range": [["8.0.0", ""]], "type": "raw"},
+                    "ssl-upstream": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"}
                 },
                 "elements": "dict"
             },
@@ -13896,7 +14493,11 @@ SCHEMA_DATA = '''
             "client-cert": {"v_range": [["7.6.2", ""]], "choices": ["disable", "enable"], "type": "str"},
             "empty-cert-action": {"v_range": [["7.6.2", ""]], "choices": ["accept", "block", "accept-unmanageable"], "type": "str"},
             "user-agent-detect": {"v_range": [["7.6.2", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "vip-id": {"v_range": [["7.6.5", ""]], "type": "int"}
+            "vip-id": {"v_range": [["7.6.5", ""]], "type": "int"},
+            "auth-virtual-host": {"v_range": [["8.0.0", ""]], "type": "raw"},
+            "ssl-http-strip-secure-cookies": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "ssl-server-client-certificate": {"v_range": [["8.0.0", ""]], "type": "raw"},
+            "ssl-upstream": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"}
         }
     },
     "firewall_vip64": {
@@ -14144,7 +14745,11 @@ SCHEMA_DATA = '''
             "client-cert": {"v_range": [["7.6.2", ""]], "choices": ["disable", "enable"], "type": "str"},
             "empty-cert-action": {"v_range": [["7.6.2", ""]], "choices": ["accept", "block", "accept-unmanageable"], "type": "str"},
             "user-agent-detect": {"v_range": [["7.6.2", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "vip-id": {"v_range": [["7.6.5", ""]], "type": "int"}
+            "vip-id": {"v_range": [["7.6.5", ""]], "type": "int"},
+            "auth-virtual-host": {"v_range": [["8.0.0", ""]], "type": "raw"},
+            "ssl-http-strip-secure-cookies": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "ssl-server-client-certificate": {"v_range": [["8.0.0", ""]], "type": "raw"},
+            "ssl-upstream": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"}
         }
     },
     "firewall_vip6_dynamicmapping_realservers": {
@@ -14361,7 +14966,7 @@ SCHEMA_DATA = '''
                     "type": {"v_range": [["6.4.0", ""]], "choices": ["ip", "address"], "type": "str"},
                     "translate-host": {"v_range": [["7.2.2", ""]], "choices": ["disable", "enable"], "type": "str"},
                     "health-check-proto": {"v_range": [["7.2.3", ""]], "choices": ["ping", "http"], "type": "str"},
-                    "verify-cert": {"v_range": [["7.4.7", "7.4.10"], ["7.6.3", ""]], "choices": ["disable", "enable"], "type": "str"}
+                    "verify-cert": {"v_range": [["7.4.7", "7.4.11"], ["7.6.3", ""]], "choices": ["disable", "enable"], "type": "str"}
                 },
                 "elements": "dict"
             },
@@ -14464,7 +15069,13 @@ SCHEMA_DATA = '''
             "client-cert": {"v_range": [["7.6.2", ""]], "choices": ["disable", "enable"], "type": "str"},
             "empty-cert-action": {"v_range": [["7.6.2", ""]], "choices": ["accept", "block", "accept-unmanageable"], "type": "str"},
             "user-agent-detect": {"v_range": [["7.6.2", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "vip-id": {"v_range": [["7.6.5", ""]], "type": "int"}
+            "vip-id": {"v_range": [["7.6.5", ""]], "type": "int"},
+            "auth-portal": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "auth-virtual-host": {"v_range": [["8.0.0", ""]], "type": "raw"},
+            "log-blocked-traffic": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "ssl-http-strip-secure-cookies": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "ssl-server-client-certificate": {"v_range": [["8.0.0", ""]], "type": "raw"},
+            "ssl-upstream": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"}
         }
     },
     "firewall_vip_dynamicmapping_realservers": {
@@ -14565,8 +15176,8 @@ SCHEMA_DATA = '''
             "id": {"v_range": [["6.4.0", ""]], "type": "int"},
             "type": {"v_range": [["6.4.0", ""]], "choices": ["ip", "address"], "type": "str"},
             "translate-host": {"v_range": [["7.2.2", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "verify-cert": {"v_range": [["7.4.8", "7.4.10"], ["7.6.3", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "health-check-proto": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "choices": ["ping", "http"], "type": "str"}
+            "verify-cert": {"v_range": [["7.4.8", "7.4.11"], ["7.6.3", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "health-check-proto": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "choices": ["ping", "http"], "type": "str"}
         }
     },
     "firewall_vip_sslciphersuites": {
@@ -14751,7 +15362,10 @@ SCHEMA_DATA = '''
             "port-provisioning": {"v_range": [["7.4.4", ""]], "type": "int"},
             "sdwan-management": {"v_range": [["7.6.0", ""]], "choices": ["disable", "enable"], "type": "str"},
             "split-switch-port": {"v_range": [["7.4.4", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "vm-log-disk": {"v_range": [["7.6.2", ""]], "choices": ["disable", "enable"], "type": "str"}
+            "vm-log-disk": {"v_range": [["7.6.2", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "cluster-worker": {"v_range": [["7.6.7", ""]], "type": "raw"},
+            "cert-template": {"v_range": [["8.0.0", ""]], "type": "raw"},
+            "firmware-template": {"v_range": [["8.0.0", ""]], "type": "str"}
         }
     },
     "fmg_fabric_authorization_template": {
@@ -14768,7 +15382,10 @@ SCHEMA_DATA = '''
                     "extension-type": {"v_range": [["7.2.1", ""]], "choices": ["wan-extension", "lan-extension"], "type": "str"},
                     "fortilink": {"v_range": [["7.2.1", ""]], "type": "str"},
                     "prefix": {"v_range": [["7.2.1", ""]], "type": "str"},
-                    "type": {"v_range": [["7.2.1", ""]], "choices": ["ap", "extender", "switch"], "type": "str"}
+                    "type": {"v_range": [["7.2.1", ""]], "choices": ["ap", "extender", "switch"], "type": "str"},
+                    "fspprof": {"v_range": [["8.0.0", ""]], "type": "raw"},
+                    "fxtprof": {"v_range": [["8.0.0", ""]], "type": "raw"},
+                    "wtpprof": {"v_range": [["8.0.0", ""]], "type": "raw"}
                 },
                 "elements": "dict"
             },
@@ -14783,7 +15400,10 @@ SCHEMA_DATA = '''
             "extension-type": {"v_range": [["7.2.1", ""]], "choices": ["wan-extension", "lan-extension"], "type": "str"},
             "fortilink": {"v_range": [["7.2.1", ""]], "type": "str"},
             "prefix": {"v_range": [["7.2.1", ""]], "type": "str"},
-            "type": {"v_range": [["7.2.1", ""]], "choices": ["ap", "extender", "switch"], "type": "str"}
+            "type": {"v_range": [["7.2.1", ""]], "choices": ["ap", "extender", "switch"], "type": "str"},
+            "fspprof": {"v_range": [["8.0.0", ""]], "type": "raw"},
+            "fxtprof": {"v_range": [["8.0.0", ""]], "type": "raw"},
+            "wtpprof": {"v_range": [["8.0.0", ""]], "type": "raw"}
         }
     },
     "fmg_sasemanager_settings": {
@@ -14946,7 +15566,7 @@ SCHEMA_DATA = '''
                             "ip": {"type": "str"},
                             "ip6": {"type": "str"},
                             "port": {"type": "int"},
-                            "service-type": {"type": "raw", "choices": ["fds", "fct", "fai"]}
+                            "service-type": {"type": "raw", "choices": ["fds", "fct", "fai", "gip"]}
                         },
                         "elements": "dict"
                     },
@@ -14958,7 +15578,11 @@ SCHEMA_DATA = '''
                 "choices": ["4.x", "5.0", "5.2", "5.4", "5.6", "6.0", "6.2", "6.4", "7.0", "7.2", "7.4"],
                 "elements": "str"
             },
-            "system-support-fgt": {"type": "list", "choices": ["5.4", "5.6", "6.0", "6.2", "6.4", "7.0", "7.2", "7.4", "7.6"], "elements": "str"},
+            "system-support-fgt": {
+                "type": "list",
+                "choices": ["5.4", "5.6", "6.0", "6.2", "6.4", "7.0", "7.2", "7.4", "7.6", "5.x", "6.x", "7.x", "8.0"],
+                "elements": "str"
+            },
             "system-support-fml": {"type": "list", "choices": ["4.x", "5.x", "6.x", "6.0", "6.2", "6.4", "7.0", "7.2", "7.x"], "elements": "str"},
             "system-support-fsa": {"type": "list", "choices": ["1.x", "2.x", "3.x", "4.x", "3.0", "3.1", "3.2", "5.x"], "elements": "str"},
             "system-support-fsw": {
@@ -14988,9 +15612,10 @@ SCHEMA_DATA = '''
                 "elements": "str"
             },
             "system-support-fts": {"v_range": [["6.4.6", "6.4.15"], ["7.0.1", ""]], "type": "list", "choices": ["3.x", "4.x", "7.x"], "elements": "str"},
-            "system-support-faz": {"v_range": [["7.0.7", "7.0.16"], ["7.2.2", ""]], "type": "list", "choices": ["6.x", "7.x"], "elements": "str"},
+            "system-support-faz": {"v_range": [["7.0.7", "7.0.16"], ["7.2.2", ""]], "type": "list", "choices": ["6.x", "7.x", "8.x"], "elements": "str"},
             "system-support-fis": {"v_range": [["7.4.0", ""]], "type": "list", "choices": ["1.x", "2.x"], "elements": "str"},
-            "system-support-fai": {"v_range": [["7.6.0", ""]], "type": "list", "choices": ["7.x"], "elements": "str"}
+            "system-support-fai": {"v_range": [["7.6.0", ""]], "type": "list", "choices": ["7.x"], "elements": "str"},
+            "controller-contract-download": {"v_range": [["7.6.7", ""]], "choices": ["disable", "enable"], "type": "str"}
         }
     },
     "fmupdate_fdssetting_pushoverride": {
@@ -15018,7 +15643,7 @@ SCHEMA_DATA = '''
                     "ip": {"type": "str"},
                     "ip6": {"type": "str"},
                     "port": {"type": "int"},
-                    "service-type": {"type": "raw", "choices": ["fds", "fct", "fai"]}
+                    "service-type": {"type": "raw", "choices": ["fds", "fct", "fai", "gip"]}
                 },
                 "elements": "dict"
             },
@@ -15032,7 +15657,7 @@ SCHEMA_DATA = '''
             "ip": {"type": "str"},
             "ip6": {"type": "str"},
             "port": {"type": "int"},
-            "service-type": {"type": "raw", "choices": ["fds", "fct", "fai"]}
+            "service-type": {"type": "raw", "choices": ["fds", "fct", "fai", "gip"]}
         }
     },
     "fmupdate_fdssetting_updateschedule": {
@@ -15113,7 +15738,8 @@ SCHEMA_DATA = '''
             "wf-dn-cache-expire-time": {"v_range": [["7.6.3", ""]], "type": "int"},
             "wf-dn-cache-max-number": {"v_range": [["7.6.3", ""]], "type": "int"},
             "wf-log": {"v_range": [["7.6.3", ""]], "choices": ["disable", "nourl", "all"], "type": "str"},
-            "wf-preload": {"v_range": [["7.6.3", ""]], "choices": ["disable", "enable"], "type": "str"}
+            "wf-preload": {"v_range": [["7.6.3", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "delta-ratio": {"v_range": [["7.6.7", "7.6.7"]], "type": "int"}
         }
     },
     "fmupdate_fgdsetting_serveroverride": {
@@ -15173,7 +15799,7 @@ SCHEMA_DATA = '''
             "max-profile-history": {"v_range": [["7.4.2", ""]], "type": "int"},
             "retrieve": {"v_range": [["7.4.2", ""]], "choices": ["disable", "enable"], "type": "str"},
             "revision-diff": {"v_range": [["7.4.2", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "send-image-retry": {"v_range": [["7.2.6", "7.2.12"], ["7.4.4", "7.4.10"], ["7.6.2", ""]], "type": "int"}
+            "send-image-retry": {"v_range": [["7.2.6", "7.2.12"], ["7.4.4", "7.4.11"], ["7.6.2", ""]], "type": "int"}
         }
     },
     "fmupdate_fwmsetting_upgradetimeout": {
@@ -15235,7 +15861,8 @@ SCHEMA_DATA = '''
             "query-iot": {"v_range": [["6.4.6", "6.4.15"], ["7.0.1", ""]], "choices": ["disable", "enable"], "type": "str"},
             "query-iot-collection": {"v_range": [["7.4.1", ""]], "choices": ["disable", "enable"], "type": "str"},
             "query-iot-vulnerability": {"v_range": [["7.4.1", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "query-ioc": {"v_range": [["7.6.0", ""]], "choices": ["disable", "enable"], "type": "str"}
+            "query-ioc": {"v_range": [["7.6.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "geoip": {"v_range": [["7.4.11", "7.4.11"], ["7.6.7", ""]], "choices": ["disable", "enable"], "type": "str"}
         }
     },
     "fmupdate_webspam_fgdsetting": {
@@ -15402,7 +16029,10 @@ SCHEMA_DATA = '''
                                     "vci-string": {"v_range": [["7.2.1", ""]], "type": "raw"},
                                     "lease-time": {"v_range": [["7.2.2", ""]], "type": "int"},
                                     "uci-match": {"v_range": [["7.2.2", ""]], "choices": ["disable", "enable"], "type": "str"},
-                                    "uci-string": {"v_range": [["7.2.2", ""]], "type": "raw"}
+                                    "uci-string": {"v_range": [["7.2.2", ""]], "type": "raw"},
+                                    "oui-match": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+                                    "oui-string": {"v_range": [["8.0.0", ""]], "type": "raw"},
+                                    "vendor": {"v_range": [["8.0.0", ""]], "type": "str"}
                                 },
                                 "elements": "dict"
                             },
@@ -15425,7 +16055,10 @@ SCHEMA_DATA = '''
                                     "vci-string": {"v_range": [["7.2.1", ""]], "type": "raw"},
                                     "lease-time": {"v_range": [["7.2.2", ""]], "type": "int"},
                                     "uci-match": {"v_range": [["7.2.2", ""]], "choices": ["disable", "enable"], "type": "str"},
-                                    "uci-string": {"v_range": [["7.2.2", ""]], "type": "raw"}
+                                    "uci-string": {"v_range": [["7.2.2", ""]], "type": "raw"},
+                                    "oui-match": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+                                    "oui-string": {"v_range": [["8.0.0", ""]], "type": "raw"},
+                                    "vendor": {"v_range": [["8.0.0", ""]], "type": "str"}
                                 },
                                 "elements": "dict"
                             },
@@ -15505,7 +16138,10 @@ SCHEMA_DATA = '''
                             "wins-server1": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", ""]], "type": "str"},
                             "wins-server2": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", ""]], "type": "str"},
                             "relay-agent": {"v_range": [["7.4.0", ""]], "type": "str"},
-                            "shared-subnet": {"v_range": [["7.4.0", ""]], "choices": ["disable", "enable"], "type": "str"}
+                            "shared-subnet": {"v_range": [["7.4.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+                            "template": {"v_range": [["8.0.0", ""]], "type": "raw"},
+                            "template-subnet": {"v_range": [["8.0.0", ""]], "type": "raw"},
+                            "template-subnet-from-interface": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"}
                         }
                     },
                     "interface": {
@@ -15555,7 +16191,8 @@ SCHEMA_DATA = '''
                                         "v_range": [["6.2.8", "6.2.13"], ["6.4.5", ""]],
                                         "type": "list",
                                         "choices": [
-                                            "https", "ping", "ssh", "snmp", "http", "telnet", "fgfm", "capwap", "fabric", "scim", "probe-response"
+                                            "https", "ping", "ssh", "snmp", "http", "telnet", "fgfm", "capwap", "fabric", "scim", "probe-response",
+                                            "mqtt"
                                         ],
                                         "elements": "str"
                                     },
@@ -15681,7 +16318,14 @@ SCHEMA_DATA = '''
                                     "dhcp6-relay-interface-id": {"v_range": [["7.4.1", ""]], "type": "str"},
                                     "dhcp6-relay-source-ip": {"v_range": [["7.4.1", ""]], "type": "str"},
                                     "ip6-adv-rio": {"v_range": [["7.6.2", ""]], "choices": ["disable", "enable"], "type": "str"},
-                                    "ip6-route-pref": {"v_range": [["7.6.2", ""]], "choices": ["medium", "high", "low"], "type": "str"}
+                                    "ip6-route-pref": {"v_range": [["7.6.2", ""]], "choices": ["medium", "high", "low"], "type": "str"},
+                                    "dhcp6-egress-cos": {
+                                        "v_range": [["8.0.0", ""]],
+                                        "choices": ["cos0", "cos1", "cos2", "cos3", "cos4", "cos5", "cos6", "cos7"],
+                                        "type": "str"
+                                    },
+                                    "ip6-link-local": {"v_range": [["8.0.0", ""]], "type": "str"},
+                                    "ip6-mgmt-address": {"v_range": [["8.0.0", ""]], "type": "str"}
                                 }
                             },
                             "secondary-IP": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", ""]], "choices": ["disable", "enable"], "type": "str"},
@@ -15694,7 +16338,7 @@ SCHEMA_DATA = '''
                                         "type": "list",
                                         "choices": [
                                             "https", "ping", "ssh", "snmp", "http", "telnet", "fgfm", "auto-ipsec", "radius-acct", "probe-response",
-                                            "capwap", "dnp", "ftm", "fabric", "speed-test", "icond", "scim"
+                                            "capwap", "dnp", "ftm", "fabric", "speed-test", "icond", "scim", "mqtt"
                                         ],
                                         "elements": "str"
                                     },
@@ -15748,19 +16392,20 @@ SCHEMA_DATA = '''
                                 "elements": "dict"
                             },
                             "allowaccess": {
-                                "v_range": [["7.4.7", "7.4.10"], ["7.6.3", ""]],
+                                "v_range": [["7.4.7", "7.4.11"], ["7.6.3", ""]],
                                 "type": "list",
                                 "choices": [
                                     "https", "ping", "ssh", "snmp", "http", "telnet", "fgfm", "radius-acct", "probe-response", "dnp", "ftm", "fabric",
-                                    "speed-test", "icond", "scim"
+                                    "speed-test", "icond", "scim", "mqtt"
                                 ],
                                 "elements": "str"
                             },
                             "dhcp-relay-request-all-server": {
-                                "v_range": [["7.4.7", "7.4.10"], ["7.6.3", ""]],
+                                "v_range": [["7.4.7", "7.4.11"], ["7.6.3", ""]],
                                 "choices": ["disable", "enable"],
                                 "type": "str"
-                            }
+                            },
+                            "switch-controller-access-vlan": {"v_range": [["7.6.7", ""]], "choices": ["disable", "enable"], "type": "str"}
                         }
                     }
                 },
@@ -15809,7 +16454,10 @@ SCHEMA_DATA = '''
                             "vci-string": {"v_range": [["7.2.1", ""]], "type": "raw"},
                             "lease-time": {"v_range": [["7.2.2", ""]], "type": "int"},
                             "uci-match": {"v_range": [["7.2.2", ""]], "choices": ["disable", "enable"], "type": "str"},
-                            "uci-string": {"v_range": [["7.2.2", ""]], "type": "raw"}
+                            "uci-string": {"v_range": [["7.2.2", ""]], "type": "raw"},
+                            "oui-match": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+                            "oui-string": {"v_range": [["8.0.0", ""]], "type": "raw"},
+                            "vendor": {"v_range": [["8.0.0", ""]], "type": "str"}
                         },
                         "elements": "dict"
                     },
@@ -15828,7 +16476,10 @@ SCHEMA_DATA = '''
                             "vci-string": {"v_range": [["7.2.1", ""]], "type": "raw"},
                             "lease-time": {"v_range": [["7.2.2", ""]], "type": "int"},
                             "uci-match": {"v_range": [["7.2.2", ""]], "choices": ["disable", "enable"], "type": "str"},
-                            "uci-string": {"v_range": [["7.2.2", ""]], "type": "raw"}
+                            "uci-string": {"v_range": [["7.2.2", ""]], "type": "raw"},
+                            "oui-match": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+                            "oui-string": {"v_range": [["8.0.0", ""]], "type": "raw"},
+                            "vendor": {"v_range": [["8.0.0", ""]], "type": "str"}
                         },
                         "elements": "dict"
                     },
@@ -15904,7 +16555,10 @@ SCHEMA_DATA = '''
                     "wins-server1": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", ""]], "type": "str"},
                     "wins-server2": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", ""]], "type": "str"},
                     "relay-agent": {"v_range": [["7.4.0", ""]], "type": "str"},
-                    "shared-subnet": {"v_range": [["7.4.0", ""]], "choices": ["disable", "enable"], "type": "str"}
+                    "shared-subnet": {"v_range": [["7.4.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+                    "template": {"v_range": [["8.0.0", ""]], "type": "raw"},
+                    "template-subnet": {"v_range": [["8.0.0", ""]], "type": "raw"},
+                    "template-subnet-from-interface": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"}
                 }
             },
             "interface": {
@@ -16045,7 +16699,7 @@ SCHEMA_DATA = '''
                         "v_range": [["6.2.8", "6.2.13"], ["6.4.5", ""]],
                         "choices": [
                             "disable", "enable", "rs-fec", "base-r-fec", "fec-cl91", "fec-cl74", "rs-544", "none", "cl91-rs-fec", "cl74-fc-fec", "auto",
-                            "rs-fec544"
+                            "rs-fec544", "default"
                         ],
                         "type": "str"
                     },
@@ -16220,7 +16874,14 @@ SCHEMA_DATA = '''
                             "dhcp6-relay-interface-id": {"v_range": [["7.4.1", ""]], "type": "str"},
                             "dhcp6-relay-source-ip": {"v_range": [["7.4.1", ""]], "type": "str"},
                             "ip6-adv-rio": {"v_range": [["7.6.2", ""]], "choices": ["disable", "enable"], "type": "str"},
-                            "ip6-route-pref": {"v_range": [["7.6.2", ""]], "choices": ["medium", "high", "low"], "type": "str"}
+                            "ip6-route-pref": {"v_range": [["7.6.2", ""]], "choices": ["medium", "high", "low"], "type": "str"},
+                            "dhcp6-egress-cos": {
+                                "v_range": [["8.0.0", ""]],
+                                "choices": ["cos0", "cos1", "cos2", "cos3", "cos4", "cos5", "cos6", "cos7"],
+                                "type": "str"
+                            },
+                            "ip6-link-local": {"v_range": [["8.0.0", ""]], "type": "str"},
+                            "ip6-mgmt-address": {"v_range": [["8.0.0", ""]], "type": "str"}
                         }
                     },
                     "l2forward": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", ""]], "choices": ["disable", "enable"], "type": "str"},
@@ -16331,7 +16992,7 @@ SCHEMA_DATA = '''
                                 "type": "list",
                                 "choices": [
                                     "https", "ping", "ssh", "snmp", "http", "telnet", "fgfm", "auto-ipsec", "radius-acct", "probe-response", "capwap",
-                                    "dnp", "ftm", "fabric", "speed-test", "icond", "scim"
+                                    "dnp", "ftm", "fabric", "speed-test", "icond", "scim", "mqtt"
                                 ],
                                 "elements": "str"
                             },
@@ -16377,7 +17038,7 @@ SCHEMA_DATA = '''
                         "choices": [
                             "auto", "10full", "10half", "100full", "100half", "1000full", "1000half", "10000full", "1000auto", "10000auto", "40000full",
                             "100Gfull", "25000full", "40000auto", "25000auto", "100Gauto", "400Gfull", "400Gauto", "50000full", "2500auto", "5000auto",
-                            "50000auto", "200Gfull", "200Gauto", "100auto"
+                            "50000auto", "200Gfull", "200Gauto", "100auto", "sgmii-auto", "sgmii-100full"
                         ],
                         "type": "str"
                     },
@@ -16613,14 +17274,29 @@ SCHEMA_DATA = '''
                     "dhcp-relay-vrf-select": {"v_range": [["7.6.2", ""]], "type": "int"},
                     "exclude-signatures": {"v_range": [["7.6.2", ""]], "type": "list", "choices": ["iot", "ot"], "elements": "str"},
                     "profiles": {
-                        "v_range": [["7.0.14", "7.0.16"], ["7.2.10", "7.2.12"], ["7.4.7", "7.4.10"], ["7.6.3", ""]],
+                        "v_range": [["7.0.14", "7.0.16"], ["7.2.10", "7.2.12"], ["7.4.7", "7.4.11"], ["7.6.3", ""]],
                         "type": "list",
                         "choices": ["8a", "8b", "8c", "8d", "12a", "12b", "17a", "30a", "35b"],
                         "elements": "str"
                     },
                     "telemetry-discover": {"v_range": [["7.6.3", ""]], "choices": ["disable", "enable"], "type": "str"},
                     "mrru": {"v_range": [["7.6.5", ""]], "type": "int"},
-                    "multilink": {"v_range": [["7.6.5", ""]], "choices": ["disable", "enable"], "type": "str"}
+                    "multilink": {"v_range": [["7.6.5", ""]], "choices": ["disable", "enable"], "type": "str"},
+                    "arp-egress-cos": {
+                        "v_range": [["8.0.0", ""]],
+                        "choices": ["cos0", "cos1", "cos2", "cos3", "cos4", "cos5", "cos6", "cos7"],
+                        "type": "str"
+                    },
+                    "dhcp-egress-cos": {
+                        "v_range": [["8.0.0", ""]],
+                        "choices": ["cos0", "cos1", "cos2", "cos3", "cos4", "cos5", "cos6", "cos7"],
+                        "type": "str"
+                    },
+                    "inbandwidth-source": {"v_range": [["8.0.0", ""]], "choices": ["default", "measured"], "type": "str"},
+                    "ipam-conflicts": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+                    "outbandwidth-source": {"v_range": [["8.0.0", ""]], "choices": ["default", "measured"], "type": "str"},
+                    "switch-controller-fortilink-settings": {"v_range": [["8.0.0", ""]], "type": "raw"},
+                    "tx-queue-len": {"v_range": [["8.0.0", ""]], "type": "int"}
                 }
             }
         }
@@ -16655,7 +17331,10 @@ SCHEMA_DATA = '''
                     "vci-string": {"v_range": [["7.2.1", ""]], "type": "raw"},
                     "lease-time": {"v_range": [["7.2.2", ""]], "type": "int"},
                     "uci-match": {"v_range": [["7.2.2", ""]], "choices": ["disable", "enable"], "type": "str"},
-                    "uci-string": {"v_range": [["7.2.2", ""]], "type": "raw"}
+                    "uci-string": {"v_range": [["7.2.2", ""]], "type": "raw"},
+                    "oui-match": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+                    "oui-string": {"v_range": [["8.0.0", ""]], "type": "raw"},
+                    "vendor": {"v_range": [["8.0.0", ""]], "type": "str"}
                 },
                 "elements": "dict"
             },
@@ -16674,7 +17353,10 @@ SCHEMA_DATA = '''
                     "vci-string": {"v_range": [["7.2.1", ""]], "type": "raw"},
                     "lease-time": {"v_range": [["7.2.2", ""]], "type": "int"},
                     "uci-match": {"v_range": [["7.2.2", ""]], "choices": ["disable", "enable"], "type": "str"},
-                    "uci-string": {"v_range": [["7.2.2", ""]], "type": "raw"}
+                    "uci-string": {"v_range": [["7.2.2", ""]], "type": "raw"},
+                    "oui-match": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+                    "oui-string": {"v_range": [["8.0.0", ""]], "type": "raw"},
+                    "vendor": {"v_range": [["8.0.0", ""]], "type": "str"}
                 },
                 "elements": "dict"
             },
@@ -16749,7 +17431,10 @@ SCHEMA_DATA = '''
             "auto-managed-status": {"v_range": [["6.4.0", ""]], "choices": ["disable", "enable"], "type": "str"},
             "dhcp-settings-from-fortiipam": {"v_range": [["6.4.0", ""]], "choices": ["disable", "enable"], "type": "str"},
             "relay-agent": {"v_range": [["7.4.0", ""]], "type": "str"},
-            "shared-subnet": {"v_range": [["7.4.0", ""]], "choices": ["disable", "enable"], "type": "str"}
+            "shared-subnet": {"v_range": [["7.4.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "template": {"v_range": [["8.0.0", ""]], "type": "raw"},
+            "template-subnet": {"v_range": [["8.0.0", ""]], "type": "raw"},
+            "template-subnet-from-interface": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"}
         }
     },
     "fsp_vlan_dhcpserver_excluderange": {
@@ -16762,7 +17447,10 @@ SCHEMA_DATA = '''
             "vci-string": {"v_range": [["7.2.1", ""]], "type": "raw"},
             "lease-time": {"v_range": [["7.2.2", ""]], "type": "int"},
             "uci-match": {"v_range": [["7.2.2", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "uci-string": {"v_range": [["7.2.2", ""]], "type": "raw"}
+            "uci-string": {"v_range": [["7.2.2", ""]], "type": "raw"},
+            "oui-match": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "oui-string": {"v_range": [["8.0.0", ""]], "type": "raw"},
+            "vendor": {"v_range": [["8.0.0", ""]], "type": "str"}
         }
     },
     "fsp_vlan_dhcpserver_iprange": {
@@ -16775,7 +17463,10 @@ SCHEMA_DATA = '''
             "vci-string": {"v_range": [["7.2.1", ""]], "type": "raw"},
             "lease-time": {"v_range": [["7.2.2", ""]], "type": "int"},
             "uci-match": {"v_range": [["7.2.2", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "uci-string": {"v_range": [["7.2.2", ""]], "type": "raw"}
+            "uci-string": {"v_range": [["7.2.2", ""]], "type": "raw"},
+            "oui-match": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "oui-string": {"v_range": [["8.0.0", ""]], "type": "raw"},
+            "vendor": {"v_range": [["8.0.0", ""]], "type": "str"}
         }
     },
     "fsp_vlan_dhcpserver_options": {
@@ -16847,7 +17538,10 @@ SCHEMA_DATA = '''
                             "vci-string": {"v_range": [["7.2.1", ""]], "type": "raw"},
                             "lease-time": {"v_range": [["7.2.2", ""]], "type": "int"},
                             "uci-match": {"v_range": [["7.2.2", ""]], "choices": ["disable", "enable"], "type": "str"},
-                            "uci-string": {"v_range": [["7.2.2", ""]], "type": "raw"}
+                            "uci-string": {"v_range": [["7.2.2", ""]], "type": "raw"},
+                            "oui-match": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+                            "oui-string": {"v_range": [["8.0.0", ""]], "type": "raw"},
+                            "vendor": {"v_range": [["8.0.0", ""]], "type": "str"}
                         },
                         "elements": "dict"
                     },
@@ -16866,7 +17560,10 @@ SCHEMA_DATA = '''
                             "vci-string": {"v_range": [["7.2.1", ""]], "type": "raw"},
                             "lease-time": {"v_range": [["7.2.2", ""]], "type": "int"},
                             "uci-match": {"v_range": [["7.2.2", ""]], "choices": ["disable", "enable"], "type": "str"},
-                            "uci-string": {"v_range": [["7.2.2", ""]], "type": "raw"}
+                            "uci-string": {"v_range": [["7.2.2", ""]], "type": "raw"},
+                            "oui-match": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+                            "oui-string": {"v_range": [["8.0.0", ""]], "type": "raw"},
+                            "vendor": {"v_range": [["8.0.0", ""]], "type": "str"}
                         },
                         "elements": "dict"
                     },
@@ -16942,7 +17639,10 @@ SCHEMA_DATA = '''
                     "wins-server1": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", ""]], "type": "str"},
                     "wins-server2": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", ""]], "type": "str"},
                     "relay-agent": {"v_range": [["7.4.0", ""]], "type": "str"},
-                    "shared-subnet": {"v_range": [["7.4.0", ""]], "choices": ["disable", "enable"], "type": "str"}
+                    "shared-subnet": {"v_range": [["7.4.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+                    "template": {"v_range": [["8.0.0", ""]], "type": "raw"},
+                    "template-subnet": {"v_range": [["8.0.0", ""]], "type": "raw"},
+                    "template-subnet-from-interface": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"}
                 }
             },
             "interface": {
@@ -16983,7 +17683,9 @@ SCHEMA_DATA = '''
                             "ip6-allowaccess": {
                                 "v_range": [["6.2.8", "6.2.13"], ["6.4.5", ""]],
                                 "type": "list",
-                                "choices": ["https", "ping", "ssh", "snmp", "http", "telnet", "fgfm", "capwap", "fabric", "scim", "probe-response"],
+                                "choices": [
+                                    "https", "ping", "ssh", "snmp", "http", "telnet", "fgfm", "capwap", "fabric", "scim", "probe-response", "mqtt"
+                                ],
                                 "elements": "str"
                             },
                             "ip6-default-life": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", ""]], "type": "int"},
@@ -17080,7 +17782,14 @@ SCHEMA_DATA = '''
                             "dhcp6-relay-interface-id": {"v_range": [["7.4.1", ""]], "type": "str"},
                             "dhcp6-relay-source-ip": {"v_range": [["7.4.1", ""]], "type": "str"},
                             "ip6-adv-rio": {"v_range": [["7.6.2", ""]], "choices": ["disable", "enable"], "type": "str"},
-                            "ip6-route-pref": {"v_range": [["7.6.2", ""]], "choices": ["medium", "high", "low"], "type": "str"}
+                            "ip6-route-pref": {"v_range": [["7.6.2", ""]], "choices": ["medium", "high", "low"], "type": "str"},
+                            "dhcp6-egress-cos": {
+                                "v_range": [["8.0.0", ""]],
+                                "choices": ["cos0", "cos1", "cos2", "cos3", "cos4", "cos5", "cos6", "cos7"],
+                                "type": "str"
+                            },
+                            "ip6-link-local": {"v_range": [["8.0.0", ""]], "type": "str"},
+                            "ip6-mgmt-address": {"v_range": [["8.0.0", ""]], "type": "str"}
                         }
                     },
                     "secondary-IP": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", ""]], "choices": ["disable", "enable"], "type": "str"},
@@ -17093,7 +17802,7 @@ SCHEMA_DATA = '''
                                 "type": "list",
                                 "choices": [
                                     "https", "ping", "ssh", "snmp", "http", "telnet", "fgfm", "auto-ipsec", "radius-acct", "probe-response", "capwap",
-                                    "dnp", "ftm", "fabric", "speed-test", "icond", "scim"
+                                    "dnp", "ftm", "fabric", "speed-test", "icond", "scim", "mqtt"
                                 ],
                                 "elements": "str"
                             },
@@ -17147,15 +17856,16 @@ SCHEMA_DATA = '''
                         "elements": "dict"
                     },
                     "allowaccess": {
-                        "v_range": [["7.4.7", "7.4.10"], ["7.6.3", ""]],
+                        "v_range": [["7.4.7", "7.4.11"], ["7.6.3", ""]],
                         "type": "list",
                         "choices": [
                             "https", "ping", "ssh", "snmp", "http", "telnet", "fgfm", "radius-acct", "probe-response", "dnp", "ftm", "fabric",
-                            "speed-test", "icond", "scim"
+                            "speed-test", "icond", "scim", "mqtt"
                         ],
                         "elements": "str"
                     },
-                    "dhcp-relay-request-all-server": {"v_range": [["7.4.7", "7.4.10"], ["7.6.3", ""]], "choices": ["disable", "enable"], "type": "str"}
+                    "dhcp-relay-request-all-server": {"v_range": [["7.4.7", "7.4.11"], ["7.6.3", ""]], "choices": ["disable", "enable"], "type": "str"},
+                    "switch-controller-access-vlan": {"v_range": [["7.6.7", ""]], "choices": ["disable", "enable"], "type": "str"}
                 }
             }
         }
@@ -17827,7 +18537,7 @@ SCHEMA_DATA = '''
             "forward-error-correction": {
                 "choices": [
                     "disable", "enable", "rs-fec", "base-r-fec", "fec-cl91", "fec-cl74", "rs-544", "none", "cl91-rs-fec", "cl74-fc-fec", "auto",
-                    "rs-fec544"
+                    "rs-fec544", "default"
                 ],
                 "type": "str"
             },
@@ -17971,7 +18681,14 @@ SCHEMA_DATA = '''
                     "dhcp6-relay-interface-id": {"v_range": [["7.4.1", ""]], "type": "str"},
                     "dhcp6-relay-source-ip": {"v_range": [["7.4.1", ""]], "type": "str"},
                     "ip6-adv-rio": {"v_range": [["7.6.2", ""]], "choices": ["disable", "enable"], "type": "str"},
-                    "ip6-route-pref": {"v_range": [["7.6.2", ""]], "choices": ["medium", "high", "low"], "type": "str"}
+                    "ip6-route-pref": {"v_range": [["7.6.2", ""]], "choices": ["medium", "high", "low"], "type": "str"},
+                    "dhcp6-egress-cos": {
+                        "v_range": [["8.0.0", ""]],
+                        "choices": ["cos0", "cos1", "cos2", "cos3", "cos4", "cos5", "cos6", "cos7"],
+                        "type": "str"
+                    },
+                    "ip6-link-local": {"v_range": [["8.0.0", ""]], "type": "str"},
+                    "ip6-mgmt-address": {"v_range": [["8.0.0", ""]], "type": "str"}
                 }
             },
             "l2forward": {"choices": ["disable", "enable"], "type": "str"},
@@ -18050,7 +18767,7 @@ SCHEMA_DATA = '''
                         "type": "list",
                         "choices": [
                             "https", "ping", "ssh", "snmp", "http", "telnet", "fgfm", "auto-ipsec", "radius-acct", "probe-response", "capwap", "dnp",
-                            "ftm", "fabric", "speed-test", "icond", "scim"
+                            "ftm", "fabric", "speed-test", "icond", "scim", "mqtt"
                         ],
                         "elements": "str"
                     },
@@ -18082,7 +18799,7 @@ SCHEMA_DATA = '''
                 "choices": [
                     "auto", "10full", "10half", "100full", "100half", "1000full", "1000half", "10000full", "1000auto", "10000auto", "40000full",
                     "100Gfull", "25000full", "40000auto", "25000auto", "100Gauto", "400Gfull", "400Gauto", "50000full", "2500auto", "5000auto",
-                    "50000auto", "200Gfull", "200Gauto", "100auto"
+                    "50000auto", "200Gfull", "200Gauto", "100auto", "sgmii-auto", "sgmii-100full"
                 ],
                 "type": "str"
             },
@@ -18308,14 +19025,21 @@ SCHEMA_DATA = '''
             "dhcp-relay-vrf-select": {"v_range": [["7.6.2", ""]], "type": "int"},
             "exclude-signatures": {"v_range": [["7.6.2", ""]], "type": "list", "choices": ["iot", "ot"], "elements": "str"},
             "profiles": {
-                "v_range": [["7.0.14", "7.0.16"], ["7.2.10", "7.2.12"], ["7.4.7", "7.4.10"], ["7.6.3", ""]],
+                "v_range": [["7.0.14", "7.0.16"], ["7.2.10", "7.2.12"], ["7.4.7", "7.4.11"], ["7.6.3", ""]],
                 "type": "list",
                 "choices": ["8a", "8b", "8c", "8d", "12a", "12b", "17a", "30a", "35b"],
                 "elements": "str"
             },
             "telemetry-discover": {"v_range": [["7.6.3", ""]], "choices": ["disable", "enable"], "type": "str"},
             "mrru": {"v_range": [["7.6.5", ""]], "type": "int"},
-            "multilink": {"v_range": [["7.6.5", ""]], "choices": ["disable", "enable"], "type": "str"}
+            "multilink": {"v_range": [["7.6.5", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "arp-egress-cos": {"v_range": [["8.0.0", ""]], "choices": ["cos0", "cos1", "cos2", "cos3", "cos4", "cos5", "cos6", "cos7"], "type": "str"},
+            "dhcp-egress-cos": {"v_range": [["8.0.0", ""]], "choices": ["cos0", "cos1", "cos2", "cos3", "cos4", "cos5", "cos6", "cos7"], "type": "str"},
+            "inbandwidth-source": {"v_range": [["8.0.0", ""]], "choices": ["default", "measured"], "type": "str"},
+            "ipam-conflicts": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "outbandwidth-source": {"v_range": [["8.0.0", ""]], "choices": ["default", "measured"], "type": "str"},
+            "switch-controller-fortilink-settings": {"v_range": [["8.0.0", ""]], "type": "raw"},
+            "tx-queue-len": {"v_range": [["8.0.0", ""]], "type": "int"}
         }
     },
     "fsp_vlan_interface_ipv6": {
@@ -18425,7 +19149,10 @@ SCHEMA_DATA = '''
             "dhcp6-relay-interface-id": {"v_range": [["7.4.1", ""]], "type": "str"},
             "dhcp6-relay-source-ip": {"v_range": [["7.4.1", ""]], "type": "str"},
             "ip6-adv-rio": {"v_range": [["7.6.2", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "ip6-route-pref": {"v_range": [["7.6.2", ""]], "choices": ["medium", "high", "low"], "type": "str"}
+            "ip6-route-pref": {"v_range": [["7.6.2", ""]], "choices": ["medium", "high", "low"], "type": "str"},
+            "dhcp6-egress-cos": {"v_range": [["8.0.0", ""]], "choices": ["cos0", "cos1", "cos2", "cos3", "cos4", "cos5", "cos6", "cos7"], "type": "str"},
+            "ip6-link-local": {"v_range": [["8.0.0", ""]], "type": "str"},
+            "ip6-mgmt-address": {"v_range": [["8.0.0", ""]], "type": "str"}
         }
     },
     "fsp_vlan_interface_ipv6_ip6delegatedprefixlist": {
@@ -18479,7 +19206,7 @@ SCHEMA_DATA = '''
                 "type": "list",
                 "choices": [
                     "https", "ping", "ssh", "snmp", "http", "telnet", "fgfm", "auto-ipsec", "radius-acct", "probe-response", "capwap", "dnp", "ftm",
-                    "fabric", "speed-test", "icond", "scim"
+                    "fabric", "speed-test", "icond", "scim", "mqtt"
                 ],
                 "elements": "str"
             },
@@ -18528,36 +19255,49 @@ SCHEMA_DATA = '''
         "stated": true,
         "options": {
             "entries": {
-                "v_range": [["7.2.9", "7.2.12"], ["7.4.7", "7.4.10"], ["7.6.2", ""]],
+                "v_range": [["7.2.9", "7.2.12"], ["7.4.7", "7.4.11"], ["7.6.2", ""]],
                 "type": "list",
                 "options": {
-                    "id": {"v_range": [["7.2.9", "7.2.12"], ["7.4.7", "7.4.10"], ["7.6.2", ""]], "type": "int"},
-                    "ie": {"v_range": [["7.2.9", "7.2.12"], ["7.4.7", "7.4.10"], ["7.6.2", ""]], "type": "int"},
-                    "fmgr_message": {"v_range": [["7.2.9", "7.2.12"], ["7.4.7", "7.4.10"], ["7.6.2", ""]], "type": "int"}
+                    "id": {"v_range": [["7.2.9", "7.2.12"], ["7.4.7", "7.4.11"], ["7.6.2", ""]], "type": "int"},
+                    "ie": {"v_range": [["7.2.9", "7.2.12"], ["7.4.7", "7.4.11"], ["7.6.2", ""]], "type": "int"},
+                    "fmgr_message": {"v_range": [["7.2.9", "7.2.12"], ["7.4.7", "7.4.11"], ["7.6.2", ""]], "type": "int"}
                 },
                 "elements": "dict"
             },
-            "name": {"v_range": [["7.2.9", "7.2.12"], ["7.4.7", "7.4.10"], ["7.6.2", ""]], "required": true, "type": "str"}
+            "name": {"v_range": [["7.2.9", "7.2.12"], ["7.4.7", "7.4.11"], ["7.6.2", ""]], "required": true, "type": "str"}
         }
     },
     "gtp_ieallowlist_entries": {
         "stated": true,
         "options": {
-            "id": {"v_range": [["7.2.9", "7.2.12"], ["7.4.7", "7.4.10"], ["7.6.2", ""]], "required": true, "type": "int"},
-            "ie": {"v_range": [["7.2.9", "7.2.12"], ["7.4.7", "7.4.10"], ["7.6.2", ""]], "type": "int"},
-            "fmgr_message": {"v_range": [["7.2.9", "7.2.12"], ["7.4.7", "7.4.10"], ["7.6.2", ""]], "type": "int"}
+            "id": {"v_range": [["7.2.9", "7.2.12"], ["7.4.7", "7.4.11"], ["7.6.2", ""]], "required": true, "type": "int"},
+            "ie": {"v_range": [["7.2.9", "7.2.12"], ["7.4.7", "7.4.11"], ["7.6.2", ""]], "type": "int"},
+            "fmgr_message": {"v_range": [["7.2.9", "7.2.12"], ["7.4.7", "7.4.11"], ["7.6.2", ""]], "type": "int"}
         }
     },
     "gtp_iewhitelist": {
         "stated": true,
         "options": {
-            "entries": {"type": "list", "options": {"id": {"type": "int"}, "ie": {"type": "int"}, "fmgr_message": {"type": "int"}}, "elements": "dict"},
-            "name": {"required": true, "type": "str"}
+            "entries": {
+                "v_range": [["6.0.0", "7.6.7"]],
+                "type": "list",
+                "options": {
+                    "id": {"v_range": [["6.0.0", "7.6.7"]], "type": "int"},
+                    "ie": {"v_range": [["6.0.0", "7.6.7"]], "type": "int"},
+                    "fmgr_message": {"v_range": [["6.0.0", "7.6.7"]], "type": "int"}
+                },
+                "elements": "dict"
+            },
+            "name": {"v_range": [["6.0.0", "7.6.7"]], "required": true, "type": "str"}
         }
     },
     "gtp_iewhitelist_entries": {
         "stated": true,
-        "options": {"id": {"required": true, "type": "int"}, "ie": {"type": "int"}, "fmgr_message": {"type": "int"}}
+        "options": {
+            "id": {"v_range": [["6.0.0", "7.6.7"]], "required": true, "type": "int"},
+            "ie": {"v_range": [["6.0.0", "7.6.7"]], "type": "int"},
+            "fmgr_message": {"v_range": [["6.0.0", "7.6.7"]], "type": "int"}
+        }
     },
     "gtp_messagefilterv0v1": {
         "stated": true,
@@ -18660,17 +19400,29 @@ SCHEMA_DATA = '''
     "gtp_rattimeoutprofile": {
         "stated": true,
         "options": {
-            "eutran-timeout": {"v_range": [["7.4.7", "7.4.10"], ["7.6.4", ""]], "type": "int"},
-            "gan-timeout": {"v_range": [["7.4.7", "7.4.10"], ["7.6.4", ""]], "type": "int"},
-            "geran-timeout": {"v_range": [["7.4.7", "7.4.10"], ["7.6.4", ""]], "type": "int"},
-            "hspa-timeout": {"v_range": [["7.4.7", "7.4.10"], ["7.6.4", ""]], "type": "int"},
-            "ltem-timeout": {"v_range": [["7.4.7", "7.4.10"], ["7.6.4", ""]], "type": "int"},
-            "name": {"v_range": [["7.4.7", "7.4.10"], ["7.6.4", ""]], "required": true, "type": "str"},
-            "nbiot-timeout": {"v_range": [["7.4.7", "7.4.10"], ["7.6.4", ""]], "type": "int"},
-            "nr-timeout": {"v_range": [["7.4.7", "7.4.10"], ["7.6.4", ""]], "type": "int"},
-            "utran-timeout": {"v_range": [["7.4.7", "7.4.10"], ["7.6.4", ""]], "type": "int"},
-            "virtual-timeout": {"v_range": [["7.4.7", "7.4.10"], ["7.6.4", ""]], "type": "int"},
-            "wlan-timeout": {"v_range": [["7.4.7", "7.4.10"], ["7.6.4", ""]], "type": "int"}
+            "eutran-timeout": {"v_range": [["7.4.7", "7.4.11"], ["7.6.4", ""]], "type": "int"},
+            "gan-timeout": {"v_range": [["7.4.7", "7.4.11"], ["7.6.4", ""]], "type": "int"},
+            "geran-timeout": {"v_range": [["7.4.7", "7.4.11"], ["7.6.4", ""]], "type": "int"},
+            "hspa-timeout": {"v_range": [["7.4.7", "7.4.11"], ["7.6.4", ""]], "type": "int"},
+            "ltem-timeout": {"v_range": [["7.4.7", "7.4.11"], ["7.6.4", ""]], "type": "int"},
+            "name": {"v_range": [["7.4.7", "7.4.11"], ["7.6.4", ""]], "required": true, "type": "str"},
+            "nbiot-timeout": {"v_range": [["7.4.7", "7.4.11"], ["7.6.4", ""]], "type": "int"},
+            "nr-timeout": {"v_range": [["7.4.7", "7.4.11"], ["7.6.4", ""]], "type": "int"},
+            "utran-timeout": {"v_range": [["7.4.7", "7.4.11"], ["7.6.4", ""]], "type": "int"},
+            "virtual-timeout": {"v_range": [["7.4.7", "7.4.11"], ["7.6.4", ""]], "type": "int"},
+            "wlan-timeout": {"v_range": [["7.4.7", "7.4.11"], ["7.6.4", ""]], "type": "int"},
+            "ltem-geo-timeout": {"v_range": [["8.0.0", ""]], "type": "int"},
+            "ltem-leo-timeout": {"v_range": [["8.0.0", ""]], "type": "int"},
+            "ltem-meo-timeout": {"v_range": [["8.0.0", ""]], "type": "int"},
+            "ltem-othersat-timeout": {"v_range": [["8.0.0", ""]], "type": "int"},
+            "nbiot-geo-timeout": {"v_range": [["8.0.0", ""]], "type": "int"},
+            "nbiot-leo-timeout": {"v_range": [["8.0.0", ""]], "type": "int"},
+            "nbiot-meo-timeout": {"v_range": [["8.0.0", ""]], "type": "int"},
+            "nbiot-othersat-timeout": {"v_range": [["8.0.0", ""]], "type": "int"},
+            "wb-eutran-geo-timeout": {"v_range": [["8.0.0", ""]], "type": "int"},
+            "wb-eutran-leo-timeout": {"v_range": [["8.0.0", ""]], "type": "int"},
+            "wb-eutran-meo-timeout": {"v_range": [["8.0.0", ""]], "type": "int"},
+            "wb-eutran-othersat-timeout": {"v_range": [["8.0.0", ""]], "type": "int"}
         }
     },
     "gtp_tunnellimit": {"stated": true, "options": {"name": {"required": true, "type": "str"}, "tunnel-limit": {"type": "int"}}},
@@ -19153,7 +19905,11 @@ SCHEMA_DATA = '''
     "icap_profile": {
         "stated": true,
         "options": {
-            "methods": {"type": "list", "choices": ["delete", "get", "head", "options", "post", "put", "trace", "other", "connect"], "elements": "str"},
+            "methods": {
+                "type": "list",
+                "choices": ["delete", "get", "head", "options", "post", "put", "trace", "other", "connect", "patch", "query"],
+                "elements": "str"
+            },
             "name": {"required": true, "type": "str"},
             "replacemsg-group": {"type": "str"},
             "request": {"choices": ["disable", "enable"], "type": "str"},
@@ -19173,13 +19929,13 @@ SCHEMA_DATA = '''
                     "content": {"v_range": [["6.2.0", ""]], "type": "str"},
                     "id": {"v_range": [["6.2.0", ""]], "type": "int"},
                     "name": {"v_range": [["6.2.0", ""]], "type": "str"},
-                    "http-header": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "str"},
+                    "http-header": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "str"},
                     "sesson-info-type": {
-                        "v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]],
+                        "v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]],
                         "choices": ["client-ip", "user", "upn", "domain", "local-grp", "remote-grp", "proxy-name", "auth-user-uri", "auth-group-uri"],
                         "type": "str"
                     },
-                    "source": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "choices": ["content", "http-header", "session"], "type": "str"}
+                    "source": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "choices": ["content", "http-header", "session"], "type": "str"}
                 },
                 "elements": "dict"
             },
@@ -19222,10 +19978,14 @@ SCHEMA_DATA = '''
             "timeout": {"v_range": [["7.2.0", ""]], "type": "int"},
             "comment": {"v_range": [["7.2.2", ""]], "type": "str"},
             "ocr-only": {"v_range": [["7.6.2", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "ocr_only": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "scan-oversize-log": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "scan-size-limit": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "int"},
-            "allow-204-response": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"}
+            "ocr_only": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "scan-oversize-log": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "scan-size-limit": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "int"},
+            "allow-204-response": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-force-sync": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object-source": {"v_range": [["8.0.0", ""]], "choices": ["member", "local", "root"], "type": "str"},
+            "uuid": {"v_range": [["8.0.0", ""]], "type": "str"}
         }
     },
     "icap_profile_icapheaders": {
@@ -19235,13 +19995,13 @@ SCHEMA_DATA = '''
             "content": {"v_range": [["6.2.0", ""]], "type": "str"},
             "id": {"v_range": [["6.2.0", ""]], "required": true, "type": "int"},
             "name": {"v_range": [["6.2.0", ""]], "type": "str"},
-            "http-header": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "str"},
+            "http-header": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "str"},
             "sesson-info-type": {
-                "v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]],
+                "v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]],
                 "choices": ["client-ip", "user", "upn", "domain", "local-grp", "remote-grp", "proxy-name", "auth-user-uri", "auth-group-uri"],
                 "type": "str"
             },
-            "source": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "choices": ["content", "http-header", "session"], "type": "str"}
+            "source": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "choices": ["content", "http-header", "session"], "type": "str"}
         }
     },
     "icap_profile_respmodforwardrules": {
@@ -19276,14 +20036,14 @@ SCHEMA_DATA = '''
     "icap_remoteservergroup": {
         "stated": true,
         "options": {
-            "ldb-method": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "choices": ["weighted", "least-session", "active-passive"], "type": "str"},
-            "name": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "required": true, "type": "str"},
+            "ldb-method": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "choices": ["weighted", "least-session", "active-passive"], "type": "str"},
+            "name": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "required": true, "type": "str"},
             "server-list": {
-                "v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]],
+                "v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]],
                 "type": "list",
                 "options": {
-                    "name": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "list", "elements": "str"},
-                    "weight": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "int"}
+                    "name": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "list", "elements": "str"},
+                    "weight": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "int"}
                 },
                 "elements": "dict"
             }
@@ -19292,8 +20052,8 @@ SCHEMA_DATA = '''
     "icap_remoteservergroup_serverlist": {
         "stated": true,
         "options": {
-            "name": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "required": true, "type": "list", "elements": "str"},
-            "weight": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "int"}
+            "name": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "required": true, "type": "list", "elements": "str"},
+            "weight": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "int"}
         }
     },
     "icap_server": {
@@ -19310,7 +20070,11 @@ SCHEMA_DATA = '''
             "addr-type": {"v_range": [["7.2.0", ""]], "choices": ["fqdn", "ip4", "ip6"], "type": "str"},
             "fqdn": {"v_range": [["7.2.0", ""]], "type": "str"},
             "healthcheck": {"v_range": [["7.2.0", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "healthcheck-service": {"v_range": [["7.2.0", ""]], "type": "str"}
+            "healthcheck-service": {"v_range": [["7.2.0", ""]], "type": "str"},
+            "fabric-force-sync": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object-source": {"v_range": [["8.0.0", ""]], "choices": ["member", "local", "root"], "type": "str"},
+            "uuid": {"v_range": [["8.0.0", ""]], "type": "str"}
         }
     },
     "icap_servergroup": {
@@ -19326,7 +20090,11 @@ SCHEMA_DATA = '''
                     "weight": {"v_range": [["7.6.3", ""]], "type": "int"}
                 },
                 "elements": "dict"
-            }
+            },
+            "fabric-force-sync": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object-source": {"v_range": [["8.0.0", ""]], "choices": ["member", "local", "root"], "type": "str"},
+            "uuid": {"v_range": [["8.0.0", ""]], "type": "str"}
         }
     },
     "icap_servergroup_serverlist": {
@@ -19589,7 +20357,7 @@ SCHEMA_DATA = '''
                     "rule": {"type": "raw"},
                     "severity": {"type": "raw"},
                     "status": {"choices": ["disable", "enable", "default"], "type": "str"},
-                    "tags": {"v_range": [["6.2.0", "6.4.15"], ["7.4.8", "7.4.10"]], "type": "str"},
+                    "tags": {"v_range": [["6.2.0", "6.4.15"], ["7.4.8", "7.4.11"]], "type": "str"},
                     "cve": {"v_range": [["6.4.2", ""]], "type": "raw"},
                     "default-action": {"v_range": [["7.2.0", ""]], "choices": ["block", "pass", "all", "drop"], "type": "str"},
                     "default-status": {"v_range": [["7.2.0", ""]], "choices": ["disable", "enable", "all"], "type": "str"},
@@ -19647,7 +20415,11 @@ SCHEMA_DATA = '''
             },
             "replacemsg-group": {"type": "str"},
             "scan-botnet-connections": {"v_range": [["6.2.0", ""]], "choices": ["disable", "block", "monitor"], "type": "str"},
-            "_baseline": {"v_range": [["7.0.1", "7.0.2"]], "type": "str"}
+            "_baseline": {"v_range": [["7.0.1", "7.0.2"]], "type": "str"},
+            "fabric-force-sync": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object-source": {"v_range": [["8.0.0", ""]], "choices": ["member", "local", "root"], "type": "str"},
+            "uuid": {"v_range": [["8.0.0", ""]], "type": "str"}
         }
     },
     "ips_sensor_entries": {
@@ -19673,7 +20445,7 @@ SCHEMA_DATA = '''
             "rule": {"type": "raw"},
             "severity": {"type": "raw"},
             "status": {"choices": ["disable", "enable", "default"], "type": "str"},
-            "tags": {"v_range": [["6.2.0", "6.4.15"], ["7.4.8", "7.4.10"]], "type": "str"},
+            "tags": {"v_range": [["6.2.0", "6.4.15"], ["7.4.8", "7.4.11"]], "type": "str"},
             "cve": {"v_range": [["6.4.2", ""]], "type": "raw"},
             "default-action": {"v_range": [["7.2.0", ""]], "choices": ["block", "pass", "all", "drop"], "type": "str"},
             "default-status": {"v_range": [["7.2.0", ""]], "choices": ["disable", "enable", "all"], "type": "str"},
@@ -19717,7 +20489,18 @@ SCHEMA_DATA = '''
             "right-click": {"v_range": [["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"}
         }
     },
-    "log_customfield": {"stated": true, "options": {"id": {"required": true, "type": "str"}, "name": {"type": "str"}, "value": {"type": "str"}}},
+    "log_customfield": {
+        "stated": true,
+        "options": {
+            "id": {"required": true, "type": "str"},
+            "name": {"type": "str"},
+            "value": {"type": "str"},
+            "fabric-force-sync": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object-source": {"v_range": [["8.0.0", ""]], "choices": ["member", "local", "root"], "type": "str"},
+            "uuid": {"v_range": [["8.0.0", ""]], "type": "str"}
+        }
+    },
     "log_npuserver": {
         "stated": false,
         "options": {
@@ -19970,8 +20753,8 @@ SCHEMA_DATA = '''
             "cors-depth": {"v_range": [["7.4.1", ""]], "type": "int"},
             "cors-stateful": {"v_range": [["7.4.1", ""]], "choices": ["disable", "enable"], "type": "str"},
             "cert-auth-cookie": {"v_range": [["7.4.3", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "form-auth-fallback": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "web-proxy": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "raw"},
+            "form-auth-fallback": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "web-proxy": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "raw"},
             "session-logout": {"v_range": [["7.6.5", ""]], "choices": ["disable", "enable"], "type": "str"}
         }
     },
@@ -20000,7 +20783,9 @@ SCHEMA_DATA = '''
             "ip-auth-cookie": {"v_range": [["7.2.0", ""]], "choices": ["disable", "enable"], "type": "str"},
             "persistent-cookie": {"v_range": [["7.2.0", ""]], "choices": ["disable", "enable"], "type": "str"},
             "update-time": {"v_range": [["7.2.0", ""]], "type": "str"},
-            "log-auth-request": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"}
+            "log-auth-request": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "max-redirection-url-length": {"v_range": [["7.6.7", ""]], "type": "int"},
+            "ems-root-ca": {"v_range": [["7.6.7", ""]], "choices": ["disable", "enable"], "type": "str"}
         }
     },
     "pkg_central_dnat": {"stated": true, "options": {"name": {"required": true, "type": "raw"}}},
@@ -20060,10 +20845,11 @@ SCHEMA_DATA = '''
             "dst-port": {"v_range": [["7.2.6", ""]], "type": "str"},
             "port-preserve": {"v_range": [["7.4.3", ""]], "choices": ["disable", "enable"], "type": "str"},
             "port-random": {"v_range": [["7.6.2", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "action": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "choices": ["bypass", "masquerade", "ippool"], "type": "str"},
-            "ipv6": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "src-addr": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "raw"},
-            "src-addr6": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "raw"}
+            "action": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "choices": ["bypass", "masquerade", "ippool"], "type": "str"},
+            "ipv6": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "src-addr": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "raw"},
+            "src-addr6": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "raw"},
+            "custom-tags": {"v_range": [["8.0.0", ""]], "type": "raw"}
         }
     },
     "pkg_firewall_consolidated_policy": {
@@ -20260,7 +21046,8 @@ SCHEMA_DATA = '''
             "srcaddr": {"type": "raw"},
             "status": {"choices": ["disable", "enable"], "type": "str"},
             "uuid": {"v_range": [["6.2.1", "7.2.0"]], "type": "str"},
-            "name": {"v_range": [["6.4.2", ""]], "type": "str"}
+            "name": {"v_range": [["6.4.2", ""]], "type": "str"},
+            "custom-tags": {"v_range": [["8.0.0", ""]], "type": "raw"}
         }
     },
     "pkg_firewall_dospolicy6": {
@@ -20343,7 +21130,8 @@ SCHEMA_DATA = '''
             "srcaddr": {"type": "raw"},
             "status": {"choices": ["disable", "enable"], "type": "str"},
             "uuid": {"v_range": [["6.2.1", "7.2.0"]], "type": "str"},
-            "name": {"v_range": [["6.4.2", ""]], "type": "str"}
+            "name": {"v_range": [["6.4.2", ""]], "type": "str"},
+            "custom-tags": {"v_range": [["8.0.0", ""]], "type": "raw"}
         }
     },
     "pkg_firewall_dospolicy6_anomaly": {
@@ -20601,131 +21389,131 @@ SCHEMA_DATA = '''
         "stated": true,
         "options": {
             "action": {
-                "v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", ""]],
+                "v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", "7.6.7"]],
                 "choices": ["deny", "accept"],
                 "type": "str"
             },
             "auto-asic-offload": {
-                "v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", ""]],
+                "v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", "7.6.7"]],
                 "choices": ["disable", "enable"],
                 "type": "str"
             },
             "cgn-eif": {
-                "v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", ""]],
+                "v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", "7.6.7"]],
                 "choices": ["disable", "enable"],
                 "type": "str"
             },
             "cgn-eim": {
-                "v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", ""]],
+                "v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", "7.6.7"]],
                 "choices": ["disable", "enable"],
                 "type": "str"
             },
-            "cgn-log-server-grp": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", ""]], "type": "str"},
-            "cgn-resource-quota": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", ""]], "type": "int"},
-            "cgn-session-quota": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", ""]], "type": "int"},
-            "comments": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", ""]], "type": "str"},
+            "cgn-log-server-grp": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", "7.6.7"]], "type": "str"},
+            "cgn-resource-quota": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", "7.6.7"]], "type": "int"},
+            "cgn-session-quota": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", "7.6.7"]], "type": "int"},
+            "comments": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", "7.6.7"]], "type": "str"},
             "delay-tcp-npu-session": {
-                "v_range": [["6.4.7", "6.4.15"], ["7.0.2", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", ""]],
+                "v_range": [["6.4.7", "6.4.15"], ["7.0.2", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", "7.6.7"]],
                 "choices": ["disable", "enable"],
                 "type": "str"
             },
-            "dstaddr": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", ""]], "type": "raw"},
+            "dstaddr": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", "7.6.7"]], "type": "raw"},
             "dstaddr-negate": {
-                "v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", ""]],
+                "v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", "7.6.7"]],
                 "choices": ["disable", "enable"],
                 "type": "str"
             },
-            "dstaddr6": {"v_range": [["6.4.7", "6.4.15"], ["7.0.2", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", ""]], "type": "raw"},
-            "dstintf": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", ""]], "type": "raw"},
+            "dstaddr6": {"v_range": [["6.4.7", "6.4.15"], ["7.0.2", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", "7.6.7"]], "type": "raw"},
+            "dstintf": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", "7.6.7"]], "type": "raw"},
             "firewall-session-dirty": {
-                "v_range": [["6.4.7", "6.4.15"], ["7.0.2", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", ""]],
+                "v_range": [["6.4.7", "6.4.15"], ["7.0.2", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", "7.6.7"]],
                 "choices": ["check-all", "check-new"],
                 "type": "str"
             },
-            "global-label": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", ""]], "type": "str"},
+            "global-label": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", "7.6.7"]], "type": "str"},
             "ippool": {
-                "v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", ""]],
+                "v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", "7.6.7"]],
                 "choices": ["disable", "enable"],
                 "type": "str"
             },
-            "label": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", ""]], "type": "str"},
-            "name": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", ""]], "type": "str"},
+            "label": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", "7.6.7"]], "type": "str"},
+            "name": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", "7.6.7"]], "type": "str"},
             "nat": {
-                "v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", ""]],
+                "v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", "7.6.7"]],
                 "choices": ["disable", "enable"],
                 "type": "str"
             },
             "policy-offload": {
-                "v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", ""]],
+                "v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", "7.6.7"]],
                 "choices": ["disable", "enable"],
                 "type": "str"
             },
-            "policyid": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", ""]], "required": true, "type": "int"},
-            "poolname": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", ""]], "type": "raw"},
-            "poolname6": {"v_range": [["6.4.7", "6.4.15"], ["7.0.2", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", ""]], "type": "raw"},
+            "policyid": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", "7.6.7"]], "required": true, "type": "int"},
+            "poolname": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", "7.6.7"]], "type": "raw"},
+            "poolname6": {"v_range": [["6.4.7", "6.4.15"], ["7.0.2", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", "7.6.7"]], "type": "raw"},
             "send-deny-packet": {
-                "v_range": [["6.4.7", "6.4.15"], ["7.0.2", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", ""]],
+                "v_range": [["6.4.7", "6.4.15"], ["7.0.2", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", "7.6.7"]],
                 "choices": ["disable", "enable"],
                 "type": "str"
             },
-            "service": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", ""]], "type": "raw"},
+            "service": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", "7.6.7"]], "type": "raw"},
             "service-negate": {
-                "v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", ""]],
+                "v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", "7.6.7"]],
                 "choices": ["disable", "enable"],
                 "type": "str"
             },
-            "srcaddr": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", ""]], "type": "raw"},
+            "srcaddr": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", "7.6.7"]], "type": "raw"},
             "srcaddr-negate": {
-                "v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", ""]],
+                "v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", "7.6.7"]],
                 "choices": ["disable", "enable"],
                 "type": "str"
             },
-            "srcaddr6": {"v_range": [["6.4.7", "6.4.15"], ["7.0.2", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", ""]], "type": "raw"},
-            "srcintf": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", ""]], "type": "raw"},
+            "srcaddr6": {"v_range": [["6.4.7", "6.4.15"], ["7.0.2", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", "7.6.7"]], "type": "raw"},
+            "srcintf": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", "7.6.7"]], "type": "raw"},
             "status": {
-                "v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", ""]],
+                "v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", "7.6.7"]],
                 "choices": ["disable", "enable"],
                 "type": "str"
             },
-            "tcp-timeout-pid": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", ""]], "type": "str"},
-            "traffic-shaper": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", ""]], "type": "str"},
-            "traffic-shaper-reverse": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", ""]], "type": "str"},
-            "udp-timeout-pid": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", ""]], "type": "str"},
-            "uuid": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", ""]], "type": "str"}
+            "tcp-timeout-pid": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", "7.6.7"]], "type": "str"},
+            "traffic-shaper": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", "7.6.7"]], "type": "str"},
+            "traffic-shaper-reverse": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", "7.6.7"]], "type": "str"},
+            "udp-timeout-pid": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", "7.6.7"]], "type": "str"},
+            "uuid": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", "7.6.7"]], "type": "str"}
         }
     },
     "pkg_firewall_hyperscalepolicy46": {
         "stated": true,
         "options": {
             "action": {
-                "v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", ""]],
+                "v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", "7.6.7"]],
                 "choices": ["deny", "accept"],
                 "type": "str"
             },
-            "cgn-log-server-grp": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", ""]], "type": "str"},
-            "comments": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", ""]], "type": "str"},
-            "dstaddr": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", ""]], "type": "raw"},
-            "dstintf": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", ""]], "type": "str"},
-            "name": {"v_range": [["6.4.8", "6.4.15"], ["7.0.3", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", ""]], "type": "str"},
+            "cgn-log-server-grp": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", "7.6.7"]], "type": "str"},
+            "comments": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", "7.6.7"]], "type": "str"},
+            "dstaddr": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", "7.6.7"]], "type": "raw"},
+            "dstintf": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", "7.6.7"]], "type": "str"},
+            "name": {"v_range": [["6.4.8", "6.4.15"], ["7.0.3", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", "7.6.7"]], "type": "str"},
             "policy-offload": {
-                "v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", ""]],
+                "v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", "7.6.7"]],
                 "choices": ["disable", "enable"],
                 "type": "str"
             },
-            "policyid": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", ""]], "required": true, "type": "int"},
-            "service": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", ""]], "type": "raw"},
-            "srcaddr": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", ""]], "type": "raw"},
-            "srcintf": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", ""]], "type": "str"},
+            "policyid": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", "7.6.7"]], "required": true, "type": "int"},
+            "service": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", "7.6.7"]], "type": "raw"},
+            "srcaddr": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", "7.6.7"]], "type": "raw"},
+            "srcintf": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", "7.6.7"]], "type": "str"},
             "status": {
-                "v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", ""]],
+                "v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", "7.6.7"]],
                 "choices": ["disable", "enable"],
                 "type": "str"
             },
-            "tcp-timeout-pid": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", ""]], "type": "str"},
-            "traffic-shaper": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", ""]], "type": "str"},
-            "traffic-shaper-reverse": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", ""]], "type": "str"},
-            "udp-timeout-pid": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", ""]], "type": "str"},
-            "uuid": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", ""]], "type": "str"}
+            "tcp-timeout-pid": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", "7.6.7"]], "type": "str"},
+            "traffic-shaper": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", "7.6.7"]], "type": "str"},
+            "traffic-shaper-reverse": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", "7.6.7"]], "type": "str"},
+            "udp-timeout-pid": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", "7.6.7"]], "type": "str"},
+            "uuid": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", "7.6.7"]], "type": "str"}
         }
     },
     "pkg_firewall_hyperscalepolicy6": {
@@ -20786,52 +21574,52 @@ SCHEMA_DATA = '''
         "stated": true,
         "options": {
             "action": {
-                "v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", ""]],
+                "v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", "7.6.7"]],
                 "choices": ["deny", "accept"],
                 "type": "str"
             },
             "cgn-eif": {
-                "v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", ""]],
+                "v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", "7.6.7"]],
                 "choices": ["disable", "enable"],
                 "type": "str"
             },
             "cgn-eim": {
-                "v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", ""]],
+                "v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", "7.6.7"]],
                 "choices": ["disable", "enable"],
                 "type": "str"
             },
-            "cgn-log-server-grp": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", ""]], "type": "str"},
-            "cgn-resource-quota": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", ""]], "type": "int"},
-            "cgn-session-quota": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", ""]], "type": "int"},
-            "comments": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", ""]], "type": "str"},
-            "dstaddr": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", ""]], "type": "raw"},
-            "dstintf": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", ""]], "type": "str"},
+            "cgn-log-server-grp": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", "7.6.7"]], "type": "str"},
+            "cgn-resource-quota": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", "7.6.7"]], "type": "int"},
+            "cgn-session-quota": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", "7.6.7"]], "type": "int"},
+            "comments": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", "7.6.7"]], "type": "str"},
+            "dstaddr": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", "7.6.7"]], "type": "raw"},
+            "dstintf": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", "7.6.7"]], "type": "str"},
             "ippool": {
-                "v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", ""]],
+                "v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", "7.6.7"]],
                 "choices": ["disable", "enable"],
                 "type": "str"
             },
-            "name": {"v_range": [["6.4.8", "6.4.15"], ["7.0.3", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", ""]], "type": "str"},
+            "name": {"v_range": [["6.4.8", "6.4.15"], ["7.0.3", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", "7.6.7"]], "type": "str"},
             "policy-offload": {
-                "v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", ""]],
+                "v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", "7.6.7"]],
                 "choices": ["disable", "enable"],
                 "type": "str"
             },
-            "policyid": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", ""]], "required": true, "type": "int"},
-            "poolname": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", ""]], "type": "raw"},
-            "service": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", ""]], "type": "raw"},
-            "srcaddr": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", ""]], "type": "raw"},
-            "srcintf": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", ""]], "type": "str"},
+            "policyid": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", "7.6.7"]], "required": true, "type": "int"},
+            "poolname": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", "7.6.7"]], "type": "raw"},
+            "service": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", "7.6.7"]], "type": "raw"},
+            "srcaddr": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", "7.6.7"]], "type": "raw"},
+            "srcintf": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", "7.6.7"]], "type": "str"},
             "status": {
-                "v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", ""]],
+                "v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", "7.6.7"]],
                 "choices": ["disable", "enable"],
                 "type": "str"
             },
-            "tcp-timeout-pid": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", ""]], "type": "str"},
-            "traffic-shaper": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", ""]], "type": "str"},
-            "traffic-shaper-reverse": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", ""]], "type": "str"},
-            "udp-timeout-pid": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", ""]], "type": "str"},
-            "uuid": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", ""]], "type": "str"}
+            "tcp-timeout-pid": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", "7.6.7"]], "type": "str"},
+            "traffic-shaper": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", "7.6.7"]], "type": "str"},
+            "traffic-shaper-reverse": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", "7.6.7"]], "type": "str"},
+            "udp-timeout-pid": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", "7.6.7"]], "type": "str"},
+            "uuid": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", "7.6.7"]], "type": "str"}
         }
     },
     "pkg_firewall_interfacepolicy": {
@@ -20973,7 +21761,9 @@ SCHEMA_DATA = '''
             "internet-service-src-name": {"v_range": [["7.4.3", ""]], "type": "raw"},
             "internet-service-src-negate": {"v_range": [["7.4.3", ""]], "choices": ["disable", "enable"], "type": "str"},
             "logtraffic": {"v_range": [["7.6.0", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "internet-service-src-fortiguard": {"v_range": [["7.6.4", ""]], "type": "raw"}
+            "internet-service-src-fortiguard": {"v_range": [["7.6.4", ""]], "type": "raw"},
+            "_policy_block": {"v_range": [["8.0.0", ""]], "type": "int"},
+            "custom-tags": {"v_range": [["8.0.0", ""]], "type": "raw"}
         }
     },
     "pkg_firewall_localinpolicy6": {
@@ -21000,7 +21790,9 @@ SCHEMA_DATA = '''
             "internet-service6-src-name": {"v_range": [["7.4.3", ""]], "type": "raw"},
             "internet-service6-src-negate": {"v_range": [["7.4.3", ""]], "choices": ["disable", "enable"], "type": "str"},
             "logtraffic": {"v_range": [["7.6.0", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "internet-service6-src-fortiguard": {"v_range": [["7.6.4", ""]], "type": "raw"}
+            "internet-service6-src-fortiguard": {"v_range": [["7.6.4", ""]], "type": "raw"},
+            "_policy_block": {"v_range": [["8.0.0", ""]], "type": "int"},
+            "custom-tags": {"v_range": [["8.0.0", ""]], "type": "raw"}
         }
     },
     "pkg_firewall_multicastpolicy": {
@@ -21026,7 +21818,8 @@ SCHEMA_DATA = '''
             "name": {"v_range": [["6.4.2", ""]], "type": "str"},
             "traffic-shaper": {"v_range": [["7.2.0", ""]], "type": "str"},
             "ips-sensor": {"v_range": [["7.4.2", ""]], "type": "str"},
-            "utm-status": {"v_range": [["7.4.2", ""]], "choices": ["disable", "enable"], "type": "str"}
+            "utm-status": {"v_range": [["7.4.2", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "custom-tags": {"v_range": [["8.0.0", ""]], "type": "raw"}
         }
     },
     "pkg_firewall_multicastpolicy6": {
@@ -21048,7 +21841,8 @@ SCHEMA_DATA = '''
             "comments": {"v_range": [["7.0.0", ""]], "type": "str"},
             "uuid": {"v_range": [["7.0.0", ""]], "type": "str"},
             "ips-sensor": {"v_range": [["7.4.2", ""]], "type": "str"},
-            "utm-status": {"v_range": [["7.4.2", ""]], "choices": ["disable", "enable"], "type": "str"}
+            "utm-status": {"v_range": [["7.4.2", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "custom-tags": {"v_range": [["8.0.0", ""]], "type": "raw"}
         }
     },
     "pkg_firewall_policy": {
@@ -21129,14 +21923,14 @@ SCHEMA_DATA = '''
             "rsso": {"v_range": [["6.0.0", "7.6.2"]], "choices": ["disable", "enable"], "type": "str"},
             "rtp-addr": {"type": "raw"},
             "rtp-nat": {"choices": ["disable", "enable"], "type": "str"},
-            "scan-botnet-connections": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "choices": ["disable", "block", "monitor"], "type": "str"},
+            "scan-botnet-connections": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "choices": ["disable", "block", "monitor"], "type": "str"},
             "schedule": {"type": "str"},
             "schedule-timeout": {"choices": ["disable", "enable"], "type": "str"},
             "send-deny-packet": {"choices": ["disable", "enable"], "type": "str"},
             "service": {"type": "raw"},
             "service-negate": {"choices": ["disable", "enable"], "type": "str"},
             "session-ttl": {"type": "raw"},
-            "spamfilter-profile": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "type": "str"},
+            "spamfilter-profile": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "type": "str"},
             "srcaddr": {"type": "raw"},
             "srcaddr-negate": {"choices": ["disable", "enable"], "type": "str"},
             "srcintf": {"type": "raw"},
@@ -21144,7 +21938,7 @@ SCHEMA_DATA = '''
             "ssl-mirror-intf": {"v_range": [["6.0.0", "7.6.2"]], "type": "raw"},
             "ssl-ssh-profile": {"type": "str"},
             "status": {"choices": ["disable", "enable"], "type": "str"},
-            "tags": {"v_range": [["6.0.0", "6.4.15"], ["7.4.8", "7.4.10"]], "type": "str"},
+            "tags": {"v_range": [["6.0.0", "6.4.15"], ["7.4.8", "7.4.11"]], "type": "str"},
             "tcp-mss-receiver": {"type": "int"},
             "tcp-mss-sender": {"type": "int"},
             "tcp-session-without-syn": {"choices": ["all", "data-only", "disable"], "type": "str"},
@@ -21204,7 +21998,7 @@ SCHEMA_DATA = '''
             "wsso": {"v_range": [["6.0.0", "7.6.2"]], "choices": ["disable", "enable"], "type": "str"},
             "anti-replay": {"v_range": [["6.2.0", ""]], "choices": ["disable", "enable"], "type": "str"},
             "app-group": {"v_range": [["6.2.0", "7.6.2"], ["7.6.4", ""]], "type": "raw"},
-            "cifs-profile": {"v_range": [["6.2.0", ""]], "type": "str"},
+            "cifs-profile": {"v_range": [["6.2.0", "7.6.7"]], "type": "str"},
             "email-collect": {"v_range": [["6.2.0", ""]], "choices": ["disable", "enable"], "type": "str"},
             "emailfilter-profile": {"v_range": [["6.2.0", ""]], "type": "str"},
             "fsso-groups": {"v_range": [["6.2.1", ""]], "type": "raw"},
@@ -21312,34 +22106,34 @@ SCHEMA_DATA = '''
             "port-random": {"v_range": [["7.6.2", ""]], "choices": ["disable", "enable"], "type": "str"},
             "ztna-ems-tag-negate": {"v_range": [["7.6.2", ""]], "choices": ["disable", "enable"], "type": "str"},
             "telemetry-profile": {"v_range": [["7.6.3", ""]], "type": "raw"},
-            "access-proxy": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "raw"},
-            "detect-https-in-http-request": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "device-ownership": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "dynamic-bypass": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "explicit-web-proxy": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "raw"},
-            "extended-log": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "force-proxy": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "http-tunnel-auth": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "https-sub-category": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "ia-profile": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "raw"},
-            "implicit-proxy-detection": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "isolator-profile": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "raw"},
-            "isolator-server": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "raw"},
-            "max-session-per-user": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "int"},
-            "pass-through": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "redirect-profile": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "raw"},
-            "reverse-cache": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "ssh-policy-check": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "transparent": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "access-proxy": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "raw"},
+            "detect-https-in-http-request": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "device-ownership": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "dynamic-bypass": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "explicit-web-proxy": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "raw"},
+            "extended-log": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "force-proxy": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "http-tunnel-auth": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "https-sub-category": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "ia-profile": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "raw"},
+            "implicit-proxy-detection": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "isolator-profile": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "raw"},
+            "isolator-server": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "raw"},
+            "max-session-per-user": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "int"},
+            "pass-through": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "redirect-profile": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "raw"},
+            "reverse-cache": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "ssh-policy-check": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "transparent": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
             "type": {
-                "v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]],
+                "v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]],
                 "choices": [
                     "explicit-web", "transparent", "explicit-ftp", "ssh-tunnel", "ssh", "wanopt", "access-proxy", "ztna-proxy", "explicit-web-connect",
                     "transparent-connect", "llm-proxy"
                 ],
                 "type": "str"
             },
-            "url-risk": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "raw"},
+            "url-risk": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "raw"},
             "service-connector": {"v_range": [["7.6.4", ""]], "type": "raw"},
             "ztna-proxy": {"v_range": [["7.6.4", ""]], "type": "raw"},
             "internet-service6-fortiguard": {"v_range": [["7.6.4", ""]], "type": "raw"},
@@ -21351,6 +22145,19 @@ SCHEMA_DATA = '''
             "internet-service6-src-fortiguard": {"v_range": [["7.6.4", ""]], "type": "raw"},
             "saml-server": {"v_range": [["7.6.4", ""]], "type": "raw"},
             "llm-profile": {"v_range": [["7.6.5", ""]], "type": "raw"},
+            "creation-time": {"v_range": [["7.6.7", ""]], "type": "int"},
+            "custom-tags": {"v_range": [["8.0.0", ""]], "type": "raw"},
+            "fabric-force-sync": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object-source": {"v_range": [["8.0.0", ""]], "choices": ["member", "local", "root"], "type": "str"},
+            "fabric-policy": {
+                "v_range": [["8.0.0", ""]],
+                "type": "dict",
+                "options": {"from": {"v_range": [["8.0.0", ""]], "type": "raw"}, "to": {"v_range": [["8.0.0", ""]], "type": "raw"}}
+            },
+            "skip-vrf-match": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "ztna-destination": {"v_range": [["8.0.0", ""]], "type": "raw"},
+            "ztna-ems-tag6": {"v_range": [["8.0.0", ""]], "type": "raw"},
             "object position": {"type": "list", "elements": "str"}
         }
     },
@@ -21613,7 +22420,7 @@ SCHEMA_DATA = '''
             "webfilter-profile": {"type": "str"},
             "webproxy-forward-server": {"type": "str"},
             "webproxy-profile": {"type": "str"},
-            "cifs-profile": {"v_range": [["6.2.0", ""]], "type": "str"},
+            "cifs-profile": {"v_range": [["6.2.0", "7.6.7"]], "type": "str"},
             "emailfilter-profile": {"v_range": [["6.2.0", ""]], "type": "str"},
             "internet-service-custom-group": {"v_range": [["6.2.0", ""]], "type": "raw"},
             "internet-service-group": {"v_range": [["6.2.0", ""]], "type": "raw"},
@@ -21666,9 +22473,13 @@ SCHEMA_DATA = '''
             "ztna-ems-tag-negate": {"v_range": [["7.6.2", ""]], "choices": ["disable", "enable"], "type": "str"},
             "https-sub-category": {"v_range": [["7.6.3", ""]], "choices": ["disable", "enable"], "type": "str"},
             "telemetry-profile": {"v_range": [["7.6.3", ""]], "type": "raw"},
-            "poolname6": {"v_range": [["7.4.8", "7.4.10"], ["7.6.5", ""]], "type": "raw"},
+            "poolname6": {"v_range": [["7.4.8", "7.4.11"], ["7.6.5", ""]], "type": "raw"},
             "internet-service-fortiguard": {"v_range": [["7.6.4", ""]], "type": "raw"},
-            "internet-service6-fortiguard": {"v_range": [["7.6.4", ""]], "type": "raw"}
+            "internet-service6-fortiguard": {"v_range": [["7.6.4", ""]], "type": "raw"},
+            "custom-tags": {"v_range": [["8.0.0", ""]], "type": "raw"},
+            "fsso-groups": {"v_range": [["8.0.0", ""]], "type": "raw"},
+            "llm-profile": {"v_range": [["8.0.0", ""]], "type": "raw"},
+            "ztna-destination": {"v_range": [["8.0.0", ""]], "type": "raw"}
         }
     },
     "pkg_firewall_proxypolicy_sectionvalue": {
@@ -21678,26 +22489,26 @@ SCHEMA_DATA = '''
     "pkg_firewall_responseshapingpolicy": {
         "stated": true,
         "options": {
-            "class-id": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "int"},
-            "class-id-reverse": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "int"},
-            "comment": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "str"},
-            "dstaddr": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "list", "elements": "str"},
-            "dstaddr6": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "list", "elements": "str"},
-            "id": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "required": true, "type": "int"},
-            "ip-version": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "choices": ["6", "4"], "type": "str"},
-            "name": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "str"},
-            "per-ip-shaper": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "list", "elements": "str"},
-            "schedule": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "list", "elements": "str"},
-            "srcaddr": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "list", "elements": "str"},
-            "status": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "traffic-shaper": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "list", "elements": "str"},
-            "traffic-shaper-reverse": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "list", "elements": "str"},
-            "uuid": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "str"},
-            "diffserv-forward": {"v_range": [["7.4.9", "7.4.10"], ["7.6.5", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "diffserv-reverse": {"v_range": [["7.4.9", "7.4.10"], ["7.6.5", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "diffservcode-forward": {"v_range": [["7.4.9", "7.4.10"], ["7.6.5", ""]], "type": "str"},
-            "diffservcode-rev": {"v_range": [["7.4.9", "7.4.10"], ["7.6.5", ""]], "type": "str"},
-            "matched-shaping-policies": {"v_range": [["7.4.9", "7.4.10"], ["7.6.5", ""]], "type": "list", "elements": "str"}
+            "class-id": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "int"},
+            "class-id-reverse": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "int"},
+            "comment": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "str"},
+            "dstaddr": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "list", "elements": "str"},
+            "dstaddr6": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "list", "elements": "str"},
+            "id": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "required": true, "type": "int"},
+            "ip-version": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "choices": ["6", "4"], "type": "str"},
+            "name": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "str"},
+            "per-ip-shaper": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "list", "elements": "str"},
+            "schedule": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "list", "elements": "str"},
+            "srcaddr": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "list", "elements": "str"},
+            "status": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "traffic-shaper": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "list", "elements": "str"},
+            "traffic-shaper-reverse": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "list", "elements": "str"},
+            "uuid": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "str"},
+            "diffserv-forward": {"v_range": [["7.4.9", "7.4.11"], ["7.6.5", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "diffserv-reverse": {"v_range": [["7.4.9", "7.4.11"], ["7.6.5", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "diffservcode-forward": {"v_range": [["7.4.9", "7.4.11"], ["7.6.5", ""]], "type": "str"},
+            "diffservcode-rev": {"v_range": [["7.4.9", "7.4.11"], ["7.6.5", ""]], "type": "str"},
+            "matched-shaping-policies": {"v_range": [["7.4.9", "7.4.11"], ["7.6.5", ""]], "type": "list", "elements": "str"}
         }
     },
     "pkg_firewall_securitypolicy": {
@@ -21709,7 +22520,7 @@ SCHEMA_DATA = '''
             "application": {"v_range": [["6.2.1", ""]], "type": "raw"},
             "application-list": {"v_range": [["6.2.1", ""]], "type": "str"},
             "av-profile": {"v_range": [["6.2.1", ""]], "type": "str"},
-            "cifs-profile": {"v_range": [["6.2.1", ""]], "type": "str"},
+            "cifs-profile": {"v_range": [["6.2.1", "7.6.7"]], "type": "str"},
             "comments": {"v_range": [["6.2.1", ""]], "type": "str"},
             "dlp-sensor": {"v_range": [["6.2.1", ""]], "type": "str"},
             "dnsfilter-profile": {"v_range": [["6.2.1", ""]], "type": "str"},
@@ -21831,7 +22642,10 @@ SCHEMA_DATA = '''
             "internet-service-fortiguard": {"v_range": [["7.6.4", ""]], "type": "raw"},
             "internet-service-src-fortiguard": {"v_range": [["7.6.4", ""]], "type": "raw"},
             "internet-service6-fortiguard": {"v_range": [["7.6.4", ""]], "type": "raw"},
-            "internet-service6-src-fortiguard": {"v_range": [["7.6.4", ""]], "type": "raw"}
+            "internet-service6-src-fortiguard": {"v_range": [["7.6.4", ""]], "type": "raw"},
+            "creation-time": {"v_range": [["7.6.7", ""]], "type": "int"},
+            "custom-tags": {"v_range": [["8.0.0", ""]], "type": "raw"},
+            "llm-profile": {"v_range": [["8.0.0", ""]], "type": "raw"}
         }
     },
     "pkg_firewall_securitypolicy_sectionvalue": {
@@ -21894,9 +22708,9 @@ SCHEMA_DATA = '''
             "cos": {"v_range": [["7.4.0", ""]], "type": "str"},
             "cos-mask": {"v_range": [["7.4.0", ""]], "type": "str"},
             "traffic-type": {"v_range": [["7.4.0", ""]], "choices": ["forwarding", "local-in", "local-out"], "type": "str"},
-            "class-id-reverse": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "int"},
-            "http-response-match": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "service-type": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "choices": ["service", "internet-service"], "type": "str"},
+            "class-id-reverse": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "int"},
+            "http-response-match": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "service-type": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "choices": ["service", "internet-service"], "type": "str"},
             "internet-service-src-fortiguard": {"v_range": [["7.6.4", ""]], "type": "raw"},
             "internet-service-fortiguard": {"v_range": [["7.6.4", ""]], "type": "raw"}
         }
@@ -22203,7 +23017,7 @@ SCHEMA_DATA = '''
             },
             "udp-timeout-pid": {"v_range": [["7.0.3", ""]], "type": "raw"},
             "ztna-tags-match-logic": {"v_range": [["7.0.3", ""]], "choices": ["or", "and"], "type": "str"},
-            "uuid-idx": {"v_range": [["7.0.1", ""]], "type": "int"},
+            "uuid-idx": {"v_range": [["7.0.1", "7.6.7"]], "type": "int"},
             "device-ownership": {"v_range": [["7.0.5", "7.0.16"], ["7.2.1", ""]], "choices": ["disable", "enable"], "type": "str"},
             "ssh-policy-check": {"v_range": [["7.0.5", "7.0.16"], ["7.2.1", ""]], "choices": ["disable", "enable"], "type": "str"},
             "extended-log": {"v_range": [["7.0.11", "7.0.16"], ["7.2.5", "7.2.12"], ["7.4.1", ""]], "choices": ["disable", "enable"], "type": "str"},
@@ -22249,15 +23063,15 @@ SCHEMA_DATA = '''
             "eif-check": {"v_range": [["7.6.0", ""]], "choices": ["disable", "enable"], "type": "str"},
             "eif-learn": {"v_range": [["7.6.0", ""]], "choices": ["disable", "enable"], "type": "str"},
             "radius-ip-auth-bypass": {"v_range": [["7.6.0", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "url-risk": {"v_range": [["7.4.4", "7.4.10"], ["7.6.2", ""]], "type": "raw"},
+            "url-risk": {"v_range": [["7.4.4", "7.4.11"], ["7.6.2", ""]], "type": "raw"},
             "app-monitor": {"v_range": [["7.6.2", ""]], "choices": ["disable", "enable"], "type": "str"},
             "port-random": {"v_range": [["7.6.2", ""]], "choices": ["disable", "enable"], "type": "str"},
             "ztna-ems-tag-negate": {"v_range": [["7.6.2", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "https-sub-category": {"v_range": [["7.4.7", "7.4.10"], ["7.6.3", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "https-sub-category": {"v_range": [["7.4.7", "7.4.11"], ["7.6.3", ""]], "choices": ["disable", "enable"], "type": "str"},
             "service-connector": {"v_range": [["7.6.3", ""]], "type": "raw"},
             "telemetry-profile": {"v_range": [["7.6.3", ""]], "type": "raw"},
             "ztna-proxy": {"v_range": [["7.6.3", ""]], "type": "raw"},
-            "explicit-web-proxy": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "raw"},
+            "explicit-web-proxy": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "raw"},
             "internet-service-fortiguard": {"v_range": [["7.6.4", ""]], "type": "raw"},
             "internet-service-src-fortiguard": {"v_range": [["7.6.4", ""]], "type": "raw"},
             "internet-service6-fortiguard": {"v_range": [["7.6.4", ""]], "type": "raw"},
@@ -22266,58 +23080,72 @@ SCHEMA_DATA = '''
             "scim": {"v_range": [["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
             "scim-groups": {"v_range": [["7.6.4", ""]], "type": "raw"},
             "scim-users": {"v_range": [["7.6.4", ""]], "type": "raw"},
-            "llm-profile": {"v_range": [["7.6.5", ""]], "type": "raw"}
+            "llm-profile": {"v_range": [["7.6.5", ""]], "type": "raw"},
+            "creation-time": {"v_range": [["7.6.7", ""]], "type": "int"},
+            "custom-tags": {"v_range": [["8.0.0", ""]], "type": "raw"},
+            "fabric-force-sync": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object-source": {"v_range": [["8.0.0", ""]], "choices": ["member", "local", "root"], "type": "str"},
+            "skip-vrf-match": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "ztna-destination": {"v_range": [["8.0.0", ""]], "type": "raw"},
+            "ztna-ems-tag6": {"v_range": [["8.0.0", ""]], "type": "raw"}
         }
     },
     "pkg_footer_policy6": {
         "stated": true,
         "options": {
-            "action": {"choices": ["deny", "accept", "ipsec", "ssl-vpn"], "type": "str"},
-            "anti-replay": {"choices": ["disable", "enable"], "type": "str"},
-            "app-category": {"type": "raw"},
-            "app-group": {"type": "raw"},
-            "application": {"type": "raw"},
-            "application-charts": {"type": "list", "choices": ["top10-app", "top10-p2p-user", "top10-media-user"], "elements": "str"},
-            "application-list": {"type": "raw"},
-            "auto-asic-offload": {"choices": ["disable", "enable"], "type": "str"},
-            "av-profile": {"type": "raw"},
-            "casi-profile": {"type": "raw"},
-            "cifs-profile": {"type": "raw"},
-            "comments": {"type": "str"},
-            "custom-log-fields": {"type": "raw"},
-            "deep-inspection-options": {"type": "raw"},
-            "device-detection-portal": {"choices": ["disable", "enable"], "type": "str"},
-            "devices": {"type": "raw"},
-            "diffserv-forward": {"choices": ["disable", "enable"], "type": "str"},
-            "diffserv-reverse": {"choices": ["disable", "enable"], "type": "str"},
-            "diffservcode-forward": {"type": "str"},
-            "diffservcode-rev": {"type": "str"},
-            "dlp-sensor": {"type": "raw"},
-            "dnsfilter-profile": {"type": "raw"},
-            "dscp-match": {"choices": ["disable", "enable"], "type": "str"},
-            "dscp-negate": {"choices": ["disable", "enable"], "type": "str"},
-            "dscp-value": {"type": "str"},
-            "dsri": {"choices": ["disable", "enable"], "type": "str"},
-            "dstaddr": {"type": "raw"},
-            "dstaddr-negate": {"choices": ["disable", "enable"], "type": "str"},
-            "dstintf": {"type": "raw"},
-            "dynamic-profile": {"choices": ["disable", "enable"], "type": "str"},
+            "action": {"v_range": [["6.0.0", "7.6.7"]], "choices": ["deny", "accept", "ipsec", "ssl-vpn"], "type": "str"},
+            "anti-replay": {"v_range": [["6.0.0", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
+            "app-category": {"v_range": [["6.0.0", "7.6.7"]], "type": "raw"},
+            "app-group": {"v_range": [["6.0.0", "7.6.7"]], "type": "raw"},
+            "application": {"v_range": [["6.0.0", "7.6.7"]], "type": "raw"},
+            "application-charts": {
+                "v_range": [["6.0.0", "7.6.7"]],
+                "type": "list",
+                "choices": ["top10-app", "top10-p2p-user", "top10-media-user"],
+                "elements": "str"
+            },
+            "application-list": {"v_range": [["6.0.0", "7.6.7"]], "type": "raw"},
+            "auto-asic-offload": {"v_range": [["6.0.0", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
+            "av-profile": {"v_range": [["6.0.0", "7.6.7"]], "type": "raw"},
+            "casi-profile": {"v_range": [["6.0.0", "7.6.7"]], "type": "raw"},
+            "cifs-profile": {"v_range": [["6.0.0", "7.6.7"]], "type": "raw"},
+            "comments": {"v_range": [["6.0.0", "7.6.7"]], "type": "str"},
+            "custom-log-fields": {"v_range": [["6.0.0", "7.6.7"]], "type": "raw"},
+            "deep-inspection-options": {"v_range": [["6.0.0", "7.6.7"]], "type": "raw"},
+            "device-detection-portal": {"v_range": [["6.0.0", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
+            "devices": {"v_range": [["6.0.0", "7.6.7"]], "type": "raw"},
+            "diffserv-forward": {"v_range": [["6.0.0", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
+            "diffserv-reverse": {"v_range": [["6.0.0", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
+            "diffservcode-forward": {"v_range": [["6.0.0", "7.6.7"]], "type": "str"},
+            "diffservcode-rev": {"v_range": [["6.0.0", "7.6.7"]], "type": "str"},
+            "dlp-sensor": {"v_range": [["6.0.0", "7.6.7"]], "type": "raw"},
+            "dnsfilter-profile": {"v_range": [["6.0.0", "7.6.7"]], "type": "raw"},
+            "dscp-match": {"v_range": [["6.0.0", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
+            "dscp-negate": {"v_range": [["6.0.0", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
+            "dscp-value": {"v_range": [["6.0.0", "7.6.7"]], "type": "str"},
+            "dsri": {"v_range": [["6.0.0", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
+            "dstaddr": {"v_range": [["6.0.0", "7.6.7"]], "type": "raw"},
+            "dstaddr-negate": {"v_range": [["6.0.0", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
+            "dstintf": {"v_range": [["6.0.0", "7.6.7"]], "type": "raw"},
+            "dynamic-profile": {"v_range": [["6.0.0", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
             "dynamic-profile-access": {
+                "v_range": [["6.0.0", "7.6.7"]],
                 "type": "list",
                 "choices": ["imap", "smtp", "pop3", "http", "ftp", "im", "nntp", "imaps", "smtps", "pop3s", "https", "ftps"],
                 "elements": "str"
             },
-            "dynamic-profile-group": {"type": "raw"},
-            "email-collection-portal": {"choices": ["disable", "enable"], "type": "str"},
-            "emailfilter-profile": {"type": "raw"},
-            "firewall-session-dirty": {"choices": ["check-all", "check-new"], "type": "str"},
-            "fixedport": {"choices": ["disable", "enable"], "type": "str"},
-            "fsae": {"choices": ["disable", "enable"], "type": "str"},
-            "global-label": {"type": "str"},
-            "groups": {"type": "raw"},
-            "http-policy-redirect": {"choices": ["disable", "enable"], "type": "str"},
-            "icap-profile": {"type": "raw"},
-            "identity-based": {"choices": ["disable", "enable"], "type": "str"},
+            "dynamic-profile-group": {"v_range": [["6.0.0", "7.6.7"]], "type": "raw"},
+            "email-collection-portal": {"v_range": [["6.0.0", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
+            "emailfilter-profile": {"v_range": [["6.0.0", "7.6.7"]], "type": "raw"},
+            "firewall-session-dirty": {"v_range": [["6.0.0", "7.6.7"]], "choices": ["check-all", "check-new"], "type": "str"},
+            "fixedport": {"v_range": [["6.0.0", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
+            "fsae": {"v_range": [["6.0.0", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
+            "global-label": {"v_range": [["6.0.0", "7.6.7"]], "type": "str"},
+            "groups": {"v_range": [["6.0.0", "7.6.7"]], "type": "raw"},
+            "http-policy-redirect": {"v_range": [["6.0.0", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
+            "icap-profile": {"v_range": [["6.0.0", "7.6.7"]], "type": "raw"},
+            "identity-based": {"v_range": [["6.0.0", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
             "identity-based-policy6": {
                 "v_range": [["6.0.0", "6.2.0"]],
                 "type": "list",
@@ -22355,81 +23183,81 @@ SCHEMA_DATA = '''
                 },
                 "elements": "dict"
             },
-            "identity-from": {"choices": ["auth", "device"], "type": "str"},
-            "inbound": {"choices": ["disable", "enable"], "type": "str"},
-            "inspection-mode": {"choices": ["proxy", "flow"], "type": "str"},
-            "ippool": {"choices": ["disable", "enable"], "type": "str"},
-            "ips-sensor": {"type": "raw"},
-            "label": {"type": "str"},
-            "logtraffic": {"choices": ["disable", "enable", "all", "utm"], "type": "str"},
-            "logtraffic-start": {"choices": ["disable", "enable"], "type": "str"},
-            "mms-profile": {"type": "raw"},
-            "name": {"type": "str"},
-            "nat": {"choices": ["disable", "enable"], "type": "str"},
-            "natinbound": {"choices": ["disable", "enable"], "type": "str"},
-            "natoutbound": {"choices": ["disable", "enable"], "type": "str"},
-            "np-accelation": {"choices": ["disable", "enable"], "type": "str"},
-            "np-acceleration": {"choices": ["disable", "enable"], "type": "str"},
-            "outbound": {"choices": ["disable", "enable"], "type": "str"},
-            "per-ip-shaper": {"type": "raw"},
-            "policyid": {"required": true, "type": "int"},
-            "poolname": {"type": "raw"},
-            "profile-group": {"type": "raw"},
-            "profile-protocol-options": {"type": "raw"},
-            "profile-type": {"choices": ["single", "group"], "type": "str"},
-            "replacemsg-group": {"type": "raw"},
-            "replacemsg-override-group": {"type": "raw"},
-            "rsso": {"choices": ["disable", "enable"], "type": "str"},
-            "schedule": {"type": "raw"},
-            "send-deny-packet": {"choices": ["disable", "enable"], "type": "str"},
-            "service": {"type": "raw"},
-            "service-negate": {"choices": ["disable", "enable"], "type": "str"},
-            "session-ttl": {"type": "raw"},
-            "spamfilter-profile": {"type": "raw"},
-            "srcaddr": {"type": "raw"},
-            "srcaddr-negate": {"choices": ["disable", "enable"], "type": "str"},
-            "srcintf": {"type": "raw"},
-            "ssh-filter-profile": {"type": "raw"},
-            "ssh-policy-redirect": {"choices": ["disable", "enable"], "type": "str"},
-            "ssl-mirror": {"choices": ["disable", "enable"], "type": "str"},
-            "ssl-mirror-intf": {"type": "raw"},
-            "ssl-ssh-profile": {"type": "raw"},
-            "sslvpn-auth": {"choices": ["any", "local", "radius", "ldap", "tacacs+"], "type": "str"},
-            "sslvpn-ccert": {"choices": ["disable", "enable"], "type": "str"},
-            "sslvpn-cipher": {"choices": ["any", "high", "medium"], "type": "str"},
-            "status": {"choices": ["disable", "enable"], "type": "str"},
-            "tags": {"type": "raw"},
-            "tcp-mss-receiver": {"type": "int"},
-            "tcp-mss-sender": {"type": "int"},
-            "tcp-session-without-syn": {"choices": ["all", "data-only", "disable"], "type": "str"},
-            "timeout-send-rst": {"choices": ["disable", "enable"], "type": "str"},
-            "tos": {"type": "str"},
-            "tos-mask": {"type": "str"},
-            "tos-negate": {"choices": ["disable", "enable"], "type": "str"},
-            "traffic-shaper": {"type": "raw"},
-            "traffic-shaper-reverse": {"type": "raw"},
-            "url-category": {"type": "raw"},
-            "users": {"type": "raw"},
-            "utm-inspection-mode": {"choices": ["proxy", "flow"], "type": "str"},
-            "utm-status": {"choices": ["disable", "enable"], "type": "str"},
-            "uuid": {"type": "str"},
-            "vlan-cos-fwd": {"type": "int"},
-            "vlan-cos-rev": {"type": "int"},
-            "vlan-filter": {"type": "str"},
-            "voip-profile": {"type": "raw"},
-            "vpntunnel": {"type": "raw"},
-            "webfilter-profile": {"type": "raw"},
-            "waf-profile": {"v_range": [["6.2.1", ""]], "type": "raw"},
-            "webcache": {"v_range": [["6.2.1", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "webcache-https": {"v_range": [["6.2.1", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "webproxy-forward-server": {"v_range": [["6.2.1", ""]], "type": "raw"},
-            "webproxy-profile": {"v_range": [["6.2.1", ""]], "type": "raw"},
-            "fsso-groups": {"v_range": [["6.2.3", ""]], "type": "raw"},
-            "decrypted-traffic-mirror": {"v_range": [["6.4.0", ""]], "type": "raw"},
-            "file-filter-profile": {"v_range": [["6.4.1", ""]], "type": "raw"},
-            "cgn-log-server-grp": {"v_range": [["6.2.7", "6.2.13"], ["6.4.3", ""]], "type": "str"},
-            "policy-offload": {"v_range": [["6.2.7", "6.2.13"], ["6.4.3", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "_policy_block": {"v_range": [["7.2.2", ""]], "type": "int"}
+            "identity-from": {"v_range": [["6.0.0", "7.6.7"]], "choices": ["auth", "device"], "type": "str"},
+            "inbound": {"v_range": [["6.0.0", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
+            "inspection-mode": {"v_range": [["6.0.0", "7.6.7"]], "choices": ["proxy", "flow"], "type": "str"},
+            "ippool": {"v_range": [["6.0.0", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
+            "ips-sensor": {"v_range": [["6.0.0", "7.6.7"]], "type": "raw"},
+            "label": {"v_range": [["6.0.0", "7.6.7"]], "type": "str"},
+            "logtraffic": {"v_range": [["6.0.0", "7.6.7"]], "choices": ["disable", "enable", "all", "utm"], "type": "str"},
+            "logtraffic-start": {"v_range": [["6.0.0", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
+            "mms-profile": {"v_range": [["6.0.0", "7.6.7"]], "type": "raw"},
+            "name": {"v_range": [["6.0.0", "7.6.7"]], "type": "str"},
+            "nat": {"v_range": [["6.0.0", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
+            "natinbound": {"v_range": [["6.0.0", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
+            "natoutbound": {"v_range": [["6.0.0", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
+            "np-accelation": {"v_range": [["6.0.0", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
+            "np-acceleration": {"v_range": [["6.0.0", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
+            "outbound": {"v_range": [["6.0.0", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
+            "per-ip-shaper": {"v_range": [["6.0.0", "7.6.7"]], "type": "raw"},
+            "policyid": {"v_range": [["6.0.0", "7.6.7"]], "required": true, "type": "int"},
+            "poolname": {"v_range": [["6.0.0", "7.6.7"]], "type": "raw"},
+            "profile-group": {"v_range": [["6.0.0", "7.6.7"]], "type": "raw"},
+            "profile-protocol-options": {"v_range": [["6.0.0", "7.6.7"]], "type": "raw"},
+            "profile-type": {"v_range": [["6.0.0", "7.6.7"]], "choices": ["single", "group"], "type": "str"},
+            "replacemsg-group": {"v_range": [["6.0.0", "7.6.7"]], "type": "raw"},
+            "replacemsg-override-group": {"v_range": [["6.0.0", "7.6.7"]], "type": "raw"},
+            "rsso": {"v_range": [["6.0.0", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
+            "schedule": {"v_range": [["6.0.0", "7.6.7"]], "type": "raw"},
+            "send-deny-packet": {"v_range": [["6.0.0", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
+            "service": {"v_range": [["6.0.0", "7.6.7"]], "type": "raw"},
+            "service-negate": {"v_range": [["6.0.0", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
+            "session-ttl": {"v_range": [["6.0.0", "7.6.7"]], "type": "raw"},
+            "spamfilter-profile": {"v_range": [["6.0.0", "7.6.7"]], "type": "raw"},
+            "srcaddr": {"v_range": [["6.0.0", "7.6.7"]], "type": "raw"},
+            "srcaddr-negate": {"v_range": [["6.0.0", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
+            "srcintf": {"v_range": [["6.0.0", "7.6.7"]], "type": "raw"},
+            "ssh-filter-profile": {"v_range": [["6.0.0", "7.6.7"]], "type": "raw"},
+            "ssh-policy-redirect": {"v_range": [["6.0.0", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
+            "ssl-mirror": {"v_range": [["6.0.0", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
+            "ssl-mirror-intf": {"v_range": [["6.0.0", "7.6.7"]], "type": "raw"},
+            "ssl-ssh-profile": {"v_range": [["6.0.0", "7.6.7"]], "type": "raw"},
+            "sslvpn-auth": {"v_range": [["6.0.0", "7.6.7"]], "choices": ["any", "local", "radius", "ldap", "tacacs+"], "type": "str"},
+            "sslvpn-ccert": {"v_range": [["6.0.0", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
+            "sslvpn-cipher": {"v_range": [["6.0.0", "7.6.7"]], "choices": ["any", "high", "medium"], "type": "str"},
+            "status": {"v_range": [["6.0.0", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
+            "tags": {"v_range": [["6.0.0", "7.6.7"]], "type": "raw"},
+            "tcp-mss-receiver": {"v_range": [["6.0.0", "7.6.7"]], "type": "int"},
+            "tcp-mss-sender": {"v_range": [["6.0.0", "7.6.7"]], "type": "int"},
+            "tcp-session-without-syn": {"v_range": [["6.0.0", "7.6.7"]], "choices": ["all", "data-only", "disable"], "type": "str"},
+            "timeout-send-rst": {"v_range": [["6.0.0", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
+            "tos": {"v_range": [["6.0.0", "7.6.7"]], "type": "str"},
+            "tos-mask": {"v_range": [["6.0.0", "7.6.7"]], "type": "str"},
+            "tos-negate": {"v_range": [["6.0.0", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
+            "traffic-shaper": {"v_range": [["6.0.0", "7.6.7"]], "type": "raw"},
+            "traffic-shaper-reverse": {"v_range": [["6.0.0", "7.6.7"]], "type": "raw"},
+            "url-category": {"v_range": [["6.0.0", "7.6.7"]], "type": "raw"},
+            "users": {"v_range": [["6.0.0", "7.6.7"]], "type": "raw"},
+            "utm-inspection-mode": {"v_range": [["6.0.0", "7.6.7"]], "choices": ["proxy", "flow"], "type": "str"},
+            "utm-status": {"v_range": [["6.0.0", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
+            "uuid": {"v_range": [["6.0.0", "7.6.7"]], "type": "str"},
+            "vlan-cos-fwd": {"v_range": [["6.0.0", "7.6.7"]], "type": "int"},
+            "vlan-cos-rev": {"v_range": [["6.0.0", "7.6.7"]], "type": "int"},
+            "vlan-filter": {"v_range": [["6.0.0", "7.6.7"]], "type": "str"},
+            "voip-profile": {"v_range": [["6.0.0", "7.6.7"]], "type": "raw"},
+            "vpntunnel": {"v_range": [["6.0.0", "7.6.7"]], "type": "raw"},
+            "webfilter-profile": {"v_range": [["6.0.0", "7.6.7"]], "type": "raw"},
+            "waf-profile": {"v_range": [["6.2.1", "7.6.7"]], "type": "raw"},
+            "webcache": {"v_range": [["6.2.1", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
+            "webcache-https": {"v_range": [["6.2.1", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
+            "webproxy-forward-server": {"v_range": [["6.2.1", "7.6.7"]], "type": "raw"},
+            "webproxy-profile": {"v_range": [["6.2.1", "7.6.7"]], "type": "raw"},
+            "fsso-groups": {"v_range": [["6.2.3", "7.6.7"]], "type": "raw"},
+            "decrypted-traffic-mirror": {"v_range": [["6.4.0", "7.6.7"]], "type": "raw"},
+            "file-filter-profile": {"v_range": [["6.4.1", "7.6.7"]], "type": "raw"},
+            "cgn-log-server-grp": {"v_range": [["6.2.7", "6.2.13"], ["6.4.3", "7.6.7"]], "type": "str"},
+            "policy-offload": {"v_range": [["6.2.7", "6.2.13"], ["6.4.3", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
+            "_policy_block": {"v_range": [["7.2.2", "7.6.7"]], "type": "int"}
         }
     },
     "pkg_footer_shapingpolicy": {
@@ -22483,7 +23311,7 @@ SCHEMA_DATA = '''
             "cos": {"v_range": [["7.4.0", ""]], "type": "str"},
             "cos-mask": {"v_range": [["7.4.0", ""]], "type": "str"},
             "traffic-type": {"v_range": [["7.4.0", ""]], "choices": ["forwarding", "local-in", "local-out"], "type": "str"},
-            "http-response-match": {"v_range": [["7.4.7", "7.4.10"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "http-response-match": {"v_range": [["7.4.7", "7.4.11"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
             "internet-service-fortiguard": {"v_range": [["7.6.4", ""]], "type": "raw"},
             "internet-service-src-fortiguard": {"v_range": [["7.6.4", ""]], "type": "raw"}
         }
@@ -22790,7 +23618,7 @@ SCHEMA_DATA = '''
             },
             "udp-timeout-pid": {"v_range": [["7.0.3", ""]], "type": "raw"},
             "ztna-tags-match-logic": {"v_range": [["7.0.3", ""]], "choices": ["or", "and"], "type": "str"},
-            "uuid-idx": {"v_range": [["7.0.1", ""]], "type": "int"},
+            "uuid-idx": {"v_range": [["7.0.1", "7.6.7"]], "type": "int"},
             "device-ownership": {"v_range": [["7.0.5", "7.0.16"], ["7.2.1", ""]], "choices": ["disable", "enable"], "type": "str"},
             "ssh-policy-check": {"v_range": [["7.0.5", "7.0.16"], ["7.2.1", ""]], "choices": ["disable", "enable"], "type": "str"},
             "extended-log": {"v_range": [["7.0.11", "7.0.16"], ["7.2.5", "7.2.12"], ["7.4.1", ""]], "choices": ["disable", "enable"], "type": "str"},
@@ -22836,15 +23664,15 @@ SCHEMA_DATA = '''
             "eif-check": {"v_range": [["7.6.0", ""]], "choices": ["disable", "enable"], "type": "str"},
             "eif-learn": {"v_range": [["7.6.0", ""]], "choices": ["disable", "enable"], "type": "str"},
             "radius-ip-auth-bypass": {"v_range": [["7.6.0", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "url-risk": {"v_range": [["7.4.4", "7.4.10"], ["7.6.2", ""]], "type": "raw"},
+            "url-risk": {"v_range": [["7.4.4", "7.4.11"], ["7.6.2", ""]], "type": "raw"},
             "app-monitor": {"v_range": [["7.6.2", ""]], "choices": ["disable", "enable"], "type": "str"},
             "port-random": {"v_range": [["7.6.2", ""]], "choices": ["disable", "enable"], "type": "str"},
             "ztna-ems-tag-negate": {"v_range": [["7.6.2", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "https-sub-category": {"v_range": [["7.4.7", "7.4.10"], ["7.6.3", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "https-sub-category": {"v_range": [["7.4.7", "7.4.11"], ["7.6.3", ""]], "choices": ["disable", "enable"], "type": "str"},
             "service-connector": {"v_range": [["7.6.3", ""]], "type": "raw"},
             "telemetry-profile": {"v_range": [["7.6.3", ""]], "type": "raw"},
             "ztna-proxy": {"v_range": [["7.6.3", ""]], "type": "raw"},
-            "explicit-web-proxy": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "raw"},
+            "explicit-web-proxy": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "raw"},
             "internet-service-fortiguard": {"v_range": [["7.6.4", ""]], "type": "raw"},
             "internet-service-src-fortiguard": {"v_range": [["7.6.4", ""]], "type": "raw"},
             "internet-service6-fortiguard": {"v_range": [["7.6.4", ""]], "type": "raw"},
@@ -22853,58 +23681,72 @@ SCHEMA_DATA = '''
             "scim": {"v_range": [["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
             "scim-groups": {"v_range": [["7.6.4", ""]], "type": "raw"},
             "scim-users": {"v_range": [["7.6.4", ""]], "type": "raw"},
-            "llm-profile": {"v_range": [["7.6.5", ""]], "type": "raw"}
+            "llm-profile": {"v_range": [["7.6.5", ""]], "type": "raw"},
+            "creation-time": {"v_range": [["7.6.7", ""]], "type": "int"},
+            "custom-tags": {"v_range": [["8.0.0", ""]], "type": "raw"},
+            "fabric-force-sync": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object-source": {"v_range": [["8.0.0", ""]], "choices": ["member", "local", "root"], "type": "str"},
+            "skip-vrf-match": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "ztna-destination": {"v_range": [["8.0.0", ""]], "type": "raw"},
+            "ztna-ems-tag6": {"v_range": [["8.0.0", ""]], "type": "raw"}
         }
     },
     "pkg_header_policy6": {
         "stated": true,
         "options": {
-            "action": {"choices": ["deny", "accept", "ipsec", "ssl-vpn"], "type": "str"},
-            "anti-replay": {"choices": ["disable", "enable"], "type": "str"},
-            "app-category": {"type": "raw"},
-            "app-group": {"type": "raw"},
-            "application": {"type": "raw"},
-            "application-charts": {"type": "list", "choices": ["top10-app", "top10-p2p-user", "top10-media-user"], "elements": "str"},
-            "application-list": {"type": "raw"},
-            "auto-asic-offload": {"choices": ["disable", "enable"], "type": "str"},
-            "av-profile": {"type": "raw"},
-            "casi-profile": {"type": "raw"},
-            "cifs-profile": {"type": "raw"},
-            "comments": {"type": "str"},
-            "custom-log-fields": {"type": "raw"},
-            "deep-inspection-options": {"type": "raw"},
-            "device-detection-portal": {"choices": ["disable", "enable"], "type": "str"},
-            "devices": {"type": "raw"},
-            "diffserv-forward": {"choices": ["disable", "enable"], "type": "str"},
-            "diffserv-reverse": {"choices": ["disable", "enable"], "type": "str"},
-            "diffservcode-forward": {"type": "str"},
-            "diffservcode-rev": {"type": "str"},
-            "dlp-sensor": {"type": "raw"},
-            "dnsfilter-profile": {"type": "raw"},
-            "dscp-match": {"choices": ["disable", "enable"], "type": "str"},
-            "dscp-negate": {"choices": ["disable", "enable"], "type": "str"},
-            "dscp-value": {"type": "str"},
-            "dsri": {"choices": ["disable", "enable"], "type": "str"},
-            "dstaddr": {"type": "raw"},
-            "dstaddr-negate": {"choices": ["disable", "enable"], "type": "str"},
-            "dstintf": {"type": "raw"},
-            "dynamic-profile": {"choices": ["disable", "enable"], "type": "str"},
+            "action": {"v_range": [["6.0.0", "7.6.7"]], "choices": ["deny", "accept", "ipsec", "ssl-vpn"], "type": "str"},
+            "anti-replay": {"v_range": [["6.0.0", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
+            "app-category": {"v_range": [["6.0.0", "7.6.7"]], "type": "raw"},
+            "app-group": {"v_range": [["6.0.0", "7.6.7"]], "type": "raw"},
+            "application": {"v_range": [["6.0.0", "7.6.7"]], "type": "raw"},
+            "application-charts": {
+                "v_range": [["6.0.0", "7.6.7"]],
+                "type": "list",
+                "choices": ["top10-app", "top10-p2p-user", "top10-media-user"],
+                "elements": "str"
+            },
+            "application-list": {"v_range": [["6.0.0", "7.6.7"]], "type": "raw"},
+            "auto-asic-offload": {"v_range": [["6.0.0", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
+            "av-profile": {"v_range": [["6.0.0", "7.6.7"]], "type": "raw"},
+            "casi-profile": {"v_range": [["6.0.0", "7.6.7"]], "type": "raw"},
+            "cifs-profile": {"v_range": [["6.0.0", "7.6.7"]], "type": "raw"},
+            "comments": {"v_range": [["6.0.0", "7.6.7"]], "type": "str"},
+            "custom-log-fields": {"v_range": [["6.0.0", "7.6.7"]], "type": "raw"},
+            "deep-inspection-options": {"v_range": [["6.0.0", "7.6.7"]], "type": "raw"},
+            "device-detection-portal": {"v_range": [["6.0.0", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
+            "devices": {"v_range": [["6.0.0", "7.6.7"]], "type": "raw"},
+            "diffserv-forward": {"v_range": [["6.0.0", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
+            "diffserv-reverse": {"v_range": [["6.0.0", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
+            "diffservcode-forward": {"v_range": [["6.0.0", "7.6.7"]], "type": "str"},
+            "diffservcode-rev": {"v_range": [["6.0.0", "7.6.7"]], "type": "str"},
+            "dlp-sensor": {"v_range": [["6.0.0", "7.6.7"]], "type": "raw"},
+            "dnsfilter-profile": {"v_range": [["6.0.0", "7.6.7"]], "type": "raw"},
+            "dscp-match": {"v_range": [["6.0.0", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
+            "dscp-negate": {"v_range": [["6.0.0", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
+            "dscp-value": {"v_range": [["6.0.0", "7.6.7"]], "type": "str"},
+            "dsri": {"v_range": [["6.0.0", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
+            "dstaddr": {"v_range": [["6.0.0", "7.6.7"]], "type": "raw"},
+            "dstaddr-negate": {"v_range": [["6.0.0", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
+            "dstintf": {"v_range": [["6.0.0", "7.6.7"]], "type": "raw"},
+            "dynamic-profile": {"v_range": [["6.0.0", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
             "dynamic-profile-access": {
+                "v_range": [["6.0.0", "7.6.7"]],
                 "type": "list",
                 "choices": ["imap", "smtp", "pop3", "http", "ftp", "im", "nntp", "imaps", "smtps", "pop3s", "https", "ftps"],
                 "elements": "str"
             },
-            "dynamic-profile-group": {"type": "raw"},
-            "email-collection-portal": {"choices": ["disable", "enable"], "type": "str"},
-            "emailfilter-profile": {"type": "raw"},
-            "firewall-session-dirty": {"choices": ["check-all", "check-new"], "type": "str"},
-            "fixedport": {"choices": ["disable", "enable"], "type": "str"},
-            "fsae": {"choices": ["disable", "enable"], "type": "str"},
-            "global-label": {"type": "str"},
-            "groups": {"type": "raw"},
-            "http-policy-redirect": {"choices": ["disable", "enable"], "type": "str"},
-            "icap-profile": {"type": "raw"},
-            "identity-based": {"choices": ["disable", "enable"], "type": "str"},
+            "dynamic-profile-group": {"v_range": [["6.0.0", "7.6.7"]], "type": "raw"},
+            "email-collection-portal": {"v_range": [["6.0.0", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
+            "emailfilter-profile": {"v_range": [["6.0.0", "7.6.7"]], "type": "raw"},
+            "firewall-session-dirty": {"v_range": [["6.0.0", "7.6.7"]], "choices": ["check-all", "check-new"], "type": "str"},
+            "fixedport": {"v_range": [["6.0.0", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
+            "fsae": {"v_range": [["6.0.0", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
+            "global-label": {"v_range": [["6.0.0", "7.6.7"]], "type": "str"},
+            "groups": {"v_range": [["6.0.0", "7.6.7"]], "type": "raw"},
+            "http-policy-redirect": {"v_range": [["6.0.0", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
+            "icap-profile": {"v_range": [["6.0.0", "7.6.7"]], "type": "raw"},
+            "identity-based": {"v_range": [["6.0.0", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
             "identity-based-policy6": {
                 "v_range": [["6.0.0", "6.2.0"]],
                 "type": "list",
@@ -22942,81 +23784,81 @@ SCHEMA_DATA = '''
                 },
                 "elements": "dict"
             },
-            "identity-from": {"choices": ["auth", "device"], "type": "str"},
-            "inbound": {"choices": ["disable", "enable"], "type": "str"},
-            "inspection-mode": {"choices": ["proxy", "flow"], "type": "str"},
-            "ippool": {"choices": ["disable", "enable"], "type": "str"},
-            "ips-sensor": {"type": "raw"},
-            "label": {"type": "str"},
-            "logtraffic": {"choices": ["disable", "enable", "all", "utm"], "type": "str"},
-            "logtraffic-start": {"choices": ["disable", "enable"], "type": "str"},
-            "mms-profile": {"type": "raw"},
-            "name": {"type": "str"},
-            "nat": {"choices": ["disable", "enable"], "type": "str"},
-            "natinbound": {"choices": ["disable", "enable"], "type": "str"},
-            "natoutbound": {"choices": ["disable", "enable"], "type": "str"},
-            "np-accelation": {"choices": ["disable", "enable"], "type": "str"},
-            "np-acceleration": {"choices": ["disable", "enable"], "type": "str"},
-            "outbound": {"choices": ["disable", "enable"], "type": "str"},
-            "per-ip-shaper": {"type": "raw"},
-            "policyid": {"required": true, "type": "int"},
-            "poolname": {"type": "raw"},
-            "profile-group": {"type": "raw"},
-            "profile-protocol-options": {"type": "raw"},
-            "profile-type": {"choices": ["single", "group"], "type": "str"},
-            "replacemsg-group": {"type": "raw"},
-            "replacemsg-override-group": {"type": "raw"},
-            "rsso": {"choices": ["disable", "enable"], "type": "str"},
-            "schedule": {"type": "raw"},
-            "send-deny-packet": {"choices": ["disable", "enable"], "type": "str"},
-            "service": {"type": "raw"},
-            "service-negate": {"choices": ["disable", "enable"], "type": "str"},
-            "session-ttl": {"type": "raw"},
-            "spamfilter-profile": {"type": "raw"},
-            "srcaddr": {"type": "raw"},
-            "srcaddr-negate": {"choices": ["disable", "enable"], "type": "str"},
-            "srcintf": {"type": "raw"},
-            "ssh-filter-profile": {"type": "raw"},
-            "ssh-policy-redirect": {"choices": ["disable", "enable"], "type": "str"},
-            "ssl-mirror": {"choices": ["disable", "enable"], "type": "str"},
-            "ssl-mirror-intf": {"type": "raw"},
-            "ssl-ssh-profile": {"type": "raw"},
-            "sslvpn-auth": {"choices": ["any", "local", "radius", "ldap", "tacacs+"], "type": "str"},
-            "sslvpn-ccert": {"choices": ["disable", "enable"], "type": "str"},
-            "sslvpn-cipher": {"choices": ["any", "high", "medium"], "type": "str"},
-            "status": {"choices": ["disable", "enable"], "type": "str"},
-            "tags": {"type": "raw"},
-            "tcp-mss-receiver": {"type": "int"},
-            "tcp-mss-sender": {"type": "int"},
-            "tcp-session-without-syn": {"choices": ["all", "data-only", "disable"], "type": "str"},
-            "timeout-send-rst": {"choices": ["disable", "enable"], "type": "str"},
-            "tos": {"type": "str"},
-            "tos-mask": {"type": "str"},
-            "tos-negate": {"choices": ["disable", "enable"], "type": "str"},
-            "traffic-shaper": {"type": "raw"},
-            "traffic-shaper-reverse": {"type": "raw"},
-            "url-category": {"type": "raw"},
-            "users": {"type": "raw"},
-            "utm-inspection-mode": {"choices": ["proxy", "flow"], "type": "str"},
-            "utm-status": {"choices": ["disable", "enable"], "type": "str"},
-            "uuid": {"type": "str"},
-            "vlan-cos-fwd": {"type": "int"},
-            "vlan-cos-rev": {"type": "int"},
-            "vlan-filter": {"type": "str"},
-            "voip-profile": {"type": "raw"},
-            "vpntunnel": {"type": "raw"},
-            "webfilter-profile": {"type": "raw"},
-            "waf-profile": {"v_range": [["6.2.1", ""]], "type": "raw"},
-            "webcache": {"v_range": [["6.2.1", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "webcache-https": {"v_range": [["6.2.1", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "webproxy-forward-server": {"v_range": [["6.2.1", ""]], "type": "raw"},
-            "webproxy-profile": {"v_range": [["6.2.1", ""]], "type": "raw"},
-            "fsso-groups": {"v_range": [["6.2.3", ""]], "type": "raw"},
-            "decrypted-traffic-mirror": {"v_range": [["6.4.0", ""]], "type": "raw"},
-            "file-filter-profile": {"v_range": [["6.4.1", ""]], "type": "raw"},
-            "cgn-log-server-grp": {"v_range": [["6.2.7", "6.2.13"], ["6.4.3", ""]], "type": "str"},
-            "policy-offload": {"v_range": [["6.2.7", "6.2.13"], ["6.4.3", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "_policy_block": {"v_range": [["7.2.2", ""]], "type": "int"}
+            "identity-from": {"v_range": [["6.0.0", "7.6.7"]], "choices": ["auth", "device"], "type": "str"},
+            "inbound": {"v_range": [["6.0.0", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
+            "inspection-mode": {"v_range": [["6.0.0", "7.6.7"]], "choices": ["proxy", "flow"], "type": "str"},
+            "ippool": {"v_range": [["6.0.0", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
+            "ips-sensor": {"v_range": [["6.0.0", "7.6.7"]], "type": "raw"},
+            "label": {"v_range": [["6.0.0", "7.6.7"]], "type": "str"},
+            "logtraffic": {"v_range": [["6.0.0", "7.6.7"]], "choices": ["disable", "enable", "all", "utm"], "type": "str"},
+            "logtraffic-start": {"v_range": [["6.0.0", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
+            "mms-profile": {"v_range": [["6.0.0", "7.6.7"]], "type": "raw"},
+            "name": {"v_range": [["6.0.0", "7.6.7"]], "type": "str"},
+            "nat": {"v_range": [["6.0.0", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
+            "natinbound": {"v_range": [["6.0.0", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
+            "natoutbound": {"v_range": [["6.0.0", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
+            "np-accelation": {"v_range": [["6.0.0", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
+            "np-acceleration": {"v_range": [["6.0.0", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
+            "outbound": {"v_range": [["6.0.0", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
+            "per-ip-shaper": {"v_range": [["6.0.0", "7.6.7"]], "type": "raw"},
+            "policyid": {"v_range": [["6.0.0", "7.6.7"]], "required": true, "type": "int"},
+            "poolname": {"v_range": [["6.0.0", "7.6.7"]], "type": "raw"},
+            "profile-group": {"v_range": [["6.0.0", "7.6.7"]], "type": "raw"},
+            "profile-protocol-options": {"v_range": [["6.0.0", "7.6.7"]], "type": "raw"},
+            "profile-type": {"v_range": [["6.0.0", "7.6.7"]], "choices": ["single", "group"], "type": "str"},
+            "replacemsg-group": {"v_range": [["6.0.0", "7.6.7"]], "type": "raw"},
+            "replacemsg-override-group": {"v_range": [["6.0.0", "7.6.7"]], "type": "raw"},
+            "rsso": {"v_range": [["6.0.0", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
+            "schedule": {"v_range": [["6.0.0", "7.6.7"]], "type": "raw"},
+            "send-deny-packet": {"v_range": [["6.0.0", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
+            "service": {"v_range": [["6.0.0", "7.6.7"]], "type": "raw"},
+            "service-negate": {"v_range": [["6.0.0", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
+            "session-ttl": {"v_range": [["6.0.0", "7.6.7"]], "type": "raw"},
+            "spamfilter-profile": {"v_range": [["6.0.0", "7.6.7"]], "type": "raw"},
+            "srcaddr": {"v_range": [["6.0.0", "7.6.7"]], "type": "raw"},
+            "srcaddr-negate": {"v_range": [["6.0.0", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
+            "srcintf": {"v_range": [["6.0.0", "7.6.7"]], "type": "raw"},
+            "ssh-filter-profile": {"v_range": [["6.0.0", "7.6.7"]], "type": "raw"},
+            "ssh-policy-redirect": {"v_range": [["6.0.0", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
+            "ssl-mirror": {"v_range": [["6.0.0", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
+            "ssl-mirror-intf": {"v_range": [["6.0.0", "7.6.7"]], "type": "raw"},
+            "ssl-ssh-profile": {"v_range": [["6.0.0", "7.6.7"]], "type": "raw"},
+            "sslvpn-auth": {"v_range": [["6.0.0", "7.6.7"]], "choices": ["any", "local", "radius", "ldap", "tacacs+"], "type": "str"},
+            "sslvpn-ccert": {"v_range": [["6.0.0", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
+            "sslvpn-cipher": {"v_range": [["6.0.0", "7.6.7"]], "choices": ["any", "high", "medium"], "type": "str"},
+            "status": {"v_range": [["6.0.0", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
+            "tags": {"v_range": [["6.0.0", "7.6.7"]], "type": "raw"},
+            "tcp-mss-receiver": {"v_range": [["6.0.0", "7.6.7"]], "type": "int"},
+            "tcp-mss-sender": {"v_range": [["6.0.0", "7.6.7"]], "type": "int"},
+            "tcp-session-without-syn": {"v_range": [["6.0.0", "7.6.7"]], "choices": ["all", "data-only", "disable"], "type": "str"},
+            "timeout-send-rst": {"v_range": [["6.0.0", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
+            "tos": {"v_range": [["6.0.0", "7.6.7"]], "type": "str"},
+            "tos-mask": {"v_range": [["6.0.0", "7.6.7"]], "type": "str"},
+            "tos-negate": {"v_range": [["6.0.0", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
+            "traffic-shaper": {"v_range": [["6.0.0", "7.6.7"]], "type": "raw"},
+            "traffic-shaper-reverse": {"v_range": [["6.0.0", "7.6.7"]], "type": "raw"},
+            "url-category": {"v_range": [["6.0.0", "7.6.7"]], "type": "raw"},
+            "users": {"v_range": [["6.0.0", "7.6.7"]], "type": "raw"},
+            "utm-inspection-mode": {"v_range": [["6.0.0", "7.6.7"]], "choices": ["proxy", "flow"], "type": "str"},
+            "utm-status": {"v_range": [["6.0.0", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
+            "uuid": {"v_range": [["6.0.0", "7.6.7"]], "type": "str"},
+            "vlan-cos-fwd": {"v_range": [["6.0.0", "7.6.7"]], "type": "int"},
+            "vlan-cos-rev": {"v_range": [["6.0.0", "7.6.7"]], "type": "int"},
+            "vlan-filter": {"v_range": [["6.0.0", "7.6.7"]], "type": "str"},
+            "voip-profile": {"v_range": [["6.0.0", "7.6.7"]], "type": "raw"},
+            "vpntunnel": {"v_range": [["6.0.0", "7.6.7"]], "type": "raw"},
+            "webfilter-profile": {"v_range": [["6.0.0", "7.6.7"]], "type": "raw"},
+            "waf-profile": {"v_range": [["6.2.1", "7.6.7"]], "type": "raw"},
+            "webcache": {"v_range": [["6.2.1", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
+            "webcache-https": {"v_range": [["6.2.1", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
+            "webproxy-forward-server": {"v_range": [["6.2.1", "7.6.7"]], "type": "raw"},
+            "webproxy-profile": {"v_range": [["6.2.1", "7.6.7"]], "type": "raw"},
+            "fsso-groups": {"v_range": [["6.2.3", "7.6.7"]], "type": "raw"},
+            "decrypted-traffic-mirror": {"v_range": [["6.4.0", "7.6.7"]], "type": "raw"},
+            "file-filter-profile": {"v_range": [["6.4.1", "7.6.7"]], "type": "raw"},
+            "cgn-log-server-grp": {"v_range": [["6.2.7", "6.2.13"], ["6.4.3", "7.6.7"]], "type": "str"},
+            "policy-offload": {"v_range": [["6.2.7", "6.2.13"], ["6.4.3", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
+            "_policy_block": {"v_range": [["7.2.2", "7.6.7"]], "type": "int"}
         }
     },
     "pkg_header_shapingpolicy": {
@@ -23070,7 +23912,7 @@ SCHEMA_DATA = '''
             "cos": {"v_range": [["7.4.0", ""]], "type": "str"},
             "cos-mask": {"v_range": [["7.4.0", ""]], "type": "str"},
             "traffic-type": {"v_range": [["7.4.0", ""]], "choices": ["forwarding", "local-in", "local-out"], "type": "str"},
-            "http-response-match": {"v_range": [["7.4.7", "7.4.10"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "http-response-match": {"v_range": [["7.4.7", "7.4.11"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
             "internet-service-fortiguard": {"v_range": [["7.6.4", ""]], "type": "raw"},
             "internet-service-src-fortiguard": {"v_range": [["7.6.4", ""]], "type": "raw"}
         }
@@ -23104,17 +23946,19 @@ SCHEMA_DATA = '''
             "switch-group": {"v_range": [["7.2.6", "7.2.12"], ["7.4.3", ""]], "type": "raw"},
             "switch-mac-policy": {"v_range": [["7.2.6", "7.2.12"], ["7.4.3", ""]], "type": "raw"},
             "switch-scope": {"v_range": [["7.2.6", "7.2.12"], ["7.4.3", ""]], "type": "raw"},
-            "switch-port-policy": {"v_range": [["7.2.6", "7.2.12"], ["7.4.3", ""]], "type": "raw"},
-            "switch-auto-auth": {"v_range": [["7.2.6", "7.2.12"], ["7.4.3", ""]], "choices": ["disable", "enable", "global"], "type": "str"},
-            "match-remove": {"v_range": [["7.6.3", ""]], "choices": ["link-down", "default"], "type": "str"}
+            "switch-port-policy": {"v_range": [["7.2.6", "7.2.12"], ["7.4.3", "7.6.7"]], "type": "raw"},
+            "switch-auto-auth": {"v_range": [["7.2.6", "7.2.12"], ["7.4.3", "7.6.7"]], "choices": ["disable", "enable", "global"], "type": "str"},
+            "match-remove": {"v_range": [["7.6.3", ""]], "choices": ["link-down", "default"], "type": "str"},
+            "port-setting-override": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "qos-policy": {"v_range": [["8.0.0", ""]], "type": "raw"}
         }
     },
     "pkg_videofilter_youtubekey": {
         "stated": true,
         "options": {
-            "id": {"v_range": [["7.4.4", "7.4.10"], ["7.6.2", ""]], "required": true, "type": "int"},
-            "key": {"v_range": [["7.4.4", "7.4.10"], ["7.6.2", ""]], "no_log": true, "type": "str"},
-            "status": {"v_range": [["7.4.4", "7.4.10"], ["7.6.2", ""]], "choices": ["disable", "enable"], "type": "str"}
+            "id": {"v_range": [["7.4.4", "7.4.11"], ["7.6.2", ""]], "required": true, "type": "int"},
+            "key": {"v_range": [["7.4.4", "7.4.11"], ["7.6.2", ""]], "no_log": true, "type": "str"},
+            "status": {"v_range": [["7.4.4", "7.4.11"], ["7.6.2", ""]], "choices": ["disable", "enable"], "type": "str"}
         }
     },
     "pm_config_meta_reference": {
@@ -23293,6 +24137,65 @@ SCHEMA_DATA = '''
             "name": {"v_range": [["7.0.3", "7.6.2"]], "type": "str"}
         }
     },
+    "pm_config_pblock_firewall_localinpolicy": {
+        "stated": true,
+        "options": {
+            "_policy_block": {"v_range": [["8.0.0", ""]], "type": "int"},
+            "action": {"v_range": [["8.0.0", ""]], "choices": ["deny", "accept"], "type": "str"},
+            "comments": {"v_range": [["8.0.0", ""]], "type": "str"},
+            "custom-tags": {"v_range": [["8.0.0", ""]], "type": "list", "elements": "str"},
+            "dstaddr": {"v_range": [["8.0.0", ""]], "type": "list", "elements": "str"},
+            "dstaddr-negate": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "ha-mgmt-intf-only": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "internet-service-src": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "internet-service-src-custom": {"v_range": [["8.0.0", ""]], "type": "list", "elements": "str"},
+            "internet-service-src-custom-group": {"v_range": [["8.0.0", ""]], "type": "list", "elements": "str"},
+            "internet-service-src-fortiguard": {"v_range": [["8.0.0", ""]], "type": "list", "elements": "str"},
+            "internet-service-src-group": {"v_range": [["8.0.0", ""]], "type": "list", "elements": "str"},
+            "internet-service-src-name": {"v_range": [["8.0.0", ""]], "type": "list", "elements": "str"},
+            "internet-service-src-negate": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "intf": {"v_range": [["8.0.0", ""]], "type": "list", "elements": "str"},
+            "logtraffic": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "policyid": {"v_range": [["8.0.0", ""]], "required": true, "type": "int"},
+            "schedule": {"v_range": [["8.0.0", ""]], "type": "list", "elements": "str"},
+            "service": {"v_range": [["8.0.0", ""]], "type": "list", "elements": "str"},
+            "service-negate": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "srcaddr": {"v_range": [["8.0.0", ""]], "type": "list", "elements": "str"},
+            "srcaddr-negate": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "status": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "uuid": {"v_range": [["8.0.0", ""]], "type": "str"},
+            "virtual-patch": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"}
+        }
+    },
+    "pm_config_pblock_firewall_localinpolicy6": {
+        "stated": true,
+        "options": {
+            "_policy_block": {"v_range": [["8.0.0", ""]], "type": "int"},
+            "action": {"v_range": [["8.0.0", ""]], "choices": ["deny", "accept"], "type": "str"},
+            "comments": {"v_range": [["8.0.0", ""]], "type": "str"},
+            "custom-tags": {"v_range": [["8.0.0", ""]], "type": "list", "elements": "str"},
+            "dstaddr": {"v_range": [["8.0.0", ""]], "type": "list", "elements": "str"},
+            "dstaddr-negate": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "internet-service6-src": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "internet-service6-src-custom": {"v_range": [["8.0.0", ""]], "type": "list", "elements": "str"},
+            "internet-service6-src-custom-group": {"v_range": [["8.0.0", ""]], "type": "list", "elements": "str"},
+            "internet-service6-src-fortiguard": {"v_range": [["8.0.0", ""]], "type": "list", "elements": "str"},
+            "internet-service6-src-group": {"v_range": [["8.0.0", ""]], "type": "list", "elements": "str"},
+            "internet-service6-src-name": {"v_range": [["8.0.0", ""]], "type": "list", "elements": "str"},
+            "internet-service6-src-negate": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "intf": {"v_range": [["8.0.0", ""]], "type": "list", "elements": "str"},
+            "logtraffic": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "policyid": {"v_range": [["8.0.0", ""]], "required": true, "type": "int"},
+            "schedule": {"v_range": [["8.0.0", ""]], "type": "list", "elements": "str"},
+            "service": {"v_range": [["8.0.0", ""]], "type": "list", "elements": "str"},
+            "service-negate": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "srcaddr": {"v_range": [["8.0.0", ""]], "type": "list", "elements": "str"},
+            "srcaddr-negate": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "status": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "uuid": {"v_range": [["8.0.0", ""]], "type": "str"},
+            "virtual-patch": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"}
+        }
+    },
     "pm_config_pblock_firewall_policy": {
         "stated": true,
         "options": {
@@ -23308,7 +24211,7 @@ SCHEMA_DATA = '''
             "block-notification": {"v_range": [["7.0.3", ""]], "choices": ["disable", "enable"], "type": "str"},
             "captive-portal-exempt": {"v_range": [["7.0.3", ""]], "choices": ["disable", "enable"], "type": "str"},
             "capture-packet": {"v_range": [["7.0.3", "7.2.0"], ["7.2.6", "7.2.12"], ["7.4.3", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "cifs-profile": {"v_range": [["7.0.3", ""]], "type": "str"},
+            "cifs-profile": {"v_range": [["7.0.3", "7.6.7"]], "type": "str"},
             "comments": {"v_range": [["7.0.3", ""]], "type": "str"},
             "custom-log-fields": {"v_range": [["7.0.3", ""]], "type": "raw"},
             "decrypted-traffic-mirror": {"v_range": [["7.0.3", ""]], "type": "str"},
@@ -23484,8 +24387,8 @@ SCHEMA_DATA = '''
             "learning-mode": {"v_range": [["7.0.3", "7.2.1"]], "choices": ["disable", "enable"], "type": "str"},
             "devices": {"v_range": [["7.0.3", "7.2.1"]], "type": "raw"},
             "dscp-value": {"v_range": [["7.0.3", "7.2.1"]], "type": "str"},
-            "spamfilter-profile": {"v_range": [["7.0.3", "7.2.1"], ["7.4.8", "7.4.10"]], "type": "str"},
-            "scan-botnet-connections": {"v_range": [["7.0.3", "7.2.1"], ["7.4.8", "7.4.10"]], "choices": ["disable", "block", "monitor"], "type": "str"},
+            "spamfilter-profile": {"v_range": [["7.0.3", "7.2.1"], ["7.4.8", "7.4.11"]], "type": "str"},
+            "scan-botnet-connections": {"v_range": [["7.0.3", "7.2.1"], ["7.4.8", "7.4.11"]], "choices": ["disable", "block", "monitor"], "type": "str"},
             "dscp-match": {"v_range": [["7.0.3", "7.2.1"]], "choices": ["disable", "enable"], "type": "str"},
             "diffserv-copy": {"v_range": [["7.2.1", ""]], "choices": ["disable", "enable"], "type": "str"},
             "dstaddr6-negate": {"v_range": [["7.2.1", ""]], "choices": ["disable", "enable"], "type": "str"},
@@ -23530,35 +24433,35 @@ SCHEMA_DATA = '''
             "port-random": {"v_range": [["7.6.2", ""]], "choices": ["disable", "enable"], "type": "str"},
             "ztna-ems-tag-negate": {"v_range": [["7.6.2", ""]], "choices": ["disable", "enable"], "type": "str"},
             "telemetry-profile": {"v_range": [["7.6.3", ""]], "type": "raw"},
-            "access-proxy": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "raw"},
-            "detect-https-in-http-request": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "device-ownership": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "dynamic-bypass": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "explicit-web-proxy": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "raw"},
-            "extended-log": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "force-proxy": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "http-tunnel-auth": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "https-sub-category": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "ia-profile": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "raw"},
-            "implicit-proxy-detection": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "isolator-profile": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "raw"},
-            "isolator-server": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "raw"},
-            "max-session-per-user": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "int"},
-            "pass-through": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "redirect-profile": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "raw"},
-            "reverse-cache": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "ssh-policy-check": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "transparent": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "access-proxy": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "raw"},
+            "detect-https-in-http-request": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "device-ownership": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "dynamic-bypass": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "explicit-web-proxy": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "raw"},
+            "extended-log": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "force-proxy": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "http-tunnel-auth": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "https-sub-category": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "ia-profile": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "raw"},
+            "implicit-proxy-detection": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "isolator-profile": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "raw"},
+            "isolator-server": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "raw"},
+            "max-session-per-user": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "int"},
+            "pass-through": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "redirect-profile": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "raw"},
+            "reverse-cache": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "ssh-policy-check": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "transparent": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
             "type": {
-                "v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]],
+                "v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]],
                 "choices": [
                     "explicit-web", "transparent", "explicit-ftp", "ssh-tunnel", "ssh", "wanopt", "access-proxy", "ztna-proxy", "explicit-web-connect",
                     "transparent-connect", "llm-proxy"
                 ],
                 "type": "str"
             },
-            "url-risk": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "raw"},
-            "tags": {"v_range": [["7.4.8", "7.4.10"]], "type": "raw"},
+            "url-risk": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "raw"},
+            "tags": {"v_range": [["7.4.8", "7.4.11"]], "type": "raw"},
             "service-connector": {"v_range": [["7.6.4", ""]], "type": "raw"},
             "ztna-proxy": {"v_range": [["7.6.4", ""]], "type": "raw"},
             "internet-service6-fortiguard": {"v_range": [["7.6.4", ""]], "type": "raw"},
@@ -23569,7 +24472,20 @@ SCHEMA_DATA = '''
             "scim": {"v_range": [["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
             "internet-service6-src-fortiguard": {"v_range": [["7.6.4", ""]], "type": "raw"},
             "saml-server": {"v_range": [["7.6.4", ""]], "type": "raw"},
-            "llm-profile": {"v_range": [["7.6.5", ""]], "type": "raw"}
+            "llm-profile": {"v_range": [["7.6.5", ""]], "type": "raw"},
+            "creation-time": {"v_range": [["7.6.7", ""]], "type": "int"},
+            "custom-tags": {"v_range": [["8.0.0", ""]], "type": "raw"},
+            "fabric-force-sync": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object-source": {"v_range": [["8.0.0", ""]], "choices": ["member", "local", "root"], "type": "str"},
+            "fabric-policy": {
+                "v_range": [["8.0.0", ""]],
+                "type": "dict",
+                "options": {"from": {"v_range": [["8.0.0", ""]], "type": "raw"}, "to": {"v_range": [["8.0.0", ""]], "type": "raw"}}
+            },
+            "skip-vrf-match": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "ztna-destination": {"v_range": [["8.0.0", ""]], "type": "raw"},
+            "ztna-ems-tag6": {"v_range": [["8.0.0", ""]], "type": "raw"}
         }
     },
     "pm_config_pblock_firewall_policy6": {
@@ -23782,7 +24698,7 @@ SCHEMA_DATA = '''
             "virtual-patch-profile": {"v_range": [["7.6.0", ""]], "type": "list", "elements": "str"},
             "voip-profile": {"v_range": [["7.6.0", ""]], "type": "list", "elements": "str"},
             "dlp-sensor": {"v_range": [["7.6.0", ""]], "type": "list", "elements": "str"},
-            "cifs-profile": {"v_range": [["7.6.0", ""]], "type": "list", "elements": "str"},
+            "cifs-profile": {"v_range": [["7.6.0", "7.6.7"]], "type": "list", "elements": "str"},
             "internet-service-id": {"v_range": [["7.6.0", "7.6.2"]], "type": "list", "elements": "str"},
             "mms-profile": {"v_range": [["7.6.0", "7.6.2"]], "type": "list", "elements": "str"},
             "isolator-server": {"v_range": [["7.6.2", ""]], "type": "list", "elements": "str"},
@@ -23792,7 +24708,11 @@ SCHEMA_DATA = '''
             "telemetry-profile": {"v_range": [["7.6.3", ""]], "type": "list", "elements": "str"},
             "internet-service-fortiguard": {"v_range": [["7.6.4", ""]], "type": "list", "elements": "str"},
             "internet-service6-fortiguard": {"v_range": [["7.6.4", ""]], "type": "list", "elements": "str"},
-            "poolname6": {"v_range": [["7.6.5", ""]], "type": "list", "elements": "str"}
+            "poolname6": {"v_range": [["7.6.5", ""]], "type": "list", "elements": "str"},
+            "custom-tags": {"v_range": [["8.0.0", ""]], "type": "list", "elements": "str"},
+            "fsso-groups": {"v_range": [["8.0.0", ""]], "type": "list", "elements": "str"},
+            "llm-profile": {"v_range": [["8.0.0", ""]], "type": "list", "elements": "str"},
+            "ztna-destination": {"v_range": [["8.0.0", ""]], "type": "list", "elements": "str"}
         }
     },
     "pm_config_pblock_firewall_proxypolicy_sectionvalue": {
@@ -23812,7 +24732,7 @@ SCHEMA_DATA = '''
             "application": {"v_range": [["7.0.3", ""]], "type": "raw"},
             "application-list": {"v_range": [["7.0.3", ""]], "type": "str"},
             "av-profile": {"v_range": [["7.0.3", ""]], "type": "str"},
-            "cifs-profile": {"v_range": [["7.0.3", ""]], "type": "str"},
+            "cifs-profile": {"v_range": [["7.0.3", "7.6.7"]], "type": "str"},
             "comments": {"v_range": [["7.0.3", ""]], "type": "str"},
             "dlp-profile": {"v_range": [["7.2.0", "7.2.1"], ["7.2.4", "7.2.4"], ["7.2.6", "7.2.12"], ["7.4.2", ""]], "type": "str"},
             "dnsfilter-profile": {"v_range": [["7.0.3", ""]], "type": "str"},
@@ -23933,7 +24853,10 @@ SCHEMA_DATA = '''
             "internet-service-fortiguard": {"v_range": [["7.6.4", ""]], "type": "raw"},
             "internet-service-src-fortiguard": {"v_range": [["7.6.4", ""]], "type": "raw"},
             "internet-service6-fortiguard": {"v_range": [["7.6.4", ""]], "type": "raw"},
-            "internet-service6-src-fortiguard": {"v_range": [["7.6.4", ""]], "type": "raw"}
+            "internet-service6-src-fortiguard": {"v_range": [["7.6.4", ""]], "type": "raw"},
+            "creation-time": {"v_range": [["7.6.7", ""]], "type": "int"},
+            "custom-tags": {"v_range": [["8.0.0", ""]], "type": "raw"},
+            "llm-profile": {"v_range": [["8.0.0", ""]], "type": "raw"}
         }
     },
     "pm_config_pblock_firewall_securitypolicy_sectionvalue": {
@@ -24526,7 +25449,11 @@ SCHEMA_DATA = '''
                     "ppid": {"v_range": [["7.2.5", "7.2.12"], ["7.4.2", ""]], "type": "int"}
                 },
                 "elements": "dict"
-            }
+            },
+            "fabric-force-sync": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object-source": {"v_range": [["8.0.0", ""]], "choices": ["member", "local", "root"], "type": "str"},
+            "uuid": {"v_range": [["8.0.0", ""]], "type": "str"}
         }
     },
     "sctpfilter_profile_ppidfilters": {
@@ -24538,7 +25465,7 @@ SCHEMA_DATA = '''
             "ppid": {"v_range": [["7.2.5", "7.2.12"], ["7.4.2", ""]], "type": "int"}
         }
     },
-    "securityconsole_abort": {"stated": true, "options": {"adom": {"type": "str"}}},
+    "securityconsole_abort": {"stated": true, "options": {"adom": {"type": "str"}, "preview_taskid": {"v_range": [["7.6.7", "7.6.7"]], "type": "int"}}},
     "securityconsole_assign_package": {
         "stated": true,
         "options": {
@@ -24599,6 +25526,15 @@ SCHEMA_DATA = '''
                 "type": "list",
                 "options": {"name": {"v_range": [["7.4.1", ""]], "type": "str"}, "vdom": {"v_range": [["7.4.1", ""]], "type": "str"}},
                 "elements": "dict"
+            },
+            "flags": {
+                "v_range": [["8.0.0", ""]],
+                "type": "list",
+                "choices": [
+                    "none", "cp_all_objs", "preview", "generate_rev", "copy_assigned_pkg", "unassign", "ifpolicy_only", "no_ifpolicy", "objs_only",
+                    "auto_lock_ws", "check_pkg_st", "copy_only"
+                ],
+                "elements": "str"
             }
         }
     },
@@ -24633,10 +25569,14 @@ SCHEMA_DATA = '''
                 "type": "list",
                 "options": {"name": {"v_range": [["7.4.4", ""]], "type": "str"}, "vdom": {"v_range": [["7.4.4", ""]], "type": "str"}},
                 "elements": "dict"
-            }
+            },
+            "preview_taskid": {"v_range": [["7.6.7", "7.6.7"]], "type": "int"}
         }
     },
-    "securityconsole_package_cancel_install": {"stated": true, "options": {"adom": {"type": "str"}}},
+    "securityconsole_package_cancel_install": {
+        "stated": true,
+        "options": {"adom": {"type": "str"}, "preview_taskid": {"v_range": [["7.6.7", "7.6.7"]], "type": "int"}}
+    },
     "securityconsole_package_clone": {
         "stated": true,
         "options": {
@@ -24652,7 +25592,8 @@ SCHEMA_DATA = '''
         "options": {
             "adom": {"type": "str"},
             "scope": {"type": "list", "options": {"name": {"type": "str"}, "vdom": {"type": "str"}}, "elements": "dict"},
-            "flags": {"v_range": [["7.4.6", "7.4.10"], ["7.6.2", ""]], "type": "list", "choices": ["auto_lock_ws"], "elements": "str"}
+            "flags": {"v_range": [["7.4.6", "7.4.11"], ["7.6.2", ""]], "type": "list", "choices": ["auto_lock_ws"], "elements": "str"},
+            "preview_taskid": {"v_range": [["7.6.7", "7.6.7"]], "type": "int"}
         }
     },
     "securityconsole_package_move": {
@@ -24670,7 +25611,8 @@ SCHEMA_DATA = '''
                 "type": "list",
                 "options": {"name": {"v_range": [["7.4.4", ""]], "type": "str"}, "vdom": {"v_range": [["7.4.4", ""]], "type": "str"}},
                 "elements": "dict"
-            }
+            },
+            "preview_taskid": {"v_range": [["7.6.7", "7.6.7"]], "type": "int"}
         }
     },
     "securityconsole_reinstall_package": {
@@ -24734,184 +25676,184 @@ SCHEMA_DATA = '''
     "spamfilter_bwl": {
         "stated": true,
         "options": {
-            "comment": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "type": "str"},
+            "comment": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "type": "str"},
             "entries": {
-                "v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]],
+                "v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]],
                 "type": "list",
                 "options": {
-                    "action": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "choices": ["spam", "clear", "reject"], "type": "str"},
-                    "addr-type": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "choices": ["ipv4", "ipv6"], "type": "str"},
-                    "email-pattern": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "type": "str"},
-                    "id": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "type": "int"},
-                    "ip4-subnet": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "type": "str"},
-                    "ip6-subnet": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "type": "str"},
-                    "pattern-type": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "choices": ["wildcard", "regexp"], "type": "str"},
-                    "status": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "choices": ["disable", "enable"], "type": "str"},
-                    "type": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "choices": ["ip", "email"], "type": "str"}
+                    "action": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "choices": ["spam", "clear", "reject"], "type": "str"},
+                    "addr-type": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "choices": ["ipv4", "ipv6"], "type": "str"},
+                    "email-pattern": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "type": "str"},
+                    "id": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "type": "int"},
+                    "ip4-subnet": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "type": "str"},
+                    "ip6-subnet": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "type": "str"},
+                    "pattern-type": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "choices": ["wildcard", "regexp"], "type": "str"},
+                    "status": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "choices": ["disable", "enable"], "type": "str"},
+                    "type": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "choices": ["ip", "email"], "type": "str"}
                 },
                 "elements": "dict"
             },
-            "id": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "required": true, "type": "int"},
-            "name": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "type": "str"}
+            "id": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "required": true, "type": "int"},
+            "name": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "type": "str"}
         }
     },
     "spamfilter_bwl_entries": {
         "stated": true,
         "options": {
-            "action": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "choices": ["spam", "clear", "reject"], "type": "str"},
-            "addr-type": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "choices": ["ipv4", "ipv6"], "type": "str"},
-            "email-pattern": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "type": "str"},
-            "id": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "required": true, "type": "int"},
-            "ip4-subnet": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "type": "str"},
-            "ip6-subnet": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "type": "str"},
-            "pattern-type": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "choices": ["wildcard", "regexp"], "type": "str"},
-            "status": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "choices": ["disable", "enable"], "type": "str"},
-            "type": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "choices": ["ip", "email"], "type": "str"}
+            "action": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "choices": ["spam", "clear", "reject"], "type": "str"},
+            "addr-type": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "choices": ["ipv4", "ipv6"], "type": "str"},
+            "email-pattern": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "type": "str"},
+            "id": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "required": true, "type": "int"},
+            "ip4-subnet": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "type": "str"},
+            "ip6-subnet": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "type": "str"},
+            "pattern-type": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "choices": ["wildcard", "regexp"], "type": "str"},
+            "status": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "choices": ["disable", "enable"], "type": "str"},
+            "type": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "choices": ["ip", "email"], "type": "str"}
         }
     },
     "spamfilter_bword": {
         "stated": true,
         "options": {
-            "comment": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "type": "str"},
+            "comment": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "type": "str"},
             "entries": {
-                "v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]],
+                "v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]],
                 "type": "list",
                 "options": {
-                    "action": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "choices": ["spam", "clear"], "type": "str"},
-                    "id": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "type": "int"},
+                    "action": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "choices": ["spam", "clear"], "type": "str"},
+                    "id": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "type": "int"},
                     "language": {
-                        "v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]],
+                        "v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]],
                         "choices": ["western", "simch", "trach", "japanese", "korean", "french", "thai", "spanish"],
                         "type": "str"
                     },
-                    "pattern": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "type": "str"},
-                    "pattern-type": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "choices": ["wildcard", "regexp"], "type": "str"},
-                    "score": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "type": "int"},
-                    "status": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "choices": ["disable", "enable"], "type": "str"},
-                    "where": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "choices": ["subject", "body", "all"], "type": "str"}
+                    "pattern": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "type": "str"},
+                    "pattern-type": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "choices": ["wildcard", "regexp"], "type": "str"},
+                    "score": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "type": "int"},
+                    "status": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "choices": ["disable", "enable"], "type": "str"},
+                    "where": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "choices": ["subject", "body", "all"], "type": "str"}
                 },
                 "elements": "dict"
             },
-            "id": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "required": true, "type": "int"},
-            "name": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "type": "str"}
+            "id": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "required": true, "type": "int"},
+            "name": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "type": "str"}
         }
     },
     "spamfilter_bword_entries": {
         "stated": true,
         "options": {
-            "action": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "choices": ["spam", "clear"], "type": "str"},
-            "id": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "required": true, "type": "int"},
+            "action": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "choices": ["spam", "clear"], "type": "str"},
+            "id": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "required": true, "type": "int"},
             "language": {
-                "v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]],
+                "v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]],
                 "choices": ["western", "simch", "trach", "japanese", "korean", "french", "thai", "spanish"],
                 "type": "str"
             },
-            "pattern": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "type": "str"},
-            "pattern-type": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "choices": ["wildcard", "regexp"], "type": "str"},
-            "score": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "type": "int"},
-            "status": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "choices": ["disable", "enable"], "type": "str"},
-            "where": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "choices": ["subject", "body", "all"], "type": "str"}
+            "pattern": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "type": "str"},
+            "pattern-type": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "choices": ["wildcard", "regexp"], "type": "str"},
+            "score": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "type": "int"},
+            "status": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "choices": ["disable", "enable"], "type": "str"},
+            "where": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "choices": ["subject", "body", "all"], "type": "str"}
         }
     },
     "spamfilter_dnsbl": {
         "stated": true,
         "options": {
-            "comment": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "type": "str"},
+            "comment": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "type": "str"},
             "entries": {
-                "v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]],
+                "v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]],
                 "type": "list",
                 "options": {
-                    "action": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "choices": ["spam", "reject"], "type": "str"},
-                    "id": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "type": "int"},
-                    "server": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "type": "str"},
-                    "status": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "choices": ["disable", "enable"], "type": "str"}
+                    "action": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "choices": ["spam", "reject"], "type": "str"},
+                    "id": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "type": "int"},
+                    "server": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "type": "str"},
+                    "status": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "choices": ["disable", "enable"], "type": "str"}
                 },
                 "elements": "dict"
             },
-            "id": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "required": true, "type": "int"},
-            "name": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "type": "str"}
+            "id": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "required": true, "type": "int"},
+            "name": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "type": "str"}
         }
     },
     "spamfilter_dnsbl_entries": {
         "stated": true,
         "options": {
-            "action": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "choices": ["spam", "reject"], "type": "str"},
-            "id": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "required": true, "type": "int"},
-            "server": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "type": "str"},
-            "status": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "choices": ["disable", "enable"], "type": "str"}
+            "action": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "choices": ["spam", "reject"], "type": "str"},
+            "id": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "required": true, "type": "int"},
+            "server": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "type": "str"},
+            "status": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "choices": ["disable", "enable"], "type": "str"}
         }
     },
     "spamfilter_iptrust": {
         "stated": true,
         "options": {
-            "comment": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "type": "str"},
+            "comment": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "type": "str"},
             "entries": {
-                "v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]],
+                "v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]],
                 "type": "list",
                 "options": {
-                    "addr-type": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "choices": ["ipv4", "ipv6"], "type": "str"},
-                    "id": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "type": "int"},
-                    "ip4-subnet": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "type": "str"},
-                    "ip6-subnet": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "type": "str"},
-                    "status": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "choices": ["disable", "enable"], "type": "str"}
+                    "addr-type": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "choices": ["ipv4", "ipv6"], "type": "str"},
+                    "id": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "type": "int"},
+                    "ip4-subnet": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "type": "str"},
+                    "ip6-subnet": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "type": "str"},
+                    "status": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "choices": ["disable", "enable"], "type": "str"}
                 },
                 "elements": "dict"
             },
-            "id": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "required": true, "type": "int"},
-            "name": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "type": "str"}
+            "id": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "required": true, "type": "int"},
+            "name": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "type": "str"}
         }
     },
     "spamfilter_iptrust_entries": {
         "stated": true,
         "options": {
-            "addr-type": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "choices": ["ipv4", "ipv6"], "type": "str"},
-            "id": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "required": true, "type": "int"},
-            "ip4-subnet": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "type": "str"},
-            "ip6-subnet": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "type": "str"},
-            "status": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "choices": ["disable", "enable"], "type": "str"}
+            "addr-type": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "choices": ["ipv4", "ipv6"], "type": "str"},
+            "id": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "required": true, "type": "int"},
+            "ip4-subnet": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "type": "str"},
+            "ip6-subnet": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "type": "str"},
+            "status": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "choices": ["disable", "enable"], "type": "str"}
         }
     },
     "spamfilter_mheader": {
         "stated": true,
         "options": {
-            "comment": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "type": "str"},
+            "comment": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "type": "str"},
             "entries": {
-                "v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]],
+                "v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]],
                 "type": "list",
                 "options": {
-                    "action": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "choices": ["spam", "clear"], "type": "str"},
-                    "fieldbody": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "type": "str"},
-                    "fieldname": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "type": "str"},
-                    "id": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "type": "int"},
-                    "pattern-type": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "choices": ["wildcard", "regexp"], "type": "str"},
-                    "status": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "choices": ["disable", "enable"], "type": "str"}
+                    "action": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "choices": ["spam", "clear"], "type": "str"},
+                    "fieldbody": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "type": "str"},
+                    "fieldname": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "type": "str"},
+                    "id": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "type": "int"},
+                    "pattern-type": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "choices": ["wildcard", "regexp"], "type": "str"},
+                    "status": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "choices": ["disable", "enable"], "type": "str"}
                 },
                 "elements": "dict"
             },
-            "id": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "required": true, "type": "int"},
-            "name": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "type": "str"}
+            "id": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "required": true, "type": "int"},
+            "name": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "type": "str"}
         }
     },
     "spamfilter_mheader_entries": {
         "stated": true,
         "options": {
-            "action": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "choices": ["spam", "clear"], "type": "str"},
-            "fieldbody": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "type": "str"},
-            "fieldname": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "type": "str"},
-            "id": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "required": true, "type": "int"},
-            "pattern-type": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "choices": ["wildcard", "regexp"], "type": "str"},
-            "status": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "choices": ["disable", "enable"], "type": "str"}
+            "action": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "choices": ["spam", "clear"], "type": "str"},
+            "fieldbody": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "type": "str"},
+            "fieldname": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "type": "str"},
+            "id": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "required": true, "type": "int"},
+            "pattern-type": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "choices": ["wildcard", "regexp"], "type": "str"},
+            "status": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "choices": ["disable", "enable"], "type": "str"}
         }
     },
     "spamfilter_profile": {
         "stated": true,
         "options": {
-            "comment": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "type": "str"},
-            "external": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "choices": ["disable", "enable"], "type": "str"},
-            "flow-based": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "choices": ["disable", "enable"], "type": "str"},
-            "name": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "required": true, "type": "str"},
+            "comment": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "type": "str"},
+            "external": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "choices": ["disable", "enable"], "type": "str"},
+            "flow-based": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "choices": ["disable", "enable"], "type": "str"},
+            "name": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "required": true, "type": "str"},
             "options": {
-                "v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]],
+                "v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]],
                 "type": "list",
                 "choices": [
                     "bannedword", "spamemailbwl", "spamfsip", "spamfssubmit", "spamfschksum", "spamfsurl", "spamhelodns", "spamipbwl", "spamraddrdns",
@@ -24919,32 +25861,32 @@ SCHEMA_DATA = '''
                 ],
                 "elements": "str"
             },
-            "replacemsg-group": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "type": "str"},
-            "spam-bwl-table": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "type": "str"},
-            "spam-bword-table": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "type": "str"},
-            "spam-bword-threshold": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "type": "int"},
-            "spam-filtering": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "choices": ["disable", "enable"], "type": "str"},
-            "spam-iptrust-table": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "type": "str"},
-            "spam-log": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "choices": ["disable", "enable"], "type": "str"},
-            "spam-log-fortiguard-response": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "choices": ["disable", "enable"], "type": "str"},
-            "spam-mheader-table": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "type": "str"},
-            "spam-rbl-table": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "type": "str"},
+            "replacemsg-group": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "type": "str"},
+            "spam-bwl-table": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "type": "str"},
+            "spam-bword-table": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "type": "str"},
+            "spam-bword-threshold": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "type": "int"},
+            "spam-filtering": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "choices": ["disable", "enable"], "type": "str"},
+            "spam-iptrust-table": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "type": "str"},
+            "spam-log": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "choices": ["disable", "enable"], "type": "str"},
+            "spam-log-fortiguard-response": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "choices": ["disable", "enable"], "type": "str"},
+            "spam-mheader-table": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "type": "str"},
+            "spam-rbl-table": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "type": "str"},
             "gmail": {
-                "v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.2.1"], ["7.4.8", "7.4.10"]],
+                "v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.2.1"], ["7.4.8", "7.4.11"]],
                 "type": "dict",
                 "options": {
-                    "log": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.2.1"], ["7.4.8", "7.4.10"]], "choices": ["disable", "enable"], "type": "str"}
+                    "log": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.2.1"], ["7.4.8", "7.4.11"]], "choices": ["disable", "enable"], "type": "str"}
                 }
             },
             "imap": {
-                "v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.2.1"], ["7.4.8", "7.4.10"]],
+                "v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.2.1"], ["7.4.8", "7.4.11"]],
                 "type": "dict",
                 "options": {
-                    "action": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.2.1"], ["7.4.8", "7.4.10"]], "choices": ["pass", "tag"], "type": "str"},
-                    "log": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.2.1"], ["7.4.8", "7.4.10"]], "choices": ["disable", "enable"], "type": "str"},
-                    "tag-msg": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.2.1"], ["7.4.8", "7.4.10"]], "type": "str"},
+                    "action": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.2.1"], ["7.4.8", "7.4.11"]], "choices": ["pass", "tag"], "type": "str"},
+                    "log": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.2.1"], ["7.4.8", "7.4.11"]], "choices": ["disable", "enable"], "type": "str"},
+                    "tag-msg": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.2.1"], ["7.4.8", "7.4.11"]], "type": "str"},
                     "tag-type": {
-                        "v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.2.1"], ["7.4.8", "7.4.10"]],
+                        "v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.2.1"], ["7.4.8", "7.4.11"]],
                         "type": "list",
                         "choices": ["subject", "header", "spaminfo"],
                         "elements": "str"
@@ -24952,29 +25894,29 @@ SCHEMA_DATA = '''
                 }
             },
             "mapi": {
-                "v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.2.1"], ["7.4.8", "7.4.10"]],
+                "v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.2.1"], ["7.4.8", "7.4.11"]],
                 "type": "dict",
                 "options": {
-                    "action": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.2.1"], ["7.4.8", "7.4.10"]], "choices": ["pass", "discard"], "type": "str"},
-                    "log": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.2.1"], ["7.4.8", "7.4.10"]], "choices": ["disable", "enable"], "type": "str"}
+                    "action": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.2.1"], ["7.4.8", "7.4.11"]], "choices": ["pass", "discard"], "type": "str"},
+                    "log": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.2.1"], ["7.4.8", "7.4.11"]], "choices": ["disable", "enable"], "type": "str"}
                 }
             },
             "msn-hotmail": {
-                "v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.2.1"], ["7.4.8", "7.4.10"]],
+                "v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.2.1"], ["7.4.8", "7.4.11"]],
                 "type": "dict",
                 "options": {
-                    "log": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.2.1"], ["7.4.8", "7.4.10"]], "choices": ["disable", "enable"], "type": "str"}
+                    "log": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.2.1"], ["7.4.8", "7.4.11"]], "choices": ["disable", "enable"], "type": "str"}
                 }
             },
             "pop3": {
-                "v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.2.1"], ["7.4.8", "7.4.10"]],
+                "v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.2.1"], ["7.4.8", "7.4.11"]],
                 "type": "dict",
                 "options": {
-                    "action": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.2.1"], ["7.4.8", "7.4.10"]], "choices": ["pass", "tag"], "type": "str"},
-                    "log": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.2.1"], ["7.4.8", "7.4.10"]], "choices": ["disable", "enable"], "type": "str"},
-                    "tag-msg": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.2.1"], ["7.4.8", "7.4.10"]], "type": "str"},
+                    "action": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.2.1"], ["7.4.8", "7.4.11"]], "choices": ["pass", "tag"], "type": "str"},
+                    "log": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.2.1"], ["7.4.8", "7.4.11"]], "choices": ["disable", "enable"], "type": "str"},
+                    "tag-msg": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.2.1"], ["7.4.8", "7.4.11"]], "type": "str"},
                     "tag-type": {
-                        "v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.2.1"], ["7.4.8", "7.4.10"]],
+                        "v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.2.1"], ["7.4.8", "7.4.11"]],
                         "type": "list",
                         "choices": ["subject", "header", "spaminfo"],
                         "elements": "str"
@@ -24982,24 +25924,24 @@ SCHEMA_DATA = '''
                 }
             },
             "smtp": {
-                "v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.2.1"], ["7.4.8", "7.4.10"]],
+                "v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.2.1"], ["7.4.8", "7.4.11"]],
                 "type": "dict",
                 "options": {
                     "action": {
-                        "v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.2.1"], ["7.4.8", "7.4.10"]],
+                        "v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.2.1"], ["7.4.8", "7.4.11"]],
                         "choices": ["pass", "tag", "discard"],
                         "type": "str"
                     },
-                    "hdrip": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.2.1"], ["7.4.8", "7.4.10"]], "choices": ["disable", "enable"], "type": "str"},
+                    "hdrip": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.2.1"], ["7.4.8", "7.4.11"]], "choices": ["disable", "enable"], "type": "str"},
                     "local-override": {
-                        "v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.2.1"], ["7.4.8", "7.4.10"]],
+                        "v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.2.1"], ["7.4.8", "7.4.11"]],
                         "choices": ["disable", "enable"],
                         "type": "str"
                     },
-                    "log": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.2.1"], ["7.4.8", "7.4.10"]], "choices": ["disable", "enable"], "type": "str"},
-                    "tag-msg": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.2.1"], ["7.4.8", "7.4.10"]], "type": "str"},
+                    "log": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.2.1"], ["7.4.8", "7.4.11"]], "choices": ["disable", "enable"], "type": "str"},
+                    "tag-msg": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.2.1"], ["7.4.8", "7.4.11"]], "type": "str"},
                     "tag-type": {
-                        "v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.2.1"], ["7.4.8", "7.4.10"]],
+                        "v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.2.1"], ["7.4.8", "7.4.11"]],
                         "type": "list",
                         "choices": ["subject", "header", "spaminfo"],
                         "elements": "str"
@@ -25015,16 +25957,16 @@ SCHEMA_DATA = '''
     },
     "spamfilter_profile_gmail": {
         "stated": false,
-        "options": {"log": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "choices": ["disable", "enable"], "type": "str"}}
+        "options": {"log": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "choices": ["disable", "enable"], "type": "str"}}
     },
     "spamfilter_profile_imap": {
         "stated": false,
         "options": {
-            "action": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "choices": ["pass", "tag"], "type": "str"},
-            "log": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "choices": ["disable", "enable"], "type": "str"},
-            "tag-msg": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "type": "str"},
+            "action": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "choices": ["pass", "tag"], "type": "str"},
+            "log": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "choices": ["disable", "enable"], "type": "str"},
+            "tag-msg": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "type": "str"},
             "tag-type": {
-                "v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]],
+                "v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]],
                 "type": "list",
                 "choices": ["subject", "header", "spaminfo"],
                 "elements": "str"
@@ -25034,22 +25976,22 @@ SCHEMA_DATA = '''
     "spamfilter_profile_mapi": {
         "stated": false,
         "options": {
-            "action": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "choices": ["pass", "discard"], "type": "str"},
-            "log": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "choices": ["disable", "enable"], "type": "str"}
+            "action": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "choices": ["pass", "discard"], "type": "str"},
+            "log": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "choices": ["disable", "enable"], "type": "str"}
         }
     },
     "spamfilter_profile_msnhotmail": {
         "stated": false,
-        "options": {"log": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "choices": ["disable", "enable"], "type": "str"}}
+        "options": {"log": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "choices": ["disable", "enable"], "type": "str"}}
     },
     "spamfilter_profile_pop3": {
         "stated": false,
         "options": {
-            "action": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "choices": ["pass", "tag"], "type": "str"},
-            "log": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "choices": ["disable", "enable"], "type": "str"},
-            "tag-msg": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "type": "str"},
+            "action": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "choices": ["pass", "tag"], "type": "str"},
+            "log": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "choices": ["disable", "enable"], "type": "str"},
+            "tag-msg": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "type": "str"},
             "tag-type": {
-                "v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]],
+                "v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]],
                 "type": "list",
                 "choices": ["subject", "header", "spaminfo"],
                 "elements": "str"
@@ -25059,13 +26001,13 @@ SCHEMA_DATA = '''
     "spamfilter_profile_smtp": {
         "stated": false,
         "options": {
-            "action": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "choices": ["pass", "tag", "discard"], "type": "str"},
-            "hdrip": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "choices": ["disable", "enable"], "type": "str"},
-            "local-override": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "choices": ["disable", "enable"], "type": "str"},
-            "log": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "choices": ["disable", "enable"], "type": "str"},
-            "tag-msg": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "type": "str"},
+            "action": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "choices": ["pass", "tag", "discard"], "type": "str"},
+            "hdrip": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "choices": ["disable", "enable"], "type": "str"},
+            "local-override": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "choices": ["disable", "enable"], "type": "str"},
+            "log": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "choices": ["disable", "enable"], "type": "str"},
+            "tag-msg": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "type": "str"},
             "tag-type": {
-                "v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]],
+                "v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]],
                 "type": "list",
                 "choices": ["subject", "header", "spaminfo"],
                 "elements": "str"
@@ -25118,7 +26060,11 @@ SCHEMA_DATA = '''
                     "scan-archive-contents": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.6.2"]], "choices": ["disable", "enable"], "type": "str"},
                     "status": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.6.2"]], "choices": ["disable", "enable"], "type": "str"}
                 }
-            }
+            },
+            "fabric-force-sync": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object-source": {"v_range": [["8.0.0", ""]], "choices": ["member", "local", "root"], "type": "str"},
+            "uuid": {"v_range": [["8.0.0", ""]], "type": "str"}
         }
     },
     "sshfilter_profile_filefilter": {
@@ -25317,7 +26263,8 @@ SCHEMA_DATA = '''
                 }
             },
             "name": {"v_range": [["7.2.1", ""]], "required": true, "type": "str"},
-            "access-vlan-mode": {"v_range": [["7.4.1", ""]], "choices": ["legacy", "fail-open", "fail-close"], "type": "str"}
+            "access-vlan-mode": {"v_range": [["7.4.1", ""]], "choices": ["legacy", "fail-open", "fail-close"], "type": "str"},
+            "admin-policy": {"v_range": [["8.0.0", ""]], "type": "raw"}
         }
     },
     "switchcontroller_fortilinksettings_nacports": {
@@ -25336,7 +26283,7 @@ SCHEMA_DATA = '''
         "stated": true,
         "options": {
             "802.1-tlvs": {"type": "list", "choices": ["port-vlan-id"], "elements": "str"},
-            "802.3-tlvs": {"type": "list", "choices": ["max-frame-size", "power-negotiation"], "elements": "str"},
+            "802.3-tlvs": {"type": "list", "choices": ["max-frame-size", "power-negotiation", "eee-negotiation"], "elements": "str"},
             "auto-isl": {"choices": ["disable", "enable"], "type": "str"},
             "auto-isl-hello-timer": {"type": "int"},
             "auto-isl-port-group": {"type": "int"},
@@ -25417,7 +26364,7 @@ SCHEMA_DATA = '''
             "name": {"v_range": [["7.2.1", ""]], "required": true, "type": "str"},
             "traffic-policy": {"v_range": [["7.2.1", ""]], "type": "str"},
             "vlan": {"v_range": [["7.2.1", ""]], "type": "str"},
-            "drop": {"v_range": [["7.2.1", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "drop": {"v_range": [["7.2.1", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
             "fortilink": {"v_range": [["7.2.6", "7.2.12"], ["7.4.3", ""]], "type": "raw"},
             "bounce-port-duration": {"v_range": [["7.6.2", ""]], "type": "int"},
             "poe-reset": {"v_range": [["7.6.2", ""]], "choices": ["disable", "enable"], "type": "str"}
@@ -25557,7 +26504,7 @@ SCHEMA_DATA = '''
                             "auto", "10full", "10half", "100full", "100half", "1000full", "10000full", "1000auto", "40000full", "1000fiber", "10000",
                             "40000", "auto-module", "100FX-half", "100FX-full", "100000full", "2500full", "25000full", "50000full", "40000auto",
                             "10000cr", "10000sr", "100000sr4", "100000cr4", "25000cr4", "25000sr4", "5000full", "2500auto", "5000auto", "1000full-fiber",
-                            "40000sr4", "40000cr4", "25000cr", "25000sr", "50000cr", "50000sr", "sgmii-auto"
+                            "40000sr4", "40000cr4", "25000cr", "25000sr", "50000cr", "50000sr", "sgmii-auto", "detect-by-module"
                         ],
                         "type": "str"
                     },
@@ -25568,7 +26515,11 @@ SCHEMA_DATA = '''
                     "export-tags": {"v_range": [["7.2.6", "7.2.12"], ["7.4.3", ""]], "type": "raw"},
                     "log-mac-event": {"v_range": [["7.6.0", ""]], "choices": ["disable", "enable"], "type": "str"},
                     "pd-capable": {"v_range": [["7.4.4", ""]], "type": "int"},
-                    "qnq": {"v_range": [["7.6.0", ""]], "type": "raw"}
+                    "qnq": {"v_range": [["7.6.0", ""]], "type": "raw"},
+                    "eee-tx-idle-time": {"v_range": [["8.0.0", ""]], "type": "int"},
+                    "eee-tx-wake-time": {"v_range": [["8.0.0", ""]], "type": "int"},
+                    "energy-efficient-ethernet": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+                    "poe-max-power-mode": {"v_range": [["8.0.0", ""]], "choices": ["class-based", "30W", "60W"], "type": "str"}
                 },
                 "elements": "dict"
             },
@@ -25763,7 +26714,9 @@ SCHEMA_DATA = '''
                     "mac-username-delimiter": {"v_range": [["7.4.3", ""]], "choices": ["hyphen", "single-hyphen", "colon", "none"], "type": "str"},
                     "max-reauth-attempt": {"v_range": [["7.2.6", "7.2.12"], ["7.4.3", ""]], "type": "int"},
                     "reauth-period": {"v_range": [["7.2.6", "7.2.12"], ["7.4.3", ""]], "type": "int"},
-                    "tx-period": {"v_range": [["7.2.6", "7.2.12"], ["7.4.3", ""]], "type": "int"}
+                    "tx-period": {"v_range": [["7.2.6", "7.2.12"], ["7.4.3", ""]], "type": "int"},
+                    "allow-mac-move": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+                    "mab-entry-as": {"v_range": [["8.0.0", ""]], "choices": ["dynamic", "static"], "type": "str"}
                 }
             },
             "access-profile": {"v_range": [["7.2.6", "7.2.12"], ["7.4.3", ""]], "type": "raw"},
@@ -26004,7 +26957,34 @@ SCHEMA_DATA = '''
                 },
                 "elements": "dict"
             },
-            "max-poe-budget": {"v_range": [["7.6.5", ""]], "type": "int"}
+            "max-poe-budget": {"v_range": [["7.6.5", ""]], "type": "int"},
+            "components": {
+                "v_range": [["8.0.0", ""]],
+                "type": "list",
+                "options": {
+                    "admin-status": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+                    "capability": {"v_range": [["8.0.0", ""]], "type": "str"},
+                    "component-id": {"v_range": [["8.0.0", ""]], "type": "int"},
+                    "description": {"v_range": [["8.0.0", ""]], "type": "str"},
+                    "dynamically-discovered": {"v_range": [["8.0.0", ""]], "type": "int"},
+                    "max-allowed-trunk-members": {"v_range": [["8.0.0", ""]], "type": "int"},
+                    "name": {"v_range": [["8.0.0", ""]], "type": "str"},
+                    "poe-detection-type": {"v_range": [["8.0.0", ""]], "type": "int"},
+                    "role": {"v_range": [["8.0.0", ""]], "choices": ["None", "Primary", "Backup", "Follower", "Standalone"], "type": "str"},
+                    "serial-number": {"v_range": [["8.0.0", ""]], "type": "str"},
+                    "status": {"v_range": [["8.0.0", ""]], "choices": ["offline", "online"], "type": "str"},
+                    "sw-version": {"v_range": [["8.0.0", ""]], "type": "str"},
+                    "switch-id": {"v_range": [["8.0.0", ""]], "type": "str"},
+                    "type": {"v_range": [["8.0.0", ""]], "choices": ["stack-node", "supervisor", "linecard"], "type": "str"},
+                    "version": {"v_range": [["8.0.0", ""]], "type": "int"}
+                },
+                "elements": "dict"
+            },
+            "port-selection-criteria": {
+                "v_range": [["8.0.0", ""]],
+                "choices": ["src-mac", "dst-mac", "src-dst-mac", "src-ip", "dst-ip", "src-dst-ip"],
+                "type": "str"
+            }
         }
     },
     "switchcontroller_managedswitch_customcommand": {
@@ -26014,11 +26994,11 @@ SCHEMA_DATA = '''
     "switchcontroller_managedswitch_dhcpsnoopingstaticclient": {
         "stated": true,
         "options": {
-            "ip": {"v_range": [["7.2.2", ""]], "type": "str"},
-            "mac": {"v_range": [["7.2.2", ""]], "type": "str"},
-            "name": {"v_range": [["7.2.2", ""]], "required": true, "type": "str"},
-            "port": {"v_range": [["7.2.2", ""]], "type": "str"},
-            "vlan": {"v_range": [["7.2.2", ""]], "type": "str"}
+            "ip": {"v_range": [["7.2.2", "7.4.10"], ["7.6.0", "7.6.6"]], "type": "str"},
+            "mac": {"v_range": [["7.2.2", "7.4.10"], ["7.6.0", "7.6.6"]], "type": "str"},
+            "name": {"v_range": [["7.2.2", "7.4.10"], ["7.6.0", "7.6.6"]], "required": true, "type": "str"},
+            "port": {"v_range": [["7.2.2", "7.4.10"], ["7.6.0", "7.6.6"]], "type": "str"},
+            "vlan": {"v_range": [["7.2.2", "7.4.10"], ["7.6.0", "7.6.6"]], "type": "str"}
         }
     },
     "switchcontroller_managedswitch_ipsourceguard": {
@@ -26174,7 +27154,7 @@ SCHEMA_DATA = '''
                     "auto", "10full", "10half", "100full", "100half", "1000full", "10000full", "1000auto", "40000full", "1000fiber", "10000", "40000",
                     "auto-module", "100FX-half", "100FX-full", "100000full", "2500full", "25000full", "50000full", "40000auto", "10000cr", "10000sr",
                     "100000sr4", "100000cr4", "25000cr4", "25000sr4", "5000full", "2500auto", "5000auto", "1000full-fiber", "40000sr4", "40000cr4",
-                    "25000cr", "25000sr", "50000cr", "50000sr", "sgmii-auto"
+                    "25000cr", "25000sr", "50000cr", "50000sr", "sgmii-auto", "detect-by-module"
                 ],
                 "type": "str"
             },
@@ -26185,7 +27165,11 @@ SCHEMA_DATA = '''
             "export-tags": {"v_range": [["7.2.6", "7.2.12"], ["7.4.3", ""]], "type": "raw"},
             "log-mac-event": {"v_range": [["7.6.0", ""]], "choices": ["disable", "enable"], "type": "str"},
             "pd-capable": {"v_range": [["7.4.4", ""]], "type": "int"},
-            "qnq": {"v_range": [["7.6.0", ""]], "type": "raw"}
+            "qnq": {"v_range": [["7.6.0", ""]], "type": "raw"},
+            "eee-tx-idle-time": {"v_range": [["8.0.0", ""]], "type": "int"},
+            "eee-tx-wake-time": {"v_range": [["8.0.0", ""]], "type": "int"},
+            "energy-efficient-ethernet": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "poe-max-power-mode": {"v_range": [["8.0.0", ""]], "choices": ["class-based", "30W", "60W"], "type": "str"}
         }
     },
     "switchcontroller_managedswitch_ports_dhcpsnoopoption82override": {
@@ -26221,30 +27205,33 @@ SCHEMA_DATA = '''
     },
     "switchcontroller_managedswitch_routeoffloadrouter": {
         "stated": true,
-        "options": {"router-ip": {"v_range": [["7.4.1", ""]], "type": "str"}, "vlan-name": {"v_range": [["7.4.1", ""]], "type": "str"}}
+        "options": {
+            "router-ip": {"v_range": [["7.4.1", "7.4.10"], ["7.6.0", "7.6.6"]], "type": "str"},
+            "vlan-name": {"v_range": [["7.4.1", "7.4.10"], ["7.6.0", "7.6.6"]], "type": "str"}
+        }
     },
     "switchcontroller_managedswitch_routerstatic": {
         "stated": true,
         "options": {
-            "blackhole": {"v_range": [["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "comment": {"v_range": [["7.6.4", ""]], "type": "str"},
-            "device": {"v_range": [["7.6.4", ""]], "type": "list", "elements": "str"},
-            "distance": {"v_range": [["7.6.4", ""]], "type": "int"},
-            "dst": {"v_range": [["7.6.4", ""]], "type": "list", "elements": "str"},
-            "dynamic-gateway": {"v_range": [["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "gateway": {"v_range": [["7.6.4", ""]], "type": "str"},
-            "id": {"v_range": [["7.6.4", ""]], "required": true, "type": "int"},
-            "status": {"v_range": [["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "switch-id": {"v_range": [["7.6.4", ""]], "type": "list", "elements": "str"},
-            "vrf": {"v_range": [["7.6.4", ""]], "type": "list", "elements": "str"}
+            "blackhole": {"v_range": [["7.6.4", "7.6.6"]], "choices": ["disable", "enable"], "type": "str"},
+            "comment": {"v_range": [["7.6.4", "7.6.6"]], "type": "str"},
+            "device": {"v_range": [["7.6.4", "7.6.6"]], "type": "list", "elements": "str"},
+            "distance": {"v_range": [["7.6.4", "7.6.6"]], "type": "int"},
+            "dst": {"v_range": [["7.6.4", "7.6.6"]], "type": "list", "elements": "str"},
+            "dynamic-gateway": {"v_range": [["7.6.4", "7.6.6"]], "choices": ["disable", "enable"], "type": "str"},
+            "gateway": {"v_range": [["7.6.4", "7.6.6"]], "type": "str"},
+            "id": {"v_range": [["7.6.4", "7.6.6"]], "required": true, "type": "int"},
+            "status": {"v_range": [["7.6.4", "7.6.6"]], "choices": ["disable", "enable"], "type": "str"},
+            "switch-id": {"v_range": [["7.6.4", "7.6.6"]], "type": "list", "elements": "str"},
+            "vrf": {"v_range": [["7.6.4", "7.6.6"]], "type": "list", "elements": "str"}
         }
     },
     "switchcontroller_managedswitch_routervrf": {
         "stated": true,
         "options": {
-            "name": {"v_range": [["7.6.4", ""]], "required": true, "type": "str"},
-            "switch-id": {"v_range": [["7.6.4", ""]], "type": "list", "elements": "str"},
-            "vrfid": {"v_range": [["7.6.4", ""]], "type": "int"}
+            "name": {"v_range": [["7.6.4", "7.6.6"]], "required": true, "type": "str"},
+            "switch-id": {"v_range": [["7.6.4", "7.6.6"]], "type": "list", "elements": "str"},
+            "vrfid": {"v_range": [["7.6.4", "7.6.6"]], "type": "int"}
         }
     },
     "switchcontroller_managedswitch_snmpcommunity": {
@@ -26315,86 +27302,89 @@ SCHEMA_DATA = '''
     "switchcontroller_managedswitch_systemdhcpserver": {
         "stated": true,
         "options": {
-            "default-gateway": {"v_range": [["7.6.4", ""]], "type": "str"},
-            "dns-server1": {"v_range": [["7.6.4", ""]], "type": "str"},
-            "dns-server2": {"v_range": [["7.6.4", ""]], "type": "str"},
-            "dns-server3": {"v_range": [["7.6.4", ""]], "type": "str"},
-            "dns-service": {"v_range": [["7.6.4", ""]], "choices": ["default", "specify", "local"], "type": "str"},
-            "id": {"v_range": [["7.6.4", ""]], "required": true, "type": "int"},
-            "interface": {"v_range": [["7.6.4", ""]], "type": "list", "elements": "str"},
+            "default-gateway": {"v_range": [["7.6.4", "7.6.6"]], "type": "str"},
+            "dns-server1": {"v_range": [["7.6.4", "7.6.6"]], "type": "str"},
+            "dns-server2": {"v_range": [["7.6.4", "7.6.6"]], "type": "str"},
+            "dns-server3": {"v_range": [["7.6.4", "7.6.6"]], "type": "str"},
+            "dns-service": {"v_range": [["7.6.4", "7.6.6"]], "choices": ["default", "specify", "local"], "type": "str"},
+            "id": {"v_range": [["7.6.4", "7.6.6"]], "required": true, "type": "int"},
+            "interface": {"v_range": [["7.6.4", "7.6.6"]], "type": "list", "elements": "str"},
             "ip-range": {
-                "v_range": [["7.6.4", ""]],
+                "v_range": [["7.6.4", "7.6.6"]],
                 "type": "list",
                 "options": {
-                    "end-ip": {"v_range": [["7.6.4", ""]], "type": "str"},
-                    "id": {"v_range": [["7.6.4", ""]], "type": "int"},
-                    "start-ip": {"v_range": [["7.6.4", ""]], "type": "str"}
+                    "end-ip": {"v_range": [["7.6.4", "7.6.6"]], "type": "str"},
+                    "id": {"v_range": [["7.6.4", "7.6.6"]], "type": "int"},
+                    "start-ip": {"v_range": [["7.6.4", "7.6.6"]], "type": "str"}
                 },
                 "elements": "dict"
             },
-            "lease-time": {"v_range": [["7.6.4", ""]], "type": "int"},
-            "netmask": {"v_range": [["7.6.4", ""]], "type": "str"},
-            "ntp-server1": {"v_range": [["7.6.4", ""]], "type": "str"},
-            "ntp-server2": {"v_range": [["7.6.4", ""]], "type": "str"},
-            "ntp-server3": {"v_range": [["7.6.4", ""]], "type": "str"},
-            "ntp-service": {"v_range": [["7.6.4", ""]], "choices": ["default", "specify", "local"], "type": "str"},
+            "lease-time": {"v_range": [["7.6.4", "7.6.6"]], "type": "int"},
+            "netmask": {"v_range": [["7.6.4", "7.6.6"]], "type": "str"},
+            "ntp-server1": {"v_range": [["7.6.4", "7.6.6"]], "type": "str"},
+            "ntp-server2": {"v_range": [["7.6.4", "7.6.6"]], "type": "str"},
+            "ntp-server3": {"v_range": [["7.6.4", "7.6.6"]], "type": "str"},
+            "ntp-service": {"v_range": [["7.6.4", "7.6.6"]], "choices": ["default", "specify", "local"], "type": "str"},
             "options": {
-                "v_range": [["7.6.4", ""]],
+                "v_range": [["7.6.4", "7.6.6"]],
                 "type": "list",
                 "options": {
-                    "code": {"v_range": [["7.6.4", ""]], "type": "int"},
-                    "id": {"v_range": [["7.6.4", ""]], "type": "int"},
-                    "ip": {"v_range": [["7.6.4", ""]], "type": "str"},
-                    "type": {"v_range": [["7.6.4", ""]], "choices": ["hex", "string", "ip", "fqdn"], "type": "str"},
-                    "value": {"v_range": [["7.6.4", ""]], "type": "str"}
+                    "code": {"v_range": [["7.6.4", "7.6.6"]], "type": "int"},
+                    "id": {"v_range": [["7.6.4", "7.6.6"]], "type": "int"},
+                    "ip": {"v_range": [["7.6.4", "7.6.6"]], "type": "str"},
+                    "type": {"v_range": [["7.6.4", "7.6.6"]], "choices": ["hex", "string", "ip", "fqdn"], "type": "str"},
+                    "value": {"v_range": [["7.6.4", "7.6.6"]], "type": "str"}
                 },
                 "elements": "dict"
             },
-            "status": {"v_range": [["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "switch-id": {"v_range": [["7.6.4", ""]], "type": "list", "elements": "str"}
+            "status": {"v_range": [["7.6.4", "7.6.6"]], "choices": ["disable", "enable"], "type": "str"},
+            "switch-id": {"v_range": [["7.6.4", "7.6.6"]], "type": "list", "elements": "str"}
         }
     },
     "switchcontroller_managedswitch_systemdhcpserver_iprange": {
         "stated": true,
         "options": {
-            "end-ip": {"v_range": [["7.6.4", ""]], "type": "str"},
-            "id": {"v_range": [["7.6.4", ""]], "required": true, "type": "int"},
-            "start-ip": {"v_range": [["7.6.4", ""]], "type": "str"}
+            "end-ip": {"v_range": [["7.6.4", "7.6.6"]], "type": "str"},
+            "id": {"v_range": [["7.6.4", "7.6.6"]], "required": true, "type": "int"},
+            "start-ip": {"v_range": [["7.6.4", "7.6.6"]], "type": "str"}
         }
     },
     "switchcontroller_managedswitch_systemdhcpserver_options": {
         "stated": true,
         "options": {
-            "code": {"v_range": [["7.6.4", ""]], "type": "int"},
-            "id": {"v_range": [["7.6.4", ""]], "required": true, "type": "int"},
-            "ip": {"v_range": [["7.6.4", ""]], "type": "str"},
-            "type": {"v_range": [["7.6.4", ""]], "choices": ["hex", "string", "ip", "fqdn"], "type": "str"},
-            "value": {"v_range": [["7.6.4", ""]], "type": "str"}
+            "code": {"v_range": [["7.6.4", "7.6.6"]], "type": "int"},
+            "id": {"v_range": [["7.6.4", "7.6.6"]], "required": true, "type": "int"},
+            "ip": {"v_range": [["7.6.4", "7.6.6"]], "type": "str"},
+            "type": {"v_range": [["7.6.4", "7.6.6"]], "choices": ["hex", "string", "ip", "fqdn"], "type": "str"},
+            "value": {"v_range": [["7.6.4", "7.6.6"]], "type": "str"}
         }
     },
     "switchcontroller_managedswitch_systeminterface": {
         "stated": true,
         "options": {
             "allowaccess": {
-                "v_range": [["7.6.4", ""]],
+                "v_range": [["7.6.4", "7.6.6"]],
                 "type": "list",
                 "choices": ["https", "ping", "ssh", "snmp", "http", "telnet", "radius-acct"],
                 "elements": "str"
             },
-            "interface": {"v_range": [["7.6.4", ""]], "type": "list", "elements": "str"},
-            "ip": {"v_range": [["7.6.4", ""]], "type": "list", "elements": "str"},
-            "mode": {"v_range": [["7.6.4", ""]], "choices": ["static", "dhcp"], "type": "str"},
-            "name": {"v_range": [["7.6.4", ""]], "required": true, "type": "str"},
-            "status": {"v_range": [["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "switch-id": {"v_range": [["7.6.4", ""]], "type": "list", "elements": "str"},
-            "type": {"v_range": [["7.6.4", ""]], "choices": ["physical", "vlan"], "type": "str"},
-            "vlan": {"v_range": [["7.6.4", ""]], "type": "list", "elements": "str"},
-            "vrf": {"v_range": [["7.6.4", ""]], "type": "list", "elements": "str"}
+            "interface": {"v_range": [["7.6.4", "7.6.6"]], "type": "list", "elements": "str"},
+            "ip": {"v_range": [["7.6.4", "7.6.6"]], "type": "list", "elements": "str"},
+            "mode": {"v_range": [["7.6.4", "7.6.6"]], "choices": ["static", "dhcp"], "type": "str"},
+            "name": {"v_range": [["7.6.4", "7.6.6"]], "required": true, "type": "str"},
+            "status": {"v_range": [["7.6.4", "7.6.6"]], "choices": ["disable", "enable"], "type": "str"},
+            "switch-id": {"v_range": [["7.6.4", "7.6.6"]], "type": "list", "elements": "str"},
+            "type": {"v_range": [["7.6.4", "7.6.6"]], "choices": ["physical", "vlan"], "type": "str"},
+            "vlan": {"v_range": [["7.6.4", "7.6.6"]], "type": "list", "elements": "str"},
+            "vrf": {"v_range": [["7.6.4", "7.6.6"]], "type": "list", "elements": "str"}
         }
     },
     "switchcontroller_managedswitch_vlan": {
         "stated": true,
-        "options": {"assignment-priority": {"v_range": [["7.4.2", ""]], "type": "int"}, "vlan-name": {"v_range": [["7.4.2", ""]], "type": "str"}}
+        "options": {
+            "assignment-priority": {"v_range": [["7.4.2", "7.4.10"], ["7.6.0", "7.6.6"]], "type": "int"},
+            "vlan-name": {"v_range": [["7.4.2", "7.4.10"], ["7.6.0", "7.6.6"]], "type": "str"}
+        }
     },
     "switchcontroller_ptp_profile": {
         "stated": true,
@@ -26548,7 +27538,37 @@ SCHEMA_DATA = '''
             "authserver-timeout-tagged-vlanid": {"v_range": [["7.2.6", "7.2.12"], ["7.4.3", ""]], "type": "raw"},
             "dacl": {"v_range": [["7.4.3", ""]], "choices": ["disable", "enable"], "type": "str"},
             "auth-order": {"v_range": [["7.6.0", ""]], "choices": ["dot1x-mab", "mab-dot1x", "mab"], "type": "str"},
-            "auth-priority": {"v_range": [["7.6.0", ""]], "choices": ["dot1x-mab", "mab-dot1x", "legacy"], "type": "str"}
+            "auth-priority": {"v_range": [["7.6.0", ""]], "choices": ["dot1x-mab", "mab-dot1x", "legacy"], "type": "str"},
+            "allow-mac-move": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "client-limit": {"v_range": [["8.0.0", ""]], "type": "int"},
+            "eap-egress-tagged": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"}
+        }
+    },
+    "switchcontroller_securitypolicy_admin": {
+        "stated": true,
+        "options": {
+            "auto": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "ip6-trusthost1": {"v_range": [["8.0.0", ""]], "type": "str"},
+            "ip6-trusthost10": {"v_range": [["8.0.0", ""]], "type": "str"},
+            "ip6-trusthost2": {"v_range": [["8.0.0", ""]], "type": "str"},
+            "ip6-trusthost3": {"v_range": [["8.0.0", ""]], "type": "str"},
+            "ip6-trusthost4": {"v_range": [["8.0.0", ""]], "type": "str"},
+            "ip6-trusthost5": {"v_range": [["8.0.0", ""]], "type": "str"},
+            "ip6-trusthost6": {"v_range": [["8.0.0", ""]], "type": "str"},
+            "ip6-trusthost7": {"v_range": [["8.0.0", ""]], "type": "str"},
+            "ip6-trusthost8": {"v_range": [["8.0.0", ""]], "type": "str"},
+            "ip6-trusthost9": {"v_range": [["8.0.0", ""]], "type": "str"},
+            "name": {"v_range": [["8.0.0", ""]], "required": true, "type": "str"},
+            "trusthost1": {"v_range": [["8.0.0", ""]], "type": "list", "elements": "str"},
+            "trusthost10": {"v_range": [["8.0.0", ""]], "type": "list", "elements": "str"},
+            "trusthost2": {"v_range": [["8.0.0", ""]], "type": "list", "elements": "str"},
+            "trusthost3": {"v_range": [["8.0.0", ""]], "type": "list", "elements": "str"},
+            "trusthost4": {"v_range": [["8.0.0", ""]], "type": "list", "elements": "str"},
+            "trusthost5": {"v_range": [["8.0.0", ""]], "type": "list", "elements": "str"},
+            "trusthost6": {"v_range": [["8.0.0", ""]], "type": "list", "elements": "str"},
+            "trusthost7": {"v_range": [["8.0.0", ""]], "type": "list", "elements": "str"},
+            "trusthost8": {"v_range": [["8.0.0", ""]], "type": "list", "elements": "str"},
+            "trusthost9": {"v_range": [["8.0.0", ""]], "type": "list", "elements": "str"}
         }
     },
     "switchcontroller_securitypolicy_captiveportal": {
@@ -26586,7 +27606,9 @@ SCHEMA_DATA = '''
             "login-passwd-override": {"v_range": [["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
             "name": {"v_range": [["7.6.4", ""]], "required": true, "type": "str"},
             "revision-backup-on-logout": {"v_range": [["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "revision-backup-on-upgrade": {"v_range": [["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"}
+            "revision-backup-on-upgrade": {"v_range": [["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "private-data-encryption": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "private-data-encryption-key": {"v_range": [["8.0.0", ""]], "no_log": true, "type": "list", "elements": "str"}
         }
     },
     "switchcontroller_trafficpolicy": {
@@ -26617,6 +27639,18 @@ SCHEMA_DATA = '''
         }
     },
     "sys_api_sdnconnector": {"stated": true, "options": {"adom": {"type": "str"}, "command": {"type": "str"}, "connector_name": {"type": "str"}}},
+    "sys_backup": {
+        "stated": true,
+        "options": {
+            "filename": {"v_range": [["7.4.11", "7.4.11"], ["7.6.7", ""]], "type": "str"},
+            "passwd": {"v_range": [["7.4.11", "7.4.11"], ["7.6.7", ""]], "no_log": true, "type": "list", "elements": "str"},
+            "port": {"v_range": [["7.4.11", "7.4.11"], ["7.6.7", ""]], "type": "int"},
+            "server": {"v_range": [["7.4.11", "7.4.11"], ["7.6.7", ""]], "type": "str"},
+            "service": {"v_range": [["7.4.11", "7.4.11"], ["7.6.7", ""]], "choices": ["ftp", "scp", "sftp", "tftp"], "type": "str"},
+            "username": {"v_range": [["7.4.11", "7.4.11"], ["7.6.7", ""]], "type": "str"},
+            "userpasswd": {"v_range": [["7.4.11", "7.4.11"], ["7.6.7", ""]], "no_log": true, "type": "list", "elements": "str"}
+        }
+    },
     "sys_cloud_orchest": {
         "stated": true,
         "options": {
@@ -26681,7 +27715,7 @@ SCHEMA_DATA = '''
             "username": {"type": "str"},
             "adom-access": {"v_range": [["7.0.3", ""]], "choices": ["all", "specify"], "type": "str"},
             "ssl-protocol": {
-                "v_range": [["7.4.4", "7.4.10"], ["7.6.2", ""]],
+                "v_range": [["7.4.4", "7.4.11"], ["7.6.2", ""]],
                 "choices": ["follow-global-ssl-protocol", "sslv3", "tlsv1.0", "tlsv1.1", "tlsv1.2", "tlsv1.3"],
                 "type": "str"
             }
@@ -26742,7 +27776,7 @@ SCHEMA_DATA = '''
             "log-viewer": {"choices": ["none", "read", "read-write"], "type": "str"},
             "policy-objects": {"choices": ["none", "read", "read-write"], "type": "str"},
             "profileid": {"required": true, "type": "str"},
-            "read-passwd": {"v_range": [["6.0.0", "7.4.2"], ["7.4.9", "7.4.10"]], "choices": ["none", "read", "read-write"], "type": "str"},
+            "read-passwd": {"v_range": [["6.0.0", "7.4.2"], ["7.4.9", "7.4.11"], ["7.6.7", ""]], "choices": ["none", "read", "read-write"], "type": "str"},
             "realtime-monitor": {"v_range": [["6.0.0", "7.4.2"]], "choices": ["none", "read", "read-write"], "type": "str"},
             "report-viewer": {"choices": ["none", "read", "read-write"], "type": "str"},
             "scope": {"choices": ["global", "adom"], "type": "str"},
@@ -26809,9 +27843,15 @@ SCHEMA_DATA = '''
                 "elements": "dict"
             },
             "adom-admin": {"v_range": [["7.6.0", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "device-fwm-profile": {"v_range": [["7.4.7", "7.4.10"], ["7.6.4", ""]], "choices": ["none", "read", "read-write"], "type": "str"},
+            "device-fwm-profile": {"v_range": [["7.4.7", "7.4.11"], ["7.6.4", ""]], "choices": ["none", "read", "read-write"], "type": "str"},
             "device-assignment": {"v_range": [["7.6.4", ""]], "choices": ["none", "read", "read-write"], "type": "str"},
-            "script-run": {"v_range": [["7.6.4", ""]], "choices": ["none", "read", "read-write"], "type": "str"}
+            "script-run": {"v_range": [["7.6.4", ""]], "choices": ["none", "read", "read-write"], "type": "str"},
+            "fgd-center-extres": {"v_range": [["7.6.7", ""]], "choices": ["none", "read", "read-write"], "type": "str"},
+            "device-fabric": {"v_range": [["8.0.0", ""]], "choices": ["none", "read", "read-write"], "type": "str"},
+            "device-interface": {"v_range": [["8.0.0", ""]], "choices": ["none", "read", "read-write"], "type": "str"},
+            "device-log": {"v_range": [["8.0.0", ""]], "choices": ["none", "read", "read-write"], "type": "str"},
+            "device-route": {"v_range": [["8.0.0", ""]], "choices": ["none", "read", "read-write"], "type": "str"},
+            "protected-objects": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"}
         }
     },
     "system_admin_profile_datamaskcustomfields": {
@@ -26836,14 +27876,14 @@ SCHEMA_DATA = '''
             "secondary-server": {"type": "str"},
             "secret": {"no_log": true, "type": "raw"},
             "server": {"type": "str"},
-            "ca-cert": {"v_range": [["7.2.10", "7.2.12"], ["7.4.6", "7.4.10"], ["7.6.2", ""]], "type": "str"},
-            "client-cert": {"v_range": [["7.2.10", "7.2.12"], ["7.4.6", "7.4.10"], ["7.6.2", ""]], "type": "str"},
+            "ca-cert": {"v_range": [["7.2.10", "7.2.12"], ["7.4.6", "7.4.11"], ["7.6.2", ""]], "type": "str"},
+            "client-cert": {"v_range": [["7.2.10", "7.2.12"], ["7.4.6", "7.4.11"], ["7.6.2", ""]], "type": "str"},
             "message-authenticator": {
-                "v_range": [["7.2.10", "7.2.12"], ["7.4.6", "7.4.10"], ["7.6.2", ""]],
+                "v_range": [["7.2.10", "7.2.12"], ["7.4.6", "7.4.11"], ["7.6.2", ""]],
                 "choices": ["optional", "require"],
                 "type": "str"
             },
-            "protocol": {"v_range": [["7.2.10", "7.2.12"], ["7.4.6", "7.4.10"], ["7.6.2", ""]], "choices": ["udp", "tls"], "type": "str"}
+            "protocol": {"v_range": [["7.2.10", "7.2.12"], ["7.4.6", "7.4.11"], ["7.6.2", ""]], "choices": ["udp", "tls"], "type": "str"}
         }
     },
     "system_admin_setting": {
@@ -26912,9 +27952,12 @@ SCHEMA_DATA = '''
             "fgt-gui-proxy-port": {"v_range": [["7.4.2", ""]], "type": "int"},
             "object-threshold-limit": {"v_range": [["7.6.2", ""]], "choices": ["disable", "enable"], "type": "str"},
             "object-threshold-limit-value": {"v_range": [["7.6.2", ""]], "type": "int"},
-            "rtm-max-monitor-by-size": {"v_range": [["7.4.7", "7.4.10"], ["7.6.3", ""]], "type": "int"},
+            "rtm-max-monitor-by-size": {"v_range": [["7.4.7", "7.4.11"], ["7.6.3", ""]], "type": "int"},
             "show-sdwan-manager": {"v_range": [["7.6.3", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "admin-scp": {"v_range": [["7.4.8", "7.4.10"], ["7.6.5", ""]], "choices": ["disable", "enable"], "type": "str"}
+            "admin-scp": {"v_range": [["7.4.8", "7.4.11"], ["7.6.5", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "admin-httpd-keep-alive-timeout": {"v_range": [["7.4.11", "7.4.11"], ["7.6.7", ""]], "type": "int"},
+            "custom-session-label": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "custom-session-label-mode": {"v_range": [["8.0.0", ""]], "choices": ["changeable", "unique-per-session"], "type": "str"}
         }
     },
     "system_admin_tacacs": {
@@ -27070,7 +28113,7 @@ SCHEMA_DATA = '''
                 "options": {"policy-block-name": {"v_range": [["7.6.0", ""]], "type": "str"}},
                 "elements": "dict"
             },
-            "old-password": {"v_range": [["7.2.11", "7.2.12"], ["7.4.7", "7.4.10"], ["7.6.3", ""]], "no_log": true, "type": "str"},
+            "old-password": {"v_range": [["7.2.11", "7.2.12"], ["7.4.7", "7.4.11"], ["7.6.3", ""]], "no_log": true, "type": "str"},
             "autoreg-user": {"v_range": [["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"}
         }
     },
@@ -27325,7 +28368,8 @@ SCHEMA_DATA = '''
             "certificate": {"type": "raw"},
             "comment": {"type": "str"},
             "name": {"required": true, "type": "str"},
-            "private-key": {"no_log": true, "type": "raw"}
+            "private-key": {"no_log": true, "type": "raw"},
+            "password": {"v_range": [["7.6.7", ""]], "no_log": true, "type": "raw"}
         }
     },
     "system_connector": {
@@ -27340,7 +28384,7 @@ SCHEMA_DATA = '''
             "faznotify-msg-queue-max": {"v_range": [["7.4.2", ""]], "type": "int"},
             "faznotify-msg-timeout": {"v_range": [["7.4.2", ""]], "type": "int"},
             "conn-ssl-protocol": {
-                "v_range": [["7.4.4", "7.4.10"], ["7.6.2", ""]],
+                "v_range": [["7.4.4", "7.4.11"], ["7.6.2", ""]],
                 "choices": ["follow-global-ssl-protocol", "sslv3", "tlsv1.0", "tlsv1.1", "tlsv1.2", "tlsv1.3"],
                 "type": "str"
             }
@@ -27388,7 +28432,14 @@ SCHEMA_DATA = '''
                     "ha-members": {"v_range": [["7.4.1", ""]], "type": "str"},
                     "index": {"v_range": [["7.4.1", ""]], "type": "int"},
                     "name": {"v_range": [["7.4.1", ""]], "type": "str"},
-                    "serial": {"v_range": [["7.4.1", ""]], "type": "str"}
+                    "serial": {"v_range": [["7.4.1", ""]], "type": "str"},
+                    "adom": {
+                        "v_range": [["7.6.7", ""]],
+                        "type": "list",
+                        "options": {"adom-name": {"v_range": [["7.6.7", ""]], "type": "str"}},
+                        "elements": "dict"
+                    },
+                    "adom-access": {"v_range": [["7.6.7", ""]], "choices": ["all", "specify"], "type": "str"}
                 },
                 "elements": "dict"
             },
@@ -27396,7 +28447,7 @@ SCHEMA_DATA = '''
             "upstream-port": {"v_range": [["7.4.1", ""]], "type": "int"},
             "upstream-confirm": {"v_range": [["7.6.0", ""]], "choices": ["discover", "confirm"], "type": "str"},
             "ssl-protocol": {
-                "v_range": [["7.4.4", "7.4.10"], ["7.6.2", ""]],
+                "v_range": [["7.4.4", "7.4.11"], ["7.6.2", ""]],
                 "choices": ["follow-global-ssl-protocol", "sslv3", "tlsv1.0", "tlsv1.1", "tlsv1.2", "tlsv1.3"],
                 "type": "str"
             }
@@ -27420,9 +28471,17 @@ SCHEMA_DATA = '''
             "ha-members": {"v_range": [["7.4.1", ""]], "type": "str"},
             "index": {"v_range": [["7.4.1", ""]], "type": "int"},
             "name": {"v_range": [["7.4.1", ""]], "required": true, "type": "str"},
-            "serial": {"v_range": [["7.4.1", ""]], "type": "str"}
+            "serial": {"v_range": [["7.4.1", ""]], "type": "str"},
+            "adom": {
+                "v_range": [["7.6.7", ""]],
+                "type": "list",
+                "options": {"adom-name": {"v_range": [["7.6.7", ""]], "type": "str"}},
+                "elements": "dict"
+            },
+            "adom-access": {"v_range": [["7.6.7", ""]], "choices": ["all", "specify"], "type": "str"}
         }
     },
+    "system_csf_trustedlist_adom": {"stated": true, "options": {"adom-name": {"v_range": [["7.6.7", ""]], "type": "str"}}},
     "system_customlanguage": {
         "stated": true,
         "options": {"comments": {"type": "str"}, "filename": {"type": "str"}, "name": {"required": true, "type": "str"}}
@@ -27456,7 +28515,10 @@ SCHEMA_DATA = '''
                     "vci-string": {"v_range": [["7.2.1", ""]], "type": "raw"},
                     "lease-time": {"v_range": [["7.2.2", ""]], "type": "int"},
                     "uci-match": {"v_range": [["7.2.2", ""]], "choices": ["disable", "enable"], "type": "str"},
-                    "uci-string": {"v_range": [["7.2.2", ""]], "type": "raw"}
+                    "uci-string": {"v_range": [["7.2.2", ""]], "type": "raw"},
+                    "oui-match": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+                    "oui-string": {"v_range": [["8.0.0", ""]], "type": "raw"},
+                    "vendor": {"v_range": [["8.0.0", ""]], "type": "str"}
                 },
                 "elements": "dict"
             },
@@ -27475,7 +28537,10 @@ SCHEMA_DATA = '''
                     "vci-string": {"v_range": [["7.2.1", ""]], "type": "raw"},
                     "lease-time": {"v_range": [["7.2.2", ""]], "type": "int"},
                     "uci-match": {"v_range": [["7.2.2", ""]], "choices": ["disable", "enable"], "type": "str"},
-                    "uci-string": {"v_range": [["7.2.2", ""]], "type": "raw"}
+                    "uci-string": {"v_range": [["7.2.2", ""]], "type": "raw"},
+                    "oui-match": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+                    "oui-string": {"v_range": [["8.0.0", ""]], "type": "raw"},
+                    "vendor": {"v_range": [["8.0.0", ""]], "type": "str"}
                 },
                 "elements": "dict"
             },
@@ -27544,7 +28609,10 @@ SCHEMA_DATA = '''
             "auto-managed-status": {"v_range": [["6.4.0", ""]], "choices": ["disable", "enable"], "type": "str"},
             "dhcp-settings-from-fortiipam": {"v_range": [["6.4.0", ""]], "choices": ["disable", "enable"], "type": "str"},
             "relay-agent": {"v_range": [["7.4.0", ""]], "type": "str"},
-            "shared-subnet": {"v_range": [["7.4.0", ""]], "choices": ["disable", "enable"], "type": "str"}
+            "shared-subnet": {"v_range": [["7.4.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "template": {"v_range": [["8.0.0", ""]], "type": "raw"},
+            "template-subnet": {"v_range": [["8.0.0", ""]], "type": "raw"},
+            "template-subnet-from-interface": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"}
         }
     },
     "system_dhcp_server_excluderange": {
@@ -27557,7 +28625,10 @@ SCHEMA_DATA = '''
             "vci-string": {"v_range": [["7.2.1", ""]], "type": "raw"},
             "lease-time": {"v_range": [["7.2.2", ""]], "type": "int"},
             "uci-match": {"v_range": [["7.2.2", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "uci-string": {"v_range": [["7.2.2", ""]], "type": "raw"}
+            "uci-string": {"v_range": [["7.2.2", ""]], "type": "raw"},
+            "oui-match": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "oui-string": {"v_range": [["8.0.0", ""]], "type": "raw"},
+            "vendor": {"v_range": [["8.0.0", ""]], "type": "str"}
         }
     },
     "system_dhcp_server_iprange": {
@@ -27570,7 +28641,10 @@ SCHEMA_DATA = '''
             "vci-string": {"v_range": [["7.2.1", ""]], "type": "raw"},
             "lease-time": {"v_range": [["7.2.2", ""]], "type": "int"},
             "uci-match": {"v_range": [["7.2.2", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "uci-string": {"v_range": [["7.2.2", ""]], "type": "raw"}
+            "uci-string": {"v_range": [["7.2.2", ""]], "type": "raw"},
+            "oui-match": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "oui-string": {"v_range": [["8.0.0", ""]], "type": "raw"},
+            "vendor": {"v_range": [["8.0.0", ""]], "type": "str"}
         }
     },
     "system_dhcp_server_options": {
@@ -27637,7 +28711,7 @@ SCHEMA_DATA = '''
             "fgfm-auto-retrieve-timeout": {"v_range": [["6.4.13", "6.4.15"], ["7.0.9", "7.0.16"], ["7.2.4", "7.2.12"], ["7.4.1", ""]], "type": "int"},
             "install-fds-timeout": {"v_range": [["7.2.6", "7.2.12"], ["7.4.1", ""]], "type": "int"},
             "handle-nonhasync-config": {
-                "v_range": [["7.2.11", "7.2.12"], ["7.4.7", "7.4.10"], ["7.6.3", ""]],
+                "v_range": [["7.2.11", "7.2.12"], ["7.4.7", "7.4.11"], ["7.6.3", ""]],
                 "choices": ["disable", "enable"],
                 "type": "str"
             },
@@ -27771,7 +28845,7 @@ SCHEMA_DATA = '''
             "user-agent": {"v_range": [["6.4.2", ""]], "type": "str"},
             "uuid": {"v_range": [["7.0.0", ""]], "type": "str"},
             "server-identity-check": {"v_range": [["7.0.5", "7.0.16"], ["7.2.2", ""]], "choices": ["none", "basic", "full"], "type": "str"},
-            "update-method": {"v_range": [["7.2.1", ""]], "choices": ["feed", "push"], "type": "str"},
+            "update-method": {"v_range": [["7.2.1", ""]], "choices": ["feed", "push", "fortimq"], "type": "str"},
             "address-comment-field": {"v_range": [["7.6.2", ""]], "type": "str"},
             "address-data-field": {"v_range": [["7.6.2", ""]], "type": "str"},
             "address-name-field": {"v_range": [["7.6.2", ""]], "type": "str"},
@@ -27794,11 +28868,15 @@ SCHEMA_DATA = '''
             "namespace": {"v_range": [["7.6.2", ""]], "type": "str"},
             "object-array-path": {"v_range": [["7.6.2", ""]], "type": "str"},
             "vrf-select": {"v_range": [["7.6.2", ""]], "type": "int"},
-            "proxy": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "str"},
-            "proxy-password": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "no_log": true, "type": "raw"},
-            "proxy-port": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "int"},
-            "proxy-username": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "str"},
-            "source-ip-interface": {"v_range": [["7.6.4", ""]], "type": "raw"}
+            "proxy": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "str"},
+            "proxy-password": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "no_log": true, "type": "raw"},
+            "proxy-port": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "int"},
+            "proxy-username": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "str"},
+            "source-ip-interface": {"v_range": [["7.6.4", ""]], "type": "raw"},
+            "fabric-force-sync": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object-source": {"v_range": [["8.0.0", ""]], "choices": ["member", "local", "root"], "type": "str"},
+            "threat-feed-hash-mode": {"v_range": [["8.0.0", ""]], "choices": ["hash-db", "plain-text-db"], "type": "str"}
         }
     },
     "system_externalresource_dynamicmapping": {
@@ -27929,12 +29007,13 @@ SCHEMA_DATA = '''
             "update-dldb": {"v_range": [["7.4.0", ""]], "choices": ["disable", "enable"], "type": "str"},
             "vrf-select": {"v_range": [["7.6.2", ""]], "type": "int"},
             "subscribe-update-notification": {"v_range": [["7.6.3", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "dlp-expiration": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "int"},
-            "dlp-license": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "int"},
-            "fnbi-expiration": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "int"},
-            "fnbi-license": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "int"},
-            "ia-expiration": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "int"},
-            "ia-license": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "int"}
+            "dlp-expiration": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "int"},
+            "dlp-license": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "int"},
+            "fnbi-expiration": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "int"},
+            "fnbi-license": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "int"},
+            "ia-expiration": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "int"},
+            "ia-license": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "int"},
+            "proxy-fqdn-host": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"}
         }
     },
     "system_fortiview_autocache": {
@@ -28058,7 +29137,7 @@ SCHEMA_DATA = '''
                     "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43",
                     "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59", "60", "61", "62", "63", "64", "65",
                     "66", "67", "68", "69", "70", "71", "72", "73", "74", "75", "76", "77", "78", "79", "80", "81", "82", "83", "84", "85", "86", "87",
-                    "88", "89", "90", "91"
+                    "88", "89", "90", "91", "92"
                 ],
                 "type": "str"
             },
@@ -28179,34 +29258,42 @@ SCHEMA_DATA = '''
             "fcp-cfg-service": {"v_range": [["7.2.6", "7.2.12"], ["7.4.4", ""]], "choices": ["disable", "enable"], "type": "str"},
             "jsonapi-log": {"v_range": [["7.6.0", ""]], "choices": ["disable", "request", "response", "all"], "type": "str"},
             "global-ssl-protocol": {
-                "v_range": [["7.4.4", "7.4.10"], ["7.6.2", ""]],
+                "v_range": [["7.4.4", "7.4.11"], ["7.6.2", ""]],
                 "choices": ["sslv3", "tlsv1.0", "tlsv1.1", "tlsv1.2", "tlsv1.3"],
                 "type": "str"
             },
             "httpd-ssl-protocol": {
-                "v_range": [["7.4.4", "7.4.10"], ["7.6.2", ""]],
+                "v_range": [["7.4.4", "7.4.11"], ["7.6.2", ""]],
                 "type": "list",
                 "choices": ["sslv3", "tlsv1.0", "tlsv1.1", "tlsv1.2", "tlsv1.3"],
                 "elements": "str"
             },
             "mapclient-ssl-protocol": {
-                "v_range": [["7.4.4", "7.4.10"], ["7.6.2", ""]],
+                "v_range": [["7.4.4", "7.4.11"], ["7.6.2", ""]],
                 "choices": ["follow-global-ssl-protocol", "sslv3", "tlsv1.0", "tlsv1.1", "tlsv1.2", "tlsv1.3"],
                 "type": "str"
             },
-            "apache-wsgi-processes": {"v_range": [["7.2.10", "7.2.12"], ["7.4.6", "7.4.10"], ["7.6.2", ""]], "type": "int"},
-            "fmg-fabric-port": {"v_range": [["7.6.2", ""]], "type": "int"},
-            "gui-feature-visibility-mode": {"v_range": [["7.4.7", "7.4.10"], ["7.6.2", ""]], "choices": ["per-adom", "per-admin"], "type": "str"},
+            "apache-wsgi-processes": {"v_range": [["7.2.10", "7.2.12"], ["7.4.6", "7.4.11"], ["7.6.2", ""]], "type": "int"},
+            "fmg-fabric-port": {"v_range": [["7.6.2", "7.6.6"]], "type": "int"},
+            "gui-feature-visibility-mode": {"v_range": [["7.4.7", "7.4.11"], ["7.6.2", ""]], "choices": ["per-adom", "per-admin"], "type": "str"},
             "storage-age-limit": {"v_range": [["7.6.2", ""]], "type": "int"},
-            "fgfm-allow-vm": {"v_range": [["7.2.10", "7.2.12"], ["7.4.7", "7.4.10"], ["7.6.3", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "hitcount-response-timeout": {"v_range": [["7.4.7", "7.4.10"], ["7.6.4", ""]], "type": "int"},
-            "rpc-log": {"v_range": [["7.4.7", "7.4.10"], ["7.6.3", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fgfm-allow-vm": {"v_range": [["7.2.10", "7.2.12"], ["7.4.7", "7.4.11"], ["7.6.3", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "hitcount-response-timeout": {"v_range": [["7.4.7", "7.4.11"], ["7.6.4", ""]], "type": "int"},
+            "rpc-log": {"v_range": [["7.4.7", "7.4.11"], ["7.6.3", ""]], "choices": ["disable", "enable"], "type": "str"},
             "auth-dev-restapi-allowlist": {"v_range": [["7.6.3", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "gui-install-preview-concurrency": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "int"},
-            "fgfm-allow-products": {"v_range": [["7.4.9", "7.4.10"], ["7.6.5", ""]], "type": "str"},
+            "gui-install-preview-concurrency": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "int"},
+            "fgfm-allow-products": {"v_range": [["7.4.9", "7.4.11"], ["7.6.5", ""]], "type": "str"},
             "cli-auth": {"v_range": [["7.6.5", ""]], "choices": ["disable", "enable"], "type": "str"},
             "debug-tool": {"v_range": [["7.6.5", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "skip-ip-check-in-session": {"v_range": [["7.6.5", ""]], "choices": ["disable", "enable"], "type": "str"}
+            "skip-ip-check-in-session": {"v_range": [["7.4.11", "7.4.11"], ["7.6.5", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "ai-mode": {"v_range": [["7.6.7", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "gui-max-objects-per-row": {"v_range": [["7.6.7", ""]], "type": "int"},
+            "vm-swappiness": {"v_range": [["7.6.7", "7.6.7"]], "type": "int"},
+            "workspace-task-min-device-size": {"v_range": [["7.6.7", ""]], "type": "int"},
+            "device-policy-package-lock-allow-add": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "gui-object-protect": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "gui-object-search": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "http-extended-log": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"}
         }
     },
     "system_guiact": {
@@ -28347,12 +29434,14 @@ SCHEMA_DATA = '''
             "type": {"v_range": [["7.2.0", ""]], "choices": ["vlan", "physical", "aggregate"], "type": "str"},
             "vlan-protocol": {"v_range": [["7.2.0", ""]], "choices": ["8021q", "8021ad"], "type": "str"},
             "vlanid": {"v_range": [["7.2.0", ""]], "type": "int"},
-            "lldp": {"v_range": [["7.2.1", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "lldp": {"v_range": [["7.2.1", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
             "defaultgw": {"v_range": [["7.4.2", ""]], "choices": ["disable", "enable"], "type": "str"},
             "dhcp-client-identifier": {"v_range": [["7.4.2", ""]], "type": "str"},
             "dns-server-override": {"v_range": [["7.4.2", ""]], "choices": ["disable", "enable"], "type": "str"},
             "mode": {"v_range": [["7.4.2", ""]], "choices": ["static", "dhcp"], "type": "str"},
-            "mtu-override": {"v_range": [["7.4.2", ""]], "choices": ["disable", "enable"], "type": "str"}
+            "mtu-override": {"v_range": [["7.4.2", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "lldp-reception": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "lldp-transmission": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"}
         }
     },
     "system_interface_ipv6": {
@@ -28451,7 +29540,10 @@ SCHEMA_DATA = '''
                 "choices": ["disable", "enable"],
                 "type": "str"
             },
-            "controller": {"v_range": [["7.0.9", "7.0.16"], ["7.2.4", "7.2.12"], ["7.4.1", ""]], "choices": ["disable", "enable"], "type": "str"}
+            "controller": {"v_range": [["7.0.9", "7.0.16"], ["7.2.4", "7.2.12"], ["7.4.1", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fazfabric": {"v_range": [["7.6.7", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fortism": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "http": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"}
         }
     },
     "system_locallog_disk_setting": {
@@ -28478,7 +29570,9 @@ SCHEMA_DATA = '''
             "uploaduser": {"type": "str"},
             "uploadzip": {"choices": ["disable", "enable"], "type": "str"},
             "log-disk-quota": {"v_range": [["7.0.3", ""]], "type": "int"},
-            "max-log-file-num": {"v_range": [["6.4.8", "6.4.15"], ["7.0.2", ""]], "type": "int"}
+            "max-log-file-num": {"v_range": [["6.4.8", "6.4.15"], ["7.0.2", ""]], "type": "int"},
+            "log-rate-limit": {"v_range": [["7.6.7", ""]], "type": "int"},
+            "log-max-days": {"v_range": [["8.0.0", ""]], "type": "int"}
         }
     },
     "system_locallog_fortianalyzer2_filter": {
@@ -28530,7 +29624,10 @@ SCHEMA_DATA = '''
                 "choices": ["disable", "enable"],
                 "type": "str"
             },
-            "controller": {"v_range": [["7.0.9", "7.0.16"], ["7.2.4", "7.2.12"], ["7.4.1", ""]], "choices": ["disable", "enable"], "type": "str"}
+            "controller": {"v_range": [["7.0.9", "7.0.16"], ["7.2.4", "7.2.12"], ["7.4.1", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fazfabric": {"v_range": [["7.6.7", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fortism": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "http": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"}
         }
     },
     "system_locallog_fortianalyzer2_setting": {
@@ -28595,7 +29692,10 @@ SCHEMA_DATA = '''
                 "choices": ["disable", "enable"],
                 "type": "str"
             },
-            "controller": {"v_range": [["7.0.9", "7.0.16"], ["7.2.4", "7.2.12"], ["7.4.1", ""]], "choices": ["disable", "enable"], "type": "str"}
+            "controller": {"v_range": [["7.0.9", "7.0.16"], ["7.2.4", "7.2.12"], ["7.4.1", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fazfabric": {"v_range": [["7.6.7", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fortism": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "http": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"}
         }
     },
     "system_locallog_fortianalyzer3_setting": {
@@ -28660,7 +29760,10 @@ SCHEMA_DATA = '''
                 "choices": ["disable", "enable"],
                 "type": "str"
             },
-            "controller": {"v_range": [["7.0.9", "7.0.16"], ["7.2.4", "7.2.12"], ["7.4.1", ""]], "choices": ["disable", "enable"], "type": "str"}
+            "controller": {"v_range": [["7.0.9", "7.0.16"], ["7.2.4", "7.2.12"], ["7.4.1", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fazfabric": {"v_range": [["7.6.7", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fortism": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "http": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"}
         }
     },
     "system_locallog_fortianalyzer_setting": {
@@ -28725,7 +29828,10 @@ SCHEMA_DATA = '''
                 "choices": ["disable", "enable"],
                 "type": "str"
             },
-            "controller": {"v_range": [["7.0.9", "7.0.16"], ["7.2.4", "7.2.12"], ["7.4.1", ""]], "choices": ["disable", "enable"], "type": "str"}
+            "controller": {"v_range": [["7.0.9", "7.0.16"], ["7.2.4", "7.2.12"], ["7.4.1", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fazfabric": {"v_range": [["7.6.7", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fortism": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "http": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"}
         }
     },
     "system_locallog_memory_setting": {
@@ -28796,7 +29902,10 @@ SCHEMA_DATA = '''
                 "choices": ["disable", "enable"],
                 "type": "str"
             },
-            "controller": {"v_range": [["7.0.9", "7.0.16"], ["7.2.4", "7.2.12"], ["7.4.1", ""]], "choices": ["disable", "enable"], "type": "str"}
+            "controller": {"v_range": [["7.0.9", "7.0.16"], ["7.2.4", "7.2.12"], ["7.4.1", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fazfabric": {"v_range": [["7.6.7", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fortism": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "http": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"}
         }
     },
     "system_locallog_syslogd2_setting": {
@@ -28867,7 +29976,10 @@ SCHEMA_DATA = '''
                 "choices": ["disable", "enable"],
                 "type": "str"
             },
-            "controller": {"v_range": [["7.0.9", "7.0.16"], ["7.2.4", "7.2.12"], ["7.4.1", ""]], "choices": ["disable", "enable"], "type": "str"}
+            "controller": {"v_range": [["7.0.9", "7.0.16"], ["7.2.4", "7.2.12"], ["7.4.1", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fazfabric": {"v_range": [["7.6.7", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fortism": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "http": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"}
         }
     },
     "system_locallog_syslogd3_setting": {
@@ -28938,7 +30050,10 @@ SCHEMA_DATA = '''
                 "choices": ["disable", "enable"],
                 "type": "str"
             },
-            "controller": {"v_range": [["7.0.9", "7.0.16"], ["7.2.4", "7.2.12"], ["7.4.1", ""]], "choices": ["disable", "enable"], "type": "str"}
+            "controller": {"v_range": [["7.0.9", "7.0.16"], ["7.2.4", "7.2.12"], ["7.4.1", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fazfabric": {"v_range": [["7.6.7", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fortism": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "http": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"}
         }
     },
     "system_locallog_syslogd_setting": {
@@ -28999,14 +30114,14 @@ SCHEMA_DATA = '''
     "system_log_deviceselector": {
         "stated": true,
         "options": {
-            "action": {"v_range": [["7.4.7", "7.4.10"], ["7.6.3", ""]], "choices": ["include", "exclude"], "type": "str"},
-            "comment": {"v_range": [["7.4.7", "7.4.10"], ["7.6.3", ""]], "type": "str"},
-            "devid": {"v_range": [["7.4.7", "7.4.10"], ["7.6.3", ""]], "type": "str"},
-            "expire": {"v_range": [["7.4.7", "7.4.10"], ["7.6.3", ""]], "type": "str"},
-            "id": {"v_range": [["7.4.7", "7.4.10"], ["7.6.3", ""]], "required": true, "type": "int"},
-            "srcip": {"v_range": [["7.4.7", "7.4.10"], ["7.6.3", ""]], "type": "str"},
-            "srcip-mode": {"v_range": [["7.4.7", "7.4.10"], ["7.6.3", ""]], "choices": ["UDP514", "TCP514", "any"], "type": "str"},
-            "type": {"v_range": [["7.4.7", "7.4.10"], ["7.6.3", ""]], "choices": ["unspecified", "devid", "srcip"], "type": "str"}
+            "action": {"v_range": [["7.4.7", "7.4.11"], ["7.6.3", ""]], "choices": ["include", "exclude"], "type": "str"},
+            "comment": {"v_range": [["7.4.7", "7.4.11"], ["7.6.3", ""]], "type": "str"},
+            "devid": {"v_range": [["7.4.7", "7.4.11"], ["7.6.3", ""]], "type": "str"},
+            "expire": {"v_range": [["7.4.7", "7.4.11"], ["7.6.3", ""]], "type": "str"},
+            "id": {"v_range": [["7.4.7", "7.4.11"], ["7.6.3", ""]], "required": true, "type": "int"},
+            "srcip": {"v_range": [["7.4.7", "7.4.11"], ["7.6.3", ""]], "type": "str"},
+            "srcip-mode": {"v_range": [["7.4.7", "7.4.11"], ["7.6.3", ""]], "choices": ["UDP514", "TCP514", "any"], "type": "str"},
+            "type": {"v_range": [["7.4.7", "7.4.11"], ["7.6.3", ""]], "choices": ["unspecified", "devid", "srcip"], "type": "str"}
         }
     },
     "system_log_fospolicystats": {
@@ -29225,11 +30340,11 @@ SCHEMA_DATA = '''
             "log-interval-dev-no-logging": {"v_range": [["7.2.5", "7.2.12"], ["7.4.2", ""]], "type": "int"},
             "log-upload-interval-dev-no-logging": {"v_range": [["7.2.5", "7.2.12"], ["7.4.2", ""]], "type": "int"},
             "legacy-auth-mode": {
-                "v_range": [["7.0.14", "7.0.16"], ["7.2.10", "7.2.12"], ["7.4.7", "7.4.10"], ["7.6.3", ""]],
+                "v_range": [["7.0.14", "7.0.16"], ["7.2.10", "7.2.12"], ["7.4.7", "7.4.11"], ["7.6.3", ""]],
                 "choices": ["disable", "enable"],
                 "type": "str"
             },
-            "log-process-fast-mode": {"v_range": [["7.4.7", "7.4.10"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "log-process-fast-mode": {"v_range": [["7.4.7", "7.4.11"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
             "FFW-custom-field1": {"v_range": [["7.6.3", ""]], "type": "str"},
             "unencrypted-logging-tcp": {"v_range": [["7.6.3", ""]], "choices": ["disable", "enable"], "type": "str"},
             "unencrypted-logging-udp": {"v_range": [["7.6.3", ""]], "choices": ["disable", "enable"], "type": "str"},
@@ -29392,7 +30507,7 @@ SCHEMA_DATA = '''
         "options": {
             "ip-only-ep": {"v_range": [["7.4.3", ""]], "choices": ["disable", "enable"], "type": "str"},
             "ip-unique-scope": {"v_range": [["7.4.3", ""]], "choices": ["adom", "vdom"], "type": "str"},
-            "hostname-ep-unifier": {"v_range": [["7.4.7", "7.4.10"], ["7.6.2", ""]], "choices": ["disable", "enable"], "type": "str"}
+            "hostname-ep-unifier": {"v_range": [["7.4.7", "7.4.11"], ["7.6.2", ""]], "choices": ["disable", "enable"], "type": "str"}
         }
     },
     "system_logfetch_clientprofile": {
@@ -29479,14 +30594,18 @@ SCHEMA_DATA = '''
             "secure-option": {"choices": ["default", "none", "smtps", "starttls"], "type": "str"},
             "server": {"type": "str"},
             "user": {"type": "str"},
-            "auth-type": {"v_range": [["6.4.6", ""]], "choices": ["psk", "certificate"], "type": "str"},
+            "auth-type": {"v_range": [["6.4.6", ""]], "choices": ["psk", "certificate", "oauth2"], "type": "str"},
             "local-cert": {"v_range": [["6.4.6", ""]], "type": "str"},
             "from": {"v_range": [["7.0.7", "7.0.16"], ["7.2.2", ""]], "type": "str"},
             "ssl-protocol": {
-                "v_range": [["7.4.4", "7.4.10"], ["7.6.2", ""]],
+                "v_range": [["7.4.4", "7.4.11"], ["7.6.2", ""]],
                 "choices": ["follow-global-ssl-protocol", "sslv3", "tlsv1.0", "tlsv1.1", "tlsv1.2", "tlsv1.3"],
                 "type": "str"
-            }
+            },
+            "oauth2-auth-scope": {"v_range": [["7.6.7", "7.6.7"]], "type": "str"},
+            "oauth2-auth-server": {"v_range": [["7.6.7", "7.6.7"]], "type": "str"},
+            "oauth2-client-id": {"v_range": [["7.6.7", "7.6.7"]], "type": "str"},
+            "oauth2-client-secret": {"v_range": [["7.6.7", "7.6.7"]], "no_log": true, "type": "raw"}
         }
     },
     "system_mcpolicydisabledadoms": {"stated": true, "options": {"adom-name": {"v_range": [["6.2.3", ""]], "type": "str"}}},
@@ -29530,7 +30649,7 @@ SCHEMA_DATA = '''
                 "type": "dict",
                 "options": {
                     "esp-minlen-err": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", ""]], "choices": ["drop", "trap-to-host"], "type": "str"},
-                    "icmp-csum-err": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", ""]], "choices": ["drop", "trap-to-host"], "type": "str"},
+                    "icmp-csum-err": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", ""]], "choices": ["drop", "trap-to-host", "allow"], "type": "str"},
                     "icmp-minlen-err": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", ""]], "choices": ["drop", "trap-to-host"], "type": "str"},
                     "ipv4-csum-err": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", ""]], "choices": ["drop", "trap-to-host"], "type": "str"},
                     "ipv4-ihl-err": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", ""]], "choices": ["drop", "trap-to-host"], "type": "str"},
@@ -29543,10 +30662,10 @@ SCHEMA_DATA = '''
                     "ipv6-ihl-err": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", ""]], "choices": ["drop", "trap-to-host"], "type": "str"},
                     "ipv6-plen-zero": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", ""]], "choices": ["drop", "trap-to-host"], "type": "str"},
                     "ipv6-ver-err": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", ""]], "choices": ["drop", "trap-to-host"], "type": "str"},
-                    "tcp-csum-err": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", ""]], "choices": ["drop", "trap-to-host"], "type": "str"},
+                    "tcp-csum-err": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", ""]], "choices": ["drop", "trap-to-host", "allow"], "type": "str"},
                     "tcp-hlen-err": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", ""]], "choices": ["drop", "trap-to-host"], "type": "str"},
                     "tcp-plen-err": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", ""]], "choices": ["drop", "trap-to-host"], "type": "str"},
-                    "udp-csum-err": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", ""]], "choices": ["drop", "trap-to-host"], "type": "str"},
+                    "udp-csum-err": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", ""]], "choices": ["drop", "trap-to-host", "allow"], "type": "str"},
                     "udp-hlen-err": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", ""]], "choices": ["drop", "trap-to-host"], "type": "str"},
                     "udp-len-err": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", ""]], "choices": ["drop", "trap-to-host"], "type": "str"},
                     "udp-plen-err": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", ""]], "choices": ["drop", "trap-to-host"], "type": "str"},
@@ -30115,7 +31234,7 @@ SCHEMA_DATA = '''
                         },
                         "elements": "dict"
                     },
-                    "custom-etype-lookup": {"v_range": [["7.4.7", "7.4.10"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"}
+                    "custom-etype-lookup": {"v_range": [["7.4.7", "7.4.11"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"}
                 }
             },
             "udp-timeout-profile": {
@@ -30285,15 +31404,19 @@ SCHEMA_DATA = '''
             "hw-ha-scan-interval": {"v_range": [["6.4.8", "6.4.15"], ["7.0.3", ""]], "type": "int"},
             "ippool-overload-high": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", ""]], "type": "int"},
             "nat46-force-ipv4-packet-forwarding": {"v_range": [["6.4.8", "6.4.15"], ["7.0.3", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "prp-port-out": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", ""]], "type": "raw"},
-            "isf-np-rx-tr-distr": {"v_range": [["6.4.8", "6.4.15"], ["7.0.4", ""]], "choices": ["port-flow", "round-robin", "randomized"], "type": "str"},
+            "prp-port-out": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.6.7"]], "type": "raw"},
+            "isf-np-rx-tr-distr": {
+                "v_range": [["6.4.8", "6.4.15"], ["7.0.4", "7.6.7"]],
+                "choices": ["port-flow", "round-robin", "randomized"],
+                "type": "str"
+            },
             "mcast-session-counting6": {
                 "v_range": [["6.4.7", "6.4.15"], ["7.0.1", ""]],
                 "choices": ["disable", "enable", "session-based", "tpe-based"],
                 "type": "str"
             },
-            "prp-port-in": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", ""]], "type": "raw"},
-            "rps-mode": {"v_range": [["6.4.8", "6.4.15"], ["7.0.4", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "prp-port-in": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.6.7"]], "type": "raw"},
+            "rps-mode": {"v_range": [["6.4.8", "6.4.15"], ["7.0.4", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
             "per-policy-accounting": {"v_range": [["6.4.8", "6.4.15"], ["7.0.3", ""]], "choices": ["disable", "enable"], "type": "str"},
             "mcast-session-counting": {
                 "v_range": [["6.4.7", "6.4.15"], ["7.0.1", "7.6.2"]],
@@ -30654,22 +31777,36 @@ SCHEMA_DATA = '''
             "ipv6-prefix-session-quota-high": {"v_range": [["7.6.0", ""]], "type": "int"},
             "ipv6-prefix-session-quota-low": {"v_range": [["7.6.0", ""]], "type": "int"},
             "dedicated-lacp-queue": {
-                "v_range": [["7.2.10", "7.2.12"], ["7.4.4", "7.4.10"], ["7.6.2", ""]],
+                "v_range": [["7.2.10", "7.2.12"], ["7.4.4", "7.4.11"], ["7.6.2", ""]],
                 "choices": ["disable", "enable"],
                 "type": "str"
             },
-            "ipsec-ordering": {"v_range": [["7.4.7", "7.4.10"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "sw-np-pause": {"v_range": [["7.2.11", "7.2.12"], ["7.4.7", "7.4.10"], ["7.6.3", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "sw-np-rate": {"v_range": [["7.2.11", "7.2.12"], ["7.4.7", "7.4.10"], ["7.6.3", ""]], "type": "int"},
-            "sw-np-rate-unit": {"v_range": [["7.2.11", "7.2.12"], ["7.4.7", "7.4.10"], ["7.6.3", ""]], "choices": ["mbps", "pps"], "type": "str"},
+            "ipsec-ordering": {"v_range": [["7.4.7", "7.4.11"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "sw-np-pause": {"v_range": [["7.2.11", "7.2.12"], ["7.4.7", "7.4.11"], ["7.6.3", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "sw-np-rate": {"v_range": [["7.2.11", "7.2.12"], ["7.4.7", "7.4.11"], ["7.6.3", ""]], "type": "int"},
+            "sw-np-rate-unit": {"v_range": [["7.2.11", "7.2.12"], ["7.4.7", "7.4.11"], ["7.6.3", ""]], "choices": ["mbps", "pps"], "type": "str"},
             "lag-hash-gre": {"v_range": [["7.6.4", ""]], "choices": ["disable", "gre_inner_l3", "gre_inner_l4", "gre_inner_l3l4"], "type": "str"},
             "use-mse-oft": {"v_range": [["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "hif-queue-customize": {"v_range": [["7.6.5", ""]], "choices": ["numa-affinity", "all-cpus"], "type": "str"},
+            "hif-queue-customize": {"v_range": [["7.6.5", ""]], "choices": ["numa-affinity", "all-cpus", "half-cpus"], "type": "str"},
             "ike-port": {"v_range": [["7.6.5", ""]], "type": "raw"},
             "mcast-denied-ses-offload": {"v_range": [["7.6.5", ""]], "choices": ["disable", "enable"], "type": "str"},
             "shadow-virtual-switch": {"v_range": [["7.6.5", ""]], "choices": ["disable", "enable"], "type": "str"},
             "use-ixgbe-tx": {"v_range": [["7.6.5", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "vxlan-mac-flapping-guard": {"v_range": [["7.6.5", ""]], "choices": ["disable", "enable"], "type": "str"}
+            "vxlan-mac-flapping-guard": {"v_range": [["7.6.5", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "eif-tcp-refresh-dir": {"v_range": [["7.6.7", ""]], "choices": ["both", "outgoing", "incoming"], "type": "str"},
+            "eif-tcp-ttl": {"v_range": [["7.6.7", ""]], "type": "int"},
+            "eif-udp-refresh-dir": {"v_range": [["7.6.7", ""]], "choices": ["both", "outgoing", "incoming"], "type": "str"},
+            "eif-udp-ttl": {"v_range": [["7.6.7", ""]], "type": "int"},
+            "extra-timeout-tcp": {"v_range": [["7.6.7", ""]], "type": "int"},
+            "extra-timeout-udp": {"v_range": [["7.6.7", ""]], "type": "int"},
+            "gtpu-hbq-teid-load-balance": {"v_range": [["7.6.7", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "mcs-auto-start": {"v_range": [["7.6.7", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "np-linkscan-interval": {"v_range": [["7.6.7", "7.6.7"]], "type": "int"},
+            "sw-np-rate-burst": {"v_range": [["7.6.7", ""]], "type": "int"},
+            "vlan-accounting": {"v_range": [["7.6.7", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
+            "vlan-acct-interval": {"v_range": [["7.6.7", "7.6.7"]], "type": "int"},
+            "default-ipsec-mcs-type": {"v_range": [["8.0.0", ""]], "choices": ["policing", "shaping"], "type": "str"},
+            "mcs-host-packet-tpe-shaping": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"}
         }
     },
     "system_npu_backgroundssescan": {
@@ -30739,7 +31876,7 @@ SCHEMA_DATA = '''
         "stated": false,
         "options": {
             "esp-minlen-err": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", ""]], "choices": ["drop", "trap-to-host"], "type": "str"},
-            "icmp-csum-err": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", ""]], "choices": ["drop", "trap-to-host"], "type": "str"},
+            "icmp-csum-err": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", ""]], "choices": ["drop", "trap-to-host", "allow"], "type": "str"},
             "icmp-minlen-err": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", ""]], "choices": ["drop", "trap-to-host"], "type": "str"},
             "ipv4-csum-err": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", ""]], "choices": ["drop", "trap-to-host"], "type": "str"},
             "ipv4-ihl-err": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", ""]], "choices": ["drop", "trap-to-host"], "type": "str"},
@@ -30752,10 +31889,10 @@ SCHEMA_DATA = '''
             "ipv6-ihl-err": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", ""]], "choices": ["drop", "trap-to-host"], "type": "str"},
             "ipv6-plen-zero": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", ""]], "choices": ["drop", "trap-to-host"], "type": "str"},
             "ipv6-ver-err": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", ""]], "choices": ["drop", "trap-to-host"], "type": "str"},
-            "tcp-csum-err": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", ""]], "choices": ["drop", "trap-to-host"], "type": "str"},
+            "tcp-csum-err": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", ""]], "choices": ["drop", "trap-to-host", "allow"], "type": "str"},
             "tcp-hlen-err": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", ""]], "choices": ["drop", "trap-to-host"], "type": "str"},
             "tcp-plen-err": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", ""]], "choices": ["drop", "trap-to-host"], "type": "str"},
-            "udp-csum-err": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", ""]], "choices": ["drop", "trap-to-host"], "type": "str"},
+            "udp-csum-err": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", ""]], "choices": ["drop", "trap-to-host", "allow"], "type": "str"},
             "udp-hlen-err": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", ""]], "choices": ["drop", "trap-to-host"], "type": "str"},
             "udp-len-err": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", ""]], "choices": ["drop", "trap-to-host"], "type": "str"},
             "udp-plen-err": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", ""]], "choices": ["drop", "trap-to-host"], "type": "str"},
@@ -31290,7 +32427,7 @@ SCHEMA_DATA = '''
                 },
                 "elements": "dict"
             },
-            "custom-etype-lookup": {"v_range": [["7.4.7", "7.4.10"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"}
+            "custom-etype-lookup": {"v_range": [["7.4.7", "7.4.11"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"}
         }
     },
     "system_npu_npqueues_ethernettype": {
@@ -32254,7 +33391,9 @@ SCHEMA_DATA = '''
                     "ntpv3": {"choices": ["disable", "enable"], "type": "str"},
                     "server": {"type": "str"},
                     "maxpoll": {"v_range": [["6.4.8", "6.4.15"], ["7.0.3", ""]], "type": "int"},
-                    "minpoll": {"v_range": [["6.4.8", "6.4.15"], ["7.0.3", ""]], "type": "int"}
+                    "minpoll": {"v_range": [["6.4.8", "6.4.15"], ["7.0.3", ""]], "type": "int"},
+                    "key-fmt": {"v_range": [["7.6.7", ""]], "choices": ["ascii", "hex"], "type": "str"},
+                    "key-type": {"v_range": [["7.6.7", ""]], "choices": ["md5", "sha256"], "type": "str"}
                 },
                 "elements": "dict"
             },
@@ -32272,10 +33411,12 @@ SCHEMA_DATA = '''
             "ntpv3": {"choices": ["disable", "enable"], "type": "str"},
             "server": {"type": "str"},
             "maxpoll": {"v_range": [["6.4.8", "6.4.15"], ["7.0.3", ""]], "type": "int"},
-            "minpoll": {"v_range": [["6.4.8", "6.4.15"], ["7.0.3", ""]], "type": "int"}
+            "minpoll": {"v_range": [["6.4.8", "6.4.15"], ["7.0.3", ""]], "type": "int"},
+            "key-fmt": {"v_range": [["7.6.7", ""]], "choices": ["ascii", "hex"], "type": "str"},
+            "key-type": {"v_range": [["7.6.7", ""]], "choices": ["md5", "sha256"], "type": "str"}
         }
     },
-    "system_objecttag": {"stated": true, "options": {"name": {"v_range": [["6.2.0", "6.4.15"], ["7.4.8", "7.4.10"]], "required": true, "type": "str"}}},
+    "system_objecttag": {"stated": true, "options": {"name": {"v_range": [["6.2.0", "6.4.15"], ["7.4.8", "7.4.11"]], "required": true, "type": "str"}}},
     "system_objecttagging": {
         "stated": true,
         "options": {
@@ -32298,7 +33439,7 @@ SCHEMA_DATA = '''
             "status": {"choices": ["disable", "enable"], "type": "str"},
             "password-history": {"v_range": [["7.6.0", ""]], "no_log": true, "type": "int"},
             "login-lockout-upon-downgrade": {
-                "v_range": [["7.2.11", "7.2.12"], ["7.4.7", "7.4.10"], ["7.6.3", ""]],
+                "v_range": [["7.2.11", "7.2.12"], ["7.4.7", "7.4.11"], ["7.6.3", ""]],
                 "choices": ["disable", "enable"],
                 "type": "str"
             }
@@ -32324,7 +33465,7 @@ SCHEMA_DATA = '''
                     "format": {"choices": ["none", "text", "html", "wml"], "type": "str"},
                     "header": {"choices": ["none", "http", "8bit"], "type": "str"},
                     "msg-type": {"type": "str"},
-                    "id": {"v_range": [["6.4.11", "6.4.15"], ["7.0.6", "7.0.16"], ["7.2.3", ""]], "type": "int"}
+                    "id": {"v_range": [["6.4.11", "6.4.15"], ["7.0.6", "7.0.16"], ["7.2.3", "7.6.7"]], "type": "int"}
                 },
                 "elements": "dict"
             },
@@ -32350,23 +33491,24 @@ SCHEMA_DATA = '''
                 "elements": "dict"
             },
             "device-detection-portal": {
+                "v_range": [["6.0.0", "7.6.7"]],
                 "type": "list",
                 "options": {
-                    "buffer": {"type": "str"},
-                    "format": {"choices": ["none", "text", "html", "wml"], "type": "str"},
-                    "header": {"choices": ["none", "http", "8bit"], "type": "str"},
-                    "msg-type": {"type": "str"}
+                    "buffer": {"v_range": [["6.0.0", "7.6.7"]], "type": "str"},
+                    "format": {"v_range": [["6.0.0", "7.6.7"]], "choices": ["none", "text", "html", "wml"], "type": "str"},
+                    "header": {"v_range": [["6.0.0", "7.6.7"]], "choices": ["none", "http", "8bit"], "type": "str"},
+                    "msg-type": {"v_range": [["6.0.0", "7.6.7"]], "type": "str"}
                 },
                 "elements": "dict"
             },
             "ec": {
-                "v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]],
+                "v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]],
                 "type": "list",
                 "options": {
-                    "buffer": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "type": "str"},
-                    "format": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "choices": ["none", "text", "html", "wml"], "type": "str"},
-                    "header": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "choices": ["none", "http", "8bit"], "type": "str"},
-                    "msg-type": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "type": "str"}
+                    "buffer": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "type": "str"},
+                    "format": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "choices": ["none", "text", "html", "wml"], "type": "str"},
+                    "header": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "choices": ["none", "http", "8bit"], "type": "str"},
+                    "msg-type": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "type": "str"}
                 },
                 "elements": "dict"
             },
@@ -32563,18 +33705,19 @@ SCHEMA_DATA = '''
                     "format": {"choices": ["none", "text", "html", "wml"], "type": "str"},
                     "header": {"choices": ["none", "http", "8bit"], "type": "str"},
                     "msg-type": {"type": "str"},
-                    "id": {"v_range": [["6.4.11", "6.4.15"], ["7.0.6", "7.0.16"], ["7.2.3", ""]], "type": "int"}
+                    "id": {"v_range": [["6.4.11", "6.4.15"], ["7.0.6", "7.0.16"], ["7.2.3", "7.6.7"]], "type": "int"}
                 },
                 "elements": "dict"
             },
             "name": {"required": true, "type": "str"},
             "nntp": {
+                "v_range": [["6.0.0", "7.6.7"]],
                 "type": "list",
                 "options": {
-                    "buffer": {"type": "str"},
-                    "format": {"choices": ["none", "text", "html", "wml"], "type": "str"},
-                    "header": {"choices": ["none", "http", "8bit"], "type": "str"},
-                    "msg-type": {"type": "str"}
+                    "buffer": {"v_range": [["6.0.0", "7.6.7"]], "type": "str"},
+                    "format": {"v_range": [["6.0.0", "7.6.7"]], "choices": ["none", "text", "html", "wml"], "type": "str"},
+                    "header": {"v_range": [["6.0.0", "7.6.7"]], "choices": ["none", "http", "8bit"], "type": "str"},
+                    "msg-type": {"v_range": [["6.0.0", "7.6.7"]], "type": "str"}
                 },
                 "elements": "dict"
             },
@@ -32638,7 +33781,11 @@ SCHEMA_DATA = '''
                     "msg-type": {"v_range": [["7.0.0", ""]], "type": "str"}
                 },
                 "elements": "dict"
-            }
+            },
+            "fabric-force-sync": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object-source": {"v_range": [["8.0.0", ""]], "choices": ["member", "local", "root"], "type": "str"},
+            "uuid": {"v_range": [["8.0.0", ""]], "type": "str"}
         }
     },
     "system_replacemsggroup_admin": {
@@ -32657,7 +33804,7 @@ SCHEMA_DATA = '''
             "format": {"choices": ["none", "text", "html", "wml"], "type": "str"},
             "header": {"choices": ["none", "http", "8bit"], "type": "str"},
             "msg-type": {"required": true, "type": "str"},
-            "id": {"v_range": [["6.4.11", "6.4.15"], ["7.0.6", "7.0.16"], ["7.2.3", ""]], "type": "int"}
+            "id": {"v_range": [["6.4.11", "6.4.15"], ["7.0.6", "7.0.16"], ["7.2.3", "7.6.7"]], "type": "int"}
         }
     },
     "system_replacemsggroup_auth": {
@@ -32690,19 +33837,19 @@ SCHEMA_DATA = '''
     "system_replacemsggroup_devicedetectionportal": {
         "stated": true,
         "options": {
-            "buffer": {"type": "str"},
-            "format": {"choices": ["none", "text", "html", "wml"], "type": "str"},
-            "header": {"choices": ["none", "http", "8bit"], "type": "str"},
-            "msg-type": {"required": true, "type": "str"}
+            "buffer": {"v_range": [["6.0.0", "7.6.7"]], "type": "str"},
+            "format": {"v_range": [["6.0.0", "7.6.7"]], "choices": ["none", "text", "html", "wml"], "type": "str"},
+            "header": {"v_range": [["6.0.0", "7.6.7"]], "choices": ["none", "http", "8bit"], "type": "str"},
+            "msg-type": {"v_range": [["6.0.0", "7.6.7"]], "required": true, "type": "str"}
         }
     },
     "system_replacemsggroup_ec": {
         "stated": true,
         "options": {
-            "buffer": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "type": "str"},
-            "format": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "choices": ["none", "text", "html", "wml"], "type": "str"},
-            "header": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "choices": ["none", "http", "8bit"], "type": "str"},
-            "msg-type": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "required": true, "type": "str"}
+            "buffer": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "type": "str"},
+            "format": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "choices": ["none", "text", "html", "wml"], "type": "str"},
+            "header": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "choices": ["none", "http", "8bit"], "type": "str"},
+            "msg-type": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "required": true, "type": "str"}
         }
     },
     "system_replacemsggroup_fortiguardwf": {
@@ -32874,16 +34021,16 @@ SCHEMA_DATA = '''
             "format": {"choices": ["none", "text", "html", "wml"], "type": "str"},
             "header": {"choices": ["none", "http", "8bit"], "type": "str"},
             "msg-type": {"required": true, "type": "str"},
-            "id": {"v_range": [["6.4.11", "6.4.15"], ["7.0.6", "7.0.16"], ["7.2.3", ""]], "type": "int"}
+            "id": {"v_range": [["6.4.11", "6.4.15"], ["7.0.6", "7.0.16"], ["7.2.3", "7.6.7"]], "type": "int"}
         }
     },
     "system_replacemsggroup_nntp": {
         "stated": true,
         "options": {
-            "buffer": {"type": "str"},
-            "format": {"choices": ["none", "text", "html", "wml"], "type": "str"},
-            "header": {"choices": ["none", "http", "8bit"], "type": "str"},
-            "msg-type": {"required": true, "type": "str"}
+            "buffer": {"v_range": [["6.0.0", "7.6.7"]], "type": "str"},
+            "format": {"v_range": [["6.0.0", "7.6.7"]], "choices": ["none", "text", "html", "wml"], "type": "str"},
+            "header": {"v_range": [["6.0.0", "7.6.7"]], "choices": ["none", "http", "8bit"], "type": "str"},
+            "msg-type": {"v_range": [["6.0.0", "7.6.7"]], "required": true, "type": "str"}
         }
     },
     "system_replacemsggroup_spam": {
@@ -32936,7 +34083,8 @@ SCHEMA_DATA = '''
         "options": {
             "image-base64": {"type": "str"},
             "image-type": {"choices": ["gif", "jpg", "tiff", "png"], "type": "str"},
-            "name": {"required": true, "type": "str"}
+            "name": {"required": true, "type": "str"},
+            "image-in-use": {"v_range": [["8.0.0", ""]], "type": "str"}
         }
     },
     "system_report_autocache": {
@@ -33057,8 +34205,12 @@ SCHEMA_DATA = '''
             "user-auto-create": {"v_range": [["7.0.1", ""]], "choices": ["disable", "enable"], "type": "str"},
             "auth-request-signed": {"v_range": [["7.2.3", ""]], "choices": ["disable", "enable"], "type": "str"},
             "want-assertions-signed": {"v_range": [["7.2.3", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "logout-request-signed": {"v_range": [["7.4.8", "7.4.10"], ["7.6.5", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "logout-response-signed": {"v_range": [["7.4.8", "7.4.10"], ["7.6.5", ""]], "choices": ["disable", "enable"], "type": "str"}
+            "logout-request-signed": {"v_range": [["7.4.8", "7.4.11"], ["7.6.5", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "logout-response-signed": {"v_range": [["7.4.8", "7.4.11"], ["7.6.5", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "digest-method": {"v_range": [["8.0.0", ""]], "choices": ["sha256", "sha512"], "type": "str"},
+            "idp-digest-method": {"v_range": [["8.0.0", ""]], "choices": ["sha256", "sha512"], "type": "str"},
+            "idp-signature-algorithm": {"v_range": [["8.0.0", ""]], "choices": ["rsa-sha256", "rsa-sha512"], "type": "str"},
+            "signature-algorithm": {"v_range": [["8.0.0", ""]], "choices": ["rsa-sha256", "rsa-sha512"], "type": "str"}
         }
     },
     "system_saml_fabricidp": {
@@ -33095,12 +34247,12 @@ SCHEMA_DATA = '''
                             "name": {"type": "str"},
                             "public-ip": {"type": "str"},
                             "resource-group": {"v_range": [["6.2.3", ""]], "type": "str"},
-                            "private-ip": {"v_range": [["7.4.4", "7.4.10"], ["7.6.2", ""]], "type": "str"}
+                            "private-ip": {"v_range": [["7.4.4", "7.4.11"], ["7.6.2", ""]], "type": "str"}
                         },
                         "elements": "dict"
                     },
                     "name": {"type": "str"},
-                    "peer-nic": {"v_range": [["7.4.4", "7.4.10"], ["7.6.2", ""]], "type": "str"}
+                    "peer-nic": {"v_range": [["7.4.4", "7.4.11"], ["7.6.2", ""]], "type": "str"}
                 },
                 "elements": "dict"
             },
@@ -33155,7 +34307,7 @@ SCHEMA_DATA = '''
             "oci-region-type": {"v_range": [["6.2.1", ""]], "choices": ["commercial", "government"], "type": "str"},
             "secret-token": {"v_range": [["6.2.0", ""]], "no_log": true, "type": "str"},
             "updating": {"v_range": [["6.2.1", "7.2.0"]], "type": "int"},
-            "server-ip": {"v_range": [["6.2.0", "6.4.15"], ["7.4.8", "7.4.10"]], "type": "str"},
+            "server-ip": {"v_range": [["6.2.0", "6.4.15"], ["7.4.8", "7.4.11"]], "type": "str"},
             "group-name": {"v_range": [["6.2.2", ""]], "type": "str"},
             "api-key": {"v_range": [["6.4.1", ""]], "no_log": true, "type": "raw"},
             "compute-generation": {"v_range": [["6.4.1", ""]], "type": "int"},
@@ -33169,11 +34321,11 @@ SCHEMA_DATA = '''
                 "type": "str"
             },
             "ibm-region-gen1": {
-                "v_range": [["6.4.1", ""]],
+                "v_range": [["6.4.1", "7.6.7"]],
                 "choices": ["us-south", "us-east", "germany", "great-britain", "japan", "australia"],
                 "type": "str"
             },
-            "ibm-region-gen2": {"v_range": [["6.4.1", ""]], "choices": ["us-south", "us-east", "great-britain"], "type": "str"},
+            "ibm-region-gen2": {"v_range": [["6.4.1", "7.6.7"]], "choices": ["us-south", "us-east", "great-britain"], "type": "str"},
             "vcenter-password": {"v_range": [["6.4.1", ""]], "no_log": true, "type": "raw"},
             "vcenter-server": {"v_range": [["6.4.1", ""]], "type": "str"},
             "vcenter-username": {"v_range": [["6.4.1", ""]], "type": "str"},
@@ -33223,7 +34375,12 @@ SCHEMA_DATA = '''
             "message-server-port": {"v_range": [["7.6.2", ""]], "type": "int"},
             "microsoft-365": {"v_range": [["7.6.3", ""]], "choices": ["disable", "enable"], "type": "str"},
             "vdom": {"v_range": [["7.6.3", ""]], "type": "raw"},
-            "par-id": {"v_range": [["7.6.5", ""]], "type": "str"}
+            "par-id": {"v_range": [["7.6.5", ""]], "type": "str"},
+            "fabric-force-sync": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object-source": {"v_range": [["8.0.0", ""]], "choices": ["member", "local", "root"], "type": "str"},
+            "k8s-allow-list": {"v_range": [["8.0.0", ""]], "type": "raw"},
+            "uuid": {"v_range": [["8.0.0", ""]], "type": "str"}
         }
     },
     "system_sdnconnector_compartmentlist": {"stated": true, "options": {"compartment-id": {"v_range": [["7.4.0", ""]], "type": "str"}}},
@@ -33256,12 +34413,12 @@ SCHEMA_DATA = '''
                     "name": {"type": "str"},
                     "public-ip": {"type": "str"},
                     "resource-group": {"v_range": [["6.2.3", ""]], "type": "str"},
-                    "private-ip": {"v_range": [["7.4.4", "7.4.10"], ["7.6.2", ""]], "type": "str"}
+                    "private-ip": {"v_range": [["7.4.4", "7.4.11"], ["7.6.2", ""]], "type": "str"}
                 },
                 "elements": "dict"
             },
             "name": {"required": true, "type": "str"},
-            "peer-nic": {"v_range": [["7.4.4", "7.4.10"], ["7.6.2", ""]], "type": "str"}
+            "peer-nic": {"v_range": [["7.4.4", "7.4.11"], ["7.6.2", ""]], "type": "str"}
         }
     },
     "system_sdnconnector_nic_ip": {
@@ -33270,7 +34427,7 @@ SCHEMA_DATA = '''
             "name": {"required": true, "type": "str"},
             "public-ip": {"type": "str"},
             "resource-group": {"v_range": [["6.2.3", ""]], "type": "str"},
-            "private-ip": {"v_range": [["7.4.4", "7.4.10"], ["7.6.2", ""]], "type": "str"}
+            "private-ip": {"v_range": [["7.4.4", "7.4.11"], ["7.6.2", ""]], "type": "str"}
         }
     },
     "system_sdnconnector_ociregionlist": {"stated": true, "options": {"region": {"v_range": [["7.4.0", ""]], "type": "str"}}},
@@ -33293,7 +34450,11 @@ SCHEMA_DATA = '''
             "server": {"v_range": [["7.4.1", ""]], "type": "str"},
             "server-port": {"v_range": [["7.4.1", ""]], "type": "int"},
             "type": {"v_range": [["7.4.1", ""]], "choices": ["general", "fortimanager"], "type": "str"},
-            "username": {"v_range": [["7.4.1", ""]], "type": "str"}
+            "username": {"v_range": [["7.4.1", ""]], "type": "str"},
+            "fabric-force-sync": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object-source": {"v_range": [["8.0.0", ""]], "choices": ["member", "local", "root"], "type": "str"},
+            "uuid": {"v_range": [["8.0.0", ""]], "type": "str"}
         }
     },
     "system_smsserver": {"stated": true, "options": {"mail-server": {"type": "str"}, "name": {"required": true, "type": "str"}}},
@@ -33379,7 +34540,7 @@ SCHEMA_DATA = '''
             "queries": {"choices": ["disable", "enable"], "type": "str"},
             "query-port": {"type": "int"},
             "security-level": {"choices": ["no-auth-no-priv", "auth-no-priv", "auth-priv"], "type": "str"},
-            "notify-port": {"v_range": [["7.2.10", "7.2.12"], ["7.4.6", "7.4.10"], ["7.6.2", ""]], "type": "int"}
+            "notify-port": {"v_range": [["7.2.10", "7.2.12"], ["7.4.6", "7.4.11"], ["7.6.2", ""]], "type": "int"}
         }
     },
     "system_socfabric": {
@@ -33548,7 +34709,7 @@ SCHEMA_DATA = '''
             "reliable": {"v_range": [["6.4.8", "6.4.15"], ["7.0.4", ""]], "choices": ["disable", "enable"], "type": "str"},
             "secure-connection": {"v_range": [["6.4.8", "6.4.15"], ["7.0.4", ""]], "choices": ["disable", "enable"], "type": "str"},
             "ssl-protocol": {
-                "v_range": [["7.4.4", "7.4.10"], ["7.6.2", ""]],
+                "v_range": [["7.4.4", "7.4.11"], ["7.6.2", ""]],
                 "choices": ["follow-global-ssl-protocol", "sslv3", "tlsv1.0", "tlsv1.1", "tlsv1.2", "tlsv1.3"],
                 "type": "str"
             }
@@ -33748,11 +34909,11 @@ SCHEMA_DATA = '''
             "position": {"v_range": [["7.4.2", ""]], "choices": ["post-vdom-copy", "prep-vdom-copy"], "type": "str"},
             "option": {"v_range": [["7.6.0", ""]], "type": "list", "choices": ["sdwan-overlay", "sdwan-manager"], "elements": "str"},
             "scope member": {
-                "v_range": [["7.4.7", "7.4.10"], ["7.6.4", ""]],
+                "v_range": [["7.4.7", "7.4.11"], ["7.6.4", ""]],
                 "type": "list",
                 "options": {
-                    "name": {"v_range": [["7.4.7", "7.4.10"], ["7.6.4", ""]], "type": "str"},
-                    "vdom": {"v_range": [["7.4.7", "7.4.10"], ["7.6.4", ""]], "type": "str"}
+                    "name": {"v_range": [["7.4.7", "7.4.11"], ["7.6.4", ""]], "type": "str"},
+                    "vdom": {"v_range": [["7.4.7", "7.4.11"], ["7.6.4", ""]], "type": "str"}
                 },
                 "elements": "dict"
             }
@@ -33768,11 +34929,11 @@ SCHEMA_DATA = '''
             "variables": {"v_range": [["7.2.3", ""]], "type": "raw"},
             "option": {"v_range": [["7.6.0", ""]], "type": "list", "choices": ["sdwan-overlay", "sdwan-manager"], "elements": "str"},
             "scope member": {
-                "v_range": [["7.4.7", "7.4.10"], ["7.6.4", ""]],
+                "v_range": [["7.4.7", "7.4.11"], ["7.6.4", ""]],
                 "type": "list",
                 "options": {
-                    "name": {"v_range": [["7.4.7", "7.4.10"], ["7.6.4", ""]], "type": "str"},
-                    "vdom": {"v_range": [["7.4.7", "7.4.10"], ["7.6.4", ""]], "type": "str"}
+                    "name": {"v_range": [["7.4.7", "7.4.11"], ["7.6.4", ""]], "type": "str"},
+                    "vdom": {"v_range": [["7.4.7", "7.4.11"], ["7.6.4", ""]], "type": "str"}
                 },
                 "elements": "dict"
             }
@@ -33836,6 +34997,22 @@ SCHEMA_DATA = '''
             "type": {"v_range": [["7.6.2", ""]], "choices": ["aws", "azure", "gcp"], "type": "str"}
         }
     },
+    "user_aci": {
+        "stated": true,
+        "options": {
+            "alias": {"v_range": [["8.0.0", ""]], "type": "str"},
+            "filters": {"v_range": [["8.0.0", ""]], "type": "list", "elements": "str"},
+            "name": {"v_range": [["8.0.0", ""]], "required": true, "type": "str"},
+            "password": {"v_range": [["8.0.0", ""]], "no_log": true, "type": "list", "elements": "str"},
+            "port": {"v_range": [["8.0.0", ""]], "type": "int"},
+            "scheme": {"v_range": [["8.0.0", ""]], "type": "str"},
+            "server": {"v_range": [["8.0.0", ""]], "type": "str"},
+            "status": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "upd_interval": {"v_range": [["8.0.0", ""]], "type": "int"},
+            "user": {"v_range": [["8.0.0", ""]], "type": "str"},
+            "verifycert": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"}
+        }
+    },
     "user_adgrp": {
         "stated": true,
         "options": {
@@ -33843,8 +35020,46 @@ SCHEMA_DATA = '''
             "server-name": {"type": "str"},
             "id": {"v_range": [["6.2.1", ""]], "required": true, "type": "int"},
             "polling-id": {"v_range": [["6.2.0", "6.2.13"]], "type": "str"},
-            "connector-source": {"v_range": [["6.4.0", ""]], "type": "str"}
+            "connector-source": {"v_range": [["6.4.0", ""]], "type": "str"},
+            "fabric-force-sync": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object-source": {"v_range": [["8.0.0", ""]], "choices": ["member", "local", "root"], "type": "str"},
+            "uuid": {"v_range": [["8.0.0", ""]], "type": "str"}
         }
+    },
+    "user_azure": {
+        "stated": true,
+        "options": {
+            "SPN": {"v_range": [["8.0.0", ""]], "type": "str"},
+            "alias": {"v_range": [["8.0.0", ""]], "type": "str"},
+            "kbconfig": {"v_range": [["8.0.0", ""]], "type": "str"},
+            "name": {"v_range": [["8.0.0", ""]], "required": true, "type": "str"},
+            "page_size": {"v_range": [["8.0.0", ""]], "type": "int"},
+            "password": {"v_range": [["8.0.0", ""]], "no_log": true, "type": "list", "elements": "str"},
+            "proxy_enable": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "proxy_host": {"v_range": [["8.0.0", ""]], "type": "str"},
+            "proxy_passwd": {"v_range": [["8.0.0", ""]], "no_log": true, "type": "list", "elements": "str"},
+            "proxy_scheme": {"v_range": [["8.0.0", ""]], "choices": ["http", "https"], "type": "str"},
+            "proxy_user": {"v_range": [["8.0.0", ""]], "type": "str"},
+            "realm": {"v_range": [["8.0.0", ""]], "type": "str"},
+            "region": {"v_range": [["8.0.0", ""]], "choices": ["global", "china", "germany", "usgov", "local"], "type": "str"},
+            "rule": {
+                "v_range": [["8.0.0", ""]],
+                "type": "list",
+                "options": {"name": {"v_range": [["8.0.0", ""]], "type": "str"}, "rule": {"v_range": [["8.0.0", ""]], "type": "str"}},
+                "elements": "dict"
+            },
+            "select_proxy": {"v_range": [["8.0.0", ""]], "choices": ["basic", "kerberos"], "type": "str"},
+            "status": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "tenantid": {"v_range": [["8.0.0", ""]], "type": "str"},
+            "upd_interval": {"v_range": [["8.0.0", ""]], "type": "int"},
+            "user": {"v_range": [["8.0.0", ""]], "type": "str"},
+            "verifycert": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"}
+        }
+    },
+    "user_azure_rule": {
+        "stated": true,
+        "options": {"name": {"v_range": [["8.0.0", ""]], "required": true, "type": "str"}, "rule": {"v_range": [["8.0.0", ""]], "type": "str"}}
     },
     "user_certificate": {
         "stated": true,
@@ -33871,9 +35086,9 @@ SCHEMA_DATA = '''
     "user_connector": {
         "stated": true,
         "options": {
-            "name": {"v_range": [["7.0.1", ""]], "required": true, "type": "str"},
-            "status": {"v_range": [["7.0.1", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "type": {"v_range": [["7.0.1", ""]], "type": "str"}
+            "name": {"v_range": [["7.0.1", "7.6.7"]], "required": true, "type": "str"},
+            "status": {"v_range": [["7.0.1", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
+            "type": {"v_range": [["7.0.1", "7.6.7"]], "type": "str"}
         }
     },
     "user_device": {
@@ -34128,7 +35343,7 @@ SCHEMA_DATA = '''
             "username": {"v_range": [["7.0.0", ""]], "type": "str"},
             "change-detection": {"v_range": [["7.2.3", ""]], "choices": ["disable", "enable"], "type": "str"},
             "change-detection-period": {"v_range": [["7.2.3", ""]], "type": "int"},
-            "domain-name-src": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "choices": ["server", "client"], "type": "str"}
+            "domain-name-src": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "choices": ["server", "client"], "type": "str"}
         }
     },
     "user_domaincontroller_extraserver": {
@@ -34206,8 +35421,8 @@ SCHEMA_DATA = '''
         "options": {
             "comments": {"type": "str"},
             "license": {"type": "str"},
-            "os-ver": {"v_range": [["6.0.0", "6.2.5"], ["6.4.0", "6.4.1"], ["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "str"},
-            "reg-id": {"v_range": [["6.0.0", "6.2.5"], ["6.4.0", "6.4.1"], ["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "str"},
+            "os-ver": {"v_range": [["6.0.0", "6.2.5"], ["6.4.0", "6.4.1"], ["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "str"},
+            "reg-id": {"v_range": [["6.0.0", "6.2.5"], ["6.4.0", "6.4.1"], ["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "str"},
             "serial-number": {"required": true, "type": "str"},
             "status": {"choices": ["lock", "active"], "type": "str"}
         }
@@ -34252,7 +35467,11 @@ SCHEMA_DATA = '''
                     "logon-timeout": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", ""]], "type": "int"},
                     "sni": {"v_range": [["7.2.0", ""]], "type": "str"},
                     "ssl-server-host-ip-check": {"v_range": [["7.0.2", ""]], "choices": ["disable", "enable"], "type": "str"},
-                    "vrf-select": {"v_range": [["7.6.2", ""]], "type": "int"}
+                    "vrf-select": {"v_range": [["7.6.2", ""]], "type": "int"},
+                    "fabric-force-sync": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+                    "fabric-object": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+                    "fabric-object-source": {"v_range": [["8.0.0", ""]], "choices": ["member", "local", "root"], "type": "str"},
+                    "uuid": {"v_range": [["8.0.0", ""]], "type": "str"}
                 },
                 "elements": "dict"
             },
@@ -34288,7 +35507,11 @@ SCHEMA_DATA = '''
             "logon-timeout": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", ""]], "type": "int"},
             "sni": {"v_range": [["7.2.0", ""]], "type": "str"},
             "ssl-server-host-ip-check": {"v_range": [["7.0.2", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "vrf-select": {"v_range": [["7.6.2", ""]], "type": "int"}
+            "vrf-select": {"v_range": [["7.6.2", ""]], "type": "int"},
+            "fabric-force-sync": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object-source": {"v_range": [["8.0.0", ""]], "choices": ["member", "local", "root"], "type": "str"},
+            "uuid": {"v_range": [["8.0.0", ""]], "type": "str"}
         }
     },
     "user_fsso_dynamicmapping": {
@@ -34327,7 +35550,11 @@ SCHEMA_DATA = '''
             "logon-timeout": {"v_range": [["6.4.7", "6.4.15"], ["7.0.1", ""]], "type": "int"},
             "sni": {"v_range": [["7.2.0", ""]], "type": "str"},
             "ssl-server-host-ip-check": {"v_range": [["7.0.2", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "vrf-select": {"v_range": [["7.6.2", ""]], "type": "int"}
+            "vrf-select": {"v_range": [["7.6.2", ""]], "type": "int"},
+            "fabric-force-sync": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object-source": {"v_range": [["8.0.0", ""]], "choices": ["member", "local", "root"], "type": "str"},
+            "uuid": {"v_range": [["8.0.0", ""]], "type": "str"}
         }
     },
     "user_fssopolling": {
@@ -34360,7 +35587,7 @@ SCHEMA_DATA = '''
             "email": {"choices": ["disable", "enable"], "type": "str"},
             "expire": {"type": "int"},
             "expire-type": {"choices": ["immediately", "first-successful-login"], "type": "str"},
-            "group-type": {"choices": ["firewall", "directory-service", "fsso-service", "guest", "rsso"], "type": "str"},
+            "group-type": {"choices": ["firewall", "directory-service", "fsso-service", "guest", "rsso", "scim"], "type": "str"},
             "guest": {
                 "type": "list",
                 "options": {
@@ -34416,7 +35643,7 @@ SCHEMA_DATA = '''
                     "expire-type": {"v_range": [["7.0.2", ""]], "choices": ["immediately", "first-successful-login"], "type": "str"},
                     "group-type": {
                         "v_range": [["7.0.2", ""]],
-                        "choices": ["firewall", "directory-service", "fsso-service", "guest", "rsso"],
+                        "choices": ["firewall", "directory-service", "fsso-service", "guest", "rsso", "scim"],
                         "type": "str"
                     },
                     "guest": {
@@ -34499,12 +35726,28 @@ SCHEMA_DATA = '''
                     "sso-attribute-value": {"v_range": [["7.0.2", ""]], "type": "str"},
                     "user-id": {"v_range": [["7.0.2", ""]], "choices": ["email", "auto-generate", "specify"], "type": "str"},
                     "user-name": {"v_range": [["7.0.2", ""]], "choices": ["disable", "enable"], "type": "str"},
-                    "negate": {"v_range": [["7.4.9", "7.4.10"], ["7.6.5", ""]], "choices": ["disable", "enable"], "type": "str"}
+                    "negate": {"v_range": [["7.4.9", "7.4.11"], ["7.6.5", ""]], "choices": ["disable", "enable"], "type": "str"},
+                    "scim-group-attr-type": {"v_range": [["7.6.7", ""]], "choices": ["display-name", "external-id"], "type": "str"},
+                    "scim-groups": {"v_range": [["7.6.7", ""]], "type": "raw"},
+                    "scim-user-attr-type": {"v_range": [["7.6.7", ""]], "choices": ["user-name", "display-name", "external-id", "email"], "type": "str"},
+                    "scim-users": {"v_range": [["7.6.7", ""]], "type": "raw"},
+                    "fabric-force-sync": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+                    "fabric-object": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+                    "fabric-object-source": {"v_range": [["8.0.0", ""]], "choices": ["member", "local", "root"], "type": "str"},
+                    "uuid": {"v_range": [["8.0.0", ""]], "type": "str"}
                 },
                 "elements": "dict"
             },
-            "logic-type": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "choices": ["or", "and"], "type": "str"},
-            "negate": {"v_range": [["7.4.9", "7.4.10"], ["7.6.5", ""]], "choices": ["disable", "enable"], "type": "str"}
+            "logic-type": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "choices": ["or", "and"], "type": "str"},
+            "negate": {"v_range": [["7.4.9", "7.4.11"], ["7.6.5", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "scim-groups": {"v_range": [["7.6.7", ""]], "type": "raw"},
+            "scim-group-attr-type": {"v_range": [["7.6.7", ""]], "choices": ["display-name", "external-id"], "type": "str"},
+            "scim-users": {"v_range": [["7.6.7", ""]], "type": "raw"},
+            "scim-user-attr-type": {"v_range": [["7.6.7", ""]], "choices": ["user-name", "display-name", "external-id", "email"], "type": "str"},
+            "fabric-force-sync": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object-source": {"v_range": [["8.0.0", ""]], "choices": ["member", "local", "root"], "type": "str"},
+            "uuid": {"v_range": [["8.0.0", ""]], "type": "str"}
         }
     },
     "user_group_dynamicmapping": {
@@ -34523,7 +35766,11 @@ SCHEMA_DATA = '''
             "email": {"v_range": [["7.0.2", ""]], "choices": ["disable", "enable"], "type": "str"},
             "expire": {"v_range": [["7.0.2", ""]], "type": "int"},
             "expire-type": {"v_range": [["7.0.2", ""]], "choices": ["immediately", "first-successful-login"], "type": "str"},
-            "group-type": {"v_range": [["7.0.2", ""]], "choices": ["firewall", "directory-service", "fsso-service", "guest", "rsso"], "type": "str"},
+            "group-type": {
+                "v_range": [["7.0.2", ""]],
+                "choices": ["firewall", "directory-service", "fsso-service", "guest", "rsso", "scim"],
+                "type": "str"
+            },
             "guest": {
                 "v_range": [["7.0.2", ""]],
                 "type": "list",
@@ -34604,7 +35851,15 @@ SCHEMA_DATA = '''
             "sso-attribute-value": {"v_range": [["7.0.2", ""]], "type": "str"},
             "user-id": {"v_range": [["7.0.2", ""]], "choices": ["email", "auto-generate", "specify"], "type": "str"},
             "user-name": {"v_range": [["7.0.2", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "negate": {"v_range": [["7.4.9", "7.4.10"], ["7.6.5", ""]], "choices": ["disable", "enable"], "type": "str"}
+            "negate": {"v_range": [["7.4.9", "7.4.11"], ["7.6.5", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "scim-group-attr-type": {"v_range": [["7.6.7", ""]], "choices": ["display-name", "external-id"], "type": "str"},
+            "scim-groups": {"v_range": [["7.6.7", ""]], "type": "raw"},
+            "scim-user-attr-type": {"v_range": [["7.6.7", ""]], "choices": ["user-name", "display-name", "external-id", "email"], "type": "str"},
+            "scim-users": {"v_range": [["7.6.7", ""]], "type": "raw"},
+            "fabric-force-sync": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object-source": {"v_range": [["8.0.0", ""]], "choices": ["member", "local", "root"], "type": "str"},
+            "uuid": {"v_range": [["8.0.0", ""]], "type": "str"}
         }
     },
     "user_group_dynamicmapping_guest": {
@@ -34660,6 +35915,21 @@ SCHEMA_DATA = '''
     "user_group_match": {
         "stated": true,
         "options": {"_gui_meta": {"type": "str"}, "group-name": {"type": "str"}, "id": {"required": true, "type": "int"}, "server-name": {"type": "str"}}
+    },
+    "user_guardicore": {
+        "stated": true,
+        "options": {
+            "alias": {"v_range": [["8.0.0", ""]], "type": "str"},
+            "filters": {"v_range": [["8.0.0", ""]], "type": "list", "elements": "str"},
+            "name": {"v_range": [["8.0.0", ""]], "required": true, "type": "str"},
+            "page_size": {"v_range": [["8.0.0", ""]], "type": "int"},
+            "password": {"v_range": [["8.0.0", ""]], "no_log": true, "type": "list", "elements": "str"},
+            "scheme": {"v_range": [["8.0.0", ""]], "type": "str"},
+            "server": {"v_range": [["8.0.0", ""]], "type": "str"},
+            "status": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "upd_interval": {"v_range": [["8.0.0", ""]], "type": "int"},
+            "user": {"v_range": [["8.0.0", ""]], "type": "str"}
+        }
     },
     "user_json": {
         "stated": true,
@@ -34739,12 +36009,16 @@ SCHEMA_DATA = '''
                     "status-ttl": {"v_range": [["7.4.3", ""]], "type": "int"},
                     "source-ip-interface": {"v_range": [["7.6.0", ""]], "type": "raw"},
                     "ssl-max-proto-version": {
-                        "v_range": [["7.2.10", "7.2.12"], ["7.4.4", "7.4.10"], ["7.6.2", ""]],
+                        "v_range": [["7.2.10", "7.2.12"], ["7.4.4", "7.4.11"], ["7.6.2", ""]],
                         "choices": ["TLSv1-1", "TLSv1-2", "SSLv3", "TLSv1", "TLSv1-3"],
                         "type": "str"
                     },
                     "vrf-select": {"v_range": [["7.6.2", ""]], "type": "int"},
-                    "validate-server-certificate": {"v_range": [["7.6.3", ""]], "choices": ["disable", "enable"], "type": "str"}
+                    "validate-server-certificate": {"v_range": [["7.6.3", ""]], "choices": ["disable", "enable"], "type": "str"},
+                    "fabric-force-sync": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+                    "fabric-object": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+                    "fabric-object-source": {"v_range": [["8.0.0", ""]], "choices": ["member", "local", "root"], "type": "str"},
+                    "uuid": {"v_range": [["8.0.0", ""]], "type": "str"}
                 },
                 "elements": "dict"
             },
@@ -34770,7 +36044,7 @@ SCHEMA_DATA = '''
             "obtain-user-info": {"v_range": [["6.2.0", ""]], "choices": ["disable", "enable"], "type": "str"},
             "search-type": {"v_range": [["6.2.0", ""]], "type": "list", "choices": ["nested", "recursive"], "elements": "str"},
             "user-info-exchange-server": {"v_range": [["6.2.0", ""]], "type": "str"},
-            "account-key-name": {"v_range": [["6.2.0", "6.4.15"], ["7.4.8", "7.4.10"]], "no_log": true, "type": "str"},
+            "account-key-name": {"v_range": [["6.2.0", "6.4.15"], ["7.4.8", "7.4.11"]], "no_log": true, "type": "str"},
             "group-object-search-base": {"v_range": [["6.2.0", "6.2.13"]], "type": "str"},
             "two-factor": {"v_range": [["6.2.2", ""]], "choices": ["disable", "fortitoken-cloud"], "type": "str"},
             "interface": {"v_range": [["6.2.5", "6.2.13"], ["6.4.1", ""]], "type": "str"},
@@ -34788,13 +36062,17 @@ SCHEMA_DATA = '''
             "status-ttl": {"v_range": [["7.4.3", ""]], "type": "int"},
             "source-ip-interface": {"v_range": [["7.6.0", ""]], "type": "raw"},
             "vrf-select": {"v_range": [["7.6.2", ""]], "type": "int"},
-            "max-connections": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "int"},
+            "max-connections": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "int"},
             "ssl-max-proto-version": {
-                "v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]],
+                "v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]],
                 "choices": ["TLSv1-1", "TLSv1-2", "SSLv3", "TLSv1", "TLSv1-3"],
                 "type": "str"
             },
-            "validate-server-certificate": {"v_range": [["7.6.4", "7.6.4"]], "choices": ["disable", "enable"], "type": "str"}
+            "validate-server-certificate": {"v_range": [["7.6.4", "7.6.4"]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-force-sync": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object-source": {"v_range": [["8.0.0", ""]], "choices": ["member", "local", "root"], "type": "str"},
+            "uuid": {"v_range": [["8.0.0", ""]], "type": "str"}
         }
     },
     "user_ldap_dynamicmapping": {
@@ -34849,12 +36127,16 @@ SCHEMA_DATA = '''
             "status-ttl": {"v_range": [["7.4.3", ""]], "type": "int"},
             "source-ip-interface": {"v_range": [["7.6.0", ""]], "type": "raw"},
             "ssl-max-proto-version": {
-                "v_range": [["7.2.10", "7.2.12"], ["7.4.4", "7.4.10"], ["7.6.2", ""]],
+                "v_range": [["7.2.10", "7.2.12"], ["7.4.4", "7.4.11"], ["7.6.2", ""]],
                 "choices": ["TLSv1-1", "TLSv1-2", "SSLv3", "TLSv1", "TLSv1-3"],
                 "type": "str"
             },
             "vrf-select": {"v_range": [["7.6.2", ""]], "type": "int"},
-            "validate-server-certificate": {"v_range": [["7.6.3", ""]], "choices": ["disable", "enable"], "type": "str"}
+            "validate-server-certificate": {"v_range": [["7.6.3", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-force-sync": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object-source": {"v_range": [["8.0.0", ""]], "choices": ["member", "local", "root"], "type": "str"},
+            "uuid": {"v_range": [["8.0.0", ""]], "type": "str"}
         }
     },
     "user_local": {
@@ -34884,7 +36166,7 @@ SCHEMA_DATA = '''
             "two-factor-authentication": {"v_range": [["6.2.5", ""]], "choices": ["fortitoken", "email", "sms"], "type": "str"},
             "two-factor-notification": {"v_range": [["6.2.5", ""]], "choices": ["email", "sms"], "type": "str"},
             "username-case-sensitivity": {"v_range": [["6.2.5", "6.2.13"], ["6.4.1", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "username-case-insensitivity": {"v_range": [["6.4.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "username-case-insensitivity": {"v_range": [["6.4.0", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
             "username-sensitivity": {
                 "v_range": [["6.2.9", "6.2.13"], ["6.4.7", "6.4.15"], ["7.0.1", ""]],
                 "choices": ["disable", "enable"],
@@ -34911,7 +36193,141 @@ SCHEMA_DATA = '''
             "history6": {"v_range": [["7.6.4", ""]], "type": "raw"},
             "history7": {"v_range": [["7.6.4", ""]], "type": "raw"},
             "history8": {"v_range": [["7.6.4", ""]], "type": "raw"},
-            "history9": {"v_range": [["7.6.4", ""]], "type": "raw"}
+            "history9": {"v_range": [["7.6.4", ""]], "type": "raw"},
+            "dynamic_mapping": {
+                "v_range": [["8.0.0", ""]],
+                "type": "list",
+                "options": {
+                    "_scope": {
+                        "v_range": [["8.0.0", ""]],
+                        "type": "list",
+                        "options": {"name": {"v_range": [["8.0.0", ""]], "type": "str"}, "vdom": {"v_range": [["8.0.0", ""]], "type": "str"}},
+                        "elements": "dict"
+                    },
+                    "auth-concurrent-override": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+                    "auth-concurrent-value": {"v_range": [["8.0.0", ""]], "type": "int"},
+                    "authtimeout": {"v_range": [["8.0.0", ""]], "type": "int"},
+                    "email-to": {"v_range": [["8.0.0", ""]], "type": "str"},
+                    "fabric-force-sync": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+                    "fabric-object": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+                    "fabric-object-source": {"v_range": [["8.0.0", ""]], "choices": ["member", "local", "root"], "type": "str"},
+                    "fortitoken": {"v_range": [["8.0.0", ""]], "no_log": true, "type": "raw"},
+                    "history0": {"v_range": [["8.0.0", ""]], "type": "raw"},
+                    "history1": {"v_range": [["8.0.0", ""]], "type": "raw"},
+                    "history10": {"v_range": [["8.0.0", ""]], "type": "raw"},
+                    "history11": {"v_range": [["8.0.0", ""]], "type": "raw"},
+                    "history12": {"v_range": [["8.0.0", ""]], "type": "raw"},
+                    "history13": {"v_range": [["8.0.0", ""]], "type": "raw"},
+                    "history14": {"v_range": [["8.0.0", ""]], "type": "raw"},
+                    "history15": {"v_range": [["8.0.0", ""]], "type": "raw"},
+                    "history16": {"v_range": [["8.0.0", ""]], "type": "raw"},
+                    "history17": {"v_range": [["8.0.0", ""]], "type": "raw"},
+                    "history18": {"v_range": [["8.0.0", ""]], "type": "raw"},
+                    "history19": {"v_range": [["8.0.0", ""]], "type": "raw"},
+                    "history2": {"v_range": [["8.0.0", ""]], "type": "raw"},
+                    "history3": {"v_range": [["8.0.0", ""]], "type": "raw"},
+                    "history4": {"v_range": [["8.0.0", ""]], "type": "raw"},
+                    "history5": {"v_range": [["8.0.0", ""]], "type": "raw"},
+                    "history6": {"v_range": [["8.0.0", ""]], "type": "raw"},
+                    "history7": {"v_range": [["8.0.0", ""]], "type": "raw"},
+                    "history8": {"v_range": [["8.0.0", ""]], "type": "raw"},
+                    "history9": {"v_range": [["8.0.0", ""]], "type": "raw"},
+                    "id": {"v_range": [["8.0.0", ""]], "type": "int"},
+                    "ldap-server": {"v_range": [["8.0.0", ""]], "type": "raw"},
+                    "passwd": {"v_range": [["8.0.0", ""]], "no_log": true, "type": "raw"},
+                    "passwd-policy": {"v_range": [["8.0.0", ""]], "no_log": true, "type": "raw"},
+                    "passwd-time": {"v_range": [["8.0.0", ""]], "no_log": true, "type": "str"},
+                    "ppk-identity": {"v_range": [["8.0.0", ""]], "type": "str"},
+                    "ppk-secret": {"v_range": [["8.0.0", ""]], "no_log": true, "type": "raw"},
+                    "qkd-profile": {"v_range": [["8.0.0", ""]], "type": "raw"},
+                    "radius-server": {"v_range": [["8.0.0", ""]], "type": "raw"},
+                    "saml-server": {"v_range": [["8.0.0", ""]], "type": "raw"},
+                    "sms-custom-server": {"v_range": [["8.0.0", ""]], "type": "raw"},
+                    "sms-phone": {"v_range": [["8.0.0", ""]], "type": "str"},
+                    "sms-provider": {"v_range": [["8.0.0", ""]], "type": "raw"},
+                    "sms-server": {"v_range": [["8.0.0", ""]], "choices": ["fortiguard", "custom"], "type": "str"},
+                    "status": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+                    "tacacs+-server": {"v_range": [["8.0.0", ""]], "type": "raw"},
+                    "two-factor": {"v_range": [["8.0.0", ""]], "choices": ["disable", "fortitoken", "email", "sms", "fortitoken-cloud"], "type": "str"},
+                    "two-factor-authentication": {"v_range": [["8.0.0", ""]], "choices": ["fortitoken", "email", "sms"], "type": "str"},
+                    "two-factor-notification": {"v_range": [["8.0.0", ""]], "choices": ["email", "sms"], "type": "str"},
+                    "type": {"v_range": [["8.0.0", ""]], "choices": ["password", "radius", "tacacs+", "ldap", "saml"], "type": "str"},
+                    "username-case-insensitivity": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+                    "username-case-sensitivity": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+                    "username-sensitivity": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+                    "uuid": {"v_range": [["8.0.0", ""]], "type": "str"},
+                    "workstation": {"v_range": [["8.0.0", ""]], "type": "str"}
+                },
+                "elements": "dict"
+            },
+            "fabric-force-sync": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object-source": {"v_range": [["8.0.0", ""]], "choices": ["member", "local", "root"], "type": "str"},
+            "uuid": {"v_range": [["8.0.0", ""]], "type": "str"}
+        }
+    },
+    "user_local_dynamicmapping": {
+        "stated": false,
+        "options": {
+            "_scope": {
+                "v_range": [["8.0.0", ""]],
+                "type": "list",
+                "options": {"name": {"v_range": [["8.0.0", ""]], "type": "str"}, "vdom": {"v_range": [["8.0.0", ""]], "type": "str"}},
+                "elements": "dict"
+            },
+            "auth-concurrent-override": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "auth-concurrent-value": {"v_range": [["8.0.0", ""]], "type": "int"},
+            "authtimeout": {"v_range": [["8.0.0", ""]], "type": "int"},
+            "email-to": {"v_range": [["8.0.0", ""]], "type": "str"},
+            "fabric-force-sync": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object-source": {"v_range": [["8.0.0", ""]], "choices": ["member", "local", "root"], "type": "str"},
+            "fortitoken": {"v_range": [["8.0.0", ""]], "no_log": true, "type": "list", "elements": "str"},
+            "history0": {"v_range": [["8.0.0", ""]], "type": "list", "elements": "str"},
+            "history1": {"v_range": [["8.0.0", ""]], "type": "list", "elements": "str"},
+            "history10": {"v_range": [["8.0.0", ""]], "type": "list", "elements": "str"},
+            "history11": {"v_range": [["8.0.0", ""]], "type": "list", "elements": "str"},
+            "history12": {"v_range": [["8.0.0", ""]], "type": "list", "elements": "str"},
+            "history13": {"v_range": [["8.0.0", ""]], "type": "list", "elements": "str"},
+            "history14": {"v_range": [["8.0.0", ""]], "type": "list", "elements": "str"},
+            "history15": {"v_range": [["8.0.0", ""]], "type": "list", "elements": "str"},
+            "history16": {"v_range": [["8.0.0", ""]], "type": "list", "elements": "str"},
+            "history17": {"v_range": [["8.0.0", ""]], "type": "list", "elements": "str"},
+            "history18": {"v_range": [["8.0.0", ""]], "type": "list", "elements": "str"},
+            "history19": {"v_range": [["8.0.0", ""]], "type": "list", "elements": "str"},
+            "history2": {"v_range": [["8.0.0", ""]], "type": "list", "elements": "str"},
+            "history3": {"v_range": [["8.0.0", ""]], "type": "list", "elements": "str"},
+            "history4": {"v_range": [["8.0.0", ""]], "type": "list", "elements": "str"},
+            "history5": {"v_range": [["8.0.0", ""]], "type": "list", "elements": "str"},
+            "history6": {"v_range": [["8.0.0", ""]], "type": "list", "elements": "str"},
+            "history7": {"v_range": [["8.0.0", ""]], "type": "list", "elements": "str"},
+            "history8": {"v_range": [["8.0.0", ""]], "type": "list", "elements": "str"},
+            "history9": {"v_range": [["8.0.0", ""]], "type": "list", "elements": "str"},
+            "id": {"v_range": [["8.0.0", ""]], "type": "int"},
+            "ldap-server": {"v_range": [["8.0.0", ""]], "type": "list", "elements": "str"},
+            "passwd": {"v_range": [["8.0.0", ""]], "no_log": true, "type": "list", "elements": "str"},
+            "passwd-policy": {"v_range": [["8.0.0", ""]], "no_log": true, "type": "list", "elements": "str"},
+            "passwd-time": {"v_range": [["8.0.0", ""]], "no_log": true, "type": "str"},
+            "ppk-identity": {"v_range": [["8.0.0", ""]], "type": "str"},
+            "ppk-secret": {"v_range": [["8.0.0", ""]], "no_log": true, "type": "list", "elements": "str"},
+            "qkd-profile": {"v_range": [["8.0.0", ""]], "type": "list", "elements": "str"},
+            "radius-server": {"v_range": [["8.0.0", ""]], "type": "list", "elements": "str"},
+            "saml-server": {"v_range": [["8.0.0", ""]], "type": "list", "elements": "str"},
+            "sms-custom-server": {"v_range": [["8.0.0", ""]], "type": "list", "elements": "str"},
+            "sms-phone": {"v_range": [["8.0.0", ""]], "type": "str"},
+            "sms-provider": {"v_range": [["8.0.0", ""]], "type": "list", "elements": "str"},
+            "sms-server": {"v_range": [["8.0.0", ""]], "choices": ["fortiguard", "custom"], "type": "str"},
+            "status": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "tacacs+-server": {"v_range": [["8.0.0", ""]], "type": "list", "elements": "str"},
+            "two-factor": {"v_range": [["8.0.0", ""]], "choices": ["disable", "fortitoken", "email", "sms", "fortitoken-cloud"], "type": "str"},
+            "two-factor-authentication": {"v_range": [["8.0.0", ""]], "choices": ["fortitoken", "email", "sms"], "type": "str"},
+            "two-factor-notification": {"v_range": [["8.0.0", ""]], "choices": ["email", "sms"], "type": "str"},
+            "type": {"v_range": [["8.0.0", ""]], "choices": ["password", "radius", "tacacs+", "ldap", "saml"], "type": "str"},
+            "username-case-insensitivity": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "username-case-sensitivity": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "username-sensitivity": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "uuid": {"v_range": [["8.0.0", ""]], "type": "str"},
+            "workstation": {"v_range": [["8.0.0", ""]], "type": "str"}
         }
     },
     "user_nsx": {
@@ -35015,7 +36431,10 @@ SCHEMA_DATA = '''
             "mfa-mode": {"v_range": [["7.4.1", ""]], "choices": ["none", "password", "subject-identity"], "type": "str"},
             "mfa-password": {"v_range": [["7.4.1", ""]], "no_log": true, "type": "raw"},
             "mfa-server": {"v_range": [["7.4.1", ""]], "type": "str"},
-            "mfa-username": {"v_range": [["7.4.1", ""]], "type": "str"}
+            "mfa-username": {"v_range": [["7.4.1", ""]], "type": "str"},
+            "checkemail": {"v_range": [["8.0.0", ""]], "type": "str"},
+            "checkhost": {"v_range": [["8.0.0", ""]], "type": "str"},
+            "checkip": {"v_range": [["8.0.0", ""]], "type": "str"}
         }
     },
     "user_peergrp": {"stated": true, "options": {"member": {"type": "raw"}, "name": {"required": true, "type": "str"}}},
@@ -35037,7 +36456,7 @@ SCHEMA_DATA = '''
             "name": {"required": true, "type": "str"},
             "server": {"type": "str"},
             "status": {"choices": ["disable", "enable"], "type": "str"},
-            "secondary-server": {"v_range": [["7.4.7", "7.4.10"], ["7.6.3", ""]], "type": "str"}
+            "secondary-server": {"v_range": [["7.4.7", "7.4.11"], ["7.6.3", ""]], "type": "str"}
         }
     },
     "user_radius": {
@@ -35283,11 +36702,15 @@ SCHEMA_DATA = '''
                     "switch-controller-nas-ip-dynamic": {"v_range": [["7.2.6", "7.2.12"], ["7.4.2", ""]], "choices": ["disable", "enable"], "type": "str"},
                     "source-ip-interface": {"v_range": [["7.6.0", ""]], "type": "raw"},
                     "require-message-authenticator": {
-                        "v_range": [["7.2.10", "7.2.12"], ["7.4.6", "7.4.10"], ["7.6.2", ""]],
+                        "v_range": [["7.2.10", "7.2.12"], ["7.4.6", "7.4.11"], ["7.6.2", ""]],
                         "choices": ["disable", "enable"],
                         "type": "str"
                     },
-                    "vrf-select": {"v_range": [["7.6.2", ""]], "type": "int"}
+                    "vrf-select": {"v_range": [["7.6.2", ""]], "type": "int"},
+                    "fabric-force-sync": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+                    "fabric-object": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+                    "fabric-object-source": {"v_range": [["8.0.0", ""]], "choices": ["member", "local", "root"], "type": "str"},
+                    "uuid": {"v_range": [["8.0.0", ""]], "type": "str"}
                 },
                 "elements": "dict"
             },
@@ -35401,11 +36824,15 @@ SCHEMA_DATA = '''
             "switch-controller-nas-ip-dynamic": {"v_range": [["7.2.6", "7.2.12"], ["7.4.2", ""]], "choices": ["disable", "enable"], "type": "str"},
             "source-ip-interface": {"v_range": [["7.6.0", ""]], "type": "raw"},
             "require-message-authenticator": {
-                "v_range": [["7.2.10", "7.2.12"], ["7.4.6", "7.4.10"], ["7.6.2", ""]],
+                "v_range": [["7.2.10", "7.2.12"], ["7.4.6", "7.4.11"], ["7.6.2", ""]],
                 "choices": ["disable", "enable"],
                 "type": "str"
             },
-            "vrf-select": {"v_range": [["7.6.2", ""]], "type": "int"}
+            "vrf-select": {"v_range": [["7.6.2", ""]], "type": "int"},
+            "fabric-force-sync": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object-source": {"v_range": [["8.0.0", ""]], "choices": ["member", "local", "root"], "type": "str"},
+            "uuid": {"v_range": [["8.0.0", ""]], "type": "str"}
         }
     },
     "user_radius_accountingserver": {
@@ -35635,11 +37062,15 @@ SCHEMA_DATA = '''
             "switch-controller-nas-ip-dynamic": {"v_range": [["7.2.6", "7.2.12"], ["7.4.2", ""]], "choices": ["disable", "enable"], "type": "str"},
             "source-ip-interface": {"v_range": [["7.6.0", ""]], "type": "raw"},
             "require-message-authenticator": {
-                "v_range": [["7.2.10", "7.2.12"], ["7.4.6", "7.4.10"], ["7.6.2", ""]],
+                "v_range": [["7.2.10", "7.2.12"], ["7.4.6", "7.4.11"], ["7.6.2", ""]],
                 "choices": ["disable", "enable"],
                 "type": "str"
             },
-            "vrf-select": {"v_range": [["7.6.2", ""]], "type": "int"}
+            "vrf-select": {"v_range": [["7.6.2", ""]], "type": "int"},
+            "fabric-force-sync": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object-source": {"v_range": [["8.0.0", ""]], "choices": ["member", "local", "root"], "type": "str"},
+            "uuid": {"v_range": [["8.0.0", ""]], "type": "str"}
         }
     },
     "user_radius_dynamicmapping_accountingserver": {
@@ -35745,11 +37176,20 @@ SCHEMA_DATA = '''
                     "scim-client": {"v_range": [["7.6.0", ""]], "type": "raw"},
                     "scim-group-attr-type": {"v_range": [["7.6.3", ""]], "choices": ["display-name", "external-id"], "type": "str"},
                     "require-signed-resp-and-asrt": {
-                        "v_range": [["7.0.15", "7.0.16"], ["7.4.9", "7.4.10"], ["7.6.5", ""]],
+                        "v_range": [["7.0.15", "7.0.16"], ["7.4.9", "7.4.11"], ["7.6.5", ""]],
                         "choices": ["disable", "enable"],
                         "type": "str"
                     },
-                    "scim-user-attr-type": {"v_range": [["7.6.4", ""]], "choices": ["display-name", "external-id", "user-name", "email"], "type": "str"}
+                    "scim-user-attr-type": {"v_range": [["7.6.4", ""]], "choices": ["display-name", "external-id", "user-name", "email"], "type": "str"},
+                    "fabric-force-sync": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+                    "fabric-object": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+                    "fabric-object-source": {"v_range": [["8.0.0", ""]], "choices": ["member", "local", "root"], "type": "str"},
+                    "realm": {"v_range": [["8.0.0", ""]], "type": "str"},
+                    "service-provider-address": {"v_range": [["8.0.0", ""]], "type": "str"},
+                    "sso-app-id": {"v_range": [["8.0.0", ""]], "type": "str"},
+                    "type": {"v_range": [["8.0.0", ""]], "choices": ["custom", "fortiidentity-cloud"], "type": "str"},
+                    "user-source": {"v_range": [["8.0.0", ""]], "type": "str"},
+                    "uuid": {"v_range": [["8.0.0", ""]], "type": "str"}
                 },
                 "elements": "dict"
             },
@@ -35758,11 +37198,20 @@ SCHEMA_DATA = '''
             "scim-client": {"v_range": [["7.6.0", ""]], "type": "raw"},
             "scim-group-attr-type": {"v_range": [["7.6.3", ""]], "choices": ["display-name", "external-id"], "type": "str"},
             "require-signed-resp-and-asrt": {
-                "v_range": [["7.0.15", "7.0.16"], ["7.4.9", "7.4.10"], ["7.6.5", ""]],
+                "v_range": [["7.0.15", "7.0.16"], ["7.4.9", "7.4.11"], ["7.6.5", ""]],
                 "choices": ["disable", "enable"],
                 "type": "str"
             },
-            "scim-user-attr-type": {"v_range": [["7.6.4", ""]], "choices": ["display-name", "external-id", "user-name", "email"], "type": "str"}
+            "scim-user-attr-type": {"v_range": [["7.6.4", ""]], "choices": ["display-name", "external-id", "user-name", "email"], "type": "str"},
+            "fabric-force-sync": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object-source": {"v_range": [["8.0.0", ""]], "choices": ["member", "local", "root"], "type": "str"},
+            "realm": {"v_range": [["8.0.0", ""]], "type": "str"},
+            "service-provider-address": {"v_range": [["8.0.0", ""]], "type": "str"},
+            "sso-app-id": {"v_range": [["8.0.0", ""]], "type": "str"},
+            "type": {"v_range": [["8.0.0", ""]], "choices": ["custom", "fortiidentity-cloud"], "type": "str"},
+            "user-source": {"v_range": [["8.0.0", ""]], "type": "str"},
+            "uuid": {"v_range": [["8.0.0", ""]], "type": "str"}
         }
     },
     "user_saml_dynamicmapping": {
@@ -35814,11 +37263,20 @@ SCHEMA_DATA = '''
             "scim-client": {"v_range": [["7.6.0", ""]], "type": "raw"},
             "scim-group-attr-type": {"v_range": [["7.6.3", ""]], "choices": ["display-name", "external-id"], "type": "str"},
             "require-signed-resp-and-asrt": {
-                "v_range": [["7.0.15", "7.0.16"], ["7.4.9", "7.4.10"], ["7.6.5", ""]],
+                "v_range": [["7.0.15", "7.0.16"], ["7.4.9", "7.4.11"], ["7.6.5", ""]],
                 "choices": ["disable", "enable"],
                 "type": "str"
             },
-            "scim-user-attr-type": {"v_range": [["7.6.4", ""]], "choices": ["display-name", "external-id", "user-name", "email"], "type": "str"}
+            "scim-user-attr-type": {"v_range": [["7.6.4", ""]], "choices": ["display-name", "external-id", "user-name", "email"], "type": "str"},
+            "fabric-force-sync": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object-source": {"v_range": [["8.0.0", ""]], "choices": ["member", "local", "root"], "type": "str"},
+            "realm": {"v_range": [["8.0.0", ""]], "type": "str"},
+            "service-provider-address": {"v_range": [["8.0.0", ""]], "type": "str"},
+            "sso-app-id": {"v_range": [["8.0.0", ""]], "type": "str"},
+            "type": {"v_range": [["8.0.0", ""]], "choices": ["custom", "fortiidentity-cloud"], "type": "str"},
+            "user-source": {"v_range": [["8.0.0", ""]], "type": "str"},
+            "uuid": {"v_range": [["8.0.0", ""]], "type": "str"}
         }
     },
     "user_scim": {
@@ -36333,7 +37791,7 @@ SCHEMA_DATA = '''
                     "domain-name-stripping": {"v_range": [["7.6.0", ""]], "choices": ["disable", "enable"], "type": "str"},
                     "local-lan-partition": {"v_range": [["7.6.0", ""]], "choices": ["disable", "enable"], "type": "str"},
                     "_intf_role": {
-                        "v_range": [["7.2.10", "7.2.12"], ["7.4.6", "7.4.10"], ["7.6.2", ""]],
+                        "v_range": [["7.2.10", "7.2.12"], ["7.4.6", "7.4.11"], ["7.6.2", ""]],
                         "choices": ["lan", "wan", "dmz", "undefined"],
                         "type": "str"
                     },
@@ -36341,35 +37799,39 @@ SCHEMA_DATA = '''
                     "external-pre-auth": {"v_range": [["7.6.2", ""]], "choices": ["disable", "enable"], "type": "str"},
                     "pre-auth": {"v_range": [["7.6.2", ""]], "choices": ["disable", "enable"], "type": "str"},
                     "_intf_ip6-send-adv": {
-                        "v_range": [["7.2.10", "7.2.12"], ["7.4.7", "7.4.10"], ["7.6.3", ""]],
+                        "v_range": [["7.2.10", "7.2.12"], ["7.4.7", "7.4.11"], ["7.6.3", ""]],
                         "choices": ["disable", "enable"],
                         "type": "str"
                     },
                     "ip6-prefix-list": {
-                        "v_range": [["7.2.10", "7.2.12"], ["7.4.7", "7.4.10"], ["7.6.3", ""]],
+                        "v_range": [["7.2.10", "7.2.12"], ["7.4.7", "7.4.11"], ["7.6.3", ""]],
                         "type": "list",
                         "options": {
                             "autonomous-flag": {
-                                "v_range": [["7.2.10", "7.2.12"], ["7.4.7", "7.4.10"], ["7.6.3", ""]],
+                                "v_range": [["7.2.10", "7.2.12"], ["7.4.7", "7.4.11"], ["7.6.3", ""]],
                                 "choices": ["disable", "enable"],
                                 "type": "str"
                             },
-                            "dnssl": {"v_range": [["7.2.10", "7.2.12"], ["7.4.7", "7.4.10"], ["7.6.3", ""]], "type": "raw"},
+                            "dnssl": {"v_range": [["7.2.10", "7.2.12"], ["7.4.7", "7.4.11"], ["7.6.3", ""]], "type": "raw"},
                             "onlink-flag": {
-                                "v_range": [["7.2.10", "7.2.12"], ["7.4.7", "7.4.10"], ["7.6.3", ""]],
+                                "v_range": [["7.2.10", "7.2.12"], ["7.4.7", "7.4.11"], ["7.6.3", ""]],
                                 "choices": ["disable", "enable"],
                                 "type": "str"
                             },
-                            "preferred-life-time": {"v_range": [["7.2.10", "7.2.12"], ["7.4.7", "7.4.10"], ["7.6.3", ""]], "type": "int"},
-                            "prefix": {"v_range": [["7.2.10", "7.2.12"], ["7.4.7", "7.4.10"], ["7.6.3", ""]], "type": "str"},
-                            "rdnss": {"v_range": [["7.2.10", "7.2.12"], ["7.4.7", "7.4.10"], ["7.6.3", ""]], "type": "raw"},
-                            "valid-life-time": {"v_range": [["7.2.10", "7.2.12"], ["7.4.7", "7.4.10"], ["7.6.3", ""]], "type": "int"}
+                            "preferred-life-time": {"v_range": [["7.2.10", "7.2.12"], ["7.4.7", "7.4.11"], ["7.6.3", ""]], "type": "int"},
+                            "prefix": {"v_range": [["7.2.10", "7.2.12"], ["7.4.7", "7.4.11"], ["7.6.3", ""]], "type": "str"},
+                            "rdnss": {"v_range": [["7.2.10", "7.2.12"], ["7.4.7", "7.4.11"], ["7.6.3", ""]], "type": "raw"},
+                            "valid-life-time": {"v_range": [["7.2.10", "7.2.12"], ["7.4.7", "7.4.11"], ["7.6.3", ""]], "type": "int"}
                         },
                         "elements": "dict"
                     },
                     "_intf_vrf": {"v_range": [["7.6.3", ""]], "type": "int"},
                     "captive-network-assistant-bypass": {"v_range": [["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
-                    "mlo": {"v_range": [["7.6.5", ""]], "choices": ["disable", "enable"], "type": "str"}
+                    "mlo": {"v_range": [["7.6.5", ""]], "choices": ["disable", "enable"], "type": "str"},
+                    "dhcp-option82-delimiter": {"v_range": [["7.6.7", ""]], "type": "str"},
+                    "captive-portal-dynamic-redirect-url": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+                    "radius-auth-surviv-intv": {"v_range": [["8.0.0", ""]], "type": "int"},
+                    "radius-auth-survivability": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"}
                 },
                 "elements": "dict"
             },
@@ -36410,17 +37872,18 @@ SCHEMA_DATA = '''
             "max-clients-ap": {"type": "int"},
             "me-disable-thresh": {"type": "int"},
             "mesh-backhaul": {"choices": ["disable", "enable"], "type": "str"},
-            "mpsk": {"choices": ["disable", "enable"], "type": "str"},
-            "mpsk-concurrent-clients": {"type": "int"},
+            "mpsk": {"v_range": [["6.0.0", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
+            "mpsk-concurrent-clients": {"v_range": [["6.0.0", "7.6.7"]], "type": "int"},
             "mpsk-key": {
+                "v_range": [["6.0.0", "7.6.7"]],
                 "no_log": true,
                 "type": "list",
                 "options": {
-                    "comment": {"type": "str"},
-                    "concurrent-clients": {"type": "str"},
-                    "key-name": {"no_log": true, "type": "str"},
-                    "passphrase": {"no_log": true, "type": "raw"},
-                    "mpsk-schedules": {"v_range": [["6.2.2", ""]], "type": "raw"}
+                    "comment": {"v_range": [["6.0.0", "7.6.7"]], "type": "str"},
+                    "concurrent-clients": {"v_range": [["6.0.0", "7.6.7"]], "type": "str"},
+                    "key-name": {"v_range": [["6.0.0", "7.6.7"]], "no_log": true, "type": "str"},
+                    "passphrase": {"v_range": [["6.0.0", "7.6.7"]], "no_log": true, "type": "raw"},
+                    "mpsk-schedules": {"v_range": [["6.2.2", "7.6.7"]], "type": "raw"}
                 },
                 "elements": "dict"
             },
@@ -36676,39 +38139,43 @@ SCHEMA_DATA = '''
             "domain-name-stripping": {"v_range": [["7.6.0", ""]], "choices": ["disable", "enable"], "type": "str"},
             "local-lan-partition": {"v_range": [["7.6.0", ""]], "choices": ["disable", "enable"], "type": "str"},
             "_intf_role": {
-                "v_range": [["7.2.10", "7.2.12"], ["7.4.6", "7.4.10"], ["7.6.2", ""]],
+                "v_range": [["7.2.10", "7.2.12"], ["7.4.6", "7.4.11"], ["7.6.2", ""]],
                 "choices": ["lan", "wan", "dmz", "undefined"],
                 "type": "str"
             },
             "called-station-id-type": {"v_range": [["7.6.2", ""]], "choices": ["mac", "ip", "apname"], "type": "str"},
             "external-pre-auth": {"v_range": [["7.6.2", ""]], "choices": ["disable", "enable"], "type": "str"},
             "pre-auth": {"v_range": [["7.6.2", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "_intf_ip6-send-adv": {"v_range": [["7.2.10", "7.2.12"], ["7.4.7", "7.4.10"], ["7.6.3", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "_intf_ip6-send-adv": {"v_range": [["7.2.10", "7.2.12"], ["7.4.7", "7.4.11"], ["7.6.3", ""]], "choices": ["disable", "enable"], "type": "str"},
             "ip6-prefix-list": {
-                "v_range": [["7.2.10", "7.2.12"], ["7.4.7", "7.4.10"], ["7.6.3", ""]],
+                "v_range": [["7.2.10", "7.2.12"], ["7.4.7", "7.4.11"], ["7.6.3", ""]],
                 "type": "list",
                 "options": {
                     "autonomous-flag": {
-                        "v_range": [["7.2.10", "7.2.12"], ["7.4.7", "7.4.10"], ["7.6.3", ""]],
+                        "v_range": [["7.2.10", "7.2.12"], ["7.4.7", "7.4.11"], ["7.6.3", ""]],
                         "choices": ["disable", "enable"],
                         "type": "str"
                     },
-                    "dnssl": {"v_range": [["7.2.10", "7.2.12"], ["7.4.7", "7.4.10"], ["7.6.3", ""]], "type": "raw"},
+                    "dnssl": {"v_range": [["7.2.10", "7.2.12"], ["7.4.7", "7.4.11"], ["7.6.3", ""]], "type": "raw"},
                     "onlink-flag": {
-                        "v_range": [["7.2.10", "7.2.12"], ["7.4.7", "7.4.10"], ["7.6.3", ""]],
+                        "v_range": [["7.2.10", "7.2.12"], ["7.4.7", "7.4.11"], ["7.6.3", ""]],
                         "choices": ["disable", "enable"],
                         "type": "str"
                     },
-                    "preferred-life-time": {"v_range": [["7.2.10", "7.2.12"], ["7.4.7", "7.4.10"], ["7.6.3", ""]], "type": "int"},
-                    "prefix": {"v_range": [["7.2.10", "7.2.12"], ["7.4.7", "7.4.10"], ["7.6.3", ""]], "type": "str"},
-                    "rdnss": {"v_range": [["7.2.10", "7.2.12"], ["7.4.7", "7.4.10"], ["7.6.3", ""]], "type": "raw"},
-                    "valid-life-time": {"v_range": [["7.2.10", "7.2.12"], ["7.4.7", "7.4.10"], ["7.6.3", ""]], "type": "int"}
+                    "preferred-life-time": {"v_range": [["7.2.10", "7.2.12"], ["7.4.7", "7.4.11"], ["7.6.3", ""]], "type": "int"},
+                    "prefix": {"v_range": [["7.2.10", "7.2.12"], ["7.4.7", "7.4.11"], ["7.6.3", ""]], "type": "str"},
+                    "rdnss": {"v_range": [["7.2.10", "7.2.12"], ["7.4.7", "7.4.11"], ["7.6.3", ""]], "type": "raw"},
+                    "valid-life-time": {"v_range": [["7.2.10", "7.2.12"], ["7.4.7", "7.4.11"], ["7.6.3", ""]], "type": "int"}
                 },
                 "elements": "dict"
             },
             "_intf_vrf": {"v_range": [["7.6.3", ""]], "type": "int"},
             "captive-network-assistant-bypass": {"v_range": [["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "mlo": {"v_range": [["7.6.5", ""]], "choices": ["disable", "enable"], "type": "str"}
+            "mlo": {"v_range": [["7.6.5", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "dhcp-option82-delimiter": {"v_range": [["7.6.7", ""]], "type": "str"},
+            "captive-portal-dynamic-redirect-url": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "radius-auth-surviv-intv": {"v_range": [["8.0.0", ""]], "type": "int"},
+            "radius-auth-survivability": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"}
         }
     },
     "vap_dynamicmapping": {
@@ -37025,39 +38492,43 @@ SCHEMA_DATA = '''
             "domain-name-stripping": {"v_range": [["7.6.0", ""]], "choices": ["disable", "enable"], "type": "str"},
             "local-lan-partition": {"v_range": [["7.6.0", ""]], "choices": ["disable", "enable"], "type": "str"},
             "_intf_role": {
-                "v_range": [["7.2.10", "7.2.12"], ["7.4.6", "7.4.10"], ["7.6.2", ""]],
+                "v_range": [["7.2.10", "7.2.12"], ["7.4.6", "7.4.11"], ["7.6.2", ""]],
                 "choices": ["lan", "wan", "dmz", "undefined"],
                 "type": "str"
             },
             "called-station-id-type": {"v_range": [["7.6.2", ""]], "choices": ["mac", "ip", "apname"], "type": "str"},
             "external-pre-auth": {"v_range": [["7.6.2", ""]], "choices": ["disable", "enable"], "type": "str"},
             "pre-auth": {"v_range": [["7.6.2", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "_intf_ip6-send-adv": {"v_range": [["7.2.10", "7.2.12"], ["7.4.7", "7.4.10"], ["7.6.3", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "_intf_ip6-send-adv": {"v_range": [["7.2.10", "7.2.12"], ["7.4.7", "7.4.11"], ["7.6.3", ""]], "choices": ["disable", "enable"], "type": "str"},
             "ip6-prefix-list": {
-                "v_range": [["7.2.10", "7.2.12"], ["7.4.7", "7.4.10"], ["7.6.3", ""]],
+                "v_range": [["7.2.10", "7.2.12"], ["7.4.7", "7.4.11"], ["7.6.3", ""]],
                 "type": "list",
                 "options": {
                     "autonomous-flag": {
-                        "v_range": [["7.2.10", "7.2.12"], ["7.4.7", "7.4.10"], ["7.6.3", ""]],
+                        "v_range": [["7.2.10", "7.2.12"], ["7.4.7", "7.4.11"], ["7.6.3", ""]],
                         "choices": ["disable", "enable"],
                         "type": "str"
                     },
-                    "dnssl": {"v_range": [["7.2.10", "7.2.12"], ["7.4.7", "7.4.10"], ["7.6.3", ""]], "type": "raw"},
+                    "dnssl": {"v_range": [["7.2.10", "7.2.12"], ["7.4.7", "7.4.11"], ["7.6.3", ""]], "type": "raw"},
                     "onlink-flag": {
-                        "v_range": [["7.2.10", "7.2.12"], ["7.4.7", "7.4.10"], ["7.6.3", ""]],
+                        "v_range": [["7.2.10", "7.2.12"], ["7.4.7", "7.4.11"], ["7.6.3", ""]],
                         "choices": ["disable", "enable"],
                         "type": "str"
                     },
-                    "preferred-life-time": {"v_range": [["7.2.10", "7.2.12"], ["7.4.7", "7.4.10"], ["7.6.3", ""]], "type": "int"},
-                    "prefix": {"v_range": [["7.2.10", "7.2.12"], ["7.4.7", "7.4.10"], ["7.6.3", ""]], "type": "str"},
-                    "rdnss": {"v_range": [["7.2.10", "7.2.12"], ["7.4.7", "7.4.10"], ["7.6.3", ""]], "type": "raw"},
-                    "valid-life-time": {"v_range": [["7.2.10", "7.2.12"], ["7.4.7", "7.4.10"], ["7.6.3", ""]], "type": "int"}
+                    "preferred-life-time": {"v_range": [["7.2.10", "7.2.12"], ["7.4.7", "7.4.11"], ["7.6.3", ""]], "type": "int"},
+                    "prefix": {"v_range": [["7.2.10", "7.2.12"], ["7.4.7", "7.4.11"], ["7.6.3", ""]], "type": "str"},
+                    "rdnss": {"v_range": [["7.2.10", "7.2.12"], ["7.4.7", "7.4.11"], ["7.6.3", ""]], "type": "raw"},
+                    "valid-life-time": {"v_range": [["7.2.10", "7.2.12"], ["7.4.7", "7.4.11"], ["7.6.3", ""]], "type": "int"}
                 },
                 "elements": "dict"
             },
             "_intf_vrf": {"v_range": [["7.6.3", ""]], "type": "int"},
             "captive-network-assistant-bypass": {"v_range": [["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "mlo": {"v_range": [["7.6.5", ""]], "choices": ["disable", "enable"], "type": "str"}
+            "mlo": {"v_range": [["7.6.5", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "dhcp-option82-delimiter": {"v_range": [["7.6.7", ""]], "type": "str"},
+            "captive-portal-dynamic-redirect-url": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "radius-auth-surviv-intv": {"v_range": [["8.0.0", ""]], "type": "int"},
+            "radius-auth-survivability": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"}
         }
     },
     "vap_macfilterlist": {
@@ -37067,11 +38538,11 @@ SCHEMA_DATA = '''
     "vap_mpskkey": {
         "stated": true,
         "options": {
-            "comment": {"type": "str"},
-            "concurrent-clients": {"type": "str"},
-            "key-name": {"required": true, "no_log": true, "type": "str"},
-            "passphrase": {"no_log": true, "type": "raw"},
-            "mpsk-schedules": {"v_range": [["6.2.2", ""]], "type": "raw"}
+            "comment": {"v_range": [["6.0.0", "7.6.7"]], "type": "str"},
+            "concurrent-clients": {"v_range": [["6.0.0", "7.6.7"]], "type": "str"},
+            "key-name": {"v_range": [["6.0.0", "7.6.7"]], "required": true, "no_log": true, "type": "str"},
+            "passphrase": {"v_range": [["6.0.0", "7.6.7"]], "no_log": true, "type": "raw"},
+            "mpsk-schedules": {"v_range": [["6.2.2", "7.6.7"]], "type": "raw"}
         }
     },
     "vap_portalmessageoverrides": {
@@ -37170,7 +38641,11 @@ SCHEMA_DATA = '''
                     "type": {"v_range": [["7.4.2", ""]], "choices": ["category", "channel", "title", "description"], "type": "str"}
                 },
                 "elements": "dict"
-            }
+            },
+            "fabric-force-sync": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object-source": {"v_range": [["8.0.0", ""]], "choices": ["member", "local", "root"], "type": "str"},
+            "uuid": {"v_range": [["8.0.0", ""]], "type": "str"}
         }
     },
     "videofilter_profile_filters": {
@@ -37268,7 +38743,11 @@ SCHEMA_DATA = '''
             },
             "log": {"v_range": [["7.4.1", ""]], "choices": ["disable", "enable"], "type": "str"},
             "name": {"v_range": [["7.4.1", ""]], "required": true, "type": "str"},
-            "severity": {"v_range": [["7.4.1", ""]], "type": "list", "choices": ["low", "medium", "high", "critical", "info"], "elements": "str"}
+            "severity": {"v_range": [["7.4.1", ""]], "type": "list", "choices": ["low", "medium", "high", "critical", "info"], "elements": "str"},
+            "fabric-force-sync": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object-source": {"v_range": [["8.0.0", ""]], "choices": ["member", "local", "root"], "type": "str"},
+            "uuid": {"v_range": [["8.0.0", ""]], "type": "str"}
         }
     },
     "virtualpatch_profile_exemption": {
@@ -37468,7 +38947,11 @@ SCHEMA_DATA = '''
                     "max-msg-size-action": {"v_range": [["7.0.2", ""]], "choices": ["pass", "block", "reset", "monitor"], "type": "str"},
                     "status": {"v_range": [["7.0.2", ""]], "choices": ["disable", "enable"], "type": "str"}
                 }
-            }
+            },
+            "fabric-force-sync": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object-source": {"v_range": [["8.0.0", ""]], "choices": ["member", "local", "root"], "type": "str"},
+            "uuid": {"v_range": [["8.0.0", ""]], "type": "str"}
         }
     },
     "voip_profile_msrp": {
@@ -37660,7 +39143,8 @@ SCHEMA_DATA = '''
             "range": {"v_range": [["7.6.4", ""]], "choices": ["global", "vdom"], "type": "str"},
             "source": {"v_range": [["7.6.4", ""]], "choices": ["factory", "user", "bundle"], "type": "str"},
             "tmp-cert-file": {"v_range": [["7.6.4", ""]], "type": "str"},
-            "vendor": {"v_range": [["7.6.4", ""]], "choices": ["unknown", "gch"], "type": "str"}
+            "vendor": {"v_range": [["7.6.4", ""]], "choices": ["unknown", "gch"], "type": "str"},
+            "scep-url": {"v_range": [["7.6.7", ""]], "type": "str"}
         }
     },
     "vpn_certificate_ocspserver": {
@@ -37698,7 +39182,24 @@ SCHEMA_DATA = '''
                     "latency-threshold": {"v_range": [["7.2.0", ""]], "type": "int"},
                     "packet-loss-threshold": {"v_range": [["7.2.0", ""]], "type": "int"},
                     "redundant": {"v_range": [["7.2.0", ""]], "type": "int"},
-                    "seqno": {"v_range": [["7.2.0", ""]], "type": "int"}
+                    "seqno": {"v_range": [["7.2.0", ""]], "type": "int"},
+                    "bandwidth-bi-threshold-negate": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+                    "bandwidth-down-threshold-negate": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+                    "bandwidth-up-threshold-negate": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+                    "latency-threshold-negate": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+                    "packet-loss-threshold-negate": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+                    "tos": {
+                        "v_range": [["8.0.0", ""]],
+                        "type": "list",
+                        "options": {
+                            "base": {"v_range": [["8.0.0", ""]], "type": "int"},
+                            "redundant": {"v_range": [["8.0.0", ""]], "type": "int"},
+                            "seqno": {"v_range": [["8.0.0", ""]], "type": "int"},
+                            "tos": {"v_range": [["8.0.0", ""]], "type": "str"},
+                            "tos-mask": {"v_range": [["8.0.0", ""]], "type": "str"}
+                        },
+                        "elements": "dict"
+                    }
                 },
                 "elements": "dict"
             },
@@ -37715,7 +39216,34 @@ SCHEMA_DATA = '''
             "latency-threshold": {"v_range": [["7.2.0", ""]], "type": "int"},
             "packet-loss-threshold": {"v_range": [["7.2.0", ""]], "type": "int"},
             "redundant": {"v_range": [["7.2.0", ""]], "type": "int"},
-            "seqno": {"v_range": [["7.2.0", ""]], "type": "int"}
+            "seqno": {"v_range": [["7.2.0", ""]], "type": "int"},
+            "bandwidth-bi-threshold-negate": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "bandwidth-down-threshold-negate": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "bandwidth-up-threshold-negate": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "latency-threshold-negate": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "packet-loss-threshold-negate": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "tos": {
+                "v_range": [["8.0.0", ""]],
+                "type": "list",
+                "options": {
+                    "base": {"v_range": [["8.0.0", ""]], "type": "int"},
+                    "redundant": {"v_range": [["8.0.0", ""]], "type": "int"},
+                    "seqno": {"v_range": [["8.0.0", ""]], "type": "int"},
+                    "tos": {"v_range": [["8.0.0", ""]], "type": "str"},
+                    "tos-mask": {"v_range": [["8.0.0", ""]], "type": "str"}
+                },
+                "elements": "dict"
+            }
+        }
+    },
+    "vpn_ipsec_fec_mappings_tos": {
+        "stated": true,
+        "options": {
+            "base": {"v_range": [["8.0.0", ""]], "type": "int"},
+            "redundant": {"v_range": [["8.0.0", ""]], "type": "int"},
+            "seqno": {"v_range": [["8.0.0", ""]], "type": "int"},
+            "tos": {"v_range": [["8.0.0", ""]], "type": "str"},
+            "tos-mask": {"v_range": [["8.0.0", ""]], "type": "str"}
         }
     },
     "vpn_ipsec_manualkey": {
@@ -37747,43 +39275,71 @@ SCHEMA_DATA = '''
             "addke1": {
                 "v_range": [["7.6.4", ""]],
                 "type": "list",
-                "choices": ["0", "1080", "1081", "1082", "1083", "1084", "1085", "1089", "1090", "1091", "1092", "1093", "1094", "35", "36", "37"],
+                "choices": [
+                    "0", "1080", "1081", "1082", "1083", "1084", "1085", "1089", "1090", "1091", "1092", "1093", "1094", "35", "36", "37", "none",
+                    "ml-kem-512", "ml-kem-768", "ml-kem-1024", "kyber512", "kyber768", "kyber1024", "frodo-l1", "frodo-l3", "frodo-l5", "bike-l1",
+                    "bike-l3", "bike-l5", "hqc128", "hqc192", "hqc256"
+                ],
                 "elements": "str"
             },
             "addke2": {
                 "v_range": [["7.6.4", ""]],
                 "type": "list",
-                "choices": ["0", "1080", "1081", "1082", "1083", "1084", "1085", "1089", "1090", "1091", "1092", "1093", "1094", "35", "36", "37"],
+                "choices": [
+                    "0", "1080", "1081", "1082", "1083", "1084", "1085", "1089", "1090", "1091", "1092", "1093", "1094", "35", "36", "37", "none",
+                    "ml-kem-512", "ml-kem-768", "ml-kem-1024", "kyber512", "kyber768", "kyber1024", "frodo-l1", "frodo-l3", "frodo-l5", "bike-l1",
+                    "bike-l3", "bike-l5", "hqc128", "hqc192", "hqc256"
+                ],
                 "elements": "str"
             },
             "addke3": {
                 "v_range": [["7.6.4", ""]],
                 "type": "list",
-                "choices": ["0", "1080", "1081", "1082", "1083", "1084", "1085", "1089", "1090", "1091", "1092", "1093", "1094", "35", "36", "37"],
+                "choices": [
+                    "0", "1080", "1081", "1082", "1083", "1084", "1085", "1089", "1090", "1091", "1092", "1093", "1094", "35", "36", "37", "none",
+                    "ml-kem-512", "ml-kem-768", "ml-kem-1024", "kyber512", "kyber768", "kyber1024", "frodo-l1", "frodo-l3", "frodo-l5", "bike-l1",
+                    "bike-l3", "bike-l5", "hqc128", "hqc192", "hqc256"
+                ],
                 "elements": "str"
             },
             "addke4": {
                 "v_range": [["7.6.4", ""]],
                 "type": "list",
-                "choices": ["0", "1080", "1081", "1082", "1083", "1084", "1085", "1089", "1090", "1091", "1092", "1093", "1094", "35", "36", "37"],
+                "choices": [
+                    "0", "1080", "1081", "1082", "1083", "1084", "1085", "1089", "1090", "1091", "1092", "1093", "1094", "35", "36", "37", "none",
+                    "ml-kem-512", "ml-kem-768", "ml-kem-1024", "kyber512", "kyber768", "kyber1024", "frodo-l1", "frodo-l3", "frodo-l5", "bike-l1",
+                    "bike-l3", "bike-l5", "hqc128", "hqc192", "hqc256"
+                ],
                 "elements": "str"
             },
             "addke5": {
                 "v_range": [["7.6.4", ""]],
                 "type": "list",
-                "choices": ["0", "1080", "1081", "1082", "1083", "1084", "1085", "1089", "1090", "1091", "1092", "1093", "1094", "35", "36", "37"],
+                "choices": [
+                    "0", "1080", "1081", "1082", "1083", "1084", "1085", "1089", "1090", "1091", "1092", "1093", "1094", "35", "36", "37", "none",
+                    "ml-kem-512", "ml-kem-768", "ml-kem-1024", "kyber512", "kyber768", "kyber1024", "frodo-l1", "frodo-l3", "frodo-l5", "bike-l1",
+                    "bike-l3", "bike-l5", "hqc128", "hqc192", "hqc256"
+                ],
                 "elements": "str"
             },
             "addke6": {
                 "v_range": [["7.6.4", ""]],
                 "type": "list",
-                "choices": ["0", "1080", "1081", "1082", "1083", "1084", "1085", "1089", "1090", "1091", "1092", "1093", "1094", "35", "36", "37"],
+                "choices": [
+                    "0", "1080", "1081", "1082", "1083", "1084", "1085", "1089", "1090", "1091", "1092", "1093", "1094", "35", "36", "37", "none",
+                    "ml-kem-512", "ml-kem-768", "ml-kem-1024", "kyber512", "kyber768", "kyber1024", "frodo-l1", "frodo-l3", "frodo-l5", "bike-l1",
+                    "bike-l3", "bike-l5", "hqc128", "hqc192", "hqc256"
+                ],
                 "elements": "str"
             },
             "addke7": {
                 "v_range": [["7.6.4", ""]],
                 "type": "list",
-                "choices": ["0", "1080", "1081", "1082", "1083", "1084", "1085", "1089", "1090", "1091", "1092", "1093", "1094", "35", "36", "37"],
+                "choices": [
+                    "0", "1080", "1081", "1082", "1083", "1084", "1085", "1089", "1090", "1091", "1092", "1093", "1094", "35", "36", "37", "none",
+                    "ml-kem-512", "ml-kem-768", "ml-kem-1024", "kyber512", "kyber768", "kyber1024", "frodo-l1", "frodo-l3", "frodo-l5", "bike-l1",
+                    "bike-l3", "bike-l5", "hqc128", "hqc192", "hqc256"
+                ],
                 "elements": "str"
             },
             "assign-ip": {"v_range": [["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
@@ -37936,7 +39492,7 @@ SCHEMA_DATA = '''
                     "aria192-sha384", "aria192-sha512", "aria256-md5", "aria256-sha1", "aria256-sha256", "aria256-sha384", "aria256-sha512", "seed-md5",
                     "seed-sha1", "seed-sha256", "seed-sha384", "seed-sha512", "aes128gcm-prfsha1", "aes128gcm-prfsha256", "aes128gcm-prfsha384",
                     "aes128gcm-prfsha512", "aes256gcm-prfsha1", "aes256gcm-prfsha256", "aes256gcm-prfsha384", "aes256gcm-prfsha512",
-                    "chacha20poly1305-prfsha1", "chacha20poly1305-prfsha256", "chacha20poly1305-prfsha384", "chacha20poly1305-prfsha512"
+                    "chacha20poly1305-prfsha1", "chacha20poly1305-prfsha256", "chacha20poly1305-prfsha384", "chacha20poly1305-prfsha512", "sm4-sm3"
                 ],
                 "type": "str"
             },
@@ -37965,7 +39521,12 @@ SCHEMA_DATA = '''
             "save-password": {"v_range": [["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
             "send-cert-chain": {"v_range": [["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
             "shared-idle-timeout": {"v_range": [["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "signature-hash-alg": {"v_range": [["7.6.4", ""]], "type": "list", "choices": ["sha1", "sha2-256", "sha2-384", "sha2-512"], "elements": "str"},
+            "signature-hash-alg": {
+                "v_range": [["7.6.4", ""]],
+                "type": "list",
+                "choices": ["sha1", "sha2-256", "sha2-384", "sha2-512", "identity"],
+                "elements": "str"
+            },
             "split-include-service": {"v_range": [["7.6.4", ""]], "type": "list", "elements": "str"},
             "suite-b": {"v_range": [["7.6.4", ""]], "choices": ["disable", "suite-b-gcm-128", "suite-b-gcm-256"], "type": "str"},
             "transit-gateway": {"v_range": [["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
@@ -37978,13 +39539,19 @@ SCHEMA_DATA = '''
                 "choices": [
                     "custom", "dialup-forticlient", "dialup-ios", "dialup-android", "dialup-cisco", "static-fortigate", "static-cisco", "dialup-windows",
                     "dialup-fortigate", "dialup-cisco-fw", "simplified-static-fortigate", "hub-fortigate-auto-discovery",
-                    "spoke-fortigate-auto-discovery", "fabric-overlay-orchestrator"
+                    "spoke-fortigate-auto-discovery", "fabric-overlay-orchestrator", "dialup-ikev2", "dialup-l2tp", "cloud-sdn-orchestration"
                 ],
                 "type": "str"
             },
             "xauthtype": {"v_range": [["7.6.4", ""]], "choices": ["disable", "client", "pap", "chap", "auto"], "type": "str"},
             "fallback-tcp-threshold": {"v_range": [["7.6.4", ""]], "type": "int"},
-            "forticlient-enforcement": {"v_range": [["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"}
+            "forticlient-enforcement": {"v_range": [["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "ztna-cert-scim-authorization": {
+                "v_range": [["7.6.7", "7.6.7"]],
+                "choices": ["user-name", "display-name", "external-id", "email", "disable"],
+                "type": "str"
+            },
+            "fec-separate-redundant-tunnel": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"}
         }
     },
     "vpn_ipsec_phase1_ipv4excluderange": {
@@ -38133,7 +39700,7 @@ SCHEMA_DATA = '''
             "port-precedence": {"v_range": [["6.2.6", "6.2.13"], ["6.4.2", ""]], "choices": ["disable", "enable"], "type": "str"},
             "reqclientcert": {"v_range": [["6.2.6", "6.2.13"], ["6.4.2", ""]], "choices": ["disable", "enable"], "type": "str"},
             "route-source-interface": {
-                "v_range": [["6.2.6", "6.2.13"], ["6.4.2", "7.2.0"], ["7.4.8", "7.4.10"]],
+                "v_range": [["6.2.6", "6.2.13"], ["6.4.2", "7.2.0"], ["7.4.8", "7.4.11"]],
                 "choices": ["disable", "enable"],
                 "type": "str"
             },
@@ -38147,9 +39714,9 @@ SCHEMA_DATA = '''
             "ssl-insert-empty-fragment": {"v_range": [["6.2.6", "6.2.13"], ["6.4.2", ""]], "choices": ["disable", "enable"], "type": "str"},
             "ssl-max-proto-ver": {"v_range": [["6.2.6", "6.2.13"], ["6.4.2", ""]], "choices": ["tls1-0", "tls1-1", "tls1-2", "tls1-3"], "type": "str"},
             "ssl-min-proto-ver": {"v_range": [["6.2.6", "6.2.13"], ["6.4.2", ""]], "choices": ["tls1-0", "tls1-1", "tls1-2", "tls1-3"], "type": "str"},
-            "tlsv1-0": {"v_range": [["6.2.6", "6.2.13"], ["6.4.2", "7.2.1"], ["7.4.8", "7.4.10"]], "choices": ["disable", "enable"], "type": "str"},
-            "tlsv1-1": {"v_range": [["6.2.6", "6.2.13"], ["6.4.2", "7.2.1"], ["7.4.8", "7.4.10"]], "choices": ["disable", "enable"], "type": "str"},
-            "tlsv1-2": {"v_range": [["6.2.6", "6.2.13"], ["6.4.2", "7.2.1"], ["7.4.8", "7.4.10"]], "choices": ["disable", "enable"], "type": "str"},
+            "tlsv1-0": {"v_range": [["6.2.6", "6.2.13"], ["6.4.2", "7.2.1"], ["7.4.8", "7.4.11"]], "choices": ["disable", "enable"], "type": "str"},
+            "tlsv1-1": {"v_range": [["6.2.6", "6.2.13"], ["6.4.2", "7.2.1"], ["7.4.8", "7.4.11"]], "choices": ["disable", "enable"], "type": "str"},
+            "tlsv1-2": {"v_range": [["6.2.6", "6.2.13"], ["6.4.2", "7.2.1"], ["7.4.8", "7.4.11"]], "choices": ["disable", "enable"], "type": "str"},
             "tlsv1-3": {"v_range": [["6.2.6", "6.2.13"], ["6.4.2", "7.2.0"]], "choices": ["disable", "enable"], "type": "str"},
             "transform-backward-slashes": {"v_range": [["6.4.2", ""]], "choices": ["disable", "enable"], "type": "str"},
             "tunnel-connect-without-reauth": {"v_range": [["6.2.6", "6.2.13"], ["6.4.2", ""]], "choices": ["disable", "enable"], "type": "str"},
@@ -38164,7 +39731,7 @@ SCHEMA_DATA = '''
             "x-content-type-options": {"v_range": [["6.2.6", "6.2.13"], ["6.4.2", ""]], "choices": ["disable", "enable"], "type": "str"},
             "sslv3": {"v_range": [["6.2.6", "6.2.13"], ["6.4.2", "6.4.15"]], "choices": ["disable", "enable"], "type": "str"},
             "ssl-big-buffer": {
-                "v_range": [["6.2.6", "6.2.13"], ["6.4.2", "6.4.15"], ["7.4.8", "7.4.10"]],
+                "v_range": [["6.2.6", "6.2.13"], ["6.4.2", "6.4.15"], ["7.4.8", "7.4.11"]],
                 "choices": ["disable", "enable"],
                 "type": "str"
             },
@@ -38352,7 +39919,7 @@ SCHEMA_DATA = '''
                     "aria192-sha384", "aria192-sha512", "aria256-md5", "aria256-sha1", "aria256-sha256", "aria256-sha384", "aria256-sha512", "seed-md5",
                     "seed-sha1", "seed-sha256", "seed-sha384", "seed-sha512", "aes128gcm-prfsha1", "aes128gcm-prfsha256", "aes128gcm-prfsha384",
                     "aes128gcm-prfsha512", "aes256gcm-prfsha1", "aes256gcm-prfsha256", "aes256gcm-prfsha384", "aes256gcm-prfsha512",
-                    "chacha20poly1305-prfsha1", "chacha20poly1305-prfsha256", "chacha20poly1305-prfsha384", "chacha20poly1305-prfsha512"
+                    "chacha20poly1305-prfsha1", "chacha20poly1305-prfsha256", "chacha20poly1305-prfsha384", "chacha20poly1305-prfsha512", "sm4-sm3"
                 ],
                 "type": "str"
             },
@@ -38375,7 +39942,7 @@ SCHEMA_DATA = '''
                     "aria128-null", "aria128-md5", "aria128-sha1", "aria128-sha256", "aria128-sha384", "aria128-sha512", "aria192-null", "aria192-md5",
                     "aria192-sha1", "aria192-sha256", "aria192-sha384", "aria192-sha512", "aria256-null", "aria256-md5", "aria256-sha1",
                     "aria256-sha256", "aria256-sha384", "aria256-sha512", "seed-null", "seed-md5", "seed-sha1", "seed-sha256", "seed-sha384",
-                    "seed-sha512", "aes128gcm", "aes256gcm", "chacha20poly1305"
+                    "seed-sha512", "aes128gcm", "aes256gcm", "chacha20poly1305", "sm4-sm3"
                 ],
                 "type": "str"
             },
@@ -38555,7 +40122,7 @@ SCHEMA_DATA = '''
             "redir-url": {"type": "str"},
             "save-password": {"choices": ["disable", "enable"], "type": "str"},
             "service-restriction": {"choices": ["disable", "enable"], "type": "str"},
-            "skip-check-for-unsupported-browser": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.10"]], "choices": ["disable", "enable"], "type": "str"},
+            "skip-check-for-unsupported-browser": {"v_range": [["6.0.0", "7.2.1"], ["7.4.8", "7.4.11"]], "choices": ["disable", "enable"], "type": "str"},
             "skip-check-for-unsupported-os": {"choices": ["disable", "enable"], "type": "str"},
             "smb-ntlmv1-auth": {"choices": ["disable", "enable"], "type": "str"},
             "smbv1": {"v_range": [["6.0.0", "7.2.1"]], "choices": ["disable", "enable"], "type": "str"},
@@ -39078,7 +40645,7 @@ SCHEMA_DATA = '''
                     "default-allowed-methods": {
                         "v_range": [["6.2.8", "6.2.13"], ["6.4.5", ""]],
                         "type": "list",
-                        "choices": ["delete", "get", "head", "options", "post", "put", "trace", "others", "connect"],
+                        "choices": ["delete", "get", "head", "options", "post", "put", "trace", "others", "connect", "patch", "query"],
                         "elements": "str"
                     },
                     "log": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", ""]], "choices": ["disable", "enable"], "type": "str"},
@@ -39090,7 +40657,7 @@ SCHEMA_DATA = '''
                             "allowed-methods": {
                                 "v_range": [["6.2.8", "6.2.13"], ["6.4.5", ""]],
                                 "type": "list",
-                                "choices": ["delete", "get", "head", "options", "post", "put", "trace", "others", "connect"],
+                                "choices": ["delete", "get", "head", "options", "post", "put", "trace", "others", "connect", "patch", "query"],
                                 "elements": "str"
                             },
                             "id": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", ""]], "type": "int"},
@@ -39146,7 +40713,11 @@ SCHEMA_DATA = '''
                         }
                     }
                 }
-            }
+            },
+            "fabric-force-sync": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object-source": {"v_range": [["8.0.0", ""]], "choices": ["member", "local", "root"], "type": "str"},
+            "uuid": {"v_range": [["8.0.0", ""]], "type": "str"}
         }
     },
     "waf_profile_addresslist": {
@@ -39466,7 +41037,7 @@ SCHEMA_DATA = '''
         "options": {
             "default-allowed-methods": {
                 "type": "list",
-                "choices": ["delete", "get", "head", "options", "post", "put", "trace", "others", "connect"],
+                "choices": ["delete", "get", "head", "options", "post", "put", "trace", "others", "connect", "patch", "query"],
                 "elements": "str"
             },
             "log": {"choices": ["disable", "enable"], "type": "str"},
@@ -39476,7 +41047,7 @@ SCHEMA_DATA = '''
                     "address": {"type": "str"},
                     "allowed-methods": {
                         "type": "list",
-                        "choices": ["delete", "get", "head", "options", "post", "put", "trace", "others", "connect"],
+                        "choices": ["delete", "get", "head", "options", "post", "put", "trace", "others", "connect", "patch", "query"],
                         "elements": "str"
                     },
                     "id": {"type": "int"},
@@ -39495,7 +41066,7 @@ SCHEMA_DATA = '''
             "address": {"type": "str"},
             "allowed-methods": {
                 "type": "list",
-                "choices": ["delete", "get", "head", "options", "post", "put", "trace", "others", "connect"],
+                "choices": ["delete", "get", "head", "options", "post", "put", "trace", "others", "connect", "patch", "query"],
                 "elements": "str"
             },
             "id": {"required": true, "type": "int"},
@@ -39807,7 +41378,10 @@ SCHEMA_DATA = '''
                     "srcaddr6": {"v_range": [["6.4.2", ""]], "type": "raw"},
                     "srcintf": {"v_range": [["6.4.2", ""]], "type": "raw"},
                     "service-id": {"v_range": [["6.4.3", ""]], "type": "raw"},
-                    "sla-match-service": {"v_range": [["7.2.0", ""]], "choices": ["disable", "enable"], "type": "str"}
+                    "sla-match-service": {"v_range": [["7.2.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+                    "members": {"v_range": [["8.0.0", ""]], "type": "raw"},
+                    "tos": {"v_range": [["8.0.0", ""]], "type": "str"},
+                    "tos-mask": {"v_range": [["8.0.0", ""]], "type": "str"}
                 },
                 "elements": "dict"
             },
@@ -39933,7 +41507,17 @@ SCHEMA_DATA = '''
                     "preferred-source": {"v_range": [["7.4.0", ""]], "type": "str"},
                     "transport-group": {"v_range": [["7.4.2", ""]], "type": "int"},
                     "priority-in-sla": {"v_range": [["7.6.0", ""]], "type": "int"},
-                    "priority-out-sla": {"v_range": [["7.6.0", ""]], "type": "int"}
+                    "priority-out-sla": {"v_range": [["7.6.0", ""]], "type": "int"},
+                    "billing-start-day": {"v_range": [["8.0.0", ""]], "type": "int"},
+                    "duplication-threshold-bandwidth": {"v_range": [["8.0.0", ""]], "choices": ["overlay", "underlay"], "type": "str"},
+                    "duplication-threshold-bibandwidth": {"v_range": [["8.0.0", ""]], "type": "int"},
+                    "duplication-threshold-dwbandwidth": {"v_range": [["8.0.0", ""]], "type": "int"},
+                    "duplication-threshold-upbandwidth": {"v_range": [["8.0.0", ""]], "type": "int"},
+                    "overage": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+                    "overage-cost": {"v_range": [["8.0.0", ""]], "type": "int"},
+                    "overage-volume-ratio": {"v_range": [["8.0.0", ""]], "type": "int"},
+                    "overage-weight": {"v_range": [["8.0.0", ""]], "type": "int"},
+                    "quota-limit": {"v_range": [["8.0.0", ""]], "type": "int"}
                 },
                 "elements": "dict"
             },
@@ -40043,8 +41627,9 @@ SCHEMA_DATA = '''
                     "zone-mode": {"v_range": [["7.4.1", ""]], "choices": ["disable", "enable"], "type": "str"},
                     "shortcut-priority": {"v_range": [["7.4.2", ""]], "choices": ["disable", "enable", "auto"], "type": "str"},
                     "comment": {"v_range": [["7.6.0", ""]], "type": "str"},
-                    "fib-best-match-force": {"v_range": [["7.4.9", "7.4.10"], ["7.6.3", ""]], "choices": ["disable", "enable"], "type": "str"},
-                    "internet-service-fortiguard": {"v_range": [["7.6.4", ""]], "type": "raw"}
+                    "fib-best-match-force": {"v_range": [["7.4.9", "7.4.11"], ["7.6.3", ""]], "choices": ["disable", "enable"], "type": "str"},
+                    "internet-service-fortiguard": {"v_range": [["7.6.4", ""]], "type": "raw"},
+                    "bandwidth-type": {"v_range": [["8.0.0", ""]], "choices": ["overlay", "underlay"], "type": "str"}
                 },
                 "elements": "dict"
             },
@@ -40166,7 +41751,10 @@ SCHEMA_DATA = '''
             "srcaddr6": {"v_range": [["6.4.2", ""]], "type": "raw"},
             "srcintf": {"v_range": [["6.4.2", ""]], "type": "raw"},
             "service-id": {"v_range": [["6.4.3", ""]], "type": "raw"},
-            "sla-match-service": {"v_range": [["7.2.0", ""]], "choices": ["disable", "enable"], "type": "str"}
+            "sla-match-service": {"v_range": [["7.2.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "members": {"v_range": [["8.0.0", ""]], "type": "raw"},
+            "tos": {"v_range": [["8.0.0", ""]], "type": "str"},
+            "tos-mask": {"v_range": [["8.0.0", ""]], "type": "str"}
         }
     },
     "wanprof_system_sdwan_healthcheck": {
@@ -40388,7 +41976,17 @@ SCHEMA_DATA = '''
             "preferred-source": {"v_range": [["7.4.0", ""]], "type": "str"},
             "transport-group": {"v_range": [["7.4.2", ""]], "type": "int"},
             "priority-in-sla": {"v_range": [["7.6.0", ""]], "type": "int"},
-            "priority-out-sla": {"v_range": [["7.6.0", ""]], "type": "int"}
+            "priority-out-sla": {"v_range": [["7.6.0", ""]], "type": "int"},
+            "billing-start-day": {"v_range": [["8.0.0", ""]], "type": "int"},
+            "duplication-threshold-bandwidth": {"v_range": [["8.0.0", ""]], "choices": ["overlay", "underlay"], "type": "str"},
+            "duplication-threshold-bibandwidth": {"v_range": [["8.0.0", ""]], "type": "int"},
+            "duplication-threshold-dwbandwidth": {"v_range": [["8.0.0", ""]], "type": "int"},
+            "duplication-threshold-upbandwidth": {"v_range": [["8.0.0", ""]], "type": "int"},
+            "overage": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "overage-cost": {"v_range": [["8.0.0", ""]], "type": "int"},
+            "overage-volume-ratio": {"v_range": [["8.0.0", ""]], "type": "int"},
+            "overage-weight": {"v_range": [["8.0.0", ""]], "type": "int"},
+            "quota-limit": {"v_range": [["8.0.0", ""]], "type": "int"}
         }
     },
     "wanprof_system_sdwan_neighbor": {
@@ -40487,8 +42085,9 @@ SCHEMA_DATA = '''
             "zone-mode": {"v_range": [["7.4.1", ""]], "choices": ["disable", "enable"], "type": "str"},
             "shortcut-priority": {"v_range": [["7.4.2", ""]], "choices": ["disable", "enable", "auto"], "type": "str"},
             "comment": {"v_range": [["7.6.0", ""]], "type": "str"},
-            "fib-best-match-force": {"v_range": [["7.4.9", "7.4.10"], ["7.6.3", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "internet-service-fortiguard": {"v_range": [["7.6.4", ""]], "type": "raw"}
+            "fib-best-match-force": {"v_range": [["7.4.9", "7.4.11"], ["7.6.3", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "internet-service-fortiguard": {"v_range": [["7.6.4", ""]], "type": "raw"},
+            "bandwidth-type": {"v_range": [["8.0.0", ""]], "choices": ["overlay", "underlay"], "type": "str"}
         }
     },
     "wanprof_system_sdwan_service_sla": {
@@ -40877,7 +42476,11 @@ SCHEMA_DATA = '''
                 "elements": "dict"
             },
             "id": {"required": true, "type": "int"},
-            "name": {"type": "str"}
+            "name": {"type": "str"},
+            "fabric-force-sync": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object-source": {"v_range": [["8.0.0", ""]], "choices": ["member", "local", "root"], "type": "str"},
+            "uuid": {"v_range": [["8.0.0", ""]], "type": "str"}
         }
     },
     "webfilter_content_entries": {
@@ -40901,7 +42504,11 @@ SCHEMA_DATA = '''
                 "elements": "dict"
             },
             "id": {"required": true, "type": "int"},
-            "name": {"type": "str"}
+            "name": {"type": "str"},
+            "fabric-force-sync": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object-source": {"v_range": [["8.0.0", ""]], "choices": ["member", "local", "root"], "type": "str"},
+            "uuid": {"v_range": [["8.0.0", ""]], "type": "str"}
         }
     },
     "webfilter_contentheader_entries": {
@@ -40926,7 +42533,12 @@ SCHEMA_DATA = '''
     "webfilter_domainlist_entries": {"stated": true, "options": {"domain": {"v_range": [["7.6.4", ""]], "type": "str"}}},
     "webfilter_ftgdlocalcat": {
         "stated": true,
-        "options": {"desc": {"type": "str"}, "id": {"required": true, "type": "int"}, "status": {"choices": ["disable", "enable"], "type": "str"}}
+        "options": {
+            "desc": {"type": "str"},
+            "id": {"required": true, "type": "int"},
+            "status": {"choices": ["disable", "enable"], "type": "str"},
+            "urlfilter-table": {"v_range": [["8.0.0", ""]], "type": "raw"}
+        }
     },
     "webfilter_ftgdlocalrating": {
         "stated": true,
@@ -40989,11 +42601,16 @@ SCHEMA_DATA = '''
             "wisp-algorithm": {"choices": ["auto-learning", "primary-secondary", "round-robin"], "type": "str"},
             "wisp-servers": {"type": "raw"},
             "youtube-channel-filter": {
+                "v_range": [["6.0.0", "7.6.7"]],
                 "type": "list",
-                "options": {"channel-id": {"type": "str"}, "comment": {"type": "str"}, "id": {"type": "int"}},
+                "options": {
+                    "channel-id": {"v_range": [["6.0.0", "7.6.7"]], "type": "str"},
+                    "comment": {"v_range": [["6.0.0", "7.6.7"]], "type": "str"},
+                    "id": {"v_range": [["6.0.0", "7.6.7"]], "type": "int"}
+                },
                 "elements": "dict"
             },
-            "youtube-channel-status": {"choices": ["disable", "blacklist", "whitelist"], "type": "str"},
+            "youtube-channel-status": {"v_range": [["6.0.0", "7.6.7"]], "choices": ["disable", "blacklist", "whitelist"], "type": "str"},
             "feature-set": {"v_range": [["6.4.0", ""]], "choices": ["proxy", "flow"], "type": "str"},
             "web-antiphishing-log": {"v_range": [["6.4.0", ""]], "choices": ["disable", "enable"], "type": "str"},
             "antiphish": {
@@ -41078,23 +42695,23 @@ SCHEMA_DATA = '''
                             "type": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", ""]], "choices": ["time", "traffic"], "type": "str"},
                             "unit": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", ""]], "choices": ["B", "KB", "MB", "GB"], "type": "str"},
                             "value": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", ""]], "type": "int"},
-                            "reset-frequency": {"v_range": [["7.4.8", "7.4.10"]], "choices": ["daily", "weekly", "monthly"], "type": "str"}
+                            "reset-frequency": {"v_range": [["7.4.8", "7.4.11"]], "choices": ["daily", "weekly", "monthly"], "type": "str"}
                         },
                         "elements": "dict"
                     },
                     "rate-crl-urls": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", ""]], "choices": ["disable", "enable"], "type": "str"},
                     "rate-css-urls": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", ""]], "choices": ["disable", "enable"], "type": "str"},
-                    "rate-image-urls": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", ""]], "choices": ["disable", "enable"], "type": "str"},
+                    "rate-image-urls": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
                     "rate-javascript-urls": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", ""]], "choices": ["disable", "enable"], "type": "str"},
                     "category-override": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", "6.4.15"]], "type": "str"},
                     "risk": {
-                        "v_range": [["7.4.8", "7.4.10"], ["7.6.2", ""]],
+                        "v_range": [["7.4.8", "7.4.11"], ["7.6.2", ""]],
                         "type": "list",
                         "options": {
-                            "action": {"v_range": [["7.4.8", "7.4.10"], ["7.6.2", ""]], "choices": ["block", "monitor"], "type": "str"},
-                            "id": {"v_range": [["7.4.8", "7.4.10"], ["7.6.2", ""]], "type": "int"},
-                            "log": {"v_range": [["7.4.8", "7.4.10"], ["7.6.2", ""]], "choices": ["disable", "enable"], "type": "str"},
-                            "risk-level": {"v_range": [["7.4.8", "7.4.10"], ["7.6.2", ""]], "type": "raw"}
+                            "action": {"v_range": [["7.4.8", "7.4.11"], ["7.6.2", ""]], "choices": ["block", "monitor"], "type": "str"},
+                            "id": {"v_range": [["7.4.8", "7.4.11"], ["7.6.2", ""]], "type": "int"},
+                            "log": {"v_range": [["7.4.8", "7.4.11"], ["7.6.2", ""]], "choices": ["disable", "enable"], "type": "str"},
+                            "risk-level": {"v_range": [["7.4.8", "7.4.11"], ["7.6.2", ""]], "type": "raw"}
                         },
                         "elements": "dict"
                     }
@@ -41147,7 +42764,7 @@ SCHEMA_DATA = '''
                 "v_range": [["6.2.8", "6.2.13"], ["6.4.5", ""]],
                 "type": "dict",
                 "options": {
-                    "blacklist": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", ""]], "choices": ["disable", "enable"], "type": "str"},
+                    "blacklist": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
                     "bword-table": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", ""]], "type": "str"},
                     "bword-threshold": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", ""]], "type": "int"},
                     "content-header-list": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", ""]], "type": "str"},
@@ -41161,7 +42778,7 @@ SCHEMA_DATA = '''
                     },
                     "urlfilter-table": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", ""]], "type": "str"},
                     "whitelist": {
-                        "v_range": [["6.2.8", "6.2.13"], ["6.4.5", ""]],
+                        "v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.6.7"]],
                         "type": "list",
                         "choices": [
                             "exempt-av", "exempt-webcontent", "exempt-activex-java-cookie", "exempt-dlp", "exempt-rangeblock", "extended-log-others"
@@ -41179,7 +42796,7 @@ SCHEMA_DATA = '''
                     },
                     "blocklist": {"v_range": [["7.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
                     "vimeo-restrict": {"v_range": [["7.0.1", ""]], "type": "str"},
-                    "qwant-restrict": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "choices": ["strict", "none", "moderate"], "type": "str"}
+                    "qwant-restrict": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "choices": ["strict", "none", "moderate"], "type": "str"}
                 }
             },
             "file-filter": {
@@ -41212,7 +42829,11 @@ SCHEMA_DATA = '''
                 }
             },
             "web-flow-log-encoding": {"v_range": [["7.4.2", ""]], "choices": ["utf-8", "punycode"], "type": "str"},
-            "ia-categorization": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"}
+            "ia-categorization": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-force-sync": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object-source": {"v_range": [["8.0.0", ""]], "choices": ["member", "local", "root"], "type": "str"},
+            "uuid": {"v_range": [["8.0.0", ""]], "type": "str"}
         }
     },
     "webfilter_profile_antiphish": {
@@ -41340,23 +42961,23 @@ SCHEMA_DATA = '''
                     "type": {"choices": ["time", "traffic"], "type": "str"},
                     "unit": {"choices": ["B", "KB", "MB", "GB"], "type": "str"},
                     "value": {"type": "int"},
-                    "reset-frequency": {"v_range": [["7.4.8", "7.4.10"]], "choices": ["daily", "weekly", "monthly"], "type": "str"}
+                    "reset-frequency": {"v_range": [["7.4.8", "7.4.11"]], "choices": ["daily", "weekly", "monthly"], "type": "str"}
                 },
                 "elements": "dict"
             },
             "rate-crl-urls": {"choices": ["disable", "enable"], "type": "str"},
             "rate-css-urls": {"choices": ["disable", "enable"], "type": "str"},
-            "rate-image-urls": {"choices": ["disable", "enable"], "type": "str"},
+            "rate-image-urls": {"v_range": [["6.0.0", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
             "rate-javascript-urls": {"choices": ["disable", "enable"], "type": "str"},
             "category-override": {"v_range": [["6.2.0", "6.4.15"]], "type": "str"},
             "risk": {
-                "v_range": [["7.4.8", "7.4.10"], ["7.6.2", ""]],
+                "v_range": [["7.4.8", "7.4.11"], ["7.6.2", ""]],
                 "type": "list",
                 "options": {
-                    "action": {"v_range": [["7.4.8", "7.4.10"], ["7.6.2", ""]], "choices": ["block", "monitor"], "type": "str"},
-                    "id": {"v_range": [["7.4.8", "7.4.10"], ["7.6.2", ""]], "type": "int"},
-                    "log": {"v_range": [["7.4.8", "7.4.10"], ["7.6.2", ""]], "choices": ["disable", "enable"], "type": "str"},
-                    "risk-level": {"v_range": [["7.4.8", "7.4.10"], ["7.6.2", ""]], "type": "raw"}
+                    "action": {"v_range": [["7.4.8", "7.4.11"], ["7.6.2", ""]], "choices": ["block", "monitor"], "type": "str"},
+                    "id": {"v_range": [["7.4.8", "7.4.11"], ["7.6.2", ""]], "type": "int"},
+                    "log": {"v_range": [["7.4.8", "7.4.11"], ["7.6.2", ""]], "choices": ["disable", "enable"], "type": "str"},
+                    "risk-level": {"v_range": [["7.4.8", "7.4.11"], ["7.6.2", ""]], "type": "raw"}
                 },
                 "elements": "dict"
             }
@@ -41386,16 +43007,16 @@ SCHEMA_DATA = '''
             "type": {"choices": ["time", "traffic"], "type": "str"},
             "unit": {"choices": ["B", "KB", "MB", "GB"], "type": "str"},
             "value": {"type": "int"},
-            "reset-frequency": {"v_range": [["7.4.8", "7.4.10"]], "choices": ["daily", "weekly", "monthly"], "type": "str"}
+            "reset-frequency": {"v_range": [["7.4.8", "7.4.11"]], "choices": ["daily", "weekly", "monthly"], "type": "str"}
         }
     },
     "webfilter_profile_ftgdwf_risk": {
         "stated": true,
         "options": {
-            "action": {"v_range": [["7.4.8", "7.4.10"], ["7.6.2", ""]], "choices": ["block", "monitor"], "type": "str"},
-            "id": {"v_range": [["7.4.8", "7.4.10"], ["7.6.2", ""]], "required": true, "type": "int"},
-            "log": {"v_range": [["7.4.8", "7.4.10"], ["7.6.2", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "risk-level": {"v_range": [["7.4.8", "7.4.10"], ["7.6.2", ""]], "type": "list", "elements": "str"}
+            "action": {"v_range": [["7.4.8", "7.4.11"], ["7.6.2", ""]], "choices": ["block", "monitor"], "type": "str"},
+            "id": {"v_range": [["7.4.8", "7.4.11"], ["7.6.2", ""]], "required": true, "type": "int"},
+            "log": {"v_range": [["7.4.8", "7.4.11"], ["7.6.2", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "risk-level": {"v_range": [["7.4.8", "7.4.11"], ["7.6.2", ""]], "type": "list", "elements": "str"}
         }
     },
     "webfilter_profile_override": {
@@ -41437,7 +43058,7 @@ SCHEMA_DATA = '''
     "webfilter_profile_web": {
         "stated": false,
         "options": {
-            "blacklist": {"choices": ["disable", "enable"], "type": "str"},
+            "blacklist": {"v_range": [["6.0.0", "7.6.7"]], "choices": ["disable", "enable"], "type": "str"},
             "bword-table": {"type": "str"},
             "bword-threshold": {"type": "int"},
             "content-header-list": {"type": "str"},
@@ -41446,6 +43067,7 @@ SCHEMA_DATA = '''
             "safe-search": {"type": "list", "choices": ["google", "yahoo", "bing", "url", "header"], "elements": "str"},
             "urlfilter-table": {"type": "str"},
             "whitelist": {
+                "v_range": [["6.0.0", "7.6.7"]],
                 "type": "list",
                 "choices": ["exempt-av", "exempt-webcontent", "exempt-activex-java-cookie", "exempt-dlp", "exempt-rangeblock", "extended-log-others"],
                 "elements": "str"
@@ -41459,12 +43081,16 @@ SCHEMA_DATA = '''
             },
             "blocklist": {"v_range": [["7.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
             "vimeo-restrict": {"v_range": [["7.0.1", ""]], "type": "str"},
-            "qwant-restrict": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "choices": ["strict", "none", "moderate"], "type": "str"}
+            "qwant-restrict": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "choices": ["strict", "none", "moderate"], "type": "str"}
         }
     },
     "webfilter_profile_youtubechannelfilter": {
         "stated": true,
-        "options": {"channel-id": {"type": "str"}, "comment": {"type": "str"}, "id": {"required": true, "type": "int"}}
+        "options": {
+            "channel-id": {"v_range": [["6.0.0", "7.6.7"]], "type": "str"},
+            "comment": {"v_range": [["6.0.0", "7.6.7"]], "type": "str"},
+            "id": {"v_range": [["6.0.0", "7.6.7"]], "required": true, "type": "int"}
+        }
     },
     "webfilter_urlfilter": {
         "stated": true,
@@ -41498,7 +43124,12 @@ SCHEMA_DATA = '''
             "name": {"type": "str"},
             "one-arm-ips-urlfilter": {"choices": ["disable", "enable"], "type": "str"},
             "ip4-mapped-ip6": {"v_range": [["7.2.2", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "include-subdomains": {"v_range": [["7.4.8", "7.4.10"], ["7.6.3", ""]], "choices": ["disable", "enable"], "type": "str"}
+            "include-subdomains": {"v_range": [["7.4.8", "7.4.11"], ["7.6.3", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-force-sync": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object-source": {"v_range": [["8.0.0", ""]], "choices": ["member", "local", "root"], "type": "str"},
+            "type": {"v_range": [["8.0.0", ""]], "choices": ["profile", "category"], "type": "str"},
+            "uuid": {"v_range": [["8.0.0", ""]], "type": "str"}
         }
     },
     "webfilter_urlfilter_entries": {
@@ -41524,56 +43155,56 @@ SCHEMA_DATA = '''
     "webfilter_urllist": {
         "stated": true,
         "options": {
-            "comment": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "str"},
+            "comment": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "str"},
             "entries": {
-                "v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]],
+                "v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]],
                 "type": "list",
-                "options": {"url": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "str"}},
+                "options": {"url": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "str"}},
                 "elements": "dict"
             },
-            "name": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "required": true, "type": "str"},
-            "status": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "uuid": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "str"}
+            "name": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "required": true, "type": "str"},
+            "status": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "uuid": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "str"}
         }
     },
-    "webfilter_urllist_entries": {"stated": true, "options": {"url": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "str"}}},
+    "webfilter_urllist_entries": {"stated": true, "options": {"url": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "str"}}},
     "webproxy_explicitproxy": {
         "stated": true,
         "options": {
-            "detect-https-in-http-request": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "dns-mode": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "choices": ["recursive", "non-recursive", "forward-only"], "type": "str"},
-            "dstport-from-incoming": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "ftp-incoming-port": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "list", "elements": "str"},
-            "ftp-over-http": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "header-proxy-agent": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "http": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "http-connection-mode": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "choices": ["static", "multiplex", "serverpool"], "type": "str"},
-            "http-incoming-port": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "list", "elements": "str"},
-            "https-incoming-port": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "list", "elements": "str"},
-            "incoming-ip6": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "str"},
-            "interface": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "list", "elements": "str"},
-            "ipv6-status": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "learn-dst-from-sni": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "name": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "required": true, "type": "str"},
-            "pac-file-data": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "str"},
-            "pac-file-name": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "str"},
-            "pac-file-server-port": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "str"},
-            "pac-file-server-status": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "pac-file-through-https": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "pac-file-url": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "str"},
-            "pref-dns-result": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "choices": ["ipv4", "ipv6", "ipv4-strict", "ipv6-strict"], "type": "str"},
-            "realm": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "str"},
-            "return-to-sender": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "sec-default-action": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "choices": ["deny", "accept"], "type": "str"},
-            "secure-web-proxy": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "choices": ["disable", "enable", "secure"], "type": "str"},
-            "secure-web-proxy-cert": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "list", "elements": "str"},
-            "socks": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "socks-incoming-port": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "list", "elements": "str"},
-            "ssl-algorithm": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "choices": ["high", "low", "medium"], "type": "str"},
-            "ssl-dh-bits": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "choices": ["768", "1024", "1536", "2048"], "type": "str"},
-            "status": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "unknown-http-version": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "choices": ["best-effort", "reject"], "type": "str"},
-            "incoming-ip": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "str"},
+            "detect-https-in-http-request": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "dns-mode": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "choices": ["recursive", "non-recursive", "forward-only"], "type": "str"},
+            "dstport-from-incoming": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "ftp-incoming-port": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "list", "elements": "str"},
+            "ftp-over-http": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "header-proxy-agent": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "http": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "http-connection-mode": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "choices": ["static", "multiplex", "serverpool"], "type": "str"},
+            "http-incoming-port": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "list", "elements": "str"},
+            "https-incoming-port": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "list", "elements": "str"},
+            "incoming-ip6": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "str"},
+            "interface": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "list", "elements": "str"},
+            "ipv6-status": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "learn-dst-from-sni": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "name": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "required": true, "type": "str"},
+            "pac-file-data": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "str"},
+            "pac-file-name": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "str"},
+            "pac-file-server-port": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "str"},
+            "pac-file-server-status": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "pac-file-through-https": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "pac-file-url": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "str"},
+            "pref-dns-result": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "choices": ["ipv4", "ipv6", "ipv4-strict", "ipv6-strict"], "type": "str"},
+            "realm": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "str"},
+            "return-to-sender": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "sec-default-action": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "choices": ["deny", "accept"], "type": "str"},
+            "secure-web-proxy": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "choices": ["disable", "enable", "secure"], "type": "str"},
+            "secure-web-proxy-cert": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "list", "elements": "str"},
+            "socks": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "socks-incoming-port": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "list", "elements": "str"},
+            "ssl-algorithm": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "choices": ["high", "low", "medium"], "type": "str"},
+            "ssl-dh-bits": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "choices": ["768", "1024", "1536", "2048"], "type": "str"},
+            "status": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "unknown-http-version": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "choices": ["best-effort", "reject"], "type": "str"},
+            "incoming-ip": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "str"},
             "client-cert": {"v_range": [["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"},
             "empty-cert-action": {"v_range": [["7.6.4", ""]], "choices": ["block", "accept", "accept-unmanageable"], "type": "str"},
             "user-agent-detect": {"v_range": [["7.6.4", ""]], "choices": ["disable", "enable"], "type": "str"}
@@ -41598,10 +43229,15 @@ SCHEMA_DATA = '''
             "interface": {"v_range": [["7.6.2", ""]], "type": "raw"},
             "interface-select-method": {"v_range": [["7.6.2", ""]], "choices": ["auto", "sdwan", "specify"], "type": "str"},
             "vrf-select": {"v_range": [["7.6.2", ""]], "type": "int"},
-            "ippool": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "raw"},
-            "protocol": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "list", "choices": ["http", "ftp", "socks"], "elements": "str"},
-            "authentication": {"v_range": [["7.4.8", "7.4.10"]], "choices": ["disabled", "immediately", "upon-challenge"], "type": "str"},
-            "user": {"v_range": [["7.4.8", "7.4.10"]], "type": "str"}
+            "ippool": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "raw"},
+            "protocol": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "list", "choices": ["http", "ftp", "socks"], "elements": "str"},
+            "authentication": {"v_range": [["7.4.8", "7.4.11"]], "choices": ["disabled", "immediately", "upon-challenge"], "type": "str"},
+            "user": {"v_range": [["7.4.8", "7.4.11"]], "type": "str"},
+            "ippool6": {"v_range": [["7.6.7", "7.6.7"]], "type": "raw"},
+            "fabric-force-sync": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object-source": {"v_range": [["8.0.0", ""]], "choices": ["member", "local", "root"], "type": "str"},
+            "uuid": {"v_range": [["8.0.0", ""]], "type": "str"}
         }
     },
     "webproxy_forwardservergroup": {
@@ -41611,26 +43247,35 @@ SCHEMA_DATA = '''
             "group-down-option": {"choices": ["block", "pass"], "type": "str"},
             "ldb-method": {"choices": ["weighted", "least-session", "active-passive"], "type": "str"},
             "name": {"required": true, "type": "str"},
-            "server-list": {"type": "list", "options": {"name": {"type": "str"}, "weight": {"type": "int"}}, "elements": "dict"}
+            "server-list": {"type": "list", "options": {"name": {"type": "str"}, "weight": {"type": "int"}}, "elements": "dict"},
+            "fabric-force-sync": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object-source": {"v_range": [["8.0.0", ""]], "choices": ["member", "local", "root"], "type": "str"},
+            "uuid": {"v_range": [["8.0.0", ""]], "type": "str"}
         }
     },
     "webproxy_forwardservergroup_serverlist": {"stated": true, "options": {"name": {"required": true, "type": "str"}, "weight": {"type": "int"}}},
     "webproxy_isolatorserver": {
         "stated": true,
         "options": {
-            "addr-type": {"v_range": [["7.4.8", "7.4.10"], ["7.6.2", ""]], "choices": ["fqdn", "ipv6", "ip"], "type": "str"},
-            "comment": {"v_range": [["7.4.8", "7.4.10"], ["7.6.2", ""]], "type": "str"},
-            "fqdn": {"v_range": [["7.4.8", "7.4.10"], ["7.6.2", ""]], "type": "str"},
+            "addr-type": {"v_range": [["7.4.8", "7.4.11"], ["7.6.2", ""]], "choices": ["fqdn", "ipv6", "ip"], "type": "str"},
+            "comment": {"v_range": [["7.4.8", "7.4.11"], ["7.6.2", ""]], "type": "str"},
+            "fqdn": {"v_range": [["7.4.8", "7.4.11"], ["7.6.2", ""]], "type": "str"},
             "interface": {"v_range": [["7.6.2", ""]], "type": "list", "elements": "str"},
             "interface-select-method": {"v_range": [["7.6.2", ""]], "choices": ["auto", "sdwan", "specify"], "type": "str"},
-            "ip": {"v_range": [["7.4.8", "7.4.10"], ["7.6.2", ""]], "type": "str"},
-            "ipv6": {"v_range": [["7.4.8", "7.4.10"], ["7.6.2", ""]], "type": "str"},
-            "name": {"v_range": [["7.4.8", "7.4.10"], ["7.6.2", ""]], "required": true, "type": "str"},
-            "port": {"v_range": [["7.4.8", "7.4.10"], ["7.6.2", ""]], "type": "int"},
+            "ip": {"v_range": [["7.4.8", "7.4.11"], ["7.6.2", ""]], "type": "str"},
+            "ipv6": {"v_range": [["7.4.8", "7.4.11"], ["7.6.2", ""]], "type": "str"},
+            "name": {"v_range": [["7.4.8", "7.4.11"], ["7.6.2", ""]], "required": true, "type": "str"},
+            "port": {"v_range": [["7.4.8", "7.4.11"], ["7.6.2", ""]], "type": "int"},
             "vrf-select": {"v_range": [["7.6.2", ""]], "type": "int"},
-            "masquerade": {"v_range": [["7.4.8", "7.4.10"], ["7.6.3", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "ippool": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "list", "elements": "str"},
-            "protocol": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "list", "choices": ["http", "ftp", "socks"], "elements": "str"}
+            "masquerade": {"v_range": [["7.4.8", "7.4.11"], ["7.6.3", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "ippool": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "list", "elements": "str"},
+            "protocol": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "list", "choices": ["http", "ftp", "socks"], "elements": "str"},
+            "ippool6": {"v_range": [["7.6.7", ""]], "type": "list", "elements": "str"},
+            "fabric-force-sync": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object-source": {"v_range": [["8.0.0", ""]], "choices": ["member", "local", "root"], "type": "str"},
+            "uuid": {"v_range": [["8.0.0", ""]], "type": "str"}
         }
     },
     "webproxy_profile": {
@@ -41671,8 +43316,12 @@ SCHEMA_DATA = '''
             "name": {"required": true, "type": "str"},
             "strip-encoding": {"choices": ["disable", "enable"], "type": "str"},
             "header-x-forwarded-client-cert": {"v_range": [["7.0.1", ""]], "choices": ["pass", "add", "remove"], "type": "str"},
-            "max-cache-object-size": {"v_range": [["7.4.8", "7.4.10"], ["7.6.4", ""]], "type": "int"},
-            "header-client-cert": {"v_range": [["7.6.5", ""]], "choices": ["pass", "add", "remove"], "type": "str"}
+            "max-cache-object-size": {"v_range": [["7.4.8", "7.4.11"], ["7.6.4", ""]], "type": "int"},
+            "header-client-cert": {"v_range": [["7.6.5", ""]], "choices": ["pass", "add", "remove"], "type": "str"},
+            "fabric-force-sync": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object-source": {"v_range": [["8.0.0", ""]], "choices": ["member", "local", "root"], "type": "str"},
+            "uuid": {"v_range": [["8.0.0", ""]], "type": "str"}
         }
     },
     "webproxy_profile_headers": {
@@ -41729,7 +43378,11 @@ SCHEMA_DATA = '''
             "outgoing-ip": {"type": "str"},
             "server-ip": {"type": "str"},
             "server-port": {"type": "int"},
-            "timeout": {"type": "int"}
+            "timeout": {"type": "int"},
+            "fabric-force-sync": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "fabric-object-source": {"v_range": [["8.0.0", ""]], "choices": ["member", "local", "root"], "type": "str"},
+            "uuid": {"v_range": [["8.0.0", ""]], "type": "str"}
         }
     },
     "widsprofile": {
@@ -41935,6 +43588,20 @@ SCHEMA_DATA = '''
             "id": {"v_range": [["7.0.1", ""]], "required": true, "type": "str"}
         }
     },
+    "wireless_lwprofile": {
+        "stated": true,
+        "options": {
+            "comment": {"v_range": [["8.0.0", ""]], "type": "str"},
+            "cups-api-key": {"v_range": [["8.0.0", ""]], "no_log": true, "type": "list", "elements": "str"},
+            "cups-server": {"v_range": [["8.0.0", ""]], "type": "str"},
+            "cups-server-port": {"v_range": [["8.0.0", ""]], "type": "int"},
+            "lw-protocol": {"v_range": [["8.0.0", ""]], "choices": ["basics-station", "packet-forwarder"], "type": "str"},
+            "name": {"v_range": [["8.0.0", ""]], "required": true, "type": "str"},
+            "tc-api-key": {"v_range": [["8.0.0", ""]], "no_log": true, "type": "list", "elements": "str"},
+            "tc-server": {"v_range": [["8.0.0", ""]], "type": "str"},
+            "tc-server-port": {"v_range": [["8.0.0", ""]], "type": "int"}
+        }
+    },
     "wireless_ssidpolicy": {
         "stated": true,
         "options": {
@@ -41965,13 +43632,13 @@ SCHEMA_DATA = '''
     "wireless_vap_ip6prefixlist": {
         "stated": true,
         "options": {
-            "autonomous-flag": {"v_range": [["7.2.10", "7.2.12"], ["7.4.7", "7.4.10"], ["7.6.3", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "dnssl": {"v_range": [["7.2.10", "7.2.12"], ["7.4.7", "7.4.10"], ["7.6.3", ""]], "type": "list", "elements": "str"},
-            "onlink-flag": {"v_range": [["7.2.10", "7.2.12"], ["7.4.7", "7.4.10"], ["7.6.3", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "preferred-life-time": {"v_range": [["7.2.10", "7.2.12"], ["7.4.7", "7.4.10"], ["7.6.3", ""]], "type": "int"},
-            "prefix": {"v_range": [["7.2.10", "7.2.12"], ["7.4.7", "7.4.10"], ["7.6.3", ""]], "type": "str"},
-            "rdnss": {"v_range": [["7.2.10", "7.2.12"], ["7.4.7", "7.4.10"], ["7.6.3", ""]], "type": "list", "elements": "str"},
-            "valid-life-time": {"v_range": [["7.2.10", "7.2.12"], ["7.4.7", "7.4.10"], ["7.6.3", ""]], "type": "int"}
+            "autonomous-flag": {"v_range": [["7.2.10", "7.2.12"], ["7.4.7", "7.4.11"], ["7.6.3", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "dnssl": {"v_range": [["7.2.10", "7.2.12"], ["7.4.7", "7.4.11"], ["7.6.3", ""]], "type": "list", "elements": "str"},
+            "onlink-flag": {"v_range": [["7.2.10", "7.2.12"], ["7.4.7", "7.4.11"], ["7.6.3", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "preferred-life-time": {"v_range": [["7.2.10", "7.2.12"], ["7.4.7", "7.4.11"], ["7.6.3", ""]], "type": "int"},
+            "prefix": {"v_range": [["7.2.10", "7.2.12"], ["7.4.7", "7.4.11"], ["7.6.3", ""]], "type": "str"},
+            "rdnss": {"v_range": [["7.2.10", "7.2.12"], ["7.4.7", "7.4.11"], ["7.6.3", ""]], "type": "list", "elements": "str"},
+            "valid-life-time": {"v_range": [["7.2.10", "7.2.12"], ["7.4.7", "7.4.11"], ["7.6.3", ""]], "type": "int"}
         }
     },
     "wtpprofile": {
@@ -42018,7 +43685,7 @@ SCHEMA_DATA = '''
             "login-passwd-change": {"choices": ["no", "yes", "default"], "type": "str"},
             "max-clients": {"type": "int"},
             "name": {"required": true, "type": "str"},
-            "poe-mode": {"choices": ["auto", "8023af", "8023at", "power-adapter", "full", "high", "low"], "type": "str"},
+            "poe-mode": {"choices": ["auto", "8023af", "8023at", "power-adapter", "full", "high", "low", "high-pse"], "type": "str"},
             "split-tunneling-acl": {"type": "list", "options": {"dest-ip": {"type": "str"}, "id": {"type": "int"}}, "elements": "dict"},
             "split-tunneling-acl-local-ap-subnet": {"choices": ["disable", "enable"], "type": "str"},
             "split-tunneling-acl-path": {"choices": ["tunnel", "local"], "type": "str"},
@@ -42136,19 +43803,19 @@ SCHEMA_DATA = '''
                     "polestar-server-path": {"v_range": [["7.4.1", ""]], "type": "str"},
                     "polestar-server-port": {"v_range": [["7.4.1", ""]], "type": "int"},
                     "polestar-server-token": {"v_range": [["7.4.1", ""]], "no_log": true, "type": "str"},
-                    "ble-rtls": {"v_range": [["7.4.4", "7.4.10"], ["7.6.2", ""]], "choices": ["none", "polestar", "evresys"], "type": "str"},
-                    "ble-rtls-accumulation-interval": {"v_range": [["7.4.4", "7.4.10"], ["7.6.2", ""]], "type": "int"},
-                    "ble-rtls-asset-addrgrp-list": {"v_range": [["7.4.4", "7.4.10"], ["7.6.2", ""]], "type": "raw"},
-                    "ble-rtls-asset-uuid-list1": {"v_range": [["7.4.4", "7.4.10"], ["7.6.2", ""]], "type": "str"},
-                    "ble-rtls-asset-uuid-list2": {"v_range": [["7.4.4", "7.4.10"], ["7.6.2", ""]], "type": "str"},
-                    "ble-rtls-asset-uuid-list3": {"v_range": [["7.4.4", "7.4.10"], ["7.6.2", ""]], "type": "str"},
-                    "ble-rtls-asset-uuid-list4": {"v_range": [["7.4.4", "7.4.10"], ["7.6.2", ""]], "type": "str"},
-                    "ble-rtls-protocol": {"v_range": [["7.4.4", "7.4.10"], ["7.6.2", ""]], "choices": ["WSS"], "type": "str"},
-                    "ble-rtls-reporting-interval": {"v_range": [["7.4.4", "7.4.10"], ["7.6.2", ""]], "type": "int"},
-                    "ble-rtls-server-fqdn": {"v_range": [["7.4.4", "7.4.10"], ["7.6.2", ""]], "type": "str"},
-                    "ble-rtls-server-path": {"v_range": [["7.4.4", "7.4.10"], ["7.6.2", ""]], "type": "str"},
-                    "ble-rtls-server-port": {"v_range": [["7.4.4", "7.4.10"], ["7.6.2", ""]], "type": "int"},
-                    "ble-rtls-server-token": {"v_range": [["7.4.4", "7.4.10"], ["7.6.2", ""]], "no_log": true, "type": "str"}
+                    "ble-rtls": {"v_range": [["7.4.4", "7.4.11"], ["7.6.2", ""]], "choices": ["none", "polestar", "evresys"], "type": "str"},
+                    "ble-rtls-accumulation-interval": {"v_range": [["7.4.4", "7.4.11"], ["7.6.2", ""]], "type": "int"},
+                    "ble-rtls-asset-addrgrp-list": {"v_range": [["7.4.4", "7.4.11"], ["7.6.2", ""]], "type": "raw"},
+                    "ble-rtls-asset-uuid-list1": {"v_range": [["7.4.4", "7.4.11"], ["7.6.2", ""]], "type": "str"},
+                    "ble-rtls-asset-uuid-list2": {"v_range": [["7.4.4", "7.4.11"], ["7.6.2", ""]], "type": "str"},
+                    "ble-rtls-asset-uuid-list3": {"v_range": [["7.4.4", "7.4.11"], ["7.6.2", ""]], "type": "str"},
+                    "ble-rtls-asset-uuid-list4": {"v_range": [["7.4.4", "7.4.11"], ["7.6.2", ""]], "type": "str"},
+                    "ble-rtls-protocol": {"v_range": [["7.4.4", "7.4.11"], ["7.6.2", ""]], "choices": ["WSS"], "type": "str"},
+                    "ble-rtls-reporting-interval": {"v_range": [["7.4.4", "7.4.11"], ["7.6.2", ""]], "type": "int"},
+                    "ble-rtls-server-fqdn": {"v_range": [["7.4.4", "7.4.11"], ["7.6.2", ""]], "type": "str"},
+                    "ble-rtls-server-path": {"v_range": [["7.4.4", "7.4.11"], ["7.6.2", ""]], "type": "str"},
+                    "ble-rtls-server-port": {"v_range": [["7.4.4", "7.4.11"], ["7.6.2", ""]], "type": "int"},
+                    "ble-rtls-server-token": {"v_range": [["7.4.4", "7.4.11"], ["7.6.2", ""]], "no_log": true, "type": "str"}
                 }
             },
             "platform": {
@@ -42166,7 +43833,7 @@ SCHEMA_DATA = '''
                             "C226E", "C23JD", "C24JE", "C21D", "U421E", "U423E", "221E", "222E", "223E", "S221E", "S223E", "U221EV", "U223EV", "U321EV",
                             "U323EV", "224E", "U422EV", "U24JEV", "321E", "U431F", "U433F", "231E", "431F", "433F", "231F", "432F", "234F", "23JF",
                             "U231F", "831F", "U234F", "U432F", "431FL", "432FR", "433FL", "231FL", "231G", "233G", "431G", "433G", "U231G", "U441G",
-                            "234G", "432G", "441K", "443K", "241K", "243K", "231K", "23JK", "222KL", "244K", "432K", "MVP", "231KD"
+                            "234G", "432G", "441K", "443K", "241K", "243K", "231K", "23JK", "222KL", "244K", "432K", "MVP", "231KD", "221K", "435K"
                         ],
                         "type": "str"
                     },
@@ -42235,7 +43902,11 @@ SCHEMA_DATA = '''
                     "radio-id": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", ""]], "type": "int"},
                     "rts-threshold": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", ""]], "type": "int"},
                     "short-guard-interval": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", ""]], "choices": ["disable", "enable"], "type": "str"},
-                    "spectrum-analysis": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", ""]], "choices": ["disable", "enable", "scan-only"], "type": "str"},
+                    "spectrum-analysis": {
+                        "v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.6.7"]],
+                        "choices": ["disable", "enable", "scan-only"],
+                        "type": "str"
+                    },
                     "transmit-optimize": {
                         "v_range": [["6.2.8", "6.2.13"], ["6.4.5", ""]],
                         "type": "list",
@@ -42311,7 +43982,17 @@ SCHEMA_DATA = '''
                         "choices": ["320MHz", "240MHz", "160MHz", "80MHz", "40MHz", "20MHz"],
                         "type": "str"
                     },
-                    "ai-darrp-support": {"v_range": [["7.6.5", ""]], "choices": ["disable", "enable"], "type": "str"}
+                    "ai-darrp-support": {"v_range": [["7.6.5", ""]], "choices": ["disable", "enable"], "type": "str"},
+                    "cca-threshold": {"v_range": [["8.0.0", ""]], "type": "str"},
+                    "vap-status": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+                    "vap10": {"v_range": [["8.0.0", ""]], "type": "str"},
+                    "vap11": {"v_range": [["8.0.0", ""]], "type": "str"},
+                    "vap12": {"v_range": [["8.0.0", ""]], "type": "str"},
+                    "vap13": {"v_range": [["8.0.0", ""]], "type": "str"},
+                    "vap14": {"v_range": [["8.0.0", ""]], "type": "str"},
+                    "vap15": {"v_range": [["8.0.0", ""]], "type": "str"},
+                    "vap16": {"v_range": [["8.0.0", ""]], "type": "str"},
+                    "vap9": {"v_range": [["8.0.0", ""]], "type": "str"}
                 }
             },
             "radio-2": {
@@ -42376,7 +44057,11 @@ SCHEMA_DATA = '''
                     "radio-id": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", ""]], "type": "int"},
                     "rts-threshold": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", ""]], "type": "int"},
                     "short-guard-interval": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", ""]], "choices": ["disable", "enable"], "type": "str"},
-                    "spectrum-analysis": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", ""]], "choices": ["disable", "enable", "scan-only"], "type": "str"},
+                    "spectrum-analysis": {
+                        "v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.6.7"]],
+                        "choices": ["disable", "enable", "scan-only"],
+                        "type": "str"
+                    },
                     "transmit-optimize": {
                         "v_range": [["6.2.8", "6.2.13"], ["6.4.5", ""]],
                         "type": "list",
@@ -42452,7 +44137,17 @@ SCHEMA_DATA = '''
                         "choices": ["320MHz", "240MHz", "160MHz", "80MHz", "40MHz", "20MHz"],
                         "type": "str"
                     },
-                    "ai-darrp-support": {"v_range": [["7.6.5", ""]], "choices": ["disable", "enable"], "type": "str"}
+                    "ai-darrp-support": {"v_range": [["7.6.5", ""]], "choices": ["disable", "enable"], "type": "str"},
+                    "cca-threshold": {"v_range": [["8.0.0", ""]], "type": "str"},
+                    "vap-status": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+                    "vap10": {"v_range": [["8.0.0", ""]], "type": "str"},
+                    "vap11": {"v_range": [["8.0.0", ""]], "type": "str"},
+                    "vap12": {"v_range": [["8.0.0", ""]], "type": "str"},
+                    "vap13": {"v_range": [["8.0.0", ""]], "type": "str"},
+                    "vap14": {"v_range": [["8.0.0", ""]], "type": "str"},
+                    "vap15": {"v_range": [["8.0.0", ""]], "type": "str"},
+                    "vap16": {"v_range": [["8.0.0", ""]], "type": "str"},
+                    "vap9": {"v_range": [["8.0.0", ""]], "type": "str"}
                 }
             },
             "radio-3": {
@@ -42517,7 +44212,11 @@ SCHEMA_DATA = '''
                     "radio-id": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", ""]], "type": "int"},
                     "rts-threshold": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", ""]], "type": "int"},
                     "short-guard-interval": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", ""]], "choices": ["disable", "enable"], "type": "str"},
-                    "spectrum-analysis": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", ""]], "choices": ["disable", "enable", "scan-only"], "type": "str"},
+                    "spectrum-analysis": {
+                        "v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.6.7"]],
+                        "choices": ["disable", "enable", "scan-only"],
+                        "type": "str"
+                    },
                     "transmit-optimize": {
                         "v_range": [["6.2.8", "6.2.13"], ["6.4.5", ""]],
                         "type": "list",
@@ -42593,7 +44292,17 @@ SCHEMA_DATA = '''
                         "choices": ["320MHz", "240MHz", "160MHz", "80MHz", "40MHz", "20MHz"],
                         "type": "str"
                     },
-                    "ai-darrp-support": {"v_range": [["7.6.5", ""]], "choices": ["disable", "enable"], "type": "str"}
+                    "ai-darrp-support": {"v_range": [["7.6.5", ""]], "choices": ["disable", "enable"], "type": "str"},
+                    "cca-threshold": {"v_range": [["8.0.0", ""]], "type": "str"},
+                    "vap-status": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+                    "vap10": {"v_range": [["8.0.0", ""]], "type": "str"},
+                    "vap11": {"v_range": [["8.0.0", ""]], "type": "str"},
+                    "vap12": {"v_range": [["8.0.0", ""]], "type": "str"},
+                    "vap13": {"v_range": [["8.0.0", ""]], "type": "str"},
+                    "vap14": {"v_range": [["8.0.0", ""]], "type": "str"},
+                    "vap15": {"v_range": [["8.0.0", ""]], "type": "str"},
+                    "vap16": {"v_range": [["8.0.0", ""]], "type": "str"},
+                    "vap9": {"v_range": [["8.0.0", ""]], "type": "str"}
                 }
             },
             "radio-4": {
@@ -42658,7 +44367,11 @@ SCHEMA_DATA = '''
                     "radio-id": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", ""]], "type": "int"},
                     "rts-threshold": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", ""]], "type": "int"},
                     "short-guard-interval": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", ""]], "choices": ["disable", "enable"], "type": "str"},
-                    "spectrum-analysis": {"v_range": [["6.2.8", "6.2.13"], ["6.4.5", ""]], "choices": ["disable", "enable", "scan-only"], "type": "str"},
+                    "spectrum-analysis": {
+                        "v_range": [["6.2.8", "6.2.13"], ["6.4.5", "7.6.7"]],
+                        "choices": ["disable", "enable", "scan-only"],
+                        "type": "str"
+                    },
                     "transmit-optimize": {
                         "v_range": [["6.2.8", "6.2.13"], ["6.4.5", ""]],
                         "type": "list",
@@ -42734,7 +44447,17 @@ SCHEMA_DATA = '''
                         "choices": ["320MHz", "240MHz", "160MHz", "80MHz", "40MHz", "20MHz"],
                         "type": "str"
                     },
-                    "ai-darrp-support": {"v_range": [["7.6.5", ""]], "choices": ["disable", "enable"], "type": "str"}
+                    "ai-darrp-support": {"v_range": [["7.6.5", ""]], "choices": ["disable", "enable"], "type": "str"},
+                    "cca-threshold": {"v_range": [["8.0.0", ""]], "type": "str"},
+                    "vap-status": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+                    "vap10": {"v_range": [["8.0.0", ""]], "type": "str"},
+                    "vap11": {"v_range": [["8.0.0", ""]], "type": "str"},
+                    "vap12": {"v_range": [["8.0.0", ""]], "type": "str"},
+                    "vap13": {"v_range": [["8.0.0", ""]], "type": "str"},
+                    "vap14": {"v_range": [["8.0.0", ""]], "type": "str"},
+                    "vap15": {"v_range": [["8.0.0", ""]], "type": "str"},
+                    "vap16": {"v_range": [["8.0.0", ""]], "type": "str"},
+                    "vap9": {"v_range": [["8.0.0", ""]], "type": "str"}
                 }
             },
             "console-login": {"v_range": [["6.2.9", "6.2.13"], ["6.4.8", "6.4.15"], ["7.0.1", ""]], "choices": ["disable", "enable"], "type": "str"},
@@ -42802,7 +44525,9 @@ SCHEMA_DATA = '''
             "apcfg-auto-cert-scep-sub-fully-dn": {"v_range": [["7.6.5", ""]], "type": "str"},
             "apcfg-auto-cert-scep-subject-alt-name": {"v_range": [["7.6.5", ""]], "type": "str"},
             "apcfg-auto-cert-scep-url": {"v_range": [["7.6.5", ""]], "type": "str"},
-            "lw-profile": {"v_range": [["7.6.5", ""]], "type": "raw"}
+            "lw-profile": {"v_range": [["7.6.5", ""]], "type": "raw"},
+            "80211mc-mode": {"v_range": [["8.0.0", ""]], "choices": ["auto", "initiator", "responder"], "type": "str"},
+            "ipsec-offload": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"}
         }
     },
     "wtpprofile_denymaclist": {"stated": true, "options": {"id": {"required": true, "type": "int"}, "mac": {"type": "str"}}},
@@ -42887,19 +44612,19 @@ SCHEMA_DATA = '''
             "polestar-server-path": {"v_range": [["7.4.1", ""]], "type": "str"},
             "polestar-server-port": {"v_range": [["7.4.1", ""]], "type": "int"},
             "polestar-server-token": {"v_range": [["7.4.1", ""]], "no_log": true, "type": "str"},
-            "ble-rtls": {"v_range": [["7.4.4", "7.4.10"], ["7.6.2", ""]], "choices": ["none", "polestar", "evresys"], "type": "str"},
-            "ble-rtls-accumulation-interval": {"v_range": [["7.4.4", "7.4.10"], ["7.6.2", ""]], "type": "int"},
-            "ble-rtls-asset-addrgrp-list": {"v_range": [["7.4.4", "7.4.10"], ["7.6.2", ""]], "type": "raw"},
-            "ble-rtls-asset-uuid-list1": {"v_range": [["7.4.4", "7.4.10"], ["7.6.2", ""]], "type": "str"},
-            "ble-rtls-asset-uuid-list2": {"v_range": [["7.4.4", "7.4.10"], ["7.6.2", ""]], "type": "str"},
-            "ble-rtls-asset-uuid-list3": {"v_range": [["7.4.4", "7.4.10"], ["7.6.2", ""]], "type": "str"},
-            "ble-rtls-asset-uuid-list4": {"v_range": [["7.4.4", "7.4.10"], ["7.6.2", ""]], "type": "str"},
-            "ble-rtls-protocol": {"v_range": [["7.4.4", "7.4.10"], ["7.6.2", ""]], "choices": ["WSS"], "type": "str"},
-            "ble-rtls-reporting-interval": {"v_range": [["7.4.4", "7.4.10"], ["7.6.2", ""]], "type": "int"},
-            "ble-rtls-server-fqdn": {"v_range": [["7.4.4", "7.4.10"], ["7.6.2", ""]], "type": "str"},
-            "ble-rtls-server-path": {"v_range": [["7.4.4", "7.4.10"], ["7.6.2", ""]], "type": "str"},
-            "ble-rtls-server-port": {"v_range": [["7.4.4", "7.4.10"], ["7.6.2", ""]], "type": "int"},
-            "ble-rtls-server-token": {"v_range": [["7.4.4", "7.4.10"], ["7.6.2", ""]], "no_log": true, "type": "str"}
+            "ble-rtls": {"v_range": [["7.4.4", "7.4.11"], ["7.6.2", ""]], "choices": ["none", "polestar", "evresys"], "type": "str"},
+            "ble-rtls-accumulation-interval": {"v_range": [["7.4.4", "7.4.11"], ["7.6.2", ""]], "type": "int"},
+            "ble-rtls-asset-addrgrp-list": {"v_range": [["7.4.4", "7.4.11"], ["7.6.2", ""]], "type": "raw"},
+            "ble-rtls-asset-uuid-list1": {"v_range": [["7.4.4", "7.4.11"], ["7.6.2", ""]], "type": "str"},
+            "ble-rtls-asset-uuid-list2": {"v_range": [["7.4.4", "7.4.11"], ["7.6.2", ""]], "type": "str"},
+            "ble-rtls-asset-uuid-list3": {"v_range": [["7.4.4", "7.4.11"], ["7.6.2", ""]], "type": "str"},
+            "ble-rtls-asset-uuid-list4": {"v_range": [["7.4.4", "7.4.11"], ["7.6.2", ""]], "type": "str"},
+            "ble-rtls-protocol": {"v_range": [["7.4.4", "7.4.11"], ["7.6.2", ""]], "choices": ["WSS"], "type": "str"},
+            "ble-rtls-reporting-interval": {"v_range": [["7.4.4", "7.4.11"], ["7.6.2", ""]], "type": "int"},
+            "ble-rtls-server-fqdn": {"v_range": [["7.4.4", "7.4.11"], ["7.6.2", ""]], "type": "str"},
+            "ble-rtls-server-path": {"v_range": [["7.4.4", "7.4.11"], ["7.6.2", ""]], "type": "str"},
+            "ble-rtls-server-port": {"v_range": [["7.4.4", "7.4.11"], ["7.6.2", ""]], "type": "int"},
+            "ble-rtls-server-token": {"v_range": [["7.4.4", "7.4.11"], ["7.6.2", ""]], "no_log": true, "type": "str"}
         }
     },
     "wtpprofile_platform": {
@@ -42913,7 +44638,7 @@ SCHEMA_DATA = '''
                     "C21D", "U421E", "U423E", "221E", "222E", "223E", "S221E", "S223E", "U221EV", "U223EV", "U321EV", "U323EV", "224E", "U422EV",
                     "U24JEV", "321E", "U431F", "U433F", "231E", "431F", "433F", "231F", "432F", "234F", "23JF", "U231F", "831F", "U234F", "U432F",
                     "431FL", "432FR", "433FL", "231FL", "231G", "233G", "431G", "433G", "U231G", "U441G", "234G", "432G", "441K", "443K", "241K", "243K",
-                    "231K", "23JK", "222KL", "244K", "432K", "MVP", "231KD"
+                    "231K", "23JK", "222KL", "244K", "432K", "MVP", "231KD", "221K", "435K"
                 ],
                 "type": "str"
             },
@@ -42969,7 +44694,7 @@ SCHEMA_DATA = '''
             "radio-id": {"type": "int"},
             "rts-threshold": {"type": "int"},
             "short-guard-interval": {"choices": ["disable", "enable"], "type": "str"},
-            "spectrum-analysis": {"choices": ["disable", "enable", "scan-only"], "type": "str"},
+            "spectrum-analysis": {"v_range": [["6.0.0", "7.6.7"]], "choices": ["disable", "enable", "scan-only"], "type": "str"},
             "transmit-optimize": {"type": "list", "choices": ["disable", "power-save", "aggr-limit", "retry-limit", "send-bar"], "elements": "str"},
             "vap-all": {"choices": ["disable", "enable", "tunnel", "bridge", "manual"], "type": "str"},
             "vaps": {"type": "raw"},
@@ -43032,7 +44757,17 @@ SCHEMA_DATA = '''
             "channel-bonding-ext": {"v_range": [["7.4.3", ""]], "choices": ["320MHz-1", "320MHz-2"], "type": "str"},
             "80211mc": {"v_range": [["7.6.0", ""]], "choices": ["disable", "enable"], "type": "str"},
             "ap-sniffer-chan-width": {"v_range": [["7.4.4", ""]], "choices": ["320MHz", "240MHz", "160MHz", "80MHz", "40MHz", "20MHz"], "type": "str"},
-            "ai-darrp-support": {"v_range": [["7.6.5", ""]], "choices": ["disable", "enable"], "type": "str"}
+            "ai-darrp-support": {"v_range": [["7.6.5", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "cca-threshold": {"v_range": [["8.0.0", ""]], "type": "str"},
+            "vap-status": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "vap10": {"v_range": [["8.0.0", ""]], "type": "str"},
+            "vap11": {"v_range": [["8.0.0", ""]], "type": "str"},
+            "vap12": {"v_range": [["8.0.0", ""]], "type": "str"},
+            "vap13": {"v_range": [["8.0.0", ""]], "type": "str"},
+            "vap14": {"v_range": [["8.0.0", ""]], "type": "str"},
+            "vap15": {"v_range": [["8.0.0", ""]], "type": "str"},
+            "vap16": {"v_range": [["8.0.0", ""]], "type": "str"},
+            "vap9": {"v_range": [["8.0.0", ""]], "type": "str"}
         }
     },
     "wtpprofile_radio2": {
@@ -43082,7 +44817,7 @@ SCHEMA_DATA = '''
             "radio-id": {"type": "int"},
             "rts-threshold": {"type": "int"},
             "short-guard-interval": {"choices": ["disable", "enable"], "type": "str"},
-            "spectrum-analysis": {"choices": ["disable", "enable", "scan-only"], "type": "str"},
+            "spectrum-analysis": {"v_range": [["6.0.0", "7.6.7"]], "choices": ["disable", "enable", "scan-only"], "type": "str"},
             "transmit-optimize": {"type": "list", "choices": ["disable", "power-save", "aggr-limit", "retry-limit", "send-bar"], "elements": "str"},
             "vap-all": {"choices": ["disable", "enable", "tunnel", "bridge", "manual"], "type": "str"},
             "vaps": {"type": "raw"},
@@ -43145,7 +44880,17 @@ SCHEMA_DATA = '''
             "channel-bonding-ext": {"v_range": [["7.4.3", ""]], "choices": ["320MHz-1", "320MHz-2"], "type": "str"},
             "80211mc": {"v_range": [["7.6.0", ""]], "choices": ["disable", "enable"], "type": "str"},
             "ap-sniffer-chan-width": {"v_range": [["7.4.4", ""]], "choices": ["320MHz", "240MHz", "160MHz", "80MHz", "40MHz", "20MHz"], "type": "str"},
-            "ai-darrp-support": {"v_range": [["7.6.5", ""]], "choices": ["disable", "enable"], "type": "str"}
+            "ai-darrp-support": {"v_range": [["7.6.5", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "cca-threshold": {"v_range": [["8.0.0", ""]], "type": "str"},
+            "vap-status": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "vap10": {"v_range": [["8.0.0", ""]], "type": "str"},
+            "vap11": {"v_range": [["8.0.0", ""]], "type": "str"},
+            "vap12": {"v_range": [["8.0.0", ""]], "type": "str"},
+            "vap13": {"v_range": [["8.0.0", ""]], "type": "str"},
+            "vap14": {"v_range": [["8.0.0", ""]], "type": "str"},
+            "vap15": {"v_range": [["8.0.0", ""]], "type": "str"},
+            "vap16": {"v_range": [["8.0.0", ""]], "type": "str"},
+            "vap9": {"v_range": [["8.0.0", ""]], "type": "str"}
         }
     },
     "wtpprofile_radio3": {
@@ -43202,7 +44947,7 @@ SCHEMA_DATA = '''
             "radio-id": {"v_range": [["6.2.2", ""]], "type": "int"},
             "rts-threshold": {"v_range": [["6.2.2", ""]], "type": "int"},
             "short-guard-interval": {"v_range": [["6.2.2", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "spectrum-analysis": {"v_range": [["6.2.2", ""]], "choices": ["disable", "enable", "scan-only"], "type": "str"},
+            "spectrum-analysis": {"v_range": [["6.2.2", "7.6.7"]], "choices": ["disable", "enable", "scan-only"], "type": "str"},
             "transmit-optimize": {
                 "v_range": [["6.2.2", ""]],
                 "type": "list",
@@ -43269,7 +45014,17 @@ SCHEMA_DATA = '''
             "channel-bonding-ext": {"v_range": [["7.4.3", ""]], "choices": ["320MHz-1", "320MHz-2"], "type": "str"},
             "80211mc": {"v_range": [["7.6.0", ""]], "choices": ["disable", "enable"], "type": "str"},
             "ap-sniffer-chan-width": {"v_range": [["7.4.4", ""]], "choices": ["320MHz", "240MHz", "160MHz", "80MHz", "40MHz", "20MHz"], "type": "str"},
-            "ai-darrp-support": {"v_range": [["7.6.5", ""]], "choices": ["disable", "enable"], "type": "str"}
+            "ai-darrp-support": {"v_range": [["7.6.5", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "cca-threshold": {"v_range": [["8.0.0", ""]], "type": "str"},
+            "vap-status": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "vap10": {"v_range": [["8.0.0", ""]], "type": "str"},
+            "vap11": {"v_range": [["8.0.0", ""]], "type": "str"},
+            "vap12": {"v_range": [["8.0.0", ""]], "type": "str"},
+            "vap13": {"v_range": [["8.0.0", ""]], "type": "str"},
+            "vap14": {"v_range": [["8.0.0", ""]], "type": "str"},
+            "vap15": {"v_range": [["8.0.0", ""]], "type": "str"},
+            "vap16": {"v_range": [["8.0.0", ""]], "type": "str"},
+            "vap9": {"v_range": [["8.0.0", ""]], "type": "str"}
         }
     },
     "wtpprofile_radio4": {
@@ -43327,7 +45082,7 @@ SCHEMA_DATA = '''
             "radio-id": {"v_range": [["6.2.5", ""]], "type": "int"},
             "rts-threshold": {"v_range": [["6.2.5", ""]], "type": "int"},
             "short-guard-interval": {"v_range": [["6.2.5", ""]], "choices": ["disable", "enable"], "type": "str"},
-            "spectrum-analysis": {"v_range": [["6.2.5", ""]], "choices": ["disable", "enable", "scan-only"], "type": "str"},
+            "spectrum-analysis": {"v_range": [["6.2.5", "7.6.7"]], "choices": ["disable", "enable", "scan-only"], "type": "str"},
             "transmit-optimize": {
                 "v_range": [["6.2.5", ""]],
                 "type": "list",
@@ -43393,10 +45148,39 @@ SCHEMA_DATA = '''
             "channel-bonding-ext": {"v_range": [["7.4.3", ""]], "choices": ["320MHz-1", "320MHz-2"], "type": "str"},
             "80211mc": {"v_range": [["7.6.0", ""]], "choices": ["disable", "enable"], "type": "str"},
             "ap-sniffer-chan-width": {"v_range": [["7.4.4", ""]], "choices": ["320MHz", "240MHz", "160MHz", "80MHz", "40MHz", "20MHz"], "type": "str"},
-            "ai-darrp-support": {"v_range": [["7.6.5", ""]], "choices": ["disable", "enable"], "type": "str"}
+            "ai-darrp-support": {"v_range": [["7.6.5", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "cca-threshold": {"v_range": [["8.0.0", ""]], "type": "str"},
+            "vap-status": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "vap10": {"v_range": [["8.0.0", ""]], "type": "str"},
+            "vap11": {"v_range": [["8.0.0", ""]], "type": "str"},
+            "vap12": {"v_range": [["8.0.0", ""]], "type": "str"},
+            "vap13": {"v_range": [["8.0.0", ""]], "type": "str"},
+            "vap14": {"v_range": [["8.0.0", ""]], "type": "str"},
+            "vap15": {"v_range": [["8.0.0", ""]], "type": "str"},
+            "vap16": {"v_range": [["8.0.0", ""]], "type": "str"},
+            "vap9": {"v_range": [["8.0.0", ""]], "type": "str"}
         }
     },
     "wtpprofile_splittunnelingacl": {"stated": true, "options": {"dest-ip": {"type": "str"}, "id": {"required": true, "type": "int"}}},
+    "ztna_destination": {
+        "stated": true,
+        "options": {
+            "address": {"v_range": [["8.0.0", ""]], "type": "list", "elements": "str"},
+            "conn-type": {"v_range": [["8.0.0", ""]], "choices": ["traffic-forwarding", "ssh"], "type": "str"},
+            "domain": {"v_range": [["8.0.0", ""]], "type": "str"},
+            "external-auth": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "mappedport": {"v_range": [["8.0.0", ""]], "type": "str"},
+            "name": {"v_range": [["8.0.0", ""]], "required": true, "type": "str"},
+            "protocol": {"v_range": [["8.0.0", ""]], "choices": ["TCP", "UDP", "ALL"], "type": "str"},
+            "saas-application": {"v_range": [["8.0.0", ""]], "type": "list", "elements": "str"},
+            "ssh-client-cert": {"v_range": [["8.0.0", ""]], "type": "list", "elements": "str"},
+            "ssh-host-key": {"v_range": [["8.0.0", ""]], "no_log": true, "type": "list", "elements": "str"},
+            "ssh-host-key-validation": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "tunnel-encryption": {"v_range": [["8.0.0", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "type": {"v_range": [["8.0.0", ""]], "choices": ["on-premise", "saas"], "type": "str"},
+            "uuid": {"v_range": [["8.0.0", ""]], "type": "str"}
+        }
+    },
     "ztna_serviceconnector": {
         "stated": true,
         "options": {
@@ -43733,7 +45517,8 @@ SCHEMA_DATA = '''
             "windows-forticlient-download-url": {"v_range": [["7.6.4", ""]], "type": "str"},
             "vip6": {"v_range": [["7.6.4", ""]], "type": "list", "elements": "str"},
             "llm-profile": {"v_range": [["7.6.5", ""]], "type": "list", "elements": "str"},
-            "llm-proxy": {"v_range": [["7.6.5", ""]], "choices": ["disable", "enable"], "type": "str"}
+            "llm-proxy": {"v_range": [["7.6.5", ""]], "choices": ["disable", "enable"], "type": "str"},
+            "ak-manager": {"v_range": [["7.6.7", ""]], "choices": ["disable", "enable"], "type": "str"}
         }
     },
     "ztna_webportalbookmark": {
@@ -43781,7 +45566,8 @@ SCHEMA_DATA = '''
                         ],
                         "type": "str"
                     },
-                    "width": {"v_range": [["7.6.4", ""]], "type": "int"}
+                    "width": {"v_range": [["7.6.4", ""]], "type": "int"},
+                    "verify-cert": {"v_range": [["7.6.7", ""]], "choices": ["disable", "enable"], "type": "str"}
                 },
                 "elements": "dict"
             },
@@ -43840,7 +45626,8 @@ SCHEMA_DATA = '''
                 ],
                 "type": "str"
             },
-            "width": {"v_range": [["7.6.4", ""]], "type": "int"}
+            "width": {"v_range": [["7.6.4", ""]], "type": "int"},
+            "verify-cert": {"v_range": [["7.6.7", ""]], "choices": ["disable", "enable"], "type": "str"}
         }
     },
     "ztna_webproxy": {

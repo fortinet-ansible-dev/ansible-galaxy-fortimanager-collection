@@ -15,460 +15,480 @@ module: fmgr_pm_config_pblock_firewall_proxypolicy
 short_description: Configure proxy policies.
 version_added: "2.7.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    adom:
-        description: The parameter (adom) in requested url.
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  pblock:
+    description: The parameter (pblock) in requested url.
+    type: str
+    required: true
+  pm_config_pblock_firewall_proxypolicy:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      _policy_block:
+        type: int
+        description: Assigned policy block.
+      access_proxy:
+        aliases: ['access-proxy']
+        type: list
+        elements: str
+        description: IPv4 access proxy.
+      access_proxy6:
+        aliases: ['access-proxy6']
+        type: list
+        elements: str
+        description: IPv6 access proxy.
+      action:
         type: str
-        required: true
-    pblock:
-        description: The parameter (pblock) in requested url.
+        description: Accept or deny traffic matching the policy parameters.
+        choices: ['accept', 'deny', 'redirect', 'isolate']
+      application_list:
+        aliases: ['application-list']
+        type: list
+        elements: str
+        description: Name of an existing Application list.
+      av_profile:
+        aliases: ['av-profile']
+        type: list
+        elements: str
+        description: Name of an existing Antivirus profile.
+      block_notification:
+        aliases: ['block-notification']
         type: str
+        description: Enable/disable block notification.
+        choices: ['disable', 'enable']
+      casb_profile:
+        aliases: ['casb-profile']
+        type: list
+        elements: str
+        description: Name of an existing CASB profile.
+      comments:
+        type: str
+        description: Optional comments.
+      decrypted_traffic_mirror:
+        aliases: ['decrypted-traffic-mirror']
+        type: list
+        elements: str
+        description: Decrypted traffic mirror.
+      detect_https_in_http_request:
+        aliases: ['detect-https-in-http-request']
+        type: str
+        description: Enable/disable detection of HTTPS in HTTP request.
+        choices: ['disable', 'enable']
+      device_ownership:
+        aliases: ['device-ownership']
+        type: str
+        description: When enabled, the ownership enforcement will be done at policy level.
+        choices: ['disable', 'enable']
+      disclaimer:
+        type: str
+        description: Web proxy disclaimer setting
+        choices: ['disable', 'domain', 'policy', 'user']
+      dlp_profile:
+        aliases: ['dlp-profile']
+        type: list
+        elements: str
+        description: Name of an existing DLP profile.
+      dnsfilter_profile:
+        aliases: ['dnsfilter-profile']
+        type: list
+        elements: str
+        description: Name of an existing DNS filter profile.
+      dstaddr:
+        type: list
+        elements: str
+        description: Destination address objects.
+      dstaddr_negate:
+        aliases: ['dstaddr-negate']
+        type: str
+        description: When enabled, destination addresses match against any address EXCEPT the specified destination addresses.
+        choices: ['disable', 'enable']
+      dstaddr6:
+        type: list
+        elements: str
+        description: IPv6 destination address objects.
+      dstintf:
+        type: list
+        elements: str
+        description: Destination interface names.
+      emailfilter_profile:
+        aliases: ['emailfilter-profile']
+        type: list
+        elements: str
+        description: Name of an existing email filter profile.
+      file_filter_profile:
+        aliases: ['file-filter-profile']
+        type: list
+        elements: str
+        description: Name of an existing file-filter profile.
+      global_label:
+        aliases: ['global-label']
+        type: str
+        description: Global web-based manager visible label.
+      groups:
+        type: list
+        elements: str
+        description: Names of group objects.
+      http_tunnel_auth:
+        aliases: ['http-tunnel-auth']
+        type: str
+        description: Enable/disable HTTP tunnel authentication.
+        choices: ['disable', 'enable']
+      icap_profile:
+        aliases: ['icap-profile']
+        type: list
+        elements: str
+        description: Name of an existing ICAP profile.
+      internet_service:
+        aliases: ['internet-service']
+        type: str
+        description: Enable/disable use of Internet Services for this policy.
+        choices: ['disable', 'enable']
+      internet_service_custom:
+        aliases: ['internet-service-custom']
+        type: list
+        elements: str
+        description: Custom Internet Service name.
+      internet_service_custom_group:
+        aliases: ['internet-service-custom-group']
+        type: list
+        elements: str
+        description: Custom Internet Service group name.
+      internet_service_group:
+        aliases: ['internet-service-group']
+        type: list
+        elements: str
+        description: Internet Service group name.
+      internet_service_name:
+        aliases: ['internet-service-name']
+        type: list
+        elements: str
+        description: Internet Service name.
+      internet_service_negate:
+        aliases: ['internet-service-negate']
+        type: str
+        description: When enabled, Internet Services match against any internet service EXCEPT the selected Internet Service.
+        choices: ['disable', 'enable']
+      internet_service6:
+        aliases: ['internet-service6']
+        type: str
+        description: Enable/disable use of Internet Services IPv6 for this policy.
+        choices: ['disable', 'enable']
+      internet_service6_custom:
+        aliases: ['internet-service6-custom']
+        type: list
+        elements: str
+        description: Custom Internet Service IPv6 name.
+      internet_service6_custom_group:
+        aliases: ['internet-service6-custom-group']
+        type: list
+        elements: str
+        description: Custom Internet Service IPv6 group name.
+      internet_service6_group:
+        aliases: ['internet-service6-group']
+        type: list
+        elements: str
+        description: Internet Service IPv6 group name.
+      internet_service6_name:
+        aliases: ['internet-service6-name']
+        type: list
+        elements: str
+        description: Internet Service IPv6 name.
+      internet_service6_negate:
+        aliases: ['internet-service6-negate']
+        type: str
+        description: When enabled, Internet Services match against any internet service IPv6 EXCEPT the selected Internet Service IPv6.
+        choices: ['disable', 'enable']
+      ips_sensor:
+        aliases: ['ips-sensor']
+        type: list
+        elements: str
+        description: Name of an existing IPS sensor.
+      ips_voip_filter:
+        aliases: ['ips-voip-filter']
+        type: list
+        elements: str
+        description: Name of an existing VoIP
+      label:
+        type: str
+        description: VDOM-specific GUI visible label.
+      log_http_transaction:
+        aliases: ['log-http-transaction']
+        type: str
+        description: Enable/disable HTTP transaction log.
+        choices: ['disable', 'enable']
+      logtraffic:
+        type: str
+        description: Enable/disable logging traffic through the policy.
+        choices: ['disable', 'all', 'utm']
+      logtraffic_start:
+        aliases: ['logtraffic-start']
+        type: str
+        description: Enable/disable policy log traffic start.
+        choices: ['disable', 'enable']
+      name:
+        type: str
+        description: Policy name.
+      policyid:
+        type: int
+        description: Policy ID.
         required: true
-    pm_config_pblock_firewall_proxypolicy:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            _policy_block:
-                type: int
-                description: Assigned policy block.
-            access_proxy:
-                aliases: ['access-proxy']
-                type: list
-                elements: str
-                description: IPv4 access proxy.
-            access_proxy6:
-                aliases: ['access-proxy6']
-                type: list
-                elements: str
-                description: IPv6 access proxy.
-            action:
-                type: str
-                description: Accept or deny traffic matching the policy parameters.
-                choices: ['accept', 'deny', 'redirect', 'isolate']
-            application_list:
-                aliases: ['application-list']
-                type: list
-                elements: str
-                description: Name of an existing Application list.
-            av_profile:
-                aliases: ['av-profile']
-                type: list
-                elements: str
-                description: Name of an existing Antivirus profile.
-            block_notification:
-                aliases: ['block-notification']
-                type: str
-                description: Enable/disable block notification.
-                choices: ['disable', 'enable']
-            casb_profile:
-                aliases: ['casb-profile']
-                type: list
-                elements: str
-                description: Name of an existing CASB profile.
-            comments:
-                type: str
-                description: Optional comments.
-            decrypted_traffic_mirror:
-                aliases: ['decrypted-traffic-mirror']
-                type: list
-                elements: str
-                description: Decrypted traffic mirror.
-            detect_https_in_http_request:
-                aliases: ['detect-https-in-http-request']
-                type: str
-                description: Enable/disable detection of HTTPS in HTTP request.
-                choices: ['disable', 'enable']
-            device_ownership:
-                aliases: ['device-ownership']
-                type: str
-                description: When enabled, the ownership enforcement will be done at policy level.
-                choices: ['disable', 'enable']
-            disclaimer:
-                type: str
-                description: Web proxy disclaimer setting
-                choices: ['disable', 'domain', 'policy', 'user']
-            dlp_profile:
-                aliases: ['dlp-profile']
-                type: list
-                elements: str
-                description: Name of an existing DLP profile.
-            dnsfilter_profile:
-                aliases: ['dnsfilter-profile']
-                type: list
-                elements: str
-                description: Name of an existing DNS filter profile.
-            dstaddr:
-                type: list
-                elements: str
-                description: Destination address objects.
-            dstaddr_negate:
-                aliases: ['dstaddr-negate']
-                type: str
-                description: When enabled, destination addresses match against any address EXCEPT the specified destination addresses.
-                choices: ['disable', 'enable']
-            dstaddr6:
-                type: list
-                elements: str
-                description: IPv6 destination address objects.
-            dstintf:
-                type: list
-                elements: str
-                description: Destination interface names.
-            emailfilter_profile:
-                aliases: ['emailfilter-profile']
-                type: list
-                elements: str
-                description: Name of an existing email filter profile.
-            file_filter_profile:
-                aliases: ['file-filter-profile']
-                type: list
-                elements: str
-                description: Name of an existing file-filter profile.
-            global_label:
-                aliases: ['global-label']
-                type: str
-                description: Global web-based manager visible label.
-            groups:
-                type: list
-                elements: str
-                description: Names of group objects.
-            http_tunnel_auth:
-                aliases: ['http-tunnel-auth']
-                type: str
-                description: Enable/disable HTTP tunnel authentication.
-                choices: ['disable', 'enable']
-            icap_profile:
-                aliases: ['icap-profile']
-                type: list
-                elements: str
-                description: Name of an existing ICAP profile.
-            internet_service:
-                aliases: ['internet-service']
-                type: str
-                description: Enable/disable use of Internet Services for this policy.
-                choices: ['disable', 'enable']
-            internet_service_custom:
-                aliases: ['internet-service-custom']
-                type: list
-                elements: str
-                description: Custom Internet Service name.
-            internet_service_custom_group:
-                aliases: ['internet-service-custom-group']
-                type: list
-                elements: str
-                description: Custom Internet Service group name.
-            internet_service_group:
-                aliases: ['internet-service-group']
-                type: list
-                elements: str
-                description: Internet Service group name.
-            internet_service_name:
-                aliases: ['internet-service-name']
-                type: list
-                elements: str
-                description: Internet Service name.
-            internet_service_negate:
-                aliases: ['internet-service-negate']
-                type: str
-                description: When enabled, Internet Services match against any internet service EXCEPT the selected Internet Service.
-                choices: ['disable', 'enable']
-            internet_service6:
-                aliases: ['internet-service6']
-                type: str
-                description: Enable/disable use of Internet Services IPv6 for this policy.
-                choices: ['disable', 'enable']
-            internet_service6_custom:
-                aliases: ['internet-service6-custom']
-                type: list
-                elements: str
-                description: Custom Internet Service IPv6 name.
-            internet_service6_custom_group:
-                aliases: ['internet-service6-custom-group']
-                type: list
-                elements: str
-                description: Custom Internet Service IPv6 group name.
-            internet_service6_group:
-                aliases: ['internet-service6-group']
-                type: list
-                elements: str
-                description: Internet Service IPv6 group name.
-            internet_service6_name:
-                aliases: ['internet-service6-name']
-                type: list
-                elements: str
-                description: Internet Service IPv6 name.
-            internet_service6_negate:
-                aliases: ['internet-service6-negate']
-                type: str
-                description: When enabled, Internet Services match against any internet service IPv6 EXCEPT the selected Internet Service IPv6.
-                choices: ['disable', 'enable']
-            ips_sensor:
-                aliases: ['ips-sensor']
-                type: list
-                elements: str
-                description: Name of an existing IPS sensor.
-            ips_voip_filter:
-                aliases: ['ips-voip-filter']
-                type: list
-                elements: str
-                description: Name of an existing VoIP
-            label:
-                type: str
-                description: VDOM-specific GUI visible label.
-            log_http_transaction:
-                aliases: ['log-http-transaction']
-                type: str
-                description: Enable/disable HTTP transaction log.
-                choices: ['disable', 'enable']
-            logtraffic:
-                type: str
-                description: Enable/disable logging traffic through the policy.
-                choices: ['disable', 'all', 'utm']
-            logtraffic_start:
-                aliases: ['logtraffic-start']
-                type: str
-                description: Enable/disable policy log traffic start.
-                choices: ['disable', 'enable']
-            name:
-                type: str
-                description: Policy name.
-            policyid:
-                type: int
-                description: Policy ID.
-                required: true
-            poolname:
-                type: list
-                elements: str
-                description: Name of IP pool object.
-            profile_group:
-                aliases: ['profile-group']
-                type: list
-                elements: str
-                description: Name of profile group.
-            profile_protocol_options:
-                aliases: ['profile-protocol-options']
-                type: list
-                elements: str
-                description: Name of an existing Protocol options profile.
-            profile_type:
-                aliases: ['profile-type']
-                type: str
-                description: Determine whether the firewall policy allows security profile groups or single profiles only.
-                choices: ['single', 'group']
-            proxy:
-                type: str
-                description: Type of explicit proxy.
-                choices: ['explicit-web', 'transparent-web', 'ftp', 'wanopt', 'ssh', 'ssh-tunnel',
-                          'access-proxy', 'ztna-proxy']
-            redirect_url:
-                aliases: ['redirect-url']
-                type: str
-                description: Redirect URL for further explicit web proxy processing.
-            replacemsg_override_group:
-                aliases: ['replacemsg-override-group']
-                type: list
-                elements: str
-                description: Authentication replacement message override group.
-            schedule:
-                type: list
-                elements: str
-                description: Name of schedule object.
-            sctp_filter_profile:
-                aliases: ['sctp-filter-profile']
-                type: list
-                elements: str
-                description: Name of an existing SCTP filter profile.
-            service:
-                type: list
-                elements: str
-                description: Name of service objects.
-            service_negate:
-                aliases: ['service-negate']
-                type: str
-                description: When enabled, services match against any service EXCEPT the specified destination services.
-                choices: ['disable', 'enable']
-            session_ttl:
-                aliases: ['session-ttl']
-                type: str
-                description: TTL in seconds for sessions accepted by this policy
-            srcaddr:
-                type: list
-                elements: str
-                description: Source address objects.
-            srcaddr_negate:
-                aliases: ['srcaddr-negate']
-                type: str
-                description: When enabled, source addresses match against any address EXCEPT the specified source addresses.
-                choices: ['disable', 'enable']
-            srcaddr6:
-                type: list
-                elements: str
-                description: IPv6 source address objects.
-            srcintf:
-                type: list
-                elements: str
-                description: Source interface names.
-            ssh_filter_profile:
-                aliases: ['ssh-filter-profile']
-                type: list
-                elements: str
-                description: Name of an existing SSH filter profile.
-            ssh_policy_redirect:
-                aliases: ['ssh-policy-redirect']
-                type: str
-                description: Redirect SSH traffic to matching transparent proxy policy.
-                choices: ['disable', 'enable']
-            ssl_ssh_profile:
-                aliases: ['ssl-ssh-profile']
-                type: list
-                elements: str
-                description: Name of an existing SSL SSH profile.
-            status:
-                type: str
-                description: Enable/disable the active status of the policy.
-                choices: ['disable', 'enable']
-            transparent:
-                type: str
-                description: Enable to use the IP address of the client to connect to the server.
-                choices: ['disable', 'enable']
-            users:
-                type: list
-                elements: str
-                description: Names of user objects.
-            utm_status:
-                aliases: ['utm-status']
-                type: str
-                description: Enable the use of UTM profiles/sensors/lists.
-                choices: ['disable', 'enable']
-            uuid:
-                type: str
-                description: Universally Unique Identifier
-            videofilter_profile:
-                aliases: ['videofilter-profile']
-                type: list
-                elements: str
-                description: Name of an existing VideoFilter profile.
-            waf_profile:
-                aliases: ['waf-profile']
-                type: list
-                elements: str
-                description: Name of an existing Web application firewall profile.
-            webcache:
-                type: str
-                description: Enable/disable web caching.
-                choices: ['disable', 'enable']
-            webcache_https:
-                aliases: ['webcache-https']
-                type: str
-                description: Enable/disable web caching for HTTPS
-                choices: ['disable', 'enable']
-            webfilter_profile:
-                aliases: ['webfilter-profile']
-                type: list
-                elements: str
-                description: Name of an existing Web filter profile.
-            webproxy_forward_server:
-                aliases: ['webproxy-forward-server']
-                type: list
-                elements: str
-                description: Web proxy forward server name.
-            webproxy_profile:
-                aliases: ['webproxy-profile']
-                type: list
-                elements: str
-                description: Name of web proxy profile.
-            ztna_ems_tag:
-                aliases: ['ztna-ems-tag']
-                type: list
-                elements: str
-                description: ZTNA EMS Tag names.
-            ztna_proxy:
-                aliases: ['ztna-proxy']
-                type: list
-                elements: str
-                description: IPv4 ZTNA traffic forward proxy.
-            ztna_tags_match_logic:
-                aliases: ['ztna-tags-match-logic']
-                type: str
-                description: ZTNA tag matching logic.
-                choices: ['or', 'and']
-            diameter_filter_profile:
-                aliases: ['diameter-filter-profile']
-                type: list
-                elements: str
-                description: Name of an existing Diameter filter profile.
-            virtual_patch_profile:
-                aliases: ['virtual-patch-profile']
-                type: list
-                elements: str
-                description: Virtual patch profile.
-            voip_profile:
-                aliases: ['voip-profile']
-                type: list
-                elements: str
-                description: Name of an existing VoIP profile.
-            dlp_sensor:
-                aliases: ['dlp-sensor']
-                type: list
-                elements: str
-                description: Name of an existing DLP sensor.
-            cifs_profile:
-                aliases: ['cifs-profile']
-                type: list
-                elements: str
-                description: Name of an existing CIFS profile.
-            internet_service_id:
-                aliases: ['internet-service-id']
-                type: list
-                elements: str
-                description: Internet Service ID.
-            mms_profile:
-                aliases: ['mms-profile']
-                type: list
-                elements: str
-                description: Name of an existing MMS profile.
-            isolator_server:
-                aliases: ['isolator-server']
-                type: list
-                elements: str
-                description: Isolator server name.
-            url_risk:
-                aliases: ['url-risk']
-                type: list
-                elements: str
-                description: URL risk level name.
-            ztna_ems_tag_negate:
-                aliases: ['ztna-ems-tag-negate']
-                type: str
-                description: When enabled, ZTNA EMS tags match against any tag EXCEPT the specified ZTNA EMS tags.
-                choices: ['disable', 'enable']
-            https_sub_category:
-                aliases: ['https-sub-category']
-                type: str
-                description: Enable/disable HTTPS sub-category policy matching.
-                choices: ['disable', 'enable']
-            telemetry_profile:
-                aliases: ['telemetry-profile']
-                type: list
-                elements: str
-                description: Name of an existing telemetry profile.
-            internet_service_fortiguard:
-                aliases: ['internet-service-fortiguard']
-                type: list
-                elements: str
-                description: FortiGuard Internet Service name.
-            internet_service6_fortiguard:
-                aliases: ['internet-service6-fortiguard']
-                type: list
-                elements: str
-                description: FortiGuard Internet Service IPv6 name.
-            poolname6:
-                type: list
-                elements: str
-                description: Name of IPv6 pool object.
+      poolname:
+        type: list
+        elements: str
+        description: Name of IP pool object.
+      profile_group:
+        aliases: ['profile-group']
+        type: list
+        elements: str
+        description: Name of profile group.
+      profile_protocol_options:
+        aliases: ['profile-protocol-options']
+        type: list
+        elements: str
+        description: Name of an existing Protocol options profile.
+      profile_type:
+        aliases: ['profile-type']
+        type: str
+        description: Determine whether the firewall policy allows security profile groups or single profiles only.
+        choices: ['single', 'group']
+      proxy:
+        type: str
+        description: Type of explicit proxy.
+        choices: ['explicit-web', 'transparent-web', 'ftp', 'wanopt', 'ssh', 'ssh-tunnel',
+                  'access-proxy', 'ztna-proxy']
+      redirect_url:
+        aliases: ['redirect-url']
+        type: str
+        description: Redirect URL for further explicit web proxy processing.
+      replacemsg_override_group:
+        aliases: ['replacemsg-override-group']
+        type: list
+        elements: str
+        description: Authentication replacement message override group.
+      schedule:
+        type: list
+        elements: str
+        description: Name of schedule object.
+      sctp_filter_profile:
+        aliases: ['sctp-filter-profile']
+        type: list
+        elements: str
+        description: Name of an existing SCTP filter profile.
+      service:
+        type: list
+        elements: str
+        description: Name of service objects.
+      service_negate:
+        aliases: ['service-negate']
+        type: str
+        description: When enabled, services match against any service EXCEPT the specified destination services.
+        choices: ['disable', 'enable']
+      session_ttl:
+        aliases: ['session-ttl']
+        type: str
+        description: TTL in seconds for sessions accepted by this policy
+      srcaddr:
+        type: list
+        elements: str
+        description: Source address objects.
+      srcaddr_negate:
+        aliases: ['srcaddr-negate']
+        type: str
+        description: When enabled, source addresses match against any address EXCEPT the specified source addresses.
+        choices: ['disable', 'enable']
+      srcaddr6:
+        type: list
+        elements: str
+        description: IPv6 source address objects.
+      srcintf:
+        type: list
+        elements: str
+        description: Source interface names.
+      ssh_filter_profile:
+        aliases: ['ssh-filter-profile']
+        type: list
+        elements: str
+        description: Name of an existing SSH filter profile.
+      ssh_policy_redirect:
+        aliases: ['ssh-policy-redirect']
+        type: str
+        description: Redirect SSH traffic to matching transparent proxy policy.
+        choices: ['disable', 'enable']
+      ssl_ssh_profile:
+        aliases: ['ssl-ssh-profile']
+        type: list
+        elements: str
+        description: Name of an existing SSL SSH profile.
+      status:
+        type: str
+        description: Enable/disable the active status of the policy.
+        choices: ['disable', 'enable']
+      transparent:
+        type: str
+        description: Enable to use the IP address of the client to connect to the server.
+        choices: ['disable', 'enable']
+      users:
+        type: list
+        elements: str
+        description: Names of user objects.
+      utm_status:
+        aliases: ['utm-status']
+        type: str
+        description: Enable the use of UTM profiles/sensors/lists.
+        choices: ['disable', 'enable']
+      uuid:
+        type: str
+        description: Universally Unique Identifier
+      videofilter_profile:
+        aliases: ['videofilter-profile']
+        type: list
+        elements: str
+        description: Name of an existing VideoFilter profile.
+      waf_profile:
+        aliases: ['waf-profile']
+        type: list
+        elements: str
+        description: Name of an existing Web application firewall profile.
+      webcache:
+        type: str
+        description: Enable/disable web caching.
+        choices: ['disable', 'enable']
+      webcache_https:
+        aliases: ['webcache-https']
+        type: str
+        description: Enable/disable web caching for HTTPS
+        choices: ['disable', 'enable']
+      webfilter_profile:
+        aliases: ['webfilter-profile']
+        type: list
+        elements: str
+        description: Name of an existing Web filter profile.
+      webproxy_forward_server:
+        aliases: ['webproxy-forward-server']
+        type: list
+        elements: str
+        description: Web proxy forward server name.
+      webproxy_profile:
+        aliases: ['webproxy-profile']
+        type: list
+        elements: str
+        description: Name of web proxy profile.
+      ztna_ems_tag:
+        aliases: ['ztna-ems-tag']
+        type: list
+        elements: str
+        description: ZTNA EMS Tag names.
+      ztna_proxy:
+        aliases: ['ztna-proxy']
+        type: list
+        elements: str
+        description: IPv4 ZTNA traffic forward proxy.
+      ztna_tags_match_logic:
+        aliases: ['ztna-tags-match-logic']
+        type: str
+        description: ZTNA tag matching logic.
+        choices: ['or', 'and']
+      diameter_filter_profile:
+        aliases: ['diameter-filter-profile']
+        type: list
+        elements: str
+        description: Name of an existing Diameter filter profile.
+      virtual_patch_profile:
+        aliases: ['virtual-patch-profile']
+        type: list
+        elements: str
+        description: Virtual patch profile.
+      voip_profile:
+        aliases: ['voip-profile']
+        type: list
+        elements: str
+        description: Name of an existing VoIP profile.
+      dlp_sensor:
+        aliases: ['dlp-sensor']
+        type: list
+        elements: str
+        description: Name of an existing DLP sensor.
+      cifs_profile:
+        aliases: ['cifs-profile']
+        type: list
+        elements: str
+        description: Name of an existing CIFS profile.
+      internet_service_id:
+        aliases: ['internet-service-id']
+        type: list
+        elements: str
+        description: Internet Service ID.
+      mms_profile:
+        aliases: ['mms-profile']
+        type: list
+        elements: str
+        description: Name of an existing MMS profile.
+      isolator_server:
+        aliases: ['isolator-server']
+        type: list
+        elements: str
+        description: Isolator server name.
+      url_risk:
+        aliases: ['url-risk']
+        type: list
+        elements: str
+        description: URL risk level name.
+      ztna_ems_tag_negate:
+        aliases: ['ztna-ems-tag-negate']
+        type: str
+        description: When enabled, ZTNA EMS tags match against any tag EXCEPT the specified ZTNA EMS tags.
+        choices: ['disable', 'enable']
+      https_sub_category:
+        aliases: ['https-sub-category']
+        type: str
+        description: Enable/disable HTTPS sub-category policy matching.
+        choices: ['disable', 'enable']
+      telemetry_profile:
+        aliases: ['telemetry-profile']
+        type: list
+        elements: str
+        description: Name of an existing telemetry profile.
+      internet_service_fortiguard:
+        aliases: ['internet-service-fortiguard']
+        type: list
+        elements: str
+        description: FortiGuard Internet Service name.
+      internet_service6_fortiguard:
+        aliases: ['internet-service6-fortiguard']
+        type: list
+        elements: str
+        description: FortiGuard Internet Service IPv6 name.
+      poolname6:
+        type: list
+        elements: str
+        description: Name of IPv6 pool object.
+      custom_tags:
+        aliases: ['custom-tags']
+        type: list
+        elements: str
+        description: Custom tags.
+      fsso_groups:
+        aliases: ['fsso-groups']
+        type: list
+        elements: str
+        description: Names of FSSO groups.
+      llm_profile:
+        aliases: ['llm-profile']
+        type: list
+        elements: str
+        description: Name of an existing LLM profile.
+      ztna_destination:
+        aliases: ['ztna-destination']
+        type: list
+        elements: str
+        description: ZTNA destinations
 '''
 
 EXAMPLES = '''
@@ -578,46 +598,50 @@ EXAMPLES = '''
           # internet_service_fortiguard: <list or string>
           # internet_service6_fortiguard: <list or string>
           # poolname6: <list or string>
+          # custom_tags: <list or string>
+          # fsso_groups: <list or string>
+          # llm_profile: <list or string>
+          # ztna_destination: <list or string>
 '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -722,7 +746,7 @@ def main():
                 'virtual-patch-profile': {'v_range': [['7.6.0', '']], 'type': 'list', 'elements': 'str'},
                 'voip-profile': {'v_range': [['7.6.0', '']], 'type': 'list', 'elements': 'str'},
                 'dlp-sensor': {'v_range': [['7.6.0', '']], 'type': 'list', 'elements': 'str'},
-                'cifs-profile': {'v_range': [['7.6.0', '']], 'type': 'list', 'elements': 'str'},
+                'cifs-profile': {'v_range': [['7.6.0', '7.6.7']], 'type': 'list', 'elements': 'str'},
                 'internet-service-id': {'v_range': [['7.6.0', '7.6.2']], 'type': 'list', 'elements': 'str'},
                 'mms-profile': {'v_range': [['7.6.0', '7.6.2']], 'type': 'list', 'elements': 'str'},
                 'isolator-server': {'v_range': [['7.6.2', '']], 'type': 'list', 'elements': 'str'},
@@ -732,7 +756,11 @@ def main():
                 'telemetry-profile': {'v_range': [['7.6.3', '']], 'type': 'list', 'elements': 'str'},
                 'internet-service-fortiguard': {'v_range': [['7.6.4', '']], 'type': 'list', 'elements': 'str'},
                 'internet-service6-fortiguard': {'v_range': [['7.6.4', '']], 'type': 'list', 'elements': 'str'},
-                'poolname6': {'v_range': [['7.6.5', '']], 'type': 'list', 'elements': 'str'}
+                'poolname6': {'v_range': [['7.6.5', '']], 'type': 'list', 'elements': 'str'},
+                'custom-tags': {'v_range': [['8.0.0', '']], 'type': 'list', 'elements': 'str'},
+                'fsso-groups': {'v_range': [['8.0.0', '']], 'type': 'list', 'elements': 'str'},
+                'llm-profile': {'v_range': [['8.0.0', '']], 'type': 'list', 'elements': 'str'},
+                'ztna-destination': {'v_range': [['8.0.0', '']], 'type': 'list', 'elements': 'str'}
             }
         }
     }

@@ -15,26 +15,26 @@ module: fmgr_fmupdate_publicnetwork
 short_description: Enable/disable access to the public FortiGuard.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.partial_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.partial_crud
 options:
-    fmupdate_publicnetwork:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            status:
-                type: str
-                description:
-                    - Enable/disable public network
-                    - disable - Disable setting.
-                    - enable - Enable setting.
-                choices: ['disable', 'enable']
-            update_server_location:
-                aliases: ['update-server-location']
-                type: str
-                description: Update server location.
-                choices: ['global', 'usa', 'eu']
+  fmupdate_publicnetwork:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      status:
+        type: str
+        description:
+          - Enable/disable public network
+          - disable - Disable setting.
+          - enable - Enable setting.
+        choices: ['disable', 'enable']
+      update_server_location:
+        aliases: ['update-server-location']
+        type: str
+        description: Update server location.
+        choices: ['global', 'usa', 'eu']
 '''
 
 EXAMPLES = '''
@@ -53,42 +53,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

@@ -15,261 +15,261 @@ module: fmgr_gtp_messagefilterv2
 short_description: Message filter for GTPv2 messages.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  gtp_messagefilterv2:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      bearer_resource_cmd_fail:
+        aliases: ['bearer-resource-cmd-fail']
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Bearer resource
+        choices: ['allow', 'deny']
+      change_notification:
+        aliases: ['change-notification']
         type: str
+        description: Change notification
+        choices: ['allow', 'deny']
+      create_bearer:
+        aliases: ['create-bearer']
+        type: str
+        description: Create bearer
+        choices: ['allow', 'deny']
+      create_session:
+        aliases: ['create-session']
+        type: str
+        description: Create session
+        choices: ['allow', 'deny']
+      delete_bearer_cmd_fail:
+        aliases: ['delete-bearer-cmd-fail']
+        type: str
+        description: Delete bearer
+        choices: ['allow', 'deny']
+      delete_bearer_req_resp:
+        aliases: ['delete-bearer-req-resp']
+        type: str
+        description: Delete bearer
+        choices: ['allow', 'deny']
+      delete_pdn_connection_set:
+        aliases: ['delete-pdn-connection-set']
+        type: str
+        description: Delete PDN connection set
+        choices: ['allow', 'deny']
+      delete_session:
+        aliases: ['delete-session']
+        type: str
+        description: Delete session
+        choices: ['allow', 'deny']
+      echo:
+        type: str
+        description: Echo
+        choices: ['allow', 'deny']
+      modify_bearer_cmd_fail:
+        aliases: ['modify-bearer-cmd-fail']
+        type: str
+        description: Modify bearer
+        choices: ['allow', 'deny']
+      modify_bearer_req_resp:
+        aliases: ['modify-bearer-req-resp']
+        type: str
+        description: Modify bearer
+        choices: ['allow', 'deny']
+      name:
+        type: str
+        description: Message filter name.
         required: true
-    gtp_messagefilterv2:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            bearer_resource_cmd_fail:
-                aliases: ['bearer-resource-cmd-fail']
-                type: str
-                description: Bearer resource
-                choices: ['allow', 'deny']
-            change_notification:
-                aliases: ['change-notification']
-                type: str
-                description: Change notification
-                choices: ['allow', 'deny']
-            create_bearer:
-                aliases: ['create-bearer']
-                type: str
-                description: Create bearer
-                choices: ['allow', 'deny']
-            create_session:
-                aliases: ['create-session']
-                type: str
-                description: Create session
-                choices: ['allow', 'deny']
-            delete_bearer_cmd_fail:
-                aliases: ['delete-bearer-cmd-fail']
-                type: str
-                description: Delete bearer
-                choices: ['allow', 'deny']
-            delete_bearer_req_resp:
-                aliases: ['delete-bearer-req-resp']
-                type: str
-                description: Delete bearer
-                choices: ['allow', 'deny']
-            delete_pdn_connection_set:
-                aliases: ['delete-pdn-connection-set']
-                type: str
-                description: Delete PDN connection set
-                choices: ['allow', 'deny']
-            delete_session:
-                aliases: ['delete-session']
-                type: str
-                description: Delete session
-                choices: ['allow', 'deny']
-            echo:
-                type: str
-                description: Echo
-                choices: ['allow', 'deny']
-            modify_bearer_cmd_fail:
-                aliases: ['modify-bearer-cmd-fail']
-                type: str
-                description: Modify bearer
-                choices: ['allow', 'deny']
-            modify_bearer_req_resp:
-                aliases: ['modify-bearer-req-resp']
-                type: str
-                description: Modify bearer
-                choices: ['allow', 'deny']
-            name:
-                type: str
-                description: Message filter name.
-                required: true
-            resume:
-                type: str
-                description: Resume
-                choices: ['allow', 'deny']
-            suspend:
-                type: str
-                description: Suspend
-                choices: ['allow', 'deny']
-            trace_session:
-                aliases: ['trace-session']
-                type: str
-                description: Trace session
-                choices: ['allow', 'deny']
-            unknown_message:
-                aliases: ['unknown-message']
-                type: str
-                description: Allow or Deny unknown messages.
-                choices: ['allow', 'deny']
-            unknown_message_white_list:
-                aliases: ['unknown-message-white-list']
-                type: raw
-                description: (list) White list
-            update_bearer:
-                aliases: ['update-bearer']
-                type: str
-                description: Update bearer
-                choices: ['allow', 'deny']
-            update_pdn_connection_set:
-                aliases: ['update-pdn-connection-set']
-                type: str
-                description: Update PDN connection set
-                choices: ['allow', 'deny']
-            version_not_support:
-                aliases: ['version-not-support']
-                type: str
-                description: Version not supported
-                choices: ['allow', 'deny']
-            context_req_res_ack:
-                aliases: ['context-req-res-ack']
-                type: str
-                description: Context request/response/acknowledge
-                choices: ['allow', 'deny']
-            forward_relocation_cmp_notif_ack:
-                aliases: ['forward-relocation-cmp-notif-ack']
-                type: str
-                description: Forward relocation complete notification/acknowledge
-                choices: ['allow', 'deny']
-            forward_relocation_req_res:
-                aliases: ['forward-relocation-req-res']
-                type: str
-                description: Forward relocation request/response
-                choices: ['allow', 'deny']
-            alert_mme_notif_ack:
-                aliases: ['alert-mme-notif-ack']
-                type: str
-                description: Alert MME notification/acknowledge
-                choices: ['allow', 'deny']
-            configuration_transfer_tunnel:
-                aliases: ['configuration-transfer-tunnel']
-                type: str
-                description: Configuration transfer tunnel
-                choices: ['allow', 'deny']
-            create_forwarding_tunnel_req_resp:
-                aliases: ['create-forwarding-tunnel-req-resp']
-                type: str
-                description: Create forwarding tunnel request/response
-                choices: ['allow', 'deny']
-            create_indirect_forwarding_tunnel_req_resp:
-                aliases: ['create-indirect-forwarding-tunnel-req-resp']
-                type: str
-                description: Create indirect data forwarding tunnel request/response
-                choices: ['allow', 'deny']
-            cs_paging:
-                aliases: ['cs-paging']
-                type: str
-                description: CS paging indication
-                choices: ['allow', 'deny']
-            delete_indirect_forwarding_tunnel_req_resp:
-                aliases: ['delete-indirect-forwarding-tunnel-req-resp']
-                type: str
-                description: Delete indirect data forwarding tunnel request/response
-                choices: ['allow', 'deny']
-            detach_notif_ack:
-                aliases: ['detach-notif-ack']
-                type: str
-                description: Detach notification/acknowledge
-                choices: ['allow', 'deny']
-            dlink_data_notif_ack:
-                aliases: ['dlink-data-notif-ack']
-                type: str
-                description: Downlink data notification/acknowledge
-                choices: ['allow', 'deny']
-            dlink_notif_failure:
-                aliases: ['dlink-notif-failure']
-                type: str
-                description: Downlink data notification failure indication
-                choices: ['allow', 'deny']
-            forward_access_notif_ack:
-                aliases: ['forward-access-notif-ack']
-                type: str
-                description: Forward access context notification/acknowledge
-                choices: ['allow', 'deny']
-            identification_req_resp:
-                aliases: ['identification-req-resp']
-                type: str
-                description: Identification request/response
-                choices: ['allow', 'deny']
-            isr_status:
-                aliases: ['isr-status']
-                type: str
-                description: ISR status indication
-                choices: ['allow', 'deny']
-            mbms_session_start_req_resp:
-                aliases: ['mbms-session-start-req-resp']
-                type: str
-                description: MBMS session start request/response
-                choices: ['allow', 'deny']
-            mbms_session_stop_req_resp:
-                aliases: ['mbms-session-stop-req-resp']
-                type: str
-                description: MBMS session stop request/response
-                choices: ['allow', 'deny']
-            mbms_session_update_req_resp:
-                aliases: ['mbms-session-update-req-resp']
-                type: str
-                description: MBMS session update request/response
-                choices: ['allow', 'deny']
-            modify_access_req_resp:
-                aliases: ['modify-access-req-resp']
-                type: str
-                description: Modify access bearers request/response
-                choices: ['allow', 'deny']
-            pgw_dlink_notif_ack:
-                aliases: ['pgw-dlink-notif-ack']
-                type: str
-                description: PGW downlink triggering notification/acknowledge
-                choices: ['allow', 'deny']
-            pgw_restart_notif_ack:
-                aliases: ['pgw-restart-notif-ack']
-                type: str
-                description: PGW restart notification/acknowledge
-                choices: ['allow', 'deny']
-            ran_info_relay:
-                aliases: ['ran-info-relay']
-                type: str
-                description: RAN information relay
-                choices: ['allow', 'deny']
-            release_access_bearer_req_resp:
-                aliases: ['release-access-bearer-req-resp']
-                type: str
-                description: Release access bearers request/response
-                choices: ['allow', 'deny']
-            relocation_cancel_req_resp:
-                aliases: ['relocation-cancel-req-resp']
-                type: str
-                description: Relocation cancel request/response
-                choices: ['allow', 'deny']
-            remote_ue_report_notif_ack:
-                aliases: ['remote-ue-report-notif-ack']
-                type: str
-                description: Remote UE report notification/acknowledge
-                choices: ['allow', 'deny']
-            reserved_for_earlier_version:
-                aliases: ['reserved-for-earlier-version']
-                type: str
-                description: Reserved for earlier version of the GTP specification
-                choices: ['allow', 'deny']
-            stop_paging_indication:
-                aliases: ['stop-paging-indication']
-                type: str
-                description: Stop Paging Indication
-                choices: ['allow', 'deny']
-            ue_activity_notif_ack:
-                aliases: ['ue-activity-notif-ack']
-                type: str
-                description: UE activity notification/acknowledge
-                choices: ['allow', 'deny']
-            ue_registration_query_req_resp:
-                aliases: ['ue-registration-query-req-resp']
-                type: str
-                description: UE registration query request/response
-                choices: ['allow', 'deny']
+      resume:
+        type: str
+        description: Resume
+        choices: ['allow', 'deny']
+      suspend:
+        type: str
+        description: Suspend
+        choices: ['allow', 'deny']
+      trace_session:
+        aliases: ['trace-session']
+        type: str
+        description: Trace session
+        choices: ['allow', 'deny']
+      unknown_message:
+        aliases: ['unknown-message']
+        type: str
+        description: Allow or Deny unknown messages.
+        choices: ['allow', 'deny']
+      unknown_message_white_list:
+        aliases: ['unknown-message-white-list']
+        type: raw
+        description: (list) White list
+      update_bearer:
+        aliases: ['update-bearer']
+        type: str
+        description: Update bearer
+        choices: ['allow', 'deny']
+      update_pdn_connection_set:
+        aliases: ['update-pdn-connection-set']
+        type: str
+        description: Update PDN connection set
+        choices: ['allow', 'deny']
+      version_not_support:
+        aliases: ['version-not-support']
+        type: str
+        description: Version not supported
+        choices: ['allow', 'deny']
+      context_req_res_ack:
+        aliases: ['context-req-res-ack']
+        type: str
+        description: Context request/response/acknowledge
+        choices: ['allow', 'deny']
+      forward_relocation_cmp_notif_ack:
+        aliases: ['forward-relocation-cmp-notif-ack']
+        type: str
+        description: Forward relocation complete notification/acknowledge
+        choices: ['allow', 'deny']
+      forward_relocation_req_res:
+        aliases: ['forward-relocation-req-res']
+        type: str
+        description: Forward relocation request/response
+        choices: ['allow', 'deny']
+      alert_mme_notif_ack:
+        aliases: ['alert-mme-notif-ack']
+        type: str
+        description: Alert MME notification/acknowledge
+        choices: ['allow', 'deny']
+      configuration_transfer_tunnel:
+        aliases: ['configuration-transfer-tunnel']
+        type: str
+        description: Configuration transfer tunnel
+        choices: ['allow', 'deny']
+      create_forwarding_tunnel_req_resp:
+        aliases: ['create-forwarding-tunnel-req-resp']
+        type: str
+        description: Create forwarding tunnel request/response
+        choices: ['allow', 'deny']
+      create_indirect_forwarding_tunnel_req_resp:
+        aliases: ['create-indirect-forwarding-tunnel-req-resp']
+        type: str
+        description: Create indirect data forwarding tunnel request/response
+        choices: ['allow', 'deny']
+      cs_paging:
+        aliases: ['cs-paging']
+        type: str
+        description: CS paging indication
+        choices: ['allow', 'deny']
+      delete_indirect_forwarding_tunnel_req_resp:
+        aliases: ['delete-indirect-forwarding-tunnel-req-resp']
+        type: str
+        description: Delete indirect data forwarding tunnel request/response
+        choices: ['allow', 'deny']
+      detach_notif_ack:
+        aliases: ['detach-notif-ack']
+        type: str
+        description: Detach notification/acknowledge
+        choices: ['allow', 'deny']
+      dlink_data_notif_ack:
+        aliases: ['dlink-data-notif-ack']
+        type: str
+        description: Downlink data notification/acknowledge
+        choices: ['allow', 'deny']
+      dlink_notif_failure:
+        aliases: ['dlink-notif-failure']
+        type: str
+        description: Downlink data notification failure indication
+        choices: ['allow', 'deny']
+      forward_access_notif_ack:
+        aliases: ['forward-access-notif-ack']
+        type: str
+        description: Forward access context notification/acknowledge
+        choices: ['allow', 'deny']
+      identification_req_resp:
+        aliases: ['identification-req-resp']
+        type: str
+        description: Identification request/response
+        choices: ['allow', 'deny']
+      isr_status:
+        aliases: ['isr-status']
+        type: str
+        description: ISR status indication
+        choices: ['allow', 'deny']
+      mbms_session_start_req_resp:
+        aliases: ['mbms-session-start-req-resp']
+        type: str
+        description: MBMS session start request/response
+        choices: ['allow', 'deny']
+      mbms_session_stop_req_resp:
+        aliases: ['mbms-session-stop-req-resp']
+        type: str
+        description: MBMS session stop request/response
+        choices: ['allow', 'deny']
+      mbms_session_update_req_resp:
+        aliases: ['mbms-session-update-req-resp']
+        type: str
+        description: MBMS session update request/response
+        choices: ['allow', 'deny']
+      modify_access_req_resp:
+        aliases: ['modify-access-req-resp']
+        type: str
+        description: Modify access bearers request/response
+        choices: ['allow', 'deny']
+      pgw_dlink_notif_ack:
+        aliases: ['pgw-dlink-notif-ack']
+        type: str
+        description: PGW downlink triggering notification/acknowledge
+        choices: ['allow', 'deny']
+      pgw_restart_notif_ack:
+        aliases: ['pgw-restart-notif-ack']
+        type: str
+        description: PGW restart notification/acknowledge
+        choices: ['allow', 'deny']
+      ran_info_relay:
+        aliases: ['ran-info-relay']
+        type: str
+        description: RAN information relay
+        choices: ['allow', 'deny']
+      release_access_bearer_req_resp:
+        aliases: ['release-access-bearer-req-resp']
+        type: str
+        description: Release access bearers request/response
+        choices: ['allow', 'deny']
+      relocation_cancel_req_resp:
+        aliases: ['relocation-cancel-req-resp']
+        type: str
+        description: Relocation cancel request/response
+        choices: ['allow', 'deny']
+      remote_ue_report_notif_ack:
+        aliases: ['remote-ue-report-notif-ack']
+        type: str
+        description: Remote UE report notification/acknowledge
+        choices: ['allow', 'deny']
+      reserved_for_earlier_version:
+        aliases: ['reserved-for-earlier-version']
+        type: str
+        description: Reserved for earlier version of the GTP specification
+        choices: ['allow', 'deny']
+      stop_paging_indication:
+        aliases: ['stop-paging-indication']
+        type: str
+        description: Stop Paging Indication
+        choices: ['allow', 'deny']
+      ue_activity_notif_ack:
+        aliases: ['ue-activity-notif-ack']
+        type: str
+        description: UE activity notification/acknowledge
+        choices: ['allow', 'deny']
+      ue_registration_query_req_resp:
+        aliases: ['ue-registration-query-req-resp']
+        type: str
+        description: UE registration query request/response
+        choices: ['allow', 'deny']
 '''
 
 EXAMPLES = '''
@@ -337,42 +337,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

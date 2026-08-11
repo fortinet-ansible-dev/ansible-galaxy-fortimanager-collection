@@ -15,42 +15,42 @@ module: fmgr_system_saml_fabricidp
 short_description: Authorized identity providers.
 version_added: "2.1.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    system_saml_fabricidp:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            dev_id:
-                aliases: ['dev-id']
-                type: str
-                description: IDP Device ID.
-            idp_cert:
-                aliases: ['idp-cert']
-                type: str
-                description: IDP Certificate name.
-            idp_entity_id:
-                aliases: ['idp-entity-id']
-                type: str
-                description: IDP entity ID.
-            idp_single_logout_url:
-                aliases: ['idp-single-logout-url']
-                type: str
-                description: IDP single logout url.
-            idp_single_sign_on_url:
-                aliases: ['idp-single-sign-on-url']
-                type: str
-                description: IDP single sign-on URL.
-            idp_status:
-                aliases: ['idp-status']
-                type: str
-                description:
-                    - Enable/disable SAML authentication
-                    - disable - Disable SAML authentication.
-                    - enable - Enabld SAML authentication.
-                choices: ['disable', 'enable']
+  system_saml_fabricidp:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      dev_id:
+        aliases: ['dev-id']
+        type: str
+        description: IDP Device ID.
+      idp_cert:
+        aliases: ['idp-cert']
+        type: str
+        description: IDP Certificate name.
+      idp_entity_id:
+        aliases: ['idp-entity-id']
+        type: str
+        description: IDP entity ID.
+      idp_single_logout_url:
+        aliases: ['idp-single-logout-url']
+        type: str
+        description: IDP single logout url.
+      idp_single_sign_on_url:
+        aliases: ['idp-single-sign-on-url']
+        type: str
+        description: IDP single sign-on URL.
+      idp_status:
+        aliases: ['idp-status']
+        type: str
+        description:
+          - Enable/disable SAML authentication
+          - disable - Disable SAML authentication.
+          - enable - Enabld SAML authentication.
+        choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -74,42 +74,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

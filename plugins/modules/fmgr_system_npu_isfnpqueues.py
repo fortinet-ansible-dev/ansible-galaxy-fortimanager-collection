@@ -15,45 +15,45 @@ module: fmgr_system_npu_isfnpqueues
 short_description: Configure queues of switch port connected to NP6 XAUI on ingress path.
 version_added: "2.1.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.partial_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.partial_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  system_npu_isfnpqueues:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      cos0:
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: CoS profile name for CoS 0.
+      cos1:
         type: str
-        required: true
-    system_npu_isfnpqueues:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            cos0:
-                type: str
-                description: CoS profile name for CoS 0.
-            cos1:
-                type: str
-                description: CoS profile name for CoS 1.
-            cos2:
-                type: str
-                description: CoS profile name for CoS 2.
-            cos3:
-                type: str
-                description: CoS profile name for CoS 3.
-            cos4:
-                type: str
-                description: CoS profile name for CoS 4.
-            cos5:
-                type: str
-                description: CoS profile name for CoS 5.
-            cos6:
-                type: str
-                description: CoS profile name for CoS 6.
-            cos7:
-                type: str
-                description: CoS profile name for CoS 7.
+        description: CoS profile name for CoS 1.
+      cos2:
+        type: str
+        description: CoS profile name for CoS 2.
+      cos3:
+        type: str
+        description: CoS profile name for CoS 3.
+      cos4:
+        type: str
+        description: CoS profile name for CoS 4.
+      cos5:
+        type: str
+        description: CoS profile name for CoS 5.
+      cos6:
+        type: str
+        description: CoS profile name for CoS 6.
+      cos7:
+        type: str
+        description: CoS profile name for CoS 7.
 '''
 
 EXAMPLES = '''
@@ -79,42 +79,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

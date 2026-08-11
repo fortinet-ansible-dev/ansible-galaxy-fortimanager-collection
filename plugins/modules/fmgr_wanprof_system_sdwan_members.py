@@ -15,96 +15,137 @@ module: fmgr_wanprof_system_sdwan_members
 short_description: FortiGate interfaces added to the SD-WAN.
 version_added: "2.1.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    adom:
-        description: The parameter (adom) in requested url.
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  wanprof:
+    description: The parameter (wanprof) in requested url.
+    type: str
+    required: true
+  wanprof_system_sdwan_members:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      _dynamic_member:
+        aliases: ['_dynamic-member']
         type: str
-        required: true
-    wanprof:
-        description: The parameter (wanprof) in requested url.
+        description: Dynamic member.
+      comment:
         type: str
+        description: Comments.
+      cost:
+        type: int
+        description: Cost of this interface for services in SLA mode
+      gateway:
+        type: str
+        description: The default gateway for this interface.
+      gateway6:
+        type: str
+        description: IPv6 gateway.
+      ingress_spillover_threshold:
+        aliases: ['ingress-spillover-threshold']
+        type: int
+        description: Ingress spillover threshold for this interface
+      interface:
+        type: str
+        description: Interface name.
+      priority:
+        type: int
+        description: Priority of the interface
+      seq_num:
+        aliases: ['seq-num']
+        type: int
+        description: Sequence number
         required: true
-    wanprof_system_sdwan_members:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            _dynamic_member:
-                aliases: ['_dynamic-member']
-                type: str
-                description: Dynamic member.
-            comment:
-                type: str
-                description: Comments.
-            cost:
-                type: int
-                description: Cost of this interface for services in SLA mode
-            gateway:
-                type: str
-                description: The default gateway for this interface.
-            gateway6:
-                type: str
-                description: IPv6 gateway.
-            ingress_spillover_threshold:
-                aliases: ['ingress-spillover-threshold']
-                type: int
-                description: Ingress spillover threshold for this interface
-            interface:
-                type: str
-                description: Interface name.
-            priority:
-                type: int
-                description: Priority of the interface
-            seq_num:
-                aliases: ['seq-num']
-                type: int
-                description: Sequence number
-                required: true
-            source:
-                type: str
-                description: Source IP address used in the health-check packet to the server.
-            source6:
-                type: str
-                description: Source IPv6 address used in the health-check packet to the server.
-            spillover_threshold:
-                aliases: ['spillover-threshold']
-                type: int
-                description: Egress spillover threshold for this interface
-            status:
-                type: str
-                description: Enable/disable this interface in the SD-WAN.
-                choices: ['disable', 'enable']
-            volume_ratio:
-                aliases: ['volume-ratio']
-                type: int
-                description: Measured volume ratio
-            weight:
-                type: int
-                description: Weight of this interface for weighted load balancing.
-            zone:
-                type: str
-                description: Zone name.
-            priority6:
-                type: int
-                description: Priority of the interface for IPv6
-            preferred_source:
-                aliases: ['preferred-source']
-                type: str
-                description: Preferred source of route for this member.
-            transport_group:
-                aliases: ['transport-group']
-                type: int
-                description: Measured transport group
-            priority_in_sla:
-                aliases: ['priority-in-sla']
-                type: int
-                description: Preferred priority of routes to this member when this member is in-sla
-            priority_out_sla:
-                aliases: ['priority-out-sla']
-                type: int
-                description: Preferred priority of routes to this member when this member is out-of-sla
+      source:
+        type: str
+        description: Source IP address used in the health-check packet to the server.
+      source6:
+        type: str
+        description: Source IPv6 address used in the health-check packet to the server.
+      spillover_threshold:
+        aliases: ['spillover-threshold']
+        type: int
+        description: Egress spillover threshold for this interface
+      status:
+        type: str
+        description: Enable/disable this interface in the SD-WAN.
+        choices: ['disable', 'enable']
+      volume_ratio:
+        aliases: ['volume-ratio']
+        type: int
+        description: Measured volume ratio
+      weight:
+        type: int
+        description: Weight of this interface for weighted load balancing.
+      zone:
+        type: str
+        description: Zone name.
+      priority6:
+        type: int
+        description: Priority of the interface for IPv6
+      preferred_source:
+        aliases: ['preferred-source']
+        type: str
+        description: Preferred source of route for this member.
+      transport_group:
+        aliases: ['transport-group']
+        type: int
+        description: Measured transport group
+      priority_in_sla:
+        aliases: ['priority-in-sla']
+        type: int
+        description: Preferred priority of routes to this member when this member is in-sla
+      priority_out_sla:
+        aliases: ['priority-out-sla']
+        type: int
+        description: Preferred priority of routes to this member when this member is out-of-sla
+      billing_start_day:
+        aliases: ['billing-start-day']
+        type: int
+        description: Volume billing start day when this members volume usgage will begin to calculate.
+      duplication_threshold_bandwidth:
+        aliases: ['duplication-threshold-bandwidth']
+        type: str
+        description: Configure duplication threshold bandwidth interface in the SD-WAN.
+        choices: ['overlay', 'underlay']
+      duplication_threshold_bibandwidth:
+        aliases: ['duplication-threshold-bibandwidth']
+        type: int
+        description: Bandwidth bistream threshold value in kilobytes per second
+      duplication_threshold_dwbandwidth:
+        aliases: ['duplication-threshold-dwbandwidth']
+        type: int
+        description: Bandwidth downstream threshold value in kilobytes per second
+      duplication_threshold_upbandwidth:
+        aliases: ['duplication-threshold-upbandwidth']
+        type: int
+        description: Bandwidth upstream threshold value in kilobytes per second
+      overage:
+        type: str
+        description: Enable/disable the volume overage when members volume usage reaches quota-limit.
+        choices: ['disable', 'enable']
+      overage_cost:
+        aliases: ['overage-cost']
+        type: int
+        description: Cost value for this member when its volume is over quota and overage is enabled
+      overage_volume_ratio:
+        aliases: ['overage-volume-ratio']
+        type: int
+        description: Volume ratio value for this member when its volume is over quota and overage is enabled
+      overage_weight:
+        aliases: ['overage-weight']
+        type: int
+        description: Weight value for this member when its volume is over quota and overage is enabled.
+      quota_limit:
+        aliases: ['quota-limit']
+        type: int
+        description: Volume quota limit assigned to this member in gigabytes
 '''
 
 EXAMPLES = '''
@@ -141,46 +182,56 @@ EXAMPLES = '''
           # transport_group: <integer>
           # priority_in_sla: <integer>
           # priority_out_sla: <integer>
+          # billing_start_day: <integer>
+          # duplication_threshold_bandwidth: <value in [overlay, underlay]>
+          # duplication_threshold_bibandwidth: <integer>
+          # duplication_threshold_dwbandwidth: <integer>
+          # duplication_threshold_upbandwidth: <integer>
+          # overage: <value in [disable, enable]>
+          # overage_cost: <integer>
+          # overage_volume_ratio: <integer>
+          # overage_weight: <integer>
+          # quota_limit: <integer>
 '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -218,7 +269,17 @@ def main():
                 'preferred-source': {'v_range': [['7.4.0', '']], 'type': 'str'},
                 'transport-group': {'v_range': [['7.4.2', '']], 'type': 'int'},
                 'priority-in-sla': {'v_range': [['7.6.0', '']], 'type': 'int'},
-                'priority-out-sla': {'v_range': [['7.6.0', '']], 'type': 'int'}
+                'priority-out-sla': {'v_range': [['7.6.0', '']], 'type': 'int'},
+                'billing-start-day': {'v_range': [['8.0.0', '']], 'type': 'int'},
+                'duplication-threshold-bandwidth': {'v_range': [['8.0.0', '']], 'choices': ['overlay', 'underlay'], 'type': 'str'},
+                'duplication-threshold-bibandwidth': {'v_range': [['8.0.0', '']], 'type': 'int'},
+                'duplication-threshold-dwbandwidth': {'v_range': [['8.0.0', '']], 'type': 'int'},
+                'duplication-threshold-upbandwidth': {'v_range': [['8.0.0', '']], 'type': 'int'},
+                'overage': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'overage-cost': {'v_range': [['8.0.0', '']], 'type': 'int'},
+                'overage-volume-ratio': {'v_range': [['8.0.0', '']], 'type': 'int'},
+                'overage-weight': {'v_range': [['8.0.0', '']], 'type': 'int'},
+                'quota-limit': {'v_range': [['8.0.0', '']], 'type': 'int'}
             }
         }
     }

@@ -15,64 +15,64 @@ module: fmgr_fsp_vlan_dhcpserver_reservedaddress
 short_description: Options for the DHCP server to assign IP settings to specific MAC addresses.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  vlan:
+    description: The parameter (vlan) in requested url.
+    type: str
+    required: true
+  fsp_vlan_dhcpserver_reservedaddress:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      action:
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Action.
+        choices: ['assign', 'block', 'reserved']
+      circuit_id:
+        aliases: ['circuit-id']
         type: str
+        description: Circuit id.
+      circuit_id_type:
+        aliases: ['circuit-id-type']
+        type: str
+        description: Circuit id type.
+        choices: ['hex', 'string']
+      description:
+        type: str
+        description: Description.
+      id:
+        type: int
+        description: Id.
         required: true
-    vlan:
-        description: The parameter (vlan) in requested url.
+      ip:
         type: str
-        required: true
-    fsp_vlan_dhcpserver_reservedaddress:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            action:
-                type: str
-                description: Action.
-                choices: ['assign', 'block', 'reserved']
-            circuit_id:
-                aliases: ['circuit-id']
-                type: str
-                description: Circuit id.
-            circuit_id_type:
-                aliases: ['circuit-id-type']
-                type: str
-                description: Circuit id type.
-                choices: ['hex', 'string']
-            description:
-                type: str
-                description: Description.
-            id:
-                type: int
-                description: Id.
-                required: true
-            ip:
-                type: str
-                description: Ip.
-            mac:
-                type: str
-                description: Mac.
-            remote_id:
-                aliases: ['remote-id']
-                type: str
-                description: Remote id.
-            remote_id_type:
-                aliases: ['remote-id-type']
-                type: str
-                description: Remote id type.
-                choices: ['hex', 'string']
-            type:
-                type: str
-                description: Type.
-                choices: ['mac', 'option82']
+        description: Ip.
+      mac:
+        type: str
+        description: Mac.
+      remote_id:
+        aliases: ['remote-id']
+        type: str
+        description: Remote id.
+      remote_id_type:
+        aliases: ['remote-id-type']
+        type: str
+        description: Remote id type.
+        choices: ['hex', 'string']
+      type:
+        type: str
+        description: Type.
+        choices: ['mac', 'option82']
 '''
 
 EXAMPLES = '''
@@ -102,42 +102,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

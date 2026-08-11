@@ -15,119 +15,125 @@ module: fmgr_devprof_system_template_interface
 short_description: System template system template interface
 version_added: "2.13.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    adom:
-        description: The parameter (adom) in requested url.
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  devprof:
+    description: The parameter (devprof) in requested url.
+    type: str
+    required: true
+  devprof_system_template_interface:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      action:
         type: str
-        required: true
-    devprof:
-        description: The parameter (devprof) in requested url.
+        description: Action.
+        choices: ['add-aggregate', 'add-loopback', 'add-vlan', 'add-zone', 'conf-intf',
+                  'conf-dhcp-server', 'conf-monitor-bandwd', 'conf-vap-ssid']
+      allowaccess:
+        type: list
+        elements: str
+        description: Allowaccess.
+        choices: ['https', 'ping', 'ssh', 'snmp', 'http', 'telnet', 'fgfm', 'radius-acct',
+                  'probe-response', 'dnp', 'ftm', 'fabric', 'speed-test']
+      dhcp_id:
+        aliases: ['dhcp-id']
+        type: int
+        description: Support meta variable
+      gateway:
         type: str
-        required: true
-    devprof_system_template_interface:
-        description: The top level parameters set.
-        required: false
-        type: dict
+        description: Support meta variable
+      interface:
+        type: str
+        description: Support meta variable
+      interface_members:
+        aliases: ['interface-members']
+        type: list
+        elements: str
+        description: Support meta variable
+      ip_range:
+        aliases: ['ip-range']
+        type: list
+        elements: dict
+        description: Ip range.
         suboptions:
-            action:
-                type: str
-                description: Action.
-                choices: ['add-aggregate', 'add-loopback', 'add-vlan', 'add-zone', 'conf-intf',
-                          'conf-dhcp-server', 'conf-monitor-bandwd', 'conf-vap-ssid']
-            allowaccess:
-                type: list
-                elements: str
-                description: Allowaccess.
-                choices: ['https', 'ping', 'ssh', 'snmp', 'http', 'telnet', 'fgfm', 'radius-acct',
-                          'probe-response', 'dnp', 'ftm', 'fabric', 'speed-test']
-            dhcp_id:
-                aliases: ['dhcp-id']
-                type: int
-                description: Support meta variable
-            gateway:
-                type: str
-                description: Support meta variable
-            interface:
-                type: str
-                description: Support meta variable
-            interface_members:
-                aliases: ['interface-members']
-                type: list
-                elements: str
-                description: Support meta variable
-            ip_range:
-                aliases: ['ip-range']
-                type: list
-                elements: dict
-                description: Ip range.
-                suboptions:
-                    end_ip:
-                        aliases: ['end-ip']
-                        type: str
-                        description: End ip.
-                    id:
-                        type: int
-                        description: Id.
-                    start_ip:
-                        aliases: ['start-ip']
-                        type: str
-                        description: Start ip.
-            ipmask:
-                type: list
-                elements: str
-                description: Support meta variable
-            model:
-                type: str
-                description: Model.
-            monitor_bandwidth:
-                aliases: ['monitor-bandwidth']
-                type: str
-                description: Monitor bandwidth.
-                choices: ['disable', 'enable']
-            name:
-                type: str
-                description: Support meta variable
-                required: true
-            netmask:
-                type: str
-                description: Support meta variable
-            role:
-                type: str
-                description: Role.
-                choices: ['lan', 'wan', 'dmz', 'undefined']
-            seq:
-                type: int
-                description: Seq.
-            vdom:
-                type: str
-                description: Support meta variable
-            vlan_id:
-                aliases: ['vlan-id']
-                type: int
-                description: Support meta variable
-            wifi_key:
-                aliases: ['wifi-key']
-                type: list
-                elements: str
-                description: Wifi key.
-            wifi_security:
-                aliases: ['wifi-security']
-                type: str
-                description: Wifi security.
-                choices: ['None', 'wep64', 'wep128', 'WPA_PSK', 'WPA_RADIUS', 'WPA', 'WPA2',
-                          'WPA2_AUTO', 'open', 'wpa-personal', 'wpa-enterprise', 'captive-portal',
-                          'wpa-only-personal', 'wpa-only-enterprise', 'wpa2-only-personal',
-                          'wpa2-only-enterprise', 'wpa-personal+captive-portal',
-                          'wpa-only-personal+captive-portal', 'wpa2-only-personal+captive-portal',
-                          'osen', 'wpa3-enterprise', 'sae', 'sae-transition', 'owe', 'wpa3-sae',
-                          'wpa3-sae-transition', 'wpa3-only-enterprise',
-                          'wpa3-enterprise-transition']
-            wifi_ssid:
-                aliases: ['wifi-ssid']
-                type: str
-                description: Support meta variable
+          end_ip:
+            aliases: ['end-ip']
+            type: str
+            description: End ip.
+          id:
+            type: int
+            description: Id.
+          start_ip:
+            aliases: ['start-ip']
+            type: str
+            description: Start ip.
+      ipmask:
+        type: list
+        elements: str
+        description: Support meta variable
+      model:
+        type: str
+        description: Model.
+      monitor_bandwidth:
+        aliases: ['monitor-bandwidth']
+        type: str
+        description: Monitor bandwidth.
+        choices: ['disable', 'enable']
+      name:
+        type: str
+        description: Support meta variable
+        required: true
+      netmask:
+        type: str
+        description: Support meta variable
+      role:
+        type: str
+        description: Role.
+        choices: ['lan', 'wan', 'dmz', 'undefined']
+      seq:
+        type: int
+        description: Seq.
+      vdom:
+        type: str
+        description: Support meta variable
+      vlan_id:
+        aliases: ['vlan-id']
+        type: int
+        description: Support meta variable
+      wifi_key:
+        aliases: ['wifi-key']
+        type: list
+        elements: str
+        description: Wifi key.
+      wifi_security:
+        aliases: ['wifi-security']
+        type: str
+        description: Wifi security.
+        choices: ['None', 'wep64', 'wep128', 'WPA_PSK', 'WPA_RADIUS', 'WPA', 'WPA2', 'WPA2_AUTO',
+                  'open', 'wpa-personal', 'wpa-enterprise', 'captive-portal', 'wpa-only-personal',
+                  'wpa-only-enterprise', 'wpa2-only-personal', 'wpa2-only-enterprise',
+                  'wpa-personal+captive-portal', 'wpa-only-personal+captive-portal',
+                  'wpa2-only-personal+captive-portal', 'osen', 'wpa3-enterprise', 'sae',
+                  'sae-transition', 'owe', 'wpa3-sae', 'wpa3-sae-transition',
+                  'wpa3-only-enterprise', 'wpa3-enterprise-transition']
+      wifi_ssid:
+        aliases: ['wifi-ssid']
+        type: str
+        description: Support meta variable
+      alias:
+        type: str
+        description: Support meta variable
+      mode:
+        type: str
+        description: Mode.
+        choices: ['static', 'dhcp', 'pppoe', 'pppoa', 'ipoa', 'eoa']
 '''
 
 EXAMPLES = '''
@@ -166,46 +172,48 @@ EXAMPLES = '''
           # wifi_key: <list or string>
           # wifi_security: <value in [None, wep64, wep128, ...]>
           # wifi_ssid: <string>
+          # alias: <string>
+          # mode: <value in [static, dhcp, pppoe, ...]>
 '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -273,7 +281,9 @@ def main():
                     ],
                     'type': 'str'
                 },
-                'wifi-ssid': {'v_range': [['7.6.5', '']], 'type': 'str'}
+                'wifi-ssid': {'v_range': [['7.6.5', '']], 'type': 'str'},
+                'alias': {'v_range': [['8.0.0', '']], 'type': 'str'},
+                'mode': {'v_range': [['8.0.0', '']], 'choices': ['static', 'dhcp', 'pppoe', 'pppoa', 'ipoa', 'eoa'], 'type': 'str'}
             }
         }
     }

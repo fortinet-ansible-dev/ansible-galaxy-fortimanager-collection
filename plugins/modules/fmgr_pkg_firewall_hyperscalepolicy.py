@@ -15,166 +15,166 @@ module: fmgr_pkg_firewall_hyperscalepolicy
 short_description: Configure IPv4/IPv6 policies.
 version_added: "2.2.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  pkg:
+    description: The parameter (pkg) in requested url.
+    type: str
+    required: true
+  pkg_firewall_hyperscalepolicy:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      action:
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Policy action
+        choices: ['deny', 'accept']
+      auto_asic_offload:
+        aliases: ['auto-asic-offload']
         type: str
+        description: Enable/disable policy traffic ASIC offloading.
+        choices: ['disable', 'enable']
+      cgn_eif:
+        aliases: ['cgn-eif']
+        type: str
+        description: Enable/Disable CGN endpoint independent filtering.
+        choices: ['disable', 'enable']
+      cgn_eim:
+        aliases: ['cgn-eim']
+        type: str
+        description: Enable/Disable CGN endpoint independent mapping
+        choices: ['disable', 'enable']
+      cgn_log_server_grp:
+        aliases: ['cgn-log-server-grp']
+        type: str
+        description: NP log server group name
+      cgn_resource_quota:
+        aliases: ['cgn-resource-quota']
+        type: int
+        description: Resource quota
+      cgn_session_quota:
+        aliases: ['cgn-session-quota']
+        type: int
+        description: Session quota
+      comments:
+        type: str
+        description: Comment.
+      delay_tcp_npu_session:
+        aliases: ['delay-tcp-npu-session']
+        type: str
+        description: Enable TCP NPU session delay to guarantee packet order of 3-way handshake.
+        choices: ['disable', 'enable']
+      dstaddr:
+        type: raw
+        description: (list or str) Destination IPv4 address and address group names.
+      dstaddr_negate:
+        aliases: ['dstaddr-negate']
+        type: str
+        description: When enabled dstaddr/dstaddr6 specifies what the destination address must NOT be.
+        choices: ['disable', 'enable']
+      dstaddr6:
+        type: raw
+        description: (list or str) Destination IPv6 address name and address group names.
+      dstintf:
+        type: raw
+        description: (list or str) Outgoing
+      firewall_session_dirty:
+        aliases: ['firewall-session-dirty']
+        type: str
+        description: How to handle sessions if the configuration of this firewall policy changes.
+        choices: ['check-all', 'check-new']
+      global_label:
+        aliases: ['global-label']
+        type: str
+        description: Label for the policy that appears when the GUI is in Global View mode.
+      ippool:
+        type: str
+        description: Enable to use IP Pools for source NAT.
+        choices: ['disable', 'enable']
+      label:
+        type: str
+        description: Label for the policy that appears when the GUI is in Section View mode.
+      name:
+        type: str
+        description: Policy name.
+      nat:
+        type: str
+        description: Enable/disable source NAT.
+        choices: ['disable', 'enable']
+      policy_offload:
+        aliases: ['policy-offload']
+        type: str
+        description: Enable/Disable hardware session setup for CGNAT.
+        choices: ['disable', 'enable']
+      policyid:
+        type: int
+        description: Policy ID
         required: true
-    pkg:
-        description: The parameter (pkg) in requested url.
+      poolname:
+        type: raw
+        description: (list or str) IP Pool names.
+      poolname6:
+        type: raw
+        description: (list or str) IPv6 pool names.
+      send_deny_packet:
+        aliases: ['send-deny-packet']
         type: str
-        required: true
-    pkg_firewall_hyperscalepolicy:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            action:
-                type: str
-                description: Policy action
-                choices: ['deny', 'accept']
-            auto_asic_offload:
-                aliases: ['auto-asic-offload']
-                type: str
-                description: Enable/disable policy traffic ASIC offloading.
-                choices: ['disable', 'enable']
-            cgn_eif:
-                aliases: ['cgn-eif']
-                type: str
-                description: Enable/Disable CGN endpoint independent filtering.
-                choices: ['disable', 'enable']
-            cgn_eim:
-                aliases: ['cgn-eim']
-                type: str
-                description: Enable/Disable CGN endpoint independent mapping
-                choices: ['disable', 'enable']
-            cgn_log_server_grp:
-                aliases: ['cgn-log-server-grp']
-                type: str
-                description: NP log server group name
-            cgn_resource_quota:
-                aliases: ['cgn-resource-quota']
-                type: int
-                description: Resource quota
-            cgn_session_quota:
-                aliases: ['cgn-session-quota']
-                type: int
-                description: Session quota
-            comments:
-                type: str
-                description: Comment.
-            delay_tcp_npu_session:
-                aliases: ['delay-tcp-npu-session']
-                type: str
-                description: Enable TCP NPU session delay to guarantee packet order of 3-way handshake.
-                choices: ['disable', 'enable']
-            dstaddr:
-                type: raw
-                description: (list or str) Destination IPv4 address and address group names.
-            dstaddr_negate:
-                aliases: ['dstaddr-negate']
-                type: str
-                description: When enabled dstaddr/dstaddr6 specifies what the destination address must NOT be.
-                choices: ['disable', 'enable']
-            dstaddr6:
-                type: raw
-                description: (list or str) Destination IPv6 address name and address group names.
-            dstintf:
-                type: raw
-                description: (list or str) Outgoing
-            firewall_session_dirty:
-                aliases: ['firewall-session-dirty']
-                type: str
-                description: How to handle sessions if the configuration of this firewall policy changes.
-                choices: ['check-all', 'check-new']
-            global_label:
-                aliases: ['global-label']
-                type: str
-                description: Label for the policy that appears when the GUI is in Global View mode.
-            ippool:
-                type: str
-                description: Enable to use IP Pools for source NAT.
-                choices: ['disable', 'enable']
-            label:
-                type: str
-                description: Label for the policy that appears when the GUI is in Section View mode.
-            name:
-                type: str
-                description: Policy name.
-            nat:
-                type: str
-                description: Enable/disable source NAT.
-                choices: ['disable', 'enable']
-            policy_offload:
-                aliases: ['policy-offload']
-                type: str
-                description: Enable/Disable hardware session setup for CGNAT.
-                choices: ['disable', 'enable']
-            policyid:
-                type: int
-                description: Policy ID
-                required: true
-            poolname:
-                type: raw
-                description: (list or str) IP Pool names.
-            poolname6:
-                type: raw
-                description: (list or str) IPv6 pool names.
-            send_deny_packet:
-                aliases: ['send-deny-packet']
-                type: str
-                description: Enable to send a reply when a session is denied or blocked by a firewall policy.
-                choices: ['disable', 'enable']
-            service:
-                type: raw
-                description: (list or str) Service and service group names.
-            service_negate:
-                aliases: ['service-negate']
-                type: str
-                description: When enabled service specifies what the service must NOT be.
-                choices: ['disable', 'enable']
-            srcaddr:
-                type: raw
-                description: (list or str) Source IPv4 address and address group names.
-            srcaddr_negate:
-                aliases: ['srcaddr-negate']
-                type: str
-                description: When enabled srcaddr/srcaddr6 specifies what the source address must NOT be.
-                choices: ['disable', 'enable']
-            srcaddr6:
-                type: raw
-                description: (list or str) Source IPv6 address name and address group names.
-            srcintf:
-                type: raw
-                description: (list or str) Incoming
-            status:
-                type: str
-                description: Enable or disable this policy.
-                choices: ['disable', 'enable']
-            tcp_timeout_pid:
-                aliases: ['tcp-timeout-pid']
-                type: str
-                description: TCP timeout profile ID
-            traffic_shaper:
-                aliases: ['traffic-shaper']
-                type: str
-                description: Traffic shaper.
-            traffic_shaper_reverse:
-                aliases: ['traffic-shaper-reverse']
-                type: str
-                description: Reverse traffic shaper.
-            udp_timeout_pid:
-                aliases: ['udp-timeout-pid']
-                type: str
-                description: UDP timeout profile ID
-            uuid:
-                type: str
-                description: Universally Unique Identifier
+        description: Enable to send a reply when a session is denied or blocked by a firewall policy.
+        choices: ['disable', 'enable']
+      service:
+        type: raw
+        description: (list or str) Service and service group names.
+      service_negate:
+        aliases: ['service-negate']
+        type: str
+        description: When enabled service specifies what the service must NOT be.
+        choices: ['disable', 'enable']
+      srcaddr:
+        type: raw
+        description: (list or str) Source IPv4 address and address group names.
+      srcaddr_negate:
+        aliases: ['srcaddr-negate']
+        type: str
+        description: When enabled srcaddr/srcaddr6 specifies what the source address must NOT be.
+        choices: ['disable', 'enable']
+      srcaddr6:
+        type: raw
+        description: (list or str) Source IPv6 address name and address group names.
+      srcintf:
+        type: raw
+        description: (list or str) Incoming
+      status:
+        type: str
+        description: Enable or disable this policy.
+        choices: ['disable', 'enable']
+      tcp_timeout_pid:
+        aliases: ['tcp-timeout-pid']
+        type: str
+        description: TCP timeout profile ID
+      traffic_shaper:
+        aliases: ['traffic-shaper']
+        type: str
+        description: Traffic shaper.
+      traffic_shaper_reverse:
+        aliases: ['traffic-shaper-reverse']
+        type: str
+        description: Reverse traffic shaper.
+      udp_timeout_pid:
+        aliases: ['udp-timeout-pid']
+        type: str
+        description: UDP timeout profile ID
+      uuid:
+        type: str
+        description: Universally Unique Identifier
 '''
 
 EXAMPLES = '''
@@ -230,42 +230,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -282,100 +282,104 @@ def main():
         'pkg': {'required': True, 'type': 'str'},
         'revision_note': {'type': 'str'},
         'pkg_firewall_hyperscalepolicy': {
-            'type': 'dict', 'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '']],
+            'type': 'dict', 'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '7.6.7']],
             'options': {
                 'action': {
-                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '']],
+                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '7.6.7']],
                     'choices': ['deny', 'accept'],
                     'type': 'str'
                 },
                 'auto-asic-offload': {
-                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '']],
+                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '7.6.7']],
                     'choices': ['disable', 'enable'],
                     'type': 'str'
                 },
                 'cgn-eif': {
-                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '']],
+                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '7.6.7']],
                     'choices': ['disable', 'enable'],
                     'type': 'str'
                 },
                 'cgn-eim': {
-                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '']],
+                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '7.6.7']],
                     'choices': ['disable', 'enable'],
                     'type': 'str'
                 },
-                'cgn-log-server-grp': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '']], 'type': 'str'},
-                'cgn-resource-quota': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '']], 'type': 'int'},
-                'cgn-session-quota': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '']], 'type': 'int'},
-                'comments': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '']], 'type': 'str'},
+                'cgn-log-server-grp': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '7.6.7']], 'type': 'str'},
+                'cgn-resource-quota': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '7.6.7']], 'type': 'int'},
+                'cgn-session-quota': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '7.6.7']], 'type': 'int'},
+                'comments': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '7.6.7']], 'type': 'str'},
                 'delay-tcp-npu-session': {
-                    'v_range': [['6.4.7', '6.4.15'], ['7.0.2', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '']],
+                    'v_range': [['6.4.7', '6.4.15'], ['7.0.2', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '7.6.7']],
                     'choices': ['disable', 'enable'],
                     'type': 'str'
                 },
-                'dstaddr': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '']], 'type': 'raw'},
+                'dstaddr': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '7.6.7']], 'type': 'raw'},
                 'dstaddr-negate': {
-                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '']],
+                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '7.6.7']],
                     'choices': ['disable', 'enable'],
                     'type': 'str'
                 },
-                'dstaddr6': {'v_range': [['6.4.7', '6.4.15'], ['7.0.2', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '']], 'type': 'raw'},
-                'dstintf': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '']], 'type': 'raw'},
+                'dstaddr6': {'v_range': [['6.4.7', '6.4.15'], ['7.0.2', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '7.6.7']], 'type': 'raw'},
+                'dstintf': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '7.6.7']], 'type': 'raw'},
                 'firewall-session-dirty': {
-                    'v_range': [['6.4.7', '6.4.15'], ['7.0.2', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '']],
+                    'v_range': [['6.4.7', '6.4.15'], ['7.0.2', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '7.6.7']],
                     'choices': ['check-all', 'check-new'],
                     'type': 'str'
                 },
-                'global-label': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '']], 'type': 'str'},
+                'global-label': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '7.6.7']], 'type': 'str'},
                 'ippool': {
-                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '']],
+                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '7.6.7']],
                     'choices': ['disable', 'enable'],
                     'type': 'str'
                 },
-                'label': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '']], 'type': 'str'},
-                'name': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '']], 'type': 'str'},
+                'label': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '7.6.7']], 'type': 'str'},
+                'name': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '7.6.7']], 'type': 'str'},
                 'nat': {
-                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '']],
+                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '7.6.7']],
                     'choices': ['disable', 'enable'],
                     'type': 'str'
                 },
                 'policy-offload': {
-                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '']],
+                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '7.6.7']],
                     'choices': ['disable', 'enable'],
                     'type': 'str'
                 },
-                'policyid': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '']], 'required': True, 'type': 'int'},
-                'poolname': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '']], 'type': 'raw'},
-                'poolname6': {'v_range': [['6.4.7', '6.4.15'], ['7.0.2', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '']], 'type': 'raw'},
+                'policyid': {
+                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '7.6.7']],
+                    'required': True,
+                    'type': 'int'
+                },
+                'poolname': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '7.6.7']], 'type': 'raw'},
+                'poolname6': {'v_range': [['6.4.7', '6.4.15'], ['7.0.2', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '7.6.7']], 'type': 'raw'},
                 'send-deny-packet': {
-                    'v_range': [['6.4.7', '6.4.15'], ['7.0.2', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '']],
+                    'v_range': [['6.4.7', '6.4.15'], ['7.0.2', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '7.6.7']],
                     'choices': ['disable', 'enable'],
                     'type': 'str'
                 },
-                'service': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '']], 'type': 'raw'},
+                'service': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '7.6.7']], 'type': 'raw'},
                 'service-negate': {
-                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '']],
+                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '7.6.7']],
                     'choices': ['disable', 'enable'],
                     'type': 'str'
                 },
-                'srcaddr': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '']], 'type': 'raw'},
+                'srcaddr': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '7.6.7']], 'type': 'raw'},
                 'srcaddr-negate': {
-                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '']],
+                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '7.6.7']],
                     'choices': ['disable', 'enable'],
                     'type': 'str'
                 },
-                'srcaddr6': {'v_range': [['6.4.7', '6.4.15'], ['7.0.2', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '']], 'type': 'raw'},
-                'srcintf': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '']], 'type': 'raw'},
+                'srcaddr6': {'v_range': [['6.4.7', '6.4.15'], ['7.0.2', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '7.6.7']], 'type': 'raw'},
+                'srcintf': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '7.6.7']], 'type': 'raw'},
                 'status': {
-                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '']],
+                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '7.6.7']],
                     'choices': ['disable', 'enable'],
                     'type': 'str'
                 },
-                'tcp-timeout-pid': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '']], 'type': 'str'},
-                'traffic-shaper': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '']], 'type': 'str'},
-                'traffic-shaper-reverse': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '']], 'type': 'str'},
-                'udp-timeout-pid': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '']], 'type': 'str'},
-                'uuid': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '']], 'type': 'str'}
+                'tcp-timeout-pid': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '7.6.7']], 'type': 'str'},
+                'traffic-shaper': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '7.6.7']], 'type': 'str'},
+                'traffic-shaper-reverse': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '7.6.7']], 'type': 'str'},
+                'udp-timeout-pid': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '7.6.7']], 'type': 'str'},
+                'uuid': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '7.6.7']], 'type': 'str'}
             }
         }
     }

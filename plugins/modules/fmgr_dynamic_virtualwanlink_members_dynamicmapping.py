@@ -15,116 +15,116 @@ module: fmgr_dynamic_virtualwanlink_members_dynamicmapping
 short_description: FortiGate interfaces added to the virtual-wan-link.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
-        type: str
-    adom:
-        description: The parameter (adom) in requested url.
-        type: str
-        required: true
-    members:
-        description: The parameter (members) in requested url.
-        type: str
-        required: true
-    dynamic_virtualwanlink_members_dynamicmapping:
-        description: The top level parameters set.
-        required: false
-        type: dict
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  members:
+    description: The parameter (members) in requested url.
+    type: str
+    required: true
+  dynamic_virtualwanlink_members_dynamicmapping:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      _scope:
+        type: list
+        elements: dict
+        description: Scope.
         suboptions:
-            _scope:
-                type: list
-                elements: dict
-                description: Scope.
-                suboptions:
-                    name:
-                        type: str
-                        description: Name.
-                    vdom:
-                        type: str
-                        description: Vdom.
-            comment:
-                type: str
-                description: Comment.
-            cost:
-                type: int
-                description: Cost.
-            detect_failtime:
-                aliases: ['detect-failtime']
-                type: int
-                description: Detect failtime.
-            detect_http_get:
-                aliases: ['detect-http-get']
-                type: str
-                description: Detect http get.
-            detect_http_match:
-                aliases: ['detect-http-match']
-                type: str
-                description: Detect http match.
-            detect_http_port:
-                aliases: ['detect-http-port']
-                type: int
-                description: Detect http port.
-            detect_interval:
-                aliases: ['detect-interval']
-                type: int
-                description: Detect interval.
-            detect_protocol:
-                aliases: ['detect-protocol']
-                type: str
-                description: Detect protocol.
-                choices: ['ping', 'tcp-echo', 'udp-echo', 'http']
-            detect_recoverytime:
-                aliases: ['detect-recoverytime']
-                type: int
-                description: Detect recoverytime.
-            detect_server:
-                aliases: ['detect-server']
-                type: str
-                description: Detect server.
-            detect_timeout:
-                aliases: ['detect-timeout']
-                type: int
-                description: Detect timeout.
-            gateway:
-                type: str
-                description: Gateway.
-            gateway6:
-                type: str
-                description: Gateway6.
-            ingress_spillover_threshold:
-                aliases: ['ingress-spillover-threshold']
-                type: int
-                description: Ingress spillover threshold.
-            interface:
-                type: str
-                description: Interface.
-            priority:
-                type: int
-                description: Priority.
-            source:
-                type: str
-                description: Source.
-            source6:
-                type: str
-                description: Source6.
-            spillover_threshold:
-                aliases: ['spillover-threshold']
-                type: int
-                description: Spillover threshold.
-            status:
-                type: str
-                description: Status.
-                choices: ['disable', 'enable']
-            volume_ratio:
-                aliases: ['volume-ratio']
-                type: int
-                description: Volume ratio.
-            weight:
-                type: int
-                description: Weight.
+          name:
+            type: str
+            description: Name.
+          vdom:
+            type: str
+            description: Vdom.
+      comment:
+        type: str
+        description: Comment.
+      cost:
+        type: int
+        description: Cost.
+      detect_failtime:
+        aliases: ['detect-failtime']
+        type: int
+        description: Detect failtime.
+      detect_http_get:
+        aliases: ['detect-http-get']
+        type: str
+        description: Detect http get.
+      detect_http_match:
+        aliases: ['detect-http-match']
+        type: str
+        description: Detect http match.
+      detect_http_port:
+        aliases: ['detect-http-port']
+        type: int
+        description: Detect http port.
+      detect_interval:
+        aliases: ['detect-interval']
+        type: int
+        description: Detect interval.
+      detect_protocol:
+        aliases: ['detect-protocol']
+        type: str
+        description: Detect protocol.
+        choices: ['ping', 'tcp-echo', 'udp-echo', 'http']
+      detect_recoverytime:
+        aliases: ['detect-recoverytime']
+        type: int
+        description: Detect recoverytime.
+      detect_server:
+        aliases: ['detect-server']
+        type: str
+        description: Detect server.
+      detect_timeout:
+        aliases: ['detect-timeout']
+        type: int
+        description: Detect timeout.
+      gateway:
+        type: str
+        description: Gateway.
+      gateway6:
+        type: str
+        description: Gateway6.
+      ingress_spillover_threshold:
+        aliases: ['ingress-spillover-threshold']
+        type: int
+        description: Ingress spillover threshold.
+      interface:
+        type: str
+        description: Interface.
+      priority:
+        type: int
+        description: Priority.
+      source:
+        type: str
+        description: Source.
+      source6:
+        type: str
+        description: Source6.
+      spillover_threshold:
+        aliases: ['spillover-threshold']
+        type: int
+        description: Spillover threshold.
+      status:
+        type: str
+        description: Status.
+        choices: ['disable', 'enable']
+      volume_ratio:
+        aliases: ['volume-ratio']
+        type: int
+        description: Volume ratio.
+      weight:
+        type: int
+        description: Weight.
 '''
 
 EXAMPLES = '''
@@ -169,42 +169,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

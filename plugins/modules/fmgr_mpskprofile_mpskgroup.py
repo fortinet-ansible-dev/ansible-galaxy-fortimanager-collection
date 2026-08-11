@@ -15,92 +15,92 @@ module: fmgr_mpskprofile_mpskgroup
 short_description: List of multiple PSK groups.
 version_added: "2.1.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
-        type: str
-    adom:
-        description: The parameter (adom) in requested url.
-        type: str
-        required: true
-    mpsk-profile:
-        description: Deprecated, please use "mpsk_profile"
-        type: str
-    mpsk_profile:
-        description: The parameter (mpsk-profile) in requested url.
-        type: str
-    mpskprofile_mpskgroup:
-        description: The top level parameters set.
-        required: false
-        type: dict
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  mpsk-profile:
+    description: Deprecated, please use "mpsk_profile"
+    type: str
+  mpsk_profile:
+    description: The parameter (mpsk-profile) in requested url.
+    type: str
+  mpskprofile_mpskgroup:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      mpsk_key:
+        aliases: ['mpsk-key']
+        type: list
+        elements: dict
+        description: Mpsk key.
         suboptions:
-            mpsk_key:
-                aliases: ['mpsk-key']
-                type: list
-                elements: dict
-                description: Mpsk key.
-                suboptions:
-                    comment:
-                        type: str
-                        description: Comment.
-                    concurrent_client_limit_type:
-                        aliases: ['concurrent-client-limit-type']
-                        type: str
-                        description: MPSK client limit type options.
-                        choices: ['default', 'unlimited', 'specified']
-                    concurrent_clients:
-                        aliases: ['concurrent-clients']
-                        type: int
-                        description: Number of clients that can connect using this pre-shared key
-                    mac:
-                        type: str
-                        description: MAC address.
-                    mpsk_schedules:
-                        aliases: ['mpsk-schedules']
-                        type: raw
-                        description: (list or str) Firewall schedule for MPSK passphrase.
-                    name:
-                        type: str
-                        description: Pre-shared key name.
-                    passphrase:
-                        type: raw
-                        description: (list) WPA Pre-shared key.
-                    pmk:
-                        type: raw
-                        description: (list) WPA PMK.
-                    key_type:
-                        aliases: ['key-type']
-                        type: str
-                        description: Select the type of the key.
-                        choices: ['wpa2-personal', 'wpa3-sae']
-                    sae_password:
-                        aliases: ['sae-password']
-                        type: raw
-                        description: (list) WPA3 SAE password.
-                    sae_pk:
-                        aliases: ['sae-pk']
-                        type: str
-                        description: Enable/disable WPA3 SAE-PK
-                        choices: ['disable', 'enable']
-                    sae_private_key:
-                        aliases: ['sae-private-key']
-                        type: str
-                        description: Private key used for WPA3 SAE-PK authentication.
-            name:
-                type: str
-                description: MPSK group name.
-                required: true
-            vlan_id:
-                aliases: ['vlan-id']
-                type: int
-                description: Optional VLAN ID.
-            vlan_type:
-                aliases: ['vlan-type']
-                type: str
-                description: MPSK group VLAN options.
-                choices: ['no-vlan', 'fixed-vlan']
+          comment:
+            type: str
+            description: Comment.
+          concurrent_client_limit_type:
+            aliases: ['concurrent-client-limit-type']
+            type: str
+            description: MPSK client limit type options.
+            choices: ['default', 'unlimited', 'specified']
+          concurrent_clients:
+            aliases: ['concurrent-clients']
+            type: int
+            description: Number of clients that can connect using this pre-shared key
+          mac:
+            type: str
+            description: MAC address.
+          mpsk_schedules:
+            aliases: ['mpsk-schedules']
+            type: raw
+            description: (list or str) Firewall schedule for MPSK passphrase.
+          name:
+            type: str
+            description: Pre-shared key name.
+          passphrase:
+            type: raw
+            description: (list) WPA Pre-shared key.
+          pmk:
+            type: raw
+            description: (list) WPA PMK.
+          key_type:
+            aliases: ['key-type']
+            type: str
+            description: Select the type of the key.
+            choices: ['wpa2-personal', 'wpa3-sae']
+          sae_password:
+            aliases: ['sae-password']
+            type: raw
+            description: (list) WPA3 SAE password.
+          sae_pk:
+            aliases: ['sae-pk']
+            type: str
+            description: Enable/disable WPA3 SAE-PK
+            choices: ['disable', 'enable']
+          sae_private_key:
+            aliases: ['sae-private-key']
+            type: str
+            description: Private key used for WPA3 SAE-PK authentication.
+      name:
+        type: str
+        description: MPSK group name.
+        required: true
+      vlan_id:
+        aliases: ['vlan-id']
+        type: int
+        description: Optional VLAN ID.
+      vlan_type:
+        aliases: ['vlan-type']
+        type: str
+        description: MPSK group VLAN options.
+        choices: ['no-vlan', 'fixed-vlan']
 '''
 
 EXAMPLES = '''
@@ -136,42 +136,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

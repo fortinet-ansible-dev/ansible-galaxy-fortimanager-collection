@@ -15,98 +15,98 @@ module: fmgr_switchcontroller_managedswitch_snmpcommunity
 short_description: Configuration method to edit Simple Network Management Protocol
 version_added: "2.1.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
-        type: str
-    adom:
-        description: The parameter (adom) in requested url.
-        type: str
-        required: true
-    managed-switch:
-        description: Deprecated, please use "managed_switch"
-        type: str
-    managed_switch:
-        description: The parameter (managed-switch) in requested url.
-        type: str
-    switchcontroller_managedswitch_snmpcommunity:
-        description: The top level parameters set.
-        required: false
-        type: dict
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  managed-switch:
+    description: Deprecated, please use "managed_switch"
+    type: str
+  managed_switch:
+    description: The parameter (managed-switch) in requested url.
+    type: str
+  switchcontroller_managedswitch_snmpcommunity:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      events:
+        type: list
+        elements: str
+        description: SNMP notifications
+        choices: ['cpu-high', 'mem-low', 'log-full', 'intf-ip', 'ent-conf-change']
+      hosts:
+        type: list
+        elements: dict
+        description: Hosts.
         suboptions:
-            events:
-                type: list
-                elements: str
-                description: SNMP notifications
-                choices: ['cpu-high', 'mem-low', 'log-full', 'intf-ip', 'ent-conf-change']
-            hosts:
-                type: list
-                elements: dict
-                description: Hosts.
-                suboptions:
-                    id:
-                        type: int
-                        description: Host entry ID.
-                    ip:
-                        type: str
-                        description: IPv4 address of the SNMP manager
-            id:
-                type: int
-                description: SNMP community ID.
-                required: true
-            name:
-                type: str
-                description: SNMP community name.
-            query_v1_port:
-                aliases: ['query-v1-port']
-                type: int
-                description: SNMP v1 query port
-            query_v1_status:
-                aliases: ['query-v1-status']
-                type: str
-                description: Enable/disable SNMP v1 queries.
-                choices: ['disable', 'enable']
-            query_v2c_port:
-                aliases: ['query-v2c-port']
-                type: int
-                description: SNMP v2c query port
-            query_v2c_status:
-                aliases: ['query-v2c-status']
-                type: str
-                description: Enable/disable SNMP v2c queries.
-                choices: ['disable', 'enable']
-            status:
-                type: str
-                description: Enable/disable this SNMP community.
-                choices: ['disable', 'enable']
-            trap_v1_lport:
-                aliases: ['trap-v1-lport']
-                type: int
-                description: SNMP v2c trap local port
-            trap_v1_rport:
-                aliases: ['trap-v1-rport']
-                type: int
-                description: SNMP v2c trap remote port
-            trap_v1_status:
-                aliases: ['trap-v1-status']
-                type: str
-                description: Enable/disable SNMP v1 traps.
-                choices: ['disable', 'enable']
-            trap_v2c_lport:
-                aliases: ['trap-v2c-lport']
-                type: int
-                description: SNMP v2c trap local port
-            trap_v2c_rport:
-                aliases: ['trap-v2c-rport']
-                type: int
-                description: SNMP v2c trap remote port
-            trap_v2c_status:
-                aliases: ['trap-v2c-status']
-                type: str
-                description: Enable/disable SNMP v2c traps.
-                choices: ['disable', 'enable']
+          id:
+            type: int
+            description: Host entry ID.
+          ip:
+            type: str
+            description: IPv4 address of the SNMP manager
+      id:
+        type: int
+        description: SNMP community ID.
+        required: true
+      name:
+        type: str
+        description: SNMP community name.
+      query_v1_port:
+        aliases: ['query-v1-port']
+        type: int
+        description: SNMP v1 query port
+      query_v1_status:
+        aliases: ['query-v1-status']
+        type: str
+        description: Enable/disable SNMP v1 queries.
+        choices: ['disable', 'enable']
+      query_v2c_port:
+        aliases: ['query-v2c-port']
+        type: int
+        description: SNMP v2c query port
+      query_v2c_status:
+        aliases: ['query-v2c-status']
+        type: str
+        description: Enable/disable SNMP v2c queries.
+        choices: ['disable', 'enable']
+      status:
+        type: str
+        description: Enable/disable this SNMP community.
+        choices: ['disable', 'enable']
+      trap_v1_lport:
+        aliases: ['trap-v1-lport']
+        type: int
+        description: SNMP v2c trap local port
+      trap_v1_rport:
+        aliases: ['trap-v1-rport']
+        type: int
+        description: SNMP v2c trap remote port
+      trap_v1_status:
+        aliases: ['trap-v1-status']
+        type: str
+        description: Enable/disable SNMP v1 traps.
+        choices: ['disable', 'enable']
+      trap_v2c_lport:
+        aliases: ['trap-v2c-lport']
+        type: int
+        description: SNMP v2c trap local port
+      trap_v2c_rport:
+        aliases: ['trap-v2c-rport']
+        type: int
+        description: SNMP v2c trap remote port
+      trap_v2c_status:
+        aliases: ['trap-v2c-status']
+        type: str
+        description: Enable/disable SNMP v2c traps.
+        choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -143,42 +143,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

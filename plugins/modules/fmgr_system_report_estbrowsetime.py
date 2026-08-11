@@ -15,25 +15,25 @@ module: fmgr_system_report_estbrowsetime
 short_description: Report estimated browse time settings
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.partial_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.partial_crud
 options:
-    system_report_estbrowsetime:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            max_read_time:
-                aliases: ['max-read-time']
-                type: int
-                description: Read time threshold for each page view.
-            status:
-                type: str
-                description:
-                    - Estimate browse time status.
-                    - disable - Disable estimating browse time.
-                    - enable - Enable estimating browse time.
-                choices: ['disable', 'enable']
+  system_report_estbrowsetime:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      max_read_time:
+        aliases: ['max-read-time']
+        type: int
+        description: Read time threshold for each page view.
+      status:
+        type: str
+        description:
+          - Estimate browse time status.
+          - disable - Disable estimating browse time.
+          - enable - Enable estimating browse time.
+        choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -52,42 +52,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

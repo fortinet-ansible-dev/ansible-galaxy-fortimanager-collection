@@ -15,48 +15,48 @@ module: fmgr_system_log_ioc
 short_description: IoC settings.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.partial_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.partial_crud
 options:
-    system_log_ioc:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            notification:
-                type: str
-                description:
-                    - Disable/Enable IoC notification.
-                    - disable - Disable IoC feature.
-                    - enable - Enable IoC feature.
-                choices: ['disable', 'enable']
-            notification_throttle:
-                aliases: ['notification-throttle']
-                type: int
-                description: Minute value for throttling the rate of IoC notifications.
-            rescan_max_runner:
-                aliases: ['rescan-max-runner']
-                type: int
-                description: Max count of cocurrent runner of IoC rescan.
-            rescan_run_at:
-                aliases: ['rescan-run-at']
-                type: int
-                description: When to run IoC rescan.
-            rescan_status:
-                aliases: ['rescan-status']
-                type: str
-                description:
-                    - Disable/Enable IoC rescan.
-                    - disable - Disable IoC feature.
-                    - enable - Enable IoC feature.
-                choices: ['disable', 'enable']
-            status:
-                type: str
-                description:
-                    - Disable/Enable IoC feature.
-                    - disable - Disable IoC feature.
-                    - enable - Enable IoC feature.
-                choices: ['disable', 'enable']
+  system_log_ioc:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      notification:
+        type: str
+        description:
+          - Disable/Enable IoC notification.
+          - disable - Disable IoC feature.
+          - enable - Enable IoC feature.
+        choices: ['disable', 'enable']
+      notification_throttle:
+        aliases: ['notification-throttle']
+        type: int
+        description: Minute value for throttling the rate of IoC notifications.
+      rescan_max_runner:
+        aliases: ['rescan-max-runner']
+        type: int
+        description: Max count of cocurrent runner of IoC rescan.
+      rescan_run_at:
+        aliases: ['rescan-run-at']
+        type: int
+        description: When to run IoC rescan.
+      rescan_status:
+        aliases: ['rescan-status']
+        type: str
+        description:
+          - Disable/Enable IoC rescan.
+          - disable - Disable IoC feature.
+          - enable - Enable IoC feature.
+        choices: ['disable', 'enable']
+      status:
+        type: str
+        description:
+          - Disable/Enable IoC feature.
+          - disable - Disable IoC feature.
+          - enable - Enable IoC feature.
+        choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -79,42 +79,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

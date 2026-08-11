@@ -15,49 +15,49 @@ module: fmgr_switchcontroller_ptp_profile
 short_description: Global PTP profile.
 version_added: "2.3.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  switchcontroller_ptp_profile:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      description:
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Description.
+      domain:
+        type: int
+        description: Configure PTP domain value
+      mode:
         type: str
+        description: Select PTP mode.
+        choices: ['transparent-e2e', 'transparent-p2p']
+      name:
+        type: str
+        description: Profile name.
         required: true
-    switchcontroller_ptp_profile:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            description:
-                type: str
-                description: Description.
-            domain:
-                type: int
-                description: Configure PTP domain value
-            mode:
-                type: str
-                description: Select PTP mode.
-                choices: ['transparent-e2e', 'transparent-p2p']
-            name:
-                type: str
-                description: Profile name.
-                required: true
-            pdelay_req_interval:
-                aliases: ['pdelay-req-interval']
-                type: str
-                description: Configure PTP peer delay request interval.
-                choices: ['1sec', '2sec', '4sec', '8sec', '16sec', '32sec']
-            ptp_profile:
-                aliases: ['ptp-profile']
-                type: str
-                description: Configure PTP power profile.
-                choices: ['C37.238-2017']
-            transport:
-                type: str
-                description: Configure PTP transport mode.
-                choices: ['l2-mcast']
+      pdelay_req_interval:
+        aliases: ['pdelay-req-interval']
+        type: str
+        description: Configure PTP peer delay request interval.
+        choices: ['1sec', '2sec', '4sec', '8sec', '16sec', '32sec']
+      ptp_profile:
+        aliases: ['ptp-profile']
+        type: str
+        description: Configure PTP power profile.
+        choices: ['C37.238-2017']
+      transport:
+        type: str
+        description: Configure PTP transport mode.
+        choices: ['l2-mcast']
 '''
 
 EXAMPLES = '''
@@ -83,42 +83,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

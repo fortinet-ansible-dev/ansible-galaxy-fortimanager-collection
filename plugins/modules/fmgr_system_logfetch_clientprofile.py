@@ -15,146 +15,145 @@ module: fmgr_system_logfetch_clientprofile
 short_description: Log-fetch client profile settings.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    system_logfetch_clientprofile:
-        description: The top level parameters set.
-        required: false
-        type: dict
+  system_logfetch_clientprofile:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      client_adom:
+        aliases: ['client-adom']
+        type: str
+        description: Log-fetch client sides adom name.
+      data_range:
+        aliases: ['data-range']
+        type: str
+        description:
+          - Data-range for fetched logs.
+          - custom - Specify some other date and time range.
+        choices: ['custom']
+      data_range_value:
+        aliases: ['data-range-value']
+        type: int
+        description: Last n days or hours.
+      device_filter:
+        aliases: ['device-filter']
+        type: list
+        elements: dict
+        description: Device filter.
         suboptions:
-            client_adom:
-                aliases: ['client-adom']
-                type: str
-                description: Log-fetch client sides adom name.
-            data_range:
-                aliases: ['data-range']
-                type: str
-                description:
-                    - Data-range for fetched logs.
-                    - custom - Specify some other date and time range.
-                choices: ['custom']
-            data_range_value:
-                aliases: ['data-range-value']
-                type: int
-                description: Last n days or hours.
-            device_filter:
-                aliases: ['device-filter']
-                type: list
-                elements: dict
-                description: Device filter.
-                suboptions:
-                    adom:
-                        type: str
-                        description: Adom name.
-                    device:
-                        type: str
-                        description: Device name or Serial number.
-                    id:
-                        type: int
-                        description: Add or edit a device filter.
-                    vdom:
-                        type: str
-                        description: Vdom filters.
-            end_time:
-                aliases: ['end-time']
-                type: raw
-                description: (list) End date and time of the data-range
-            id:
-                type: int
-                description: Log-fetch client profile ID.
-                required: true
-            index_fetch_logs:
-                aliases: ['index-fetch-logs']
-                type: str
-                description:
-                    - Enable/Disable indexing logs automatically after fetching logs.
-                    - disable - Disable attribute function.
-                    - enable - Enable attribute function.
-                choices: ['disable', 'enable']
-            log_filter:
-                aliases: ['log-filter']
-                type: list
-                elements: dict
-                description: Log filter.
-                suboptions:
-                    field:
-                        type: str
-                        description: Field name.
-                    id:
-                        type: int
-                        description: Log filter ID.
-                    oper:
-                        type: str
-                        description:
-                            - Field filter operator.
-                            - no description
-                            - no description
-                            - contain - Contain
-                            - not-contain - Not contain
-                            - match - Match
-                        choices: ['=', '!=', '<', '>', '<=', '>=', 'contain', 'not-contain',
-                                  'match']
-                    value:
-                        type: str
-                        description: Field filter operand or free-text matching expression.
-            log_filter_logic:
-                aliases: ['log-filter-logic']
-                type: str
-                description:
-                    - And/Or logic for log-filters.
-                    - and - Logic And.
-                    - or - Logic Or.
-                choices: ['and', 'or']
-            log_filter_status:
-                aliases: ['log-filter-status']
-                type: str
-                description:
-                    - Enable/Disable log-filter.
-                    - disable - Disable attribute function.
-                    - enable - Enable attribute function.
-                choices: ['disable', 'enable']
-            name:
-                type: str
-                description: Name of log-fetch client profile.
-            password:
-                type: raw
-                description: (list) Log-fetch server login password.
-            secure_connection:
-                aliases: ['secure-connection']
-                type: str
-                description:
-                    - Enable/Disable protecting log-fetch connection with TLS/SSL.
-                    - disable - Disable attribute function.
-                    - enable - Enable attribute function.
-                choices: ['disable', 'enable']
-            server_adom:
-                aliases: ['server-adom']
-                type: str
-                description: Log-fetch server sides adom name.
-            server_ip:
-                aliases: ['server-ip']
-                type: str
-                description: Log-fetch server IP address.
-            start_time:
-                aliases: ['start-time']
-                type: raw
-                description: (list) Start date and time of the data-range
-            sync_adom_config:
-                aliases: ['sync-adom-config']
-                type: str
-                description:
-                    - Enable/Disable sync adom related config.
-                    - disable - Disable attribute function.
-                    - enable - Enable attribute function.
-                choices: ['disable', 'enable']
-            user:
-                type: str
-                description: Log-fetch server login username.
-            peer_cert_cn:
-                aliases: ['peer-cert-cn']
-                type: str
-                description: Certificate common name of log-fetch server.
+          adom:
+            type: str
+            description: Adom name.
+          device:
+            type: str
+            description: Device name or Serial number.
+          id:
+            type: int
+            description: Add or edit a device filter.
+          vdom:
+            type: str
+            description: Vdom filters.
+      end_time:
+        aliases: ['end-time']
+        type: raw
+        description: (list) End date and time of the data-range
+      id:
+        type: int
+        description: Log-fetch client profile ID.
+        required: true
+      index_fetch_logs:
+        aliases: ['index-fetch-logs']
+        type: str
+        description:
+          - Enable/Disable indexing logs automatically after fetching logs.
+          - disable - Disable attribute function.
+          - enable - Enable attribute function.
+        choices: ['disable', 'enable']
+      log_filter:
+        aliases: ['log-filter']
+        type: list
+        elements: dict
+        description: Log filter.
+        suboptions:
+          field:
+            type: str
+            description: Field name.
+          id:
+            type: int
+            description: Log filter ID.
+          oper:
+            type: str
+            description:
+              - Field filter operator.
+              - no description
+              - no description
+              - contain - Contain
+              - not-contain - Not contain
+              - match - Match
+            choices: ['=', '!=', '<', '>', '<=', '>=', 'contain', 'not-contain', 'match']
+          value:
+            type: str
+            description: Field filter operand or free-text matching expression.
+      log_filter_logic:
+        aliases: ['log-filter-logic']
+        type: str
+        description:
+          - And/Or logic for log-filters.
+          - and - Logic And.
+          - or - Logic Or.
+        choices: ['and', 'or']
+      log_filter_status:
+        aliases: ['log-filter-status']
+        type: str
+        description:
+          - Enable/Disable log-filter.
+          - disable - Disable attribute function.
+          - enable - Enable attribute function.
+        choices: ['disable', 'enable']
+      name:
+        type: str
+        description: Name of log-fetch client profile.
+      password:
+        type: raw
+        description: (list) Log-fetch server login password.
+      secure_connection:
+        aliases: ['secure-connection']
+        type: str
+        description:
+          - Enable/Disable protecting log-fetch connection with TLS/SSL.
+          - disable - Disable attribute function.
+          - enable - Enable attribute function.
+        choices: ['disable', 'enable']
+      server_adom:
+        aliases: ['server-adom']
+        type: str
+        description: Log-fetch server sides adom name.
+      server_ip:
+        aliases: ['server-ip']
+        type: str
+        description: Log-fetch server IP address.
+      start_time:
+        aliases: ['start-time']
+        type: raw
+        description: (list) Start date and time of the data-range
+      sync_adom_config:
+        aliases: ['sync-adom-config']
+        type: str
+        description:
+          - Enable/Disable sync adom related config.
+          - disable - Disable attribute function.
+          - enable - Enable attribute function.
+        choices: ['disable', 'enable']
+      user:
+        type: str
+        description: Log-fetch server login username.
+      peer_cert_cn:
+        aliases: ['peer-cert-cn']
+        type: str
+        description: Certificate common name of log-fetch server.
 '''
 
 EXAMPLES = '''
@@ -200,42 +199,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

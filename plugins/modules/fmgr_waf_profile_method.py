@@ -15,70 +15,70 @@ module: fmgr_waf_profile_method
 short_description: Method restriction.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.partial_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.partial_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  profile:
+    description: The parameter (profile) in requested url.
+    type: str
+    required: true
+  waf_profile_method:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      default_allowed_methods:
+        aliases: ['default-allowed-methods']
+        type: list
+        elements: str
+        description: Methods.
+        choices: ['delete', 'get', 'head', 'options', 'post', 'put', 'trace', 'others', 'connect',
+                  'patch', 'query']
+      log:
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
-        type: str
-        required: true
-    profile:
-        description: The parameter (profile) in requested url.
-        type: str
-        required: true
-    waf_profile_method:
-        description: The top level parameters set.
-        required: false
-        type: dict
+        description: Enable/disable logging.
+        choices: ['disable', 'enable']
+      method_policy:
+        aliases: ['method-policy']
+        type: list
+        elements: dict
+        description: Method policy.
         suboptions:
-            default_allowed_methods:
-                aliases: ['default-allowed-methods']
-                type: list
-                elements: str
-                description: Methods.
-                choices: ['delete', 'get', 'head', 'options', 'post', 'put', 'trace', 'others',
-                          'connect']
-            log:
-                type: str
-                description: Enable/disable logging.
-                choices: ['disable', 'enable']
-            method_policy:
-                aliases: ['method-policy']
-                type: list
-                elements: dict
-                description: Method policy.
-                suboptions:
-                    address:
-                        type: str
-                        description: Host address.
-                    allowed_methods:
-                        aliases: ['allowed-methods']
-                        type: list
-                        elements: str
-                        description: Allowed Methods.
-                        choices: ['delete', 'get', 'head', 'options', 'post', 'put', 'trace',
-                                  'others', 'connect']
-                    id:
-                        type: int
-                        description: HTTP method policy ID.
-                    pattern:
-                        type: str
-                        description: URL pattern.
-                    regex:
-                        type: str
-                        description: Enable/disable regular expression based pattern match.
-                        choices: ['disable', 'enable']
-            severity:
-                type: str
-                description: Severity.
-                choices: ['low', 'medium', 'high']
-            status:
-                type: str
-                description: Status.
-                choices: ['disable', 'enable']
+          address:
+            type: str
+            description: Host address.
+          allowed_methods:
+            aliases: ['allowed-methods']
+            type: list
+            elements: str
+            description: Allowed Methods.
+            choices: ['delete', 'get', 'head', 'options', 'post', 'put', 'trace', 'others',
+                      'connect', 'patch', 'query']
+          id:
+            type: int
+            description: HTTP method policy ID.
+          pattern:
+            type: str
+            description: URL pattern.
+          regex:
+            type: str
+            description: Enable/disable regular expression based pattern match.
+            choices: ['disable', 'enable']
+      severity:
+        type: str
+        description: Severity.
+        choices: ['low', 'medium', 'high']
+      status:
+        type: str
+        description: Status.
+        choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -94,12 +94,12 @@ EXAMPLES = '''
         profile: <your own value>
         waf_profile_method:
           # default_allowed_methods: ["delete", "get", "head", "options", "post", "put", "trace",
-          #                           "others", "connect"]
+          #                           "others", "connect", "patch", "query"]
           # log: <value in [disable, enable]>
           # method_policy:
           #   - address: <string>
           #     allowed_methods: ["delete", "get", "head", "options", "post", "put", "trace",
-          #                       "others", "connect"]
+          #                       "others", "connect", "patch", "query"]
           #     id: <integer>
           #     pattern: <string>
           #     regex: <value in [disable, enable]>
@@ -109,42 +109,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -166,7 +166,7 @@ def main():
             'options': {
                 'default-allowed-methods': {
                     'type': 'list',
-                    'choices': ['delete', 'get', 'head', 'options', 'post', 'put', 'trace', 'others', 'connect'],
+                    'choices': ['delete', 'get', 'head', 'options', 'post', 'put', 'trace', 'others', 'connect', 'patch', 'query'],
                     'elements': 'str'
                 },
                 'log': {'choices': ['disable', 'enable'], 'type': 'str'},
@@ -176,7 +176,7 @@ def main():
                         'address': {'type': 'str'},
                         'allowed-methods': {
                             'type': 'list',
-                            'choices': ['delete', 'get', 'head', 'options', 'post', 'put', 'trace', 'others', 'connect'],
+                            'choices': ['delete', 'get', 'head', 'options', 'post', 'put', 'trace', 'others', 'connect', 'patch', 'query'],
                             'elements': 'str'
                         },
                         'id': {'type': 'int'},

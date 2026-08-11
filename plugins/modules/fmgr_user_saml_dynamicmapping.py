@@ -15,139 +15,176 @@ module: fmgr_user_saml_dynamicmapping
 short_description: SAML server entry configuration.
 version_added: "2.2.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
-        type: str
-    adom:
-        description: The parameter (adom) in requested url.
-        type: str
-        required: true
-    saml:
-        description: The parameter (saml) in requested url.
-        type: str
-        required: true
-    user_saml_dynamicmapping:
-        description: The top level parameters set.
-        required: false
-        type: dict
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  saml:
+    description: The parameter (saml) in requested url.
+    type: str
+    required: true
+  user_saml_dynamicmapping:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      _scope:
+        type: list
+        elements: dict
+        description: Scope.
         suboptions:
-            _scope:
-                type: list
-                elements: dict
-                description: Scope.
-                suboptions:
-                    name:
-                        type: str
-                        description: Name.
-                    vdom:
-                        type: str
-                        description: Vdom.
-            adfs_claim:
-                aliases: ['adfs-claim']
-                type: str
-                description: Enable/disable ADFS Claim for user/group attribute in assertion statement
-                choices: ['disable', 'enable']
-            cert:
-                type: str
-                description: Certificate to sign SAML messages.
-            clock_tolerance:
-                aliases: ['clock-tolerance']
-                type: int
-                description: Clock skew tolerance in seconds
-            digest_method:
-                aliases: ['digest-method']
-                type: str
-                description: Digest method algorithm
-                choices: ['sha1', 'sha256']
-            entity_id:
-                aliases: ['entity-id']
-                type: str
-                description: SP entity ID.
-            group_claim_type:
-                aliases: ['group-claim-type']
-                type: str
-                description: Group claim in assertion statement.
-                choices: ['email', 'given-name', 'name', 'upn', 'common-name', 'email-adfs-1x',
-                          'group', 'upn-adfs-1x', 'role', 'sur-name', 'ppid', 'name-identifier',
-                          'authentication-method', 'deny-only-group-sid', 'deny-only-primary-sid',
-                          'deny-only-primary-group-sid', 'group-sid', 'primary-group-sid',
-                          'primary-sid', 'windows-account-name']
-            group_name:
-                aliases: ['group-name']
-                type: str
-                description: Group name in assertion statement.
-            idp_cert:
-                aliases: ['idp-cert']
-                type: str
-                description: IDP Certificate name.
-            idp_entity_id:
-                aliases: ['idp-entity-id']
-                type: str
-                description: IDP entity ID.
-            idp_single_logout_url:
-                aliases: ['idp-single-logout-url']
-                type: str
-                description: IDP single logout url.
-            idp_single_sign_on_url:
-                aliases: ['idp-single-sign-on-url']
-                type: str
-                description: IDP single sign-on URL.
-            limit_relaystate:
-                aliases: ['limit-relaystate']
-                type: str
-                description: Enable/disable limiting of relay-state parameter when it exceeds SAML 2.
-                choices: ['disable', 'enable']
-            single_logout_url:
-                aliases: ['single-logout-url']
-                type: str
-                description: SP single logout URL.
-            single_sign_on_url:
-                aliases: ['single-sign-on-url']
-                type: str
-                description: SP single sign-on URL.
-            user_claim_type:
-                aliases: ['user-claim-type']
-                type: str
-                description: User name claim in assertion statement.
-                choices: ['email', 'given-name', 'name', 'upn', 'common-name', 'email-adfs-1x',
-                          'group', 'upn-adfs-1x', 'role', 'sur-name', 'ppid', 'name-identifier',
-                          'authentication-method', 'deny-only-group-sid', 'deny-only-primary-sid',
-                          'deny-only-primary-group-sid', 'group-sid', 'primary-group-sid',
-                          'primary-sid', 'windows-account-name']
-            user_name:
-                aliases: ['user-name']
-                type: str
-                description: User name in assertion statement.
-            auth_url:
-                aliases: ['auth-url']
-                type: str
-                description: URL to verify authentication.
-            reauth:
-                type: str
-                description: Enable/disable signalling of IDP to force user re-authentication
-                choices: ['disable', 'enable']
-            scim_client:
-                aliases: ['scim-client']
-                type: raw
-                description: (list) SCIM client name.
-            scim_group_attr_type:
-                aliases: ['scim-group-attr-type']
-                type: str
-                description: Group attribute type used to match SCIM groups
-                choices: ['display-name', 'external-id']
-            require_signed_resp_and_asrt:
-                aliases: ['require-signed-resp-and-asrt']
-                type: str
-                description: Require signed resp and asrt.
-                choices: ['disable', 'enable']
-            scim_user_attr_type:
-                aliases: ['scim-user-attr-type']
-                type: str
-                description: User attribute type used to match SCIM users
-                choices: ['display-name', 'external-id', 'user-name', 'email']
+          name:
+            type: str
+            description: Name.
+          vdom:
+            type: str
+            description: Vdom.
+      adfs_claim:
+        aliases: ['adfs-claim']
+        type: str
+        description: Enable/disable ADFS Claim for user/group attribute in assertion statement
+        choices: ['disable', 'enable']
+      cert:
+        type: str
+        description: Certificate to sign SAML messages.
+      clock_tolerance:
+        aliases: ['clock-tolerance']
+        type: int
+        description: Clock skew tolerance in seconds
+      digest_method:
+        aliases: ['digest-method']
+        type: str
+        description: Digest method algorithm
+        choices: ['sha1', 'sha256']
+      entity_id:
+        aliases: ['entity-id']
+        type: str
+        description: SP entity ID.
+      group_claim_type:
+        aliases: ['group-claim-type']
+        type: str
+        description: Group claim in assertion statement.
+        choices: ['email', 'given-name', 'name', 'upn', 'common-name', 'email-adfs-1x', 'group',
+                  'upn-adfs-1x', 'role', 'sur-name', 'ppid', 'name-identifier',
+                  'authentication-method', 'deny-only-group-sid', 'deny-only-primary-sid',
+                  'deny-only-primary-group-sid', 'group-sid', 'primary-group-sid', 'primary-sid',
+                  'windows-account-name']
+      group_name:
+        aliases: ['group-name']
+        type: str
+        description: Group name in assertion statement.
+      idp_cert:
+        aliases: ['idp-cert']
+        type: str
+        description: IDP Certificate name.
+      idp_entity_id:
+        aliases: ['idp-entity-id']
+        type: str
+        description: IDP entity ID.
+      idp_single_logout_url:
+        aliases: ['idp-single-logout-url']
+        type: str
+        description: IDP single logout url.
+      idp_single_sign_on_url:
+        aliases: ['idp-single-sign-on-url']
+        type: str
+        description: IDP single sign-on URL.
+      limit_relaystate:
+        aliases: ['limit-relaystate']
+        type: str
+        description: Enable/disable limiting of relay-state parameter when it exceeds SAML 2.
+        choices: ['disable', 'enable']
+      single_logout_url:
+        aliases: ['single-logout-url']
+        type: str
+        description: SP single logout URL.
+      single_sign_on_url:
+        aliases: ['single-sign-on-url']
+        type: str
+        description: SP single sign-on URL.
+      user_claim_type:
+        aliases: ['user-claim-type']
+        type: str
+        description: User name claim in assertion statement.
+        choices: ['email', 'given-name', 'name', 'upn', 'common-name', 'email-adfs-1x', 'group',
+                  'upn-adfs-1x', 'role', 'sur-name', 'ppid', 'name-identifier',
+                  'authentication-method', 'deny-only-group-sid', 'deny-only-primary-sid',
+                  'deny-only-primary-group-sid', 'group-sid', 'primary-group-sid', 'primary-sid',
+                  'windows-account-name']
+      user_name:
+        aliases: ['user-name']
+        type: str
+        description: User name in assertion statement.
+      auth_url:
+        aliases: ['auth-url']
+        type: str
+        description: URL to verify authentication.
+      reauth:
+        type: str
+        description: Enable/disable signalling of IDP to force user re-authentication
+        choices: ['disable', 'enable']
+      scim_client:
+        aliases: ['scim-client']
+        type: raw
+        description: (list) SCIM client name.
+      scim_group_attr_type:
+        aliases: ['scim-group-attr-type']
+        type: str
+        description: Group attribute type used to match SCIM groups
+        choices: ['display-name', 'external-id']
+      require_signed_resp_and_asrt:
+        aliases: ['require-signed-resp-and-asrt']
+        type: str
+        description: Require signed resp and asrt.
+        choices: ['disable', 'enable']
+      scim_user_attr_type:
+        aliases: ['scim-user-attr-type']
+        type: str
+        description: User attribute type used to match SCIM users
+        choices: ['display-name', 'external-id', 'user-name', 'email']
+      fabric_force_sync:
+        aliases: ['fabric-force-sync']
+        type: str
+        description: Enable/disable forced synchronization of configuration objects from the root FortiGate unit to the downstream devices.
+        choices: ['disable', 'enable']
+      fabric_object:
+        aliases: ['fabric-object']
+        type: str
+        description: Security Fabric global object setting.
+        choices: ['disable', 'enable']
+      fabric_object_source:
+        aliases: ['fabric-object-source']
+        type: str
+        description: Source of truth for fabric object.
+        choices: ['member', 'local', 'root']
+      realm:
+        type: str
+        description: FortiIdentity cloud realm.
+      service_provider_address:
+        aliases: ['service-provider-address']
+        type: str
+        description: The address to handle SAML auth request.
+      sso_app_id:
+        aliases: ['sso-app-id']
+        type: str
+        description: FortiIdentity cloud single sign-on application ID.
+      type:
+        type: str
+        description: SAML type.
+        choices: ['custom', 'fortiidentity-cloud']
+      user_source:
+        aliases: ['user-source']
+        type: str
+        description: FortiIdentity cloud user souce.
+      uuid:
+        type: str
+        description: Universally Unique Identifier
 '''
 
 EXAMPLES = '''
@@ -188,46 +225,55 @@ EXAMPLES = '''
           # scim_group_attr_type: <value in [display-name, external-id]>
           # require_signed_resp_and_asrt: <value in [disable, enable]>
           # scim_user_attr_type: <value in [display-name, external-id, user-name, ...]>
+          # fabric_force_sync: <value in [disable, enable]>
+          # fabric_object: <value in [disable, enable]>
+          # fabric_object_source: <value in [member, local, root]>
+          # realm: <string>
+          # service_provider_address: <string>
+          # sso_app_id: <string>
+          # type: <value in [custom, fortiidentity-cloud]>
+          # user_source: <string>
+          # uuid: <string>
 '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -293,11 +339,20 @@ def main():
                 'scim-client': {'v_range': [['7.6.0', '']], 'type': 'raw'},
                 'scim-group-attr-type': {'v_range': [['7.6.3', '']], 'choices': ['display-name', 'external-id'], 'type': 'str'},
                 'require-signed-resp-and-asrt': {
-                    'v_range': [['7.0.15', '7.0.16'], ['7.4.9', '7.4.10'], ['7.6.5', '']],
+                    'v_range': [['7.0.15', '7.0.16'], ['7.4.9', '7.4.11'], ['7.6.5', '']],
                     'choices': ['disable', 'enable'],
                     'type': 'str'
                 },
-                'scim-user-attr-type': {'v_range': [['7.6.4', '']], 'choices': ['display-name', 'external-id', 'user-name', 'email'], 'type': 'str'}
+                'scim-user-attr-type': {'v_range': [['7.6.4', '']], 'choices': ['display-name', 'external-id', 'user-name', 'email'], 'type': 'str'},
+                'fabric-force-sync': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'fabric-object': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'fabric-object-source': {'v_range': [['8.0.0', '']], 'choices': ['member', 'local', 'root'], 'type': 'str'},
+                'realm': {'v_range': [['8.0.0', '']], 'type': 'str'},
+                'service-provider-address': {'v_range': [['8.0.0', '']], 'type': 'str'},
+                'sso-app-id': {'v_range': [['8.0.0', '']], 'type': 'str'},
+                'type': {'v_range': [['8.0.0', '']], 'choices': ['custom', 'fortiidentity-cloud'], 'type': 'str'},
+                'user-source': {'v_range': [['8.0.0', '']], 'type': 'str'},
+                'uuid': {'v_range': [['8.0.0', '']], 'type': 'str'}
             }
         }
     }

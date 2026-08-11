@@ -15,145 +15,163 @@ module: fmgr_firewall_profilegroup
 short_description: Configure profile groups.
 version_added: "1.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  firewall_profilegroup:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      application_list:
+        aliases: ['application-list']
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Name of an existing Application list.
+      av_profile:
+        aliases: ['av-profile']
         type: str
+        description: Name of an existing Antivirus profile.
+      dlp_sensor:
+        aliases: ['dlp-sensor']
+        type: str
+        description: Name of an existing DLP sensor.
+      dnsfilter_profile:
+        aliases: ['dnsfilter-profile']
+        type: str
+        description: Name of an existing DNS filter profile.
+      icap_profile:
+        aliases: ['icap-profile']
+        type: str
+        description: Name of an existing ICAP profile.
+      ips_sensor:
+        aliases: ['ips-sensor']
+        type: str
+        description: Name of an existing IPS sensor.
+      mms_profile:
+        aliases: ['mms-profile']
+        type: str
+        description: Name of an existing MMS profile.
+      name:
+        type: str
+        description: Profile group name.
         required: true
-    firewall_profilegroup:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            application_list:
-                aliases: ['application-list']
-                type: str
-                description: Name of an existing Application list.
-            av_profile:
-                aliases: ['av-profile']
-                type: str
-                description: Name of an existing Antivirus profile.
-            dlp_sensor:
-                aliases: ['dlp-sensor']
-                type: str
-                description: Name of an existing DLP sensor.
-            dnsfilter_profile:
-                aliases: ['dnsfilter-profile']
-                type: str
-                description: Name of an existing DNS filter profile.
-            icap_profile:
-                aliases: ['icap-profile']
-                type: str
-                description: Name of an existing ICAP profile.
-            ips_sensor:
-                aliases: ['ips-sensor']
-                type: str
-                description: Name of an existing IPS sensor.
-            mms_profile:
-                aliases: ['mms-profile']
-                type: str
-                description: Name of an existing MMS profile.
-            name:
-                type: str
-                description: Profile group name.
-                required: true
-            profile_protocol_options:
-                aliases: ['profile-protocol-options']
-                type: str
-                description: Name of an existing Protocol options profile.
-            spamfilter_profile:
-                aliases: ['spamfilter-profile']
-                type: str
-                description: Name of an existing Spam filter profile.
-            ssh_filter_profile:
-                aliases: ['ssh-filter-profile']
-                type: str
-                description: Name of an existing SSH filter profile.
-            ssl_ssh_profile:
-                aliases: ['ssl-ssh-profile']
-                type: str
-                description: Name of an existing SSL SSH profile.
-            voip_profile:
-                aliases: ['voip-profile']
-                type: str
-                description: Name of an existing VoIP profile.
-            waf_profile:
-                aliases: ['waf-profile']
-                type: str
-                description: Name of an existing Web application firewall profile.
-            webfilter_profile:
-                aliases: ['webfilter-profile']
-                type: str
-                description: Name of an existing Web filter profile.
-            cifs_profile:
-                aliases: ['cifs-profile']
-                type: str
-                description: Name of an existing CIFS profile.
-            emailfilter_profile:
-                aliases: ['emailfilter-profile']
-                type: str
-                description: Name of an existing email filter profile.
-            casi_profile:
-                aliases: ['casi-profile']
-                type: str
-                description: CASI profile.
-            file_filter_profile:
-                aliases: ['file-filter-profile']
-                type: str
-                description: Name of an existing file-filter profile.
-            videofilter_profile:
-                aliases: ['videofilter-profile']
-                type: str
-                description: Name of an existing VideoFilter profile.
-            dlp_profile:
-                aliases: ['dlp-profile']
-                type: str
-                description: Name of an existing DLP profile.
-            sctp_filter_profile:
-                aliases: ['sctp-filter-profile']
-                type: str
-                description: Name of an existing SCTP filter profile.
-            ips_voip_filter:
-                aliases: ['ips-voip-filter']
-                type: str
-                description: Name of an existing VoIP
-            casb_profile:
-                aliases: ['casb-profile']
-                type: str
-                description: Name of an existing CASB profile.
-            virtual_patch_profile:
-                aliases: ['virtual-patch-profile']
-                type: str
-                description: Name of an existing virtual-patch profile.
-            diameter_filter_profile:
-                aliases: ['diameter-filter-profile']
-                type: str
-                description: Name of an existing Diameter filter profile.
-            telemetry_profile:
-                aliases: ['telemetry-profile']
-                type: raw
-                description: (list) Name of an existing telemetry profile.
-            ia_profile:
-                aliases: ['ia-profile']
-                type: raw
-                description: (list) Image analyzer profile.
-            isolator_profile:
-                aliases: ['isolator-profile']
-                type: raw
-                description: (list) Isolator profile.
-            redirect_profile:
-                aliases: ['redirect-profile']
-                type: raw
-                description: (list) Redirect profile.
-            llm_profile:
-                aliases: ['llm-profile']
-                type: raw
-                description: (list) Llm profile.
+      profile_protocol_options:
+        aliases: ['profile-protocol-options']
+        type: str
+        description: Name of an existing Protocol options profile.
+      spamfilter_profile:
+        aliases: ['spamfilter-profile']
+        type: str
+        description: Name of an existing Spam filter profile.
+      ssh_filter_profile:
+        aliases: ['ssh-filter-profile']
+        type: str
+        description: Name of an existing SSH filter profile.
+      ssl_ssh_profile:
+        aliases: ['ssl-ssh-profile']
+        type: str
+        description: Name of an existing SSL SSH profile.
+      voip_profile:
+        aliases: ['voip-profile']
+        type: str
+        description: Name of an existing VoIP profile.
+      waf_profile:
+        aliases: ['waf-profile']
+        type: str
+        description: Name of an existing Web application firewall profile.
+      webfilter_profile:
+        aliases: ['webfilter-profile']
+        type: str
+        description: Name of an existing Web filter profile.
+      cifs_profile:
+        aliases: ['cifs-profile']
+        type: str
+        description: Name of an existing CIFS profile.
+      emailfilter_profile:
+        aliases: ['emailfilter-profile']
+        type: str
+        description: Name of an existing email filter profile.
+      casi_profile:
+        aliases: ['casi-profile']
+        type: str
+        description: CASI profile.
+      file_filter_profile:
+        aliases: ['file-filter-profile']
+        type: str
+        description: Name of an existing file-filter profile.
+      videofilter_profile:
+        aliases: ['videofilter-profile']
+        type: str
+        description: Name of an existing VideoFilter profile.
+      dlp_profile:
+        aliases: ['dlp-profile']
+        type: str
+        description: Name of an existing DLP profile.
+      sctp_filter_profile:
+        aliases: ['sctp-filter-profile']
+        type: str
+        description: Name of an existing SCTP filter profile.
+      ips_voip_filter:
+        aliases: ['ips-voip-filter']
+        type: str
+        description: Name of an existing VoIP
+      casb_profile:
+        aliases: ['casb-profile']
+        type: str
+        description: Name of an existing CASB profile.
+      virtual_patch_profile:
+        aliases: ['virtual-patch-profile']
+        type: str
+        description: Name of an existing virtual-patch profile.
+      diameter_filter_profile:
+        aliases: ['diameter-filter-profile']
+        type: str
+        description: Name of an existing Diameter filter profile.
+      telemetry_profile:
+        aliases: ['telemetry-profile']
+        type: raw
+        description: (list) Name of an existing telemetry profile.
+      ia_profile:
+        aliases: ['ia-profile']
+        type: raw
+        description: (list) Image analyzer profile.
+      isolator_profile:
+        aliases: ['isolator-profile']
+        type: raw
+        description: (list) Isolator profile.
+      redirect_profile:
+        aliases: ['redirect-profile']
+        type: raw
+        description: (list) Redirect profile.
+      llm_profile:
+        aliases: ['llm-profile']
+        type: raw
+        description: (list) Llm profile.
+      fabric_force_sync:
+        aliases: ['fabric-force-sync']
+        type: str
+        description: Enable/disable forced synchronization of configuration objects from the root FortiGate unit to the downstream devices.
+        choices: ['disable', 'enable']
+      fabric_object:
+        aliases: ['fabric-object']
+        type: str
+        description: Security Fabric global object setting.
+        choices: ['disable', 'enable']
+      fabric_object_source:
+        aliases: ['fabric-object-source']
+        type: str
+        description: Source of truth for fabric object.
+        choices: ['member', 'local', 'root']
+      uuid:
+        type: str
+        description: Universally Unique Identifier
 '''
 
 EXAMPLES = '''
@@ -195,42 +213,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -258,13 +276,13 @@ def main():
                 'mms-profile': {'v_range': [['6.0.0', '7.6.2']], 'type': 'str'},
                 'name': {'required': True, 'type': 'str'},
                 'profile-protocol-options': {'type': 'str'},
-                'spamfilter-profile': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']], 'type': 'str'},
+                'spamfilter-profile': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.11']], 'type': 'str'},
                 'ssh-filter-profile': {'type': 'str'},
                 'ssl-ssh-profile': {'type': 'str'},
                 'voip-profile': {'type': 'str'},
                 'waf-profile': {'type': 'str'},
                 'webfilter-profile': {'type': 'str'},
-                'cifs-profile': {'v_range': [['6.2.0', '']], 'type': 'str'},
+                'cifs-profile': {'v_range': [['6.2.0', '7.6.7']], 'type': 'str'},
                 'emailfilter-profile': {'v_range': [['6.2.0', '']], 'type': 'str'},
                 'casi-profile': {'v_range': [['6.2.0', '6.2.13']], 'type': 'str'},
                 'file-filter-profile': {'v_range': [['6.4.1', '']], 'type': 'str'},
@@ -276,10 +294,14 @@ def main():
                 'virtual-patch-profile': {'v_range': [['7.4.1', '']], 'type': 'str'},
                 'diameter-filter-profile': {'v_range': [['7.4.2', '']], 'type': 'str'},
                 'telemetry-profile': {'v_range': [['7.6.3', '']], 'type': 'raw'},
-                'ia-profile': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'raw'},
-                'isolator-profile': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'raw'},
-                'redirect-profile': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'raw'},
-                'llm-profile': {'v_range': [['7.6.5', '']], 'type': 'raw'}
+                'ia-profile': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'type': 'raw'},
+                'isolator-profile': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'type': 'raw'},
+                'redirect-profile': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'type': 'raw'},
+                'llm-profile': {'v_range': [['7.6.5', '']], 'type': 'raw'},
+                'fabric-force-sync': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'fabric-object': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'fabric-object-source': {'v_range': [['8.0.0', '']], 'choices': ['member', 'local', 'root'], 'type': 'str'},
+                'uuid': {'v_range': [['8.0.0', '']], 'type': 'str'}
             }
         }
     }

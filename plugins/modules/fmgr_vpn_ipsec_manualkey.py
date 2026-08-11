@@ -15,65 +15,65 @@ module: fmgr_vpn_ipsec_manualkey
 short_description: Configure IPsec manual keys.
 version_added: "2.12.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  vpn_ipsec_manualkey:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      authentication:
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Authentication algorithm.
+        choices: ['null', 'md5', 'sha1', 'sha256', 'sha384', 'sha512']
+      authkey:
+        type: list
+        elements: str
+        description: Hexadecimal authentication key in 16-digit
+      enckey:
+        type: list
+        elements: str
+        description: Hexadecimal encryption key in 16-digit
+      encryption:
         type: str
+        description: Encryption algorithm.
+        choices: ['null', 'des', '3des', 'aes128', 'aes192', 'aes256', 'aria128', 'aria192',
+                  'aria256', 'seed']
+      interface:
+        type: list
+        elements: str
+        description: Name of the physical, aggregate, or VLAN interface.
+      local_gw:
+        aliases: ['local-gw']
+        type: str
+        description: Local gateway.
+      localspi:
+        type: str
+        description: Local SPI, a hexadecimal 8-digit
+      name:
+        type: str
+        description: IPsec tunnel name.
         required: true
-    vpn_ipsec_manualkey:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            authentication:
-                type: str
-                description: Authentication algorithm.
-                choices: ['null', 'md5', 'sha1', 'sha256', 'sha384', 'sha512']
-            authkey:
-                type: list
-                elements: str
-                description: Hexadecimal authentication key in 16-digit
-            enckey:
-                type: list
-                elements: str
-                description: Hexadecimal encryption key in 16-digit
-            encryption:
-                type: str
-                description: Encryption algorithm.
-                choices: ['null', 'des', '3des', 'aes128', 'aes192', 'aes256', 'aria128',
-                          'aria192', 'aria256', 'seed']
-            interface:
-                type: list
-                elements: str
-                description: Name of the physical, aggregate, or VLAN interface.
-            local_gw:
-                aliases: ['local-gw']
-                type: str
-                description: Local gateway.
-            localspi:
-                type: str
-                description: Local SPI, a hexadecimal 8-digit
-            name:
-                type: str
-                description: IPsec tunnel name.
-                required: true
-            npu_offload:
-                aliases: ['npu-offload']
-                type: str
-                description: Enable/disable NPU offloading.
-                choices: ['disable', 'enable']
-            remote_gw:
-                aliases: ['remote-gw']
-                type: str
-                description: Peer gateway.
-            remotespi:
-                type: str
-                description: Remote SPI, a hexadecimal 8-digit
+      npu_offload:
+        aliases: ['npu-offload']
+        type: str
+        description: Enable/disable NPU offloading.
+        choices: ['disable', 'enable']
+      remote_gw:
+        aliases: ['remote-gw']
+        type: str
+        description: Peer gateway.
+      remotespi:
+        type: str
+        description: Remote SPI, a hexadecimal 8-digit
 '''
 
 EXAMPLES = '''
@@ -103,42 +103,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

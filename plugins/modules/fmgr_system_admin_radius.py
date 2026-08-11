@@ -15,66 +15,66 @@ module: fmgr_system_admin_radius
 short_description: Configure radius.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    system_admin_radius:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            auth_type:
-                aliases: ['auth-type']
-                type: str
-                description:
-                    - Authentication protocol.
-                    - any - Use any supported authentication protocol.
-                    - pap - PAP.
-                    - chap - CHAP.
-                    - mschap2 - MSCHAPv2.
-                choices: ['any', 'pap', 'chap', 'mschap2']
-            name:
-                type: str
-                description: Name.
-                required: true
-            nas_ip:
-                aliases: ['nas-ip']
-                type: str
-                description: NAS IP address and called station ID.
-            port:
-                type: int
-                description: Server port.
-            secondary_secret:
-                aliases: ['secondary-secret']
-                type: raw
-                description: (list) Secondary server secret.
-            secondary_server:
-                aliases: ['secondary-server']
-                type: str
-                description: Secondary server name/IP.
-            secret:
-                type: raw
-                description: (list) Server secret.
-            server:
-                type: str
-                description: Server name/IP.
-            ca_cert:
-                aliases: ['ca-cert']
-                type: str
-                description: Ca cert.
-            client_cert:
-                aliases: ['client-cert']
-                type: str
-                description: Client cert.
-            message_authenticator:
-                aliases: ['message-authenticator']
-                type: str
-                description: Message authenticator.
-                choices: ['optional', 'require']
-            protocol:
-                type: str
-                description: Protocol.
-                choices: ['udp', 'tls']
+  system_admin_radius:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      auth_type:
+        aliases: ['auth-type']
+        type: str
+        description:
+          - Authentication protocol.
+          - any - Use any supported authentication protocol.
+          - pap - PAP.
+          - chap - CHAP.
+          - mschap2 - MSCHAPv2.
+        choices: ['any', 'pap', 'chap', 'mschap2']
+      name:
+        type: str
+        description: Name.
+        required: true
+      nas_ip:
+        aliases: ['nas-ip']
+        type: str
+        description: NAS IP address and called station ID.
+      port:
+        type: int
+        description: Server port.
+      secondary_secret:
+        aliases: ['secondary-secret']
+        type: raw
+        description: (list) Secondary server secret.
+      secondary_server:
+        aliases: ['secondary-server']
+        type: str
+        description: Secondary server name/IP.
+      secret:
+        type: raw
+        description: (list) Server secret.
+      server:
+        type: str
+        description: Server name/IP.
+      ca_cert:
+        aliases: ['ca-cert']
+        type: str
+        description: Ca cert.
+      client_cert:
+        aliases: ['client-cert']
+        type: str
+        description: Client cert.
+      message_authenticator:
+        aliases: ['message-authenticator']
+        type: str
+        description: Message authenticator.
+        choices: ['optional', 'require']
+      protocol:
+        type: str
+        description: Protocol.
+        choices: ['udp', 'tls']
 '''
 
 EXAMPLES = '''
@@ -116,42 +116,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -175,14 +175,14 @@ def main():
                 'secondary-server': {'type': 'str'},
                 'secret': {'no_log': True, 'type': 'raw'},
                 'server': {'type': 'str'},
-                'ca-cert': {'v_range': [['7.2.10', '7.2.12'], ['7.4.6', '7.4.10'], ['7.6.2', '']], 'type': 'str'},
-                'client-cert': {'v_range': [['7.2.10', '7.2.12'], ['7.4.6', '7.4.10'], ['7.6.2', '']], 'type': 'str'},
+                'ca-cert': {'v_range': [['7.2.10', '7.2.12'], ['7.4.6', '7.4.11'], ['7.6.2', '']], 'type': 'str'},
+                'client-cert': {'v_range': [['7.2.10', '7.2.12'], ['7.4.6', '7.4.11'], ['7.6.2', '']], 'type': 'str'},
                 'message-authenticator': {
-                    'v_range': [['7.2.10', '7.2.12'], ['7.4.6', '7.4.10'], ['7.6.2', '']],
+                    'v_range': [['7.2.10', '7.2.12'], ['7.4.6', '7.4.11'], ['7.6.2', '']],
                     'choices': ['optional', 'require'],
                     'type': 'str'
                 },
-                'protocol': {'v_range': [['7.2.10', '7.2.12'], ['7.4.6', '7.4.10'], ['7.6.2', '']], 'choices': ['udp', 'tls'], 'type': 'str'}
+                'protocol': {'v_range': [['7.2.10', '7.2.12'], ['7.4.6', '7.4.11'], ['7.6.2', '']], 'choices': ['udp', 'tls'], 'type': 'str'}
             }
         }
     }

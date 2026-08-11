@@ -15,67 +15,67 @@ module: fmgr_waf_profile_urlaccess
 short_description: URL access list
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
-        type: str
-    adom:
-        description: The parameter (adom) in requested url.
-        type: str
-        required: true
-    profile:
-        description: The parameter (profile) in requested url.
-        type: str
-        required: true
-    waf_profile_urlaccess:
-        description: The top level parameters set.
-        required: false
-        type: dict
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  profile:
+    description: The parameter (profile) in requested url.
+    type: str
+    required: true
+  waf_profile_urlaccess:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      access_pattern:
+        aliases: ['access-pattern']
+        type: list
+        elements: dict
+        description: Access pattern.
         suboptions:
-            access_pattern:
-                aliases: ['access-pattern']
-                type: list
-                elements: dict
-                description: Access pattern.
-                suboptions:
-                    id:
-                        type: int
-                        description: URL access pattern ID.
-                    negate:
-                        type: str
-                        description: Enable/disable match negation.
-                        choices: ['disable', 'enable']
-                    pattern:
-                        type: str
-                        description: URL pattern.
-                    regex:
-                        type: str
-                        description: Enable/disable regular expression based pattern match.
-                        choices: ['disable', 'enable']
-                    srcaddr:
-                        type: str
-                        description: Source address.
-            action:
-                type: str
-                description: Action.
-                choices: ['bypass', 'permit', 'block']
-            address:
-                type: str
-                description: Host address.
-            id:
-                type: int
-                description: URL access ID.
-                required: true
-            log:
-                type: str
-                description: Enable/disable logging.
-                choices: ['disable', 'enable']
-            severity:
-                type: str
-                description: Severity.
-                choices: ['low', 'medium', 'high']
+          id:
+            type: int
+            description: URL access pattern ID.
+          negate:
+            type: str
+            description: Enable/disable match negation.
+            choices: ['disable', 'enable']
+          pattern:
+            type: str
+            description: URL pattern.
+          regex:
+            type: str
+            description: Enable/disable regular expression based pattern match.
+            choices: ['disable', 'enable']
+          srcaddr:
+            type: str
+            description: Source address.
+      action:
+        type: str
+        description: Action.
+        choices: ['bypass', 'permit', 'block']
+      address:
+        type: str
+        description: Host address.
+      id:
+        type: int
+        description: URL access ID.
+        required: true
+      log:
+        type: str
+        description: Enable/disable logging.
+        choices: ['disable', 'enable']
+      severity:
+        type: str
+        description: Severity.
+        choices: ['low', 'medium', 'high']
 '''
 
 EXAMPLES = '''
@@ -106,42 +106,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

@@ -15,59 +15,57 @@ module: fmgr_hotspot20_anqpnairealm_nailist_eapmethod_authparam
 short_description: EAP auth param.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  anqp-nai-realm:
+    description: Deprecated, please use "anqp_nai_realm"
+    type: str
+  anqp_nai_realm:
+    description: The parameter (anqp-nai-realm) in requested url.
+    type: str
+  nai-list:
+    description: Deprecated, please use "nai_list"
+    type: str
+  nai_list:
+    description: The parameter (nai-list) in requested url.
+    type: str
+  eap-method:
+    description: Deprecated, please use "eap_method"
+    type: str
+  eap_method:
+    description: The parameter (eap-method) in requested url.
+    type: str
+  hotspot20_anqpnairealm_nailist_eapmethod_authparam:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      id:
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
-        type: str
+        description: ID of authentication parameter.
+        choices: ['non-eap-inner-auth', 'inner-auth-eap', 'credential', 'tunneled-credential']
+      index:
+        type: int
+        description: Param index.
         required: true
-    anqp-nai-realm:
-        description: Deprecated, please use "anqp_nai_realm"
+      val:
         type: str
-    anqp_nai_realm:
-        description: The parameter (anqp-nai-realm) in requested url.
-        type: str
-    nai-list:
-        description: Deprecated, please use "nai_list"
-        type: str
-    nai_list:
-        description: The parameter (nai-list) in requested url.
-        type: str
-    eap-method:
-        description: Deprecated, please use "eap_method"
-        type: str
-    eap_method:
-        description: The parameter (eap-method) in requested url.
-        type: str
-    hotspot20_anqpnairealm_nailist_eapmethod_authparam:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            id:
-                type: str
-                description: ID of authentication parameter.
-                choices: ['non-eap-inner-auth', 'inner-auth-eap', 'credential',
-                          'tunneled-credential']
-            index:
-                type: int
-                description: Param index.
-                required: true
-            val:
-                type: str
-                description: Value of authentication parameter.
-                choices: ['eap-identity', 'eap-md5', 'eap-tls', 'eap-ttls', 'eap-peap', 'eap-sim',
-                          'eap-aka', 'eap-aka-prime', 'non-eap-pap', 'non-eap-chap',
-                          'non-eap-mschap', 'non-eap-mschapv2', 'cred-sim', 'cred-usim',
-                          'cred-nfc', 'cred-hardware-token', 'cred-softoken', 'cred-certificate',
-                          'cred-user-pwd', 'cred-none', 'cred-vendor-specific', 'tun-cred-sim',
-                          'tun-cred-usim', 'tun-cred-nfc', 'tun-cred-hardware-token',
-                          'tun-cred-softoken', 'tun-cred-certificate', 'tun-cred-user-pwd',
-                          'tun-cred-anonymous', 'tun-cred-vendor-specific']
+        description: Value of authentication parameter.
+        choices: ['eap-identity', 'eap-md5', 'eap-tls', 'eap-ttls', 'eap-peap', 'eap-sim',
+                  'eap-aka', 'eap-aka-prime', 'non-eap-pap', 'non-eap-chap', 'non-eap-mschap',
+                  'non-eap-mschapv2', 'cred-sim', 'cred-usim', 'cred-nfc', 'cred-hardware-token',
+                  'cred-softoken', 'cred-certificate', 'cred-user-pwd', 'cred-none',
+                  'cred-vendor-specific', 'tun-cred-sim', 'tun-cred-usim', 'tun-cred-nfc',
+                  'tun-cred-hardware-token', 'tun-cred-softoken', 'tun-cred-certificate',
+                  'tun-cred-user-pwd', 'tun-cred-anonymous', 'tun-cred-vendor-specific']
 '''
 
 EXAMPLES = '''
@@ -100,42 +98,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

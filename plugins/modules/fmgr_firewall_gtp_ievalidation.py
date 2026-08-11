@@ -15,114 +15,114 @@ module: fmgr_firewall_gtp_ievalidation
 short_description: IE validation.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.partial_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.partial_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  gtp:
+    description: The parameter (gtp) in requested url.
+    type: str
+    required: true
+  firewall_gtp_ievalidation:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      apn_restriction:
+        aliases: ['apn-restriction']
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Validate APN restriction.
+        choices: ['disable', 'enable']
+      charging_ID:
+        aliases: ['charging-ID']
         type: str
-        required: true
-    gtp:
-        description: The parameter (gtp) in requested url.
+        description: Validate charging ID.
+        choices: ['disable', 'enable']
+      charging_gateway_addr:
+        aliases: ['charging-gateway-addr']
         type: str
-        required: true
-    firewall_gtp_ievalidation:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            apn_restriction:
-                aliases: ['apn-restriction']
-                type: str
-                description: Validate APN restriction.
-                choices: ['disable', 'enable']
-            charging_ID:
-                aliases: ['charging-ID']
-                type: str
-                description: Validate charging ID.
-                choices: ['disable', 'enable']
-            charging_gateway_addr:
-                aliases: ['charging-gateway-addr']
-                type: str
-                description: Validate charging gateway address.
-                choices: ['disable', 'enable']
-            end_user_addr:
-                aliases: ['end-user-addr']
-                type: str
-                description: Validate end user address.
-                choices: ['disable', 'enable']
-            gsn_addr:
-                aliases: ['gsn-addr']
-                type: str
-                description: Validate GSN address.
-                choices: ['disable', 'enable']
-            imei:
-                type: str
-                description: Validate IMEI
-                choices: ['disable', 'enable']
-            imsi:
-                type: str
-                description: Validate IMSI.
-                choices: ['disable', 'enable']
-            mm_context:
-                aliases: ['mm-context']
-                type: str
-                description: Validate MM context.
-                choices: ['disable', 'enable']
-            ms_tzone:
-                aliases: ['ms-tzone']
-                type: str
-                description: Validate MS time zone.
-                choices: ['disable', 'enable']
-            ms_validated:
-                aliases: ['ms-validated']
-                type: str
-                description: Validate MS validated.
-                choices: ['disable', 'enable']
-            msisdn:
-                type: str
-                description: Validate MSISDN.
-                choices: ['disable', 'enable']
-            nsapi:
-                type: str
-                description: Validate NSAPI.
-                choices: ['disable', 'enable']
-            pdp_context:
-                aliases: ['pdp-context']
-                type: str
-                description: Validate PDP context.
-                choices: ['disable', 'enable']
-            qos_profile:
-                aliases: ['qos-profile']
-                type: str
-                description: Validate Quality of Service
-                choices: ['disable', 'enable']
-            rai:
-                type: str
-                description: Validate RAI.
-                choices: ['disable', 'enable']
-            rat_type:
-                aliases: ['rat-type']
-                type: str
-                description: Validate RAT type.
-                choices: ['disable', 'enable']
-            reordering_required:
-                aliases: ['reordering-required']
-                type: str
-                description: Validate re-ordering required.
-                choices: ['disable', 'enable']
-            selection_mode:
-                aliases: ['selection-mode']
-                type: str
-                description: Validate selection mode.
-                choices: ['disable', 'enable']
-            uli:
-                type: str
-                description: Validate user location information.
-                choices: ['disable', 'enable']
+        description: Validate charging gateway address.
+        choices: ['disable', 'enable']
+      end_user_addr:
+        aliases: ['end-user-addr']
+        type: str
+        description: Validate end user address.
+        choices: ['disable', 'enable']
+      gsn_addr:
+        aliases: ['gsn-addr']
+        type: str
+        description: Validate GSN address.
+        choices: ['disable', 'enable']
+      imei:
+        type: str
+        description: Validate IMEI
+        choices: ['disable', 'enable']
+      imsi:
+        type: str
+        description: Validate IMSI.
+        choices: ['disable', 'enable']
+      mm_context:
+        aliases: ['mm-context']
+        type: str
+        description: Validate MM context.
+        choices: ['disable', 'enable']
+      ms_tzone:
+        aliases: ['ms-tzone']
+        type: str
+        description: Validate MS time zone.
+        choices: ['disable', 'enable']
+      ms_validated:
+        aliases: ['ms-validated']
+        type: str
+        description: Validate MS validated.
+        choices: ['disable', 'enable']
+      msisdn:
+        type: str
+        description: Validate MSISDN.
+        choices: ['disable', 'enable']
+      nsapi:
+        type: str
+        description: Validate NSAPI.
+        choices: ['disable', 'enable']
+      pdp_context:
+        aliases: ['pdp-context']
+        type: str
+        description: Validate PDP context.
+        choices: ['disable', 'enable']
+      qos_profile:
+        aliases: ['qos-profile']
+        type: str
+        description: Validate Quality of Service
+        choices: ['disable', 'enable']
+      rai:
+        type: str
+        description: Validate RAI.
+        choices: ['disable', 'enable']
+      rat_type:
+        aliases: ['rat-type']
+        type: str
+        description: Validate RAT type.
+        choices: ['disable', 'enable']
+      reordering_required:
+        aliases: ['reordering-required']
+        type: str
+        description: Validate re-ordering required.
+        choices: ['disable', 'enable']
+      selection_mode:
+        aliases: ['selection-mode']
+        type: str
+        description: Validate selection mode.
+        choices: ['disable', 'enable']
+      uli:
+        type: str
+        description: Validate user location information.
+        choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -160,42 +160,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

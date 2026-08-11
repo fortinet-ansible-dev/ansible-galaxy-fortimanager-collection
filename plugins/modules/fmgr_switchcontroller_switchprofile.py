@@ -15,49 +15,59 @@ module: fmgr_switchcontroller_switchprofile
 short_description: Configure FortiSwitch switch profile.
 version_added: "2.12.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  switchcontroller_switchprofile:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      login:
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Enable/disable FortiSwitch serial console.
+        choices: ['disable', 'enable']
+      login_passwd:
+        aliases: ['login-passwd']
+        type: list
+        elements: str
+        description: Login password of managed FortiSwitch.
+      login_passwd_override:
+        aliases: ['login-passwd-override']
         type: str
+        description: Enable/disable overriding the admin administrator password for a managed FortiSwitch with the FortiGate admin administrator accoun...
+        choices: ['disable', 'enable']
+      name:
+        type: str
+        description: FortiSwitch Profile name.
         required: true
-    switchcontroller_switchprofile:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            login:
-                type: str
-                description: Enable/disable FortiSwitch serial console.
-                choices: ['disable', 'enable']
-            login_passwd:
-                aliases: ['login-passwd']
-                type: list
-                elements: str
-                description: Login password of managed FortiSwitch.
-            login_passwd_override:
-                aliases: ['login-passwd-override']
-                type: str
-                description: Enable/disable overriding the admin administrator password for a managed FortiSwitch with the FortiGate admin administrato...
-                choices: ['disable', 'enable']
-            name:
-                type: str
-                description: FortiSwitch Profile name.
-                required: true
-            revision_backup_on_logout:
-                aliases: ['revision-backup-on-logout']
-                type: str
-                description: Enable/disable automatic revision backup upon logout from FortiSwitch.
-                choices: ['disable', 'enable']
-            revision_backup_on_upgrade:
-                aliases: ['revision-backup-on-upgrade']
-                type: str
-                description: Enable/disable automatic revision backup upon FortiSwitch image upgrade.
-                choices: ['disable', 'enable']
+      revision_backup_on_logout:
+        aliases: ['revision-backup-on-logout']
+        type: str
+        description: Enable/disable automatic revision backup upon logout from FortiSwitch.
+        choices: ['disable', 'enable']
+      revision_backup_on_upgrade:
+        aliases: ['revision-backup-on-upgrade']
+        type: str
+        description: Enable/disable automatic revision backup upon FortiSwitch image upgrade.
+        choices: ['disable', 'enable']
+      private_data_encryption:
+        aliases: ['private-data-encryption']
+        type: str
+        description: Enable/disable private data encryption for non-admin passwords.
+        choices: ['disable', 'enable']
+      private_data_encryption_key:
+        aliases: ['private-data-encryption-key']
+        type: list
+        elements: str
+        description: Private data encryption key length
 '''
 
 EXAMPLES = '''
@@ -78,46 +88,48 @@ EXAMPLES = '''
           # login_passwd_override: <value in [disable, enable]>
           # revision_backup_on_logout: <value in [disable, enable]>
           # revision_backup_on_upgrade: <value in [disable, enable]>
+          # private_data_encryption: <value in [disable, enable]>
+          # private_data_encryption_key: <list or string>
 '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -141,7 +153,9 @@ def main():
                 'login-passwd-override': {'v_range': [['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'name': {'v_range': [['7.6.4', '']], 'required': True, 'type': 'str'},
                 'revision-backup-on-logout': {'v_range': [['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'revision-backup-on-upgrade': {'v_range': [['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'revision-backup-on-upgrade': {'v_range': [['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'private-data-encryption': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'private-data-encryption-key': {'v_range': [['8.0.0', '']], 'no_log': True, 'type': 'list', 'elements': 'str'}
             }
         }
     }

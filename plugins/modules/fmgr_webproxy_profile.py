@@ -15,125 +15,142 @@ module: fmgr_webproxy_profile
 short_description: Configure web proxy profiles.
 version_added: "1.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  webproxy_profile:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      header_client_ip:
+        aliases: ['header-client-ip']
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Action to take on the HTTP client-IP header in forwarded requests
+        choices: ['pass', 'add', 'remove']
+      header_front_end_https:
+        aliases: ['header-front-end-https']
         type: str
-        required: true
-    webproxy_profile:
-        description: The top level parameters set.
-        required: false
-        type: dict
+        description: Action to take on the HTTP front-end-HTTPS header in forwarded requests
+        choices: ['pass', 'add', 'remove']
+      header_via_request:
+        aliases: ['header-via-request']
+        type: str
+        description: Action to take on the HTTP via header in forwarded requests
+        choices: ['pass', 'add', 'remove']
+      header_via_response:
+        aliases: ['header-via-response']
+        type: str
+        description: Action to take on the HTTP via header in forwarded responses
+        choices: ['pass', 'add', 'remove']
+      header_x_authenticated_groups:
+        aliases: ['header-x-authenticated-groups']
+        type: str
+        description: Action to take on the HTTP x-authenticated-groups header in forwarded requests
+        choices: ['pass', 'add', 'remove']
+      header_x_authenticated_user:
+        aliases: ['header-x-authenticated-user']
+        type: str
+        description: Action to take on the HTTP x-authenticated-user header in forwarded requests
+        choices: ['pass', 'add', 'remove']
+      header_x_forwarded_for:
+        aliases: ['header-x-forwarded-for']
+        type: str
+        description: Action to take on the HTTP x-forwarded-for header in forwarded requests
+        choices: ['pass', 'add', 'remove']
+      headers:
+        type: list
+        elements: dict
+        description: Headers.
         suboptions:
-            header_client_ip:
-                aliases: ['header-client-ip']
-                type: str
-                description: Action to take on the HTTP client-IP header in forwarded requests
-                choices: ['pass', 'add', 'remove']
-            header_front_end_https:
-                aliases: ['header-front-end-https']
-                type: str
-                description: Action to take on the HTTP front-end-HTTPS header in forwarded requests
-                choices: ['pass', 'add', 'remove']
-            header_via_request:
-                aliases: ['header-via-request']
-                type: str
-                description: Action to take on the HTTP via header in forwarded requests
-                choices: ['pass', 'add', 'remove']
-            header_via_response:
-                aliases: ['header-via-response']
-                type: str
-                description: Action to take on the HTTP via header in forwarded responses
-                choices: ['pass', 'add', 'remove']
-            header_x_authenticated_groups:
-                aliases: ['header-x-authenticated-groups']
-                type: str
-                description: Action to take on the HTTP x-authenticated-groups header in forwarded requests
-                choices: ['pass', 'add', 'remove']
-            header_x_authenticated_user:
-                aliases: ['header-x-authenticated-user']
-                type: str
-                description: Action to take on the HTTP x-authenticated-user header in forwarded requests
-                choices: ['pass', 'add', 'remove']
-            header_x_forwarded_for:
-                aliases: ['header-x-forwarded-for']
-                type: str
-                description: Action to take on the HTTP x-forwarded-for header in forwarded requests
-                choices: ['pass', 'add', 'remove']
-            headers:
-                type: list
-                elements: dict
-                description: Headers.
-                suboptions:
-                    action:
-                        type: str
-                        description: Action when HTTP the header forwarded.
-                        choices: ['add-to-request', 'add-to-response', 'remove-from-request',
-                                  'remove-from-response', 'monitor-request', 'monitor-response']
-                    content:
-                        type: str
-                        description: HTTP headers content.
-                    id:
-                        type: int
-                        description: HTTP forwarded header id.
-                    name:
-                        type: str
-                        description: HTTP forwarded header name.
-                    add_option:
-                        aliases: ['add-option']
-                        type: str
-                        description: Configure options to append content to existing HTTP header or add new HTTP header.
-                        choices: ['append', 'new-on-not-found', 'new', 'replace',
-                                  'replace-when-match']
-                    base64_encoding:
-                        aliases: ['base64-encoding']
-                        type: str
-                        description: Enable/disable use of base64 encoding of HTTP content.
-                        choices: ['disable', 'enable']
-                    dstaddr:
-                        type: raw
-                        description: (list or str) Destination address and address group names.
-                    dstaddr6:
-                        type: raw
-                        description: (list or str) Destination address and address group names
-                    protocol:
-                        type: list
-                        elements: str
-                        description: Configure protocol
-                        choices: ['https', 'http']
-            log_header_change:
-                aliases: ['log-header-change']
-                type: str
-                description: Enable/disable logging HTTP header changes.
-                choices: ['disable', 'enable']
-            name:
-                type: str
-                description: Profile name.
-                required: true
-            strip_encoding:
-                aliases: ['strip-encoding']
-                type: str
-                description: Enable/disable stripping unsupported encoding from the request header.
-                choices: ['disable', 'enable']
-            header_x_forwarded_client_cert:
-                aliases: ['header-x-forwarded-client-cert']
-                type: str
-                description: Action to take on the HTTP x-forwarded-client-cert header in forwarded requests
-                choices: ['pass', 'add', 'remove']
-            max_cache_object_size:
-                aliases: ['max-cache-object-size']
-                type: int
-                description: Max cache object size.
-            header_client_cert:
-                aliases: ['header-client-cert']
-                type: str
-                description: Action to take on the HTTP Client-Cert/Client-Cert-Chain headers in forwarded responses
-                choices: ['pass', 'add', 'remove']
+          action:
+            type: str
+            description: Action when HTTP the header forwarded.
+            choices: ['add-to-request', 'add-to-response', 'remove-from-request',
+                      'remove-from-response', 'monitor-request', 'monitor-response']
+          content:
+            type: str
+            description: HTTP headers content.
+          id:
+            type: int
+            description: HTTP forwarded header id.
+          name:
+            type: str
+            description: HTTP forwarded header name.
+          add_option:
+            aliases: ['add-option']
+            type: str
+            description: Configure options to append content to existing HTTP header or add new HTTP header.
+            choices: ['append', 'new-on-not-found', 'new', 'replace', 'replace-when-match']
+          base64_encoding:
+            aliases: ['base64-encoding']
+            type: str
+            description: Enable/disable use of base64 encoding of HTTP content.
+            choices: ['disable', 'enable']
+          dstaddr:
+            type: raw
+            description: (list or str) Destination address and address group names.
+          dstaddr6:
+            type: raw
+            description: (list or str) Destination address and address group names
+          protocol:
+            type: list
+            elements: str
+            description: Configure protocol
+            choices: ['https', 'http']
+      log_header_change:
+        aliases: ['log-header-change']
+        type: str
+        description: Enable/disable logging HTTP header changes.
+        choices: ['disable', 'enable']
+      name:
+        type: str
+        description: Profile name.
+        required: true
+      strip_encoding:
+        aliases: ['strip-encoding']
+        type: str
+        description: Enable/disable stripping unsupported encoding from the request header.
+        choices: ['disable', 'enable']
+      header_x_forwarded_client_cert:
+        aliases: ['header-x-forwarded-client-cert']
+        type: str
+        description: Action to take on the HTTP x-forwarded-client-cert header in forwarded requests
+        choices: ['pass', 'add', 'remove']
+      max_cache_object_size:
+        aliases: ['max-cache-object-size']
+        type: int
+        description: Max cache object size.
+      header_client_cert:
+        aliases: ['header-client-cert']
+        type: str
+        description: Action to take on the HTTP Client-Cert/Client-Cert-Chain headers in forwarded responses
+        choices: ['pass', 'add', 'remove']
+      fabric_force_sync:
+        aliases: ['fabric-force-sync']
+        type: str
+        description: Enable/disable forced synchronization of configuration objects from the root FortiGate unit to the downstream devices.
+        choices: ['disable', 'enable']
+      fabric_object:
+        aliases: ['fabric-object']
+        type: str
+        description: Security Fabric global object setting.
+        choices: ['disable', 'enable']
+      fabric_object_source:
+        aliases: ['fabric-object-source']
+        type: str
+        description: Source of truth for fabric object.
+        choices: ['member', 'local', 'root']
+      uuid:
+        type: str
+        description: Universally Unique Identifier
 '''
 
 EXAMPLES = '''
@@ -171,46 +188,50 @@ EXAMPLES = '''
           # header_x_forwarded_client_cert: <value in [pass, add, remove]>
           # max_cache_object_size: <integer>
           # header_client_cert: <value in [pass, add, remove]>
+          # fabric_force_sync: <value in [disable, enable]>
+          # fabric_object: <value in [disable, enable]>
+          # fabric_object_source: <value in [member, local, root]>
+          # uuid: <string>
 '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -265,8 +286,12 @@ def main():
                 'name': {'required': True, 'type': 'str'},
                 'strip-encoding': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'header-x-forwarded-client-cert': {'v_range': [['7.0.1', '']], 'choices': ['pass', 'add', 'remove'], 'type': 'str'},
-                'max-cache-object-size': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'int'},
-                'header-client-cert': {'v_range': [['7.6.5', '']], 'choices': ['pass', 'add', 'remove'], 'type': 'str'}
+                'max-cache-object-size': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'type': 'int'},
+                'header-client-cert': {'v_range': [['7.6.5', '']], 'choices': ['pass', 'add', 'remove'], 'type': 'str'},
+                'fabric-force-sync': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'fabric-object': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'fabric-object-source': {'v_range': [['8.0.0', '']], 'choices': ['member', 'local', 'root'], 'type': 'str'},
+                'uuid': {'v_range': [['8.0.0', '']], 'type': 'str'}
             }
         }
     }

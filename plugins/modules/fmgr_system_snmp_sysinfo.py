@@ -15,46 +15,46 @@ module: fmgr_system_snmp_sysinfo
 short_description: SNMP configuration.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.partial_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.partial_crud
 options:
-    system_snmp_sysinfo:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            contact_info:
-                type: str
-                description: Contact information.
-            description:
-                type: str
-                description: System description.
-            engine_id:
-                aliases: ['engine-id']
-                type: str
-                description: Local SNMP engineID string
-            location:
-                type: str
-                description: System location.
-            status:
-                type: str
-                description:
-                    - Enable/disable SNMP.
-                    - disable - Disable setting.
-                    - enable - Enable setting.
-                choices: ['disable', 'enable']
-            trap_cpu_high_exclude_nice_threshold:
-                aliases: ['trap-cpu-high-exclude-nice-threshold']
-                type: int
-                description: SNMP trap for CPU usage threshold
-            trap_high_cpu_threshold:
-                aliases: ['trap-high-cpu-threshold']
-                type: int
-                description: SNMP trap for CPU usage threshold.
-            trap_low_memory_threshold:
-                aliases: ['trap-low-memory-threshold']
-                type: int
-                description: SNMP trap for memory usage threshold.
+  system_snmp_sysinfo:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      contact_info:
+        type: str
+        description: Contact information.
+      description:
+        type: str
+        description: System description.
+      engine_id:
+        aliases: ['engine-id']
+        type: str
+        description: Local SNMP engineID string
+      location:
+        type: str
+        description: System location.
+      status:
+        type: str
+        description:
+          - Enable/disable SNMP.
+          - disable - Disable setting.
+          - enable - Enable setting.
+        choices: ['disable', 'enable']
+      trap_cpu_high_exclude_nice_threshold:
+        aliases: ['trap-cpu-high-exclude-nice-threshold']
+        type: int
+        description: SNMP trap for CPU usage threshold
+      trap_high_cpu_threshold:
+        aliases: ['trap-high-cpu-threshold']
+        type: int
+        description: SNMP trap for CPU usage threshold.
+      trap_low_memory_threshold:
+        aliases: ['trap-low-memory-threshold']
+        type: int
+        description: SNMP trap for memory usage threshold.
 '''
 
 EXAMPLES = '''
@@ -79,42 +79,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

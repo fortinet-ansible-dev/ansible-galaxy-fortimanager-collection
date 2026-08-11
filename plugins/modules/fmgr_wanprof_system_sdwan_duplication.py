@@ -15,66 +15,76 @@ module: fmgr_wanprof_system_sdwan_duplication
 short_description: Create SD-WAN duplication rule.
 version_added: "2.1.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    adom:
-        description: The parameter (adom) in requested url.
-        type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  wanprof:
+    description: The parameter (wanprof) in requested url.
+    type: str
+    required: true
+  wanprof_system_sdwan_duplication:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      dstaddr:
+        type: raw
+        description: (list or str) Destination address or address group names.
+      dstaddr6:
+        type: raw
+        description: (list or str) Destination address6 or address6 group names.
+      dstintf:
+        type: raw
+        description: (list or str) Outgoing
+      id:
+        type: int
+        description: Duplication rule ID
         required: true
-    wanprof:
-        description: The parameter (wanprof) in requested url.
+      packet_de_duplication:
+        aliases: ['packet-de-duplication']
         type: str
-        required: true
-    wanprof_system_sdwan_duplication:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            dstaddr:
-                type: raw
-                description: (list or str) Destination address or address group names.
-            dstaddr6:
-                type: raw
-                description: (list or str) Destination address6 or address6 group names.
-            dstintf:
-                type: raw
-                description: (list or str) Outgoing
-            id:
-                type: int
-                description: Duplication rule ID
-                required: true
-            packet_de_duplication:
-                aliases: ['packet-de-duplication']
-                type: str
-                description: Enable/disable discarding of packets that have been duplicated.
-                choices: ['disable', 'enable']
-            packet_duplication:
-                aliases: ['packet-duplication']
-                type: str
-                description: Configure packet duplication method.
-                choices: ['disable', 'force', 'on-demand']
-            service:
-                type: raw
-                description: (list or str) Service and service group name.
-            srcaddr:
-                type: raw
-                description: (list or str) Source address or address group names.
-            srcaddr6:
-                type: raw
-                description: (list or str) Source address6 or address6 group names.
-            srcintf:
-                type: raw
-                description: (list or str) Incoming
-            service_id:
-                aliases: ['service-id']
-                type: raw
-                description: (list or str) SD-WAN service rule ID list.
-            sla_match_service:
-                aliases: ['sla-match-service']
-                type: str
-                description: Enable/disable packet duplication matching health-check SLAs in service rule.
-                choices: ['disable', 'enable']
+        description: Enable/disable discarding of packets that have been duplicated.
+        choices: ['disable', 'enable']
+      packet_duplication:
+        aliases: ['packet-duplication']
+        type: str
+        description: Configure packet duplication method.
+        choices: ['disable', 'force', 'on-demand']
+      service:
+        type: raw
+        description: (list or str) Service and service group name.
+      srcaddr:
+        type: raw
+        description: (list or str) Source address or address group names.
+      srcaddr6:
+        type: raw
+        description: (list or str) Source address6 or address6 group names.
+      srcintf:
+        type: raw
+        description: (list or str) Incoming
+      service_id:
+        aliases: ['service-id']
+        type: raw
+        description: (list or str) SD-WAN service rule ID list.
+      sla_match_service:
+        aliases: ['sla-match-service']
+        type: str
+        description: Enable/disable packet duplication matching health-check SLAs in service rule.
+        choices: ['disable', 'enable']
+      members:
+        type: raw
+        description: (list) Member sequence number list.
+      tos:
+        type: str
+        description: Type of service bit pattern.
+      tos_mask:
+        aliases: ['tos-mask']
+        type: str
+        description: Type of service evaluated bits.
 '''
 
 EXAMPLES = '''
@@ -102,46 +112,49 @@ EXAMPLES = '''
           # srcintf: <list or string>
           # service_id: <list or string>
           # sla_match_service: <value in [disable, enable]>
+          # members: <list or string>
+          # tos: <string>
+          # tos_mask: <string>
 '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -170,7 +183,10 @@ def main():
                 'srcaddr6': {'v_range': [['6.4.2', '']], 'type': 'raw'},
                 'srcintf': {'v_range': [['6.4.2', '']], 'type': 'raw'},
                 'service-id': {'v_range': [['6.4.3', '']], 'type': 'raw'},
-                'sla-match-service': {'v_range': [['7.2.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'sla-match-service': {'v_range': [['7.2.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'members': {'v_range': [['8.0.0', '']], 'type': 'raw'},
+                'tos': {'v_range': [['8.0.0', '']], 'type': 'str'},
+                'tos-mask': {'v_range': [['8.0.0', '']], 'type': 'str'}
             }
         }
     }

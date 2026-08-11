@@ -15,186 +15,183 @@ module: fmgr_vpnsslweb_portal_bookmarkgroup
 short_description: Portal bookmark group.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
-        type: str
-    adom:
-        description: The parameter (adom) in requested url.
-        type: str
-        required: true
-    portal:
-        description: The parameter (portal) in requested url.
-        type: str
-        required: true
-    vpnsslweb_portal_bookmarkgroup:
-        description: The top level parameters set.
-        required: false
-        type: dict
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  portal:
+    description: The parameter (portal) in requested url.
+    type: str
+    required: true
+  vpnsslweb_portal_bookmarkgroup:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      bookmarks:
+        type: list
+        elements: dict
+        description: Bookmarks.
         suboptions:
-            bookmarks:
-                type: list
-                elements: dict
-                description: Bookmarks.
-                suboptions:
-                    additional_params:
-                        aliases: ['additional-params']
-                        type: str
-                        description: Additional parameters.
-                    apptype:
-                        type: str
-                        description: Application type.
-                        choices: ['web', 'telnet', 'ssh', 'ftp', 'smb', 'vnc', 'rdp', 'citrix',
-                                  'rdpnative', 'portforward', 'sftp']
-                    description:
-                        type: str
-                        description: Description.
-                    folder:
-                        type: str
-                        description: Network shared file folder parameter.
-                    form_data:
-                        aliases: ['form-data']
-                        type: list
-                        elements: dict
-                        description: Form data.
-                        suboptions:
-                            name:
-                                type: str
-                                description: Name.
-                            value:
-                                type: str
-                                description: Value.
-                    host:
-                        type: str
-                        description: Host name/IP parameter.
-                    listening_port:
-                        aliases: ['listening-port']
-                        type: int
-                        description: Listening port
-                    load_balancing_info:
-                        aliases: ['load-balancing-info']
-                        type: str
-                        description: The load balancing information or cookie which should be provided to the connection broker.
-                    logon_password:
-                        aliases: ['logon-password']
-                        type: raw
-                        description: (list) Logon password.
-                    logon_user:
-                        aliases: ['logon-user']
-                        type: str
-                        description: Logon user.
-                    name:
-                        type: str
-                        description: Bookmark name.
-                    port:
-                        type: int
-                        description: Remote port.
-                    preconnection_blob:
-                        aliases: ['preconnection-blob']
-                        type: str
-                        description: An arbitrary string which identifies the RDP source.
-                    preconnection_id:
-                        aliases: ['preconnection-id']
-                        type: int
-                        description: The numeric ID of the RDP source
-                    remote_port:
-                        aliases: ['remote-port']
-                        type: int
-                        description: Remote port
-                    security:
-                        type: str
-                        description: Security mode for RDP connection.
-                        choices: ['rdp', 'nla', 'tls', 'any']
-                    server_layout:
-                        aliases: ['server-layout']
-                        type: str
-                        description: Server side keyboard layout.
-                        choices: ['en-us-qwerty', 'de-de-qwertz', 'fr-fr-azerty', 'it-it-qwerty',
-                                  'sv-se-qwerty', 'failsafe', 'en-gb-qwerty', 'es-es-qwerty',
-                                  'fr-ch-qwertz', 'ja-jp-qwerty', 'pt-br-qwerty', 'tr-tr-qwerty',
-                                  'fr-ca-qwerty']
-                    show_status_window:
-                        aliases: ['show-status-window']
-                        type: str
-                        description: Enable/disable showing of status window.
-                        choices: ['disable', 'enable']
-                    sso:
-                        type: str
-                        description: Single Sign-On.
-                        choices: ['disable', 'static', 'auto']
-                    sso_credential:
-                        aliases: ['sso-credential']
-                        type: str
-                        description: Single sign-on credentials.
-                        choices: ['sslvpn-login', 'alternative']
-                    sso_credential_sent_once:
-                        aliases: ['sso-credential-sent-once']
-                        type: str
-                        description: Single sign-on credentials are only sent once to remote server.
-                        choices: ['disable', 'enable']
-                    sso_password:
-                        aliases: ['sso-password']
-                        type: raw
-                        description: (list) SSO password.
-                    sso_username:
-                        aliases: ['sso-username']
-                        type: str
-                        description: SSO user name.
-                    url:
-                        type: str
-                        description: URL parameter.
-                    domain:
-                        type: str
-                        description: Login domain.
-                    color_depth:
-                        aliases: ['color-depth']
-                        type: str
-                        description: Color depth per pixel.
-                        choices: ['8', '16', '32']
-                    height:
-                        type: int
-                        description: Screen height
-                    keyboard_layout:
-                        aliases: ['keyboard-layout']
-                        type: str
-                        description: Keyboard layout.
-                        choices: ['ar', 'da', 'de', 'de-ch', 'en-gb', 'en-uk', 'en-us', 'es',
-                                  'fi', 'fr', 'fr-be', 'fr-ca', 'fr-ch', 'hr', 'hu', 'it', 'ja',
-                                  'lt', 'lv', 'mk', 'no', 'pl', 'pt', 'pt-br', 'ru', 'sl', 'sv',
-                                  'tk', 'tr', 'fr-ca-m', 'wg', 'ar-101', 'ar-102',
-                                  'ar-102-azerty', 'can-mul', 'cz', 'cz-qwerty', 'cz-pr', 'nl',
-                                  'de-ibm', 'en-uk-ext', 'en-us-dvorak', 'es-var', 'fi-sami',
-                                  'hu-101', 'it-142', 'ko', 'lt-ibm', 'lt-std', 'lav-std',
-                                  'lav-leg', 'mk-std', 'no-sami', 'pol-214', 'pol-pr',
-                                  'pt-br-abnt2', 'ru-mne', 'ru-t', 'sv-sami', 'tuk', 'tur-f',
-                                  'tur-q', 'zh-sym-sg-us', 'zh-sym-us', 'zh-tr-hk', 'zh-tr-mo',
-                                  'zh-tr-us', 'fr-apple', 'la-am', 'ja-106']
-                    restricted_admin:
-                        aliases: ['restricted-admin']
-                        type: str
-                        description: Enable/disable restricted admin mode for RDP.
-                        choices: ['disable', 'enable']
-                    send_preconnection_id:
-                        aliases: ['send-preconnection-id']
-                        type: str
-                        description: Enable/disable sending of preconnection ID.
-                        choices: ['disable', 'enable']
-                    width:
-                        type: int
-                        description: Screen width
-                    vnc_keyboard_layout:
-                        aliases: ['vnc-keyboard-layout']
-                        type: str
-                        description: Keyboard layout.
-                        choices: ['da', 'de', 'de-ch', 'en-uk', 'es', 'fi', 'fr', 'fr-be', 'it',
-                                  'no', 'pt', 'sv', 'nl', 'en-uk-ext', 'it-142', 'pt-br-abnt2',
-                                  'default', 'fr-ca-mul', 'gd', 'us-intl']
-            name:
+          additional_params:
+            aliases: ['additional-params']
+            type: str
+            description: Additional parameters.
+          apptype:
+            type: str
+            description: Application type.
+            choices: ['web', 'telnet', 'ssh', 'ftp', 'smb', 'vnc', 'rdp', 'citrix', 'rdpnative',
+                      'portforward', 'sftp']
+          description:
+            type: str
+            description: Description.
+          folder:
+            type: str
+            description: Network shared file folder parameter.
+          form_data:
+            aliases: ['form-data']
+            type: list
+            elements: dict
+            description: Form data.
+            suboptions:
+              name:
                 type: str
-                description: Bookmark group name.
-                required: true
+                description: Name.
+              value:
+                type: str
+                description: Value.
+          host:
+            type: str
+            description: Host name/IP parameter.
+          listening_port:
+            aliases: ['listening-port']
+            type: int
+            description: Listening port
+          load_balancing_info:
+            aliases: ['load-balancing-info']
+            type: str
+            description: The load balancing information or cookie which should be provided to the connection broker.
+          logon_password:
+            aliases: ['logon-password']
+            type: raw
+            description: (list) Logon password.
+          logon_user:
+            aliases: ['logon-user']
+            type: str
+            description: Logon user.
+          name:
+            type: str
+            description: Bookmark name.
+          port:
+            type: int
+            description: Remote port.
+          preconnection_blob:
+            aliases: ['preconnection-blob']
+            type: str
+            description: An arbitrary string which identifies the RDP source.
+          preconnection_id:
+            aliases: ['preconnection-id']
+            type: int
+            description: The numeric ID of the RDP source
+          remote_port:
+            aliases: ['remote-port']
+            type: int
+            description: Remote port
+          security:
+            type: str
+            description: Security mode for RDP connection.
+            choices: ['rdp', 'nla', 'tls', 'any']
+          server_layout:
+            aliases: ['server-layout']
+            type: str
+            description: Server side keyboard layout.
+            choices: ['en-us-qwerty', 'de-de-qwertz', 'fr-fr-azerty', 'it-it-qwerty',
+                      'sv-se-qwerty', 'failsafe', 'en-gb-qwerty', 'es-es-qwerty', 'fr-ch-qwertz',
+                      'ja-jp-qwerty', 'pt-br-qwerty', 'tr-tr-qwerty', 'fr-ca-qwerty']
+          show_status_window:
+            aliases: ['show-status-window']
+            type: str
+            description: Enable/disable showing of status window.
+            choices: ['disable', 'enable']
+          sso:
+            type: str
+            description: Single Sign-On.
+            choices: ['disable', 'static', 'auto']
+          sso_credential:
+            aliases: ['sso-credential']
+            type: str
+            description: Single sign-on credentials.
+            choices: ['sslvpn-login', 'alternative']
+          sso_credential_sent_once:
+            aliases: ['sso-credential-sent-once']
+            type: str
+            description: Single sign-on credentials are only sent once to remote server.
+            choices: ['disable', 'enable']
+          sso_password:
+            aliases: ['sso-password']
+            type: raw
+            description: (list) SSO password.
+          sso_username:
+            aliases: ['sso-username']
+            type: str
+            description: SSO user name.
+          url:
+            type: str
+            description: URL parameter.
+          domain:
+            type: str
+            description: Login domain.
+          color_depth:
+            aliases: ['color-depth']
+            type: str
+            description: Color depth per pixel.
+            choices: ['8', '16', '32']
+          height:
+            type: int
+            description: Screen height
+          keyboard_layout:
+            aliases: ['keyboard-layout']
+            type: str
+            description: Keyboard layout.
+            choices: ['ar', 'da', 'de', 'de-ch', 'en-gb', 'en-uk', 'en-us', 'es', 'fi', 'fr',
+                      'fr-be', 'fr-ca', 'fr-ch', 'hr', 'hu', 'it', 'ja', 'lt', 'lv', 'mk', 'no',
+                      'pl', 'pt', 'pt-br', 'ru', 'sl', 'sv', 'tk', 'tr', 'fr-ca-m', 'wg',
+                      'ar-101', 'ar-102', 'ar-102-azerty', 'can-mul', 'cz', 'cz-qwerty', 'cz-pr',
+                      'nl', 'de-ibm', 'en-uk-ext', 'en-us-dvorak', 'es-var', 'fi-sami', 'hu-101',
+                      'it-142', 'ko', 'lt-ibm', 'lt-std', 'lav-std', 'lav-leg', 'mk-std',
+                      'no-sami', 'pol-214', 'pol-pr', 'pt-br-abnt2', 'ru-mne', 'ru-t', 'sv-sami',
+                      'tuk', 'tur-f', 'tur-q', 'zh-sym-sg-us', 'zh-sym-us', 'zh-tr-hk',
+                      'zh-tr-mo', 'zh-tr-us', 'fr-apple', 'la-am', 'ja-106']
+          restricted_admin:
+            aliases: ['restricted-admin']
+            type: str
+            description: Enable/disable restricted admin mode for RDP.
+            choices: ['disable', 'enable']
+          send_preconnection_id:
+            aliases: ['send-preconnection-id']
+            type: str
+            description: Enable/disable sending of preconnection ID.
+            choices: ['disable', 'enable']
+          width:
+            type: int
+            description: Screen width
+          vnc_keyboard_layout:
+            aliases: ['vnc-keyboard-layout']
+            type: str
+            description: Keyboard layout.
+            choices: ['da', 'de', 'de-ch', 'en-uk', 'es', 'fi', 'fr', 'fr-be', 'it', 'no', 'pt',
+                      'sv', 'nl', 'en-uk-ext', 'it-142', 'pt-br-abnt2', 'default', 'fr-ca-mul',
+                      'gd', 'us-intl']
+      name:
+        type: str
+        description: Bookmark group name.
+        required: true
 '''
 
 EXAMPLES = '''
@@ -250,42 +247,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

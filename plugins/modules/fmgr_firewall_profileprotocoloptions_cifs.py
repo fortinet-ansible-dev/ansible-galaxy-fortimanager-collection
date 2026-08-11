@@ -15,138 +15,138 @@ module: fmgr_firewall_profileprotocoloptions_cifs
 short_description: Configure CIFS protocol options.
 version_added: "2.1.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.partial_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.partial_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  profile-protocol-options:
+    description: Deprecated, please use "profile_protocol_options"
+    type: str
+  profile_protocol_options:
+    description: The parameter (profile-protocol-options) in requested url.
+    type: str
+  firewall_profileprotocoloptions_cifs:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      ports:
+        type: raw
+        description: (list) Ports to scan for content
+      status:
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Enable/disable the active status of scanning for this protocol.
+        choices: ['disable', 'enable']
+      options:
+        type: list
+        elements: str
+        description: One or more options that can be applied to the session.
+        choices: ['oversize']
+      oversize_limit:
+        aliases: ['oversize-limit']
+        type: int
+        description: Maximum in-memory file size that can be scanned
+      scan_bzip2:
+        aliases: ['scan-bzip2']
         type: str
-        required: true
-    profile-protocol-options:
-        description: Deprecated, please use "profile_protocol_options"
+        description: Enable/disable scanning of BZip2 compressed files.
+        choices: ['disable', 'enable']
+      tcp_window_maximum:
+        aliases: ['tcp-window-maximum']
+        type: int
+        description: Maximum dynamic TCP window size
+      tcp_window_minimum:
+        aliases: ['tcp-window-minimum']
+        type: int
+        description: Minimum dynamic TCP window size
+      tcp_window_size:
+        aliases: ['tcp-window-size']
+        type: int
+        description: Set TCP static window size
+      tcp_window_type:
+        aliases: ['tcp-window-type']
         type: str
-    profile_protocol_options:
-        description: The parameter (profile-protocol-options) in requested url.
+        description: Specify type of TCP window to use for this protocol.
+        choices: ['system', 'static', 'dynamic', 'auto-tuning']
+      uncompressed_nest_limit:
+        aliases: ['uncompressed-nest-limit']
+        type: int
+        description: Maximum nested levels of compression that can be uncompressed and scanned
+      uncompressed_oversize_limit:
+        aliases: ['uncompressed-oversize-limit']
+        type: int
+        description: Maximum in-memory uncompressed file size that can be scanned
+      domain_controller:
+        aliases: ['domain-controller']
         type: str
-    firewall_profileprotocoloptions_cifs:
-        description: The top level parameters set.
-        required: false
+        description: Domain for which to decrypt CIFS traffic.
+      file_filter:
+        aliases: ['file-filter']
         type: dict
+        description: File filter.
         suboptions:
-            ports:
-                type: raw
-                description: (list) Ports to scan for content
-            status:
+          entries:
+            type: list
+            elements: dict
+            description: Entries.
+            suboptions:
+              action:
                 type: str
-                description: Enable/disable the active status of scanning for this protocol.
-                choices: ['disable', 'enable']
-            options:
+                description: Action taken for matched file.
+                choices: ['log', 'block']
+              comment:
+                type: str
+                description: Comment.
+              direction:
+                type: str
+                description: Match files transmitted in the sessions originating or reply direction.
+                choices: ['any', 'incoming', 'outgoing']
+              file_type:
+                aliases: ['file-type']
+                type: raw
+                description: (list) Select file type.
+              filter:
+                type: str
+                description: Add a file filter.
+              protocol:
                 type: list
                 elements: str
-                description: One or more options that can be applied to the session.
-                choices: ['oversize']
-            oversize_limit:
-                aliases: ['oversize-limit']
-                type: int
-                description: Maximum in-memory file size that can be scanned
-            scan_bzip2:
-                aliases: ['scan-bzip2']
-                type: str
-                description: Enable/disable scanning of BZip2 compressed files.
-                choices: ['disable', 'enable']
-            tcp_window_maximum:
-                aliases: ['tcp-window-maximum']
-                type: int
-                description: Maximum dynamic TCP window size
-            tcp_window_minimum:
-                aliases: ['tcp-window-minimum']
-                type: int
-                description: Minimum dynamic TCP window size
-            tcp_window_size:
-                aliases: ['tcp-window-size']
-                type: int
-                description: Set TCP static window size
-            tcp_window_type:
-                aliases: ['tcp-window-type']
-                type: str
-                description: Specify type of TCP window to use for this protocol.
-                choices: ['system', 'static', 'dynamic', 'auto-tuning']
-            uncompressed_nest_limit:
-                aliases: ['uncompressed-nest-limit']
-                type: int
-                description: Maximum nested levels of compression that can be uncompressed and scanned
-            uncompressed_oversize_limit:
-                aliases: ['uncompressed-oversize-limit']
-                type: int
-                description: Maximum in-memory uncompressed file size that can be scanned
-            domain_controller:
-                aliases: ['domain-controller']
-                type: str
-                description: Domain for which to decrypt CIFS traffic.
-            file_filter:
-                aliases: ['file-filter']
-                type: dict
-                description: File filter.
-                suboptions:
-                    entries:
-                        type: list
-                        elements: dict
-                        description: Entries.
-                        suboptions:
-                            action:
-                                type: str
-                                description: Action taken for matched file.
-                                choices: ['log', 'block']
-                            comment:
-                                type: str
-                                description: Comment.
-                            direction:
-                                type: str
-                                description: Match files transmitted in the sessions originating or reply direction.
-                                choices: ['any', 'incoming', 'outgoing']
-                            file_type:
-                                aliases: ['file-type']
-                                type: raw
-                                description: (list) Select file type.
-                            filter:
-                                type: str
-                                description: Add a file filter.
-                            protocol:
-                                type: list
-                                elements: str
-                                description: Protocols to apply with.
-                                choices: ['cifs']
-                    log:
-                        type: str
-                        description: Enable/disable file filter logging.
-                        choices: ['disable', 'enable']
-                    status:
-                        type: str
-                        description: Enable/disable file filter.
-                        choices: ['disable', 'enable']
-            server_credential_type:
-                aliases: ['server-credential-type']
-                type: str
-                description: CIFS server credential type.
-                choices: ['none', 'credential-replication', 'credential-keytab']
-            server_keytab:
-                aliases: ['server-keytab']
-                type: list
-                elements: dict
-                description: Server keytab.
-                suboptions:
-                    keytab:
-                        type: str
-                        description: Base64 encoded keytab file containing credential of the server.
-                    password:
-                        type: raw
-                        description: (list) Password for keytab.
-                    principal:
-                        type: str
-                        description: Service principal.
+                description: Protocols to apply with.
+                choices: ['cifs']
+          log:
+            type: str
+            description: Enable/disable file filter logging.
+            choices: ['disable', 'enable']
+          status:
+            type: str
+            description: Enable/disable file filter.
+            choices: ['disable', 'enable']
+      server_credential_type:
+        aliases: ['server-credential-type']
+        type: str
+        description: CIFS server credential type.
+        choices: ['none', 'credential-replication', 'credential-keytab']
+      server_keytab:
+        aliases: ['server-keytab']
+        type: list
+        elements: dict
+        description: Server keytab.
+        suboptions:
+          keytab:
+            type: str
+            description: Base64 encoded keytab file containing credential of the server.
+          password:
+            type: raw
+            description: (list) Password for keytab.
+          principal:
+            type: str
+            description: Service principal.
 '''
 
 EXAMPLES = '''
@@ -192,42 +192,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -261,24 +261,24 @@ def main():
                 'uncompressed-oversize-limit': {'v_range': [['6.4.0', '']], 'type': 'int'},
                 'domain-controller': {'v_range': [['6.4.2', '']], 'type': 'str'},
                 'file-filter': {
-                    'v_range': [['6.4.2', '']],
+                    'v_range': [['6.4.2', '7.6.7']],
                     'type': 'dict',
                     'options': {
                         'entries': {
-                            'v_range': [['6.4.2', '']],
+                            'v_range': [['6.4.2', '7.6.7']],
                             'type': 'list',
                             'options': {
-                                'action': {'v_range': [['6.4.2', '']], 'choices': ['log', 'block'], 'type': 'str'},
-                                'comment': {'v_range': [['6.4.2', '']], 'type': 'str'},
-                                'direction': {'v_range': [['6.4.2', '']], 'choices': ['any', 'incoming', 'outgoing'], 'type': 'str'},
-                                'file-type': {'v_range': [['6.4.2', '']], 'type': 'raw'},
-                                'filter': {'v_range': [['6.4.2', '']], 'type': 'str'},
-                                'protocol': {'v_range': [['6.4.2', '']], 'type': 'list', 'choices': ['cifs'], 'elements': 'str'}
+                                'action': {'v_range': [['6.4.2', '7.6.7']], 'choices': ['log', 'block'], 'type': 'str'},
+                                'comment': {'v_range': [['6.4.2', '7.6.7']], 'type': 'str'},
+                                'direction': {'v_range': [['6.4.2', '7.6.7']], 'choices': ['any', 'incoming', 'outgoing'], 'type': 'str'},
+                                'file-type': {'v_range': [['6.4.2', '7.6.7']], 'type': 'raw'},
+                                'filter': {'v_range': [['6.4.2', '7.6.7']], 'type': 'str'},
+                                'protocol': {'v_range': [['6.4.2', '7.6.7']], 'type': 'list', 'choices': ['cifs'], 'elements': 'str'}
                             },
                             'elements': 'dict'
                         },
-                        'log': {'v_range': [['6.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'status': {'v_range': [['6.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                        'log': {'v_range': [['6.4.2', '7.6.7']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'status': {'v_range': [['6.4.2', '7.6.7']], 'choices': ['disable', 'enable'], 'type': 'str'}
                     }
                 },
                 'server-credential-type': {'v_range': [['6.4.2', '']], 'choices': ['none', 'credential-replication', 'credential-keytab'], 'type': 'str'},

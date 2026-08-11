@@ -15,193 +15,193 @@ module: fmgr_webproxy_explicitproxy
 short_description: Web proxy explicit proxy
 version_added: "2.12.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  webproxy_explicitproxy:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      detect_https_in_http_request:
+        aliases: ['detect-https-in-http-request']
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Detect https in http request.
+        choices: ['disable', 'enable']
+      dns_mode:
+        aliases: ['dns-mode']
         type: str
+        description: Dns mode.
+        choices: ['recursive', 'non-recursive', 'forward-only']
+      dstport_from_incoming:
+        aliases: ['dstport-from-incoming']
+        type: str
+        description: Dstport from incoming.
+        choices: ['disable', 'enable']
+      ftp_incoming_port:
+        aliases: ['ftp-incoming-port']
+        type: list
+        elements: str
+        description: Ftp incoming port.
+      ftp_over_http:
+        aliases: ['ftp-over-http']
+        type: str
+        description: Ftp over http.
+        choices: ['disable', 'enable']
+      header_proxy_agent:
+        aliases: ['header-proxy-agent']
+        type: str
+        description: Header proxy agent.
+        choices: ['disable', 'enable']
+      http:
+        type: str
+        description: Http.
+        choices: ['disable', 'enable']
+      http_connection_mode:
+        aliases: ['http-connection-mode']
+        type: str
+        description: Http connection mode.
+        choices: ['static', 'multiplex', 'serverpool']
+      http_incoming_port:
+        aliases: ['http-incoming-port']
+        type: list
+        elements: str
+        description: Http incoming port.
+      https_incoming_port:
+        aliases: ['https-incoming-port']
+        type: list
+        elements: str
+        description: Https incoming port.
+      incoming_ip6:
+        aliases: ['incoming-ip6']
+        type: str
+        description: Incoming ip6.
+      interface:
+        type: list
+        elements: str
+        description: Interface.
+      ipv6_status:
+        aliases: ['ipv6-status']
+        type: str
+        description: Ipv6 status.
+        choices: ['disable', 'enable']
+      learn_dst_from_sni:
+        aliases: ['learn-dst-from-sni']
+        type: str
+        description: Learn dst from sni.
+        choices: ['disable', 'enable']
+      name:
+        type: str
+        description: Name.
         required: true
-    webproxy_explicitproxy:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            detect_https_in_http_request:
-                aliases: ['detect-https-in-http-request']
-                type: str
-                description: Detect https in http request.
-                choices: ['disable', 'enable']
-            dns_mode:
-                aliases: ['dns-mode']
-                type: str
-                description: Dns mode.
-                choices: ['recursive', 'non-recursive', 'forward-only']
-            dstport_from_incoming:
-                aliases: ['dstport-from-incoming']
-                type: str
-                description: Dstport from incoming.
-                choices: ['disable', 'enable']
-            ftp_incoming_port:
-                aliases: ['ftp-incoming-port']
-                type: list
-                elements: str
-                description: Ftp incoming port.
-            ftp_over_http:
-                aliases: ['ftp-over-http']
-                type: str
-                description: Ftp over http.
-                choices: ['disable', 'enable']
-            header_proxy_agent:
-                aliases: ['header-proxy-agent']
-                type: str
-                description: Header proxy agent.
-                choices: ['disable', 'enable']
-            http:
-                type: str
-                description: Http.
-                choices: ['disable', 'enable']
-            http_connection_mode:
-                aliases: ['http-connection-mode']
-                type: str
-                description: Http connection mode.
-                choices: ['static', 'multiplex', 'serverpool']
-            http_incoming_port:
-                aliases: ['http-incoming-port']
-                type: list
-                elements: str
-                description: Http incoming port.
-            https_incoming_port:
-                aliases: ['https-incoming-port']
-                type: list
-                elements: str
-                description: Https incoming port.
-            incoming_ip6:
-                aliases: ['incoming-ip6']
-                type: str
-                description: Incoming ip6.
-            interface:
-                type: list
-                elements: str
-                description: Interface.
-            ipv6_status:
-                aliases: ['ipv6-status']
-                type: str
-                description: Ipv6 status.
-                choices: ['disable', 'enable']
-            learn_dst_from_sni:
-                aliases: ['learn-dst-from-sni']
-                type: str
-                description: Learn dst from sni.
-                choices: ['disable', 'enable']
-            name:
-                type: str
-                description: Name.
-                required: true
-            pac_file_data:
-                aliases: ['pac-file-data']
-                type: str
-                description: Pac file data.
-            pac_file_name:
-                aliases: ['pac-file-name']
-                type: str
-                description: Pac file name.
-            pac_file_server_port:
-                aliases: ['pac-file-server-port']
-                type: str
-                description: Pac file server port.
-            pac_file_server_status:
-                aliases: ['pac-file-server-status']
-                type: str
-                description: Pac file server status.
-                choices: ['disable', 'enable']
-            pac_file_through_https:
-                aliases: ['pac-file-through-https']
-                type: str
-                description: Pac file through https.
-                choices: ['disable', 'enable']
-            pac_file_url:
-                aliases: ['pac-file-url']
-                type: str
-                description: Pac file url.
-            pref_dns_result:
-                aliases: ['pref-dns-result']
-                type: str
-                description: Pref dns result.
-                choices: ['ipv4', 'ipv6', 'ipv4-strict', 'ipv6-strict']
-            realm:
-                type: str
-                description: Realm.
-            return_to_sender:
-                aliases: ['return-to-sender']
-                type: str
-                description: Return to sender.
-                choices: ['disable', 'enable']
-            sec_default_action:
-                aliases: ['sec-default-action']
-                type: str
-                description: Sec default action.
-                choices: ['deny', 'accept']
-            secure_web_proxy:
-                aliases: ['secure-web-proxy']
-                type: str
-                description: Secure web proxy.
-                choices: ['disable', 'enable', 'secure']
-            secure_web_proxy_cert:
-                aliases: ['secure-web-proxy-cert']
-                type: list
-                elements: str
-                description: Secure web proxy cert.
-            socks:
-                type: str
-                description: Socks.
-                choices: ['disable', 'enable']
-            socks_incoming_port:
-                aliases: ['socks-incoming-port']
-                type: list
-                elements: str
-                description: Socks incoming port.
-            ssl_algorithm:
-                aliases: ['ssl-algorithm']
-                type: str
-                description: Ssl algorithm.
-                choices: ['high', 'low', 'medium']
-            ssl_dh_bits:
-                aliases: ['ssl-dh-bits']
-                type: str
-                description: Ssl dh bits.
-                choices: ['768', '1024', '1536', '2048']
-            status:
-                type: str
-                description: Status.
-                choices: ['disable', 'enable']
-            unknown_http_version:
-                aliases: ['unknown-http-version']
-                type: str
-                description: Unknown http version.
-                choices: ['best-effort', 'reject']
-            incoming_ip:
-                aliases: ['incoming-ip']
-                type: str
-                description: Incoming ip.
-            client_cert:
-                aliases: ['client-cert']
-                type: str
-                description: Client cert.
-                choices: ['disable', 'enable']
-            empty_cert_action:
-                aliases: ['empty-cert-action']
-                type: str
-                description: Empty cert action.
-                choices: ['block', 'accept', 'accept-unmanageable']
-            user_agent_detect:
-                aliases: ['user-agent-detect']
-                type: str
-                description: User agent detect.
-                choices: ['disable', 'enable']
+      pac_file_data:
+        aliases: ['pac-file-data']
+        type: str
+        description: Pac file data.
+      pac_file_name:
+        aliases: ['pac-file-name']
+        type: str
+        description: Pac file name.
+      pac_file_server_port:
+        aliases: ['pac-file-server-port']
+        type: str
+        description: Pac file server port.
+      pac_file_server_status:
+        aliases: ['pac-file-server-status']
+        type: str
+        description: Pac file server status.
+        choices: ['disable', 'enable']
+      pac_file_through_https:
+        aliases: ['pac-file-through-https']
+        type: str
+        description: Pac file through https.
+        choices: ['disable', 'enable']
+      pac_file_url:
+        aliases: ['pac-file-url']
+        type: str
+        description: Pac file url.
+      pref_dns_result:
+        aliases: ['pref-dns-result']
+        type: str
+        description: Pref dns result.
+        choices: ['ipv4', 'ipv6', 'ipv4-strict', 'ipv6-strict']
+      realm:
+        type: str
+        description: Realm.
+      return_to_sender:
+        aliases: ['return-to-sender']
+        type: str
+        description: Return to sender.
+        choices: ['disable', 'enable']
+      sec_default_action:
+        aliases: ['sec-default-action']
+        type: str
+        description: Sec default action.
+        choices: ['deny', 'accept']
+      secure_web_proxy:
+        aliases: ['secure-web-proxy']
+        type: str
+        description: Secure web proxy.
+        choices: ['disable', 'enable', 'secure']
+      secure_web_proxy_cert:
+        aliases: ['secure-web-proxy-cert']
+        type: list
+        elements: str
+        description: Secure web proxy cert.
+      socks:
+        type: str
+        description: Socks.
+        choices: ['disable', 'enable']
+      socks_incoming_port:
+        aliases: ['socks-incoming-port']
+        type: list
+        elements: str
+        description: Socks incoming port.
+      ssl_algorithm:
+        aliases: ['ssl-algorithm']
+        type: str
+        description: Ssl algorithm.
+        choices: ['high', 'low', 'medium']
+      ssl_dh_bits:
+        aliases: ['ssl-dh-bits']
+        type: str
+        description: Ssl dh bits.
+        choices: ['768', '1024', '1536', '2048']
+      status:
+        type: str
+        description: Status.
+        choices: ['disable', 'enable']
+      unknown_http_version:
+        aliases: ['unknown-http-version']
+        type: str
+        description: Unknown http version.
+        choices: ['best-effort', 'reject']
+      incoming_ip:
+        aliases: ['incoming-ip']
+        type: str
+        description: Incoming ip.
+      client_cert:
+        aliases: ['client-cert']
+        type: str
+        description: Client cert.
+        choices: ['disable', 'enable']
+      empty_cert_action:
+        aliases: ['empty-cert-action']
+        type: str
+        description: Empty cert action.
+        choices: ['block', 'accept', 'accept-unmanageable']
+      user_agent_detect:
+        aliases: ['user-agent-detect']
+        type: str
+        description: User agent detect.
+        choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -257,42 +257,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -309,46 +309,46 @@ def main():
         'adom': {'required': True, 'type': 'str'},
         'revision_note': {'type': 'str'},
         'webproxy_explicitproxy': {
-            'type': 'dict', 'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']],
+            'type': 'dict', 'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']],
             'options': {
-                'detect-https-in-http-request': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'dns-mode': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'choices': ['recursive', 'non-recursive', 'forward-only'], 'type': 'str'},
-                'dstport-from-incoming': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'ftp-incoming-port': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'list', 'elements': 'str'},
-                'ftp-over-http': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'header-proxy-agent': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'http': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'http-connection-mode': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'choices': ['static', 'multiplex', 'serverpool'], 'type': 'str'},
-                'http-incoming-port': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'list', 'elements': 'str'},
-                'https-incoming-port': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'list', 'elements': 'str'},
-                'incoming-ip6': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'str'},
-                'interface': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'list', 'elements': 'str'},
-                'ipv6-status': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'learn-dst-from-sni': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'name': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'required': True, 'type': 'str'},
-                'pac-file-data': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'str'},
-                'pac-file-name': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'str'},
-                'pac-file-server-port': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'str'},
-                'pac-file-server-status': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'pac-file-through-https': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'pac-file-url': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'str'},
+                'detect-https-in-http-request': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'dns-mode': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'choices': ['recursive', 'non-recursive', 'forward-only'], 'type': 'str'},
+                'dstport-from-incoming': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'ftp-incoming-port': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'type': 'list', 'elements': 'str'},
+                'ftp-over-http': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'header-proxy-agent': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'http': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'http-connection-mode': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'choices': ['static', 'multiplex', 'serverpool'], 'type': 'str'},
+                'http-incoming-port': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'type': 'list', 'elements': 'str'},
+                'https-incoming-port': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'type': 'list', 'elements': 'str'},
+                'incoming-ip6': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'type': 'str'},
+                'interface': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'type': 'list', 'elements': 'str'},
+                'ipv6-status': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'learn-dst-from-sni': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'name': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'required': True, 'type': 'str'},
+                'pac-file-data': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'type': 'str'},
+                'pac-file-name': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'type': 'str'},
+                'pac-file-server-port': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'type': 'str'},
+                'pac-file-server-status': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'pac-file-through-https': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'pac-file-url': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'type': 'str'},
                 'pref-dns-result': {
-                    'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']],
+                    'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']],
                     'choices': ['ipv4', 'ipv6', 'ipv4-strict', 'ipv6-strict'],
                     'type': 'str'
                 },
-                'realm': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'str'},
-                'return-to-sender': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'sec-default-action': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'choices': ['deny', 'accept'], 'type': 'str'},
-                'secure-web-proxy': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'choices': ['disable', 'enable', 'secure'], 'type': 'str'},
-                'secure-web-proxy-cert': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'list', 'elements': 'str'},
-                'socks': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'socks-incoming-port': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'list', 'elements': 'str'},
-                'ssl-algorithm': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'choices': ['high', 'low', 'medium'], 'type': 'str'},
-                'ssl-dh-bits': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'choices': ['768', '1024', '1536', '2048'], 'type': 'str'},
-                'status': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'unknown-http-version': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'choices': ['best-effort', 'reject'], 'type': 'str'},
-                'incoming-ip': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'str'},
+                'realm': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'type': 'str'},
+                'return-to-sender': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'sec-default-action': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'choices': ['deny', 'accept'], 'type': 'str'},
+                'secure-web-proxy': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'choices': ['disable', 'enable', 'secure'], 'type': 'str'},
+                'secure-web-proxy-cert': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'type': 'list', 'elements': 'str'},
+                'socks': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'socks-incoming-port': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'type': 'list', 'elements': 'str'},
+                'ssl-algorithm': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'choices': ['high', 'low', 'medium'], 'type': 'str'},
+                'ssl-dh-bits': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'choices': ['768', '1024', '1536', '2048'], 'type': 'str'},
+                'status': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'unknown-http-version': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'choices': ['best-effort', 'reject'], 'type': 'str'},
+                'incoming-ip': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'type': 'str'},
                 'client-cert': {'v_range': [['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'empty-cert-action': {'v_range': [['7.6.4', '']], 'choices': ['block', 'accept', 'accept-unmanageable'], 'type': 'str'},
                 'user-agent-detect': {'v_range': [['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'}

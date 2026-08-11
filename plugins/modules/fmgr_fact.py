@@ -14,1383 +14,1400 @@ DOCUMENTATION = '''
 module: fmgr_fact
 short_description: Gather fortimanager facts.
 description:
-    - This module is able to configure a FortiManager device.
-    - Examples include all parameters and values which need to be adjusted to data sources before usage.
+  - This module is able to configure a FortiManager device.
+  - Examples include all parameters and values which need to be adjusted to data sources before usage.
 
 version_added: "2.0.0"
 author:
-    - Xinwei Du (@dux-fortinet)
-    - Xing Li (@lix-fortinet)
-    - Jie Xue (@JieX19)
-    - Link Zheng (@chillancezen)
-    - Frank Shen (@fshen01)
-    - Hongbin Lu (@fgtdev-hblu)
+  - Xinwei Du (@dux-fortinet)
+  - Xing Li (@lix-fortinet)
+  - Jie Xue (@JieX19)
+  - Link Zheng (@chillancezen)
+  - Frank Shen (@fshen01)
+  - Hongbin Lu (@fgtdev-hblu)
 notes:
-    - Running in workspace locking mode is supported in this FortiManager module, the top
-      level parameters workspace_locking_adom and workspace_locking_timeout help do the work.
-    - Normally, running one module can fail when a non-zero rc is returned. you can also override
-      the conditions to fail or succeed with parameters rc_failed and rc_succeeded
+  - Running in workspace locking mode is supported in this FortiManager module, the top
+    level parameters workspace_locking_adom and workspace_locking_timeout help do the work.
+  - Normally, running one module can fail when a non-zero rc is returned. you can also override
+    the conditions to fail or succeed with parameters rc_failed and rc_succeeded
 options:
-    access_token:
-        description: The token to access FortiManager without using username and password.
-        required: false
-        type: str
-    enable_log:
-        description: Enable/Disable logging for task.
-        required: false
-        type: bool
-        default: false
-    forticloud_access_token:
-        description: Access token of FortiCloud managed API users, this option is available with FortiManager later than 6.4.0.
-        required: false
-        type: str
-    workspace_locking_adom:
-        description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
-        required: false
-        type: str
-    workspace_locking_timeout:
-        description: The maximum time in seconds to wait for other user to release the workspace lock.
-        required: false
-        type: int
-        default: 300
-    rc_succeeded:
-        description: The rc codes list with which the conditions to succeed will be overriden.
-        type: list
-        required: false
-        elements: int
-    rc_failed:
-        description: The rc codes list with which the conditions to fail will be overriden.
-        type: list
-        required: false
-        elements: int
-    facts:
-        description: Gathering fortimanager facts.
-        type: dict
+  access_token:
+    description: The token to access FortiManager without using username and password.
+    required: false
+    type: str
+  enable_log:
+    description: Enable/Disable logging for task.
+    required: false
+    type: bool
+    default: false
+  forticloud_access_token:
+    description: Access token of FortiCloud managed API users, this option is available with FortiManager later than 6.4.0.
+    required: false
+    type: str
+  workspace_locking_adom:
+    description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
+    required: false
+    type: str
+  workspace_locking_timeout:
+    description: The maximum time in seconds to wait for other user to release the workspace lock.
+    required: false
+    type: int
+    default: 300
+  rc_succeeded:
+    description: The rc codes list with which the conditions to succeed will be overriden.
+    type: list
+    required: false
+    elements: int
+  rc_failed:
+    description: The rc codes list with which the conditions to fail will be overriden.
+    type: list
+    required: false
+    elements: int
+  facts:
+    description: Gathering fortimanager facts.
+    type: dict
+    required: true
+    suboptions:
+      selector:
         required: true
-        suboptions:
-            selector:
-                required: true
-                description: Selector of the retrieved fortimanager facts.
-                type: str
-                choices:
-                    - 'adom_options'
-                    - 'antivirus_mmschecksum'
-                    - 'antivirus_mmschecksum_entries'
-                    - 'antivirus_notification'
-                    - 'antivirus_notification_entries'
-                    - 'antivirus_profile'
-                    - 'antivirus_profile_cifs'
-                    - 'antivirus_profile_contentdisarm'
-                    - 'antivirus_profile_ftp'
-                    - 'antivirus_profile_http'
-                    - 'antivirus_profile_imap'
-                    - 'antivirus_profile_mapi'
-                    - 'antivirus_profile_nacquar'
-                    - 'antivirus_profile_nntp'
-                    - 'antivirus_profile_outbreakprevention'
-                    - 'antivirus_profile_pop3'
-                    - 'antivirus_profile_smb'
-                    - 'antivirus_profile_smtp'
-                    - 'antivirus_profile_ssh'
-                    - 'apcfgprofile'
-                    - 'apcfgprofile_commandlist'
-                    - 'application_casi_profile'
-                    - 'application_casi_profile_entries'
-                    - 'application_categories'
-                    - 'application_custom'
-                    - 'application_group'
-                    - 'application_internetservice'
-                    - 'application_internetservice_entry'
-                    - 'application_internetservicecustom'
-                    - 'application_internetservicecustom_disableentry'
-                    - 'application_internetservicecustom_disableentry_iprange'
-                    - 'application_internetservicecustom_entry'
-                    - 'application_internetservicecustom_entry_portrange'
-                    - 'application_list'
-                    - 'application_list_defaultnetworkservices'
-                    - 'application_list_entries'
-                    - 'application_list_entries_parameters'
-                    - 'application_list_entries_parameters_members'
-                    - 'arrpprofile'
-                    - 'authentication_scheme'
-                    - 'bleprofile'
-                    - 'bonjourprofile'
-                    - 'bonjourprofile_policylist'
-                    - 'casb_profile'
-                    - 'casb_profile_saasapplication'
-                    - 'casb_profile_saasapplication_accessrule'
-                    - 'casb_profile_saasapplication_accessrule_attributefilter'
-                    - 'casb_profile_saasapplication_advancedtenantcontrol'
-                    - 'casb_profile_saasapplication_advancedtenantcontrol_attribute'
-                    - 'casb_profile_saasapplication_customcontrol'
-                    - 'casb_profile_saasapplication_customcontrol_attributefilter'
-                    - 'casb_profile_saasapplication_customcontrol_option'
-                    - 'casb_saasapplication'
-                    - 'casb_saasapplication_inputattributes'
-                    - 'casb_saasapplication_outputattributes'
-                    - 'casb_useractivity'
-                    - 'casb_useractivity_controloptions'
-                    - 'casb_useractivity_controloptions_operations'
-                    - 'casb_useractivity_match'
-                    - 'casb_useractivity_match_rules'
-                    - 'casb_useractivity_match_tenantextraction'
-                    - 'casb_useractivity_match_tenantextraction_filters'
-                    - 'certificate_template'
-                    - 'cifs_domaincontroller'
-                    - 'cifs_profile'
-                    - 'cifs_profile_filefilter'
-                    - 'cifs_profile_filefilter_entries'
-                    - 'cifs_profile_serverkeytab'
-                    - 'cloud_orchestaws'
-                    - 'cloud_orchestawsconnector'
-                    - 'cloud_orchestawstemplate_autoscaleexistingvpc'
-                    - 'cloud_orchestawstemplate_autoscalenewvpc'
-                    - 'cloud_orchestawstemplate_autoscaletgwnewvpc'
-                    - 'cloud_orchestration'
-                    - 'credentialstore_domaincontroller'
-                    - 'devprof_device_profile_fortianalyzer'
-                    - 'devprof_device_profile_fortiguard'
-                    - 'devprof_log_fortianalyzer_setting'
-                    - 'devprof_log_fortianalyzercloud_setting'
-                    - 'devprof_log_syslogd_filter'
-                    - 'devprof_log_syslogd_filter_excludelist'
-                    - 'devprof_log_syslogd_filter_excludelist_fields'
-                    - 'devprof_log_syslogd_filter_freestyle'
-                    - 'devprof_log_syslogd_setting'
-                    - 'devprof_log_syslogd_setting_customfieldname'
-                    - 'devprof_log_syslogd_setting_logtemplates'
-                    - 'devprof_system_centralmanagement'
-                    - 'devprof_system_centralmanagement_serverlist'
-                    - 'devprof_system_dns'
-                    - 'devprof_system_emailserver'
-                    - 'devprof_system_global'
-                    - 'devprof_system_ntp'
-                    - 'devprof_system_ntp_ntpserver'
-                    - 'devprof_system_replacemsg_admin'
-                    - 'devprof_system_replacemsg_alertmail'
-                    - 'devprof_system_replacemsg_auth'
-                    - 'devprof_system_replacemsg_devicedetectionportal'
-                    - 'devprof_system_replacemsg_ec'
-                    - 'devprof_system_replacemsg_fortiguardwf'
-                    - 'devprof_system_replacemsg_ftp'
-                    - 'devprof_system_replacemsg_http'
-                    - 'devprof_system_replacemsg_mail'
-                    - 'devprof_system_replacemsg_mms'
-                    - 'devprof_system_replacemsg_nacquar'
-                    - 'devprof_system_replacemsg_nntp'
-                    - 'devprof_system_replacemsg_spam'
-                    - 'devprof_system_replacemsg_sslvpn'
-                    - 'devprof_system_replacemsg_trafficquota'
-                    - 'devprof_system_replacemsg_utm'
-                    - 'devprof_system_replacemsg_webproxy'
-                    - 'devprof_system_snmp_community'
-                    - 'devprof_system_snmp_community_hosts'
-                    - 'devprof_system_snmp_community_hosts6'
-                    - 'devprof_system_snmp_sysinfo'
-                    - 'devprof_system_snmp_user'
-                    - 'devprof_system_template_interface'
-                    - 'devprof_system_template_interface_iprange'
-                    - 'diameterfilter_profile'
-                    - 'dlp_datatype'
-                    - 'dlp_dictionary'
-                    - 'dlp_dictionary_entries'
-                    - 'dlp_exactdatamatch'
-                    - 'dlp_exactdatamatch_columns'
-                    - 'dlp_filepattern'
-                    - 'dlp_filepattern_entries'
-                    - 'dlp_fpsensitivity'
-                    - 'dlp_label'
-                    - 'dlp_label_entries'
-                    - 'dlp_profile'
-                    - 'dlp_profile_rule'
-                    - 'dlp_sensitivity'
-                    - 'dlp_sensor'
-                    - 'dlp_sensor_entries'
-                    - 'dlp_sensor_filter'
-                    - 'dnsfilter_domainfilter'
-                    - 'dnsfilter_domainfilter_entries'
-                    - 'dnsfilter_profile'
-                    - 'dnsfilter_profile_dnstranslation'
-                    - 'dnsfilter_profile_domainfilter'
-                    - 'dnsfilter_profile_ftgddns'
-                    - 'dnsfilter_profile_ftgddns_filters'
-                    - 'dnsfilter_profile_urlfilter'
-                    - 'dnsfilter_urlfilter'
-                    - 'dnsfilter_urlfilter_entries'
-                    - 'dvmdb_adom'
-                    - 'dvmdb_device'
-                    - 'dvmdb_device_haslave'
-                    - 'dvmdb_device_vdom'
-                    - 'dvmdb_folder'
-                    - 'dvmdb_group'
-                    - 'dvmdb_metafields_adom'
-                    - 'dvmdb_metafields_device'
-                    - 'dvmdb_metafields_group'
-                    - 'dvmdb_revision'
-                    - 'dvmdb_script'
-                    - 'dvmdb_script_log_latest'
-                    - 'dvmdb_script_log_latest_device'
-                    - 'dvmdb_script_log_list'
-                    - 'dvmdb_script_log_list_device'
-                    - 'dvmdb_script_log_output_device_logid'
-                    - 'dvmdb_script_log_output_logid'
-                    - 'dvmdb_script_log_summary'
-                    - 'dvmdb_script_log_summary_device'
-                    - 'dvmdb_script_scriptschedule'
-                    - 'dvmdb_workflow'
-                    - 'dvmdb_workflow_wflog'
-                    - 'dvmdb_workspace_dirty'
-                    - 'dvmdb_workspace_dirty_dev'
-                    - 'dvmdb_workspace_lockinfo'
-                    - 'dvmdb_workspace_lockinfo_dev'
-                    - 'dvmdb_workspace_lockinfo_obj'
-                    - 'dvmdb_workspace_lockinfo_pkg'
-                    - 'dynamic_address'
-                    - 'dynamic_address_dynamicaddrmapping'
-                    - 'dynamic_certificate_local'
-                    - 'dynamic_certificate_local_dynamicmapping'
-                    - 'dynamic_input_interface'
-                    - 'dynamic_input_interface_dynamicmapping'
-                    - 'dynamic_interface'
-                    - 'dynamic_interface_dynamicmapping'
-                    - 'dynamic_interface_platformmapping'
-                    - 'dynamic_ippool'
-                    - 'dynamic_log_npuserver_servergroup'
-                    - 'dynamic_log_npuserver_servergroup_dynamicmapping'
-                    - 'dynamic_multicast_interface'
-                    - 'dynamic_multicast_interface_dynamicmapping'
-                    - 'dynamic_vip'
-                    - 'dynamic_virtualwanlink_members'
-                    - 'dynamic_virtualwanlink_members_dynamicmapping'
-                    - 'dynamic_virtualwanlink_neighbor'
-                    - 'dynamic_virtualwanlink_neighbor_dynamicmapping'
-                    - 'dynamic_virtualwanlink_server'
-                    - 'dynamic_virtualwanlink_server_dynamicmapping'
-                    - 'dynamic_vpntunnel'
-                    - 'dynamic_vpntunnel_dynamicmapping'
-                    - 'emailfilter_blockallowlist'
-                    - 'emailfilter_blockallowlist_entries'
-                    - 'emailfilter_bwl'
-                    - 'emailfilter_bwl_entries'
-                    - 'emailfilter_bword'
-                    - 'emailfilter_bword_entries'
-                    - 'emailfilter_dnsbl'
-                    - 'emailfilter_dnsbl_entries'
-                    - 'emailfilter_fortishield'
-                    - 'emailfilter_iptrust'
-                    - 'emailfilter_iptrust_entries'
-                    - 'emailfilter_mheader'
-                    - 'emailfilter_mheader_entries'
-                    - 'emailfilter_options'
-                    - 'emailfilter_profile'
-                    - 'emailfilter_profile_filefilter'
-                    - 'emailfilter_profile_filefilter_entries'
-                    - 'emailfilter_profile_gmail'
-                    - 'emailfilter_profile_imap'
-                    - 'emailfilter_profile_mapi'
-                    - 'emailfilter_profile_msnhotmail'
-                    - 'emailfilter_profile_otherwebmails'
-                    - 'emailfilter_profile_pop3'
-                    - 'emailfilter_profile_smtp'
-                    - 'emailfilter_profile_yahoomail'
-                    - 'endpointcontrol_fctems'
-                    - 'extendercontroller_dataplan'
-                    - 'extendercontroller_extenderprofile'
-                    - 'extendercontroller_extenderprofile_cellular'
-                    - 'extendercontroller_extenderprofile_cellular_controllerreport'
-                    - 'extendercontroller_extenderprofile_cellular_modem1'
-                    - 'extendercontroller_extenderprofile_cellular_modem1_autoswitch'
-                    - 'extendercontroller_extenderprofile_cellular_modem2'
-                    - 'extendercontroller_extenderprofile_cellular_modem2_autoswitch'
-                    - 'extendercontroller_extenderprofile_cellular_smsnotification'
-                    - 'extendercontroller_extenderprofile_cellular_smsnotification_alert'
-                    - 'extendercontroller_extenderprofile_cellular_smsnotification_receiver'
-                    - 'extendercontroller_extenderprofile_lanextension'
-                    - 'extendercontroller_extenderprofile_lanextension_backhaul'
-                    - 'extendercontroller_simprofile'
-                    - 'extendercontroller_simprofile_autoswitchprofile'
-                    - 'extendercontroller_template'
-                    - 'extensioncontroller_dataplan'
-                    - 'extensioncontroller_extenderprofile'
-                    - 'extensioncontroller_extenderprofile_cellular'
-                    - 'extensioncontroller_extenderprofile_cellular_controllerreport'
-                    - 'extensioncontroller_extenderprofile_cellular_modem1'
-                    - 'extensioncontroller_extenderprofile_cellular_modem1_autoswitch'
-                    - 'extensioncontroller_extenderprofile_cellular_modem2'
-                    - 'extensioncontroller_extenderprofile_cellular_modem2_autoswitch'
-                    - 'extensioncontroller_extenderprofile_cellular_smsnotification'
-                    - 'extensioncontroller_extenderprofile_cellular_smsnotification_alert'
-                    - 'extensioncontroller_extenderprofile_cellular_smsnotification_receiver'
-                    - 'extensioncontroller_extenderprofile_lanextension'
-                    - 'extensioncontroller_extenderprofile_lanextension_backhaul'
-                    - 'extensioncontroller_extenderprofile_lanextension_downlinks'
-                    - 'extensioncontroller_extenderprofile_lanextension_trafficsplitservices'
-                    - 'extensioncontroller_extenderprofile_wifi'
-                    - 'extensioncontroller_extenderprofile_wifi_radio1'
-                    - 'extensioncontroller_extenderprofile_wifi_radio2'
-                    - 'extensioncontroller_extendervap'
-                    - 'filefilter_profile'
-                    - 'filefilter_profile_rules'
-                    - 'firewall_accessproxy'
-                    - 'firewall_accessproxy6'
-                    - 'firewall_accessproxy6_apigateway'
-                    - 'firewall_accessproxy6_apigateway6'
-                    - 'firewall_accessproxy6_apigateway6_quic'
-                    - 'firewall_accessproxy6_apigateway6_realservers'
-                    - 'firewall_accessproxy6_apigateway6_sslciphersuites'
-                    - 'firewall_accessproxy6_apigateway_quic'
-                    - 'firewall_accessproxy6_apigateway_realservers'
-                    - 'firewall_accessproxy6_apigateway_sslciphersuites'
-                    - 'firewall_accessproxy_apigateway'
-                    - 'firewall_accessproxy_apigateway6'
-                    - 'firewall_accessproxy_apigateway6_quic'
-                    - 'firewall_accessproxy_apigateway6_realservers'
-                    - 'firewall_accessproxy_apigateway6_sslciphersuites'
-                    - 'firewall_accessproxy_apigateway_quic'
-                    - 'firewall_accessproxy_apigateway_realservers'
-                    - 'firewall_accessproxy_apigateway_sslciphersuites'
-                    - 'firewall_accessproxy_realservers'
-                    - 'firewall_accessproxy_serverpubkeyauthsettings'
-                    - 'firewall_accessproxy_serverpubkeyauthsettings_certextension'
-                    - 'firewall_accessproxysshclientcert'
-                    - 'firewall_accessproxysshclientcert_certextension'
-                    - 'firewall_accessproxyvirtualhost'
-                    - 'firewall_address'
-                    - 'firewall_address6'
-                    - 'firewall_address6_dynamicmapping'
-                    - 'firewall_address6_dynamicmapping_subnetsegment'
-                    - 'firewall_address6_list'
-                    - 'firewall_address6_profilelist'
-                    - 'firewall_address6_subnetsegment'
-                    - 'firewall_address6_tagging'
-                    - 'firewall_address6template'
-                    - 'firewall_address6template_subnetsegment'
-                    - 'firewall_address6template_subnetsegment_values'
-                    - 'firewall_address_dynamicmapping'
-                    - 'firewall_address_list'
-                    - 'firewall_address_profilelist'
-                    - 'firewall_address_tagging'
-                    - 'firewall_addrgrp'
-                    - 'firewall_addrgrp6'
-                    - 'firewall_addrgrp6_dynamicmapping'
-                    - 'firewall_addrgrp6_tagging'
-                    - 'firewall_addrgrp_dynamicmapping'
-                    - 'firewall_addrgrp_tagging'
-                    - 'firewall_carrierendpointbwl'
-                    - 'firewall_carrierendpointbwl_entries'
-                    - 'firewall_casbprofile'
-                    - 'firewall_casbprofile_saasapplication'
-                    - 'firewall_casbprofile_saasapplication_accessrule'
-                    - 'firewall_casbprofile_saasapplication_customcontrol'
-                    - 'firewall_casbprofile_saasapplication_customcontrol_option'
-                    - 'firewall_decryptedtrafficmirror'
-                    - 'firewall_explicitproxyaddress'
-                    - 'firewall_explicitproxyaddress_headergroup'
-                    - 'firewall_explicitproxyaddrgrp'
-                    - 'firewall_gtp'
-                    - 'firewall_gtp_apn'
-                    - 'firewall_gtp_ieremovepolicy'
-                    - 'firewall_gtp_ievalidation'
-                    - 'firewall_gtp_imsi'
-                    - 'firewall_gtp_ippolicy'
-                    - 'firewall_gtp_messagefilter'
-                    - 'firewall_gtp_messageratelimit'
-                    - 'firewall_gtp_messageratelimitv0'
-                    - 'firewall_gtp_messageratelimitv1'
-                    - 'firewall_gtp_messageratelimitv2'
-                    - 'firewall_gtp_noippolicy'
-                    - 'firewall_gtp_perapnshaper'
-                    - 'firewall_gtp_policy'
-                    - 'firewall_gtp_policyv2'
-                    - 'firewall_identitybasedroute'
-                    - 'firewall_identitybasedroute_rule'
-                    - 'firewall_internetservice'
-                    - 'firewall_internetservice_entry'
-                    - 'firewall_internetserviceaddition'
-                    - 'firewall_internetserviceaddition_entry'
-                    - 'firewall_internetserviceaddition_entry_portrange'
-                    - 'firewall_internetservicecustom'
-                    - 'firewall_internetservicecustom_disableentry'
-                    - 'firewall_internetservicecustom_disableentry_iprange'
-                    - 'firewall_internetservicecustom_entry'
-                    - 'firewall_internetservicecustom_entry_portrange'
-                    - 'firewall_internetservicecustomgroup'
-                    - 'firewall_internetserviceextension'
-                    - 'firewall_internetserviceextension_disableentry'
-                    - 'firewall_internetserviceextension_disableentry_ip6range'
-                    - 'firewall_internetserviceextension_disableentry_iprange'
-                    - 'firewall_internetserviceextension_disableentry_portrange'
-                    - 'firewall_internetserviceextension_entry'
-                    - 'firewall_internetserviceextension_entry_portrange'
-                    - 'firewall_internetservicefortiguard'
-                    - 'firewall_internetservicefortiguard_entry'
-                    - 'firewall_internetservicefortiguard_entry_portrange'
-                    - 'firewall_internetservicegroup'
-                    - 'firewall_internetservicename'
-                    - 'firewall_ippool'
-                    - 'firewall_ippool6'
-                    - 'firewall_ippool6_dynamicmapping'
-                    - 'firewall_ippool_dynamicmapping'
-                    - 'firewall_ippoolgrp'
-                    - 'firewall_ldbmonitor'
-                    - 'firewall_mmsprofile'
-                    - 'firewall_mmsprofile_dupe'
-                    - 'firewall_mmsprofile_flood'
-                    - 'firewall_mmsprofile_notification'
-                    - 'firewall_mmsprofile_notifmsisdn'
-                    - 'firewall_mmsprofile_outbreakprevention'
-                    - 'firewall_multicastaddress'
-                    - 'firewall_multicastaddress6'
-                    - 'firewall_multicastaddress6_tagging'
-                    - 'firewall_multicastaddress_tagging'
-                    - 'firewall_networkservicedynamic'
-                    - 'firewall_pfcp'
-                    - 'firewall_profilegroup'
-                    - 'firewall_profileprotocoloptions'
-                    - 'firewall_profileprotocoloptions_cifs'
-                    - 'firewall_profileprotocoloptions_cifs_filefilter'
-                    - 'firewall_profileprotocoloptions_cifs_filefilter_entries'
-                    - 'firewall_profileprotocoloptions_cifs_serverkeytab'
-                    - 'firewall_profileprotocoloptions_dns'
-                    - 'firewall_profileprotocoloptions_ftp'
-                    - 'firewall_profileprotocoloptions_http'
-                    - 'firewall_profileprotocoloptions_imap'
-                    - 'firewall_profileprotocoloptions_mailsignature'
-                    - 'firewall_profileprotocoloptions_mapi'
-                    - 'firewall_profileprotocoloptions_nntp'
-                    - 'firewall_profileprotocoloptions_pop3'
-                    - 'firewall_profileprotocoloptions_proxyredirect'
-                    - 'firewall_profileprotocoloptions_rtmp'
-                    - 'firewall_profileprotocoloptions_smtp'
-                    - 'firewall_profileprotocoloptions_ssh'
-                    - 'firewall_proxyaddress'
-                    - 'firewall_proxyaddress6'
-                    - 'firewall_proxyaddress6_headergroup'
-                    - 'firewall_proxyaddress6_tagging'
-                    - 'firewall_proxyaddress_headergroup'
-                    - 'firewall_proxyaddress_tagging'
-                    - 'firewall_proxyaddrgrp'
-                    - 'firewall_proxyaddrgrp6'
-                    - 'firewall_proxyaddrgrp6_tagging'
-                    - 'firewall_proxyaddrgrp_tagging'
-                    - 'firewall_schedule_group'
-                    - 'firewall_schedule_onetime'
-                    - 'firewall_schedule_recurring'
-                    - 'firewall_service_category'
-                    - 'firewall_service_custom'
-                    - 'firewall_service_group'
-                    - 'firewall_shaper_peripshaper'
-                    - 'firewall_shaper_trafficshaper'
-                    - 'firewall_shapingprofile'
-                    - 'firewall_shapingprofile_classes'
-                    - 'firewall_shapingprofile_shapingentries'
-                    - 'firewall_ssh_localca'
-                    - 'firewall_sslsshprofile'
-                    - 'firewall_sslsshprofile_dot'
-                    - 'firewall_sslsshprofile_echoutersni'
-                    - 'firewall_sslsshprofile_ftps'
-                    - 'firewall_sslsshprofile_https'
-                    - 'firewall_sslsshprofile_imaps'
-                    - 'firewall_sslsshprofile_pop3s'
-                    - 'firewall_sslsshprofile_smtps'
-                    - 'firewall_sslsshprofile_ssh'
-                    - 'firewall_sslsshprofile_ssl'
-                    - 'firewall_sslsshprofile_sslclientcertificate'
-                    - 'firewall_sslsshprofile_sslexempt'
-                    - 'firewall_sslsshprofile_sslserver'
-                    - 'firewall_trafficclass'
-                    - 'firewall_vendormac'
-                    - 'firewall_vip'
-                    - 'firewall_vip46'
-                    - 'firewall_vip46_dynamicmapping'
-                    - 'firewall_vip46_realservers'
-                    - 'firewall_vip6'
-                    - 'firewall_vip64'
-                    - 'firewall_vip64_dynamicmapping'
-                    - 'firewall_vip64_realservers'
-                    - 'firewall_vip6_dynamicmapping'
-                    - 'firewall_vip6_dynamicmapping_realservers'
-                    - 'firewall_vip6_dynamicmapping_sslciphersuites'
-                    - 'firewall_vip6_quic'
-                    - 'firewall_vip6_realservers'
-                    - 'firewall_vip6_sslciphersuites'
-                    - 'firewall_vip6_sslserverciphersuites'
-                    - 'firewall_vip_dynamicmapping'
-                    - 'firewall_vip_dynamicmapping_realservers'
-                    - 'firewall_vip_dynamicmapping_sslciphersuites'
-                    - 'firewall_vip_gslbpublicips'
-                    - 'firewall_vip_quic'
-                    - 'firewall_vip_realservers'
-                    - 'firewall_vip_sslciphersuites'
-                    - 'firewall_vip_sslserverciphersuites'
-                    - 'firewall_vipgrp'
-                    - 'firewall_vipgrp46'
-                    - 'firewall_vipgrp6'
-                    - 'firewall_vipgrp64'
-                    - 'firewall_vipgrp_dynamicmapping'
-                    - 'firewall_wildcardfqdn_custom'
-                    - 'firewall_wildcardfqdn_group'
-                    - 'fmg_device_blueprint'
-                    - 'fmg_fabric_authorization_template'
-                    - 'fmg_fabric_authorization_template_platforms'
-                    - 'fmg_sasemanager_settings'
-                    - 'fmg_sasemanager_status'
-                    - 'fmg_script'
-                    - 'fmg_script_schedule'
-                    - 'fmg_variable'
-                    - 'fmg_variable_dynamicmapping'
-                    - 'fmupdate_analyzer_virusreport'
-                    - 'fmupdate_avips_advancedlog'
-                    - 'fmupdate_avips_webproxy'
-                    - 'fmupdate_customurllist'
-                    - 'fmupdate_diskquota'
-                    - 'fmupdate_fctservices'
-                    - 'fmupdate_fdssetting'
-                    - 'fmupdate_fdssetting_pushoverride'
-                    - 'fmupdate_fdssetting_pushoverridetoclient'
-                    - 'fmupdate_fdssetting_pushoverridetoclient_announceip'
-                    - 'fmupdate_fdssetting_serveroverride'
-                    - 'fmupdate_fdssetting_serveroverride_servlist'
-                    - 'fmupdate_fdssetting_updateschedule'
-                    - 'fmupdate_fgdsetting'
-                    - 'fmupdate_fgdsetting_serveroverride'
-                    - 'fmupdate_fgdsetting_serveroverride_servlist'
-                    - 'fmupdate_fwmsetting'
-                    - 'fmupdate_fwmsetting_upgradetimeout'
-                    - 'fmupdate_multilayer'
-                    - 'fmupdate_publicnetwork'
-                    - 'fmupdate_serveraccesspriorities'
-                    - 'fmupdate_serveraccesspriorities_privateserver'
-                    - 'fmupdate_serveroverridestatus'
-                    - 'fmupdate_service'
-                    - 'fmupdate_webspam_fgdsetting'
-                    - 'fmupdate_webspam_fgdsetting_serveroverride'
-                    - 'fmupdate_webspam_fgdsetting_serveroverride_servlist'
-                    - 'fmupdate_webspam_webproxy'
-                    - 'footer_consolidated_policy'
-                    - 'footer_policy'
-                    - 'footer_policy6'
-                    - 'footer_policy6_identitybasedpolicy6'
-                    - 'footer_policy_identitybasedpolicy'
-                    - 'footer_shapingpolicy'
-                    - 'fsp_vlan'
-                    - 'fsp_vlan_dhcpserver'
-                    - 'fsp_vlan_dhcpserver_excluderange'
-                    - 'fsp_vlan_dhcpserver_iprange'
-                    - 'fsp_vlan_dhcpserver_options'
-                    - 'fsp_vlan_dhcpserver_reservedaddress'
-                    - 'fsp_vlan_dynamicmapping'
-                    - 'fsp_vlan_dynamicmapping_dhcpserver'
-                    - 'fsp_vlan_dynamicmapping_dhcpserver_excluderange'
-                    - 'fsp_vlan_dynamicmapping_dhcpserver_iprange'
-                    - 'fsp_vlan_dynamicmapping_dhcpserver_options'
-                    - 'fsp_vlan_dynamicmapping_dhcpserver_reservedaddress'
-                    - 'fsp_vlan_dynamicmapping_interface'
-                    - 'fsp_vlan_dynamicmapping_interface_ipv6'
-                    - 'fsp_vlan_dynamicmapping_interface_ipv6_ip6delegatedprefixlist'
-                    - 'fsp_vlan_dynamicmapping_interface_ipv6_ip6extraaddr'
-                    - 'fsp_vlan_dynamicmapping_interface_ipv6_ip6prefixlist'
-                    - 'fsp_vlan_dynamicmapping_interface_ipv6_vrrp6'
-                    - 'fsp_vlan_dynamicmapping_interface_secondaryip'
-                    - 'fsp_vlan_dynamicmapping_interface_vrrp'
-                    - 'fsp_vlan_dynamicmapping_interface_vrrp_proxyarp'
-                    - 'fsp_vlan_interface'
-                    - 'fsp_vlan_interface_ipv6'
-                    - 'fsp_vlan_interface_ipv6_ip6delegatedprefixlist'
-                    - 'fsp_vlan_interface_ipv6_ip6extraaddr'
-                    - 'fsp_vlan_interface_ipv6_ip6prefixlist'
-                    - 'fsp_vlan_interface_ipv6_vrrp6'
-                    - 'fsp_vlan_interface_secondaryip'
-                    - 'fsp_vlan_interface_vrrp'
-                    - 'fsp_vlan_interface_vrrp_proxyarp'
-                    - 'gtp_apn'
-                    - 'gtp_apngrp'
-                    - 'gtp_ieallowlist'
-                    - 'gtp_ieallowlist_entries'
-                    - 'gtp_iewhitelist'
-                    - 'gtp_iewhitelist_entries'
-                    - 'gtp_messagefilterv0v1'
-                    - 'gtp_messagefilterv2'
-                    - 'gtp_rattimeoutprofile'
-                    - 'gtp_tunnellimit'
-                    - 'header_consolidated_policy'
-                    - 'header_policy'
-                    - 'header_policy6'
-                    - 'header_policy6_identitybasedpolicy6'
-                    - 'header_policy_identitybasedpolicy'
-                    - 'header_shapingpolicy'
-                    - 'hotspot20_anqp3gppcellular'
-                    - 'hotspot20_anqp3gppcellular_mccmnclist'
-                    - 'hotspot20_anqpipaddresstype'
-                    - 'hotspot20_anqpnairealm'
-                    - 'hotspot20_anqpnairealm_nailist'
-                    - 'hotspot20_anqpnairealm_nailist_eapmethod'
-                    - 'hotspot20_anqpnairealm_nailist_eapmethod_authparam'
-                    - 'hotspot20_anqpnetworkauthtype'
-                    - 'hotspot20_anqproamingconsortium'
-                    - 'hotspot20_anqproamingconsortium_oilist'
-                    - 'hotspot20_anqpvenuename'
-                    - 'hotspot20_anqpvenuename_valuelist'
-                    - 'hotspot20_anqpvenueurl'
-                    - 'hotspot20_anqpvenueurl_valuelist'
-                    - 'hotspot20_h2qpadviceofcharge'
-                    - 'hotspot20_h2qpadviceofcharge_aoclist'
-                    - 'hotspot20_h2qpadviceofcharge_aoclist_planinfo'
-                    - 'hotspot20_h2qpconncapability'
-                    - 'hotspot20_h2qpoperatorname'
-                    - 'hotspot20_h2qpoperatorname_valuelist'
-                    - 'hotspot20_h2qposuprovider'
-                    - 'hotspot20_h2qposuprovider_friendlyname'
-                    - 'hotspot20_h2qposuprovider_servicedescription'
-                    - 'hotspot20_h2qposuprovidernai'
-                    - 'hotspot20_h2qposuprovidernai_nailist'
-                    - 'hotspot20_h2qptermsandconditions'
-                    - 'hotspot20_h2qpwanmetric'
-                    - 'hotspot20_hsprofile'
-                    - 'hotspot20_icon'
-                    - 'hotspot20_icon_iconlist'
-                    - 'hotspot20_qosmap'
-                    - 'hotspot20_qosmap_dscpexcept'
-                    - 'hotspot20_qosmap_dscprange'
-                    - 'icap_profile'
-                    - 'icap_profile_icapheaders'
-                    - 'icap_profile_respmodforwardrules'
-                    - 'icap_profile_respmodforwardrules_headergroup'
-                    - 'icap_remoteserver'
-                    - 'icap_remoteservergroup'
-                    - 'icap_remoteservergroup_serverlist'
-                    - 'icap_server'
-                    - 'icap_servergroup'
-                    - 'icap_servergroup_serverlist'
-                    - 'imageanalyzer_profile'
-                    - 'ips_baseline_sensor'
-                    - 'ips_baseline_sensor_entries'
-                    - 'ips_baseline_sensor_entries_exemptip'
-                    - 'ips_baseline_sensor_filter'
-                    - 'ips_baseline_sensor_override'
-                    - 'ips_baseline_sensor_override_exemptip'
-                    - 'ips_custom'
-                    - 'ips_sensor'
-                    - 'ips_sensor_entries'
-                    - 'ips_sensor_entries_exemptip'
-                    - 'ips_sensor_filter'
-                    - 'ips_sensor_override'
-                    - 'ips_sensor_override_exemptip'
-                    - 'isolator_profile'
-                    - 'isolator_profile_entries'
-                    - 'log_customfield'
-                    - 'log_npuserver'
-                    - 'log_npuserver_servergroup'
-                    - 'log_npuserver_serverinfo'
-                    - 'metafields_system_admin_user'
-                    - 'mpskprofile'
-                    - 'mpskprofile_mpskgroup'
-                    - 'mpskprofile_mpskgroup_mpskkey'
-                    - 'nacprofile'
-                    - 'pkg_authentication_rule'
-                    - 'pkg_authentication_setting'
-                    - 'pkg_central_dnat'
-                    - 'pkg_central_dnat6'
-                    - 'pkg_firewall_acl'
-                    - 'pkg_firewall_acl6'
-                    - 'pkg_firewall_centralsnatmap'
-                    - 'pkg_firewall_consolidated_policy'
-                    - 'pkg_firewall_dospolicy'
-                    - 'pkg_firewall_dospolicy6'
-                    - 'pkg_firewall_dospolicy6_anomaly'
-                    - 'pkg_firewall_dospolicy_anomaly'
-                    - 'pkg_firewall_explicitproxypolicy'
-                    - 'pkg_firewall_explicitproxypolicy_identitybasedpolicy'
-                    - 'pkg_firewall_hyperscalepolicy'
-                    - 'pkg_firewall_hyperscalepolicy46'
-                    - 'pkg_firewall_hyperscalepolicy6'
-                    - 'pkg_firewall_hyperscalepolicy64'
-                    - 'pkg_firewall_interfacepolicy'
-                    - 'pkg_firewall_interfacepolicy6'
-                    - 'pkg_firewall_localinpolicy'
-                    - 'pkg_firewall_localinpolicy6'
-                    - 'pkg_firewall_multicastpolicy'
-                    - 'pkg_firewall_multicastpolicy6'
-                    - 'pkg_firewall_policy'
-                    - 'pkg_firewall_policy46'
-                    - 'pkg_firewall_policy6'
-                    - 'pkg_firewall_policy64'
-                    - 'pkg_firewall_policy_vpndstnode'
-                    - 'pkg_firewall_policy_vpnsrcnode'
-                    - 'pkg_firewall_proxypolicy'
-                    - 'pkg_firewall_responseshapingpolicy'
-                    - 'pkg_firewall_securitypolicy'
-                    - 'pkg_firewall_shapingpolicy'
-                    - 'pkg_footer_consolidated_policy'
-                    - 'pkg_footer_policy'
-                    - 'pkg_footer_policy6'
-                    - 'pkg_footer_policy6_identitybasedpolicy6'
-                    - 'pkg_footer_policy_identitybasedpolicy'
-                    - 'pkg_footer_shapingpolicy'
-                    - 'pkg_header_consolidated_policy'
-                    - 'pkg_header_policy'
-                    - 'pkg_header_policy6'
-                    - 'pkg_header_policy6_identitybasedpolicy6'
-                    - 'pkg_header_policy_identitybasedpolicy'
-                    - 'pkg_header_shapingpolicy'
-                    - 'pkg_user_nacpolicy'
-                    - 'pkg_videofilter_youtubekey'
-                    - 'pkg_webproxy_pacpolicy'
-                    - 'pm_config_adom_options'
-                    - 'pm_config_application_list'
-                    - 'pm_config_category_list'
-                    - 'pm_config_data_defaultsslvpnoschecklist'
-                    - 'pm_config_data_tablesize'
-                    - 'pm_config_data_tablesize_faz'
-                    - 'pm_config_data_tablesize_fmg'
-                    - 'pm_config_data_tablesize_fos'
-                    - 'pm_config_data_tablesize_log'
-                    - 'pm_config_fct_endpointcontrol_profile'
-                    - 'pm_config_metafields_firewall_address'
-                    - 'pm_config_metafields_firewall_addrgrp'
-                    - 'pm_config_metafields_firewall_centralsnatmap'
-                    - 'pm_config_metafields_firewall_policy'
-                    - 'pm_config_metafields_firewall_service_custom'
-                    - 'pm_config_metafields_firewall_service_group'
-                    - 'pm_config_package_status'
-                    - 'pm_config_pblock_firewall_consolidated_policy'
-                    - 'pm_config_pblock_firewall_policy'
-                    - 'pm_config_pblock_firewall_policy6'
-                    - 'pm_config_pblock_firewall_proxypolicy'
-                    - 'pm_config_pblock_firewall_securitypolicy'
-                    - 'pm_config_rule_list'
-                    - 'pm_devprof'
-                    - 'pm_devprof_adom'
-                    - 'pm_pblock'
-                    - 'pm_pblock_adom'
-                    - 'pm_pkg'
-                    - 'pm_pkg_adom'
-                    - 'pm_pkg_global'
-                    - 'pm_pkg_schedule'
-                    - 'pm_wanprof'
-                    - 'pm_wanprof_adom'
-                    - 'qosprofile'
-                    - 'region'
-                    - 'router_accesslist'
-                    - 'router_accesslist6'
-                    - 'router_accesslist6_rule'
-                    - 'router_accesslist_rule'
-                    - 'router_aspathlist'
-                    - 'router_aspathlist_rule'
-                    - 'router_communitylist'
-                    - 'router_communitylist_rule'
-                    - 'router_prefixlist'
-                    - 'router_prefixlist6'
-                    - 'router_prefixlist6_rule'
-                    - 'router_prefixlist_rule'
-                    - 'router_routemap'
-                    - 'router_routemap_rule'
-                    - 'sctpfilter_profile'
-                    - 'sctpfilter_profile_ppidfilters'
-                    - 'spamfilter_bwl'
-                    - 'spamfilter_bwl_entries'
-                    - 'spamfilter_bword'
-                    - 'spamfilter_bword_entries'
-                    - 'spamfilter_dnsbl'
-                    - 'spamfilter_dnsbl_entries'
-                    - 'spamfilter_iptrust'
-                    - 'spamfilter_iptrust_entries'
-                    - 'spamfilter_mheader'
-                    - 'spamfilter_mheader_entries'
-                    - 'spamfilter_profile'
-                    - 'spamfilter_profile_gmail'
-                    - 'spamfilter_profile_imap'
-                    - 'spamfilter_profile_mapi'
-                    - 'spamfilter_profile_msnhotmail'
-                    - 'spamfilter_profile_pop3'
-                    - 'spamfilter_profile_smtp'
-                    - 'spamfilter_profile_yahoomail'
-                    - 'sshfilter_profile'
-                    - 'sshfilter_profile_filefilter'
-                    - 'sshfilter_profile_filefilter_entries'
-                    - 'sshfilter_profile_shellcommands'
-                    - 'switchcontroller_acl_group'
-                    - 'switchcontroller_acl_ingress'
-                    - 'switchcontroller_acl_ingress_action'
-                    - 'switchcontroller_acl_ingress_classifier'
-                    - 'switchcontroller_customcommand'
-                    - 'switchcontroller_dsl_policy'
-                    - 'switchcontroller_dynamicportpolicy'
-                    - 'switchcontroller_dynamicportpolicy_policy'
-                    - 'switchcontroller_fortilinksettings'
-                    - 'switchcontroller_fortilinksettings_nacports'
-                    - 'switchcontroller_lldpprofile'
-                    - 'switchcontroller_lldpprofile_customtlvs'
-                    - 'switchcontroller_lldpprofile_medlocationservice'
-                    - 'switchcontroller_lldpprofile_mednetworkpolicy'
-                    - 'switchcontroller_macpolicy'
-                    - 'switchcontroller_managedswitch'
-                    - 'switchcontroller_managedswitch_customcommand'
-                    - 'switchcontroller_managedswitch_dhcpsnoopingstaticclient'
-                    - 'switchcontroller_managedswitch_ipsourceguard'
-                    - 'switchcontroller_managedswitch_ipsourceguard_bindingentry'
-                    - 'switchcontroller_managedswitch_ports'
-                    - 'switchcontroller_managedswitch_ports_dhcpsnoopoption82override'
-                    - 'switchcontroller_managedswitch_remotelog'
-                    - 'switchcontroller_managedswitch_routeoffloadrouter'
-                    - 'switchcontroller_managedswitch_routerstatic'
-                    - 'switchcontroller_managedswitch_routervrf'
-                    - 'switchcontroller_managedswitch_snmpcommunity'
-                    - 'switchcontroller_managedswitch_snmpcommunity_hosts'
-                    - 'switchcontroller_managedswitch_snmpsysinfo'
-                    - 'switchcontroller_managedswitch_snmptrapthreshold'
-                    - 'switchcontroller_managedswitch_snmpuser'
-                    - 'switchcontroller_managedswitch_systemdhcpserver'
-                    - 'switchcontroller_managedswitch_systemdhcpserver_iprange'
-                    - 'switchcontroller_managedswitch_systemdhcpserver_options'
-                    - 'switchcontroller_managedswitch_systeminterface'
-                    - 'switchcontroller_managedswitch_vlan'
-                    - 'switchcontroller_ptp_profile'
-                    - 'switchcontroller_qos_dot1pmap'
-                    - 'switchcontroller_qos_ipdscpmap'
-                    - 'switchcontroller_qos_ipdscpmap_map'
-                    - 'switchcontroller_qos_qospolicy'
-                    - 'switchcontroller_qos_queuepolicy'
-                    - 'switchcontroller_qos_queuepolicy_cosqueue'
-                    - 'switchcontroller_securitypolicy_8021x'
-                    - 'switchcontroller_securitypolicy_captiveportal'
-                    - 'switchcontroller_securitypolicy_localaccess'
-                    - 'switchcontroller_switchinterfacetag'
-                    - 'switchcontroller_switchprofile'
-                    - 'switchcontroller_trafficpolicy'
-                    - 'switchcontroller_vlanpolicy'
-                    - 'sys_ha_status'
-                    - 'sys_status'
-                    - 'system_admin_group'
-                    - 'system_admin_group_member'
-                    - 'system_admin_ldap'
-                    - 'system_admin_ldap_adom'
-                    - 'system_admin_profile'
-                    - 'system_admin_profile_datamaskcustomfields'
-                    - 'system_admin_profile_writepasswdprofiles'
-                    - 'system_admin_profile_writepasswduserlist'
-                    - 'system_admin_radius'
-                    - 'system_admin_setting'
-                    - 'system_admin_tacacs'
-                    - 'system_admin_user'
-                    - 'system_admin_user_adom'
-                    - 'system_admin_user_adomexclude'
-                    - 'system_admin_user_appfilter'
-                    - 'system_admin_user_dashboard'
-                    - 'system_admin_user_dashboardtabs'
-                    - 'system_admin_user_ipsfilter'
-                    - 'system_admin_user_metadata'
-                    - 'system_admin_user_policyblock'
-                    - 'system_admin_user_policypackage'
-                    - 'system_admin_user_restrictdevvdom'
-                    - 'system_admin_user_webfilter'
-                    - 'system_alertconsole'
-                    - 'system_alertemail'
-                    - 'system_alertevent'
-                    - 'system_alertevent_alertdestination'
-                    - 'system_autodelete'
-                    - 'system_autodelete_dlpfilesautodeletion'
-                    - 'system_autodelete_logautodeletion'
-                    - 'system_autodelete_quarantinefilesautodeletion'
-                    - 'system_autodelete_reportautodeletion'
-                    - 'system_backup_allsettings'
-                    - 'system_certificate_ca'
-                    - 'system_certificate_crl'
-                    - 'system_certificate_local'
-                    - 'system_certificate_oftp'
-                    - 'system_certificate_remote'
-                    - 'system_certificate_ssh'
-                    - 'system_connector'
-                    - 'system_csf'
-                    - 'system_csf_fabricconnector'
-                    - 'system_csf_trustedlist'
-                    - 'system_customlanguage'
-                    - 'system_dhcp_server'
-                    - 'system_dhcp_server_excluderange'
-                    - 'system_dhcp_server_iprange'
-                    - 'system_dhcp_server_options'
-                    - 'system_dhcp_server_reservedaddress'
-                    - 'system_dm'
-                    - 'system_dns'
-                    - 'system_dnsdatabase'
-                    - 'system_dnsdatabase_dnsentry'
-                    - 'system_docker'
-                    - 'system_externalresource'
-                    - 'system_externalresource_dynamicmapping'
-                    - 'system_fips'
-                    - 'system_fmgcluster'
-                    - 'system_fmgcluster_peer'
-                    - 'system_fortiguard'
-                    - 'system_fortiview_autocache'
-                    - 'system_fortiview_setting'
-                    - 'system_geoipcountry'
-                    - 'system_geoipoverride'
-                    - 'system_geoipoverride_ip6range'
-                    - 'system_geoipoverride_iprange'
-                    - 'system_global'
-                    - 'system_guiact'
-                    - 'system_ha'
-                    - 'system_ha_monitoredinterfaces'
-                    - 'system_ha_monitoredips'
-                    - 'system_ha_peer'
-                    - 'system_hascheduledcheck'
-                    - 'system_interface'
-                    - 'system_interface_ipv6'
-                    - 'system_interface_member'
-                    - 'system_localinpolicy'
-                    - 'system_localinpolicy6'
-                    - 'system_localinpolicy6_dport'
-                    - 'system_localinpolicy6_dst'
-                    - 'system_localinpolicy6_intf'
-                    - 'system_localinpolicy6_src'
-                    - 'system_localinpolicy_dport'
-                    - 'system_localinpolicy_dst'
-                    - 'system_localinpolicy_intf'
-                    - 'system_localinpolicy_src'
-                    - 'system_locallog_disk_filter'
-                    - 'system_locallog_disk_setting'
-                    - 'system_locallog_fortianalyzer2_filter'
-                    - 'system_locallog_fortianalyzer2_setting'
-                    - 'system_locallog_fortianalyzer3_filter'
-                    - 'system_locallog_fortianalyzer3_setting'
-                    - 'system_locallog_fortianalyzer_filter'
-                    - 'system_locallog_fortianalyzer_setting'
-                    - 'system_locallog_memory_filter'
-                    - 'system_locallog_memory_setting'
-                    - 'system_locallog_setting'
-                    - 'system_locallog_syslogd2_filter'
-                    - 'system_locallog_syslogd2_setting'
-                    - 'system_locallog_syslogd3_filter'
-                    - 'system_locallog_syslogd3_setting'
-                    - 'system_locallog_syslogd_filter'
-                    - 'system_locallog_syslogd_setting'
-                    - 'system_locallog_tacacsaccounting_filter'
-                    - 'system_locallog_tacacsaccounting_setting'
-                    - 'system_log_alert'
-                    - 'system_log_apiratelimit'
-                    - 'system_log_devicedisable'
-                    - 'system_log_deviceselector'
-                    - 'system_log_fospolicystats'
-                    - 'system_log_interfacestats'
-                    - 'system_log_ioc'
-                    - 'system_log_maildomain'
-                    - 'system_log_ratelimit'
-                    - 'system_log_ratelimit_device'
-                    - 'system_log_ratelimit_ratelimits'
-                    - 'system_log_settings'
-                    - 'system_log_settings_clientcertauth'
-                    - 'system_log_settings_rollinganalyzer'
-                    - 'system_log_settings_rollinglocal'
-                    - 'system_log_settings_rollingregular'
-                    - 'system_log_topology'
-                    - 'system_log_ueba'
-                    - 'system_logfetch_clientprofile'
-                    - 'system_logfetch_clientprofile_devicefilter'
-                    - 'system_logfetch_clientprofile_logfilter'
-                    - 'system_logfetch_serversettings'
-                    - 'system_mail'
-                    - 'system_mcpolicydisabledadoms'
-                    - 'system_meta'
-                    - 'system_meta_sysmetafields'
-                    - 'system_metadata_admins'
-                    - 'system_npu'
-                    - 'system_npu_backgroundssescan'
-                    - 'system_npu_dosoptions'
-                    - 'system_npu_dswdtsprofile'
-                    - 'system_npu_dswqueuedtsprofile'
-                    - 'system_npu_fpanomaly'
-                    - 'system_npu_hpe'
-                    - 'system_npu_icmperrorratectrl'
-                    - 'system_npu_icmpratectrl'
-                    - 'system_npu_ipreassembly'
-                    - 'system_npu_isfnpqueues'
-                    - 'system_npu_npqueues'
-                    - 'system_npu_npqueues_ethernettype'
-                    - 'system_npu_npqueues_ipprotocol'
-                    - 'system_npu_npqueues_ipservice'
-                    - 'system_npu_npqueues_profile'
-                    - 'system_npu_npqueues_scheduler'
-                    - 'system_npu_nputcam'
-                    - 'system_npu_nputcam_data'
-                    - 'system_npu_nputcam_mask'
-                    - 'system_npu_nputcam_miract'
-                    - 'system_npu_nputcam_priact'
-                    - 'system_npu_nputcam_sact'
-                    - 'system_npu_nputcam_tact'
-                    - 'system_npu_portcpumap'
-                    - 'system_npu_portnpumap'
-                    - 'system_npu_portpathoption'
-                    - 'system_npu_priorityprotocol'
-                    - 'system_npu_ssehascan'
-                    - 'system_npu_swehhash'
-                    - 'system_npu_swtrhash'
-                    - 'system_npu_tcptimeoutprofile'
-                    - 'system_npu_udptimeoutprofile'
-                    - 'system_ntp'
-                    - 'system_ntp_ntpserver'
-                    - 'system_objecttag'
-                    - 'system_objecttagging'
-                    - 'system_passwordpolicy'
-                    - 'system_performance'
-                    - 'system_replacemsggroup'
-                    - 'system_replacemsggroup_admin'
-                    - 'system_replacemsggroup_alertmail'
-                    - 'system_replacemsggroup_auth'
-                    - 'system_replacemsggroup_automation'
-                    - 'system_replacemsggroup_custommessage'
-                    - 'system_replacemsggroup_devicedetectionportal'
-                    - 'system_replacemsggroup_ec'
-                    - 'system_replacemsggroup_fortiguardwf'
-                    - 'system_replacemsggroup_ftp'
-                    - 'system_replacemsggroup_http'
-                    - 'system_replacemsggroup_icap'
-                    - 'system_replacemsggroup_mail'
-                    - 'system_replacemsggroup_mm1'
-                    - 'system_replacemsggroup_mm3'
-                    - 'system_replacemsggroup_mm4'
-                    - 'system_replacemsggroup_mm7'
-                    - 'system_replacemsggroup_mms'
-                    - 'system_replacemsggroup_nacquar'
-                    - 'system_replacemsggroup_nntp'
-                    - 'system_replacemsggroup_spam'
-                    - 'system_replacemsggroup_sslvpn'
-                    - 'system_replacemsggroup_trafficquota'
-                    - 'system_replacemsggroup_utm'
-                    - 'system_replacemsggroup_webproxy'
-                    - 'system_replacemsgimage'
-                    - 'system_report_autocache'
-                    - 'system_report_estbrowsetime'
-                    - 'system_report_group'
-                    - 'system_report_group_chartalternative'
-                    - 'system_report_group_groupby'
-                    - 'system_report_setting'
-                    - 'system_route'
-                    - 'system_route6'
-                    - 'system_saml'
-                    - 'system_saml_fabricidp'
-                    - 'system_saml_serviceproviders'
-                    - 'system_sdnconnector'
-                    - 'system_sdnconnector_compartmentlist'
-                    - 'system_sdnconnector_externalaccountlist'
-                    - 'system_sdnconnector_externalip'
-                    - 'system_sdnconnector_forwardingrule'
-                    - 'system_sdnconnector_gcpprojectlist'
-                    - 'system_sdnconnector_nic'
-                    - 'system_sdnconnector_nic_ip'
-                    - 'system_sdnconnector_ociregionlist'
-                    - 'system_sdnconnector_route'
-                    - 'system_sdnconnector_routetable'
-                    - 'system_sdnconnector_routetable_route'
-                    - 'system_sdnproxy'
-                    - 'system_smsserver'
-                    - 'system_sniffer'
-                    - 'system_snmp_community'
-                    - 'system_snmp_community_hosts'
-                    - 'system_snmp_community_hosts6'
-                    - 'system_snmp_sysinfo'
-                    - 'system_snmp_user'
-                    - 'system_socfabric'
-                    - 'system_socfabric_trustedlist'
-                    - 'system_sql'
-                    - 'system_sql_customindex'
-                    - 'system_sql_customskipidx'
-                    - 'system_sql_tsindexfield'
-                    - 'system_sslciphersuites'
-                    - 'system_status'
-                    - 'system_syslog'
-                    - 'system_virtualwirepair'
-                    - 'system_webproxy'
-                    - 'system_workflow_approvalmatrix'
-                    - 'system_workflow_approvalmatrix_approver'
-                    - 'task_task'
-                    - 'task_task_history'
-                    - 'task_task_line'
-                    - 'task_task_line_history'
-                    - 'telemetrycontroller_agent'
-                    - 'telemetrycontroller_agentprofile'
-                    - 'telemetrycontroller_application_predefine'
-                    - 'telemetrycontroller_profile'
-                    - 'telemetrycontroller_profile_application'
-                    - 'telemetrycontroller_profile_application_sla'
-                    - 'template'
-                    - 'templategroup'
-                    - 'ums_setting'
-                    - 'user_adgrp'
-                    - 'user_certificate'
-                    - 'user_clearpass'
-                    - 'user_connector'
-                    - 'user_device'
-                    - 'user_device_dynamicmapping'
-                    - 'user_device_tagging'
-                    - 'user_deviceaccesslist'
-                    - 'user_deviceaccesslist_devicelist'
-                    - 'user_devicecategory'
-                    - 'user_devicegroup'
-                    - 'user_devicegroup_dynamicmapping'
-                    - 'user_devicegroup_tagging'
-                    - 'user_domaincontroller'
-                    - 'user_domaincontroller_extraserver'
-                    - 'user_exchange'
-                    - 'user_externalidentityprovider'
-                    - 'user_flexvm'
-                    - 'user_fortitoken'
-                    - 'user_fsso'
-                    - 'user_fsso_dynamicmapping'
-                    - 'user_fssopolling'
-                    - 'user_fssopolling_adgrp'
-                    - 'user_group'
-                    - 'user_group_dynamicmapping'
-                    - 'user_group_dynamicmapping_guest'
-                    - 'user_group_dynamicmapping_match'
-                    - 'user_group_dynamicmapping_sslvpnoschecklist'
-                    - 'user_group_guest'
-                    - 'user_group_match'
-                    - 'user_json'
-                    - 'user_krbkeytab'
-                    - 'user_ldap'
-                    - 'user_ldap_dynamicmapping'
-                    - 'user_local'
-                    - 'user_nsx'
-                    - 'user_nsx_service'
-                    - 'user_oidc'
-                    - 'user_passwordpolicy'
-                    - 'user_peer'
-                    - 'user_peergrp'
-                    - 'user_pop3'
-                    - 'user_pxgrid'
-                    - 'user_radius'
-                    - 'user_radius_accountingserver'
-                    - 'user_radius_dynamicmapping'
-                    - 'user_radius_dynamicmapping_accountingserver'
-                    - 'user_saml'
-                    - 'user_saml_dynamicmapping'
-                    - 'user_scim'
-                    - 'user_securityexemptlist'
-                    - 'user_securityexemptlist_rule'
-                    - 'user_tacacs'
-                    - 'user_tacacs_dynamicmapping'
-                    - 'user_vcenter'
-                    - 'user_vcenter_rule'
-                    - 'utmprofile'
-                    - 'vap'
-                    - 'vap_dynamicmapping'
-                    - 'vap_macfilterlist'
-                    - 'vap_mpskkey'
-                    - 'vap_portalmessageoverrides'
-                    - 'vap_vlanname'
-                    - 'vap_vlanpool'
-                    - 'vapgroup'
-                    - 'videofilter_keyword'
-                    - 'videofilter_keyword_word'
-                    - 'videofilter_profile'
-                    - 'videofilter_profile_filters'
-                    - 'videofilter_profile_fortiguardcategory'
-                    - 'videofilter_profile_fortiguardcategory_filters'
-                    - 'videofilter_youtubechannelfilter'
-                    - 'videofilter_youtubechannelfilter_entries'
-                    - 'videofilter_youtubekey'
-                    - 'virtualpatch_profile'
-                    - 'virtualpatch_profile_exemption'
-                    - 'voip_profile'
-                    - 'voip_profile_msrp'
-                    - 'voip_profile_sccp'
-                    - 'voip_profile_sip'
-                    - 'vpn_certificate_ca'
-                    - 'vpn_certificate_hsmlocal'
-                    - 'vpn_certificate_ocspserver'
-                    - 'vpn_certificate_remote'
-                    - 'vpn_ipsec_fec'
-                    - 'vpn_ipsec_fec_mappings'
-                    - 'vpn_ipsec_manualkey'
-                    - 'vpn_ipsec_phase1'
-                    - 'vpn_ipsec_phase1_ipv4excluderange'
-                    - 'vpn_ipsec_phase1_ipv6excluderange'
-                    - 'vpn_kmipserver'
-                    - 'vpn_kmipserver_serverlist'
-                    - 'vpn_qkd'
-                    - 'vpn_ssl_settings'
-                    - 'vpn_ssl_settings_authenticationrule'
-                    - 'vpnmgr_node'
-                    - 'vpnmgr_node_iprange'
-                    - 'vpnmgr_node_ipv4excluderange'
-                    - 'vpnmgr_node_protectedsubnet'
-                    - 'vpnmgr_node_summaryaddr'
-                    - 'vpnmgr_vpntable'
-                    - 'vpnsslweb_hostchecksoftware'
-                    - 'vpnsslweb_hostchecksoftware_checkitemlist'
-                    - 'vpnsslweb_portal'
-                    - 'vpnsslweb_portal_bookmarkgroup'
-                    - 'vpnsslweb_portal_bookmarkgroup_bookmarks'
-                    - 'vpnsslweb_portal_bookmarkgroup_bookmarks_formdata'
-                    - 'vpnsslweb_portal_landingpage'
-                    - 'vpnsslweb_portal_landingpage_formdata'
-                    - 'vpnsslweb_portal_macaddrcheckrule'
-                    - 'vpnsslweb_portal_oschecklist'
-                    - 'vpnsslweb_portal_splitdns'
-                    - 'vpnsslweb_realm'
-                    - 'vpnsslweb_virtualdesktopapplist'
-                    - 'vpnsslweb_virtualdesktopapplist_apps'
-                    - 'waf_mainclass'
-                    - 'waf_profile'
-                    - 'waf_profile_addresslist'
-                    - 'waf_profile_constraint'
-                    - 'waf_profile_constraint_contentlength'
-                    - 'waf_profile_constraint_exception'
-                    - 'waf_profile_constraint_headerlength'
-                    - 'waf_profile_constraint_hostname'
-                    - 'waf_profile_constraint_linelength'
-                    - 'waf_profile_constraint_malformed'
-                    - 'waf_profile_constraint_maxcookie'
-                    - 'waf_profile_constraint_maxheaderline'
-                    - 'waf_profile_constraint_maxrangesegment'
-                    - 'waf_profile_constraint_maxurlparam'
-                    - 'waf_profile_constraint_method'
-                    - 'waf_profile_constraint_paramlength'
-                    - 'waf_profile_constraint_urlparamlength'
-                    - 'waf_profile_constraint_version'
-                    - 'waf_profile_method'
-                    - 'waf_profile_method_methodpolicy'
-                    - 'waf_profile_signature'
-                    - 'waf_profile_signature_customsignature'
-                    - 'waf_profile_signature_mainclass'
-                    - 'waf_profile_urlaccess'
-                    - 'waf_profile_urlaccess_accesspattern'
-                    - 'waf_signature'
-                    - 'waf_subclass'
-                    - 'wagprofile'
-                    - 'wanopt_authgroup'
-                    - 'wanopt_peer'
-                    - 'wanopt_profile'
-                    - 'wanopt_profile_cifs'
-                    - 'wanopt_profile_ftp'
-                    - 'wanopt_profile_http'
-                    - 'wanopt_profile_mapi'
-                    - 'wanopt_profile_tcp'
-                    - 'wanprof_system_sdwan'
-                    - 'wanprof_system_sdwan_duplication'
-                    - 'wanprof_system_sdwan_healthcheck'
-                    - 'wanprof_system_sdwan_healthcheck_sla'
-                    - 'wanprof_system_sdwan_healthcheckfortiguard'
-                    - 'wanprof_system_sdwan_healthcheckfortiguard_sla'
-                    - 'wanprof_system_sdwan_members'
-                    - 'wanprof_system_sdwan_neighbor'
-                    - 'wanprof_system_sdwan_service'
-                    - 'wanprof_system_sdwan_service_sla'
-                    - 'wanprof_system_sdwan_zone'
-                    - 'wanprof_system_virtualwanlink'
-                    - 'wanprof_system_virtualwanlink_healthcheck'
-                    - 'wanprof_system_virtualwanlink_healthcheck_sla'
-                    - 'wanprof_system_virtualwanlink_members'
-                    - 'wanprof_system_virtualwanlink_neighbor'
-                    - 'wanprof_system_virtualwanlink_service'
-                    - 'wanprof_system_virtualwanlink_service_sla'
-                    - 'webfilter_categories'
-                    - 'webfilter_content'
-                    - 'webfilter_content_entries'
-                    - 'webfilter_contentheader'
-                    - 'webfilter_contentheader_entries'
-                    - 'webfilter_domainlist'
-                    - 'webfilter_domainlist_entries'
-                    - 'webfilter_ftgdlocalcat'
-                    - 'webfilter_ftgdlocalrating'
-                    - 'webfilter_ftgdrisklevel'
-                    - 'webfilter_profile'
-                    - 'webfilter_profile_antiphish'
-                    - 'webfilter_profile_antiphish_custompatterns'
-                    - 'webfilter_profile_antiphish_inspectionentries'
-                    - 'webfilter_profile_filefilter'
-                    - 'webfilter_profile_filefilter_entries'
-                    - 'webfilter_profile_ftgdwf'
-                    - 'webfilter_profile_ftgdwf_filters'
-                    - 'webfilter_profile_ftgdwf_quota'
-                    - 'webfilter_profile_ftgdwf_risk'
-                    - 'webfilter_profile_override'
-                    - 'webfilter_profile_urlextraction'
-                    - 'webfilter_profile_web'
-                    - 'webfilter_profile_youtubechannelfilter'
-                    - 'webfilter_urlfilter'
-                    - 'webfilter_urlfilter_entries'
-                    - 'webfilter_urllist'
-                    - 'webfilter_urllist_entries'
-                    - 'webproxy_explicitproxy'
-                    - 'webproxy_forwardserver'
-                    - 'webproxy_forwardservergroup'
-                    - 'webproxy_forwardservergroup_serverlist'
-                    - 'webproxy_isolatorserver'
-                    - 'webproxy_profile'
-                    - 'webproxy_profile_headers'
-                    - 'webproxy_redirectprofile'
-                    - 'webproxy_redirectprofile_entries'
-                    - 'webproxy_wisp'
-                    - 'widsprofile'
-                    - 'wireless_accesscontrollist'
-                    - 'wireless_accesscontrollist_layer3ipv4rules'
-                    - 'wireless_accesscontrollist_layer3ipv6rules'
-                    - 'wireless_address'
-                    - 'wireless_addrgrp'
-                    - 'wireless_ssidpolicy'
-                    - 'wireless_syslogprofile'
-                    - 'wireless_vap_ip6prefixlist'
-                    - 'wtpprofile'
-                    - 'wtpprofile_denymaclist'
-                    - 'wtpprofile_eslsesdongle'
-                    - 'wtpprofile_lan'
-                    - 'wtpprofile_lbs'
-                    - 'wtpprofile_platform'
-                    - 'wtpprofile_radio1'
-                    - 'wtpprofile_radio2'
-                    - 'wtpprofile_radio3'
-                    - 'wtpprofile_radio4'
-                    - 'wtpprofile_splittunnelingacl'
-                    - 'ztna_serviceconnector'
-                    - 'ztna_trafficforwardproxy'
-                    - 'ztna_trafficforwardproxy_quic'
-                    - 'ztna_trafficforwardproxy_sslciphersuites'
-                    - 'ztna_trafficforwardproxy_sslserverciphersuites'
-                    - 'ztna_trafficforwardproxy_urlroute'
-                    - 'ztna_webportal'
-                    - 'ztna_webportalbookmark'
-                    - 'ztna_webportalbookmark_bookmarks'
-                    - 'ztna_webproxy'
-                    - 'ztna_webproxy_apigateway'
-                    - 'ztna_webproxy_apigateway6'
-                    - 'ztna_webproxy_apigateway6_quic'
-                    - 'ztna_webproxy_apigateway6_realservers'
-                    - 'ztna_webproxy_apigateway6_sslciphersuites'
-                    - 'ztna_webproxy_apigateway_quic'
-                    - 'ztna_webproxy_apigateway_realservers'
-                    - 'ztna_webproxy_apigateway_sslciphersuites'
-            fields:
-                required: false
-                description:
-                    - Limit the output by returning only the attributes specified in the string array.
-                    - If none specified, all attributes will be returned.
-                type: list
-                elements: raw
-            filter:
-                required: false
-                description: Filter the result according to a set of criteria.
-                type: list
-                elements: raw
-            option:
-                required: false
-                description:
-                    - Set fetch option for the request. If no option is specified, by default the attributes of the objects will be returned.
-                    - See more details in FNDN API documents.
-                type: raw
-            sortings:
-                required: false
-                description: Sorting rules list. Items are returned in ascending(1) or descending(-1) order of fields in the list.
-                type: list
-                elements: raw
-            params:
-                required: false
-                description: The specific parameters for each different selector.
-                type: dict
-            extra_params:
-                required: false
-                description: Extra parameters for each different selector.
-                type: dict
+        description: Selector of the retrieved fortimanager facts.
+        type: str
+        choices:
+          - 'adom_options'
+          - 'antivirus_mmschecksum'
+          - 'antivirus_mmschecksum_entries'
+          - 'antivirus_notification'
+          - 'antivirus_notification_entries'
+          - 'antivirus_profile'
+          - 'antivirus_profile_cifs'
+          - 'antivirus_profile_contentdisarm'
+          - 'antivirus_profile_ftp'
+          - 'antivirus_profile_http'
+          - 'antivirus_profile_imap'
+          - 'antivirus_profile_mapi'
+          - 'antivirus_profile_nacquar'
+          - 'antivirus_profile_nntp'
+          - 'antivirus_profile_outbreakprevention'
+          - 'antivirus_profile_pop3'
+          - 'antivirus_profile_smb'
+          - 'antivirus_profile_smtp'
+          - 'antivirus_profile_ssh'
+          - 'antivirus_profile_websocket'
+          - 'apcfgprofile'
+          - 'apcfgprofile_commandlist'
+          - 'application_casi_profile'
+          - 'application_casi_profile_entries'
+          - 'application_categories'
+          - 'application_custom'
+          - 'application_group'
+          - 'application_internetservice'
+          - 'application_internetservice_entry'
+          - 'application_internetservicecustom'
+          - 'application_internetservicecustom_disableentry'
+          - 'application_internetservicecustom_disableentry_iprange'
+          - 'application_internetservicecustom_entry'
+          - 'application_internetservicecustom_entry_portrange'
+          - 'application_list'
+          - 'application_list_defaultnetworkservices'
+          - 'application_list_entries'
+          - 'application_list_entries_parameters'
+          - 'application_list_entries_parameters_members'
+          - 'arrpprofile'
+          - 'authentication_scheme'
+          - 'bleprofile'
+          - 'bonjourprofile'
+          - 'bonjourprofile_policylist'
+          - 'casb_profile'
+          - 'casb_profile_saasapplication'
+          - 'casb_profile_saasapplication_accessrule'
+          - 'casb_profile_saasapplication_accessrule_attributefilter'
+          - 'casb_profile_saasapplication_advancedtenantcontrol'
+          - 'casb_profile_saasapplication_advancedtenantcontrol_attribute'
+          - 'casb_profile_saasapplication_customcontrol'
+          - 'casb_profile_saasapplication_customcontrol_attributefilter'
+          - 'casb_profile_saasapplication_customcontrol_option'
+          - 'casb_saasapplication'
+          - 'casb_saasapplication_inputattributes'
+          - 'casb_saasapplication_outputattributes'
+          - 'casb_useractivity'
+          - 'casb_useractivity_controloptions'
+          - 'casb_useractivity_controloptions_operations'
+          - 'casb_useractivity_match'
+          - 'casb_useractivity_match_rules'
+          - 'casb_useractivity_match_tenantextraction'
+          - 'casb_useractivity_match_tenantextraction_filters'
+          - 'casb_useractivity_match_tenantsessionextraction'
+          - 'casb_useractivity_match_tenantsessionextraction_filters'
+          - 'certificate_template'
+          - 'cifs_domaincontroller'
+          - 'cifs_profile'
+          - 'cifs_profile_filefilter'
+          - 'cifs_profile_filefilter_entries'
+          - 'cifs_profile_serverkeytab'
+          - 'cloud_orchestaws'
+          - 'cloud_orchestawsconnector'
+          - 'cloud_orchestawstemplate_autoscaleexistingvpc'
+          - 'cloud_orchestawstemplate_autoscalenewvpc'
+          - 'cloud_orchestawstemplate_autoscaletgwnewvpc'
+          - 'cloud_orchestration'
+          - 'credentialstore_domaincontroller'
+          - 'devprof_device_profile_fortianalyzer'
+          - 'devprof_device_profile_fortiguard'
+          - 'devprof_log_fortianalyzer_setting'
+          - 'devprof_log_fortianalyzercloud_setting'
+          - 'devprof_log_syslogd_filter'
+          - 'devprof_log_syslogd_filter_excludelist'
+          - 'devprof_log_syslogd_filter_excludelist_fields'
+          - 'devprof_log_syslogd_filter_freestyle'
+          - 'devprof_log_syslogd_setting'
+          - 'devprof_log_syslogd_setting_customfieldname'
+          - 'devprof_log_syslogd_setting_logtemplates'
+          - 'devprof_system_centralmanagement'
+          - 'devprof_system_centralmanagement_serverlist'
+          - 'devprof_system_dns'
+          - 'devprof_system_emailserver'
+          - 'devprof_system_global'
+          - 'devprof_system_ntp'
+          - 'devprof_system_ntp_ntpserver'
+          - 'devprof_system_replacemsg_admin'
+          - 'devprof_system_replacemsg_alertmail'
+          - 'devprof_system_replacemsg_auth'
+          - 'devprof_system_replacemsg_devicedetectionportal'
+          - 'devprof_system_replacemsg_ec'
+          - 'devprof_system_replacemsg_fortiguardwf'
+          - 'devprof_system_replacemsg_ftp'
+          - 'devprof_system_replacemsg_http'
+          - 'devprof_system_replacemsg_mail'
+          - 'devprof_system_replacemsg_mms'
+          - 'devprof_system_replacemsg_nacquar'
+          - 'devprof_system_replacemsg_nntp'
+          - 'devprof_system_replacemsg_spam'
+          - 'devprof_system_replacemsg_sslvpn'
+          - 'devprof_system_replacemsg_trafficquota'
+          - 'devprof_system_replacemsg_utm'
+          - 'devprof_system_replacemsg_webproxy'
+          - 'devprof_system_snmp_community'
+          - 'devprof_system_snmp_community_hosts'
+          - 'devprof_system_snmp_community_hosts6'
+          - 'devprof_system_snmp_sysinfo'
+          - 'devprof_system_snmp_user'
+          - 'devprof_system_template_interface'
+          - 'devprof_system_template_interface_iprange'
+          - 'diameterfilter_profile'
+          - 'dlp_datatype'
+          - 'dlp_dictionary'
+          - 'dlp_dictionary_entries'
+          - 'dlp_exactdatamatch'
+          - 'dlp_exactdatamatch_columns'
+          - 'dlp_filepattern'
+          - 'dlp_filepattern_entries'
+          - 'dlp_fpsensitivity'
+          - 'dlp_label'
+          - 'dlp_label_entries'
+          - 'dlp_profile'
+          - 'dlp_profile_rule'
+          - 'dlp_sensitivity'
+          - 'dlp_sensor'
+          - 'dlp_sensor_entries'
+          - 'dlp_sensor_filter'
+          - 'dnsfilter_domainfilter'
+          - 'dnsfilter_domainfilter_entries'
+          - 'dnsfilter_profile'
+          - 'dnsfilter_profile_dnstranslation'
+          - 'dnsfilter_profile_domainfilter'
+          - 'dnsfilter_profile_ftgddns'
+          - 'dnsfilter_profile_ftgddns_filters'
+          - 'dnsfilter_profile_urlfilter'
+          - 'dnsfilter_urlfilter'
+          - 'dnsfilter_urlfilter_entries'
+          - 'dvmdb_adom'
+          - 'dvmdb_device'
+          - 'dvmdb_device_haslave'
+          - 'dvmdb_device_vdom'
+          - 'dvmdb_folder'
+          - 'dvmdb_group'
+          - 'dvmdb_metafields_adom'
+          - 'dvmdb_metafields_device'
+          - 'dvmdb_metafields_group'
+          - 'dvmdb_revision'
+          - 'dvmdb_script'
+          - 'dvmdb_script_log_latest'
+          - 'dvmdb_script_log_latest_device'
+          - 'dvmdb_script_log_list'
+          - 'dvmdb_script_log_list_device'
+          - 'dvmdb_script_log_output_device_logid'
+          - 'dvmdb_script_log_output_logid'
+          - 'dvmdb_script_log_summary'
+          - 'dvmdb_script_log_summary_device'
+          - 'dvmdb_script_scriptschedule'
+          - 'dvmdb_workflow'
+          - 'dvmdb_workflow_wflog'
+          - 'dvmdb_workspace_dirty'
+          - 'dvmdb_workspace_dirty_dev'
+          - 'dvmdb_workspace_lockinfo'
+          - 'dvmdb_workspace_lockinfo_dev'
+          - 'dvmdb_workspace_lockinfo_obj'
+          - 'dvmdb_workspace_lockinfo_pkg'
+          - 'dynamic_address'
+          - 'dynamic_address_dynamicaddrmapping'
+          - 'dynamic_certificate_local'
+          - 'dynamic_certificate_local_dynamicmapping'
+          - 'dynamic_input_interface'
+          - 'dynamic_input_interface_dynamicmapping'
+          - 'dynamic_interface'
+          - 'dynamic_interface_dynamicmapping'
+          - 'dynamic_interface_platformmapping'
+          - 'dynamic_ippool'
+          - 'dynamic_log_npuserver_servergroup'
+          - 'dynamic_log_npuserver_servergroup_dynamicmapping'
+          - 'dynamic_multicast_interface'
+          - 'dynamic_multicast_interface_dynamicmapping'
+          - 'dynamic_vip'
+          - 'dynamic_virtualwanlink_members'
+          - 'dynamic_virtualwanlink_members_dynamicmapping'
+          - 'dynamic_virtualwanlink_neighbor'
+          - 'dynamic_virtualwanlink_neighbor_dynamicmapping'
+          - 'dynamic_virtualwanlink_server'
+          - 'dynamic_virtualwanlink_server_dynamicmapping'
+          - 'dynamic_vpntunnel'
+          - 'dynamic_vpntunnel_dynamicmapping'
+          - 'emailfilter_blockallowlist'
+          - 'emailfilter_blockallowlist_entries'
+          - 'emailfilter_bwl'
+          - 'emailfilter_bwl_entries'
+          - 'emailfilter_bword'
+          - 'emailfilter_bword_entries'
+          - 'emailfilter_dnsbl'
+          - 'emailfilter_dnsbl_entries'
+          - 'emailfilter_fortishield'
+          - 'emailfilter_iptrust'
+          - 'emailfilter_iptrust_entries'
+          - 'emailfilter_mheader'
+          - 'emailfilter_mheader_entries'
+          - 'emailfilter_options'
+          - 'emailfilter_profile'
+          - 'emailfilter_profile_filefilter'
+          - 'emailfilter_profile_filefilter_entries'
+          - 'emailfilter_profile_gmail'
+          - 'emailfilter_profile_imap'
+          - 'emailfilter_profile_mapi'
+          - 'emailfilter_profile_msnhotmail'
+          - 'emailfilter_profile_otherwebmails'
+          - 'emailfilter_profile_pop3'
+          - 'emailfilter_profile_smtp'
+          - 'emailfilter_profile_yahoomail'
+          - 'endpointcontrol_fctems'
+          - 'extendercontroller_dataplan'
+          - 'extendercontroller_extenderprofile'
+          - 'extendercontroller_extenderprofile_cellular'
+          - 'extendercontroller_extenderprofile_cellular_controllerreport'
+          - 'extendercontroller_extenderprofile_cellular_modem1'
+          - 'extendercontroller_extenderprofile_cellular_modem1_autoswitch'
+          - 'extendercontroller_extenderprofile_cellular_modem2'
+          - 'extendercontroller_extenderprofile_cellular_modem2_autoswitch'
+          - 'extendercontroller_extenderprofile_cellular_smsnotification'
+          - 'extendercontroller_extenderprofile_cellular_smsnotification_alert'
+          - 'extendercontroller_extenderprofile_cellular_smsnotification_receiver'
+          - 'extendercontroller_extenderprofile_lanextension'
+          - 'extendercontroller_extenderprofile_lanextension_backhaul'
+          - 'extendercontroller_simprofile'
+          - 'extendercontroller_simprofile_autoswitchprofile'
+          - 'extendercontroller_template'
+          - 'extensioncontroller_dataplan'
+          - 'extensioncontroller_extenderprofile'
+          - 'extensioncontroller_extenderprofile_cellular'
+          - 'extensioncontroller_extenderprofile_cellular_controllerreport'
+          - 'extensioncontroller_extenderprofile_cellular_modem1'
+          - 'extensioncontroller_extenderprofile_cellular_modem1_autoswitch'
+          - 'extensioncontroller_extenderprofile_cellular_modem2'
+          - 'extensioncontroller_extenderprofile_cellular_modem2_autoswitch'
+          - 'extensioncontroller_extenderprofile_cellular_smsnotification'
+          - 'extensioncontroller_extenderprofile_cellular_smsnotification_alert'
+          - 'extensioncontroller_extenderprofile_cellular_smsnotification_receiver'
+          - 'extensioncontroller_extenderprofile_lanextension'
+          - 'extensioncontroller_extenderprofile_lanextension_backhaul'
+          - 'extensioncontroller_extenderprofile_lanextension_downlinks'
+          - 'extensioncontroller_extenderprofile_lanextension_trafficsplitservices'
+          - 'extensioncontroller_extenderprofile_wifi'
+          - 'extensioncontroller_extenderprofile_wifi_radio1'
+          - 'extensioncontroller_extenderprofile_wifi_radio2'
+          - 'extensioncontroller_extendervap'
+          - 'filefilter_profile'
+          - 'filefilter_profile_rules'
+          - 'firewall_accessproxy'
+          - 'firewall_accessproxy6'
+          - 'firewall_accessproxy6_apigateway'
+          - 'firewall_accessproxy6_apigateway6'
+          - 'firewall_accessproxy6_apigateway6_quic'
+          - 'firewall_accessproxy6_apigateway6_realservers'
+          - 'firewall_accessproxy6_apigateway6_sslciphersuites'
+          - 'firewall_accessproxy6_apigateway_quic'
+          - 'firewall_accessproxy6_apigateway_realservers'
+          - 'firewall_accessproxy6_apigateway_sslciphersuites'
+          - 'firewall_accessproxy_apigateway'
+          - 'firewall_accessproxy_apigateway6'
+          - 'firewall_accessproxy_apigateway6_quic'
+          - 'firewall_accessproxy_apigateway6_realservers'
+          - 'firewall_accessproxy_apigateway6_sslciphersuites'
+          - 'firewall_accessproxy_apigateway_quic'
+          - 'firewall_accessproxy_apigateway_realservers'
+          - 'firewall_accessproxy_apigateway_sslciphersuites'
+          - 'firewall_accessproxy_realservers'
+          - 'firewall_accessproxy_serverpubkeyauthsettings'
+          - 'firewall_accessproxy_serverpubkeyauthsettings_certextension'
+          - 'firewall_accessproxysshclientcert'
+          - 'firewall_accessproxysshclientcert_certextension'
+          - 'firewall_accessproxyvirtualhost'
+          - 'firewall_address'
+          - 'firewall_address6'
+          - 'firewall_address6_dynamicmapping'
+          - 'firewall_address6_dynamicmapping_subnetsegment'
+          - 'firewall_address6_list'
+          - 'firewall_address6_profilelist'
+          - 'firewall_address6_subnetsegment'
+          - 'firewall_address6_tagging'
+          - 'firewall_address6template'
+          - 'firewall_address6template_subnetsegment'
+          - 'firewall_address6template_subnetsegment_values'
+          - 'firewall_address_dynamicmapping'
+          - 'firewall_address_list'
+          - 'firewall_address_profilelist'
+          - 'firewall_address_tagging'
+          - 'firewall_addrgrp'
+          - 'firewall_addrgrp6'
+          - 'firewall_addrgrp6_dynamicmapping'
+          - 'firewall_addrgrp6_tagging'
+          - 'firewall_addrgrp_dynamicmapping'
+          - 'firewall_addrgrp_tagging'
+          - 'firewall_carrierendpointbwl'
+          - 'firewall_carrierendpointbwl_entries'
+          - 'firewall_casbprofile'
+          - 'firewall_casbprofile_saasapplication'
+          - 'firewall_casbprofile_saasapplication_accessrule'
+          - 'firewall_casbprofile_saasapplication_customcontrol'
+          - 'firewall_casbprofile_saasapplication_customcontrol_option'
+          - 'firewall_customtag'
+          - 'firewall_decryptedtrafficmirror'
+          - 'firewall_explicitproxyaddress'
+          - 'firewall_explicitproxyaddress_headergroup'
+          - 'firewall_explicitproxyaddrgrp'
+          - 'firewall_gtp'
+          - 'firewall_gtp_apn'
+          - 'firewall_gtp_ieremovepolicy'
+          - 'firewall_gtp_ievalidation'
+          - 'firewall_gtp_imsi'
+          - 'firewall_gtp_ippolicy'
+          - 'firewall_gtp_messagefilter'
+          - 'firewall_gtp_messageratelimit'
+          - 'firewall_gtp_messageratelimitv0'
+          - 'firewall_gtp_messageratelimitv1'
+          - 'firewall_gtp_messageratelimitv2'
+          - 'firewall_gtp_noippolicy'
+          - 'firewall_gtp_perapnshaper'
+          - 'firewall_gtp_policy'
+          - 'firewall_gtp_policyv2'
+          - 'firewall_identitybasedroute'
+          - 'firewall_identitybasedroute_rule'
+          - 'firewall_internetservice'
+          - 'firewall_internetservice_entry'
+          - 'firewall_internetserviceaddition'
+          - 'firewall_internetserviceaddition_entry'
+          - 'firewall_internetserviceaddition_entry_portrange'
+          - 'firewall_internetservicecustom'
+          - 'firewall_internetservicecustom_disableentry'
+          - 'firewall_internetservicecustom_disableentry_iprange'
+          - 'firewall_internetservicecustom_entry'
+          - 'firewall_internetservicecustom_entry_portrange'
+          - 'firewall_internetservicecustomgroup'
+          - 'firewall_internetserviceextension'
+          - 'firewall_internetserviceextension_disableentry'
+          - 'firewall_internetserviceextension_disableentry_ip6range'
+          - 'firewall_internetserviceextension_disableentry_iprange'
+          - 'firewall_internetserviceextension_disableentry_portrange'
+          - 'firewall_internetserviceextension_entry'
+          - 'firewall_internetserviceextension_entry_portrange'
+          - 'firewall_internetservicefortiguard'
+          - 'firewall_internetservicefortiguard_entry'
+          - 'firewall_internetservicefortiguard_entry_portrange'
+          - 'firewall_internetservicegroup'
+          - 'firewall_internetservicename'
+          - 'firewall_ippool'
+          - 'firewall_ippool6'
+          - 'firewall_ippool6_dynamicmapping'
+          - 'firewall_ippool_dynamicmapping'
+          - 'firewall_ippoolgrp'
+          - 'firewall_ldbmonitor'
+          - 'firewall_mmsprofile'
+          - 'firewall_mmsprofile_dupe'
+          - 'firewall_mmsprofile_flood'
+          - 'firewall_mmsprofile_notification'
+          - 'firewall_mmsprofile_notifmsisdn'
+          - 'firewall_mmsprofile_outbreakprevention'
+          - 'firewall_multicastaddress'
+          - 'firewall_multicastaddress6'
+          - 'firewall_multicastaddress6_tagging'
+          - 'firewall_multicastaddress_tagging'
+          - 'firewall_networkservicedynamic'
+          - 'firewall_pfcp'
+          - 'firewall_profilegroup'
+          - 'firewall_profileprotocoloptions'
+          - 'firewall_profileprotocoloptions_cifs'
+          - 'firewall_profileprotocoloptions_cifs_filefilter'
+          - 'firewall_profileprotocoloptions_cifs_filefilter_entries'
+          - 'firewall_profileprotocoloptions_cifs_serverkeytab'
+          - 'firewall_profileprotocoloptions_dns'
+          - 'firewall_profileprotocoloptions_ftp'
+          - 'firewall_profileprotocoloptions_http'
+          - 'firewall_profileprotocoloptions_imap'
+          - 'firewall_profileprotocoloptions_mailsignature'
+          - 'firewall_profileprotocoloptions_mapi'
+          - 'firewall_profileprotocoloptions_nntp'
+          - 'firewall_profileprotocoloptions_pop3'
+          - 'firewall_profileprotocoloptions_proxyredirect'
+          - 'firewall_profileprotocoloptions_rtmp'
+          - 'firewall_profileprotocoloptions_smtp'
+          - 'firewall_profileprotocoloptions_ssh'
+          - 'firewall_profileprotocoloptions_websocket'
+          - 'firewall_proxyaddress'
+          - 'firewall_proxyaddress6'
+          - 'firewall_proxyaddress6_headergroup'
+          - 'firewall_proxyaddress6_tagging'
+          - 'firewall_proxyaddress_headergroup'
+          - 'firewall_proxyaddress_tagging'
+          - 'firewall_proxyaddrgrp'
+          - 'firewall_proxyaddrgrp6'
+          - 'firewall_proxyaddrgrp6_tagging'
+          - 'firewall_proxyaddrgrp_tagging'
+          - 'firewall_schedule_group'
+          - 'firewall_schedule_onetime'
+          - 'firewall_schedule_recurring'
+          - 'firewall_service_category'
+          - 'firewall_service_custom'
+          - 'firewall_service_group'
+          - 'firewall_shaper_peripshaper'
+          - 'firewall_shaper_trafficshaper'
+          - 'firewall_shapingprofile'
+          - 'firewall_shapingprofile_classes'
+          - 'firewall_shapingprofile_shapingentries'
+          - 'firewall_ssh_localca'
+          - 'firewall_sslsshprofile'
+          - 'firewall_sslsshprofile_dot'
+          - 'firewall_sslsshprofile_echoutersni'
+          - 'firewall_sslsshprofile_ftps'
+          - 'firewall_sslsshprofile_https'
+          - 'firewall_sslsshprofile_imaps'
+          - 'firewall_sslsshprofile_pop3s'
+          - 'firewall_sslsshprofile_smtps'
+          - 'firewall_sslsshprofile_ssh'
+          - 'firewall_sslsshprofile_ssl'
+          - 'firewall_sslsshprofile_sslclientcertificate'
+          - 'firewall_sslsshprofile_sslexempt'
+          - 'firewall_sslsshprofile_sslserver'
+          - 'firewall_trafficclass'
+          - 'firewall_vendormac'
+          - 'firewall_vip'
+          - 'firewall_vip46'
+          - 'firewall_vip46_dynamicmapping'
+          - 'firewall_vip46_realservers'
+          - 'firewall_vip6'
+          - 'firewall_vip64'
+          - 'firewall_vip64_dynamicmapping'
+          - 'firewall_vip64_realservers'
+          - 'firewall_vip6_dynamicmapping'
+          - 'firewall_vip6_dynamicmapping_realservers'
+          - 'firewall_vip6_dynamicmapping_sslciphersuites'
+          - 'firewall_vip6_quic'
+          - 'firewall_vip6_realservers'
+          - 'firewall_vip6_sslciphersuites'
+          - 'firewall_vip6_sslserverciphersuites'
+          - 'firewall_vip_dynamicmapping'
+          - 'firewall_vip_dynamicmapping_realservers'
+          - 'firewall_vip_dynamicmapping_sslciphersuites'
+          - 'firewall_vip_gslbpublicips'
+          - 'firewall_vip_quic'
+          - 'firewall_vip_realservers'
+          - 'firewall_vip_sslciphersuites'
+          - 'firewall_vip_sslserverciphersuites'
+          - 'firewall_vipgrp'
+          - 'firewall_vipgrp46'
+          - 'firewall_vipgrp6'
+          - 'firewall_vipgrp64'
+          - 'firewall_vipgrp_dynamicmapping'
+          - 'firewall_wildcardfqdn_custom'
+          - 'firewall_wildcardfqdn_group'
+          - 'fmg_device_blueprint'
+          - 'fmg_fabric_authorization_template'
+          - 'fmg_fabric_authorization_template_platforms'
+          - 'fmg_sasemanager_settings'
+          - 'fmg_sasemanager_status'
+          - 'fmg_script'
+          - 'fmg_script_schedule'
+          - 'fmg_variable'
+          - 'fmg_variable_dynamicmapping'
+          - 'fmupdate_analyzer_virusreport'
+          - 'fmupdate_avips_advancedlog'
+          - 'fmupdate_avips_webproxy'
+          - 'fmupdate_customurllist'
+          - 'fmupdate_diskquota'
+          - 'fmupdate_fctservices'
+          - 'fmupdate_fdssetting'
+          - 'fmupdate_fdssetting_pushoverride'
+          - 'fmupdate_fdssetting_pushoverridetoclient'
+          - 'fmupdate_fdssetting_pushoverridetoclient_announceip'
+          - 'fmupdate_fdssetting_serveroverride'
+          - 'fmupdate_fdssetting_serveroverride_servlist'
+          - 'fmupdate_fdssetting_updateschedule'
+          - 'fmupdate_fgdsetting'
+          - 'fmupdate_fgdsetting_serveroverride'
+          - 'fmupdate_fgdsetting_serveroverride_servlist'
+          - 'fmupdate_fwmsetting'
+          - 'fmupdate_fwmsetting_upgradetimeout'
+          - 'fmupdate_multilayer'
+          - 'fmupdate_publicnetwork'
+          - 'fmupdate_serveraccesspriorities'
+          - 'fmupdate_serveraccesspriorities_privateserver'
+          - 'fmupdate_serveroverridestatus'
+          - 'fmupdate_service'
+          - 'fmupdate_webspam_fgdsetting'
+          - 'fmupdate_webspam_fgdsetting_serveroverride'
+          - 'fmupdate_webspam_fgdsetting_serveroverride_servlist'
+          - 'fmupdate_webspam_webproxy'
+          - 'footer_consolidated_policy'
+          - 'footer_policy'
+          - 'footer_policy6'
+          - 'footer_policy6_identitybasedpolicy6'
+          - 'footer_policy_identitybasedpolicy'
+          - 'footer_shapingpolicy'
+          - 'fsp_vlan'
+          - 'fsp_vlan_dhcpserver'
+          - 'fsp_vlan_dhcpserver_excluderange'
+          - 'fsp_vlan_dhcpserver_iprange'
+          - 'fsp_vlan_dhcpserver_options'
+          - 'fsp_vlan_dhcpserver_reservedaddress'
+          - 'fsp_vlan_dynamicmapping'
+          - 'fsp_vlan_dynamicmapping_dhcpserver'
+          - 'fsp_vlan_dynamicmapping_dhcpserver_excluderange'
+          - 'fsp_vlan_dynamicmapping_dhcpserver_iprange'
+          - 'fsp_vlan_dynamicmapping_dhcpserver_options'
+          - 'fsp_vlan_dynamicmapping_dhcpserver_reservedaddress'
+          - 'fsp_vlan_dynamicmapping_interface'
+          - 'fsp_vlan_dynamicmapping_interface_ipv6'
+          - 'fsp_vlan_dynamicmapping_interface_ipv6_ip6delegatedprefixlist'
+          - 'fsp_vlan_dynamicmapping_interface_ipv6_ip6extraaddr'
+          - 'fsp_vlan_dynamicmapping_interface_ipv6_ip6prefixlist'
+          - 'fsp_vlan_dynamicmapping_interface_ipv6_vrrp6'
+          - 'fsp_vlan_dynamicmapping_interface_secondaryip'
+          - 'fsp_vlan_dynamicmapping_interface_vrrp'
+          - 'fsp_vlan_dynamicmapping_interface_vrrp_proxyarp'
+          - 'fsp_vlan_interface'
+          - 'fsp_vlan_interface_ipv6'
+          - 'fsp_vlan_interface_ipv6_ip6delegatedprefixlist'
+          - 'fsp_vlan_interface_ipv6_ip6extraaddr'
+          - 'fsp_vlan_interface_ipv6_ip6prefixlist'
+          - 'fsp_vlan_interface_ipv6_vrrp6'
+          - 'fsp_vlan_interface_secondaryip'
+          - 'fsp_vlan_interface_vrrp'
+          - 'fsp_vlan_interface_vrrp_proxyarp'
+          - 'gtp_apn'
+          - 'gtp_apngrp'
+          - 'gtp_ieallowlist'
+          - 'gtp_ieallowlist_entries'
+          - 'gtp_iewhitelist'
+          - 'gtp_iewhitelist_entries'
+          - 'gtp_messagefilterv0v1'
+          - 'gtp_messagefilterv2'
+          - 'gtp_rattimeoutprofile'
+          - 'gtp_tunnellimit'
+          - 'header_consolidated_policy'
+          - 'header_policy'
+          - 'header_policy6'
+          - 'header_policy6_identitybasedpolicy6'
+          - 'header_policy_identitybasedpolicy'
+          - 'header_shapingpolicy'
+          - 'hotspot20_anqp3gppcellular'
+          - 'hotspot20_anqp3gppcellular_mccmnclist'
+          - 'hotspot20_anqpipaddresstype'
+          - 'hotspot20_anqpnairealm'
+          - 'hotspot20_anqpnairealm_nailist'
+          - 'hotspot20_anqpnairealm_nailist_eapmethod'
+          - 'hotspot20_anqpnairealm_nailist_eapmethod_authparam'
+          - 'hotspot20_anqpnetworkauthtype'
+          - 'hotspot20_anqproamingconsortium'
+          - 'hotspot20_anqproamingconsortium_oilist'
+          - 'hotspot20_anqpvenuename'
+          - 'hotspot20_anqpvenuename_valuelist'
+          - 'hotspot20_anqpvenueurl'
+          - 'hotspot20_anqpvenueurl_valuelist'
+          - 'hotspot20_h2qpadviceofcharge'
+          - 'hotspot20_h2qpadviceofcharge_aoclist'
+          - 'hotspot20_h2qpadviceofcharge_aoclist_planinfo'
+          - 'hotspot20_h2qpconncapability'
+          - 'hotspot20_h2qpoperatorname'
+          - 'hotspot20_h2qpoperatorname_valuelist'
+          - 'hotspot20_h2qposuprovider'
+          - 'hotspot20_h2qposuprovider_friendlyname'
+          - 'hotspot20_h2qposuprovider_servicedescription'
+          - 'hotspot20_h2qposuprovidernai'
+          - 'hotspot20_h2qposuprovidernai_nailist'
+          - 'hotspot20_h2qptermsandconditions'
+          - 'hotspot20_h2qpwanmetric'
+          - 'hotspot20_hsprofile'
+          - 'hotspot20_icon'
+          - 'hotspot20_icon_iconlist'
+          - 'hotspot20_qosmap'
+          - 'hotspot20_qosmap_dscpexcept'
+          - 'hotspot20_qosmap_dscprange'
+          - 'icap_profile'
+          - 'icap_profile_icapheaders'
+          - 'icap_profile_respmodforwardrules'
+          - 'icap_profile_respmodforwardrules_headergroup'
+          - 'icap_remoteserver'
+          - 'icap_remoteservergroup'
+          - 'icap_remoteservergroup_serverlist'
+          - 'icap_server'
+          - 'icap_servergroup'
+          - 'icap_servergroup_serverlist'
+          - 'imageanalyzer_profile'
+          - 'ips_baseline_sensor'
+          - 'ips_baseline_sensor_entries'
+          - 'ips_baseline_sensor_entries_exemptip'
+          - 'ips_baseline_sensor_filter'
+          - 'ips_baseline_sensor_override'
+          - 'ips_baseline_sensor_override_exemptip'
+          - 'ips_custom'
+          - 'ips_sensor'
+          - 'ips_sensor_entries'
+          - 'ips_sensor_entries_exemptip'
+          - 'ips_sensor_filter'
+          - 'ips_sensor_override'
+          - 'ips_sensor_override_exemptip'
+          - 'isolator_profile'
+          - 'isolator_profile_entries'
+          - 'log_customfield'
+          - 'log_npuserver'
+          - 'log_npuserver_servergroup'
+          - 'log_npuserver_serverinfo'
+          - 'metafields_system_admin_user'
+          - 'mpskprofile'
+          - 'mpskprofile_mpskgroup'
+          - 'mpskprofile_mpskgroup_mpskkey'
+          - 'nacprofile'
+          - 'pkg_authentication_rule'
+          - 'pkg_authentication_setting'
+          - 'pkg_central_dnat'
+          - 'pkg_central_dnat6'
+          - 'pkg_firewall_acl'
+          - 'pkg_firewall_acl6'
+          - 'pkg_firewall_centralsnatmap'
+          - 'pkg_firewall_consolidated_policy'
+          - 'pkg_firewall_dospolicy'
+          - 'pkg_firewall_dospolicy6'
+          - 'pkg_firewall_dospolicy6_anomaly'
+          - 'pkg_firewall_dospolicy_anomaly'
+          - 'pkg_firewall_explicitproxypolicy'
+          - 'pkg_firewall_explicitproxypolicy_identitybasedpolicy'
+          - 'pkg_firewall_hyperscalepolicy'
+          - 'pkg_firewall_hyperscalepolicy46'
+          - 'pkg_firewall_hyperscalepolicy6'
+          - 'pkg_firewall_hyperscalepolicy64'
+          - 'pkg_firewall_interfacepolicy'
+          - 'pkg_firewall_interfacepolicy6'
+          - 'pkg_firewall_localinpolicy'
+          - 'pkg_firewall_localinpolicy6'
+          - 'pkg_firewall_multicastpolicy'
+          - 'pkg_firewall_multicastpolicy6'
+          - 'pkg_firewall_policy'
+          - 'pkg_firewall_policy46'
+          - 'pkg_firewall_policy6'
+          - 'pkg_firewall_policy64'
+          - 'pkg_firewall_policy_vpndstnode'
+          - 'pkg_firewall_policy_vpnsrcnode'
+          - 'pkg_firewall_proxypolicy'
+          - 'pkg_firewall_responseshapingpolicy'
+          - 'pkg_firewall_securitypolicy'
+          - 'pkg_firewall_shapingpolicy'
+          - 'pkg_footer_consolidated_policy'
+          - 'pkg_footer_policy'
+          - 'pkg_footer_policy6'
+          - 'pkg_footer_policy6_identitybasedpolicy6'
+          - 'pkg_footer_policy_identitybasedpolicy'
+          - 'pkg_footer_shapingpolicy'
+          - 'pkg_header_consolidated_policy'
+          - 'pkg_header_policy'
+          - 'pkg_header_policy6'
+          - 'pkg_header_policy6_identitybasedpolicy6'
+          - 'pkg_header_policy_identitybasedpolicy'
+          - 'pkg_header_shapingpolicy'
+          - 'pkg_user_nacpolicy'
+          - 'pkg_videofilter_youtubekey'
+          - 'pkg_webproxy_pacpolicy'
+          - 'pm_config_adom_options'
+          - 'pm_config_application_list'
+          - 'pm_config_category_list'
+          - 'pm_config_data_defaultsslvpnoschecklist'
+          - 'pm_config_data_tablesize'
+          - 'pm_config_data_tablesize_faz'
+          - 'pm_config_data_tablesize_fmg'
+          - 'pm_config_data_tablesize_fos'
+          - 'pm_config_data_tablesize_log'
+          - 'pm_config_fct_endpointcontrol_profile'
+          - 'pm_config_metafields_firewall_address'
+          - 'pm_config_metafields_firewall_addrgrp'
+          - 'pm_config_metafields_firewall_centralsnatmap'
+          - 'pm_config_metafields_firewall_policy'
+          - 'pm_config_metafields_firewall_service_custom'
+          - 'pm_config_metafields_firewall_service_group'
+          - 'pm_config_package_status'
+          - 'pm_config_pblock_firewall_consolidated_policy'
+          - 'pm_config_pblock_firewall_localinpolicy'
+          - 'pm_config_pblock_firewall_localinpolicy6'
+          - 'pm_config_pblock_firewall_policy'
+          - 'pm_config_pblock_firewall_policy6'
+          - 'pm_config_pblock_firewall_proxypolicy'
+          - 'pm_config_pblock_firewall_securitypolicy'
+          - 'pm_config_rule_list'
+          - 'pm_devprof'
+          - 'pm_devprof_adom'
+          - 'pm_pblock'
+          - 'pm_pblock_adom'
+          - 'pm_pkg'
+          - 'pm_pkg_adom'
+          - 'pm_pkg_global'
+          - 'pm_pkg_schedule'
+          - 'pm_wanprof'
+          - 'pm_wanprof_adom'
+          - 'qosprofile'
+          - 'region'
+          - 'router_accesslist'
+          - 'router_accesslist6'
+          - 'router_accesslist6_rule'
+          - 'router_accesslist_rule'
+          - 'router_aspathlist'
+          - 'router_aspathlist_rule'
+          - 'router_communitylist'
+          - 'router_communitylist_rule'
+          - 'router_prefixlist'
+          - 'router_prefixlist6'
+          - 'router_prefixlist6_rule'
+          - 'router_prefixlist_rule'
+          - 'router_routemap'
+          - 'router_routemap_rule'
+          - 'sctpfilter_profile'
+          - 'sctpfilter_profile_ppidfilters'
+          - 'spamfilter_bwl'
+          - 'spamfilter_bwl_entries'
+          - 'spamfilter_bword'
+          - 'spamfilter_bword_entries'
+          - 'spamfilter_dnsbl'
+          - 'spamfilter_dnsbl_entries'
+          - 'spamfilter_iptrust'
+          - 'spamfilter_iptrust_entries'
+          - 'spamfilter_mheader'
+          - 'spamfilter_mheader_entries'
+          - 'spamfilter_profile'
+          - 'spamfilter_profile_gmail'
+          - 'spamfilter_profile_imap'
+          - 'spamfilter_profile_mapi'
+          - 'spamfilter_profile_msnhotmail'
+          - 'spamfilter_profile_pop3'
+          - 'spamfilter_profile_smtp'
+          - 'spamfilter_profile_yahoomail'
+          - 'sshfilter_profile'
+          - 'sshfilter_profile_filefilter'
+          - 'sshfilter_profile_filefilter_entries'
+          - 'sshfilter_profile_shellcommands'
+          - 'switchcontroller_acl_group'
+          - 'switchcontroller_acl_ingress'
+          - 'switchcontroller_acl_ingress_action'
+          - 'switchcontroller_acl_ingress_classifier'
+          - 'switchcontroller_customcommand'
+          - 'switchcontroller_dsl_policy'
+          - 'switchcontroller_dynamicportpolicy'
+          - 'switchcontroller_dynamicportpolicy_policy'
+          - 'switchcontroller_fortilinksettings'
+          - 'switchcontroller_fortilinksettings_nacports'
+          - 'switchcontroller_lldpprofile'
+          - 'switchcontroller_lldpprofile_customtlvs'
+          - 'switchcontroller_lldpprofile_medlocationservice'
+          - 'switchcontroller_lldpprofile_mednetworkpolicy'
+          - 'switchcontroller_macpolicy'
+          - 'switchcontroller_managedswitch'
+          - 'switchcontroller_managedswitch_customcommand'
+          - 'switchcontroller_managedswitch_dhcpsnoopingstaticclient'
+          - 'switchcontroller_managedswitch_ipsourceguard'
+          - 'switchcontroller_managedswitch_ipsourceguard_bindingentry'
+          - 'switchcontroller_managedswitch_ports'
+          - 'switchcontroller_managedswitch_ports_dhcpsnoopoption82override'
+          - 'switchcontroller_managedswitch_remotelog'
+          - 'switchcontroller_managedswitch_routeoffloadrouter'
+          - 'switchcontroller_managedswitch_routerstatic'
+          - 'switchcontroller_managedswitch_routervrf'
+          - 'switchcontroller_managedswitch_snmpcommunity'
+          - 'switchcontroller_managedswitch_snmpcommunity_hosts'
+          - 'switchcontroller_managedswitch_snmpsysinfo'
+          - 'switchcontroller_managedswitch_snmptrapthreshold'
+          - 'switchcontroller_managedswitch_snmpuser'
+          - 'switchcontroller_managedswitch_systemdhcpserver'
+          - 'switchcontroller_managedswitch_systemdhcpserver_iprange'
+          - 'switchcontroller_managedswitch_systemdhcpserver_options'
+          - 'switchcontroller_managedswitch_systeminterface'
+          - 'switchcontroller_managedswitch_vlan'
+          - 'switchcontroller_ptp_profile'
+          - 'switchcontroller_qos_dot1pmap'
+          - 'switchcontroller_qos_ipdscpmap'
+          - 'switchcontroller_qos_ipdscpmap_map'
+          - 'switchcontroller_qos_qospolicy'
+          - 'switchcontroller_qos_queuepolicy'
+          - 'switchcontroller_qos_queuepolicy_cosqueue'
+          - 'switchcontroller_securitypolicy_8021x'
+          - 'switchcontroller_securitypolicy_admin'
+          - 'switchcontroller_securitypolicy_captiveportal'
+          - 'switchcontroller_securitypolicy_localaccess'
+          - 'switchcontroller_switchinterfacetag'
+          - 'switchcontroller_switchprofile'
+          - 'switchcontroller_trafficpolicy'
+          - 'switchcontroller_vlanpolicy'
+          - 'sys_ha_status'
+          - 'sys_status'
+          - 'system_admin_group'
+          - 'system_admin_group_member'
+          - 'system_admin_ldap'
+          - 'system_admin_ldap_adom'
+          - 'system_admin_profile'
+          - 'system_admin_profile_datamaskcustomfields'
+          - 'system_admin_profile_writepasswdprofiles'
+          - 'system_admin_profile_writepasswduserlist'
+          - 'system_admin_radius'
+          - 'system_admin_setting'
+          - 'system_admin_tacacs'
+          - 'system_admin_user'
+          - 'system_admin_user_adom'
+          - 'system_admin_user_adomexclude'
+          - 'system_admin_user_appfilter'
+          - 'system_admin_user_dashboard'
+          - 'system_admin_user_dashboardtabs'
+          - 'system_admin_user_ipsfilter'
+          - 'system_admin_user_metadata'
+          - 'system_admin_user_policyblock'
+          - 'system_admin_user_policypackage'
+          - 'system_admin_user_restrictdevvdom'
+          - 'system_admin_user_webfilter'
+          - 'system_alertconsole'
+          - 'system_alertemail'
+          - 'system_alertevent'
+          - 'system_alertevent_alertdestination'
+          - 'system_autodelete'
+          - 'system_autodelete_dlpfilesautodeletion'
+          - 'system_autodelete_logautodeletion'
+          - 'system_autodelete_quarantinefilesautodeletion'
+          - 'system_autodelete_reportautodeletion'
+          - 'system_backup_allsettings'
+          - 'system_certificate_ca'
+          - 'system_certificate_crl'
+          - 'system_certificate_local'
+          - 'system_certificate_oftp'
+          - 'system_certificate_remote'
+          - 'system_certificate_ssh'
+          - 'system_connector'
+          - 'system_csf'
+          - 'system_csf_fabricconnector'
+          - 'system_csf_trustedlist'
+          - 'system_csf_trustedlist_adom'
+          - 'system_customlanguage'
+          - 'system_dhcp_server'
+          - 'system_dhcp_server_excluderange'
+          - 'system_dhcp_server_iprange'
+          - 'system_dhcp_server_options'
+          - 'system_dhcp_server_reservedaddress'
+          - 'system_dm'
+          - 'system_dns'
+          - 'system_dnsdatabase'
+          - 'system_dnsdatabase_dnsentry'
+          - 'system_docker'
+          - 'system_externalresource'
+          - 'system_externalresource_dynamicmapping'
+          - 'system_fips'
+          - 'system_fmgcluster'
+          - 'system_fmgcluster_peer'
+          - 'system_fortiguard'
+          - 'system_fortiview_autocache'
+          - 'system_fortiview_setting'
+          - 'system_geoipcountry'
+          - 'system_geoipoverride'
+          - 'system_geoipoverride_ip6range'
+          - 'system_geoipoverride_iprange'
+          - 'system_global'
+          - 'system_guiact'
+          - 'system_ha'
+          - 'system_ha_monitoredinterfaces'
+          - 'system_ha_monitoredips'
+          - 'system_ha_peer'
+          - 'system_hascheduledcheck'
+          - 'system_interface'
+          - 'system_interface_ipv6'
+          - 'system_interface_member'
+          - 'system_localinpolicy'
+          - 'system_localinpolicy6'
+          - 'system_localinpolicy6_dport'
+          - 'system_localinpolicy6_dst'
+          - 'system_localinpolicy6_intf'
+          - 'system_localinpolicy6_src'
+          - 'system_localinpolicy_dport'
+          - 'system_localinpolicy_dst'
+          - 'system_localinpolicy_intf'
+          - 'system_localinpolicy_src'
+          - 'system_locallog_disk_filter'
+          - 'system_locallog_disk_setting'
+          - 'system_locallog_fortianalyzer2_filter'
+          - 'system_locallog_fortianalyzer2_setting'
+          - 'system_locallog_fortianalyzer3_filter'
+          - 'system_locallog_fortianalyzer3_setting'
+          - 'system_locallog_fortianalyzer_filter'
+          - 'system_locallog_fortianalyzer_setting'
+          - 'system_locallog_memory_filter'
+          - 'system_locallog_memory_setting'
+          - 'system_locallog_setting'
+          - 'system_locallog_syslogd2_filter'
+          - 'system_locallog_syslogd2_setting'
+          - 'system_locallog_syslogd3_filter'
+          - 'system_locallog_syslogd3_setting'
+          - 'system_locallog_syslogd_filter'
+          - 'system_locallog_syslogd_setting'
+          - 'system_locallog_tacacsaccounting_filter'
+          - 'system_locallog_tacacsaccounting_setting'
+          - 'system_log_alert'
+          - 'system_log_apiratelimit'
+          - 'system_log_devicedisable'
+          - 'system_log_deviceselector'
+          - 'system_log_fospolicystats'
+          - 'system_log_interfacestats'
+          - 'system_log_ioc'
+          - 'system_log_maildomain'
+          - 'system_log_ratelimit'
+          - 'system_log_ratelimit_device'
+          - 'system_log_ratelimit_ratelimits'
+          - 'system_log_settings'
+          - 'system_log_settings_clientcertauth'
+          - 'system_log_settings_rollinganalyzer'
+          - 'system_log_settings_rollinglocal'
+          - 'system_log_settings_rollingregular'
+          - 'system_log_topology'
+          - 'system_log_ueba'
+          - 'system_logfetch_clientprofile'
+          - 'system_logfetch_clientprofile_devicefilter'
+          - 'system_logfetch_clientprofile_logfilter'
+          - 'system_logfetch_serversettings'
+          - 'system_mail'
+          - 'system_mcpolicydisabledadoms'
+          - 'system_meta'
+          - 'system_meta_sysmetafields'
+          - 'system_metadata_admins'
+          - 'system_npu'
+          - 'system_npu_backgroundssescan'
+          - 'system_npu_dosoptions'
+          - 'system_npu_dswdtsprofile'
+          - 'system_npu_dswqueuedtsprofile'
+          - 'system_npu_fpanomaly'
+          - 'system_npu_hpe'
+          - 'system_npu_icmperrorratectrl'
+          - 'system_npu_icmpratectrl'
+          - 'system_npu_ipreassembly'
+          - 'system_npu_isfnpqueues'
+          - 'system_npu_npqueues'
+          - 'system_npu_npqueues_ethernettype'
+          - 'system_npu_npqueues_ipprotocol'
+          - 'system_npu_npqueues_ipservice'
+          - 'system_npu_npqueues_profile'
+          - 'system_npu_npqueues_scheduler'
+          - 'system_npu_nputcam'
+          - 'system_npu_nputcam_data'
+          - 'system_npu_nputcam_mask'
+          - 'system_npu_nputcam_miract'
+          - 'system_npu_nputcam_priact'
+          - 'system_npu_nputcam_sact'
+          - 'system_npu_nputcam_tact'
+          - 'system_npu_portcpumap'
+          - 'system_npu_portnpumap'
+          - 'system_npu_portpathoption'
+          - 'system_npu_priorityprotocol'
+          - 'system_npu_ssehascan'
+          - 'system_npu_swehhash'
+          - 'system_npu_swtrhash'
+          - 'system_npu_tcptimeoutprofile'
+          - 'system_npu_udptimeoutprofile'
+          - 'system_ntp'
+          - 'system_ntp_ntpserver'
+          - 'system_objecttag'
+          - 'system_objecttagging'
+          - 'system_passwordpolicy'
+          - 'system_performance'
+          - 'system_replacemsggroup'
+          - 'system_replacemsggroup_admin'
+          - 'system_replacemsggroup_alertmail'
+          - 'system_replacemsggroup_auth'
+          - 'system_replacemsggroup_automation'
+          - 'system_replacemsggroup_custommessage'
+          - 'system_replacemsggroup_devicedetectionportal'
+          - 'system_replacemsggroup_ec'
+          - 'system_replacemsggroup_fortiguardwf'
+          - 'system_replacemsggroup_ftp'
+          - 'system_replacemsggroup_http'
+          - 'system_replacemsggroup_icap'
+          - 'system_replacemsggroup_mail'
+          - 'system_replacemsggroup_mm1'
+          - 'system_replacemsggroup_mm3'
+          - 'system_replacemsggroup_mm4'
+          - 'system_replacemsggroup_mm7'
+          - 'system_replacemsggroup_mms'
+          - 'system_replacemsggroup_nacquar'
+          - 'system_replacemsggroup_nntp'
+          - 'system_replacemsggroup_spam'
+          - 'system_replacemsggroup_sslvpn'
+          - 'system_replacemsggroup_trafficquota'
+          - 'system_replacemsggroup_utm'
+          - 'system_replacemsggroup_webproxy'
+          - 'system_replacemsgimage'
+          - 'system_report_autocache'
+          - 'system_report_estbrowsetime'
+          - 'system_report_group'
+          - 'system_report_group_chartalternative'
+          - 'system_report_group_groupby'
+          - 'system_report_setting'
+          - 'system_route'
+          - 'system_route6'
+          - 'system_saml'
+          - 'system_saml_fabricidp'
+          - 'system_saml_serviceproviders'
+          - 'system_sdnconnector'
+          - 'system_sdnconnector_compartmentlist'
+          - 'system_sdnconnector_externalaccountlist'
+          - 'system_sdnconnector_externalip'
+          - 'system_sdnconnector_forwardingrule'
+          - 'system_sdnconnector_gcpprojectlist'
+          - 'system_sdnconnector_nic'
+          - 'system_sdnconnector_nic_ip'
+          - 'system_sdnconnector_ociregionlist'
+          - 'system_sdnconnector_route'
+          - 'system_sdnconnector_routetable'
+          - 'system_sdnconnector_routetable_route'
+          - 'system_sdnproxy'
+          - 'system_smsserver'
+          - 'system_sniffer'
+          - 'system_snmp_community'
+          - 'system_snmp_community_hosts'
+          - 'system_snmp_community_hosts6'
+          - 'system_snmp_sysinfo'
+          - 'system_snmp_user'
+          - 'system_socfabric'
+          - 'system_socfabric_trustedlist'
+          - 'system_sql'
+          - 'system_sql_customindex'
+          - 'system_sql_customskipidx'
+          - 'system_sql_tsindexfield'
+          - 'system_sslciphersuites'
+          - 'system_status'
+          - 'system_syslog'
+          - 'system_virtualwirepair'
+          - 'system_webproxy'
+          - 'system_workflow_approvalmatrix'
+          - 'system_workflow_approvalmatrix_approver'
+          - 'task_task'
+          - 'task_task_history'
+          - 'task_task_line'
+          - 'task_task_line_history'
+          - 'telemetrycontroller_agent'
+          - 'telemetrycontroller_agentprofile'
+          - 'telemetrycontroller_application_predefine'
+          - 'telemetrycontroller_profile'
+          - 'telemetrycontroller_profile_application'
+          - 'telemetrycontroller_profile_application_sla'
+          - 'template'
+          - 'templategroup'
+          - 'ums_setting'
+          - 'user_aci'
+          - 'user_adgrp'
+          - 'user_azure'
+          - 'user_azure_rule'
+          - 'user_certificate'
+          - 'user_clearpass'
+          - 'user_connector'
+          - 'user_device'
+          - 'user_device_dynamicmapping'
+          - 'user_device_tagging'
+          - 'user_deviceaccesslist'
+          - 'user_deviceaccesslist_devicelist'
+          - 'user_devicecategory'
+          - 'user_devicegroup'
+          - 'user_devicegroup_dynamicmapping'
+          - 'user_devicegroup_tagging'
+          - 'user_domaincontroller'
+          - 'user_domaincontroller_extraserver'
+          - 'user_exchange'
+          - 'user_externalidentityprovider'
+          - 'user_flexvm'
+          - 'user_fortitoken'
+          - 'user_fsso'
+          - 'user_fsso_dynamicmapping'
+          - 'user_fssopolling'
+          - 'user_fssopolling_adgrp'
+          - 'user_group'
+          - 'user_group_dynamicmapping'
+          - 'user_group_dynamicmapping_guest'
+          - 'user_group_dynamicmapping_match'
+          - 'user_group_dynamicmapping_sslvpnoschecklist'
+          - 'user_group_guest'
+          - 'user_group_match'
+          - 'user_guardicore'
+          - 'user_json'
+          - 'user_krbkeytab'
+          - 'user_ldap'
+          - 'user_ldap_dynamicmapping'
+          - 'user_local'
+          - 'user_local_dynamicmapping'
+          - 'user_nsx'
+          - 'user_nsx_service'
+          - 'user_oidc'
+          - 'user_passwordpolicy'
+          - 'user_peer'
+          - 'user_peergrp'
+          - 'user_pop3'
+          - 'user_pxgrid'
+          - 'user_radius'
+          - 'user_radius_accountingserver'
+          - 'user_radius_dynamicmapping'
+          - 'user_radius_dynamicmapping_accountingserver'
+          - 'user_saml'
+          - 'user_saml_dynamicmapping'
+          - 'user_scim'
+          - 'user_securityexemptlist'
+          - 'user_securityexemptlist_rule'
+          - 'user_tacacs'
+          - 'user_tacacs_dynamicmapping'
+          - 'user_vcenter'
+          - 'user_vcenter_rule'
+          - 'utmprofile'
+          - 'vap'
+          - 'vap_dynamicmapping'
+          - 'vap_macfilterlist'
+          - 'vap_mpskkey'
+          - 'vap_portalmessageoverrides'
+          - 'vap_vlanname'
+          - 'vap_vlanpool'
+          - 'vapgroup'
+          - 'videofilter_keyword'
+          - 'videofilter_keyword_word'
+          - 'videofilter_profile'
+          - 'videofilter_profile_filters'
+          - 'videofilter_profile_fortiguardcategory'
+          - 'videofilter_profile_fortiguardcategory_filters'
+          - 'videofilter_youtubechannelfilter'
+          - 'videofilter_youtubechannelfilter_entries'
+          - 'videofilter_youtubekey'
+          - 'virtualpatch_profile'
+          - 'virtualpatch_profile_exemption'
+          - 'voip_profile'
+          - 'voip_profile_msrp'
+          - 'voip_profile_sccp'
+          - 'voip_profile_sip'
+          - 'vpn_certificate_ca'
+          - 'vpn_certificate_hsmlocal'
+          - 'vpn_certificate_ocspserver'
+          - 'vpn_certificate_remote'
+          - 'vpn_ipsec_fec'
+          - 'vpn_ipsec_fec_mappings'
+          - 'vpn_ipsec_fec_mappings_tos'
+          - 'vpn_ipsec_manualkey'
+          - 'vpn_ipsec_phase1'
+          - 'vpn_ipsec_phase1_ipv4excluderange'
+          - 'vpn_ipsec_phase1_ipv6excluderange'
+          - 'vpn_kmipserver'
+          - 'vpn_kmipserver_serverlist'
+          - 'vpn_qkd'
+          - 'vpn_ssl_settings'
+          - 'vpn_ssl_settings_authenticationrule'
+          - 'vpnmgr_node'
+          - 'vpnmgr_node_iprange'
+          - 'vpnmgr_node_ipv4excluderange'
+          - 'vpnmgr_node_protectedsubnet'
+          - 'vpnmgr_node_summaryaddr'
+          - 'vpnmgr_vpntable'
+          - 'vpnsslweb_hostchecksoftware'
+          - 'vpnsslweb_hostchecksoftware_checkitemlist'
+          - 'vpnsslweb_portal'
+          - 'vpnsslweb_portal_bookmarkgroup'
+          - 'vpnsslweb_portal_bookmarkgroup_bookmarks'
+          - 'vpnsslweb_portal_bookmarkgroup_bookmarks_formdata'
+          - 'vpnsslweb_portal_landingpage'
+          - 'vpnsslweb_portal_landingpage_formdata'
+          - 'vpnsslweb_portal_macaddrcheckrule'
+          - 'vpnsslweb_portal_oschecklist'
+          - 'vpnsslweb_portal_splitdns'
+          - 'vpnsslweb_realm'
+          - 'vpnsslweb_virtualdesktopapplist'
+          - 'vpnsslweb_virtualdesktopapplist_apps'
+          - 'waf_mainclass'
+          - 'waf_profile'
+          - 'waf_profile_addresslist'
+          - 'waf_profile_constraint'
+          - 'waf_profile_constraint_contentlength'
+          - 'waf_profile_constraint_exception'
+          - 'waf_profile_constraint_headerlength'
+          - 'waf_profile_constraint_hostname'
+          - 'waf_profile_constraint_linelength'
+          - 'waf_profile_constraint_malformed'
+          - 'waf_profile_constraint_maxcookie'
+          - 'waf_profile_constraint_maxheaderline'
+          - 'waf_profile_constraint_maxrangesegment'
+          - 'waf_profile_constraint_maxurlparam'
+          - 'waf_profile_constraint_method'
+          - 'waf_profile_constraint_paramlength'
+          - 'waf_profile_constraint_urlparamlength'
+          - 'waf_profile_constraint_version'
+          - 'waf_profile_method'
+          - 'waf_profile_method_methodpolicy'
+          - 'waf_profile_signature'
+          - 'waf_profile_signature_customsignature'
+          - 'waf_profile_signature_mainclass'
+          - 'waf_profile_urlaccess'
+          - 'waf_profile_urlaccess_accesspattern'
+          - 'waf_signature'
+          - 'waf_subclass'
+          - 'wagprofile'
+          - 'wanopt_authgroup'
+          - 'wanopt_peer'
+          - 'wanopt_profile'
+          - 'wanopt_profile_cifs'
+          - 'wanopt_profile_ftp'
+          - 'wanopt_profile_http'
+          - 'wanopt_profile_mapi'
+          - 'wanopt_profile_tcp'
+          - 'wanprof_system_sdwan'
+          - 'wanprof_system_sdwan_duplication'
+          - 'wanprof_system_sdwan_healthcheck'
+          - 'wanprof_system_sdwan_healthcheck_sla'
+          - 'wanprof_system_sdwan_healthcheckfortiguard'
+          - 'wanprof_system_sdwan_healthcheckfortiguard_sla'
+          - 'wanprof_system_sdwan_members'
+          - 'wanprof_system_sdwan_neighbor'
+          - 'wanprof_system_sdwan_service'
+          - 'wanprof_system_sdwan_service_sla'
+          - 'wanprof_system_sdwan_zone'
+          - 'wanprof_system_virtualwanlink'
+          - 'wanprof_system_virtualwanlink_healthcheck'
+          - 'wanprof_system_virtualwanlink_healthcheck_sla'
+          - 'wanprof_system_virtualwanlink_members'
+          - 'wanprof_system_virtualwanlink_neighbor'
+          - 'wanprof_system_virtualwanlink_service'
+          - 'wanprof_system_virtualwanlink_service_sla'
+          - 'webfilter_categories'
+          - 'webfilter_content'
+          - 'webfilter_content_entries'
+          - 'webfilter_contentheader'
+          - 'webfilter_contentheader_entries'
+          - 'webfilter_domainlist'
+          - 'webfilter_domainlist_entries'
+          - 'webfilter_ftgdlocalcat'
+          - 'webfilter_ftgdlocalrating'
+          - 'webfilter_ftgdrisklevel'
+          - 'webfilter_profile'
+          - 'webfilter_profile_antiphish'
+          - 'webfilter_profile_antiphish_custompatterns'
+          - 'webfilter_profile_antiphish_inspectionentries'
+          - 'webfilter_profile_filefilter'
+          - 'webfilter_profile_filefilter_entries'
+          - 'webfilter_profile_ftgdwf'
+          - 'webfilter_profile_ftgdwf_filters'
+          - 'webfilter_profile_ftgdwf_quota'
+          - 'webfilter_profile_ftgdwf_risk'
+          - 'webfilter_profile_override'
+          - 'webfilter_profile_urlextraction'
+          - 'webfilter_profile_web'
+          - 'webfilter_profile_youtubechannelfilter'
+          - 'webfilter_urlfilter'
+          - 'webfilter_urlfilter_entries'
+          - 'webfilter_urllist'
+          - 'webfilter_urllist_entries'
+          - 'webproxy_explicitproxy'
+          - 'webproxy_forwardserver'
+          - 'webproxy_forwardservergroup'
+          - 'webproxy_forwardservergroup_serverlist'
+          - 'webproxy_isolatorserver'
+          - 'webproxy_profile'
+          - 'webproxy_profile_headers'
+          - 'webproxy_redirectprofile'
+          - 'webproxy_redirectprofile_entries'
+          - 'webproxy_wisp'
+          - 'widsprofile'
+          - 'wireless_accesscontrollist'
+          - 'wireless_accesscontrollist_layer3ipv4rules'
+          - 'wireless_accesscontrollist_layer3ipv6rules'
+          - 'wireless_address'
+          - 'wireless_addrgrp'
+          - 'wireless_lwprofile'
+          - 'wireless_ssidpolicy'
+          - 'wireless_syslogprofile'
+          - 'wireless_vap_ip6prefixlist'
+          - 'wtpprofile'
+          - 'wtpprofile_denymaclist'
+          - 'wtpprofile_eslsesdongle'
+          - 'wtpprofile_lan'
+          - 'wtpprofile_lbs'
+          - 'wtpprofile_platform'
+          - 'wtpprofile_radio1'
+          - 'wtpprofile_radio2'
+          - 'wtpprofile_radio3'
+          - 'wtpprofile_radio4'
+          - 'wtpprofile_splittunnelingacl'
+          - 'ztna_destination'
+          - 'ztna_serviceconnector'
+          - 'ztna_trafficforwardproxy'
+          - 'ztna_trafficforwardproxy_quic'
+          - 'ztna_trafficforwardproxy_sslciphersuites'
+          - 'ztna_trafficforwardproxy_sslserverciphersuites'
+          - 'ztna_trafficforwardproxy_urlroute'
+          - 'ztna_webportal'
+          - 'ztna_webportalbookmark'
+          - 'ztna_webportalbookmark_bookmarks'
+          - 'ztna_webproxy'
+          - 'ztna_webproxy_apigateway'
+          - 'ztna_webproxy_apigateway6'
+          - 'ztna_webproxy_apigateway6_quic'
+          - 'ztna_webproxy_apigateway6_realservers'
+          - 'ztna_webproxy_apigateway6_sslciphersuites'
+          - 'ztna_webproxy_apigateway_quic'
+          - 'ztna_webproxy_apigateway_realservers'
+          - 'ztna_webproxy_apigateway_sslciphersuites'
+      fields:
+        required: false
+        description:
+          - Limit the output by returning only the attributes specified in the string array.
+          - If none specified, all attributes will be returned.
+        type: list
+        elements: raw
+      filter:
+        required: false
+        description: Filter the result according to a set of criteria.
+        type: list
+        elements: raw
+      option:
+        required: false
+        description:
+          - Set fetch option for the request. If no option is specified, by default the attributes of the objects will be returned.
+          - See more details in FNDN API documents.
+        type: raw
+      sortings:
+        required: false
+        description: Sorting rules list. Items are returned in ascending(1) or descending(-1) order of fields in the list.
+        type: list
+        elements: raw
+      params:
+        required: false
+        description: The specific parameters for each different selector.
+        type: dict
+      extra_params:
+        required: false
+        description: Extra parameters for each different selector.
+        type: dict
 '''
 
 EXAMPLES = '''
@@ -1455,42 +1472,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 
 from ansible.module_utils.basic import AnsibleModule
@@ -1619,7 +1636,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/antivirus/profile/{profile}/outbreak-prevention',
                 '/pm/config/global/obj/antivirus/profile/{profile}/outbreak-prevention'
             ],
-            'v_range': [['6.2.0', '']]
+            'v_range': [['6.2.0', '7.6.7']]
         },
         'antivirus_profile_pop3': {
             'params': ['adom', 'profile'],
@@ -1650,6 +1667,14 @@ def main():
                 '/pm/config/global/obj/antivirus/profile/{profile}/ssh'
             ],
             'v_range': [['6.2.2', '']]
+        },
+        'antivirus_profile_websocket': {
+            'params': ['adom', 'profile'],
+            'urls': [
+                '/pm/config/adom/{adom}/obj/antivirus/profile/{profile}/websocket',
+                '/pm/config/global/obj/antivirus/profile/{profile}/websocket'
+            ],
+            'v_range': [['7.6.7', '']]
         },
         'apcfgprofile': {
             'params': ['adom', 'apcfg-profile'],
@@ -2075,6 +2100,24 @@ def main():
             ],
             'v_range': [['7.6.2', '']]
         },
+        'casb_useractivity_match_tenantsessionextraction': {
+            'params': ['adom', 'match', 'user-activity'],
+            'urls': [
+                '/pm/config/adom/{adom}/obj/casb/user-activity/{user-activity}/match/{match}/tenant-session-extraction',
+                '/pm/config/global/obj/casb/user-activity/{user-activity}/match/{match}/tenant-session-extraction'
+            ],
+            'v_range': [['8.0.0', '']]
+        },
+        'casb_useractivity_match_tenantsessionextraction_filters': {
+            'params': ['adom', 'filters', 'match', 'user-activity'],
+            'urls': [
+                '/pm/config/adom/{adom}/obj/casb/user-activity/{user-activity}/match/{match}/tenant-session-extraction/filters',
+                '/pm/config/adom/{adom}/obj/casb/user-activity/{user-activity}/match/{match}/tenant-session-extraction/filters/{filters}',
+                '/pm/config/global/obj/casb/user-activity/{user-activity}/match/{match}/tenant-session-extraction/filters',
+                '/pm/config/global/obj/casb/user-activity/{user-activity}/match/{match}/tenant-session-extraction/filters/{filters}'
+            ],
+            'v_range': [['8.0.0', '']]
+        },
         'certificate_template': {
             'params': ['adom', 'template'],
             'urls': [
@@ -2102,7 +2145,7 @@ def main():
                 '/pm/config/global/obj/cifs/profile',
                 '/pm/config/global/obj/cifs/profile/{profile}'
             ],
-            'v_range': [['6.2.0', '']]
+            'v_range': [['6.2.0', '7.6.7']]
         },
         'cifs_profile_filefilter': {
             'params': ['adom', 'profile'],
@@ -2130,7 +2173,7 @@ def main():
                 '/pm/config/global/obj/cifs/profile/{profile}/server-keytab',
                 '/pm/config/global/obj/cifs/profile/{profile}/server-keytab/{server-keytab}'
             ],
-            'v_range': [['6.2.0', '']]
+            'v_range': [['6.2.0', '7.6.7']]
         },
         'cloud_orchestaws': {
             'params': ['adom', 'orchest-aws'],
@@ -2200,7 +2243,7 @@ def main():
                 '/pm/config/global/obj/credential-store/domain-controller',
                 '/pm/config/global/obj/credential-store/domain-controller/{domain-controller}'
             ],
-            'v_range': [['6.4.0', '']]
+            'v_range': [['6.4.0', '7.6.7']]
         },
         'devprof_device_profile_fortianalyzer': {
             'params': ['adom', 'devprof'],
@@ -2280,7 +2323,7 @@ def main():
                 '/pm/config/adom/{adom}/devprof/{devprof}/log/syslogd/setting/log-templates',
                 '/pm/config/adom/{adom}/devprof/{devprof}/log/syslogd/setting/log-templates/{log-templates}'
             ],
-            'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']]
+            'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']]
         },
         'devprof_system_centralmanagement': {
             'params': ['adom', 'devprof'],
@@ -2359,14 +2402,14 @@ def main():
             'urls': [
                 '/pm/config/adom/{adom}/devprof/{devprof}/system/replacemsg/device-detection-portal'
             ],
-            'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '']]
+            'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '7.6.7']]
         },
         'devprof_system_replacemsg_ec': {
             'params': ['adom', 'devprof'],
             'urls': [
                 '/pm/config/adom/{adom}/devprof/{devprof}/system/replacemsg/ec'
             ],
-            'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '7.2.1'], ['7.4.8', '7.4.10']]
+            'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '7.2.1'], ['7.4.8', '7.4.11']]
         },
         'devprof_system_replacemsg_fortiguardwf': {
             'params': ['adom', 'devprof'],
@@ -2415,7 +2458,7 @@ def main():
             'urls': [
                 '/pm/config/adom/{adom}/devprof/{devprof}/system/replacemsg/nntp'
             ],
-            'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '']]
+            'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '7.6.7']]
         },
         'devprof_system_replacemsg_spam': {
             'params': ['adom', 'devprof'],
@@ -2555,7 +2598,7 @@ def main():
                 '/pm/config/global/obj/dlp/exact-data-match',
                 '/pm/config/global/obj/dlp/exact-data-match/{exact-data-match}'
             ],
-            'v_range': [['7.4.7', '7.4.10'], ['7.6.3', '']]
+            'v_range': [['7.4.7', '7.4.11'], ['7.6.3', '']]
         },
         'dlp_exactdatamatch_columns': {
             'params': ['adom', 'columns', 'exact-data-match'],
@@ -2565,7 +2608,7 @@ def main():
                 '/pm/config/global/obj/dlp/exact-data-match/{exact-data-match}/columns',
                 '/pm/config/global/obj/dlp/exact-data-match/{exact-data-match}/columns/{columns}'
             ],
-            'v_range': [['7.4.7', '7.4.10'], ['7.6.3', '']]
+            'v_range': [['7.4.7', '7.4.11'], ['7.6.3', '']]
         },
         'dlp_filepattern': {
             'params': ['adom', 'filepattern'],
@@ -2593,7 +2636,7 @@ def main():
                 '/pm/config/global/obj/dlp/fp-sensitivity',
                 '/pm/config/global/obj/dlp/fp-sensitivity/{fp-sensitivity}'
             ],
-            'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']]
+            'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.11']]
         },
         'dlp_label': {
             'params': ['adom', 'label'],
@@ -3084,7 +3127,7 @@ def main():
                 '/pm/config/global/obj/dynamic/log/npu-server/server-group',
                 '/pm/config/global/obj/dynamic/log/npu-server/server-group/{server-group}'
             ],
-            'v_range': [['7.0.15', '7.0.16'], ['7.4.8', '7.4.10'], ['7.6.5', '']]
+            'v_range': [['7.0.15', '7.0.16'], ['7.4.8', '7.4.11'], ['7.6.5', '']]
         },
         'dynamic_log_npuserver_servergroup_dynamicmapping': {
             'params': ['adom', 'dynamic_mapping', 'server-group'],
@@ -3094,7 +3137,7 @@ def main():
                 '/pm/config/global/obj/dynamic/log/npu-server/server-group/{server-group}/dynamic_mapping',
                 '/pm/config/global/obj/dynamic/log/npu-server/server-group/{server-group}/dynamic_mapping/{dynamic_mapping}'
             ],
-            'v_range': [['7.0.15', '7.0.16'], ['7.4.8', '7.4.10'], ['7.6.5', '']]
+            'v_range': [['7.0.15', '7.0.16'], ['7.4.8', '7.4.11'], ['7.6.5', '']]
         },
         'dynamic_multicast_interface': {
             'params': ['adom', 'interface'],
@@ -3229,7 +3272,7 @@ def main():
                 '/pm/config/global/obj/emailfilter/bwl',
                 '/pm/config/global/obj/emailfilter/bwl/{bwl}'
             ],
-            'v_range': [['6.2.0', '']]
+            'v_range': [['6.2.0', '7.6.7']]
         },
         'emailfilter_bwl_entries': {
             'params': ['adom', 'bwl', 'entries'],
@@ -3239,7 +3282,7 @@ def main():
                 '/pm/config/global/obj/emailfilter/bwl/{bwl}/entries',
                 '/pm/config/global/obj/emailfilter/bwl/{bwl}/entries/{entries}'
             ],
-            'v_range': [['6.2.0', '']]
+            'v_range': [['6.2.0', '7.6.7']]
         },
         'emailfilter_bword': {
             'params': ['adom', 'bword'],
@@ -3403,7 +3446,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/emailfilter/profile/{profile}/other-webmails',
                 '/pm/config/global/obj/emailfilter/profile/{profile}/other-webmails'
             ],
-            'v_range': [['6.4.2', '']]
+            'v_range': [['6.4.2', '7.6.7']]
         },
         'emailfilter_profile_pop3': {
             'params': ['adom', 'profile'],
@@ -3744,7 +3787,7 @@ def main():
                 '/pm/config/global/obj/extension-controller/extender-vap',
                 '/pm/config/global/obj/extension-controller/extender-vap/{extender-vap}'
             ],
-            'v_range': [['7.4.7', '7.4.10'], ['7.6.3', '']]
+            'v_range': [['7.4.7', '7.4.11'], ['7.6.3', '']]
         },
         'filefilter_profile': {
             'params': ['adom', 'profile'],
@@ -4260,6 +4303,16 @@ def main():
             ],
             'v_range': [['7.4.1', '7.4.1']]
         },
+        'firewall_customtag': {
+            'params': ['adom', 'custom-tag'],
+            'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/custom-tag',
+                '/pm/config/adom/{adom}/obj/firewall/custom-tag/{custom-tag}',
+                '/pm/config/global/obj/firewall/custom-tag',
+                '/pm/config/global/obj/firewall/custom-tag/{custom-tag}'
+            ],
+            'v_range': [['8.0.0', '']]
+        },
         'firewall_decryptedtrafficmirror': {
             'params': ['adom', 'decrypted-traffic-mirror'],
             'urls': [
@@ -4458,7 +4511,7 @@ def main():
                 '/pm/config/global/obj/firewall/internet-service/entry',
                 '/pm/config/global/obj/firewall/internet-service/entry/{entry}'
             ],
-            'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']]
+            'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.11']]
         },
         'firewall_internetserviceaddition': {
             'params': ['adom', 'internet-service-addition'],
@@ -4507,7 +4560,7 @@ def main():
                 '/pm/config/global/obj/firewall/internet-service-custom/{internet-service-custom}/disable-entry',
                 '/pm/config/global/obj/firewall/internet-service-custom/{internet-service-custom}/disable-entry/{disable-entry}'
             ],
-            'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']]
+            'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.11']]
         },
         'firewall_internetservicecustom_disableentry_iprange': {
             'params': ['adom', 'disable-entry', 'internet-service-custom', 'ip-range'],
@@ -4517,7 +4570,7 @@ def main():
                 '/pm/config/global/obj/firewall/internet-service-custom/{internet-service-custom}/disable-entry/{disable-entry}/ip-range',
                 '/pm/config/global/obj/firewall/internet-service-custom/{internet-service-custom}/disable-entry/{disable-entry}/ip-range/{ip-range}'
             ],
-            'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']]
+            'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.11']]
         },
         'firewall_internetservicecustom_entry': {
             'params': ['adom', 'entry', 'internet-service-custom'],
@@ -4554,7 +4607,7 @@ def main():
                 '/pm/config/global/obj/firewall/internet-service-extension',
                 '/pm/config/global/obj/firewall/internet-service-extension/{internet-service-extension}'
             ],
-            'v_range': [['7.4.7', '7.4.10'], ['7.6.4', '']]
+            'v_range': [['7.4.7', '7.4.11'], ['7.6.4', '']]
         },
         'firewall_internetserviceextension_disableentry': {
             'params': ['adom', 'disable-entry', 'internet-service-extension'],
@@ -4564,7 +4617,7 @@ def main():
                 '/pm/config/global/obj/firewall/internet-service-extension/{internet-service-extension}/disable-entry',
                 '/pm/config/global/obj/firewall/internet-service-extension/{internet-service-extension}/disable-entry/{disable-entry}'
             ],
-            'v_range': [['7.4.7', '7.4.10'], ['7.6.4', '']]
+            'v_range': [['7.4.7', '7.4.11'], ['7.6.4', '']]
         },
         'firewall_internetserviceextension_disableentry_ip6range': {
             'params': ['adom', 'disable-entry', 'internet-service-extension', 'ip6-range'],
@@ -4575,7 +4628,7 @@ def main():
                 '/pm/config/global/obj/firewall/internet-service-extension/{internet-service-extension}/disable-entry/{disable-entry}/ip6-range',
                 '/pm/config/global/obj/firewall/internet-service-extension/{internet-service-extension}/disable-entry/{disable-entry}/ip6-range/{ip6-range}'
             ],
-            'v_range': [['7.4.7', '7.4.10'], ['7.6.4', '']]
+            'v_range': [['7.4.7', '7.4.11'], ['7.6.4', '']]
         },
         'firewall_internetserviceextension_disableentry_iprange': {
             'params': ['adom', 'disable-entry', 'internet-service-extension', 'ip-range'],
@@ -4586,7 +4639,7 @@ def main():
                 '/pm/config/global/obj/firewall/internet-service-extension/{internet-service-extension}/disable-entry/{disable-entry}/ip-range',
                 '/pm/config/global/obj/firewall/internet-service-extension/{internet-service-extension}/disable-entry/{disable-entry}/ip-range/{ip-range}'
             ],
-            'v_range': [['7.4.7', '7.4.10'], ['7.6.4', '']]
+            'v_range': [['7.4.7', '7.4.11'], ['7.6.4', '']]
         },
         'firewall_internetserviceextension_disableentry_portrange': {
             'params': ['adom', 'disable-entry', 'internet-service-extension', 'port-range'],
@@ -4597,7 +4650,7 @@ def main():
                 '/pm/config/global/obj/firewall/internet-service-extension/{internet-service-extension}/disable-entry/{disable-entry}/port-range',
                 '/pm/config/global/obj/firewall/internet-service-extension/{internet-service-extension}/disable-entry/{disable-entry}/port-range/{port-range}'
             ],
-            'v_range': [['7.4.7', '7.4.10'], ['7.6.4', '']]
+            'v_range': [['7.4.7', '7.4.11'], ['7.6.4', '']]
         },
         'firewall_internetserviceextension_entry': {
             'params': ['adom', 'entry', 'internet-service-extension'],
@@ -4607,7 +4660,7 @@ def main():
                 '/pm/config/global/obj/firewall/internet-service-extension/{internet-service-extension}/entry',
                 '/pm/config/global/obj/firewall/internet-service-extension/{internet-service-extension}/entry/{entry}'
             ],
-            'v_range': [['7.4.7', '7.4.10'], ['7.6.4', '']]
+            'v_range': [['7.4.7', '7.4.11'], ['7.6.4', '']]
         },
         'firewall_internetserviceextension_entry_portrange': {
             'params': ['adom', 'entry', 'internet-service-extension', 'port-range'],
@@ -4617,7 +4670,7 @@ def main():
                 '/pm/config/global/obj/firewall/internet-service-extension/{internet-service-extension}/entry/{entry}/port-range',
                 '/pm/config/global/obj/firewall/internet-service-extension/{internet-service-extension}/entry/{entry}/port-range/{port-range}'
             ],
-            'v_range': [['7.4.7', '7.4.10'], ['7.6.4', '']]
+            'v_range': [['7.4.7', '7.4.11'], ['7.6.4', '']]
         },
         'firewall_internetservicefortiguard': {
             'params': ['adom', 'internet-service-fortiguard'],
@@ -4867,7 +4920,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/firewall/profile-protocol-options/{profile-protocol-options}/cifs/file-filter',
                 '/pm/config/global/obj/firewall/profile-protocol-options/{profile-protocol-options}/cifs/file-filter'
             ],
-            'v_range': [['6.4.2', '']]
+            'v_range': [['6.4.2', '7.6.7']]
         },
         'firewall_profileprotocoloptions_cifs_filefilter_entries': {
             'params': ['adom', 'entries', 'profile-protocol-options'],
@@ -4877,7 +4930,7 @@ def main():
                 '/pm/config/global/obj/firewall/profile-protocol-options/{profile-protocol-options}/cifs/file-filter/entries',
                 '/pm/config/global/obj/firewall/profile-protocol-options/{profile-protocol-options}/cifs/file-filter/entries/{entries}'
             ],
-            'v_range': [['6.4.2', '']]
+            'v_range': [['6.4.2', '7.6.7']]
         },
         'firewall_profileprotocoloptions_cifs_serverkeytab': {
             'params': ['adom', 'profile-protocol-options', 'server-keytab'],
@@ -4951,7 +5004,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/firewall/profile-protocol-options/{profile-protocol-options}/proxy-redirect',
                 '/pm/config/global/obj/firewall/profile-protocol-options/{profile-protocol-options}/proxy-redirect'
             ],
-            'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']]
+            'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']]
         },
         'firewall_profileprotocoloptions_rtmp': {
             'params': ['adom', 'profile-protocol-options'],
@@ -4959,7 +5012,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/firewall/profile-protocol-options/{profile-protocol-options}/rtmp',
                 '/pm/config/global/obj/firewall/profile-protocol-options/{profile-protocol-options}/rtmp'
             ],
-            'v_range': [['7.4.8', '7.4.10']]
+            'v_range': [['7.4.8', '7.4.11']]
         },
         'firewall_profileprotocoloptions_smtp': {
             'params': ['adom', 'profile-protocol-options'],
@@ -4975,6 +5028,14 @@ def main():
                 '/pm/config/global/obj/firewall/profile-protocol-options/{profile-protocol-options}/ssh'
             ],
             'v_range': [['6.2.2', '']]
+        },
+        'firewall_profileprotocoloptions_websocket': {
+            'params': ['adom', 'profile-protocol-options'],
+            'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/profile-protocol-options/{profile-protocol-options}/websocket',
+                '/pm/config/global/obj/firewall/profile-protocol-options/{profile-protocol-options}/websocket'
+            ],
+            'v_range': [['7.6.7', '']]
         },
         'firewall_proxyaddress': {
             'params': ['adom', 'proxy-address'],
@@ -5160,7 +5221,7 @@ def main():
                 '/pm/config/global/obj/firewall/shaping-profile/{shaping-profile}/classes',
                 '/pm/config/global/obj/firewall/shaping-profile/{shaping-profile}/classes/{classes}'
             ],
-            'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']]
+            'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']]
         },
         'firewall_shapingprofile_shapingentries': {
             'params': ['adom', 'shaping-entries', 'shaping-profile'],
@@ -5263,7 +5324,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/firewall/ssl-ssh-profile/{ssl-ssh-profile}/ssl-client-certificate',
                 '/pm/config/global/obj/firewall/ssl-ssh-profile/{ssl-ssh-profile}/ssl-client-certificate'
             ],
-            'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']]
+            'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']]
         },
         'firewall_sslsshprofile_sslexempt': {
             'params': ['adom', 'ssl-exempt', 'ssl-ssh-profile'],
@@ -6195,7 +6256,7 @@ def main():
                 '/pm/config/global/obj/gtp/ie-allow-list',
                 '/pm/config/global/obj/gtp/ie-allow-list/{ie-allow-list}'
             ],
-            'v_range': [['7.2.9', '7.2.12'], ['7.4.7', '7.4.10'], ['7.6.2', '']]
+            'v_range': [['7.2.9', '7.2.12'], ['7.4.7', '7.4.11'], ['7.6.2', '']]
         },
         'gtp_ieallowlist_entries': {
             'params': ['adom', 'entries', 'ie-allow-list'],
@@ -6205,7 +6266,7 @@ def main():
                 '/pm/config/global/obj/gtp/ie-allow-list/{ie-allow-list}/entries',
                 '/pm/config/global/obj/gtp/ie-allow-list/{ie-allow-list}/entries/{entries}'
             ],
-            'v_range': [['7.2.9', '7.2.12'], ['7.4.7', '7.4.10'], ['7.6.2', '']]
+            'v_range': [['7.2.9', '7.2.12'], ['7.4.7', '7.4.11'], ['7.6.2', '']]
         },
         'gtp_iewhitelist': {
             'params': ['adom', 'ie-white-list'],
@@ -6214,7 +6275,8 @@ def main():
                 '/pm/config/adom/{adom}/obj/gtp/ie-white-list/{ie-white-list}',
                 '/pm/config/global/obj/gtp/ie-white-list',
                 '/pm/config/global/obj/gtp/ie-white-list/{ie-white-list}'
-            ]
+            ],
+            'v_range': [['6.0.0', '7.6.7']]
         },
         'gtp_iewhitelist_entries': {
             'params': ['adom', 'entries', 'ie-white-list'],
@@ -6223,7 +6285,8 @@ def main():
                 '/pm/config/adom/{adom}/obj/gtp/ie-white-list/{ie-white-list}/entries/{entries}',
                 '/pm/config/global/obj/gtp/ie-white-list/{ie-white-list}/entries',
                 '/pm/config/global/obj/gtp/ie-white-list/{ie-white-list}/entries/{entries}'
-            ]
+            ],
+            'v_range': [['6.0.0', '7.6.7']]
         },
         'gtp_messagefilterv0v1': {
             'params': ['adom', 'message-filter-v0v1'],
@@ -6251,7 +6314,7 @@ def main():
                 '/pm/config/global/obj/gtp/rat-timeout-profile',
                 '/pm/config/global/obj/gtp/rat-timeout-profile/{rat-timeout-profile}'
             ],
-            'v_range': [['7.4.7', '7.4.10'], ['7.6.4', '']]
+            'v_range': [['7.4.7', '7.4.11'], ['7.6.4', '']]
         },
         'gtp_tunnellimit': {
             'params': ['adom', 'tunnel-limit'],
@@ -6668,7 +6731,7 @@ def main():
                 '/pm/config/global/obj/icap/remote-server',
                 '/pm/config/global/obj/icap/remote-server/{remote-server}'
             ],
-            'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']]
+            'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']]
         },
         'icap_remoteservergroup': {
             'params': ['adom', 'remote-server-group'],
@@ -6678,7 +6741,7 @@ def main():
                 '/pm/config/global/obj/icap/remote-server-group',
                 '/pm/config/global/obj/icap/remote-server-group/{remote-server-group}'
             ],
-            'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']]
+            'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']]
         },
         'icap_remoteservergroup_serverlist': {
             'params': ['adom', 'remote-server-group', 'server-list'],
@@ -6688,7 +6751,7 @@ def main():
                 '/pm/config/global/obj/icap/remote-server-group/{remote-server-group}/server-list',
                 '/pm/config/global/obj/icap/remote-server-group/{remote-server-group}/server-list/{server-list}'
             ],
-            'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']]
+            'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']]
         },
         'icap_server': {
             'params': ['adom', 'server'],
@@ -6727,7 +6790,7 @@ def main():
                 '/pm/config/global/obj/image-analyzer/profile',
                 '/pm/config/global/obj/image-analyzer/profile/{profile}'
             ],
-            'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']]
+            'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']]
         },
         'ips_baseline_sensor': {
             'params': ['adom', 'sensor'],
@@ -7096,7 +7159,7 @@ def main():
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/hyperscale-policy',
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/hyperscale-policy/{hyperscale-policy}'
             ],
-            'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '']]
+            'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '7.6.7']]
         },
         'pkg_firewall_hyperscalepolicy46': {
             'params': ['adom', 'hyperscale-policy46', 'pkg'],
@@ -7104,7 +7167,7 @@ def main():
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/hyperscale-policy46',
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/hyperscale-policy46/{hyperscale-policy46}'
             ],
-            'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '']]
+            'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '7.6.7']]
         },
         'pkg_firewall_hyperscalepolicy6': {
             'params': ['adom', 'hyperscale-policy6', 'pkg'],
@@ -7120,7 +7183,7 @@ def main():
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/hyperscale-policy64',
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/hyperscale-policy64/{hyperscale-policy64}'
             ],
-            'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '']]
+            'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '7.6.7']]
         },
         'pkg_firewall_interfacepolicy': {
             'params': ['adom', 'interface-policy', 'pkg'],
@@ -7224,7 +7287,7 @@ def main():
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/response-shaping-policy',
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/response-shaping-policy/{response-shaping-policy}'
             ],
-            'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']]
+            'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']]
         },
         'pkg_firewall_securitypolicy': {
             'params': ['adom', 'pkg', 'security-policy'],
@@ -7266,7 +7329,7 @@ def main():
                 '/pm/config/global/pkg/{pkg}/global/footer/policy6',
                 '/pm/config/global/pkg/{pkg}/global/footer/policy6/{policy6}'
             ],
-            'v_range': [['7.0.5', '7.0.16'], ['7.2.2', '']]
+            'v_range': [['7.0.5', '7.0.16'], ['7.2.2', '7.6.7']]
         },
         'pkg_footer_policy6_identitybasedpolicy6': {
             'params': ['identity-based-policy6', 'pkg', 'policy6'],
@@ -7318,7 +7381,7 @@ def main():
                 '/pm/config/global/pkg/{pkg}/global/header/policy6',
                 '/pm/config/global/pkg/{pkg}/global/header/policy6/{policy6}'
             ],
-            'v_range': [['7.0.5', '7.0.16'], ['7.2.2', '']]
+            'v_range': [['7.0.5', '7.0.16'], ['7.2.2', '7.6.7']]
         },
         'pkg_header_policy6_identitybasedpolicy6': {
             'params': ['identity-based-policy6', 'pkg', 'policy6'],
@@ -7359,7 +7422,7 @@ def main():
                 '/pm/config/adom/{adom}/pkg/{pkg}/videofilter/youtube-key',
                 '/pm/config/adom/{adom}/pkg/{pkg}/videofilter/youtube-key/{youtube-key}'
             ],
-            'v_range': [['7.4.4', '7.4.10'], ['7.6.2', '']]
+            'v_range': [['7.4.4', '7.4.11'], ['7.6.2', '']]
         },
         'pkg_webproxy_pacpolicy': {
             'params': ['adom', 'pac-policy', 'pkg'],
@@ -7367,7 +7430,7 @@ def main():
                 '/pm/config/adom/{adom}/pkg/{pkg}/web-proxy/pac-policy',
                 '/pm/config/adom/{adom}/pkg/{pkg}/web-proxy/pac-policy/{pac-policy}'
             ],
-            'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']]
+            'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']]
         },
         'pm_config_adom_options': {
             'params': ['adom'],
@@ -7516,6 +7579,22 @@ def main():
             ],
             'v_range': [['7.0.3', '7.6.2']]
         },
+        'pm_config_pblock_firewall_localinpolicy': {
+            'params': ['adom', 'local-in-policy', 'pblock'],
+            'urls': [
+                '/pm/config/adom/{adom}/pblock/{pblock}/firewall/local-in-policy',
+                '/pm/config/adom/{adom}/pblock/{pblock}/firewall/local-in-policy/{local-in-policy}'
+            ],
+            'v_range': [['8.0.0', '']]
+        },
+        'pm_config_pblock_firewall_localinpolicy6': {
+            'params': ['adom', 'local-in-policy6', 'pblock'],
+            'urls': [
+                '/pm/config/adom/{adom}/pblock/{pblock}/firewall/local-in-policy6',
+                '/pm/config/adom/{adom}/pblock/{pblock}/firewall/local-in-policy6/{local-in-policy6}'
+            ],
+            'v_range': [['8.0.0', '']]
+        },
         'pm_config_pblock_firewall_policy': {
             'params': ['adom', 'pblock', 'policy'],
             'urls': [
@@ -7606,7 +7685,8 @@ def main():
             'urls': [
                 '/pm/pkg/adom/{adom}/{pkg_name_path}/schedule',
                 '/pm/pkg/global/{pkg_name_path}/schedule'
-            ]
+            ],
+            'v_range': [['6.0.0', '7.4.10'], ['7.6.0', '7.6.6']]
         },
         'pm_wanprof': {
             'params': ['adom', 'pkg_path'],
@@ -7807,7 +7887,7 @@ def main():
                 '/pm/config/global/obj/spamfilter/bwl',
                 '/pm/config/global/obj/spamfilter/bwl/{bwl}'
             ],
-            'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']]
+            'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.11']]
         },
         'spamfilter_bwl_entries': {
             'params': ['adom', 'bwl', 'entries'],
@@ -7817,7 +7897,7 @@ def main():
                 '/pm/config/global/obj/spamfilter/bwl/{bwl}/entries',
                 '/pm/config/global/obj/spamfilter/bwl/{bwl}/entries/{entries}'
             ],
-            'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']]
+            'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.11']]
         },
         'spamfilter_bword': {
             'params': ['adom', 'bword'],
@@ -7827,7 +7907,7 @@ def main():
                 '/pm/config/global/obj/spamfilter/bword',
                 '/pm/config/global/obj/spamfilter/bword/{bword}'
             ],
-            'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']]
+            'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.11']]
         },
         'spamfilter_bword_entries': {
             'params': ['adom', 'bword', 'entries'],
@@ -7837,7 +7917,7 @@ def main():
                 '/pm/config/global/obj/spamfilter/bword/{bword}/entries',
                 '/pm/config/global/obj/spamfilter/bword/{bword}/entries/{entries}'
             ],
-            'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']]
+            'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.11']]
         },
         'spamfilter_dnsbl': {
             'params': ['adom', 'dnsbl'],
@@ -7847,7 +7927,7 @@ def main():
                 '/pm/config/global/obj/spamfilter/dnsbl',
                 '/pm/config/global/obj/spamfilter/dnsbl/{dnsbl}'
             ],
-            'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']]
+            'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.11']]
         },
         'spamfilter_dnsbl_entries': {
             'params': ['adom', 'dnsbl', 'entries'],
@@ -7857,7 +7937,7 @@ def main():
                 '/pm/config/global/obj/spamfilter/dnsbl/{dnsbl}/entries',
                 '/pm/config/global/obj/spamfilter/dnsbl/{dnsbl}/entries/{entries}'
             ],
-            'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']]
+            'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.11']]
         },
         'spamfilter_iptrust': {
             'params': ['adom', 'iptrust'],
@@ -7867,7 +7947,7 @@ def main():
                 '/pm/config/global/obj/spamfilter/iptrust',
                 '/pm/config/global/obj/spamfilter/iptrust/{iptrust}'
             ],
-            'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']]
+            'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.11']]
         },
         'spamfilter_iptrust_entries': {
             'params': ['adom', 'entries', 'iptrust'],
@@ -7877,7 +7957,7 @@ def main():
                 '/pm/config/global/obj/spamfilter/iptrust/{iptrust}/entries',
                 '/pm/config/global/obj/spamfilter/iptrust/{iptrust}/entries/{entries}'
             ],
-            'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']]
+            'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.11']]
         },
         'spamfilter_mheader': {
             'params': ['adom', 'mheader'],
@@ -7887,7 +7967,7 @@ def main():
                 '/pm/config/global/obj/spamfilter/mheader',
                 '/pm/config/global/obj/spamfilter/mheader/{mheader}'
             ],
-            'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']]
+            'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.11']]
         },
         'spamfilter_mheader_entries': {
             'params': ['adom', 'entries', 'mheader'],
@@ -7897,7 +7977,7 @@ def main():
                 '/pm/config/global/obj/spamfilter/mheader/{mheader}/entries',
                 '/pm/config/global/obj/spamfilter/mheader/{mheader}/entries/{entries}'
             ],
-            'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']]
+            'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.11']]
         },
         'spamfilter_profile': {
             'params': ['adom', 'profile'],
@@ -7907,7 +7987,7 @@ def main():
                 '/pm/config/global/obj/spamfilter/profile',
                 '/pm/config/global/obj/spamfilter/profile/{profile}'
             ],
-            'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']]
+            'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.11']]
         },
         'spamfilter_profile_gmail': {
             'params': ['adom', 'profile'],
@@ -7915,7 +7995,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/spamfilter/profile/{profile}/gmail',
                 '/pm/config/global/obj/spamfilter/profile/{profile}/gmail'
             ],
-            'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']]
+            'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.11']]
         },
         'spamfilter_profile_imap': {
             'params': ['adom', 'profile'],
@@ -7923,7 +8003,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/spamfilter/profile/{profile}/imap',
                 '/pm/config/global/obj/spamfilter/profile/{profile}/imap'
             ],
-            'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']]
+            'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.11']]
         },
         'spamfilter_profile_mapi': {
             'params': ['adom', 'profile'],
@@ -7931,7 +8011,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/spamfilter/profile/{profile}/mapi',
                 '/pm/config/global/obj/spamfilter/profile/{profile}/mapi'
             ],
-            'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']]
+            'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.11']]
         },
         'spamfilter_profile_msnhotmail': {
             'params': ['adom', 'profile'],
@@ -7939,7 +8019,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/spamfilter/profile/{profile}/msn-hotmail',
                 '/pm/config/global/obj/spamfilter/profile/{profile}/msn-hotmail'
             ],
-            'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']]
+            'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.11']]
         },
         'spamfilter_profile_pop3': {
             'params': ['adom', 'profile'],
@@ -7947,7 +8027,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/spamfilter/profile/{profile}/pop3',
                 '/pm/config/global/obj/spamfilter/profile/{profile}/pop3'
             ],
-            'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']]
+            'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.11']]
         },
         'spamfilter_profile_smtp': {
             'params': ['adom', 'profile'],
@@ -7955,7 +8035,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/spamfilter/profile/{profile}/smtp',
                 '/pm/config/global/obj/spamfilter/profile/{profile}/smtp'
             ],
-            'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']]
+            'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.11']]
         },
         'spamfilter_profile_yahoomail': {
             'params': ['adom', 'profile'],
@@ -8169,7 +8249,7 @@ def main():
                 '/pm/config/global/obj/switch-controller/managed-switch/{managed-switch}/dhcp-snooping-static-client',
                 '/pm/config/global/obj/switch-controller/managed-switch/{managed-switch}/dhcp-snooping-static-client/{dhcp-snooping-static-client}'
             ],
-            'v_range': [['7.2.2', '']]
+            'v_range': [['7.2.2', '7.4.10'], ['7.6.0', '7.6.6']]
         },
         'switchcontroller_managedswitch_ipsourceguard': {
             'params': ['adom', 'ip-source-guard', 'managed-switch'],
@@ -8230,7 +8310,7 @@ def main():
                 '/pm/config/global/obj/switch-controller/managed-switch/{managed-switch}/route-offload-router',
                 '/pm/config/global/obj/switch-controller/managed-switch/{managed-switch}/route-offload-router/{route-offload-router}'
             ],
-            'v_range': [['7.4.1', '']]
+            'v_range': [['7.4.1', '7.4.10'], ['7.6.0', '7.6.6']]
         },
         'switchcontroller_managedswitch_routerstatic': {
             'params': ['adom', 'managed-switch', 'router-static'],
@@ -8238,7 +8318,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/switch-controller/managed-switch/{managed-switch}/router-static',
                 '/pm/config/adom/{adom}/obj/switch-controller/managed-switch/{managed-switch}/router-static/{router-static}'
             ],
-            'v_range': [['7.6.4', '']]
+            'v_range': [['7.6.4', '7.6.6']]
         },
         'switchcontroller_managedswitch_routervrf': {
             'params': ['adom', 'managed-switch', 'router-vrf'],
@@ -8246,7 +8326,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/switch-controller/managed-switch/{managed-switch}/router-vrf',
                 '/pm/config/adom/{adom}/obj/switch-controller/managed-switch/{managed-switch}/router-vrf/{router-vrf}'
             ],
-            'v_range': [['7.6.4', '']]
+            'v_range': [['7.6.4', '7.6.6']]
         },
         'switchcontroller_managedswitch_snmpcommunity': {
             'params': ['adom', 'managed-switch', 'snmp-community'],
@@ -8300,7 +8380,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/switch-controller/managed-switch/{managed-switch}/system-dhcp-server',
                 '/pm/config/adom/{adom}/obj/switch-controller/managed-switch/{managed-switch}/system-dhcp-server/{system-dhcp-server}'
             ],
-            'v_range': [['7.6.4', '']]
+            'v_range': [['7.6.4', '7.6.6']]
         },
         'switchcontroller_managedswitch_systemdhcpserver_iprange': {
             'params': ['adom', 'ip-range', 'managed-switch', 'system-dhcp-server'],
@@ -8308,7 +8388,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/switch-controller/managed-switch/{managed-switch}/system-dhcp-server/{system-dhcp-server}/ip-range',
                 '/pm/config/adom/{adom}/obj/switch-controller/managed-switch/{managed-switch}/system-dhcp-server/{system-dhcp-server}/ip-range/{ip-range}'
             ],
-            'v_range': [['7.6.4', '']]
+            'v_range': [['7.6.4', '7.6.6']]
         },
         'switchcontroller_managedswitch_systemdhcpserver_options': {
             'params': ['adom', 'managed-switch', 'options', 'system-dhcp-server'],
@@ -8316,7 +8396,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/switch-controller/managed-switch/{managed-switch}/system-dhcp-server/{system-dhcp-server}/options',
                 '/pm/config/adom/{adom}/obj/switch-controller/managed-switch/{managed-switch}/system-dhcp-server/{system-dhcp-server}/options/{options}'
             ],
-            'v_range': [['7.6.4', '']]
+            'v_range': [['7.6.4', '7.6.6']]
         },
         'switchcontroller_managedswitch_systeminterface': {
             'params': ['adom', 'managed-switch', 'system-interface'],
@@ -8324,7 +8404,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/switch-controller/managed-switch/{managed-switch}/system-interface',
                 '/pm/config/adom/{adom}/obj/switch-controller/managed-switch/{managed-switch}/system-interface/{system-interface}'
             ],
-            'v_range': [['7.6.4', '']]
+            'v_range': [['7.6.4', '7.6.6']]
         },
         'switchcontroller_managedswitch_vlan': {
             'params': ['adom', 'managed-switch', 'vlan'],
@@ -8334,7 +8414,7 @@ def main():
                 '/pm/config/global/obj/switch-controller/managed-switch/{managed-switch}/vlan',
                 '/pm/config/global/obj/switch-controller/managed-switch/{managed-switch}/vlan/{vlan}'
             ],
-            'v_range': [['7.4.2', '']]
+            'v_range': [['7.4.2', '7.4.10'], ['7.6.0', '7.6.6']]
         },
         'switchcontroller_ptp_profile': {
             'params': ['adom', 'profile'],
@@ -8408,6 +8488,16 @@ def main():
                 '/pm/config/global/obj/switch-controller/security-policy/802-1X',
                 '/pm/config/global/obj/switch-controller/security-policy/802-1X/{802-1X}'
             ]
+        },
+        'switchcontroller_securitypolicy_admin': {
+            'params': ['admin', 'adom'],
+            'urls': [
+                '/pm/config/adom/{adom}/obj/switch-controller/security-policy/admin',
+                '/pm/config/adom/{adom}/obj/switch-controller/security-policy/admin/{admin}',
+                '/pm/config/global/obj/switch-controller/security-policy/admin',
+                '/pm/config/global/obj/switch-controller/security-policy/admin/{admin}'
+            ],
+            'v_range': [['8.0.0', '']]
         },
         'switchcontroller_securitypolicy_captiveportal': {
             'params': ['adom', 'captive-portal'],
@@ -8777,6 +8867,14 @@ def main():
                 '/cli/global/system/csf/trusted-list/{trusted-list}'
             ],
             'v_range': [['7.4.1', '']]
+        },
+        'system_csf_trustedlist_adom': {
+            'params': ['adom', 'trusted-list'],
+            'urls': [
+                '/cli/global/system/csf/trusted-list/{trusted-list}/adom',
+                '/cli/global/system/csf/trusted-list/{trusted-list}/adom/{adom}'
+            ],
+            'v_range': [['7.6.7', '']]
         },
         'system_customlanguage': {
             'params': ['adom', 'custom-language'],
@@ -9258,7 +9356,7 @@ def main():
                 '/cli/global/system/log/device-selector',
                 '/cli/global/system/log/device-selector/{device-selector}'
             ],
-            'v_range': [['7.4.7', '7.4.10'], ['7.6.3', '']]
+            'v_range': [['7.4.7', '7.4.11'], ['7.6.3', '']]
         },
         'system_log_fospolicystats': {
             'params': [],
@@ -9735,7 +9833,7 @@ def main():
                 '/pm/config/global/obj/system/object-tag',
                 '/pm/config/global/obj/system/object-tag/{object-tag}'
             ],
-            'v_range': [['6.2.0', '6.4.15'], ['7.4.8', '7.4.10']]
+            'v_range': [['6.2.0', '6.4.15'], ['7.4.8', '7.4.11']]
         },
         'system_objecttagging': {
             'params': ['adom', 'object-tagging'],
@@ -9820,7 +9918,8 @@ def main():
                 '/pm/config/adom/{adom}/obj/system/replacemsg-group/{replacemsg-group}/device-detection-portal/{device-detection-portal}',
                 '/pm/config/global/obj/system/replacemsg-group/{replacemsg-group}/device-detection-portal',
                 '/pm/config/global/obj/system/replacemsg-group/{replacemsg-group}/device-detection-portal/{device-detection-portal}'
-            ]
+            ],
+            'v_range': [['6.0.0', '7.6.7']]
         },
         'system_replacemsggroup_ec': {
             'params': ['adom', 'ec', 'replacemsg-group'],
@@ -9830,7 +9929,7 @@ def main():
                 '/pm/config/global/obj/system/replacemsg-group/{replacemsg-group}/ec',
                 '/pm/config/global/obj/system/replacemsg-group/{replacemsg-group}/ec/{ec}'
             ],
-            'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']]
+            'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.11']]
         },
         'system_replacemsggroup_fortiguardwf': {
             'params': ['adom', 'fortiguard-wf', 'replacemsg-group'],
@@ -9943,7 +10042,8 @@ def main():
                 '/pm/config/adom/{adom}/obj/system/replacemsg-group/{replacemsg-group}/nntp/{nntp}',
                 '/pm/config/global/obj/system/replacemsg-group/{replacemsg-group}/nntp',
                 '/pm/config/global/obj/system/replacemsg-group/{replacemsg-group}/nntp/{nntp}'
-            ]
+            ],
+            'v_range': [['6.0.0', '7.6.7']]
         },
         'system_replacemsggroup_spam': {
             'params': ['adom', 'replacemsg-group', 'spam'],
@@ -10457,6 +10557,16 @@ def main():
             ],
             'v_range': [['7.6.2', '']]
         },
+        'user_aci': {
+            'params': ['aci', 'adom'],
+            'urls': [
+                '/pm/config/adom/{adom}/obj/user/aci',
+                '/pm/config/adom/{adom}/obj/user/aci/{aci}',
+                '/pm/config/global/obj/user/aci',
+                '/pm/config/global/obj/user/aci/{aci}'
+            ],
+            'v_range': [['8.0.0', '']]
+        },
         'user_adgrp': {
             'params': ['adgrp', 'adom'],
             'urls': [
@@ -10465,6 +10575,26 @@ def main():
                 '/pm/config/global/obj/user/adgrp',
                 '/pm/config/global/obj/user/adgrp/{adgrp}'
             ]
+        },
+        'user_azure': {
+            'params': ['adom', 'azure'],
+            'urls': [
+                '/pm/config/adom/{adom}/obj/user/azure',
+                '/pm/config/adom/{adom}/obj/user/azure/{azure}',
+                '/pm/config/global/obj/user/azure',
+                '/pm/config/global/obj/user/azure/{azure}'
+            ],
+            'v_range': [['8.0.0', '']]
+        },
+        'user_azure_rule': {
+            'params': ['adom', 'azure', 'rule'],
+            'urls': [
+                '/pm/config/adom/{adom}/obj/user/azure/{azure}/rule',
+                '/pm/config/adom/{adom}/obj/user/azure/{azure}/rule/{rule}',
+                '/pm/config/global/obj/user/azure/{azure}/rule',
+                '/pm/config/global/obj/user/azure/{azure}/rule/{rule}'
+            ],
+            'v_range': [['8.0.0', '']]
         },
         'user_certificate': {
             'params': ['adom', 'certificate'],
@@ -10494,7 +10624,7 @@ def main():
                 '/pm/config/global/obj/user/connector',
                 '/pm/config/global/obj/user/connector/{connector}'
             ],
-            'v_range': [['7.0.1', '']]
+            'v_range': [['7.0.1', '7.6.7']]
         },
         'user_device': {
             'params': ['adom', 'device'],
@@ -10746,6 +10876,16 @@ def main():
                 '/pm/config/global/obj/user/group/{group}/match/{match}'
             ]
         },
+        'user_guardicore': {
+            'params': ['adom', 'guardicore'],
+            'urls': [
+                '/pm/config/adom/{adom}/obj/user/guardicore',
+                '/pm/config/adom/{adom}/obj/user/guardicore/{guardicore}',
+                '/pm/config/global/obj/user/guardicore',
+                '/pm/config/global/obj/user/guardicore/{guardicore}'
+            ],
+            'v_range': [['8.0.0', '']]
+        },
         'user_json': {
             'params': ['adom', 'json'],
             'urls': [
@@ -10792,6 +10932,14 @@ def main():
                 '/pm/config/global/obj/user/local',
                 '/pm/config/global/obj/user/local/{local}'
             ]
+        },
+        'user_local_dynamicmapping': {
+            'params': ['adom', 'local'],
+            'urls': [
+                '/pm/config/adom/{adom}/obj/user/local/{local}/dynamic_mapping',
+                '/pm/config/global/obj/user/local/{local}/dynamic_mapping'
+            ],
+            'v_range': [['8.0.0', '']]
         },
         'user_nsx': {
             'params': ['adom', 'nsx'],
@@ -11035,7 +11183,8 @@ def main():
                 '/pm/config/adom/{adom}/obj/wireless-controller/vap/{vap}/mpsk-key/{mpsk-key}',
                 '/pm/config/global/obj/wireless-controller/vap/{vap}/mpsk-key',
                 '/pm/config/global/obj/wireless-controller/vap/{vap}/mpsk-key/{mpsk-key}'
-            ]
+            ],
+            'v_range': [['6.0.0', '7.6.7']]
         },
         'vap_portalmessageoverrides': {
             'params': ['adom', 'vap'],
@@ -11267,6 +11416,16 @@ def main():
                 '/pm/config/global/obj/vpn/ipsec/fec/{fec}/mappings/{mappings}'
             ],
             'v_range': [['7.2.0', '']]
+        },
+        'vpn_ipsec_fec_mappings_tos': {
+            'params': ['adom', 'fec', 'mappings', 'tos'],
+            'urls': [
+                '/pm/config/adom/{adom}/obj/vpn/ipsec/fec/{fec}/mappings/{mappings}/tos',
+                '/pm/config/adom/{adom}/obj/vpn/ipsec/fec/{fec}/mappings/{mappings}/tos/{tos}',
+                '/pm/config/global/obj/vpn/ipsec/fec/{fec}/mappings/{mappings}/tos',
+                '/pm/config/global/obj/vpn/ipsec/fec/{fec}/mappings/{mappings}/tos/{tos}'
+            ],
+            'v_range': [['8.0.0', '']]
         },
         'vpn_ipsec_manualkey': {
             'params': ['adom', 'manualkey'],
@@ -12135,7 +12294,7 @@ def main():
                 '/pm/config/global/obj/webfilter/profile/{profile}/ftgd-wf/risk',
                 '/pm/config/global/obj/webfilter/profile/{profile}/ftgd-wf/risk/{risk}'
             ],
-            'v_range': [['7.4.8', '7.4.10'], ['7.6.2', '']]
+            'v_range': [['7.4.8', '7.4.11'], ['7.6.2', '']]
         },
         'webfilter_profile_override': {
             'params': ['adom', 'profile'],
@@ -12165,7 +12324,8 @@ def main():
                 '/pm/config/adom/{adom}/obj/webfilter/profile/{profile}/youtube-channel-filter/{youtube-channel-filter}',
                 '/pm/config/global/obj/webfilter/profile/{profile}/youtube-channel-filter',
                 '/pm/config/global/obj/webfilter/profile/{profile}/youtube-channel-filter/{youtube-channel-filter}'
-            ]
+            ],
+            'v_range': [['6.0.0', '7.6.7']]
         },
         'webfilter_urlfilter': {
             'params': ['adom', 'urlfilter'],
@@ -12193,7 +12353,7 @@ def main():
                 '/pm/config/global/obj/webfilter/url-list',
                 '/pm/config/global/obj/webfilter/url-list/{url-list}'
             ],
-            'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']]
+            'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']]
         },
         'webfilter_urllist_entries': {
             'params': ['adom', 'entries', 'url-list'],
@@ -12203,7 +12363,7 @@ def main():
                 '/pm/config/global/obj/webfilter/url-list/{url-list}/entries',
                 '/pm/config/global/obj/webfilter/url-list/{url-list}/entries/{entries}'
             ],
-            'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']]
+            'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']]
         },
         'webproxy_explicitproxy': {
             'params': ['adom', 'explicit-proxy'],
@@ -12213,7 +12373,7 @@ def main():
                 '/pm/config/global/obj/web-proxy/explicit-proxy',
                 '/pm/config/global/obj/web-proxy/explicit-proxy/{explicit-proxy}'
             ],
-            'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']]
+            'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']]
         },
         'webproxy_forwardserver': {
             'params': ['adom', 'forward-server'],
@@ -12250,7 +12410,7 @@ def main():
                 '/pm/config/global/obj/web-proxy/isolator-server',
                 '/pm/config/global/obj/web-proxy/isolator-server/{isolator-server}'
             ],
-            'v_range': [['7.4.8', '7.4.10'], ['7.6.2', '']]
+            'v_range': [['7.4.8', '7.4.11'], ['7.6.2', '']]
         },
         'webproxy_profile': {
             'params': ['adom', 'profile'],
@@ -12358,6 +12518,16 @@ def main():
             ],
             'v_range': [['7.0.1', '']]
         },
+        'wireless_lwprofile': {
+            'params': ['adom', 'lw-profile'],
+            'urls': [
+                '/pm/config/adom/{adom}/obj/wireless-controller/lw-profile',
+                '/pm/config/adom/{adom}/obj/wireless-controller/lw-profile/{lw-profile}',
+                '/pm/config/global/obj/wireless-controller/lw-profile',
+                '/pm/config/global/obj/wireless-controller/lw-profile/{lw-profile}'
+            ],
+            'v_range': [['8.0.0', '']]
+        },
         'wireless_ssidpolicy': {
             'params': ['adom', 'ssid-policy'],
             'urls': [
@@ -12384,7 +12554,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/wireless-controller/vap/{vap}/ip6-prefix-list',
                 '/pm/config/adom/{adom}/obj/wireless-controller/vap/{vap}/ip6-prefix-list/{ip6-prefix-list}'
             ],
-            'v_range': [['7.2.10', '7.2.12'], ['7.4.7', '7.4.10'], ['7.6.3', '']]
+            'v_range': [['7.2.10', '7.2.12'], ['7.4.7', '7.4.11'], ['7.6.3', '']]
         },
         'wtpprofile': {
             'params': ['adom', 'wtp-profile'],
@@ -12471,6 +12641,16 @@ def main():
                 '/pm/config/global/obj/wireless-controller/wtp-profile/{wtp-profile}/split-tunneling-acl',
                 '/pm/config/global/obj/wireless-controller/wtp-profile/{wtp-profile}/split-tunneling-acl/{split-tunneling-acl}'
             ]
+        },
+        'ztna_destination': {
+            'params': ['adom', 'destination'],
+            'urls': [
+                '/pm/config/adom/{adom}/obj/ztna/destination',
+                '/pm/config/adom/{adom}/obj/ztna/destination/{destination}',
+                '/pm/config/global/obj/ztna/destination',
+                '/pm/config/global/obj/ztna/destination/{destination}'
+            ],
+            'v_range': [['8.0.0', '']]
         },
         'ztna_serviceconnector': {
             'params': ['adom', 'service-connector'],

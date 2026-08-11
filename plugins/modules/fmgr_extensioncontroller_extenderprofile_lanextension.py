@@ -15,129 +15,127 @@ module: fmgr_extensioncontroller_extenderprofile_lanextension
 short_description: FortiExtender lan extension configuration.
 version_added: "2.2.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.partial_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.partial_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
-        type: str
-    adom:
-        description: The parameter (adom) in requested url.
-        type: str
-        required: true
-    extender-profile:
-        description: Deprecated, please use "extender_profile"
-        type: str
-    extender_profile:
-        description: The parameter (extender-profile) in requested url.
-        type: str
-    extensioncontroller_extenderprofile_lanextension:
-        description: The top level parameters set.
-        required: false
-        type: dict
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  extender-profile:
+    description: Deprecated, please use "extender_profile"
+    type: str
+  extender_profile:
+    description: The parameter (extender-profile) in requested url.
+    type: str
+  extensioncontroller_extenderprofile_lanextension:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      backhaul:
+        type: list
+        elements: dict
+        description: Backhaul.
         suboptions:
-            backhaul:
-                type: list
-                elements: dict
-                description: Backhaul.
-                suboptions:
-                    name:
-                        type: str
-                        description: FortiExtender LAN extension backhaul name.
-                    port:
-                        type: str
-                        description: FortiExtender uplink port.
-                        choices: ['wan', 'lte1', 'lte2', 'port1', 'port2', 'port3', 'port4',
-                                  'port5', 'sfp']
-                    role:
-                        type: str
-                        description: FortiExtender uplink port.
-                        choices: ['primary', 'secondary']
-                    weight:
-                        type: int
-                        description: WRR weight parameter.
-                    health_check_fail_cnt:
-                        aliases: ['health-check-fail-cnt']
-                        type: int
-                        description: Number of failures before the link is considered dead
-                    health_check_interval:
-                        aliases: ['health-check-interval']
-                        type: int
-                        description: Health monitoring interval in seconds
-                    health_check_probe_cnt:
-                        aliases: ['health-check-probe-cnt']
-                        type: int
-                        description: Number of health monitoring probes to send within an interval
-                    health_check_probe_tm:
-                        aliases: ['health-check-probe-tm']
-                        type: int
-                        description: Health monitoring probe timeout in seconds
-                    health_check_recovery_cnt:
-                        aliases: ['health-check-recovery-cnt']
-                        type: int
-                        description: Number of successful checks before the link is considered alive
-            backhaul_interface:
-                aliases: ['backhaul-interface']
-                type: str
-                description: IPsec phase1 interface.
-            backhaul_ip:
-                aliases: ['backhaul-ip']
-                type: str
-                description: IPsec phase1 IPv4/FQDN.
-            ipsec_tunnel:
-                aliases: ['ipsec-tunnel']
-                type: str
-                description: IPsec tunnel name.
-            link_loadbalance:
-                aliases: ['link-loadbalance']
-                type: str
-                description: LAN extension link load balance strategy.
-                choices: ['activebackup', 'loadbalance']
-            downlinks:
-                type: list
-                elements: dict
-                description: Downlinks.
-                suboptions:
-                    name:
-                        type: str
-                        description: FortiExtender LAN extension downlink config entry name.
-                    port:
-                        type: str
-                        description: FortiExtender LAN extension downlink port.
-                        choices: ['port1', 'port2', 'port3', 'port4', 'port5', 'lan1', 'lan2',
-                                  'lan']
-                    pvid:
-                        type: int
-                        description: FortiExtender LAN extension downlink PVID.
-                    type:
-                        type: str
-                        description: FortiExtender LAN extension downlink type [port/vap].
-                        choices: ['port', 'vap']
-                    vap:
-                        type: raw
-                        description: (list) FortiExtender LAN extension downlink vap.
-                    vids:
-                        type: raw
-                        description: (list) FortiExtender LAN extension downlink VIDs.
-            traffic_split_services:
-                aliases: ['traffic-split-services']
-                type: list
-                elements: dict
-                description: Traffic split services.
-                suboptions:
-                    address:
-                        type: raw
-                        description: (list) Address selection.
-                    name:
-                        type: str
-                        description: FortiExtender LAN extension tunnel split entry name.
-                    service:
-                        type: raw
-                        description: (list) Service selection.
-                    vsdb:
-                        type: str
-                        description: Select vsdb [enable/disable].
-                        choices: ['disable', 'enable']
+          name:
+            type: str
+            description: FortiExtender LAN extension backhaul name.
+          port:
+            type: str
+            description: FortiExtender uplink port.
+            choices: ['wan', 'lte1', 'lte2', 'port1', 'port2', 'port3', 'port4', 'port5', 'sfp']
+          role:
+            type: str
+            description: FortiExtender uplink port.
+            choices: ['primary', 'secondary']
+          weight:
+            type: int
+            description: WRR weight parameter.
+          health_check_fail_cnt:
+            aliases: ['health-check-fail-cnt']
+            type: int
+            description: Number of failures before the link is considered dead
+          health_check_interval:
+            aliases: ['health-check-interval']
+            type: int
+            description: Health monitoring interval in seconds
+          health_check_probe_cnt:
+            aliases: ['health-check-probe-cnt']
+            type: int
+            description: Number of health monitoring probes to send within an interval
+          health_check_probe_tm:
+            aliases: ['health-check-probe-tm']
+            type: int
+            description: Health monitoring probe timeout in seconds
+          health_check_recovery_cnt:
+            aliases: ['health-check-recovery-cnt']
+            type: int
+            description: Number of successful checks before the link is considered alive
+      backhaul_interface:
+        aliases: ['backhaul-interface']
+        type: str
+        description: IPsec phase1 interface.
+      backhaul_ip:
+        aliases: ['backhaul-ip']
+        type: str
+        description: IPsec phase1 IPv4/FQDN.
+      ipsec_tunnel:
+        aliases: ['ipsec-tunnel']
+        type: str
+        description: IPsec tunnel name.
+      link_loadbalance:
+        aliases: ['link-loadbalance']
+        type: str
+        description: LAN extension link load balance strategy.
+        choices: ['activebackup', 'loadbalance']
+      downlinks:
+        type: list
+        elements: dict
+        description: Downlinks.
+        suboptions:
+          name:
+            type: str
+            description: FortiExtender LAN extension downlink config entry name.
+          port:
+            type: str
+            description: FortiExtender LAN extension downlink port.
+            choices: ['port1', 'port2', 'port3', 'port4', 'port5', 'lan1', 'lan2', 'lan']
+          pvid:
+            type: int
+            description: FortiExtender LAN extension downlink PVID.
+          type:
+            type: str
+            description: FortiExtender LAN extension downlink type [port/vap].
+            choices: ['port', 'vap']
+          vap:
+            type: raw
+            description: (list) FortiExtender LAN extension downlink vap.
+          vids:
+            type: raw
+            description: (list) FortiExtender LAN extension downlink VIDs.
+      traffic_split_services:
+        aliases: ['traffic-split-services']
+        type: list
+        elements: dict
+        description: Traffic split services.
+        suboptions:
+          address:
+            type: raw
+            description: (list) Address selection.
+          name:
+            type: str
+            description: FortiExtender LAN extension tunnel split entry name.
+          service:
+            type: raw
+            description: (list) Service selection.
+          vsdb:
+            type: str
+            description: Select vsdb [enable/disable].
+            choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -182,42 +180,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

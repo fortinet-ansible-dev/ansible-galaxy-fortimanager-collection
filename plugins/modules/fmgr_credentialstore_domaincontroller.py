@@ -15,47 +15,47 @@ module: fmgr_credentialstore_domaincontroller
 short_description: Define known domain controller servers.
 version_added: "2.1.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  credentialstore_domaincontroller:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      domain_name:
+        aliases: ['domain-name']
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Fully qualified domain name
+      ip:
         type: str
-        required: true
-    credentialstore_domaincontroller:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            domain_name:
-                aliases: ['domain-name']
-                type: str
-                description: Fully qualified domain name
-            ip:
-                type: str
-                description: IPv4 server address.
-            ip6:
-                type: str
-                description: IPv6 server address.
-            password:
-                type: raw
-                description: (list) Password for specified username.
-            port:
-                type: int
-                description: Port number of service.
-            server_name:
-                aliases: ['server-name']
-                type: str
-                description: Name of the server to connect to.
-            username:
-                type: str
-                description: User name to sign in with.
-            hostname:
-                type: str
-                description: Hostname of the server to connect to.
+        description: IPv4 server address.
+      ip6:
+        type: str
+        description: IPv6 server address.
+      password:
+        type: raw
+        description: (list) Password for specified username.
+      port:
+        type: int
+        description: Port number of service.
+      server_name:
+        aliases: ['server-name']
+        type: str
+        description: Name of the server to connect to.
+      username:
+        type: str
+        description: User name to sign in with.
+      hostname:
+        type: str
+        description: Hostname of the server to connect to.
 '''
 
 EXAMPLES = '''
@@ -82,42 +82,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -134,16 +134,16 @@ def main():
         'adom': {'required': True, 'type': 'str'},
         'revision_note': {'type': 'str'},
         'credentialstore_domaincontroller': {
-            'type': 'dict', 'v_range': [['6.4.0', '']],
+            'type': 'dict', 'v_range': [['6.4.0', '7.6.7']],
             'options': {
-                'domain-name': {'v_range': [['6.4.0', '']], 'type': 'str'},
-                'ip': {'v_range': [['6.4.0', '']], 'type': 'str'},
-                'ip6': {'v_range': [['6.4.0', '']], 'type': 'str'},
-                'password': {'v_range': [['6.4.0', '']], 'no_log': True, 'type': 'raw'},
-                'port': {'v_range': [['6.4.0', '']], 'type': 'int'},
-                'server-name': {'v_range': [['6.4.0', '']], 'type': 'str'},
-                'username': {'v_range': [['6.4.0', '']], 'type': 'str'},
-                'hostname': {'v_range': [['6.4.2', '']], 'type': 'str'}
+                'domain-name': {'v_range': [['6.4.0', '7.6.7']], 'type': 'str'},
+                'ip': {'v_range': [['6.4.0', '7.6.7']], 'type': 'str'},
+                'ip6': {'v_range': [['6.4.0', '7.6.7']], 'type': 'str'},
+                'password': {'v_range': [['6.4.0', '7.6.7']], 'no_log': True, 'type': 'raw'},
+                'port': {'v_range': [['6.4.0', '7.6.7']], 'type': 'int'},
+                'server-name': {'v_range': [['6.4.0', '7.6.7']], 'type': 'str'},
+                'username': {'v_range': [['6.4.0', '7.6.7']], 'type': 'str'},
+                'hostname': {'v_range': [['6.4.2', '7.6.7']], 'type': 'str'}
             }
         }
     }

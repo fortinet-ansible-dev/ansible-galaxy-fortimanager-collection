@@ -15,224 +15,228 @@ module: fmgr_fmupdate_fgdsetting
 short_description: Cli fmupdate fgd setting
 version_added: "2.10.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.partial_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.partial_crud
 options:
-    fmupdate_fgdsetting:
-        description: The top level parameters set.
-        required: false
+  fmupdate_fgdsetting:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      as_cache:
+        aliases: ['as-cache']
+        type: int
+        description: As cache.
+      as_log:
+        aliases: ['as-log']
+        type: str
+        description: As log.
+        choices: ['disable', 'nospam', 'all']
+      as_preload:
+        aliases: ['as-preload']
+        type: str
+        description: As preload.
+        choices: ['disable', 'enable']
+      av_cache:
+        aliases: ['av-cache']
+        type: int
+        description: Av cache.
+      av_log:
+        aliases: ['av-log']
+        type: str
+        description: Av log.
+        choices: ['disable', 'novirus', 'all']
+      av_preload:
+        aliases: ['av-preload']
+        type: str
+        description: Av preload.
+        choices: ['disable', 'enable']
+      av2_cache:
+        aliases: ['av2-cache']
+        type: int
+        description: Av2 cache.
+      av2_log:
+        aliases: ['av2-log']
+        type: str
+        description: Av2 log.
+        choices: ['disable', 'noav2', 'all']
+      av2_preload:
+        aliases: ['av2-preload']
+        type: str
+        description: Av2 preload.
+        choices: ['disable', 'enable']
+      eventlog_query:
+        aliases: ['eventlog-query']
+        type: str
+        description: Eventlog query.
+        choices: ['disable', 'enable']
+      fgd_pull_interval:
+        aliases: ['fgd-pull-interval']
+        type: int
+        description: Fgd pull interval.
+      fq_cache:
+        aliases: ['fq-cache']
+        type: int
+        description: Fq cache.
+      fq_log:
+        aliases: ['fq-log']
+        type: str
+        description: Fq log.
+        choices: ['disable', 'nofilequery', 'all']
+      fq_preload:
+        aliases: ['fq-preload']
+        type: str
+        description: Fq preload.
+        choices: ['disable', 'enable']
+      iot_cache:
+        aliases: ['iot-cache']
+        type: int
+        description: Iot cache.
+      iot_log:
+        aliases: ['iot-log']
+        type: str
+        description: Iot log.
+        choices: ['disable', 'noiot', 'all']
+      iot_preload:
+        aliases: ['iot-preload']
+        type: str
+        description: Iot preload.
+        choices: ['disable', 'enable']
+      iotv_preload:
+        aliases: ['iotv-preload']
+        type: str
+        description: Iotv preload.
+        choices: ['disable', 'enable']
+      linkd_log:
+        aliases: ['linkd-log']
+        type: str
+        description: Linkd log.
+        choices: ['emergency', 'alert', 'critical', 'error', 'warn', 'notice', 'info', 'debug',
+                  'disable']
+      max_client_worker:
+        aliases: ['max-client-worker']
+        type: int
+        description: Max client worker.
+      max_log_quota:
+        aliases: ['max-log-quota']
+        type: int
+        description: Max log quota.
+      max_unrated_site:
+        aliases: ['max-unrated-site']
+        type: int
+        description: Max unrated site.
+      restrict_as1_dbver:
+        aliases: ['restrict-as1-dbver']
+        type: str
+        description: Restrict as1 dbver.
+      restrict_as2_dbver:
+        aliases: ['restrict-as2-dbver']
+        type: str
+        description: Restrict as2 dbver.
+      restrict_as4_dbver:
+        aliases: ['restrict-as4-dbver']
+        type: str
+        description: Restrict as4 dbver.
+      restrict_av_dbver:
+        aliases: ['restrict-av-dbver']
+        type: str
+        description: Restrict av dbver.
+      restrict_av2_dbver:
+        aliases: ['restrict-av2-dbver']
+        type: str
+        description: Restrict av2 dbver.
+      restrict_fq_dbver:
+        aliases: ['restrict-fq-dbver']
+        type: str
+        description: Restrict fq dbver.
+      restrict_iots_dbver:
+        aliases: ['restrict-iots-dbver']
+        type: str
+        description: Restrict iots dbver.
+      restrict_wf_dbver:
+        aliases: ['restrict-wf-dbver']
+        type: str
+        description: Restrict wf dbver.
+      server_override:
+        aliases: ['server-override']
         type: dict
+        description: Server override.
         suboptions:
-            as_cache:
-                aliases: ['as-cache']
+          servlist:
+            type: list
+            elements: dict
+            description: Servlist.
+            suboptions:
+              id:
                 type: int
-                description: As cache.
-            as_log:
-                aliases: ['as-log']
+                description: Id.
+              ip:
                 type: str
-                description: As log.
-                choices: ['disable', 'nospam', 'all']
-            as_preload:
-                aliases: ['as-preload']
+                description: Ip.
+              ip6:
                 type: str
-                description: As preload.
-                choices: ['disable', 'enable']
-            av_cache:
-                aliases: ['av-cache']
+                description: Ip6.
+              port:
                 type: int
-                description: Av cache.
-            av_log:
-                aliases: ['av-log']
+                description: Port.
+              service_type:
+                aliases: ['service-type']
                 type: str
-                description: Av log.
-                choices: ['disable', 'novirus', 'all']
-            av_preload:
-                aliases: ['av-preload']
-                type: str
-                description: Av preload.
-                choices: ['disable', 'enable']
-            av2_cache:
-                aliases: ['av2-cache']
-                type: int
-                description: Av2 cache.
-            av2_log:
-                aliases: ['av2-log']
-                type: str
-                description: Av2 log.
-                choices: ['disable', 'noav2', 'all']
-            av2_preload:
-                aliases: ['av2-preload']
-                type: str
-                description: Av2 preload.
-                choices: ['disable', 'enable']
-            eventlog_query:
-                aliases: ['eventlog-query']
-                type: str
-                description: Eventlog query.
-                choices: ['disable', 'enable']
-            fgd_pull_interval:
-                aliases: ['fgd-pull-interval']
-                type: int
-                description: Fgd pull interval.
-            fq_cache:
-                aliases: ['fq-cache']
-                type: int
-                description: Fq cache.
-            fq_log:
-                aliases: ['fq-log']
-                type: str
-                description: Fq log.
-                choices: ['disable', 'nofilequery', 'all']
-            fq_preload:
-                aliases: ['fq-preload']
-                type: str
-                description: Fq preload.
-                choices: ['disable', 'enable']
-            iot_cache:
-                aliases: ['iot-cache']
-                type: int
-                description: Iot cache.
-            iot_log:
-                aliases: ['iot-log']
-                type: str
-                description: Iot log.
-                choices: ['disable', 'noiot', 'all']
-            iot_preload:
-                aliases: ['iot-preload']
-                type: str
-                description: Iot preload.
-                choices: ['disable', 'enable']
-            iotv_preload:
-                aliases: ['iotv-preload']
-                type: str
-                description: Iotv preload.
-                choices: ['disable', 'enable']
-            linkd_log:
-                aliases: ['linkd-log']
-                type: str
-                description: Linkd log.
-                choices: ['emergency', 'alert', 'critical', 'error', 'warn', 'notice', 'info',
-                          'debug', 'disable']
-            max_client_worker:
-                aliases: ['max-client-worker']
-                type: int
-                description: Max client worker.
-            max_log_quota:
-                aliases: ['max-log-quota']
-                type: int
-                description: Max log quota.
-            max_unrated_site:
-                aliases: ['max-unrated-site']
-                type: int
-                description: Max unrated site.
-            restrict_as1_dbver:
-                aliases: ['restrict-as1-dbver']
-                type: str
-                description: Restrict as1 dbver.
-            restrict_as2_dbver:
-                aliases: ['restrict-as2-dbver']
-                type: str
-                description: Restrict as2 dbver.
-            restrict_as4_dbver:
-                aliases: ['restrict-as4-dbver']
-                type: str
-                description: Restrict as4 dbver.
-            restrict_av_dbver:
-                aliases: ['restrict-av-dbver']
-                type: str
-                description: Restrict av dbver.
-            restrict_av2_dbver:
-                aliases: ['restrict-av2-dbver']
-                type: str
-                description: Restrict av2 dbver.
-            restrict_fq_dbver:
-                aliases: ['restrict-fq-dbver']
-                type: str
-                description: Restrict fq dbver.
-            restrict_iots_dbver:
-                aliases: ['restrict-iots-dbver']
-                type: str
-                description: Restrict iots dbver.
-            restrict_wf_dbver:
-                aliases: ['restrict-wf-dbver']
-                type: str
-                description: Restrict wf dbver.
-            server_override:
-                aliases: ['server-override']
-                type: dict
-                description: Server override.
-                suboptions:
-                    servlist:
-                        type: list
-                        elements: dict
-                        description: Servlist.
-                        suboptions:
-                            id:
-                                type: int
-                                description: Id.
-                            ip:
-                                type: str
-                                description: Ip.
-                            ip6:
-                                type: str
-                                description: Ip6.
-                            port:
-                                type: int
-                                description: Port.
-                            service_type:
-                                aliases: ['service-type']
-                                type: str
-                                description: Service type.
-                                choices: ['fgd', 'fsa', 'fgfq', 'geoip', 'iot-collect']
-                    status:
-                        type: str
-                        description: Status.
-                        choices: ['disable', 'enable']
-            stat_log:
-                aliases: ['stat-log']
-                type: str
-                description: Stat log.
-                choices: ['emergency', 'alert', 'critical', 'error', 'warn', 'notice', 'info',
-                          'debug', 'disable']
-            stat_log_interval:
-                aliases: ['stat-log-interval']
-                type: int
-                description: Stat log interval.
-            stat_sync_interval:
-                aliases: ['stat-sync-interval']
-                type: int
-                description: Stat sync interval.
-            update_interval:
-                aliases: ['update-interval']
-                type: int
-                description: Update interval.
-            update_log:
-                aliases: ['update-log']
-                type: str
-                description: Update log.
-                choices: ['disable', 'enable']
-            wf_cache:
-                aliases: ['wf-cache']
-                type: int
-                description: Wf cache.
-            wf_dn_cache_expire_time:
-                aliases: ['wf-dn-cache-expire-time']
-                type: int
-                description: Wf dn cache expire time.
-            wf_dn_cache_max_number:
-                aliases: ['wf-dn-cache-max-number']
-                type: int
-                description: Wf dn cache max number.
-            wf_log:
-                aliases: ['wf-log']
-                type: str
-                description: Wf log.
-                choices: ['disable', 'nourl', 'all']
-            wf_preload:
-                aliases: ['wf-preload']
-                type: str
-                description: Wf preload.
-                choices: ['disable', 'enable']
+                description: Service type.
+                choices: ['fgd', 'fsa', 'fgfq', 'geoip', 'iot-collect']
+          status:
+            type: str
+            description: Status.
+            choices: ['disable', 'enable']
+      stat_log:
+        aliases: ['stat-log']
+        type: str
+        description: Stat log.
+        choices: ['emergency', 'alert', 'critical', 'error', 'warn', 'notice', 'info', 'debug',
+                  'disable']
+      stat_log_interval:
+        aliases: ['stat-log-interval']
+        type: int
+        description: Stat log interval.
+      stat_sync_interval:
+        aliases: ['stat-sync-interval']
+        type: int
+        description: Stat sync interval.
+      update_interval:
+        aliases: ['update-interval']
+        type: int
+        description: Update interval.
+      update_log:
+        aliases: ['update-log']
+        type: str
+        description: Update log.
+        choices: ['disable', 'enable']
+      wf_cache:
+        aliases: ['wf-cache']
+        type: int
+        description: Wf cache.
+      wf_dn_cache_expire_time:
+        aliases: ['wf-dn-cache-expire-time']
+        type: int
+        description: Wf dn cache expire time.
+      wf_dn_cache_max_number:
+        aliases: ['wf-dn-cache-max-number']
+        type: int
+        description: Wf dn cache max number.
+      wf_log:
+        aliases: ['wf-log']
+        type: str
+        description: Wf log.
+        choices: ['disable', 'nourl', 'all']
+      wf_preload:
+        aliases: ['wf-preload']
+        type: str
+        description: Wf preload.
+        choices: ['disable', 'enable']
+      delta_ratio:
+        aliases: ['delta-ratio']
+        type: int
+        description: Delta ratio.
 '''
 
 EXAMPLES = '''
@@ -293,46 +297,47 @@ EXAMPLES = '''
           # wf_dn_cache_max_number: <integer>
           # wf_log: <value in [disable, nourl, all]>
           # wf_preload: <value in [disable, enable]>
+          # delta_ratio: <integer>
 '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -414,7 +419,8 @@ def main():
                 'wf-dn-cache-expire-time': {'v_range': [['7.6.3', '']], 'type': 'int'},
                 'wf-dn-cache-max-number': {'v_range': [['7.6.3', '']], 'type': 'int'},
                 'wf-log': {'v_range': [['7.6.3', '']], 'choices': ['disable', 'nourl', 'all'], 'type': 'str'},
-                'wf-preload': {'v_range': [['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'wf-preload': {'v_range': [['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'delta-ratio': {'v_range': [['7.6.7', '7.6.7']], 'type': 'int'}
             }
         }
     }

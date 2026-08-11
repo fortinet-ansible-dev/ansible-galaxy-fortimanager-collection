@@ -15,77 +15,77 @@ module: fmgr_casb_useractivity_match_rules
 short_description: CASB user activity rules.
 version_added: "2.3.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  user-activity:
+    description: Deprecated, please use "user_activity"
+    type: str
+  user_activity:
+    description: The parameter (user-activity) in requested url.
+    type: str
+  match:
+    description: The parameter (match) in requested url.
+    type: str
+    required: true
+  casb_useractivity_match_rules:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      case_sensitive:
+        aliases: ['case-sensitive']
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: CASB user activity match case sensitive.
+        choices: ['disable', 'enable']
+      domains:
+        type: list
+        elements: str
+        description: CASB user activity domain list.
+      header_name:
+        aliases: ['header-name']
         type: str
+        description: CASB user activity rule header name.
+      id:
+        type: int
+        description: CASB user activity rule ID.
         required: true
-    user-activity:
-        description: Deprecated, please use "user_activity"
+      match_pattern:
+        aliases: ['match-pattern']
         type: str
-    user_activity:
-        description: The parameter (user-activity) in requested url.
+        description: CASB user activity rule match pattern.
+        choices: ['simple', 'substr', 'regexp']
+      match_value:
+        aliases: ['match-value']
         type: str
-    match:
-        description: The parameter (match) in requested url.
+        description: CASB user activity rule match value.
+      methods:
+        type: list
+        elements: str
+        description: CASB user activity method list.
+      negate:
         type: str
-        required: true
-    casb_useractivity_match_rules:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            case_sensitive:
-                aliases: ['case-sensitive']
-                type: str
-                description: CASB user activity match case sensitive.
-                choices: ['disable', 'enable']
-            domains:
-                type: list
-                elements: str
-                description: CASB user activity domain list.
-            header_name:
-                aliases: ['header-name']
-                type: str
-                description: CASB user activity rule header name.
-            id:
-                type: int
-                description: CASB user activity rule ID.
-                required: true
-            match_pattern:
-                aliases: ['match-pattern']
-                type: str
-                description: CASB user activity rule match pattern.
-                choices: ['simple', 'substr', 'regexp']
-            match_value:
-                aliases: ['match-value']
-                type: str
-                description: CASB user activity rule match value.
-            methods:
-                type: list
-                elements: str
-                description: CASB user activity method list.
-            negate:
-                type: str
-                description: Enable/disable what the matching strategy must not be.
-                choices: ['disable', 'enable']
-            type:
-                type: str
-                description: CASB user activity rule type.
-                choices: ['domains', 'host', 'path', 'header', 'header-value', 'method', 'body']
-            body_type:
-                aliases: ['body-type']
-                type: str
-                description: CASB user activity match rule body type.
-                choices: ['json']
-            jq:
-                type: str
-                description: CASB user activity rule match jq script.
+        description: Enable/disable what the matching strategy must not be.
+        choices: ['disable', 'enable']
+      type:
+        type: str
+        description: CASB user activity rule type.
+        choices: ['domains', 'host', 'path', 'header', 'header-value', 'method', 'body']
+      body_type:
+        aliases: ['body-type']
+        type: str
+        description: CASB user activity match rule body type.
+        choices: ['json', 'form']
+      jq:
+        type: str
+        description: CASB user activity rule match jq script.
 '''
 
 EXAMPLES = '''
@@ -111,48 +111,48 @@ EXAMPLES = '''
           # methods: <list or string>
           # negate: <value in [disable, enable]>
           # type: <value in [domains, host, path, ...]>
-          # body_type: <value in [json]>
+          # body_type: <value in [json, form]>
           # jq: <string>
 '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -183,7 +183,7 @@ def main():
                 'methods': {'v_range': [['7.4.1', '']], 'type': 'list', 'elements': 'str'},
                 'negate': {'v_range': [['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'type': {'v_range': [['7.4.1', '']], 'choices': ['domains', 'host', 'path', 'header', 'header-value', 'method', 'body'], 'type': 'str'},
-                'body-type': {'v_range': [['7.6.2', '']], 'choices': ['json'], 'type': 'str'},
+                'body-type': {'v_range': [['7.6.2', '']], 'choices': ['json', 'form'], 'type': 'str'},
                 'jq': {'v_range': [['7.6.2', '']], 'type': 'str'}
             }
         }

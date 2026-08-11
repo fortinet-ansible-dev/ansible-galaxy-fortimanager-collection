@@ -15,43 +15,43 @@ module: fmgr_webfilter_urllist
 short_description: Webfilter url list
 version_added: "2.12.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  webfilter_urllist:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      comment:
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
-        type: str
-        required: true
-    webfilter_urllist:
-        description: The top level parameters set.
-        required: false
-        type: dict
+        description: Comment.
+      entries:
+        type: list
+        elements: dict
+        description: Entries.
         suboptions:
-            comment:
-                type: str
-                description: Comment.
-            entries:
-                type: list
-                elements: dict
-                description: Entries.
-                suboptions:
-                    url:
-                        type: str
-                        description: Url.
-            name:
-                type: str
-                description: Name.
-                required: true
-            status:
-                type: str
-                description: Status.
-                choices: ['disable', 'enable']
-            uuid:
-                type: str
-                description: Uuid.
+          url:
+            type: str
+            description: Url.
+      name:
+        type: str
+        description: Name.
+        required: true
+      status:
+        type: str
+        description: Status.
+        choices: ['disable', 'enable']
+      uuid:
+        type: str
+        description: Uuid.
 '''
 
 EXAMPLES = '''
@@ -76,42 +76,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -128,18 +128,18 @@ def main():
         'adom': {'required': True, 'type': 'str'},
         'revision_note': {'type': 'str'},
         'webfilter_urllist': {
-            'type': 'dict', 'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']],
+            'type': 'dict', 'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']],
             'options': {
-                'comment': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'str'},
+                'comment': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'type': 'str'},
                 'entries': {
-                    'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']],
+                    'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']],
                     'type': 'list',
-                    'options': {'url': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'str'}},
+                    'options': {'url': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'type': 'str'}},
                     'elements': 'dict'
                 },
-                'name': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'required': True, 'type': 'str'},
-                'status': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'uuid': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'str'}
+                'name': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'required': True, 'type': 'str'},
+                'status': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'uuid': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'type': 'str'}
             }
         }
     }

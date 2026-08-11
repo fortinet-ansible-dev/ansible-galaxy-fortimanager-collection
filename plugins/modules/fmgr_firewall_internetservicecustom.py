@@ -15,109 +15,127 @@ module: fmgr_firewall_internetservicecustom
 short_description: Configure custom Internet Services.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  firewall_internetservicecustom:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      comment:
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
-        type: str
-        required: true
-    firewall_internetservicecustom:
-        description: The top level parameters set.
-        required: false
-        type: dict
+        description: Comment.
+      disable_entry:
+        aliases: ['disable-entry']
+        type: list
+        elements: dict
+        description: Disable entry.
         suboptions:
-            comment:
+          id:
+            type: int
+            description: Disable entry ID.
+          ip_range:
+            aliases: ['ip-range']
+            type: list
+            elements: dict
+            description: Ip range.
+            suboptions:
+              end_ip:
+                aliases: ['end-ip']
                 type: str
-                description: Comment.
-            disable_entry:
-                aliases: ['disable-entry']
-                type: list
-                elements: dict
-                description: Disable entry.
-                suboptions:
-                    id:
-                        type: int
-                        description: Disable entry ID.
-                    ip_range:
-                        aliases: ['ip-range']
-                        type: list
-                        elements: dict
-                        description: Ip range.
-                        suboptions:
-                            end_ip:
-                                aliases: ['end-ip']
-                                type: str
-                                description: End IP address.
-                            id:
-                                type: int
-                                description: Disable entry range ID.
-                            start_ip:
-                                aliases: ['start-ip']
-                                type: str
-                                description: Start IP address.
-                    port:
-                        type: raw
-                        description: (list) Integer value for the TCP/IP port
-                    protocol:
-                        type: int
-                        description: Integer value for the protocol type as defined by IANA
-            entry:
-                type: list
-                elements: dict
-                description: Entry.
-                suboptions:
-                    dst:
-                        type: raw
-                        description: (list or str) Destination address or address group name.
-                    id:
-                        type: int
-                        description: Entry ID
-                    port_range:
-                        aliases: ['port-range']
-                        type: list
-                        elements: dict
-                        description: Port range.
-                        suboptions:
-                            end_port:
-                                aliases: ['end-port']
-                                type: int
-                                description: Integer value for ending TCP/UDP/SCTP destination port in range
-                            id:
-                                type: int
-                                description: Custom entry port range ID.
-                            start_port:
-                                aliases: ['start-port']
-                                type: int
-                                description: Integer value for starting TCP/UDP/SCTP destination port in range
-                    protocol:
-                        type: int
-                        description: Integer value for the protocol type as defined by IANA
-                    addr_mode:
-                        aliases: ['addr-mode']
-                        type: str
-                        description: Address mode
-                        choices: ['ipv4', 'ipv6']
-                    dst6:
-                        type: raw
-                        description: (list) Destination address6 or address6 group name.
-            master_service_id:
-                aliases: ['master-service-id']
-                type: str
-                description: Internet Service ID in the Internet Service database.
-            name:
-                type: str
-                description: Internet Service name.
-                required: true
-            reputation:
+                description: End IP address.
+              id:
                 type: int
-                description: Reputation level of the custom Internet Service.
-            id:
+                description: Disable entry range ID.
+              start_ip:
+                aliases: ['start-ip']
+                type: str
+                description: Start IP address.
+          port:
+            type: raw
+            description: (list) Integer value for the TCP/IP port
+          protocol:
+            type: int
+            description: Integer value for the protocol type as defined by IANA
+      entry:
+        type: list
+        elements: dict
+        description: Entry.
+        suboptions:
+          dst:
+            type: raw
+            description: (list or str) Destination address or address group name.
+          id:
+            type: int
+            description: Entry ID
+          port_range:
+            aliases: ['port-range']
+            type: list
+            elements: dict
+            description: Port range.
+            suboptions:
+              end_port:
+                aliases: ['end-port']
                 type: int
-                description: Internet Service ID.
+                description: Integer value for ending TCP/UDP/SCTP destination port in range
+              id:
+                type: int
+                description: Custom entry port range ID.
+              start_port:
+                aliases: ['start-port']
+                type: int
+                description: Integer value for starting TCP/UDP/SCTP destination port in range
+          protocol:
+            type: int
+            description: Integer value for the protocol type as defined by IANA
+          addr_mode:
+            aliases: ['addr-mode']
+            type: str
+            description: Address mode
+            choices: ['ipv4', 'ipv6']
+          dst6:
+            type: raw
+            description: (list) Destination address6 or address6 group name.
+      master_service_id:
+        aliases: ['master-service-id']
+        type: str
+        description: Internet Service ID in the Internet Service database.
+      name:
+        type: str
+        description: Internet Service name.
+        required: true
+      reputation:
+        type: int
+        description: Reputation level of the custom Internet Service.
+      id:
+        type: int
+        description: Internet Service ID.
+      fabric_force_sync:
+        aliases: ['fabric-force-sync']
+        type: str
+        description: Enable/disable forced synchronization of configuration objects from the root FortiGate unit to the downstream devices.
+        choices: ['disable', 'enable']
+      fabric_object:
+        aliases: ['fabric-object']
+        type: str
+        description: Security Fabric global object setting.
+        choices: ['disable', 'enable']
+      fabric_object_source:
+        aliases: ['fabric-object-source']
+        type: str
+        description: Source of truth for fabric object.
+        choices: ['member', 'local', 'root']
+      uuid:
+        type: str
+        description: Universally Unique Identifier
 '''
 
 EXAMPLES = '''
@@ -168,42 +186,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -224,22 +242,22 @@ def main():
             'options': {
                 'comment': {'type': 'str'},
                 'disable-entry': {
-                    'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']],
+                    'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.11']],
                     'type': 'list',
                     'options': {
-                        'id': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']], 'type': 'int'},
+                        'id': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.11']], 'type': 'int'},
                         'ip-range': {
-                            'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']],
+                            'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.11']],
                             'type': 'list',
                             'options': {
-                                'end-ip': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']], 'type': 'str'},
-                                'id': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']], 'type': 'int'},
-                                'start-ip': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']], 'type': 'str'}
+                                'end-ip': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.11']], 'type': 'str'},
+                                'id': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.11']], 'type': 'int'},
+                                'start-ip': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.11']], 'type': 'str'}
                             },
                             'elements': 'dict'
                         },
-                        'port': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']], 'type': 'raw'},
-                        'protocol': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']], 'type': 'int'}
+                        'port': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.11']], 'type': 'raw'},
+                        'protocol': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.11']], 'type': 'int'}
                     },
                     'elements': 'dict'
                 },
@@ -259,10 +277,14 @@ def main():
                     },
                     'elements': 'dict'
                 },
-                'master-service-id': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']], 'type': 'str'},
+                'master-service-id': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.11']], 'type': 'str'},
                 'name': {'required': True, 'type': 'str'},
                 'reputation': {'v_range': [['6.2.0', '']], 'type': 'int'},
-                'id': {'v_range': [['6.4.2', '']], 'type': 'int'}
+                'id': {'v_range': [['6.4.2', '']], 'type': 'int'},
+                'fabric-force-sync': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'fabric-object': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'fabric-object-source': {'v_range': [['8.0.0', '']], 'choices': ['member', 'local', 'root'], 'type': 'str'},
+                'uuid': {'v_range': [['8.0.0', '']], 'type': 'str'}
             }
         }
     }

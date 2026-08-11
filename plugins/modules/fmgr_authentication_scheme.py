@@ -15,149 +15,163 @@ module: fmgr_authentication_scheme
 short_description: Configure Authentication Schemes.
 version_added: "2.1.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  authentication_scheme:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      domain_controller:
+        aliases: ['domain-controller']
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Domain controller setting.
+      fsso_agent_for_ntlm:
+        aliases: ['fsso-agent-for-ntlm']
         type: str
+        description: FSSO agent to use for NTLM authentication.
+      fsso_guest:
+        aliases: ['fsso-guest']
+        type: str
+        description: Enable/disable user fsso-guest authentication
+        choices: ['disable', 'enable']
+      kerberos_keytab:
+        aliases: ['kerberos-keytab']
+        type: str
+        description: Kerberos keytab setting.
+      method:
+        type: list
+        elements: str
+        description: Authentication methods
+        choices: ['ntlm', 'basic', 'digest', 'form', 'negotiate', 'fsso', 'rsso', 'ssh-publickey',
+                  'saml', 'cert', 'x-auth-user', 'saml-sp', 'entra-sso', 'ztna-relay', 'oidc',
+                  'bearer']
+      name:
+        type: str
+        description: Authentication scheme name.
         required: true
-    authentication_scheme:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            domain_controller:
-                aliases: ['domain-controller']
-                type: str
-                description: Domain controller setting.
-            fsso_agent_for_ntlm:
-                aliases: ['fsso-agent-for-ntlm']
-                type: str
-                description: FSSO agent to use for NTLM authentication.
-            fsso_guest:
-                aliases: ['fsso-guest']
-                type: str
-                description: Enable/disable user fsso-guest authentication
-                choices: ['disable', 'enable']
-            kerberos_keytab:
-                aliases: ['kerberos-keytab']
-                type: str
-                description: Kerberos keytab setting.
-            method:
-                type: list
-                elements: str
-                description: Authentication methods
-                choices: ['ntlm', 'basic', 'digest', 'form', 'negotiate', 'fsso', 'rsso',
-                          'ssh-publickey', 'saml', 'cert', 'x-auth-user', 'saml-sp', 'entra-sso',
-                          'ztna-relay', 'oidc']
-            name:
-                type: str
-                description: Authentication scheme name.
-                required: true
-            negotiate_ntlm:
-                aliases: ['negotiate-ntlm']
-                type: str
-                description: Enable/disable negotiate authentication for NTLM
-                choices: ['disable', 'enable']
-            require_tfa:
-                aliases: ['require-tfa']
-                type: str
-                description: Enable/disable two-factor authentication
-                choices: ['disable', 'enable']
-            ssh_ca:
-                aliases: ['ssh-ca']
-                type: str
-                description: SSH CA name.
-            user_database:
-                aliases: ['user-database']
-                type: raw
-                description: (list or str) Authentication server to contain user information; local
-            ems_device_owner:
-                aliases: ['ems-device-owner']
-                type: str
-                description: Enable/disable SSH public-key authentication with device owner
-                choices: ['disable', 'enable']
-            saml_server:
-                aliases: ['saml-server']
-                type: str
-                description: SAML configuration.
-            saml_timeout:
-                aliases: ['saml-timeout']
-                type: int
-                description: SAML authentication timeout in seconds.
-            user_cert:
-                aliases: ['user-cert']
-                type: str
-                description: Enable/disable authentication with user certificate
-                choices: ['disable', 'enable']
-            external_idp:
-                aliases: ['external-idp']
-                type: raw
-                description: (list) External identity provider configuration.
-            digest_algo:
-                aliases: ['digest-algo']
-                type: list
-                elements: str
-                description: Digest Authentication Algorithms.
-                choices: ['md5', 'sha-256']
-            group_attr_type:
-                aliases: ['group-attr-type']
-                type: str
-                description: Group attribute type used to match SCIM groups
-                choices: ['display-name', 'external-id']
-            search_all_ldap_databases:
-                aliases: ['search-all-ldap-databases']
-                type: str
-                description: Search all ldap databases.
-                choices: ['disable', 'enable']
-            saml_idp_portal:
-                aliases: ['saml-idp-portal']
-                type: str
-                description: External SAML-IDP authentication Portal URL.
-            oidc_server:
-                aliases: ['oidc-server']
-                type: raw
-                description: (list) Oidc server.
-            oidc_timeout:
-                aliases: ['oidc-timeout']
-                type: int
-                description: Oidc timeout.
-            digest_rfc2069:
-                aliases: ['digest-rfc2069']
-                type: str
-                description: Enable/disable support for the deprecated RFC2069 Digest Client
-                choices: ['disable', 'enable']
-            auth_user_header:
-                aliases: ['auth-user-header']
-                type: str
-                description: Auth user header.
-            captcha:
-                type: str
-                description: Captcha.
-                choices: ['disable', 'enable']
-            captcha_secret_key:
-                aliases: ['captcha-secret-key']
-                type: str
-                description: Captcha secret key.
-            captcha_site_key:
-                aliases: ['captcha-site-key']
-                type: str
-                description: Captcha site key.
-            captcha_vendor:
-                aliases: ['captcha-vendor']
-                type: str
-                description: Captcha vendor.
-                choices: ['google-recaptcha-v2-checkbox', 'google-recaptcha-v2-invisible',
-                          'google-recaptcha-v3', 'cloudflare-turnstile']
-            cert_http_header:
-                aliases: ['cert-http-header']
-                type: str
-                description: Enable/disable authentication with user certificate in Client-Cert HTTP header
-                choices: ['disable', 'enable']
+      negotiate_ntlm:
+        aliases: ['negotiate-ntlm']
+        type: str
+        description: Enable/disable negotiate authentication for NTLM
+        choices: ['disable', 'enable']
+      require_tfa:
+        aliases: ['require-tfa']
+        type: str
+        description: Enable/disable two-factor authentication
+        choices: ['disable', 'enable']
+      ssh_ca:
+        aliases: ['ssh-ca']
+        type: str
+        description: SSH CA name.
+      user_database:
+        aliases: ['user-database']
+        type: raw
+        description: (list or str) Authentication server to contain user information; local
+      ems_device_owner:
+        aliases: ['ems-device-owner']
+        type: str
+        description: Enable/disable SSH public-key authentication with device owner
+        choices: ['disable', 'enable']
+      saml_server:
+        aliases: ['saml-server']
+        type: str
+        description: SAML configuration.
+      saml_timeout:
+        aliases: ['saml-timeout']
+        type: int
+        description: SAML authentication timeout in seconds.
+      user_cert:
+        aliases: ['user-cert']
+        type: str
+        description: Enable/disable authentication with user certificate
+        choices: ['disable', 'enable']
+      external_idp:
+        aliases: ['external-idp']
+        type: raw
+        description: (list) External identity provider configuration.
+      digest_algo:
+        aliases: ['digest-algo']
+        type: list
+        elements: str
+        description: Digest Authentication Algorithms.
+        choices: ['md5', 'sha-256']
+      group_attr_type:
+        aliases: ['group-attr-type']
+        type: str
+        description: Group attribute type used to match SCIM groups
+        choices: ['display-name', 'external-id']
+      search_all_ldap_databases:
+        aliases: ['search-all-ldap-databases']
+        type: str
+        description: Search all ldap databases.
+        choices: ['disable', 'enable']
+      saml_idp_portal:
+        aliases: ['saml-idp-portal']
+        type: str
+        description: External SAML-IDP authentication Portal URL.
+      oidc_server:
+        aliases: ['oidc-server']
+        type: raw
+        description: (list) Oidc server.
+      oidc_timeout:
+        aliases: ['oidc-timeout']
+        type: int
+        description: Oidc timeout.
+      digest_rfc2069:
+        aliases: ['digest-rfc2069']
+        type: str
+        description: Enable/disable support for the deprecated RFC2069 Digest Client
+        choices: ['disable', 'enable']
+      auth_user_header:
+        aliases: ['auth-user-header']
+        type: str
+        description: Auth user header.
+      captcha:
+        type: str
+        description: Captcha.
+        choices: ['disable', 'enable']
+      captcha_secret_key:
+        aliases: ['captcha-secret-key']
+        type: str
+        description: Captcha secret key.
+      captcha_site_key:
+        aliases: ['captcha-site-key']
+        type: str
+        description: Captcha site key.
+      captcha_vendor:
+        aliases: ['captcha-vendor']
+        type: str
+        description: Captcha vendor.
+        choices: ['google-recaptcha-v2-checkbox', 'google-recaptcha-v2-invisible',
+                  'google-recaptcha-v3', 'cloudflare-turnstile']
+      cert_http_header:
+        aliases: ['cert-http-header']
+        type: str
+        description: Enable/disable authentication with user certificate in Client-Cert HTTP header
+        choices: ['disable', 'enable']
+      bearer_format:
+        aliases: ['bearer-format']
+        type: str
+        description: Bearer format.
+        choices: ['standard', 'raw']
+      bearer_header:
+        aliases: ['bearer-header']
+        type: str
+        description: Bearer header.
+      bearer_type:
+        aliases: ['bearer-type']
+        type: str
+        description: Bearer type.
+        choices: ['access-token']
 '''
 
 EXAMPLES = '''
@@ -179,7 +193,7 @@ EXAMPLES = '''
           # kerberos_keytab: <string>
           # method: ["ntlm", "basic", "digest", "form", "negotiate", "fsso", "rsso",
           #          "ssh-publickey", "saml", "cert", "x-auth-user", "saml-sp", "entra-sso",
-          #          "ztna-relay", "oidc"]
+          #          "ztna-relay", "oidc", "bearer"]
           # negotiate_ntlm: <value in [disable, enable]>
           # require_tfa: <value in [disable, enable]>
           # ssh_ca: <string>
@@ -202,46 +216,49 @@ EXAMPLES = '''
           # captcha_site_key: <string>
           # captcha_vendor: <value in [google-recaptcha-v2-checkbox, google-recaptcha-v2-invisible, google-recaptcha-v3, ...]>
           # cert_http_header: <value in [disable, enable]>
+          # bearer_format: <value in [standard, raw]>
+          # bearer_header: <string>
+          # bearer_type: <value in [access-token]>
 '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -269,7 +286,7 @@ def main():
                     'type': 'list',
                     'choices': [
                         'ntlm', 'basic', 'digest', 'form', 'negotiate', 'fsso', 'rsso', 'ssh-publickey', 'saml', 'cert', 'x-auth-user', 'saml-sp',
-                        'entra-sso', 'ztna-relay', 'oidc'
+                        'entra-sso', 'ztna-relay', 'oidc', 'bearer'
                     ],
                     'elements': 'str'
                 },
@@ -285,12 +302,12 @@ def main():
                 'external-idp': {'v_range': [['7.6.2', '']], 'type': 'raw'},
                 'digest-algo': {'v_range': [['7.6.3', '']], 'type': 'list', 'choices': ['md5', 'sha-256'], 'elements': 'str'},
                 'group-attr-type': {'v_range': [['7.6.3', '']], 'choices': ['display-name', 'external-id'], 'type': 'str'},
-                'search-all-ldap-databases': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'saml-idp-portal': {'v_range': [['7.4.8', '7.4.10']], 'type': 'str'},
+                'search-all-ldap-databases': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'saml-idp-portal': {'v_range': [['7.4.8', '7.4.11']], 'type': 'str'},
                 'oidc-server': {'v_range': [['7.6.4', '']], 'type': 'raw'},
                 'oidc-timeout': {'v_range': [['7.6.4', '']], 'type': 'int'},
                 'digest-rfc2069': {'v_range': [['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'auth-user-header': {'v_range': [['7.4.9', '7.4.10'], ['7.6.5', '']], 'type': 'str'},
+                'auth-user-header': {'v_range': [['7.4.9', '7.4.11'], ['7.6.5', '']], 'type': 'str'},
                 'captcha': {'v_range': [['7.6.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'captcha-secret-key': {'v_range': [['7.6.5', '']], 'no_log': True, 'type': 'str'},
                 'captcha-site-key': {'v_range': [['7.6.5', '']], 'no_log': True, 'type': 'str'},
@@ -299,7 +316,10 @@ def main():
                     'choices': ['google-recaptcha-v2-checkbox', 'google-recaptcha-v2-invisible', 'google-recaptcha-v3', 'cloudflare-turnstile'],
                     'type': 'str'
                 },
-                'cert-http-header': {'v_range': [['7.6.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'cert-http-header': {'v_range': [['7.6.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'bearer-format': {'v_range': [['7.6.7', '']], 'choices': ['standard', 'raw'], 'type': 'str'},
+                'bearer-header': {'v_range': [['7.6.7', '']], 'type': 'str'},
+                'bearer-type': {'v_range': [['7.6.7', '']], 'choices': ['access-token'], 'type': 'str'}
             }
         }
     }

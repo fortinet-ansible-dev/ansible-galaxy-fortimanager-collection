@@ -15,38 +15,41 @@ module: fmgr_securityconsole_install_preview
 short_description: Generate install preview for a device.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
+  - fortinet.fortimanager.general
 options:
-    securityconsole_install_preview:
-        description: The top level parameters set.
-        required: false
-        type: dict
+  securityconsole_install_preview:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      adom:
+        type: str
+        description: Source ADOM name.
+      device:
+        type: str
+        description: Device.
+      flags:
+        type: list
+        elements: str
+        description: Flags.
+        choices: ['none', 'json', 'default_cfg']
+      vdoms:
+        type: raw
+        description: (list) Vdoms.
+      scope:
+        type: list
+        elements: dict
+        description: Scope.
         suboptions:
-            adom:
-                type: str
-                description: Source ADOM name.
-            device:
-                type: str
-                description: Device.
-            flags:
-                type: list
-                elements: str
-                description: Flags.
-                choices: ['none', 'json', 'default_cfg']
-            vdoms:
-                type: raw
-                description: (list) Vdoms.
-            scope:
-                type: list
-                elements: dict
-                description: Scope.
-                suboptions:
-                    name:
-                        type: str
-                        description: Name.
-                    vdom:
-                        type: str
-                        description: Vdom.
+          name:
+            type: str
+            description: Name.
+          vdom:
+            type: str
+            description: Vdom.
+      preview_taskid:
+        type: int
+        description: Preview taskid.
 '''
 
 EXAMPLES = '''
@@ -116,42 +119,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -176,7 +179,8 @@ def main():
                     'type': 'list',
                     'options': {'name': {'v_range': [['7.4.4', '']], 'type': 'str'}, 'vdom': {'v_range': [['7.4.4', '']], 'type': 'str'}},
                     'elements': 'dict'
-                }
+                },
+                'preview_taskid': {'v_range': [['7.6.7', '7.6.7']], 'type': 'int'}
             }
         }
     }

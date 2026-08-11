@@ -15,221 +15,218 @@ module: fmgr_hotspot20_hsprofile
 short_description: Configure hotspot profile.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  hotspot20_hsprofile:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      3gpp_plmn:
+        aliases: ['3gpp-plmn']
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: 3GPP PLMN name.
+      access_network_asra:
+        aliases: ['access-network-asra']
         type: str
+        description: Enable/disable additional step required for access
+        choices: ['disable', 'enable']
+      access_network_esr:
+        aliases: ['access-network-esr']
+        type: str
+        description: Enable/disable emergency services reachable
+        choices: ['disable', 'enable']
+      access_network_internet:
+        aliases: ['access-network-internet']
+        type: str
+        description: Enable/disable connectivity to the Internet.
+        choices: ['disable', 'enable']
+      access_network_type:
+        aliases: ['access-network-type']
+        type: str
+        description: Access network type.
+        choices: ['private-network', 'private-network-with-guest-access',
+                  'chargeable-public-network', 'free-public-network', 'personal-device-network',
+                  'emergency-services-only-network', 'test-or-experimental', 'wildcard']
+      access_network_uesa:
+        aliases: ['access-network-uesa']
+        type: str
+        description: Enable/disable unauthenticated emergency service accessible
+        choices: ['disable', 'enable']
+      anqp_domain_id:
+        aliases: ['anqp-domain-id']
+        type: int
+        description: ANQP Domain ID
+      bss_transition:
+        aliases: ['bss-transition']
+        type: str
+        description: Enable/disable basic service set
+        choices: ['disable', 'enable']
+      conn_cap:
+        aliases: ['conn-cap']
+        type: str
+        description: Connection capability name.
+      deauth_request_timeout:
+        aliases: ['deauth-request-timeout']
+        type: int
+        description: Deauthentication request timeout
+      dgaf:
+        type: str
+        description: Enable/disable downstream group-addressed forwarding
+        choices: ['disable', 'enable']
+      domain_name:
+        aliases: ['domain-name']
+        type: str
+        description: Domain name.
+      gas_comeback_delay:
+        aliases: ['gas-comeback-delay']
+        type: int
+        description: GAS comeback delay
+      gas_fragmentation_limit:
+        aliases: ['gas-fragmentation-limit']
+        type: int
+        description: GAS fragmentation limit
+      hessid:
+        type: str
+        description: Homogeneous extended service set identifier
+      ip_addr_type:
+        aliases: ['ip-addr-type']
+        type: str
+        description: IP address type name.
+      l2tif:
+        type: str
+        description: Enable/disable Layer 2 traffic inspection and filtering.
+        choices: ['disable', 'enable']
+      nai_realm:
+        aliases: ['nai-realm']
+        type: str
+        description: NAI realm list name.
+      name:
+        type: str
+        description: Hotspot profile name.
         required: true
-    hotspot20_hsprofile:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            3gpp_plmn:
-                aliases: ['3gpp-plmn']
-                type: str
-                description: 3GPP PLMN name.
-            access_network_asra:
-                aliases: ['access-network-asra']
-                type: str
-                description: Enable/disable additional step required for access
-                choices: ['disable', 'enable']
-            access_network_esr:
-                aliases: ['access-network-esr']
-                type: str
-                description: Enable/disable emergency services reachable
-                choices: ['disable', 'enable']
-            access_network_internet:
-                aliases: ['access-network-internet']
-                type: str
-                description: Enable/disable connectivity to the Internet.
-                choices: ['disable', 'enable']
-            access_network_type:
-                aliases: ['access-network-type']
-                type: str
-                description: Access network type.
-                choices: ['private-network', 'private-network-with-guest-access',
-                          'chargeable-public-network', 'free-public-network',
-                          'personal-device-network', 'emergency-services-only-network',
-                          'test-or-experimental', 'wildcard']
-            access_network_uesa:
-                aliases: ['access-network-uesa']
-                type: str
-                description: Enable/disable unauthenticated emergency service accessible
-                choices: ['disable', 'enable']
-            anqp_domain_id:
-                aliases: ['anqp-domain-id']
-                type: int
-                description: ANQP Domain ID
-            bss_transition:
-                aliases: ['bss-transition']
-                type: str
-                description: Enable/disable basic service set
-                choices: ['disable', 'enable']
-            conn_cap:
-                aliases: ['conn-cap']
-                type: str
-                description: Connection capability name.
-            deauth_request_timeout:
-                aliases: ['deauth-request-timeout']
-                type: int
-                description: Deauthentication request timeout
-            dgaf:
-                type: str
-                description: Enable/disable downstream group-addressed forwarding
-                choices: ['disable', 'enable']
-            domain_name:
-                aliases: ['domain-name']
-                type: str
-                description: Domain name.
-            gas_comeback_delay:
-                aliases: ['gas-comeback-delay']
-                type: int
-                description: GAS comeback delay
-            gas_fragmentation_limit:
-                aliases: ['gas-fragmentation-limit']
-                type: int
-                description: GAS fragmentation limit
-            hessid:
-                type: str
-                description: Homogeneous extended service set identifier
-            ip_addr_type:
-                aliases: ['ip-addr-type']
-                type: str
-                description: IP address type name.
-            l2tif:
-                type: str
-                description: Enable/disable Layer 2 traffic inspection and filtering.
-                choices: ['disable', 'enable']
-            nai_realm:
-                aliases: ['nai-realm']
-                type: str
-                description: NAI realm list name.
-            name:
-                type: str
-                description: Hotspot profile name.
-                required: true
-            network_auth:
-                aliases: ['network-auth']
-                type: str
-                description: Network authentication name.
-            oper_friendly_name:
-                aliases: ['oper-friendly-name']
-                type: str
-                description: Operator friendly name.
-            osu_provider:
-                aliases: ['osu-provider']
-                type: raw
-                description: (list or str) Manually selected list of OSU provider
-            osu_ssid:
-                aliases: ['osu-ssid']
-                type: str
-                description: Online sign up
-            pame_bi:
-                aliases: ['pame-bi']
-                type: str
-                description: Enable/disable Pre-Association Message Exchange BSSID Independent
-                choices: ['disable', 'enable']
-            proxy_arp:
-                aliases: ['proxy-arp']
-                type: str
-                description: Enable/disable Proxy ARP.
-                choices: ['disable', 'enable']
-            qos_map:
-                aliases: ['qos-map']
-                type: str
-                description: QoS MAP set ID.
-            roaming_consortium:
-                aliases: ['roaming-consortium']
-                type: str
-                description: Roaming consortium list name.
-            venue_group:
-                aliases: ['venue-group']
-                type: str
-                description: Venue group.
-                choices: ['unspecified', 'assembly', 'business', 'educational', 'factory',
-                          'institutional', 'mercantile', 'residential', 'storage', 'utility',
-                          'vehicular', 'outdoor']
-            venue_name:
-                aliases: ['venue-name']
-                type: str
-                description: Venue name.
-            venue_type:
-                aliases: ['venue-type']
-                type: str
-                description: Venue type.
-                choices: ['unspecified', 'arena', 'stadium', 'passenger-terminal', 'amphitheater',
-                          'amusement-park', 'place-of-worship', 'convention-center', 'library',
-                          'museum', 'restaurant', 'theater', 'bar', 'coffee-shop',
-                          'zoo-or-aquarium', 'emergency-center', 'doctor-office', 'bank',
-                          'fire-station', 'police-station', 'post-office', 'professional-office',
-                          'research-facility', 'attorney-office', 'primary-school',
-                          'secondary-school', 'university-or-college', 'factory', 'hospital',
-                          'long-term-care-facility', 'rehab-center', 'group-home',
-                          'prison-or-jail', 'retail-store', 'grocery-market',
-                          'auto-service-station', 'shopping-mall', 'gas-station', 'private',
-                          'hotel-or-motel', 'dormitory', 'boarding-house', 'automobile',
-                          'airplane', 'bus', 'ferry', 'ship-or-boat', 'train', 'motor-bike',
-                          'muni-mesh-network', 'city-park', 'rest-area', 'traffic-control',
-                          'bus-stop', 'kiosk']
-            wan_metrics:
-                aliases: ['wan-metrics']
-                type: str
-                description: WAN metric name.
-            wnm_sleep_mode:
-                aliases: ['wnm-sleep-mode']
-                type: str
-                description: Enable/disable wireless network management
-                choices: ['disable', 'enable']
-            advice_of_charge:
-                aliases: ['advice-of-charge']
-                type: str
-                description: Advice of charge.
-            oper_icon:
-                aliases: ['oper-icon']
-                type: str
-                description: Operator icon.
-            osu_provider_nai:
-                aliases: ['osu-provider-nai']
-                type: str
-                description: OSU Provider NAI.
-            release:
-                type: int
-                description: Hotspot 2.
-            terms_and_conditions:
-                aliases: ['terms-and-conditions']
-                type: str
-                description: Terms and conditions.
-            venue_url:
-                aliases: ['venue-url']
-                type: str
-                description: Venue name.
-            wba_charging_currency:
-                aliases: ['wba-charging-currency']
-                type: str
-                description: Three letter currency code.
-            wba_charging_rate:
-                aliases: ['wba-charging-rate']
-                type: int
-                description: Number of currency units per kilobyte.
-            wba_data_clearing_provider:
-                aliases: ['wba-data-clearing-provider']
-                type: str
-                description: WBA ID of data clearing provider.
-            wba_financial_clearing_provider:
-                aliases: ['wba-financial-clearing-provider']
-                type: str
-                description: WBA ID of financial clearing provider.
-            wba_open_roaming:
-                aliases: ['wba-open-roaming']
-                type: str
-                description: Enable/disable WBA open roaming support.
-                choices: ['disable', 'enable']
+      network_auth:
+        aliases: ['network-auth']
+        type: str
+        description: Network authentication name.
+      oper_friendly_name:
+        aliases: ['oper-friendly-name']
+        type: str
+        description: Operator friendly name.
+      osu_provider:
+        aliases: ['osu-provider']
+        type: raw
+        description: (list or str) Manually selected list of OSU provider
+      osu_ssid:
+        aliases: ['osu-ssid']
+        type: str
+        description: Online sign up
+      pame_bi:
+        aliases: ['pame-bi']
+        type: str
+        description: Enable/disable Pre-Association Message Exchange BSSID Independent
+        choices: ['disable', 'enable']
+      proxy_arp:
+        aliases: ['proxy-arp']
+        type: str
+        description: Enable/disable Proxy ARP.
+        choices: ['disable', 'enable']
+      qos_map:
+        aliases: ['qos-map']
+        type: str
+        description: QoS MAP set ID.
+      roaming_consortium:
+        aliases: ['roaming-consortium']
+        type: str
+        description: Roaming consortium list name.
+      venue_group:
+        aliases: ['venue-group']
+        type: str
+        description: Venue group.
+        choices: ['unspecified', 'assembly', 'business', 'educational', 'factory',
+                  'institutional', 'mercantile', 'residential', 'storage', 'utility', 'vehicular',
+                  'outdoor']
+      venue_name:
+        aliases: ['venue-name']
+        type: str
+        description: Venue name.
+      venue_type:
+        aliases: ['venue-type']
+        type: str
+        description: Venue type.
+        choices: ['unspecified', 'arena', 'stadium', 'passenger-terminal', 'amphitheater',
+                  'amusement-park', 'place-of-worship', 'convention-center', 'library', 'museum',
+                  'restaurant', 'theater', 'bar', 'coffee-shop', 'zoo-or-aquarium',
+                  'emergency-center', 'doctor-office', 'bank', 'fire-station', 'police-station',
+                  'post-office', 'professional-office', 'research-facility', 'attorney-office',
+                  'primary-school', 'secondary-school', 'university-or-college', 'factory',
+                  'hospital', 'long-term-care-facility', 'rehab-center', 'group-home',
+                  'prison-or-jail', 'retail-store', 'grocery-market', 'auto-service-station',
+                  'shopping-mall', 'gas-station', 'private', 'hotel-or-motel', 'dormitory',
+                  'boarding-house', 'automobile', 'airplane', 'bus', 'ferry', 'ship-or-boat',
+                  'train', 'motor-bike', 'muni-mesh-network', 'city-park', 'rest-area',
+                  'traffic-control', 'bus-stop', 'kiosk']
+      wan_metrics:
+        aliases: ['wan-metrics']
+        type: str
+        description: WAN metric name.
+      wnm_sleep_mode:
+        aliases: ['wnm-sleep-mode']
+        type: str
+        description: Enable/disable wireless network management
+        choices: ['disable', 'enable']
+      advice_of_charge:
+        aliases: ['advice-of-charge']
+        type: str
+        description: Advice of charge.
+      oper_icon:
+        aliases: ['oper-icon']
+        type: str
+        description: Operator icon.
+      osu_provider_nai:
+        aliases: ['osu-provider-nai']
+        type: str
+        description: OSU Provider NAI.
+      release:
+        type: int
+        description: Hotspot 2.
+      terms_and_conditions:
+        aliases: ['terms-and-conditions']
+        type: str
+        description: Terms and conditions.
+      venue_url:
+        aliases: ['venue-url']
+        type: str
+        description: Venue name.
+      wba_charging_currency:
+        aliases: ['wba-charging-currency']
+        type: str
+        description: Three letter currency code.
+      wba_charging_rate:
+        aliases: ['wba-charging-rate']
+        type: int
+        description: Number of currency units per kilobyte.
+      wba_data_clearing_provider:
+        aliases: ['wba-data-clearing-provider']
+        type: str
+        description: WBA ID of data clearing provider.
+      wba_financial_clearing_provider:
+        aliases: ['wba-financial-clearing-provider']
+        type: str
+        description: WBA ID of financial clearing provider.
+      wba_open_roaming:
+        aliases: ['wba-open-roaming']
+        type: str
+        description: Enable/disable WBA open roaming support.
+        choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -291,42 +288,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

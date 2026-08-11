@@ -15,781 +15,893 @@ module: fmgr_firewall_profileprotocoloptions
 short_description: Configure protocol options.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  firewall_profileprotocoloptions:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      comment:
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Optional comments.
+      name:
         type: str
+        description: Name.
         required: true
-    firewall_profileprotocoloptions:
-        description: The top level parameters set.
-        required: false
+      oversize_log:
+        aliases: ['oversize-log']
+        type: str
+        description: Enable/disable logging for antivirus oversize file blocking.
+        choices: ['disable', 'enable']
+      replacemsg_group:
+        aliases: ['replacemsg-group']
+        type: str
+        description: Name of the replacement message group to be used
+      rpc_over_http:
+        aliases: ['rpc-over-http']
+        type: str
+        description: Enable/disable inspection of RPC over HTTP.
+        choices: ['disable', 'enable']
+      switching_protocols_log:
+        aliases: ['switching-protocols-log']
+        type: str
+        description: Enable/disable logging for HTTP/HTTPS switching protocols.
+        choices: ['disable', 'enable']
+      feature_set:
+        aliases: ['feature-set']
+        type: str
+        description: Flow/proxy feature set.
+        choices: ['proxy', 'flow']
+      cifs:
         type: dict
+        description: Cifs.
         suboptions:
-            comment:
+          domain_controller:
+            aliases: ['domain-controller']
+            type: str
+            description: Domain for which to decrypt CIFS traffic.
+          file_filter:
+            aliases: ['file-filter']
+            type: dict
+            description: File filter.
+            suboptions:
+              entries:
+                type: list
+                elements: dict
+                description: Entries.
+                suboptions:
+                  action:
+                    type: str
+                    description: Action taken for matched file.
+                    choices: ['log', 'block']
+                  comment:
+                    type: str
+                    description: Comment.
+                  direction:
+                    type: str
+                    description: Match files transmitted in the sessions originating or reply direction.
+                    choices: ['any', 'incoming', 'outgoing']
+                  file_type:
+                    aliases: ['file-type']
+                    type: raw
+                    description: (list) Select file type.
+                  filter:
+                    type: str
+                    description: Add a file filter.
+                  protocol:
+                    type: list
+                    elements: str
+                    description: Protocols to apply with.
+                    choices: ['cifs']
+              log:
                 type: str
-                description: Optional comments.
-            name:
-                type: str
-                description: Name.
-                required: true
-            oversize_log:
-                aliases: ['oversize-log']
-                type: str
-                description: Enable/disable logging for antivirus oversize file blocking.
+                description: Enable/disable file filter logging.
                 choices: ['disable', 'enable']
-            replacemsg_group:
-                aliases: ['replacemsg-group']
+              status:
                 type: str
-                description: Name of the replacement message group to be used
-            rpc_over_http:
-                aliases: ['rpc-over-http']
-                type: str
-                description: Enable/disable inspection of RPC over HTTP.
+                description: Enable/disable file filter.
                 choices: ['disable', 'enable']
-            switching_protocols_log:
-                aliases: ['switching-protocols-log']
+          options:
+            type: list
+            elements: str
+            description: One or more options that can be applied to the session.
+            choices: ['oversize']
+          oversize_limit:
+            aliases: ['oversize-limit']
+            type: int
+            description: Maximum in-memory file size that can be scanned
+          ports:
+            type: raw
+            description: (list) Ports to scan for content
+          scan_bzip2:
+            aliases: ['scan-bzip2']
+            type: str
+            description: Enable/disable scanning of BZip2 compressed files.
+            choices: ['disable', 'enable']
+          server_credential_type:
+            aliases: ['server-credential-type']
+            type: str
+            description: CIFS server credential type.
+            choices: ['none', 'credential-replication', 'credential-keytab']
+          server_keytab:
+            aliases: ['server-keytab']
+            type: list
+            elements: dict
+            description: Server keytab.
+            suboptions:
+              keytab:
                 type: str
-                description: Enable/disable logging for HTTP/HTTPS switching protocols.
-                choices: ['disable', 'enable']
-            feature_set:
-                aliases: ['feature-set']
+                description: Base64 encoded keytab file containing credential of the server.
+              password:
+                type: raw
+                description: (list) Password for keytab.
+              principal:
                 type: str
-                description: Flow/proxy feature set.
-                choices: ['proxy', 'flow']
-            cifs:
-                type: dict
-                description: Cifs.
-                suboptions:
-                    domain_controller:
-                        aliases: ['domain-controller']
-                        type: str
-                        description: Domain for which to decrypt CIFS traffic.
-                    file_filter:
-                        aliases: ['file-filter']
-                        type: dict
-                        description: File filter.
-                        suboptions:
-                            entries:
-                                type: list
-                                elements: dict
-                                description: Entries.
-                                suboptions:
-                                    action:
-                                        type: str
-                                        description: Action taken for matched file.
-                                        choices: ['log', 'block']
-                                    comment:
-                                        type: str
-                                        description: Comment.
-                                    direction:
-                                        type: str
-                                        description: Match files transmitted in the sessions originating or reply direction.
-                                        choices: ['any', 'incoming', 'outgoing']
-                                    file_type:
-                                        aliases: ['file-type']
-                                        type: raw
-                                        description: (list) Select file type.
-                                    filter:
-                                        type: str
-                                        description: Add a file filter.
-                                    protocol:
-                                        type: list
-                                        elements: str
-                                        description: Protocols to apply with.
-                                        choices: ['cifs']
-                            log:
-                                type: str
-                                description: Enable/disable file filter logging.
-                                choices: ['disable', 'enable']
-                            status:
-                                type: str
-                                description: Enable/disable file filter.
-                                choices: ['disable', 'enable']
-                    options:
-                        type: list
-                        elements: str
-                        description: One or more options that can be applied to the session.
-                        choices: ['oversize']
-                    oversize_limit:
-                        aliases: ['oversize-limit']
-                        type: int
-                        description: Maximum in-memory file size that can be scanned
-                    ports:
-                        type: raw
-                        description: (list) Ports to scan for content
-                    scan_bzip2:
-                        aliases: ['scan-bzip2']
-                        type: str
-                        description: Enable/disable scanning of BZip2 compressed files.
-                        choices: ['disable', 'enable']
-                    server_credential_type:
-                        aliases: ['server-credential-type']
-                        type: str
-                        description: CIFS server credential type.
-                        choices: ['none', 'credential-replication', 'credential-keytab']
-                    server_keytab:
-                        aliases: ['server-keytab']
-                        type: list
-                        elements: dict
-                        description: Server keytab.
-                        suboptions:
-                            keytab:
-                                type: str
-                                description: Base64 encoded keytab file containing credential of the server.
-                            password:
-                                type: raw
-                                description: (list) Password for keytab.
-                            principal:
-                                type: str
-                                description: Service principal.
-                    status:
-                        type: str
-                        description: Enable/disable the active status of scanning for this protocol.
-                        choices: ['disable', 'enable']
-                    tcp_window_maximum:
-                        aliases: ['tcp-window-maximum']
-                        type: int
-                        description: Maximum dynamic TCP window size
-                    tcp_window_minimum:
-                        aliases: ['tcp-window-minimum']
-                        type: int
-                        description: Minimum dynamic TCP window size
-                    tcp_window_size:
-                        aliases: ['tcp-window-size']
-                        type: int
-                        description: Set TCP static window size
-                    tcp_window_type:
-                        aliases: ['tcp-window-type']
-                        type: str
-                        description: Specify type of TCP window to use for this protocol.
-                        choices: ['system', 'static', 'dynamic', 'auto-tuning']
-                    uncompressed_nest_limit:
-                        aliases: ['uncompressed-nest-limit']
-                        type: int
-                        description: Maximum nested levels of compression that can be uncompressed and scanned
-                    uncompressed_oversize_limit:
-                        aliases: ['uncompressed-oversize-limit']
-                        type: int
-                        description: Maximum in-memory uncompressed file size that can be scanned
-            dns:
-                type: dict
-                description: Dns.
-                suboptions:
-                    ports:
-                        type: raw
-                        description: (list) Ports to scan for content
-                    status:
-                        type: str
-                        description: Enable/disable the active status of scanning for this protocol.
-                        choices: ['disable', 'enable']
-            ftp:
-                type: dict
-                description: Ftp.
-                suboptions:
-                    comfort_amount:
-                        aliases: ['comfort-amount']
-                        type: int
-                        description: Amount of data to send in a transmission for client comforting
-                    comfort_interval:
-                        aliases: ['comfort-interval']
-                        type: int
-                        description: Period of time between start, or last transmission, and the next client comfort transmission of data
-                    inspect_all:
-                        aliases: ['inspect-all']
-                        type: str
-                        description: Enable/disable the inspection of all ports for the protocol.
-                        choices: ['disable', 'enable']
-                    options:
-                        type: list
-                        elements: str
-                        description: One or more options that can be applied to the session.
-                        choices: ['clientcomfort', 'no-content-summary', 'oversize', 'splice',
-                                  'bypass-rest-command', 'bypass-mode-command']
-                    oversize_limit:
-                        aliases: ['oversize-limit']
-                        type: int
-                        description: Maximum in-memory file size that can be scanned
-                    ports:
-                        type: raw
-                        description: (list) Ports to scan for content
-                    scan_bzip2:
-                        aliases: ['scan-bzip2']
-                        type: str
-                        description: Enable/disable scanning of BZip2 compressed files.
-                        choices: ['disable', 'enable']
-                    ssl_offloaded:
-                        aliases: ['ssl-offloaded']
-                        type: str
-                        description: SSL decryption and encryption performed by an external device.
-                        choices: ['no', 'yes']
-                    status:
-                        type: str
-                        description: Enable/disable the active status of scanning for this protocol.
-                        choices: ['disable', 'enable']
-                    uncompressed_nest_limit:
-                        aliases: ['uncompressed-nest-limit']
-                        type: int
-                        description: Maximum nested levels of compression that can be uncompressed and scanned
-                    uncompressed_oversize_limit:
-                        aliases: ['uncompressed-oversize-limit']
-                        type: int
-                        description: Maximum in-memory uncompressed file size that can be scanned
-                    stream_based_uncompressed_limit:
-                        aliases: ['stream-based-uncompressed-limit']
-                        type: int
-                        description: Maximum stream-based uncompressed data size that will be scanned
-                    tcp_window_maximum:
-                        aliases: ['tcp-window-maximum']
-                        type: int
-                        description: Maximum dynamic TCP window size.
-                    tcp_window_minimum:
-                        aliases: ['tcp-window-minimum']
-                        type: int
-                        description: Minimum dynamic TCP window size.
-                    tcp_window_size:
-                        aliases: ['tcp-window-size']
-                        type: int
-                        description: Set TCP static window size.
-                    tcp_window_type:
-                        aliases: ['tcp-window-type']
-                        type: str
-                        description: TCP window type to use for this protocol.
-                        choices: ['system', 'static', 'dynamic', 'auto-tuning']
-                    explicit_ftp_tls:
-                        aliases: ['explicit-ftp-tls']
-                        type: str
-                        description: Enable/disable FTP redirection for explicit FTPS.
-                        choices: ['disable', 'enable']
-            http:
-                type: dict
-                description: Http.
-                suboptions:
-                    block_page_status_code:
-                        aliases: ['block-page-status-code']
-                        type: int
-                        description: Code number returned for blocked HTTP pages
-                    comfort_amount:
-                        aliases: ['comfort-amount']
-                        type: int
-                        description: Amount of data to send in a transmission for client comforting
-                    comfort_interval:
-                        aliases: ['comfort-interval']
-                        type: int
-                        description: Period of time between start, or last transmission, and the next client comfort transmission of data
-                    fortinet_bar:
-                        aliases: ['fortinet-bar']
-                        type: str
-                        description: Enable/disable Fortinet bar on HTML content.
-                        choices: ['disable', 'enable']
-                    fortinet_bar_port:
-                        aliases: ['fortinet-bar-port']
-                        type: int
-                        description: Port for use by Fortinet Bar
-                    inspect_all:
-                        aliases: ['inspect-all']
-                        type: str
-                        description: Enable/disable the inspection of all ports for the protocol.
-                        choices: ['disable', 'enable']
-                    options:
-                        type: list
-                        elements: str
-                        description: One or more options that can be applied to the session.
-                        choices: ['oversize', 'chunkedbypass', 'clientcomfort',
-                                  'no-content-summary', 'servercomfort']
-                    oversize_limit:
-                        aliases: ['oversize-limit']
-                        type: int
-                        description: Maximum in-memory file size that can be scanned
-                    ports:
-                        type: raw
-                        description: (list) Ports to scan for content
-                    post_lang:
-                        aliases: ['post-lang']
-                        type: list
-                        elements: str
-                        description: ID codes for character sets to be used to convert to UTF-8 for banned words and DLP on HTTP posts
-                        choices: ['jisx0201', 'jisx0208', 'jisx0212', 'gb2312', 'ksc5601-ex',
-                                  'euc-jp', 'sjis', 'iso2022-jp', 'iso2022-jp-1', 'iso2022-jp-2',
-                                  'euc-cn', 'ces-gbk', 'hz', 'ces-big5', 'euc-kr', 'iso2022-jp-3',
-                                  'iso8859-1', 'tis620', 'cp874', 'cp1252', 'cp1251']
-                    proxy_after_tcp_handshake:
-                        aliases: ['proxy-after-tcp-handshake']
-                        type: str
-                        description: Proxy traffic after the TCP 3-way handshake has been established
-                        choices: ['disable', 'enable']
-                    range_block:
-                        aliases: ['range-block']
-                        type: str
-                        description: Enable/disable blocking of partial downloads.
-                        choices: ['disable', 'enable']
-                    retry_count:
-                        aliases: ['retry-count']
-                        type: int
-                        description: Number of attempts to retry HTTP connection
-                    scan_bzip2:
-                        aliases: ['scan-bzip2']
-                        type: str
-                        description: Enable/disable scanning of BZip2 compressed files.
-                        choices: ['disable', 'enable']
-                    ssl_offloaded:
-                        aliases: ['ssl-offloaded']
-                        type: str
-                        description: SSL decryption and encryption performed by an external device.
-                        choices: ['no', 'yes']
-                    status:
-                        type: str
-                        description: Enable/disable the active status of scanning for this protocol.
-                        choices: ['disable', 'enable']
-                    stream_based_uncompressed_limit:
-                        aliases: ['stream-based-uncompressed-limit']
-                        type: int
-                        description: Maximum stream-based uncompressed data size that will be scanned
-                    streaming_content_bypass:
-                        aliases: ['streaming-content-bypass']
-                        type: str
-                        description: Enable/disable bypassing of streaming content from buffering.
-                        choices: ['disable', 'enable']
-                    strip_x_forwarded_for:
-                        aliases: ['strip-x-forwarded-for']
-                        type: str
-                        description: Enable/disable stripping of HTTP X-Forwarded-For header.
-                        choices: ['disable', 'enable']
-                    switching_protocols:
-                        aliases: ['switching-protocols']
-                        type: str
-                        description: Bypass from scanning, or block a connection that attempts to switch protocol.
-                        choices: ['bypass', 'block']
-                    tcp_window_maximum:
-                        aliases: ['tcp-window-maximum']
-                        type: int
-                        description: Maximum dynamic TCP window size
-                    tcp_window_minimum:
-                        aliases: ['tcp-window-minimum']
-                        type: int
-                        description: Minimum dynamic TCP window size
-                    tcp_window_size:
-                        aliases: ['tcp-window-size']
-                        type: int
-                        description: Set TCP static window size
-                    tcp_window_type:
-                        aliases: ['tcp-window-type']
-                        type: str
-                        description: Specify type of TCP window to use for this protocol.
-                        choices: ['system', 'static', 'dynamic', 'auto-tuning']
-                    tunnel_non_http:
-                        aliases: ['tunnel-non-http']
-                        type: str
-                        description: Configure how to process non-HTTP traffic when a profile configured for HTTP traffic accepts a non-HTTP session.
-                        choices: ['disable', 'enable']
-                    uncompressed_nest_limit:
-                        aliases: ['uncompressed-nest-limit']
-                        type: int
-                        description: Maximum nested levels of compression that can be uncompressed and scanned
-                    uncompressed_oversize_limit:
-                        aliases: ['uncompressed-oversize-limit']
-                        type: int
-                        description: Maximum in-memory uncompressed file size that can be scanned
-                    unknown_http_version:
-                        aliases: ['unknown-http-version']
-                        type: str
-                        description: How to handle HTTP sessions that do not comply with HTTP 0.
-                        choices: ['best-effort', 'reject', 'tunnel']
-                    http_policy:
-                        aliases: ['http-policy']
-                        type: str
-                        description: Enable/disable HTTP policy check.
-                        choices: ['disable', 'enable']
-                    address_ip_rating:
-                        aliases: ['address-ip-rating']
-                        type: str
-                        description: Enable/disable IP based URL rating.
-                        choices: ['disable', 'enable']
-                    h2c:
-                        type: str
-                        description: Enable/disable h2c HTTP connection upgrade.
-                        choices: ['disable', 'enable']
-                    verify_dns_for_policy_matching:
-                        aliases: ['verify-dns-for-policy-matching']
-                        type: str
-                        description: Enable/disable verification of DNS for policy matching.
-                        choices: ['disable', 'enable']
-                    unknown_content_encoding:
-                        aliases: ['unknown-content-encoding']
-                        type: str
-                        description: Configure the action the FortiGate unit will take on unknown content-encoding.
-                        choices: ['block', 'inspect', 'bypass']
-                    domain_fronting:
-                        aliases: ['domain-fronting']
-                        type: str
-                        description: Configure HTTP domain fronting
-                        choices: ['block', 'monitor', 'allow', 'disable', 'enable', 'strict']
-                    http_0_9:
-                        aliases: ['http-0.9']
-                        type: str
-                        description: Configure action to take upon receipt of HTTP 0.
-                        choices: ['block', 'allow']
-                    dns_protection:
-                        aliases: ['dns-protection']
-                        type: str
-                        description: Enable/disable DNS protection for HTTP/HTTPS traffic.
-                        choices: ['disable', 'enable']
-                    encrypted_file:
-                        aliases: ['encrypted-file']
-                        type: str
-                        description: Encrypted file.
-                        choices: ['block', 'pass', 'inspect']
-                    encrypted_file_log:
-                        aliases: ['encrypted-file-log']
-                        type: str
-                        description: Encrypted file log.
-                        choices: ['disable', 'enable']
-            imap:
-                type: dict
-                description: Imap.
-                suboptions:
-                    inspect_all:
-                        aliases: ['inspect-all']
-                        type: str
-                        description: Enable/disable the inspection of all ports for the protocol.
-                        choices: ['disable', 'enable']
-                    options:
-                        type: list
-                        elements: str
-                        description: One or more options that can be applied to the session.
-                        choices: ['oversize', 'fragmail', 'no-content-summary']
-                    oversize_limit:
-                        aliases: ['oversize-limit']
-                        type: int
-                        description: Maximum in-memory file size that can be scanned
-                    ports:
-                        type: raw
-                        description: (list) Ports to scan for content
-                    proxy_after_tcp_handshake:
-                        aliases: ['proxy-after-tcp-handshake']
-                        type: str
-                        description: Proxy traffic after the TCP 3-way handshake has been established
-                        choices: ['disable', 'enable']
-                    scan_bzip2:
-                        aliases: ['scan-bzip2']
-                        type: str
-                        description: Enable/disable scanning of BZip2 compressed files.
-                        choices: ['disable', 'enable']
-                    ssl_offloaded:
-                        aliases: ['ssl-offloaded']
-                        type: str
-                        description: SSL decryption and encryption performed by an external device.
-                        choices: ['no', 'yes']
-                    status:
-                        type: str
-                        description: Enable/disable the active status of scanning for this protocol.
-                        choices: ['disable', 'enable']
-                    uncompressed_nest_limit:
-                        aliases: ['uncompressed-nest-limit']
-                        type: int
-                        description: Maximum nested levels of compression that can be uncompressed and scanned
-                    uncompressed_oversize_limit:
-                        aliases: ['uncompressed-oversize-limit']
-                        type: int
-                        description: Maximum in-memory uncompressed file size that can be scanned
-                    address_ip_rating:
-                        aliases: ['address-ip-rating']
-                        type: str
-                        description: Address ip rating.
-                        choices: ['disable', 'enable']
-            mail_signature:
-                aliases: ['mail-signature']
-                type: dict
-                description: Mail signature.
-                suboptions:
-                    signature:
-                        type: str
-                        description: Email signature to be added to outgoing email
-                    status:
-                        type: str
-                        description: Enable/disable adding an email signature to SMTP email messages as they pass through the FortiGate.
-                        choices: ['disable', 'enable']
-            mapi:
-                type: dict
-                description: Mapi.
-                suboptions:
-                    options:
-                        type: list
-                        elements: str
-                        description: One or more options that can be applied to the session.
-                        choices: ['fragmail', 'oversize', 'no-content-summary']
-                    oversize_limit:
-                        aliases: ['oversize-limit']
-                        type: int
-                        description: Maximum in-memory file size that can be scanned
-                    ports:
-                        type: raw
-                        description: (list) Ports to scan for content
-                    scan_bzip2:
-                        aliases: ['scan-bzip2']
-                        type: str
-                        description: Enable/disable scanning of BZip2 compressed files.
-                        choices: ['disable', 'enable']
-                    status:
-                        type: str
-                        description: Enable/disable the active status of scanning for this protocol.
-                        choices: ['disable', 'enable']
-                    uncompressed_nest_limit:
-                        aliases: ['uncompressed-nest-limit']
-                        type: int
-                        description: Maximum nested levels of compression that can be uncompressed and scanned
-                    uncompressed_oversize_limit:
-                        aliases: ['uncompressed-oversize-limit']
-                        type: int
-                        description: Maximum in-memory uncompressed file size that can be scanned
-            nntp:
-                type: dict
-                description: Nntp.
-                suboptions:
-                    inspect_all:
-                        aliases: ['inspect-all']
-                        type: str
-                        description: Enable/disable the inspection of all ports for the protocol.
-                        choices: ['disable', 'enable']
-                    options:
-                        type: list
-                        elements: str
-                        description: One or more options that can be applied to the session.
-                        choices: ['oversize', 'no-content-summary', 'splice']
-                    oversize_limit:
-                        aliases: ['oversize-limit']
-                        type: int
-                        description: Maximum in-memory file size that can be scanned
-                    ports:
-                        type: raw
-                        description: (list) Ports to scan for content
-                    proxy_after_tcp_handshake:
-                        aliases: ['proxy-after-tcp-handshake']
-                        type: str
-                        description: Proxy traffic after the TCP 3-way handshake has been established
-                        choices: ['disable', 'enable']
-                    scan_bzip2:
-                        aliases: ['scan-bzip2']
-                        type: str
-                        description: Enable/disable scanning of BZip2 compressed files.
-                        choices: ['disable', 'enable']
-                    status:
-                        type: str
-                        description: Enable/disable the active status of scanning for this protocol.
-                        choices: ['disable', 'enable']
-                    uncompressed_nest_limit:
-                        aliases: ['uncompressed-nest-limit']
-                        type: int
-                        description: Maximum nested levels of compression that can be uncompressed and scanned
-                    uncompressed_oversize_limit:
-                        aliases: ['uncompressed-oversize-limit']
-                        type: int
-                        description: Maximum in-memory uncompressed file size that can be scanned
-            pop3:
-                type: dict
-                description: Pop3.
-                suboptions:
-                    inspect_all:
-                        aliases: ['inspect-all']
-                        type: str
-                        description: Enable/disable the inspection of all ports for the protocol.
-                        choices: ['disable', 'enable']
-                    options:
-                        type: list
-                        elements: str
-                        description: One or more options that can be applied to the session.
-                        choices: ['oversize', 'fragmail', 'no-content-summary']
-                    oversize_limit:
-                        aliases: ['oversize-limit']
-                        type: int
-                        description: Maximum in-memory file size that can be scanned
-                    ports:
-                        type: raw
-                        description: (list) Ports to scan for content
-                    proxy_after_tcp_handshake:
-                        aliases: ['proxy-after-tcp-handshake']
-                        type: str
-                        description: Proxy traffic after the TCP 3-way handshake has been established
-                        choices: ['disable', 'enable']
-                    scan_bzip2:
-                        aliases: ['scan-bzip2']
-                        type: str
-                        description: Enable/disable scanning of BZip2 compressed files.
-                        choices: ['disable', 'enable']
-                    ssl_offloaded:
-                        aliases: ['ssl-offloaded']
-                        type: str
-                        description: SSL decryption and encryption performed by an external device.
-                        choices: ['no', 'yes']
-                    status:
-                        type: str
-                        description: Enable/disable the active status of scanning for this protocol.
-                        choices: ['disable', 'enable']
-                    uncompressed_nest_limit:
-                        aliases: ['uncompressed-nest-limit']
-                        type: int
-                        description: Maximum nested levels of compression that can be uncompressed and scanned
-                    uncompressed_oversize_limit:
-                        aliases: ['uncompressed-oversize-limit']
-                        type: int
-                        description: Maximum in-memory uncompressed file size that can be scanned
-            smtp:
-                type: dict
-                description: Smtp.
-                suboptions:
-                    inspect_all:
-                        aliases: ['inspect-all']
-                        type: str
-                        description: Enable/disable the inspection of all ports for the protocol.
-                        choices: ['disable', 'enable']
-                    options:
-                        type: list
-                        elements: str
-                        description: One or more options that can be applied to the session.
-                        choices: ['oversize', 'fragmail', 'no-content-summary', 'splice']
-                    oversize_limit:
-                        aliases: ['oversize-limit']
-                        type: int
-                        description: Maximum in-memory file size that can be scanned
-                    ports:
-                        type: raw
-                        description: (list) Ports to scan for content
-                    proxy_after_tcp_handshake:
-                        aliases: ['proxy-after-tcp-handshake']
-                        type: str
-                        description: Proxy traffic after the TCP 3-way handshake has been established
-                        choices: ['disable', 'enable']
-                    scan_bzip2:
-                        aliases: ['scan-bzip2']
-                        type: str
-                        description: Enable/disable scanning of BZip2 compressed files.
-                        choices: ['disable', 'enable']
-                    server_busy:
-                        aliases: ['server-busy']
-                        type: str
-                        description: Enable/disable SMTP server busy when server not available.
-                        choices: ['disable', 'enable']
-                    ssl_offloaded:
-                        aliases: ['ssl-offloaded']
-                        type: str
-                        description: SSL decryption and encryption performed by an external device.
-                        choices: ['no', 'yes']
-                    status:
-                        type: str
-                        description: Enable/disable the active status of scanning for this protocol.
-                        choices: ['disable', 'enable']
-                    uncompressed_nest_limit:
-                        aliases: ['uncompressed-nest-limit']
-                        type: int
-                        description: Maximum nested levels of compression that can be uncompressed and scanned
-                    uncompressed_oversize_limit:
-                        aliases: ['uncompressed-oversize-limit']
-                        type: int
-                        description: Maximum in-memory uncompressed file size that can be scanned
-            ssh:
-                type: dict
-                description: Ssh.
-                suboptions:
-                    comfort_amount:
-                        aliases: ['comfort-amount']
-                        type: int
-                        description: Amount of data to send in a transmission for client comforting
-                    comfort_interval:
-                        aliases: ['comfort-interval']
-                        type: int
-                        description: Period of time between start, or last transmission, and the next client comfort transmission of data
-                    options:
-                        type: list
-                        elements: str
-                        description: One or more options that can be applied to the session.
-                        choices: ['oversize', 'clientcomfort', 'servercomfort']
-                    oversize_limit:
-                        aliases: ['oversize-limit']
-                        type: int
-                        description: Maximum in-memory file size that can be scanned
-                    scan_bzip2:
-                        aliases: ['scan-bzip2']
-                        type: str
-                        description: Enable/disable scanning of BZip2 compressed files.
-                        choices: ['disable', 'enable']
-                    uncompressed_nest_limit:
-                        aliases: ['uncompressed-nest-limit']
-                        type: int
-                        description: Maximum nested levels of compression that can be uncompressed and scanned
-                    uncompressed_oversize_limit:
-                        aliases: ['uncompressed-oversize-limit']
-                        type: int
-                        description: Maximum in-memory uncompressed file size that can be scanned
-                    ssl_offloaded:
-                        aliases: ['ssl-offloaded']
-                        type: str
-                        description: SSL decryption and encryption performed by an external device.
-                        choices: ['no', 'yes']
-                    stream_based_uncompressed_limit:
-                        aliases: ['stream-based-uncompressed-limit']
-                        type: int
-                        description: Maximum stream-based uncompressed data size that will be scanned
-                    tcp_window_maximum:
-                        aliases: ['tcp-window-maximum']
-                        type: int
-                        description: Maximum dynamic TCP window size.
-                    tcp_window_minimum:
-                        aliases: ['tcp-window-minimum']
-                        type: int
-                        description: Minimum dynamic TCP window size.
-                    tcp_window_size:
-                        aliases: ['tcp-window-size']
-                        type: int
-                        description: Set TCP static window size.
-                    tcp_window_type:
-                        aliases: ['tcp-window-type']
-                        type: str
-                        description: TCP window type to use for this protocol.
-                        choices: ['system', 'static', 'dynamic', 'auto-tuning']
-                    explicit_ftp_tls:
-                        aliases: ['explicit-ftp-tls']
-                        type: str
-                        description: Explicit ftp tls.
-                        choices: ['disable', 'enable']
-            proxy_redirect:
-                aliases: ['proxy-redirect']
-                type: dict
-                description: Proxy redirect.
-                suboptions:
-                    ports:
-                        type: raw
-                        description: (list) Ports.
-                    status:
-                        type: str
-                        description: Status.
-                        choices: ['disable', 'enable']
-            rtmp:
-                type: dict
-                description: Rtmp.
-                suboptions:
-                    http_tunnel:
-                        aliases: ['http-tunnel']
-                        type: str
-                        description: Enable/disable RTMP http tunnel.
-                        choices: ['disable', 'enable']
-                    ports:
-                        type: raw
-                        description: (list) Ports to scan for content
-                    rtmpt:
-                        type: str
-                        description: Enable/disable RTMPT.
-                        choices: ['disable', 'enable']
-                    status:
-                        type: str
-                        description: Enable/disable the active status of scanning for this protocol.
-                        choices: ['disable', 'enable']
+                description: Service principal.
+          status:
+            type: str
+            description: Enable/disable the active status of scanning for this protocol.
+            choices: ['disable', 'enable']
+          tcp_window_maximum:
+            aliases: ['tcp-window-maximum']
+            type: int
+            description: Maximum dynamic TCP window size
+          tcp_window_minimum:
+            aliases: ['tcp-window-minimum']
+            type: int
+            description: Minimum dynamic TCP window size
+          tcp_window_size:
+            aliases: ['tcp-window-size']
+            type: int
+            description: Set TCP static window size
+          tcp_window_type:
+            aliases: ['tcp-window-type']
+            type: str
+            description: Specify type of TCP window to use for this protocol.
+            choices: ['system', 'static', 'dynamic', 'auto-tuning']
+          uncompressed_nest_limit:
+            aliases: ['uncompressed-nest-limit']
+            type: int
+            description: Maximum nested levels of compression that can be uncompressed and scanned
+          uncompressed_oversize_limit:
+            aliases: ['uncompressed-oversize-limit']
+            type: int
+            description: Maximum in-memory uncompressed file size that can be scanned
+      dns:
+        type: dict
+        description: Dns.
+        suboptions:
+          ports:
+            type: raw
+            description: (list) Ports to scan for content
+          status:
+            type: str
+            description: Enable/disable the active status of scanning for this protocol.
+            choices: ['disable', 'enable']
+      ftp:
+        type: dict
+        description: Ftp.
+        suboptions:
+          comfort_amount:
+            aliases: ['comfort-amount']
+            type: int
+            description: Amount of data to send in a transmission for client comforting
+          comfort_interval:
+            aliases: ['comfort-interval']
+            type: int
+            description: Period of time between start, or last transmission, and the next client comfort transmission of data
+          inspect_all:
+            aliases: ['inspect-all']
+            type: str
+            description: Enable/disable the inspection of all ports for the protocol.
+            choices: ['disable', 'enable']
+          options:
+            type: list
+            elements: str
+            description: One or more options that can be applied to the session.
+            choices: ['clientcomfort', 'no-content-summary', 'oversize', 'splice',
+                      'bypass-rest-command', 'bypass-mode-command']
+          oversize_limit:
+            aliases: ['oversize-limit']
+            type: int
+            description: Maximum in-memory file size that can be scanned
+          ports:
+            type: raw
+            description: (list) Ports to scan for content
+          scan_bzip2:
+            aliases: ['scan-bzip2']
+            type: str
+            description: Enable/disable scanning of BZip2 compressed files.
+            choices: ['disable', 'enable']
+          ssl_offloaded:
+            aliases: ['ssl-offloaded']
+            type: str
+            description: SSL decryption and encryption performed by an external device.
+            choices: ['no', 'yes']
+          status:
+            type: str
+            description: Enable/disable the active status of scanning for this protocol.
+            choices: ['disable', 'enable']
+          uncompressed_nest_limit:
+            aliases: ['uncompressed-nest-limit']
+            type: int
+            description: Maximum nested levels of compression that can be uncompressed and scanned
+          uncompressed_oversize_limit:
+            aliases: ['uncompressed-oversize-limit']
+            type: int
+            description: Maximum in-memory uncompressed file size that can be scanned
+          stream_based_uncompressed_limit:
+            aliases: ['stream-based-uncompressed-limit']
+            type: int
+            description: Maximum stream-based uncompressed data size that will be scanned
+          tcp_window_maximum:
+            aliases: ['tcp-window-maximum']
+            type: int
+            description: Maximum dynamic TCP window size.
+          tcp_window_minimum:
+            aliases: ['tcp-window-minimum']
+            type: int
+            description: Minimum dynamic TCP window size.
+          tcp_window_size:
+            aliases: ['tcp-window-size']
+            type: int
+            description: Set TCP static window size.
+          tcp_window_type:
+            aliases: ['tcp-window-type']
+            type: str
+            description: TCP window type to use for this protocol.
+            choices: ['system', 'static', 'dynamic', 'auto-tuning']
+          explicit_ftp_tls:
+            aliases: ['explicit-ftp-tls']
+            type: str
+            description: Enable/disable FTP redirection for explicit FTPS.
+            choices: ['disable', 'enable']
+      http:
+        type: dict
+        description: Http.
+        suboptions:
+          block_page_status_code:
+            aliases: ['block-page-status-code']
+            type: int
+            description: Code number returned for blocked HTTP pages
+          comfort_amount:
+            aliases: ['comfort-amount']
+            type: int
+            description: Amount of data to send in a transmission for client comforting
+          comfort_interval:
+            aliases: ['comfort-interval']
+            type: int
+            description: Period of time between start, or last transmission, and the next client comfort transmission of data
+          fortinet_bar:
+            aliases: ['fortinet-bar']
+            type: str
+            description: Enable/disable Fortinet bar on HTML content.
+            choices: ['disable', 'enable']
+          fortinet_bar_port:
+            aliases: ['fortinet-bar-port']
+            type: int
+            description: Port for use by Fortinet Bar
+          inspect_all:
+            aliases: ['inspect-all']
+            type: str
+            description: Enable/disable the inspection of all ports for the protocol.
+            choices: ['disable', 'enable']
+          options:
+            type: list
+            elements: str
+            description: One or more options that can be applied to the session.
+            choices: ['oversize', 'chunkedbypass', 'clientcomfort', 'no-content-summary',
+                      'servercomfort']
+          oversize_limit:
+            aliases: ['oversize-limit']
+            type: int
+            description: Maximum in-memory file size that can be scanned
+          ports:
+            type: raw
+            description: (list) Ports to scan for content
+          post_lang:
+            aliases: ['post-lang']
+            type: list
+            elements: str
+            description: ID codes for character sets to be used to convert to UTF-8 for banned words and DLP on HTTP posts
+            choices: ['jisx0201', 'jisx0208', 'jisx0212', 'gb2312', 'ksc5601-ex', 'euc-jp',
+                      'sjis', 'iso2022-jp', 'iso2022-jp-1', 'iso2022-jp-2', 'euc-cn', 'ces-gbk',
+                      'hz', 'ces-big5', 'euc-kr', 'iso2022-jp-3', 'iso8859-1', 'tis620', 'cp874',
+                      'cp1252', 'cp1251']
+          proxy_after_tcp_handshake:
+            aliases: ['proxy-after-tcp-handshake']
+            type: str
+            description: Proxy traffic after the TCP 3-way handshake has been established
+            choices: ['disable', 'enable']
+          range_block:
+            aliases: ['range-block']
+            type: str
+            description: Enable/disable blocking of partial downloads.
+            choices: ['disable', 'enable']
+          retry_count:
+            aliases: ['retry-count']
+            type: int
+            description: Number of attempts to retry HTTP connection
+          scan_bzip2:
+            aliases: ['scan-bzip2']
+            type: str
+            description: Enable/disable scanning of BZip2 compressed files.
+            choices: ['disable', 'enable']
+          ssl_offloaded:
+            aliases: ['ssl-offloaded']
+            type: str
+            description: SSL decryption and encryption performed by an external device.
+            choices: ['no', 'yes']
+          status:
+            type: str
+            description: Enable/disable the active status of scanning for this protocol.
+            choices: ['disable', 'enable']
+          stream_based_uncompressed_limit:
+            aliases: ['stream-based-uncompressed-limit']
+            type: int
+            description: Maximum stream-based uncompressed data size that will be scanned
+          streaming_content_bypass:
+            aliases: ['streaming-content-bypass']
+            type: str
+            description: Enable/disable bypassing of streaming content from buffering.
+            choices: ['disable', 'enable']
+          strip_x_forwarded_for:
+            aliases: ['strip-x-forwarded-for']
+            type: str
+            description: Enable/disable stripping of HTTP X-Forwarded-For header.
+            choices: ['disable', 'enable']
+          switching_protocols:
+            aliases: ['switching-protocols']
+            type: str
+            description: Bypass from scanning, or block a connection that attempts to switch protocol.
+            choices: ['bypass', 'block']
+          tcp_window_maximum:
+            aliases: ['tcp-window-maximum']
+            type: int
+            description: Maximum dynamic TCP window size
+          tcp_window_minimum:
+            aliases: ['tcp-window-minimum']
+            type: int
+            description: Minimum dynamic TCP window size
+          tcp_window_size:
+            aliases: ['tcp-window-size']
+            type: int
+            description: Set TCP static window size
+          tcp_window_type:
+            aliases: ['tcp-window-type']
+            type: str
+            description: Specify type of TCP window to use for this protocol.
+            choices: ['system', 'static', 'dynamic', 'auto-tuning']
+          tunnel_non_http:
+            aliases: ['tunnel-non-http']
+            type: str
+            description: Configure how to process non-HTTP traffic when a profile configured for HTTP traffic accepts a non-HTTP session.
+            choices: ['disable', 'enable']
+          uncompressed_nest_limit:
+            aliases: ['uncompressed-nest-limit']
+            type: int
+            description: Maximum nested levels of compression that can be uncompressed and scanned
+          uncompressed_oversize_limit:
+            aliases: ['uncompressed-oversize-limit']
+            type: int
+            description: Maximum in-memory uncompressed file size that can be scanned
+          unknown_http_version:
+            aliases: ['unknown-http-version']
+            type: str
+            description: How to handle HTTP sessions that do not comply with HTTP 0.
+            choices: ['best-effort', 'reject', 'tunnel']
+          http_policy:
+            aliases: ['http-policy']
+            type: str
+            description: Enable/disable HTTP policy check.
+            choices: ['disable', 'enable']
+          address_ip_rating:
+            aliases: ['address-ip-rating']
+            type: str
+            description: Enable/disable IP based URL rating.
+            choices: ['disable', 'enable']
+          h2c:
+            type: str
+            description: Enable/disable h2c HTTP connection upgrade.
+            choices: ['disable', 'enable']
+          verify_dns_for_policy_matching:
+            aliases: ['verify-dns-for-policy-matching']
+            type: str
+            description: Enable/disable verification of DNS for policy matching.
+            choices: ['disable', 'enable']
+          unknown_content_encoding:
+            aliases: ['unknown-content-encoding']
+            type: str
+            description: Configure the action the FortiGate unit will take on unknown content-encoding.
+            choices: ['block', 'inspect', 'bypass']
+          domain_fronting:
+            aliases: ['domain-fronting']
+            type: str
+            description: Configure HTTP domain fronting
+            choices: ['block', 'monitor', 'allow', 'disable', 'enable', 'strict']
+          http_0_9:
+            aliases: ['http-0.9']
+            type: str
+            description: Configure action to take upon receipt of HTTP 0.
+            choices: ['block', 'allow']
+          dns_protection:
+            aliases: ['dns-protection']
+            type: str
+            description: Enable/disable DNS protection for HTTP/HTTPS traffic.
+            choices: ['disable', 'enable']
+          encrypted_file:
+            aliases: ['encrypted-file']
+            type: str
+            description: Encrypted file.
+            choices: ['block', 'pass', 'inspect']
+          encrypted_file_log:
+            aliases: ['encrypted-file-log']
+            type: str
+            description: Encrypted file log.
+            choices: ['disable', 'enable']
+          streaming_content_scan_type:
+            aliases: ['streaming-content-scan-type']
+            type: list
+            elements: str
+            description: Enforce scan on certain streaming content type when streaming-content-bypass is enabled.
+            choices: ['flv', 'octet', 'dvi', 'rtmp', 'mms-framed', 'msmediaview', 'pncmd',
+                      'rtsp-tunnel', 'audio', 'audio-accp', 'audio-mpeg', 'pn-realaudio',
+                      'pn-realaudio-plugin', 'mixed', 'x-mixed', 'event-stream', 'video',
+                      'video-mp4', 'video-mpeg', 'video-xflv', 'video-xasf']
+      imap:
+        type: dict
+        description: Imap.
+        suboptions:
+          inspect_all:
+            aliases: ['inspect-all']
+            type: str
+            description: Enable/disable the inspection of all ports for the protocol.
+            choices: ['disable', 'enable']
+          options:
+            type: list
+            elements: str
+            description: One or more options that can be applied to the session.
+            choices: ['oversize', 'fragmail', 'no-content-summary']
+          oversize_limit:
+            aliases: ['oversize-limit']
+            type: int
+            description: Maximum in-memory file size that can be scanned
+          ports:
+            type: raw
+            description: (list) Ports to scan for content
+          proxy_after_tcp_handshake:
+            aliases: ['proxy-after-tcp-handshake']
+            type: str
+            description: Proxy traffic after the TCP 3-way handshake has been established
+            choices: ['disable', 'enable']
+          scan_bzip2:
+            aliases: ['scan-bzip2']
+            type: str
+            description: Enable/disable scanning of BZip2 compressed files.
+            choices: ['disable', 'enable']
+          ssl_offloaded:
+            aliases: ['ssl-offloaded']
+            type: str
+            description: SSL decryption and encryption performed by an external device.
+            choices: ['no', 'yes']
+          status:
+            type: str
+            description: Enable/disable the active status of scanning for this protocol.
+            choices: ['disable', 'enable']
+          uncompressed_nest_limit:
+            aliases: ['uncompressed-nest-limit']
+            type: int
+            description: Maximum nested levels of compression that can be uncompressed and scanned
+          uncompressed_oversize_limit:
+            aliases: ['uncompressed-oversize-limit']
+            type: int
+            description: Maximum in-memory uncompressed file size that can be scanned
+          address_ip_rating:
+            aliases: ['address-ip-rating']
+            type: str
+            description: Address ip rating.
+            choices: ['disable', 'enable']
+      mail_signature:
+        aliases: ['mail-signature']
+        type: dict
+        description: Mail signature.
+        suboptions:
+          signature:
+            type: str
+            description: Email signature to be added to outgoing email
+          status:
+            type: str
+            description: Enable/disable adding an email signature to SMTP email messages as they pass through the FortiGate.
+            choices: ['disable', 'enable']
+      mapi:
+        type: dict
+        description: Mapi.
+        suboptions:
+          options:
+            type: list
+            elements: str
+            description: One or more options that can be applied to the session.
+            choices: ['fragmail', 'oversize', 'no-content-summary']
+          oversize_limit:
+            aliases: ['oversize-limit']
+            type: int
+            description: Maximum in-memory file size that can be scanned
+          ports:
+            type: raw
+            description: (list) Ports to scan for content
+          scan_bzip2:
+            aliases: ['scan-bzip2']
+            type: str
+            description: Enable/disable scanning of BZip2 compressed files.
+            choices: ['disable', 'enable']
+          status:
+            type: str
+            description: Enable/disable the active status of scanning for this protocol.
+            choices: ['disable', 'enable']
+          uncompressed_nest_limit:
+            aliases: ['uncompressed-nest-limit']
+            type: int
+            description: Maximum nested levels of compression that can be uncompressed and scanned
+          uncompressed_oversize_limit:
+            aliases: ['uncompressed-oversize-limit']
+            type: int
+            description: Maximum in-memory uncompressed file size that can be scanned
+      nntp:
+        type: dict
+        description: Nntp.
+        suboptions:
+          inspect_all:
+            aliases: ['inspect-all']
+            type: str
+            description: Enable/disable the inspection of all ports for the protocol.
+            choices: ['disable', 'enable']
+          options:
+            type: list
+            elements: str
+            description: One or more options that can be applied to the session.
+            choices: ['oversize', 'no-content-summary', 'splice']
+          oversize_limit:
+            aliases: ['oversize-limit']
+            type: int
+            description: Maximum in-memory file size that can be scanned
+          ports:
+            type: raw
+            description: (list) Ports to scan for content
+          proxy_after_tcp_handshake:
+            aliases: ['proxy-after-tcp-handshake']
+            type: str
+            description: Proxy traffic after the TCP 3-way handshake has been established
+            choices: ['disable', 'enable']
+          scan_bzip2:
+            aliases: ['scan-bzip2']
+            type: str
+            description: Enable/disable scanning of BZip2 compressed files.
+            choices: ['disable', 'enable']
+          status:
+            type: str
+            description: Enable/disable the active status of scanning for this protocol.
+            choices: ['disable', 'enable']
+          uncompressed_nest_limit:
+            aliases: ['uncompressed-nest-limit']
+            type: int
+            description: Maximum nested levels of compression that can be uncompressed and scanned
+          uncompressed_oversize_limit:
+            aliases: ['uncompressed-oversize-limit']
+            type: int
+            description: Maximum in-memory uncompressed file size that can be scanned
+      pop3:
+        type: dict
+        description: Pop3.
+        suboptions:
+          inspect_all:
+            aliases: ['inspect-all']
+            type: str
+            description: Enable/disable the inspection of all ports for the protocol.
+            choices: ['disable', 'enable']
+          options:
+            type: list
+            elements: str
+            description: One or more options that can be applied to the session.
+            choices: ['oversize', 'fragmail', 'no-content-summary']
+          oversize_limit:
+            aliases: ['oversize-limit']
+            type: int
+            description: Maximum in-memory file size that can be scanned
+          ports:
+            type: raw
+            description: (list) Ports to scan for content
+          proxy_after_tcp_handshake:
+            aliases: ['proxy-after-tcp-handshake']
+            type: str
+            description: Proxy traffic after the TCP 3-way handshake has been established
+            choices: ['disable', 'enable']
+          scan_bzip2:
+            aliases: ['scan-bzip2']
+            type: str
+            description: Enable/disable scanning of BZip2 compressed files.
+            choices: ['disable', 'enable']
+          ssl_offloaded:
+            aliases: ['ssl-offloaded']
+            type: str
+            description: SSL decryption and encryption performed by an external device.
+            choices: ['no', 'yes']
+          status:
+            type: str
+            description: Enable/disable the active status of scanning for this protocol.
+            choices: ['disable', 'enable']
+          uncompressed_nest_limit:
+            aliases: ['uncompressed-nest-limit']
+            type: int
+            description: Maximum nested levels of compression that can be uncompressed and scanned
+          uncompressed_oversize_limit:
+            aliases: ['uncompressed-oversize-limit']
+            type: int
+            description: Maximum in-memory uncompressed file size that can be scanned
+      smtp:
+        type: dict
+        description: Smtp.
+        suboptions:
+          inspect_all:
+            aliases: ['inspect-all']
+            type: str
+            description: Enable/disable the inspection of all ports for the protocol.
+            choices: ['disable', 'enable']
+          options:
+            type: list
+            elements: str
+            description: One or more options that can be applied to the session.
+            choices: ['oversize', 'fragmail', 'no-content-summary', 'splice']
+          oversize_limit:
+            aliases: ['oversize-limit']
+            type: int
+            description: Maximum in-memory file size that can be scanned
+          ports:
+            type: raw
+            description: (list) Ports to scan for content
+          proxy_after_tcp_handshake:
+            aliases: ['proxy-after-tcp-handshake']
+            type: str
+            description: Proxy traffic after the TCP 3-way handshake has been established
+            choices: ['disable', 'enable']
+          scan_bzip2:
+            aliases: ['scan-bzip2']
+            type: str
+            description: Enable/disable scanning of BZip2 compressed files.
+            choices: ['disable', 'enable']
+          server_busy:
+            aliases: ['server-busy']
+            type: str
+            description: Enable/disable SMTP server busy when server not available.
+            choices: ['disable', 'enable']
+          ssl_offloaded:
+            aliases: ['ssl-offloaded']
+            type: str
+            description: SSL decryption and encryption performed by an external device.
+            choices: ['no', 'yes']
+          status:
+            type: str
+            description: Enable/disable the active status of scanning for this protocol.
+            choices: ['disable', 'enable']
+          uncompressed_nest_limit:
+            aliases: ['uncompressed-nest-limit']
+            type: int
+            description: Maximum nested levels of compression that can be uncompressed and scanned
+          uncompressed_oversize_limit:
+            aliases: ['uncompressed-oversize-limit']
+            type: int
+            description: Maximum in-memory uncompressed file size that can be scanned
+      ssh:
+        type: dict
+        description: Ssh.
+        suboptions:
+          comfort_amount:
+            aliases: ['comfort-amount']
+            type: int
+            description: Amount of data to send in a transmission for client comforting
+          comfort_interval:
+            aliases: ['comfort-interval']
+            type: int
+            description: Period of time between start, or last transmission, and the next client comfort transmission of data
+          options:
+            type: list
+            elements: str
+            description: One or more options that can be applied to the session.
+            choices: ['oversize', 'clientcomfort', 'servercomfort']
+          oversize_limit:
+            aliases: ['oversize-limit']
+            type: int
+            description: Maximum in-memory file size that can be scanned
+          scan_bzip2:
+            aliases: ['scan-bzip2']
+            type: str
+            description: Enable/disable scanning of BZip2 compressed files.
+            choices: ['disable', 'enable']
+          uncompressed_nest_limit:
+            aliases: ['uncompressed-nest-limit']
+            type: int
+            description: Maximum nested levels of compression that can be uncompressed and scanned
+          uncompressed_oversize_limit:
+            aliases: ['uncompressed-oversize-limit']
+            type: int
+            description: Maximum in-memory uncompressed file size that can be scanned
+          ssl_offloaded:
+            aliases: ['ssl-offloaded']
+            type: str
+            description: SSL decryption and encryption performed by an external device.
+            choices: ['no', 'yes']
+          stream_based_uncompressed_limit:
+            aliases: ['stream-based-uncompressed-limit']
+            type: int
+            description: Maximum stream-based uncompressed data size that will be scanned
+          tcp_window_maximum:
+            aliases: ['tcp-window-maximum']
+            type: int
+            description: Maximum dynamic TCP window size.
+          tcp_window_minimum:
+            aliases: ['tcp-window-minimum']
+            type: int
+            description: Minimum dynamic TCP window size.
+          tcp_window_size:
+            aliases: ['tcp-window-size']
+            type: int
+            description: Set TCP static window size.
+          tcp_window_type:
+            aliases: ['tcp-window-type']
+            type: str
+            description: TCP window type to use for this protocol.
+            choices: ['system', 'static', 'dynamic', 'auto-tuning']
+          explicit_ftp_tls:
+            aliases: ['explicit-ftp-tls']
+            type: str
+            description: Explicit ftp tls.
+            choices: ['disable', 'enable']
+      proxy_redirect:
+        aliases: ['proxy-redirect']
+        type: dict
+        description: Proxy redirect.
+        suboptions:
+          ports:
+            type: raw
+            description: (list) Ports.
+          status:
+            type: str
+            description: Status.
+            choices: ['disable', 'enable']
+      rtmp:
+        type: dict
+        description: Rtmp.
+        suboptions:
+          http_tunnel:
+            aliases: ['http-tunnel']
+            type: str
+            description: Enable/disable RTMP http tunnel.
+            choices: ['disable', 'enable']
+          ports:
+            type: raw
+            description: (list) Ports to scan for content
+          rtmpt:
+            type: str
+            description: Enable/disable RTMPT.
+            choices: ['disable', 'enable']
+          status:
+            type: str
+            description: Enable/disable the active status of scanning for this protocol.
+            choices: ['disable', 'enable']
+      websocket:
+        type: dict
+        description: Websocket.
+        suboptions:
+          comfort_amount:
+            aliases: ['comfort-amount']
+            type: int
+            description: Number of bytes to send in each transmission for client comforting
+          comfort_interval:
+            aliases: ['comfort-interval']
+            type: int
+            description: Interval between successive transmissions of data for client comforting
+          options:
+            type: list
+            elements: str
+            description: One or more options that can be applied to the session.
+            choices: ['oversize', 'clientcomfort', 'servercomfort']
+          oversize_limit:
+            aliases: ['oversize-limit']
+            type: int
+            description: Maximum in-memory file size that can be scanned
+          scan_bzip2:
+            aliases: ['scan-bzip2']
+            type: str
+            description: Enable/disable scanning of BZip2 compressed files.
+            choices: ['disable', 'enable']
+          status:
+            type: str
+            description: Enable/disable the active status of scanning for this protocol.
+            choices: ['disable', 'enable']
+          stream_based_uncompressed_limit:
+            aliases: ['stream-based-uncompressed-limit']
+            type: int
+            description: Maximum stream-based uncompressed data size that will be scanned in megabytes.
+          tcp_window_maximum:
+            aliases: ['tcp-window-maximum']
+            type: int
+            description: Maximum dynamic TCP window size.
+          tcp_window_minimum:
+            aliases: ['tcp-window-minimum']
+            type: int
+            description: Minimum dynamic TCP window size.
+          tcp_window_size:
+            aliases: ['tcp-window-size']
+            type: int
+            description: Set TCP static window size.
+          tcp_window_type:
+            aliases: ['tcp-window-type']
+            type: str
+            description: TCP window type to use for this protocol.
+            choices: ['system', 'static', 'dynamic', 'auto-tuning']
+          tunnel_non_websocket:
+            aliases: ['tunnel-non-websocket']
+            type: str
+            description: Configure how to process non-websocket traffic when a profile configured for websocket traffic accepts a non-websocket session.
+            choices: ['disable', 'enable']
+          uncompressed_nest_limit:
+            aliases: ['uncompressed-nest-limit']
+            type: int
+            description: Maximum nested levels of compression that can be uncompressed and scanned
+          uncompressed_oversize_limit:
+            aliases: ['uncompressed-oversize-limit']
+            type: int
+            description: Maximum in-memory uncompressed file size that can be scanned
+      fabric_force_sync:
+        aliases: ['fabric-force-sync']
+        type: str
+        description: Enable/disable forced synchronization of configuration objects from the root FortiGate unit to the downstream devices.
+        choices: ['disable', 'enable']
+      fabric_object:
+        aliases: ['fabric-object']
+        type: str
+        description: Security Fabric global object setting.
+        choices: ['disable', 'enable']
+      fabric_object_source:
+        aliases: ['fabric-object-source']
+        type: str
+        description: Source of truth for fabric object.
+        choices: ['member', 'local', 'root']
+      uuid:
+        type: str
+        description: Universally Unique Identifier
 '''
 
 EXAMPLES = '''
+- name: Test firewall WebSocket protocol options
+  hosts: fortimanagers
+  connection: httpapi
+  gather_facts: false
+  tasks:
+    - name: Create the parent protocol options profile
+      fortinet.fortimanager.fmgr_firewall_profileprotocoloptions:
+        enable_log: true
+        adom: root
+        state: present
+        firewall_profileprotocoloptions:
+          name: test_profile
+
+    - name: Configure firewall WebSocket protocol options
+      fortinet.fortimanager.fmgr_firewall_profileprotocoloptions_websocket:
+        enable_log: true
+        adom: root
+        profile_protocol_options: test_profile
+        firewall_profileprotocoloptions_websocket:
+          status: disable
+
 - name: Example playbook
   hosts: fortimanagers
   gather_facts: false
@@ -828,42 +940,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -888,31 +1000,31 @@ def main():
                 'replacemsg-group': {'type': 'str'},
                 'rpc-over-http': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'switching-protocols-log': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'feature-set': {'v_range': [['6.4.0', '']], 'choices': ['proxy', 'flow'], 'type': 'str'},
+                'feature-set': {'v_range': [['6.4.0', '7.6.7']], 'choices': ['proxy', 'flow'], 'type': 'str'},
                 'cifs': {
                     'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
                         'domain-controller': {'v_range': [['6.4.5', '']], 'type': 'str'},
                         'file-filter': {
-                            'v_range': [['6.4.5', '']],
+                            'v_range': [['6.4.5', '7.6.7']],
                             'type': 'dict',
                             'options': {
                                 'entries': {
-                                    'v_range': [['6.4.5', '']],
+                                    'v_range': [['6.4.5', '7.6.7']],
                                     'type': 'list',
                                     'options': {
-                                        'action': {'v_range': [['6.4.5', '']], 'choices': ['log', 'block'], 'type': 'str'},
-                                        'comment': {'v_range': [['6.4.5', '']], 'type': 'str'},
-                                        'direction': {'v_range': [['6.4.5', '']], 'choices': ['any', 'incoming', 'outgoing'], 'type': 'str'},
-                                        'file-type': {'v_range': [['6.4.5', '']], 'type': 'raw'},
-                                        'filter': {'v_range': [['6.4.5', '']], 'type': 'str'},
-                                        'protocol': {'v_range': [['6.4.5', '']], 'type': 'list', 'choices': ['cifs'], 'elements': 'str'}
+                                        'action': {'v_range': [['6.4.5', '7.6.7']], 'choices': ['log', 'block'], 'type': 'str'},
+                                        'comment': {'v_range': [['6.4.5', '7.6.7']], 'type': 'str'},
+                                        'direction': {'v_range': [['6.4.5', '7.6.7']], 'choices': ['any', 'incoming', 'outgoing'], 'type': 'str'},
+                                        'file-type': {'v_range': [['6.4.5', '7.6.7']], 'type': 'raw'},
+                                        'filter': {'v_range': [['6.4.5', '7.6.7']], 'type': 'str'},
+                                        'protocol': {'v_range': [['6.4.5', '7.6.7']], 'type': 'list', 'choices': ['cifs'], 'elements': 'str'}
                                     },
                                     'elements': 'dict'
                                 },
-                                'log': {'v_range': [['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                                'status': {'v_range': [['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                                'log': {'v_range': [['6.4.5', '7.6.7']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                                'status': {'v_range': [['6.4.5', '7.6.7']], 'choices': ['disable', 'enable'], 'type': 'str'}
                             }
                         },
                         'options': {'v_range': [['6.4.5', '']], 'type': 'list', 'choices': ['oversize'], 'elements': 'str'},
@@ -987,8 +1099,8 @@ def main():
                         'block-page-status-code': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
                         'comfort-amount': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
                         'comfort-interval': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
-                        'fortinet-bar': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'fortinet-bar-port': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                        'fortinet-bar': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.6.7']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'fortinet-bar-port': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.6.7']], 'type': 'int'},
                         'inspect-all': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'options': {
                             'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
@@ -1041,9 +1153,19 @@ def main():
                             'type': 'str'
                         },
                         'http-0.9': {'v_range': [['7.6.2', '']], 'choices': ['block', 'allow'], 'type': 'str'},
-                        'dns-protection': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'encrypted-file': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'choices': ['block', 'pass', 'inspect'], 'type': 'str'},
-                        'encrypted-file-log': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                        'dns-protection': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'encrypted-file': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'choices': ['block', 'pass', 'inspect'], 'type': 'str'},
+                        'encrypted-file-log': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'streaming-content-scan-type': {
+                            'v_range': [['7.6.7', '']],
+                            'type': 'list',
+                            'choices': [
+                                'flv', 'octet', 'dvi', 'rtmp', 'mms-framed', 'msmediaview', 'pncmd', 'rtsp-tunnel', 'audio', 'audio-accp', 'audio-mpeg',
+                                'pn-realaudio', 'pn-realaudio-plugin', 'mixed', 'x-mixed', 'event-stream', 'video', 'video-mp4', 'video-mpeg',
+                                'video-xflv', 'video-xasf'
+                            ],
+                            'elements': 'str'
+                        }
                     }
                 },
                 'imap': {
@@ -1065,7 +1187,7 @@ def main():
                         'status': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'uncompressed-nest-limit': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
                         'uncompressed-oversize-limit': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
-                        'address-ip-rating': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                        'address-ip-rating': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
                     }
                 },
                 'mail-signature': {
@@ -1179,27 +1301,56 @@ def main():
                         'tcp-window-minimum': {'v_range': [['7.0.0', '']], 'type': 'int'},
                         'tcp-window-size': {'v_range': [['7.0.0', '']], 'type': 'int'},
                         'tcp-window-type': {'v_range': [['7.0.0', '']], 'choices': ['system', 'static', 'dynamic', 'auto-tuning'], 'type': 'str'},
-                        'explicit-ftp-tls': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                        'explicit-ftp-tls': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
                     }
                 },
                 'proxy-redirect': {
-                    'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']],
+                    'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']],
                     'type': 'dict',
                     'options': {
-                        'ports': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'raw'},
-                        'status': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                        'ports': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'type': 'raw'},
+                        'status': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
                     }
                 },
                 'rtmp': {
-                    'v_range': [['7.4.8', '7.4.10']],
+                    'v_range': [['7.4.8', '7.4.11']],
                     'type': 'dict',
                     'options': {
-                        'http-tunnel': {'v_range': [['7.4.8', '7.4.10']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'ports': {'v_range': [['7.4.8', '7.4.10']], 'type': 'raw'},
-                        'rtmpt': {'v_range': [['7.4.8', '7.4.10']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'status': {'v_range': [['7.4.8', '7.4.10']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                        'http-tunnel': {'v_range': [['7.4.8', '7.4.11']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'ports': {'v_range': [['7.4.8', '7.4.11']], 'type': 'raw'},
+                        'rtmpt': {'v_range': [['7.4.8', '7.4.11']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'status': {'v_range': [['7.4.8', '7.4.11']], 'choices': ['disable', 'enable'], 'type': 'str'}
                     }
-                }
+                },
+                'websocket': {
+                    'v_range': [['7.6.7', '']],
+                    'type': 'dict',
+                    'options': {
+                        'comfort-amount': {'v_range': [['7.6.7', '']], 'type': 'int'},
+                        'comfort-interval': {'v_range': [['7.6.7', '']], 'type': 'int'},
+                        'options': {
+                            'v_range': [['7.6.7', '']],
+                            'type': 'list',
+                            'choices': ['oversize', 'clientcomfort', 'servercomfort'],
+                            'elements': 'str'
+                        },
+                        'oversize-limit': {'v_range': [['7.6.7', '']], 'type': 'int'},
+                        'scan-bzip2': {'v_range': [['7.6.7', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'status': {'v_range': [['7.6.7', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'stream-based-uncompressed-limit': {'v_range': [['7.6.7', '']], 'type': 'int'},
+                        'tcp-window-maximum': {'v_range': [['7.6.7', '']], 'type': 'int'},
+                        'tcp-window-minimum': {'v_range': [['7.6.7', '']], 'type': 'int'},
+                        'tcp-window-size': {'v_range': [['7.6.7', '']], 'type': 'int'},
+                        'tcp-window-type': {'v_range': [['7.6.7', '']], 'choices': ['system', 'static', 'dynamic', 'auto-tuning'], 'type': 'str'},
+                        'tunnel-non-websocket': {'v_range': [['7.6.7', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'uncompressed-nest-limit': {'v_range': [['7.6.7', '']], 'type': 'int'},
+                        'uncompressed-oversize-limit': {'v_range': [['7.6.7', '']], 'type': 'int'}
+                    }
+                },
+                'fabric-force-sync': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'fabric-object': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'fabric-object-source': {'v_range': [['8.0.0', '']], 'choices': ['member', 'local', 'root'], 'type': 'str'},
+                'uuid': {'v_range': [['8.0.0', '']], 'type': 'str'}
             }
         }
     }

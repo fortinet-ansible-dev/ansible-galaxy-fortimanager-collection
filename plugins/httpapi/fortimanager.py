@@ -24,12 +24,12 @@ DOCUMENTATION = """
 ---
 name: fortimanager
 author:
-    - Xinwei Du (@dux-fortinet)
-    - Xing Li (@lix-fortinet)
-    - Link Zheng (@chillancezen)
-    - Luke Weighall (@lweighall)
-    - Andrew Welsh (@Ghilli3)
-    - Jim Huber (@p4r4n0y1ng)
+  - Xinwei Du (@dux-fortinet)
+  - Xing Li (@lix-fortinet)
+  - Link Zheng (@chillancezen)
+  - Luke Weighall (@lweighall)
+  - Andrew Welsh (@Ghilli3)
+  - Jim Huber (@p4r4n0y1ng)
 short_description: HttpApi Plugin for Fortinet FortiManager Appliance or VM.
 description:
   - This HttpApi plugin provides methods to connect to Fortinet FortiManager Appliance or VM via JSON RPC API.

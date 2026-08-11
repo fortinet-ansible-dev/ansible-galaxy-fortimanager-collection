@@ -15,162 +15,162 @@ module: fmgr_firewall_gtp_messagefilter
 short_description: Message filter.
 version_added: "2.2.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.partial_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.partial_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  gtp:
+    description: The parameter (gtp) in requested url.
+    type: str
+    required: true
+  firewall_gtp_messagefilter:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      create_aa_pdp:
+        aliases: ['create-aa-pdp']
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Create AA PDP.
+        choices: ['allow', 'deny']
+      create_mbms:
+        aliases: ['create-mbms']
         type: str
-        required: true
-    gtp:
-        description: The parameter (gtp) in requested url.
+        description: Create MBMS.
+        choices: ['allow', 'deny']
+      create_pdp:
+        aliases: ['create-pdp']
         type: str
-        required: true
-    firewall_gtp_messagefilter:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            create_aa_pdp:
-                aliases: ['create-aa-pdp']
-                type: str
-                description: Create AA PDP.
-                choices: ['allow', 'deny']
-            create_mbms:
-                aliases: ['create-mbms']
-                type: str
-                description: Create MBMS.
-                choices: ['allow', 'deny']
-            create_pdp:
-                aliases: ['create-pdp']
-                type: str
-                description: Create PDP.
-                choices: ['allow', 'deny']
-            data_record:
-                aliases: ['data-record']
-                type: str
-                description: Data record.
-                choices: ['allow', 'deny']
-            delete_aa_pdp:
-                aliases: ['delete-aa-pdp']
-                type: str
-                description: Delete AA PDP.
-                choices: ['allow', 'deny']
-            delete_mbms:
-                aliases: ['delete-mbms']
-                type: str
-                description: Delete MBMS.
-                choices: ['allow', 'deny']
-            delete_pdp:
-                aliases: ['delete-pdp']
-                type: str
-                description: Delete PDP.
-                choices: ['allow', 'deny']
-            echo:
-                type: str
-                description: Echo.
-                choices: ['allow', 'deny']
-            error_indication:
-                aliases: ['error-indication']
-                type: str
-                description: Error indication.
-                choices: ['allow', 'deny']
-            failure_report:
-                aliases: ['failure-report']
-                type: str
-                description: Failure report.
-                choices: ['allow', 'deny']
-            fwd_relocation:
-                aliases: ['fwd-relocation']
-                type: str
-                description: Forward relocation.
-                choices: ['allow', 'deny']
-            fwd_srns_context:
-                aliases: ['fwd-srns-context']
-                type: str
-                description: Forward SRNS context.
-                choices: ['allow', 'deny']
-            gtp_pdu:
-                aliases: ['gtp-pdu']
-                type: str
-                description: GTP PDU.
-                choices: ['allow', 'deny']
-            identification:
-                type: str
-                description: Identification.
-                choices: ['allow', 'deny']
-            mbms_notification:
-                aliases: ['mbms-notification']
-                type: str
-                description: MBMS notification.
-                choices: ['allow', 'deny']
-            node_alive:
-                aliases: ['node-alive']
-                type: str
-                description: Node alive.
-                choices: ['allow', 'deny']
-            note_ms_present:
-                aliases: ['note-ms-present']
-                type: str
-                description: Note MS present.
-                choices: ['allow', 'deny']
-            pdu_notification:
-                aliases: ['pdu-notification']
-                type: str
-                description: PDU notification.
-                choices: ['allow', 'deny']
-            ran_info:
-                aliases: ['ran-info']
-                type: str
-                description: Ran info.
-                choices: ['allow', 'deny']
-            redirection:
-                type: str
-                description: Redirection.
-                choices: ['allow', 'deny']
-            relocation_cancel:
-                aliases: ['relocation-cancel']
-                type: str
-                description: Relocation cancel.
-                choices: ['allow', 'deny']
-            send_route:
-                aliases: ['send-route']
-                type: str
-                description: Send route.
-                choices: ['allow', 'deny']
-            sgsn_context:
-                aliases: ['sgsn-context']
-                type: str
-                description: SGSN context.
-                choices: ['allow', 'deny']
-            support_extension:
-                aliases: ['support-extension']
-                type: str
-                description: Support extension.
-                choices: ['allow', 'deny']
-            unknown_message_action:
-                aliases: ['unknown-message-action']
-                type: str
-                description: Unknown message action.
-                choices: ['allow', 'deny']
-            update_mbms:
-                aliases: ['update-mbms']
-                type: str
-                description: Update MBMS.
-                choices: ['allow', 'deny']
-            update_pdp:
-                aliases: ['update-pdp']
-                type: str
-                description: Update PDP.
-                choices: ['allow', 'deny']
-            version_not_support:
-                aliases: ['version-not-support']
-                type: str
-                description: Version not supported.
-                choices: ['allow', 'deny']
+        description: Create PDP.
+        choices: ['allow', 'deny']
+      data_record:
+        aliases: ['data-record']
+        type: str
+        description: Data record.
+        choices: ['allow', 'deny']
+      delete_aa_pdp:
+        aliases: ['delete-aa-pdp']
+        type: str
+        description: Delete AA PDP.
+        choices: ['allow', 'deny']
+      delete_mbms:
+        aliases: ['delete-mbms']
+        type: str
+        description: Delete MBMS.
+        choices: ['allow', 'deny']
+      delete_pdp:
+        aliases: ['delete-pdp']
+        type: str
+        description: Delete PDP.
+        choices: ['allow', 'deny']
+      echo:
+        type: str
+        description: Echo.
+        choices: ['allow', 'deny']
+      error_indication:
+        aliases: ['error-indication']
+        type: str
+        description: Error indication.
+        choices: ['allow', 'deny']
+      failure_report:
+        aliases: ['failure-report']
+        type: str
+        description: Failure report.
+        choices: ['allow', 'deny']
+      fwd_relocation:
+        aliases: ['fwd-relocation']
+        type: str
+        description: Forward relocation.
+        choices: ['allow', 'deny']
+      fwd_srns_context:
+        aliases: ['fwd-srns-context']
+        type: str
+        description: Forward SRNS context.
+        choices: ['allow', 'deny']
+      gtp_pdu:
+        aliases: ['gtp-pdu']
+        type: str
+        description: GTP PDU.
+        choices: ['allow', 'deny']
+      identification:
+        type: str
+        description: Identification.
+        choices: ['allow', 'deny']
+      mbms_notification:
+        aliases: ['mbms-notification']
+        type: str
+        description: MBMS notification.
+        choices: ['allow', 'deny']
+      node_alive:
+        aliases: ['node-alive']
+        type: str
+        description: Node alive.
+        choices: ['allow', 'deny']
+      note_ms_present:
+        aliases: ['note-ms-present']
+        type: str
+        description: Note MS present.
+        choices: ['allow', 'deny']
+      pdu_notification:
+        aliases: ['pdu-notification']
+        type: str
+        description: PDU notification.
+        choices: ['allow', 'deny']
+      ran_info:
+        aliases: ['ran-info']
+        type: str
+        description: Ran info.
+        choices: ['allow', 'deny']
+      redirection:
+        type: str
+        description: Redirection.
+        choices: ['allow', 'deny']
+      relocation_cancel:
+        aliases: ['relocation-cancel']
+        type: str
+        description: Relocation cancel.
+        choices: ['allow', 'deny']
+      send_route:
+        aliases: ['send-route']
+        type: str
+        description: Send route.
+        choices: ['allow', 'deny']
+      sgsn_context:
+        aliases: ['sgsn-context']
+        type: str
+        description: SGSN context.
+        choices: ['allow', 'deny']
+      support_extension:
+        aliases: ['support-extension']
+        type: str
+        description: Support extension.
+        choices: ['allow', 'deny']
+      unknown_message_action:
+        aliases: ['unknown-message-action']
+        type: str
+        description: Unknown message action.
+        choices: ['allow', 'deny']
+      update_mbms:
+        aliases: ['update-mbms']
+        type: str
+        description: Update MBMS.
+        choices: ['allow', 'deny']
+      update_pdp:
+        aliases: ['update-pdp']
+        type: str
+        description: Update PDP.
+        choices: ['allow', 'deny']
+      version_not_support:
+        aliases: ['version-not-support']
+        type: str
+        description: Version not supported.
+        choices: ['allow', 'deny']
 '''
 
 EXAMPLES = '''
@@ -217,42 +217,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

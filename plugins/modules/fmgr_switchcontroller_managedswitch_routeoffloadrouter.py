@@ -15,35 +15,35 @@ module: fmgr_switchcontroller_managedswitch_routeoffloadrouter
 short_description: Configure route offload MCLAG IP address.
 version_added: "2.3.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  managed-switch:
+    description: Deprecated, please use "managed_switch"
+    type: str
+  managed_switch:
+    description: The parameter (managed-switch) in requested url.
+    type: str
+  switchcontroller_managedswitch_routeoffloadrouter:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      router_ip:
+        aliases: ['router-ip']
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Router IP address.
+      vlan_name:
+        aliases: ['vlan-name']
         type: str
-        required: true
-    managed-switch:
-        description: Deprecated, please use "managed_switch"
-        type: str
-    managed_switch:
-        description: The parameter (managed-switch) in requested url.
-        type: str
-    switchcontroller_managedswitch_routeoffloadrouter:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            router_ip:
-                aliases: ['router-ip']
-                type: str
-                description: Router IP address.
-            vlan_name:
-                aliases: ['vlan-name']
-                type: str
-                description: VLAN name.
+        description: VLAN name.
 '''
 
 EXAMPLES = '''
@@ -65,42 +65,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -119,8 +119,11 @@ def main():
         'managed_switch': {'type': 'str'},
         'revision_note': {'type': 'str'},
         'switchcontroller_managedswitch_routeoffloadrouter': {
-            'type': 'dict', 'v_range': [['7.4.1', '']],
-            'options': {'router-ip': {'v_range': [['7.4.1', '']], 'type': 'str'}, 'vlan-name': {'v_range': [['7.4.1', '']], 'type': 'str'}}
+            'type': 'dict', 'v_range': [['7.4.1', '7.4.10'], ['7.6.0', '7.6.6']],
+            'options': {
+                'router-ip': {'v_range': [['7.4.1', '7.4.10'], ['7.6.0', '7.6.6']], 'type': 'str'},
+                'vlan-name': {'v_range': [['7.4.1', '7.4.10'], ['7.6.0', '7.6.6']], 'type': 'str'}
+            }
         }
     }
 

@@ -15,635 +15,635 @@ module: fmgr_pkg_footer_policy6
 short_description: Configure IPv6 policies.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  pkg:
+    description: The parameter (pkg) in requested url.
+    type: str
+    required: true
+  pkg_footer_policy6:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      action:
         type: str
-    pkg:
-        description: The parameter (pkg) in requested url.
+        description: Action.
+        choices: ['deny', 'accept', 'ipsec', 'ssl-vpn']
+      anti_replay:
+        aliases: ['anti-replay']
         type: str
-        required: true
-    pkg_footer_policy6:
-        description: The top level parameters set.
-        required: false
-        type: dict
+        description: Anti replay.
+        choices: ['disable', 'enable']
+      app_category:
+        aliases: ['app-category']
+        type: raw
+        description: (list or str) App category.
+      app_group:
+        aliases: ['app-group']
+        type: raw
+        description: (list or str) App group.
+      application:
+        type: raw
+        description: (list) Application.
+      application_charts:
+        aliases: ['application-charts']
+        type: list
+        elements: str
+        description: Application charts.
+        choices: ['top10-app', 'top10-p2p-user', 'top10-media-user']
+      application_list:
+        aliases: ['application-list']
+        type: raw
+        description: (list or str) Application list.
+      auto_asic_offload:
+        aliases: ['auto-asic-offload']
+        type: str
+        description: Auto asic offload.
+        choices: ['disable', 'enable']
+      av_profile:
+        aliases: ['av-profile']
+        type: raw
+        description: (list or str) Av profile.
+      casi_profile:
+        aliases: ['casi-profile']
+        type: raw
+        description: (list or str) Casi profile.
+      cifs_profile:
+        aliases: ['cifs-profile']
+        type: raw
+        description: (list or str) Cifs profile.
+      comments:
+        type: str
+        description: Comments.
+      custom_log_fields:
+        aliases: ['custom-log-fields']
+        type: raw
+        description: (list or str) Custom log fields.
+      deep_inspection_options:
+        aliases: ['deep-inspection-options']
+        type: raw
+        description: (list or str) Deep inspection options.
+      device_detection_portal:
+        aliases: ['device-detection-portal']
+        type: str
+        description: Device detection portal.
+        choices: ['disable', 'enable']
+      devices:
+        type: raw
+        description: (list or str) Devices.
+      diffserv_forward:
+        aliases: ['diffserv-forward']
+        type: str
+        description: Diffserv forward.
+        choices: ['disable', 'enable']
+      diffserv_reverse:
+        aliases: ['diffserv-reverse']
+        type: str
+        description: Diffserv reverse.
+        choices: ['disable', 'enable']
+      diffservcode_forward:
+        aliases: ['diffservcode-forward']
+        type: str
+        description: Diffservcode forward.
+      diffservcode_rev:
+        aliases: ['diffservcode-rev']
+        type: str
+        description: Diffservcode rev.
+      dlp_sensor:
+        aliases: ['dlp-sensor']
+        type: raw
+        description: (list or str) Dlp sensor.
+      dnsfilter_profile:
+        aliases: ['dnsfilter-profile']
+        type: raw
+        description: (list or str) Dnsfilter profile.
+      dscp_match:
+        aliases: ['dscp-match']
+        type: str
+        description: Dscp match.
+        choices: ['disable', 'enable']
+      dscp_negate:
+        aliases: ['dscp-negate']
+        type: str
+        description: Dscp negate.
+        choices: ['disable', 'enable']
+      dscp_value:
+        aliases: ['dscp-value']
+        type: str
+        description: Dscp value.
+      dsri:
+        type: str
+        description: Dsri.
+        choices: ['disable', 'enable']
+      dstaddr:
+        type: raw
+        description: (list or str) Dstaddr.
+      dstaddr_negate:
+        aliases: ['dstaddr-negate']
+        type: str
+        description: Dstaddr negate.
+        choices: ['disable', 'enable']
+      dstintf:
+        type: raw
+        description: (list or str) Dstintf.
+      dynamic_profile:
+        aliases: ['dynamic-profile']
+        type: str
+        description: Dynamic profile.
+        choices: ['disable', 'enable']
+      dynamic_profile_access:
+        aliases: ['dynamic-profile-access']
+        type: list
+        elements: str
+        description: Dynamic profile access.
+        choices: ['imap', 'smtp', 'pop3', 'http', 'ftp', 'im', 'nntp', 'imaps', 'smtps', 'pop3s',
+                  'https', 'ftps']
+      dynamic_profile_group:
+        aliases: ['dynamic-profile-group']
+        type: raw
+        description: (list or str) Dynamic profile group.
+      email_collection_portal:
+        aliases: ['email-collection-portal']
+        type: str
+        description: Email collection portal.
+        choices: ['disable', 'enable']
+      emailfilter_profile:
+        aliases: ['emailfilter-profile']
+        type: raw
+        description: (list or str) Emailfilter profile.
+      firewall_session_dirty:
+        aliases: ['firewall-session-dirty']
+        type: str
+        description: Firewall session dirty.
+        choices: ['check-all', 'check-new']
+      fixedport:
+        type: str
+        description: Fixedport.
+        choices: ['disable', 'enable']
+      fsae:
+        type: str
+        description: Fsae.
+        choices: ['disable', 'enable']
+      global_label:
+        aliases: ['global-label']
+        type: str
+        description: Global label.
+      groups:
+        type: raw
+        description: (list or str) Groups.
+      http_policy_redirect:
+        aliases: ['http-policy-redirect']
+        type: str
+        description: Http policy redirect.
+        choices: ['disable', 'enable']
+      icap_profile:
+        aliases: ['icap-profile']
+        type: raw
+        description: (list or str) Icap profile.
+      identity_based:
+        aliases: ['identity-based']
+        type: str
+        description: Identity based.
+        choices: ['disable', 'enable']
+      identity_based_policy6:
+        aliases: ['identity-based-policy6']
+        type: list
+        elements: dict
+        description: Identity based policy6.
         suboptions:
-            action:
-                type: str
-                description: Action.
-                choices: ['deny', 'accept', 'ipsec', 'ssl-vpn']
-            anti_replay:
-                aliases: ['anti-replay']
-                type: str
-                description: Anti replay.
-                choices: ['disable', 'enable']
-            app_category:
-                aliases: ['app-category']
-                type: raw
-                description: (list or str) App category.
-            app_group:
-                aliases: ['app-group']
-                type: raw
-                description: (list or str) App group.
-            application:
-                type: raw
-                description: (list) Application.
-            application_charts:
-                aliases: ['application-charts']
-                type: list
-                elements: str
-                description: Application charts.
-                choices: ['top10-app', 'top10-p2p-user', 'top10-media-user']
-            application_list:
-                aliases: ['application-list']
-                type: raw
-                description: (list or str) Application list.
-            auto_asic_offload:
-                aliases: ['auto-asic-offload']
-                type: str
-                description: Auto asic offload.
-                choices: ['disable', 'enable']
-            av_profile:
-                aliases: ['av-profile']
-                type: raw
-                description: (list or str) Av profile.
-            casi_profile:
-                aliases: ['casi-profile']
-                type: raw
-                description: (list or str) Casi profile.
-            cifs_profile:
-                aliases: ['cifs-profile']
-                type: raw
-                description: (list or str) Cifs profile.
-            comments:
-                type: str
-                description: Comments.
-            custom_log_fields:
-                aliases: ['custom-log-fields']
-                type: raw
-                description: (list or str) Custom log fields.
-            deep_inspection_options:
-                aliases: ['deep-inspection-options']
-                type: raw
-                description: (list or str) Deep inspection options.
-            device_detection_portal:
-                aliases: ['device-detection-portal']
-                type: str
-                description: Device detection portal.
-                choices: ['disable', 'enable']
-            devices:
-                type: raw
-                description: (list or str) Devices.
-            diffserv_forward:
-                aliases: ['diffserv-forward']
-                type: str
-                description: Diffserv forward.
-                choices: ['disable', 'enable']
-            diffserv_reverse:
-                aliases: ['diffserv-reverse']
-                type: str
-                description: Diffserv reverse.
-                choices: ['disable', 'enable']
-            diffservcode_forward:
-                aliases: ['diffservcode-forward']
-                type: str
-                description: Diffservcode forward.
-            diffservcode_rev:
-                aliases: ['diffservcode-rev']
-                type: str
-                description: Diffservcode rev.
-            dlp_sensor:
-                aliases: ['dlp-sensor']
-                type: raw
-                description: (list or str) Dlp sensor.
-            dnsfilter_profile:
-                aliases: ['dnsfilter-profile']
-                type: raw
-                description: (list or str) Dnsfilter profile.
-            dscp_match:
-                aliases: ['dscp-match']
-                type: str
-                description: Dscp match.
-                choices: ['disable', 'enable']
-            dscp_negate:
-                aliases: ['dscp-negate']
-                type: str
-                description: Dscp negate.
-                choices: ['disable', 'enable']
-            dscp_value:
-                aliases: ['dscp-value']
-                type: str
-                description: Dscp value.
-            dsri:
-                type: str
-                description: Dsri.
-                choices: ['disable', 'enable']
-            dstaddr:
-                type: raw
-                description: (list or str) Dstaddr.
-            dstaddr_negate:
-                aliases: ['dstaddr-negate']
-                type: str
-                description: Dstaddr negate.
-                choices: ['disable', 'enable']
-            dstintf:
-                type: raw
-                description: (list or str) Dstintf.
-            dynamic_profile:
-                aliases: ['dynamic-profile']
-                type: str
-                description: Dynamic profile.
-                choices: ['disable', 'enable']
-            dynamic_profile_access:
-                aliases: ['dynamic-profile-access']
-                type: list
-                elements: str
-                description: Dynamic profile access.
-                choices: ['imap', 'smtp', 'pop3', 'http', 'ftp', 'im', 'nntp', 'imaps', 'smtps',
-                          'pop3s', 'https', 'ftps']
-            dynamic_profile_group:
-                aliases: ['dynamic-profile-group']
-                type: raw
-                description: (list or str) Dynamic profile group.
-            email_collection_portal:
-                aliases: ['email-collection-portal']
-                type: str
-                description: Email collection portal.
-                choices: ['disable', 'enable']
-            emailfilter_profile:
-                aliases: ['emailfilter-profile']
-                type: raw
-                description: (list or str) Emailfilter profile.
-            firewall_session_dirty:
-                aliases: ['firewall-session-dirty']
-                type: str
-                description: Firewall session dirty.
-                choices: ['check-all', 'check-new']
-            fixedport:
-                type: str
-                description: Fixedport.
-                choices: ['disable', 'enable']
-            fsae:
-                type: str
-                description: Fsae.
-                choices: ['disable', 'enable']
-            global_label:
-                aliases: ['global-label']
-                type: str
-                description: Global label.
-            groups:
-                type: raw
-                description: (list or str) Groups.
-            http_policy_redirect:
-                aliases: ['http-policy-redirect']
-                type: str
-                description: Http policy redirect.
-                choices: ['disable', 'enable']
-            icap_profile:
-                aliases: ['icap-profile']
-                type: raw
-                description: (list or str) Icap profile.
-            identity_based:
-                aliases: ['identity-based']
-                type: str
-                description: Identity based.
-                choices: ['disable', 'enable']
-            identity_based_policy6:
-                aliases: ['identity-based-policy6']
-                type: list
-                elements: dict
-                description: Identity based policy6.
-                suboptions:
-                    action:
-                        type: str
-                        description: Action.
-                        choices: ['deny', 'accept']
-                    application_list:
-                        aliases: ['application-list']
-                        type: str
-                        description: Application list.
-                    av_profile:
-                        aliases: ['av-profile']
-                        type: str
-                        description: Av profile.
-                    deep_inspection_options:
-                        aliases: ['deep-inspection-options']
-                        type: str
-                        description: Deep inspection options.
-                    devices:
-                        type: str
-                        description: Devices.
-                    dlp_sensor:
-                        aliases: ['dlp-sensor']
-                        type: str
-                        description: Dlp sensor.
-                    endpoint_compliance:
-                        aliases: ['endpoint-compliance']
-                        type: str
-                        description: Endpoint compliance.
-                        choices: ['disable', 'enable']
-                    groups:
-                        type: str
-                        description: Groups.
-                    icap_profile:
-                        aliases: ['icap-profile']
-                        type: str
-                        description: Icap profile.
-                    id:
-                        type: int
-                        description: Id.
-                    ips_sensor:
-                        aliases: ['ips-sensor']
-                        type: str
-                        description: Ips sensor.
-                    logtraffic:
-                        type: str
-                        description: Logtraffic.
-                        choices: ['disable', 'enable', 'all', 'utm']
-                    mms_profile:
-                        aliases: ['mms-profile']
-                        type: str
-                        description: Mms profile.
-                    per_ip_shaper:
-                        aliases: ['per-ip-shaper']
-                        type: str
-                        description: Per ip shaper.
-                    profile_group:
-                        aliases: ['profile-group']
-                        type: str
-                        description: Profile group.
-                    profile_protocol_options:
-                        aliases: ['profile-protocol-options']
-                        type: str
-                        description: Profile protocol options.
-                    profile_type:
-                        aliases: ['profile-type']
-                        type: str
-                        description: Profile type.
-                        choices: ['single', 'group']
-                    replacemsg_group:
-                        aliases: ['replacemsg-group']
-                        type: str
-                        description: Replacemsg group.
-                    schedule:
-                        type: str
-                        description: Schedule.
-                    send_deny_packet:
-                        aliases: ['send-deny-packet']
-                        type: str
-                        description: Send deny packet.
-                        choices: ['disable', 'enable']
-                    service:
-                        type: str
-                        description: Service.
-                    service_negate:
-                        aliases: ['service-negate']
-                        type: str
-                        description: Service negate.
-                        choices: ['disable', 'enable']
-                    spamfilter_profile:
-                        aliases: ['spamfilter-profile']
-                        type: str
-                        description: Spamfilter profile.
-                    sslvpn_portal:
-                        aliases: ['sslvpn-portal']
-                        type: str
-                        description: Sslvpn portal.
-                    sslvpn_realm:
-                        aliases: ['sslvpn-realm']
-                        type: str
-                        description: Sslvpn realm.
-                    traffic_shaper:
-                        aliases: ['traffic-shaper']
-                        type: str
-                        description: Traffic shaper.
-                    traffic_shaper_reverse:
-                        aliases: ['traffic-shaper-reverse']
-                        type: str
-                        description: Traffic shaper reverse.
-                    utm_status:
-                        aliases: ['utm-status']
-                        type: str
-                        description: Utm status.
-                        choices: ['disable', 'enable']
-                    voip_profile:
-                        aliases: ['voip-profile']
-                        type: str
-                        description: Voip profile.
-                    webfilter_profile:
-                        aliases: ['webfilter-profile']
-                        type: str
-                        description: Webfilter profile.
-            identity_from:
-                aliases: ['identity-from']
-                type: str
-                description: Identity from.
-                choices: ['auth', 'device']
-            inbound:
-                type: str
-                description: Inbound.
-                choices: ['disable', 'enable']
-            inspection_mode:
-                aliases: ['inspection-mode']
-                type: str
-                description: Inspection mode.
-                choices: ['proxy', 'flow']
-            ippool:
-                type: str
-                description: Ippool.
-                choices: ['disable', 'enable']
-            ips_sensor:
-                aliases: ['ips-sensor']
-                type: raw
-                description: (list or str) Ips sensor.
-            label:
-                type: str
-                description: Label.
-            logtraffic:
-                type: str
-                description: Logtraffic.
-                choices: ['disable', 'enable', 'all', 'utm']
-            logtraffic_start:
-                aliases: ['logtraffic-start']
-                type: str
-                description: Logtraffic start.
-                choices: ['disable', 'enable']
-            mms_profile:
-                aliases: ['mms-profile']
-                type: raw
-                description: (list or str) Mms profile.
-            name:
-                type: str
-                description: Name.
-            nat:
-                type: str
-                description: Nat.
-                choices: ['disable', 'enable']
-            natinbound:
-                type: str
-                description: Natinbound.
-                choices: ['disable', 'enable']
-            natoutbound:
-                type: str
-                description: Natoutbound.
-                choices: ['disable', 'enable']
-            np_accelation:
-                aliases: ['np-accelation']
-                type: str
-                description: Np accelation.
-                choices: ['disable', 'enable']
-            np_acceleration:
-                aliases: ['np-acceleration']
-                type: str
-                description: Np acceleration.
-                choices: ['disable', 'enable']
-            outbound:
-                type: str
-                description: Outbound.
-                choices: ['disable', 'enable']
-            per_ip_shaper:
-                aliases: ['per-ip-shaper']
-                type: raw
-                description: (list or str) Per ip shaper.
-            policyid:
-                type: int
-                description: Policyid.
-                required: true
-            poolname:
-                type: raw
-                description: (list or str) Poolname.
-            profile_group:
-                aliases: ['profile-group']
-                type: raw
-                description: (list or str) Profile group.
-            profile_protocol_options:
-                aliases: ['profile-protocol-options']
-                type: raw
-                description: (list or str) Profile protocol options.
-            profile_type:
-                aliases: ['profile-type']
-                type: str
-                description: Profile type.
-                choices: ['single', 'group']
-            replacemsg_group:
-                aliases: ['replacemsg-group']
-                type: raw
-                description: (list or str) Replacemsg group.
-            replacemsg_override_group:
-                aliases: ['replacemsg-override-group']
-                type: raw
-                description: (list or str) Replacemsg override group.
-            rsso:
-                type: str
-                description: Rsso.
-                choices: ['disable', 'enable']
-            schedule:
-                type: raw
-                description: (list or str) Schedule.
-            send_deny_packet:
-                aliases: ['send-deny-packet']
-                type: str
-                description: Send deny packet.
-                choices: ['disable', 'enable']
-            service:
-                type: raw
-                description: (list or str) Service.
-            service_negate:
-                aliases: ['service-negate']
-                type: str
-                description: Service negate.
-                choices: ['disable', 'enable']
-            session_ttl:
-                aliases: ['session-ttl']
-                type: raw
-                description: (int or str) Session ttl.
-            spamfilter_profile:
-                aliases: ['spamfilter-profile']
-                type: raw
-                description: (list or str) Spamfilter profile.
-            srcaddr:
-                type: raw
-                description: (list or str) Srcaddr.
-            srcaddr_negate:
-                aliases: ['srcaddr-negate']
-                type: str
-                description: Srcaddr negate.
-                choices: ['disable', 'enable']
-            srcintf:
-                type: raw
-                description: (list or str) Srcintf.
-            ssh_filter_profile:
-                aliases: ['ssh-filter-profile']
-                type: raw
-                description: (list or str) Ssh filter profile.
-            ssh_policy_redirect:
-                aliases: ['ssh-policy-redirect']
-                type: str
-                description: Ssh policy redirect.
-                choices: ['disable', 'enable']
-            ssl_mirror:
-                aliases: ['ssl-mirror']
-                type: str
-                description: Ssl mirror.
-                choices: ['disable', 'enable']
-            ssl_mirror_intf:
-                aliases: ['ssl-mirror-intf']
-                type: raw
-                description: (list or str) Ssl mirror intf.
-            ssl_ssh_profile:
-                aliases: ['ssl-ssh-profile']
-                type: raw
-                description: (list or str) Ssl ssh profile.
-            sslvpn_auth:
-                aliases: ['sslvpn-auth']
-                type: str
-                description: Sslvpn auth.
-                choices: ['any', 'local', 'radius', 'ldap', 'tacacs+']
-            sslvpn_ccert:
-                aliases: ['sslvpn-ccert']
-                type: str
-                description: Sslvpn ccert.
-                choices: ['disable', 'enable']
-            sslvpn_cipher:
-                aliases: ['sslvpn-cipher']
-                type: str
-                description: Sslvpn cipher.
-                choices: ['any', 'high', 'medium']
-            status:
-                type: str
-                description: Status.
-                choices: ['disable', 'enable']
-            tags:
-                type: raw
-                description: (list or str) Tags.
-            tcp_mss_receiver:
-                aliases: ['tcp-mss-receiver']
-                type: int
-                description: Tcp mss receiver.
-            tcp_mss_sender:
-                aliases: ['tcp-mss-sender']
-                type: int
-                description: Tcp mss sender.
-            tcp_session_without_syn:
-                aliases: ['tcp-session-without-syn']
-                type: str
-                description: Tcp session without syn.
-                choices: ['all', 'data-only', 'disable']
-            timeout_send_rst:
-                aliases: ['timeout-send-rst']
-                type: str
-                description: Timeout send rst.
-                choices: ['disable', 'enable']
-            tos:
-                type: str
-                description: Tos.
-            tos_mask:
-                aliases: ['tos-mask']
-                type: str
-                description: Tos mask.
-            tos_negate:
-                aliases: ['tos-negate']
-                type: str
-                description: Tos negate.
-                choices: ['disable', 'enable']
-            traffic_shaper:
-                aliases: ['traffic-shaper']
-                type: raw
-                description: (list or str) Traffic shaper.
-            traffic_shaper_reverse:
-                aliases: ['traffic-shaper-reverse']
-                type: raw
-                description: (list or str) Traffic shaper reverse.
-            url_category:
-                aliases: ['url-category']
-                type: raw
-                description: (list or str) Url category.
-            users:
-                type: raw
-                description: (list or str) Users.
-            utm_inspection_mode:
-                aliases: ['utm-inspection-mode']
-                type: str
-                description: Utm inspection mode.
-                choices: ['proxy', 'flow']
-            utm_status:
-                aliases: ['utm-status']
-                type: str
-                description: Utm status.
-                choices: ['disable', 'enable']
-            uuid:
-                type: str
-                description: Uuid.
-            vlan_cos_fwd:
-                aliases: ['vlan-cos-fwd']
-                type: int
-                description: Vlan cos fwd.
-            vlan_cos_rev:
-                aliases: ['vlan-cos-rev']
-                type: int
-                description: Vlan cos rev.
-            vlan_filter:
-                aliases: ['vlan-filter']
-                type: str
-                description: Vlan filter.
-            voip_profile:
-                aliases: ['voip-profile']
-                type: raw
-                description: (list or str) Voip profile.
-            vpntunnel:
-                type: raw
-                description: (list or str) Vpntunnel.
-            webfilter_profile:
-                aliases: ['webfilter-profile']
-                type: raw
-                description: (list or str) Webfilter profile.
-            waf_profile:
-                aliases: ['waf-profile']
-                type: raw
-                description: (list or str) Waf profile.
-            webcache:
-                type: str
-                description: Webcache.
-                choices: ['disable', 'enable']
-            webcache_https:
-                aliases: ['webcache-https']
-                type: str
-                description: Webcache https.
-                choices: ['disable', 'enable']
-            webproxy_forward_server:
-                aliases: ['webproxy-forward-server']
-                type: raw
-                description: (list or str) Webproxy forward server.
-            webproxy_profile:
-                aliases: ['webproxy-profile']
-                type: raw
-                description: (list or str) Webproxy profile.
-            fsso_groups:
-                aliases: ['fsso-groups']
-                type: raw
-                description: (list or str) Fsso groups.
-            decrypted_traffic_mirror:
-                aliases: ['decrypted-traffic-mirror']
-                type: raw
-                description: (list or str) Decrypted traffic mirror.
-            file_filter_profile:
-                aliases: ['file-filter-profile']
-                type: raw
-                description: (list or str) File filter profile.
-            cgn_log_server_grp:
-                aliases: ['cgn-log-server-grp']
-                type: str
-                description: NP log server group name
-            policy_offload:
-                aliases: ['policy-offload']
-                type: str
-                description: Enable/disable offloading policy configuration to CP processors.
-                choices: ['disable', 'enable']
-            _policy_block:
-                type: int
-                description: Assigned policy block.
+          action:
+            type: str
+            description: Action.
+            choices: ['deny', 'accept']
+          application_list:
+            aliases: ['application-list']
+            type: str
+            description: Application list.
+          av_profile:
+            aliases: ['av-profile']
+            type: str
+            description: Av profile.
+          deep_inspection_options:
+            aliases: ['deep-inspection-options']
+            type: str
+            description: Deep inspection options.
+          devices:
+            type: str
+            description: Devices.
+          dlp_sensor:
+            aliases: ['dlp-sensor']
+            type: str
+            description: Dlp sensor.
+          endpoint_compliance:
+            aliases: ['endpoint-compliance']
+            type: str
+            description: Endpoint compliance.
+            choices: ['disable', 'enable']
+          groups:
+            type: str
+            description: Groups.
+          icap_profile:
+            aliases: ['icap-profile']
+            type: str
+            description: Icap profile.
+          id:
+            type: int
+            description: Id.
+          ips_sensor:
+            aliases: ['ips-sensor']
+            type: str
+            description: Ips sensor.
+          logtraffic:
+            type: str
+            description: Logtraffic.
+            choices: ['disable', 'enable', 'all', 'utm']
+          mms_profile:
+            aliases: ['mms-profile']
+            type: str
+            description: Mms profile.
+          per_ip_shaper:
+            aliases: ['per-ip-shaper']
+            type: str
+            description: Per ip shaper.
+          profile_group:
+            aliases: ['profile-group']
+            type: str
+            description: Profile group.
+          profile_protocol_options:
+            aliases: ['profile-protocol-options']
+            type: str
+            description: Profile protocol options.
+          profile_type:
+            aliases: ['profile-type']
+            type: str
+            description: Profile type.
+            choices: ['single', 'group']
+          replacemsg_group:
+            aliases: ['replacemsg-group']
+            type: str
+            description: Replacemsg group.
+          schedule:
+            type: str
+            description: Schedule.
+          send_deny_packet:
+            aliases: ['send-deny-packet']
+            type: str
+            description: Send deny packet.
+            choices: ['disable', 'enable']
+          service:
+            type: str
+            description: Service.
+          service_negate:
+            aliases: ['service-negate']
+            type: str
+            description: Service negate.
+            choices: ['disable', 'enable']
+          spamfilter_profile:
+            aliases: ['spamfilter-profile']
+            type: str
+            description: Spamfilter profile.
+          sslvpn_portal:
+            aliases: ['sslvpn-portal']
+            type: str
+            description: Sslvpn portal.
+          sslvpn_realm:
+            aliases: ['sslvpn-realm']
+            type: str
+            description: Sslvpn realm.
+          traffic_shaper:
+            aliases: ['traffic-shaper']
+            type: str
+            description: Traffic shaper.
+          traffic_shaper_reverse:
+            aliases: ['traffic-shaper-reverse']
+            type: str
+            description: Traffic shaper reverse.
+          utm_status:
+            aliases: ['utm-status']
+            type: str
+            description: Utm status.
+            choices: ['disable', 'enable']
+          voip_profile:
+            aliases: ['voip-profile']
+            type: str
+            description: Voip profile.
+          webfilter_profile:
+            aliases: ['webfilter-profile']
+            type: str
+            description: Webfilter profile.
+      identity_from:
+        aliases: ['identity-from']
+        type: str
+        description: Identity from.
+        choices: ['auth', 'device']
+      inbound:
+        type: str
+        description: Inbound.
+        choices: ['disable', 'enable']
+      inspection_mode:
+        aliases: ['inspection-mode']
+        type: str
+        description: Inspection mode.
+        choices: ['proxy', 'flow']
+      ippool:
+        type: str
+        description: Ippool.
+        choices: ['disable', 'enable']
+      ips_sensor:
+        aliases: ['ips-sensor']
+        type: raw
+        description: (list or str) Ips sensor.
+      label:
+        type: str
+        description: Label.
+      logtraffic:
+        type: str
+        description: Logtraffic.
+        choices: ['disable', 'enable', 'all', 'utm']
+      logtraffic_start:
+        aliases: ['logtraffic-start']
+        type: str
+        description: Logtraffic start.
+        choices: ['disable', 'enable']
+      mms_profile:
+        aliases: ['mms-profile']
+        type: raw
+        description: (list or str) Mms profile.
+      name:
+        type: str
+        description: Name.
+      nat:
+        type: str
+        description: Nat.
+        choices: ['disable', 'enable']
+      natinbound:
+        type: str
+        description: Natinbound.
+        choices: ['disable', 'enable']
+      natoutbound:
+        type: str
+        description: Natoutbound.
+        choices: ['disable', 'enable']
+      np_accelation:
+        aliases: ['np-accelation']
+        type: str
+        description: Np accelation.
+        choices: ['disable', 'enable']
+      np_acceleration:
+        aliases: ['np-acceleration']
+        type: str
+        description: Np acceleration.
+        choices: ['disable', 'enable']
+      outbound:
+        type: str
+        description: Outbound.
+        choices: ['disable', 'enable']
+      per_ip_shaper:
+        aliases: ['per-ip-shaper']
+        type: raw
+        description: (list or str) Per ip shaper.
+      policyid:
+        type: int
+        description: Policyid.
+        required: true
+      poolname:
+        type: raw
+        description: (list or str) Poolname.
+      profile_group:
+        aliases: ['profile-group']
+        type: raw
+        description: (list or str) Profile group.
+      profile_protocol_options:
+        aliases: ['profile-protocol-options']
+        type: raw
+        description: (list or str) Profile protocol options.
+      profile_type:
+        aliases: ['profile-type']
+        type: str
+        description: Profile type.
+        choices: ['single', 'group']
+      replacemsg_group:
+        aliases: ['replacemsg-group']
+        type: raw
+        description: (list or str) Replacemsg group.
+      replacemsg_override_group:
+        aliases: ['replacemsg-override-group']
+        type: raw
+        description: (list or str) Replacemsg override group.
+      rsso:
+        type: str
+        description: Rsso.
+        choices: ['disable', 'enable']
+      schedule:
+        type: raw
+        description: (list or str) Schedule.
+      send_deny_packet:
+        aliases: ['send-deny-packet']
+        type: str
+        description: Send deny packet.
+        choices: ['disable', 'enable']
+      service:
+        type: raw
+        description: (list or str) Service.
+      service_negate:
+        aliases: ['service-negate']
+        type: str
+        description: Service negate.
+        choices: ['disable', 'enable']
+      session_ttl:
+        aliases: ['session-ttl']
+        type: raw
+        description: (int or str) Session ttl.
+      spamfilter_profile:
+        aliases: ['spamfilter-profile']
+        type: raw
+        description: (list or str) Spamfilter profile.
+      srcaddr:
+        type: raw
+        description: (list or str) Srcaddr.
+      srcaddr_negate:
+        aliases: ['srcaddr-negate']
+        type: str
+        description: Srcaddr negate.
+        choices: ['disable', 'enable']
+      srcintf:
+        type: raw
+        description: (list or str) Srcintf.
+      ssh_filter_profile:
+        aliases: ['ssh-filter-profile']
+        type: raw
+        description: (list or str) Ssh filter profile.
+      ssh_policy_redirect:
+        aliases: ['ssh-policy-redirect']
+        type: str
+        description: Ssh policy redirect.
+        choices: ['disable', 'enable']
+      ssl_mirror:
+        aliases: ['ssl-mirror']
+        type: str
+        description: Ssl mirror.
+        choices: ['disable', 'enable']
+      ssl_mirror_intf:
+        aliases: ['ssl-mirror-intf']
+        type: raw
+        description: (list or str) Ssl mirror intf.
+      ssl_ssh_profile:
+        aliases: ['ssl-ssh-profile']
+        type: raw
+        description: (list or str) Ssl ssh profile.
+      sslvpn_auth:
+        aliases: ['sslvpn-auth']
+        type: str
+        description: Sslvpn auth.
+        choices: ['any', 'local', 'radius', 'ldap', 'tacacs+']
+      sslvpn_ccert:
+        aliases: ['sslvpn-ccert']
+        type: str
+        description: Sslvpn ccert.
+        choices: ['disable', 'enable']
+      sslvpn_cipher:
+        aliases: ['sslvpn-cipher']
+        type: str
+        description: Sslvpn cipher.
+        choices: ['any', 'high', 'medium']
+      status:
+        type: str
+        description: Status.
+        choices: ['disable', 'enable']
+      tags:
+        type: raw
+        description: (list or str) Tags.
+      tcp_mss_receiver:
+        aliases: ['tcp-mss-receiver']
+        type: int
+        description: Tcp mss receiver.
+      tcp_mss_sender:
+        aliases: ['tcp-mss-sender']
+        type: int
+        description: Tcp mss sender.
+      tcp_session_without_syn:
+        aliases: ['tcp-session-without-syn']
+        type: str
+        description: Tcp session without syn.
+        choices: ['all', 'data-only', 'disable']
+      timeout_send_rst:
+        aliases: ['timeout-send-rst']
+        type: str
+        description: Timeout send rst.
+        choices: ['disable', 'enable']
+      tos:
+        type: str
+        description: Tos.
+      tos_mask:
+        aliases: ['tos-mask']
+        type: str
+        description: Tos mask.
+      tos_negate:
+        aliases: ['tos-negate']
+        type: str
+        description: Tos negate.
+        choices: ['disable', 'enable']
+      traffic_shaper:
+        aliases: ['traffic-shaper']
+        type: raw
+        description: (list or str) Traffic shaper.
+      traffic_shaper_reverse:
+        aliases: ['traffic-shaper-reverse']
+        type: raw
+        description: (list or str) Traffic shaper reverse.
+      url_category:
+        aliases: ['url-category']
+        type: raw
+        description: (list or str) Url category.
+      users:
+        type: raw
+        description: (list or str) Users.
+      utm_inspection_mode:
+        aliases: ['utm-inspection-mode']
+        type: str
+        description: Utm inspection mode.
+        choices: ['proxy', 'flow']
+      utm_status:
+        aliases: ['utm-status']
+        type: str
+        description: Utm status.
+        choices: ['disable', 'enable']
+      uuid:
+        type: str
+        description: Uuid.
+      vlan_cos_fwd:
+        aliases: ['vlan-cos-fwd']
+        type: int
+        description: Vlan cos fwd.
+      vlan_cos_rev:
+        aliases: ['vlan-cos-rev']
+        type: int
+        description: Vlan cos rev.
+      vlan_filter:
+        aliases: ['vlan-filter']
+        type: str
+        description: Vlan filter.
+      voip_profile:
+        aliases: ['voip-profile']
+        type: raw
+        description: (list or str) Voip profile.
+      vpntunnel:
+        type: raw
+        description: (list or str) Vpntunnel.
+      webfilter_profile:
+        aliases: ['webfilter-profile']
+        type: raw
+        description: (list or str) Webfilter profile.
+      waf_profile:
+        aliases: ['waf-profile']
+        type: raw
+        description: (list or str) Waf profile.
+      webcache:
+        type: str
+        description: Webcache.
+        choices: ['disable', 'enable']
+      webcache_https:
+        aliases: ['webcache-https']
+        type: str
+        description: Webcache https.
+        choices: ['disable', 'enable']
+      webproxy_forward_server:
+        aliases: ['webproxy-forward-server']
+        type: raw
+        description: (list or str) Webproxy forward server.
+      webproxy_profile:
+        aliases: ['webproxy-profile']
+        type: raw
+        description: (list or str) Webproxy profile.
+      fsso_groups:
+        aliases: ['fsso-groups']
+        type: raw
+        description: (list or str) Fsso groups.
+      decrypted_traffic_mirror:
+        aliases: ['decrypted-traffic-mirror']
+        type: raw
+        description: (list or str) Decrypted traffic mirror.
+      file_filter_profile:
+        aliases: ['file-filter-profile']
+        type: raw
+        description: (list or str) File filter profile.
+      cgn_log_server_grp:
+        aliases: ['cgn-log-server-grp']
+        type: str
+        description: NP log server group name
+      policy_offload:
+        aliases: ['policy-offload']
+        type: str
+        description: Enable/disable offloading policy configuration to CP processors.
+        choices: ['disable', 'enable']
+      _policy_block:
+        type: int
+        description: Assigned policy block.
 '''
 
 EXAMPLES = '''
@@ -694,42 +694,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -745,54 +745,60 @@ def main():
         'pkg': {'required': True, 'type': 'str'},
         'revision_note': {'type': 'str'},
         'pkg_footer_policy6': {
-            'type': 'dict', 'v_range': [['6.0.0', '']],
+            'type': 'dict', 'v_range': [['6.0.0', '7.6.7']],
             'options': {
-                'action': {'choices': ['deny', 'accept', 'ipsec', 'ssl-vpn'], 'type': 'str'},
-                'anti-replay': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'app-category': {'type': 'raw'},
-                'app-group': {'type': 'raw'},
-                'application': {'type': 'raw'},
-                'application-charts': {'type': 'list', 'choices': ['top10-app', 'top10-p2p-user', 'top10-media-user'], 'elements': 'str'},
-                'application-list': {'type': 'raw'},
-                'auto-asic-offload': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'av-profile': {'type': 'raw'},
-                'casi-profile': {'type': 'raw'},
-                'cifs-profile': {'type': 'raw'},
-                'comments': {'type': 'str'},
-                'custom-log-fields': {'type': 'raw'},
-                'deep-inspection-options': {'type': 'raw'},
-                'device-detection-portal': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'devices': {'type': 'raw'},
-                'diffserv-forward': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'diffserv-reverse': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'diffservcode-forward': {'type': 'str'},
-                'diffservcode-rev': {'type': 'str'},
-                'dlp-sensor': {'type': 'raw'},
-                'dnsfilter-profile': {'type': 'raw'},
-                'dscp-match': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'dscp-negate': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'dscp-value': {'type': 'str'},
-                'dsri': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'dstaddr': {'type': 'raw'},
-                'dstaddr-negate': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'dstintf': {'type': 'raw'},
-                'dynamic-profile': {'choices': ['disable', 'enable'], 'type': 'str'},
+                'action': {'v_range': [['6.0.0', '7.6.7']], 'choices': ['deny', 'accept', 'ipsec', 'ssl-vpn'], 'type': 'str'},
+                'anti-replay': {'v_range': [['6.0.0', '7.6.7']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'app-category': {'v_range': [['6.0.0', '7.6.7']], 'type': 'raw'},
+                'app-group': {'v_range': [['6.0.0', '7.6.7']], 'type': 'raw'},
+                'application': {'v_range': [['6.0.0', '7.6.7']], 'type': 'raw'},
+                'application-charts': {
+                    'v_range': [['6.0.0', '7.6.7']],
+                    'type': 'list',
+                    'choices': ['top10-app', 'top10-p2p-user', 'top10-media-user'],
+                    'elements': 'str'
+                },
+                'application-list': {'v_range': [['6.0.0', '7.6.7']], 'type': 'raw'},
+                'auto-asic-offload': {'v_range': [['6.0.0', '7.6.7']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'av-profile': {'v_range': [['6.0.0', '7.6.7']], 'type': 'raw'},
+                'casi-profile': {'v_range': [['6.0.0', '7.6.7']], 'type': 'raw'},
+                'cifs-profile': {'v_range': [['6.0.0', '7.6.7']], 'type': 'raw'},
+                'comments': {'v_range': [['6.0.0', '7.6.7']], 'type': 'str'},
+                'custom-log-fields': {'v_range': [['6.0.0', '7.6.7']], 'type': 'raw'},
+                'deep-inspection-options': {'v_range': [['6.0.0', '7.6.7']], 'type': 'raw'},
+                'device-detection-portal': {'v_range': [['6.0.0', '7.6.7']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'devices': {'v_range': [['6.0.0', '7.6.7']], 'type': 'raw'},
+                'diffserv-forward': {'v_range': [['6.0.0', '7.6.7']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'diffserv-reverse': {'v_range': [['6.0.0', '7.6.7']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'diffservcode-forward': {'v_range': [['6.0.0', '7.6.7']], 'type': 'str'},
+                'diffservcode-rev': {'v_range': [['6.0.0', '7.6.7']], 'type': 'str'},
+                'dlp-sensor': {'v_range': [['6.0.0', '7.6.7']], 'type': 'raw'},
+                'dnsfilter-profile': {'v_range': [['6.0.0', '7.6.7']], 'type': 'raw'},
+                'dscp-match': {'v_range': [['6.0.0', '7.6.7']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'dscp-negate': {'v_range': [['6.0.0', '7.6.7']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'dscp-value': {'v_range': [['6.0.0', '7.6.7']], 'type': 'str'},
+                'dsri': {'v_range': [['6.0.0', '7.6.7']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'dstaddr': {'v_range': [['6.0.0', '7.6.7']], 'type': 'raw'},
+                'dstaddr-negate': {'v_range': [['6.0.0', '7.6.7']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'dstintf': {'v_range': [['6.0.0', '7.6.7']], 'type': 'raw'},
+                'dynamic-profile': {'v_range': [['6.0.0', '7.6.7']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'dynamic-profile-access': {
+                    'v_range': [['6.0.0', '7.6.7']],
                     'type': 'list',
                     'choices': ['imap', 'smtp', 'pop3', 'http', 'ftp', 'im', 'nntp', 'imaps', 'smtps', 'pop3s', 'https', 'ftps'],
                     'elements': 'str'
                 },
-                'dynamic-profile-group': {'type': 'raw'},
-                'email-collection-portal': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'emailfilter-profile': {'type': 'raw'},
-                'firewall-session-dirty': {'choices': ['check-all', 'check-new'], 'type': 'str'},
-                'fixedport': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'fsae': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'global-label': {'type': 'str'},
-                'groups': {'type': 'raw'},
-                'http-policy-redirect': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'icap-profile': {'type': 'raw'},
-                'identity-based': {'choices': ['disable', 'enable'], 'type': 'str'},
+                'dynamic-profile-group': {'v_range': [['6.0.0', '7.6.7']], 'type': 'raw'},
+                'email-collection-portal': {'v_range': [['6.0.0', '7.6.7']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'emailfilter-profile': {'v_range': [['6.0.0', '7.6.7']], 'type': 'raw'},
+                'firewall-session-dirty': {'v_range': [['6.0.0', '7.6.7']], 'choices': ['check-all', 'check-new'], 'type': 'str'},
+                'fixedport': {'v_range': [['6.0.0', '7.6.7']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'fsae': {'v_range': [['6.0.0', '7.6.7']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'global-label': {'v_range': [['6.0.0', '7.6.7']], 'type': 'str'},
+                'groups': {'v_range': [['6.0.0', '7.6.7']], 'type': 'raw'},
+                'http-policy-redirect': {'v_range': [['6.0.0', '7.6.7']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'icap-profile': {'v_range': [['6.0.0', '7.6.7']], 'type': 'raw'},
+                'identity-based': {'v_range': [['6.0.0', '7.6.7']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'identity-based-policy6': {
                     'v_range': [['6.0.0', '6.2.0']],
                     'type': 'list',
@@ -830,81 +836,81 @@ def main():
                     },
                     'elements': 'dict'
                 },
-                'identity-from': {'choices': ['auth', 'device'], 'type': 'str'},
-                'inbound': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'inspection-mode': {'choices': ['proxy', 'flow'], 'type': 'str'},
-                'ippool': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'ips-sensor': {'type': 'raw'},
-                'label': {'type': 'str'},
-                'logtraffic': {'choices': ['disable', 'enable', 'all', 'utm'], 'type': 'str'},
-                'logtraffic-start': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'mms-profile': {'type': 'raw'},
-                'name': {'type': 'str'},
-                'nat': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'natinbound': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'natoutbound': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'np-accelation': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'np-acceleration': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'outbound': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'per-ip-shaper': {'type': 'raw'},
-                'policyid': {'required': True, 'type': 'int'},
-                'poolname': {'type': 'raw'},
-                'profile-group': {'type': 'raw'},
-                'profile-protocol-options': {'type': 'raw'},
-                'profile-type': {'choices': ['single', 'group'], 'type': 'str'},
-                'replacemsg-group': {'type': 'raw'},
-                'replacemsg-override-group': {'type': 'raw'},
-                'rsso': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'schedule': {'type': 'raw'},
-                'send-deny-packet': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'service': {'type': 'raw'},
-                'service-negate': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'session-ttl': {'type': 'raw'},
-                'spamfilter-profile': {'type': 'raw'},
-                'srcaddr': {'type': 'raw'},
-                'srcaddr-negate': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'srcintf': {'type': 'raw'},
-                'ssh-filter-profile': {'type': 'raw'},
-                'ssh-policy-redirect': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'ssl-mirror': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'ssl-mirror-intf': {'type': 'raw'},
-                'ssl-ssh-profile': {'type': 'raw'},
-                'sslvpn-auth': {'choices': ['any', 'local', 'radius', 'ldap', 'tacacs+'], 'type': 'str'},
-                'sslvpn-ccert': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'sslvpn-cipher': {'choices': ['any', 'high', 'medium'], 'type': 'str'},
-                'status': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'tags': {'type': 'raw'},
-                'tcp-mss-receiver': {'type': 'int'},
-                'tcp-mss-sender': {'type': 'int'},
-                'tcp-session-without-syn': {'choices': ['all', 'data-only', 'disable'], 'type': 'str'},
-                'timeout-send-rst': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'tos': {'type': 'str'},
-                'tos-mask': {'type': 'str'},
-                'tos-negate': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'traffic-shaper': {'type': 'raw'},
-                'traffic-shaper-reverse': {'type': 'raw'},
-                'url-category': {'type': 'raw'},
-                'users': {'type': 'raw'},
-                'utm-inspection-mode': {'choices': ['proxy', 'flow'], 'type': 'str'},
-                'utm-status': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'uuid': {'type': 'str'},
-                'vlan-cos-fwd': {'type': 'int'},
-                'vlan-cos-rev': {'type': 'int'},
-                'vlan-filter': {'type': 'str'},
-                'voip-profile': {'type': 'raw'},
-                'vpntunnel': {'type': 'raw'},
-                'webfilter-profile': {'type': 'raw'},
-                'waf-profile': {'v_range': [['6.2.1', '']], 'type': 'raw'},
-                'webcache': {'v_range': [['6.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'webcache-https': {'v_range': [['6.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'webproxy-forward-server': {'v_range': [['6.2.1', '']], 'type': 'raw'},
-                'webproxy-profile': {'v_range': [['6.2.1', '']], 'type': 'raw'},
-                'fsso-groups': {'v_range': [['6.2.3', '']], 'type': 'raw'},
-                'decrypted-traffic-mirror': {'v_range': [['6.4.0', '']], 'type': 'raw'},
-                'file-filter-profile': {'v_range': [['6.4.1', '']], 'type': 'raw'},
-                'cgn-log-server-grp': {'v_range': [['6.2.7', '6.2.13'], ['6.4.3', '']], 'type': 'str'},
-                'policy-offload': {'v_range': [['6.2.7', '6.2.13'], ['6.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                '_policy_block': {'v_range': [['7.2.2', '']], 'type': 'int'}
+                'identity-from': {'v_range': [['6.0.0', '7.6.7']], 'choices': ['auth', 'device'], 'type': 'str'},
+                'inbound': {'v_range': [['6.0.0', '7.6.7']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'inspection-mode': {'v_range': [['6.0.0', '7.6.7']], 'choices': ['proxy', 'flow'], 'type': 'str'},
+                'ippool': {'v_range': [['6.0.0', '7.6.7']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'ips-sensor': {'v_range': [['6.0.0', '7.6.7']], 'type': 'raw'},
+                'label': {'v_range': [['6.0.0', '7.6.7']], 'type': 'str'},
+                'logtraffic': {'v_range': [['6.0.0', '7.6.7']], 'choices': ['disable', 'enable', 'all', 'utm'], 'type': 'str'},
+                'logtraffic-start': {'v_range': [['6.0.0', '7.6.7']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'mms-profile': {'v_range': [['6.0.0', '7.6.7']], 'type': 'raw'},
+                'name': {'v_range': [['6.0.0', '7.6.7']], 'type': 'str'},
+                'nat': {'v_range': [['6.0.0', '7.6.7']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'natinbound': {'v_range': [['6.0.0', '7.6.7']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'natoutbound': {'v_range': [['6.0.0', '7.6.7']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'np-accelation': {'v_range': [['6.0.0', '7.6.7']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'np-acceleration': {'v_range': [['6.0.0', '7.6.7']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'outbound': {'v_range': [['6.0.0', '7.6.7']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'per-ip-shaper': {'v_range': [['6.0.0', '7.6.7']], 'type': 'raw'},
+                'policyid': {'v_range': [['6.0.0', '7.6.7']], 'required': True, 'type': 'int'},
+                'poolname': {'v_range': [['6.0.0', '7.6.7']], 'type': 'raw'},
+                'profile-group': {'v_range': [['6.0.0', '7.6.7']], 'type': 'raw'},
+                'profile-protocol-options': {'v_range': [['6.0.0', '7.6.7']], 'type': 'raw'},
+                'profile-type': {'v_range': [['6.0.0', '7.6.7']], 'choices': ['single', 'group'], 'type': 'str'},
+                'replacemsg-group': {'v_range': [['6.0.0', '7.6.7']], 'type': 'raw'},
+                'replacemsg-override-group': {'v_range': [['6.0.0', '7.6.7']], 'type': 'raw'},
+                'rsso': {'v_range': [['6.0.0', '7.6.7']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'schedule': {'v_range': [['6.0.0', '7.6.7']], 'type': 'raw'},
+                'send-deny-packet': {'v_range': [['6.0.0', '7.6.7']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'service': {'v_range': [['6.0.0', '7.6.7']], 'type': 'raw'},
+                'service-negate': {'v_range': [['6.0.0', '7.6.7']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'session-ttl': {'v_range': [['6.0.0', '7.6.7']], 'type': 'raw'},
+                'spamfilter-profile': {'v_range': [['6.0.0', '7.6.7']], 'type': 'raw'},
+                'srcaddr': {'v_range': [['6.0.0', '7.6.7']], 'type': 'raw'},
+                'srcaddr-negate': {'v_range': [['6.0.0', '7.6.7']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'srcintf': {'v_range': [['6.0.0', '7.6.7']], 'type': 'raw'},
+                'ssh-filter-profile': {'v_range': [['6.0.0', '7.6.7']], 'type': 'raw'},
+                'ssh-policy-redirect': {'v_range': [['6.0.0', '7.6.7']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'ssl-mirror': {'v_range': [['6.0.0', '7.6.7']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'ssl-mirror-intf': {'v_range': [['6.0.0', '7.6.7']], 'type': 'raw'},
+                'ssl-ssh-profile': {'v_range': [['6.0.0', '7.6.7']], 'type': 'raw'},
+                'sslvpn-auth': {'v_range': [['6.0.0', '7.6.7']], 'choices': ['any', 'local', 'radius', 'ldap', 'tacacs+'], 'type': 'str'},
+                'sslvpn-ccert': {'v_range': [['6.0.0', '7.6.7']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'sslvpn-cipher': {'v_range': [['6.0.0', '7.6.7']], 'choices': ['any', 'high', 'medium'], 'type': 'str'},
+                'status': {'v_range': [['6.0.0', '7.6.7']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'tags': {'v_range': [['6.0.0', '7.6.7']], 'type': 'raw'},
+                'tcp-mss-receiver': {'v_range': [['6.0.0', '7.6.7']], 'type': 'int'},
+                'tcp-mss-sender': {'v_range': [['6.0.0', '7.6.7']], 'type': 'int'},
+                'tcp-session-without-syn': {'v_range': [['6.0.0', '7.6.7']], 'choices': ['all', 'data-only', 'disable'], 'type': 'str'},
+                'timeout-send-rst': {'v_range': [['6.0.0', '7.6.7']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'tos': {'v_range': [['6.0.0', '7.6.7']], 'type': 'str'},
+                'tos-mask': {'v_range': [['6.0.0', '7.6.7']], 'type': 'str'},
+                'tos-negate': {'v_range': [['6.0.0', '7.6.7']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'traffic-shaper': {'v_range': [['6.0.0', '7.6.7']], 'type': 'raw'},
+                'traffic-shaper-reverse': {'v_range': [['6.0.0', '7.6.7']], 'type': 'raw'},
+                'url-category': {'v_range': [['6.0.0', '7.6.7']], 'type': 'raw'},
+                'users': {'v_range': [['6.0.0', '7.6.7']], 'type': 'raw'},
+                'utm-inspection-mode': {'v_range': [['6.0.0', '7.6.7']], 'choices': ['proxy', 'flow'], 'type': 'str'},
+                'utm-status': {'v_range': [['6.0.0', '7.6.7']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'uuid': {'v_range': [['6.0.0', '7.6.7']], 'type': 'str'},
+                'vlan-cos-fwd': {'v_range': [['6.0.0', '7.6.7']], 'type': 'int'},
+                'vlan-cos-rev': {'v_range': [['6.0.0', '7.6.7']], 'type': 'int'},
+                'vlan-filter': {'v_range': [['6.0.0', '7.6.7']], 'type': 'str'},
+                'voip-profile': {'v_range': [['6.0.0', '7.6.7']], 'type': 'raw'},
+                'vpntunnel': {'v_range': [['6.0.0', '7.6.7']], 'type': 'raw'},
+                'webfilter-profile': {'v_range': [['6.0.0', '7.6.7']], 'type': 'raw'},
+                'waf-profile': {'v_range': [['6.2.1', '7.6.7']], 'type': 'raw'},
+                'webcache': {'v_range': [['6.2.1', '7.6.7']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'webcache-https': {'v_range': [['6.2.1', '7.6.7']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'webproxy-forward-server': {'v_range': [['6.2.1', '7.6.7']], 'type': 'raw'},
+                'webproxy-profile': {'v_range': [['6.2.1', '7.6.7']], 'type': 'raw'},
+                'fsso-groups': {'v_range': [['6.2.3', '7.6.7']], 'type': 'raw'},
+                'decrypted-traffic-mirror': {'v_range': [['6.4.0', '7.6.7']], 'type': 'raw'},
+                'file-filter-profile': {'v_range': [['6.4.1', '7.6.7']], 'type': 'raw'},
+                'cgn-log-server-grp': {'v_range': [['6.2.7', '6.2.13'], ['6.4.3', '7.6.7']], 'type': 'str'},
+                'policy-offload': {'v_range': [['6.2.7', '6.2.13'], ['6.4.3', '7.6.7']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                '_policy_block': {'v_range': [['7.2.2', '7.6.7']], 'type': 'int'}
             }
         }
     }

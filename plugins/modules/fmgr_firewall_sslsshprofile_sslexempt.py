@@ -15,59 +15,59 @@ module: fmgr_firewall_sslsshprofile_sslexempt
 short_description: Servers to exempt from SSL inspection.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  ssl-ssh-profile:
+    description: Deprecated, please use "ssl_ssh_profile"
+    type: str
+  ssl_ssh_profile:
+    description: The parameter (ssl-ssh-profile) in requested url.
+    type: str
+  firewall_sslsshprofile_sslexempt:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      address:
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: IPv4 address object.
+      address6:
         type: str
+        description: IPv6 address object.
+      fortiguard_category:
+        aliases: ['fortiguard-category']
+        type: str
+        description: FortiGuard category ID.
+      id:
+        type: int
+        description: ID number.
         required: true
-    ssl-ssh-profile:
-        description: Deprecated, please use "ssl_ssh_profile"
+      regex:
         type: str
-    ssl_ssh_profile:
-        description: The parameter (ssl-ssh-profile) in requested url.
+        description: Exempt servers by regular expression.
+      type:
         type: str
-    firewall_sslsshprofile_sslexempt:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            address:
-                type: str
-                description: IPv4 address object.
-            address6:
-                type: str
-                description: IPv6 address object.
-            fortiguard_category:
-                aliases: ['fortiguard-category']
-                type: str
-                description: FortiGuard category ID.
-            id:
-                type: int
-                description: ID number.
-                required: true
-            regex:
-                type: str
-                description: Exempt servers by regular expression.
-            type:
-                type: str
-                description: Type of address object
-                choices: ['fortiguard-category', 'address', 'address6', 'wildcard-fqdn', 'regex',
-                          'finger-print']
-            wildcard_fqdn:
-                aliases: ['wildcard-fqdn']
-                type: str
-                description: Exempt servers by wildcard FQDN.
-            finger_print_category:
-                aliases: ['finger-print-category']
-                type: str
-                description: Finger print platform.
-                choices: ['unknown', 'firefox', 'chrome', 'safari', 'edge', 'ie', 'android',
-                          'ios', 'windows']
+        description: Type of address object
+        choices: ['fortiguard-category', 'address', 'address6', 'wildcard-fqdn', 'regex',
+                  'finger-print']
+      wildcard_fqdn:
+        aliases: ['wildcard-fqdn']
+        type: str
+        description: Exempt servers by wildcard FQDN.
+      finger_print_category:
+        aliases: ['finger-print-category']
+        type: str
+        description: Finger print platform.
+        choices: ['unknown', 'firefox', 'chrome', 'safari', 'edge', 'ie', 'android', 'ios',
+                  'windows']
 '''
 
 EXAMPLES = '''
@@ -111,42 +111,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -175,7 +175,7 @@ def main():
                 'type': {'choices': ['fortiguard-category', 'address', 'address6', 'wildcard-fqdn', 'regex', 'finger-print'], 'type': 'str'},
                 'wildcard-fqdn': {'type': 'str'},
                 'finger-print-category': {
-                    'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']],
+                    'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']],
                     'choices': ['unknown', 'firefox', 'chrome', 'safari', 'edge', 'ie', 'android', 'ios', 'windows'],
                     'type': 'str'
                 }

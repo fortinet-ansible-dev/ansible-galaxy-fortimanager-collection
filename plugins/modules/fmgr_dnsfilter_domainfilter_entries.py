@@ -15,49 +15,49 @@ module: fmgr_dnsfilter_domainfilter_entries
 short_description: DNS domain filter entries.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  domain-filter:
+    description: Deprecated, please use "domain_filter"
+    type: str
+  domain_filter:
+    description: The parameter (domain-filter) in requested url.
+    type: str
+  dnsfilter_domainfilter_entries:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      action:
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Action to take for domain filter matches.
+        choices: ['block', 'allow', 'monitor']
+      domain:
         type: str
+        description: Domain entries to be filtered.
+      id:
+        type: int
+        description: Id.
         required: true
-    domain-filter:
-        description: Deprecated, please use "domain_filter"
+      status:
         type: str
-    domain_filter:
-        description: The parameter (domain-filter) in requested url.
+        description: Enable/disable this domain filter.
+        choices: ['disable', 'enable']
+      type:
         type: str
-    dnsfilter_domainfilter_entries:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            action:
-                type: str
-                description: Action to take for domain filter matches.
-                choices: ['block', 'allow', 'monitor']
-            domain:
-                type: str
-                description: Domain entries to be filtered.
-            id:
-                type: int
-                description: Id.
-                required: true
-            status:
-                type: str
-                description: Enable/disable this domain filter.
-                choices: ['disable', 'enable']
-            type:
-                type: str
-                description: DNS domain filter type.
-                choices: ['simple', 'regex', 'wildcard']
-            comment:
-                type: str
-                description: Comment.
+        description: DNS domain filter type.
+        choices: ['simple', 'regex', 'wildcard']
+      comment:
+        type: str
+        description: Comment.
 '''
 
 EXAMPLES = '''
@@ -103,42 +103,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

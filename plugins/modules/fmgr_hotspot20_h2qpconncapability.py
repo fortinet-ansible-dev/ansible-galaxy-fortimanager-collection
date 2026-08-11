@@ -15,80 +15,80 @@ module: fmgr_hotspot20_h2qpconncapability
 short_description: Configure connection capability.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  hotspot20_h2qpconncapability:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      esp_port:
+        aliases: ['esp-port']
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Set ESP port service
+        choices: ['closed', 'open', 'unknown']
+      ftp_port:
+        aliases: ['ftp-port']
         type: str
+        description: Set FTP port service status.
+        choices: ['closed', 'open', 'unknown']
+      http_port:
+        aliases: ['http-port']
+        type: str
+        description: Set HTTP port service status.
+        choices: ['closed', 'open', 'unknown']
+      icmp_port:
+        aliases: ['icmp-port']
+        type: str
+        description: Set ICMP port service status.
+        choices: ['closed', 'open', 'unknown']
+      ikev2_port:
+        aliases: ['ikev2-port']
+        type: str
+        description: Set IKEv2 port service for IPsec VPN status.
+        choices: ['closed', 'open', 'unknown']
+      ikev2_xx_port:
+        aliases: ['ikev2-xx-port']
+        type: str
+        description: Set UDP port 4500
+        choices: ['closed', 'open', 'unknown']
+      name:
+        type: str
+        description: Connection capability name.
         required: true
-    hotspot20_h2qpconncapability:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            esp_port:
-                aliases: ['esp-port']
-                type: str
-                description: Set ESP port service
-                choices: ['closed', 'open', 'unknown']
-            ftp_port:
-                aliases: ['ftp-port']
-                type: str
-                description: Set FTP port service status.
-                choices: ['closed', 'open', 'unknown']
-            http_port:
-                aliases: ['http-port']
-                type: str
-                description: Set HTTP port service status.
-                choices: ['closed', 'open', 'unknown']
-            icmp_port:
-                aliases: ['icmp-port']
-                type: str
-                description: Set ICMP port service status.
-                choices: ['closed', 'open', 'unknown']
-            ikev2_port:
-                aliases: ['ikev2-port']
-                type: str
-                description: Set IKEv2 port service for IPsec VPN status.
-                choices: ['closed', 'open', 'unknown']
-            ikev2_xx_port:
-                aliases: ['ikev2-xx-port']
-                type: str
-                description: Set UDP port 4500
-                choices: ['closed', 'open', 'unknown']
-            name:
-                type: str
-                description: Connection capability name.
-                required: true
-            pptp_vpn_port:
-                aliases: ['pptp-vpn-port']
-                type: str
-                description: Set Point to Point Tunneling Protocol
-                choices: ['closed', 'open', 'unknown']
-            ssh_port:
-                aliases: ['ssh-port']
-                type: str
-                description: Set SSH port service status.
-                choices: ['closed', 'open', 'unknown']
-            tls_port:
-                aliases: ['tls-port']
-                type: str
-                description: Set TLS VPN
-                choices: ['closed', 'open', 'unknown']
-            voip_tcp_port:
-                aliases: ['voip-tcp-port']
-                type: str
-                description: Set VoIP TCP port service status.
-                choices: ['closed', 'open', 'unknown']
-            voip_udp_port:
-                aliases: ['voip-udp-port']
-                type: str
-                description: Set VoIP UDP port service status.
-                choices: ['closed', 'open', 'unknown']
+      pptp_vpn_port:
+        aliases: ['pptp-vpn-port']
+        type: str
+        description: Set Point to Point Tunneling Protocol
+        choices: ['closed', 'open', 'unknown']
+      ssh_port:
+        aliases: ['ssh-port']
+        type: str
+        description: Set SSH port service status.
+        choices: ['closed', 'open', 'unknown']
+      tls_port:
+        aliases: ['tls-port']
+        type: str
+        description: Set TLS VPN
+        choices: ['closed', 'open', 'unknown']
+      voip_tcp_port:
+        aliases: ['voip-tcp-port']
+        type: str
+        description: Set VoIP TCP port service status.
+        choices: ['closed', 'open', 'unknown']
+      voip_udp_port:
+        aliases: ['voip-udp-port']
+        type: str
+        description: Set VoIP UDP port service status.
+        choices: ['closed', 'open', 'unknown']
 '''
 
 EXAMPLES = '''
@@ -119,42 +119,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

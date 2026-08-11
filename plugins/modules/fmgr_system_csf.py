@@ -15,219 +15,232 @@ module: fmgr_system_csf
 short_description: Add this device to a Security Fabric or set up a new Security Fabric on this device.
 version_added: "2.3.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.partial_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.partial_crud
 options:
-    system_csf:
-        description: The top level parameters set.
-        required: false
-        type: dict
+  system_csf:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      accept_auth_by_cert:
+        aliases: ['accept-auth-by-cert']
+        type: str
+        description:
+          - Accept connections with unknown certificates and ask admin for approval.
+          - disable - Do not accept SSL connections with unknown certificates.
+          - enable - Accept SSL connections without automatic certificate verification.
+        choices: ['disable', 'enable']
+      authorization_request_type:
+        aliases: ['authorization-request-type']
+        type: str
+        description:
+          - Authorization request type.
+          - certificate - Request verification by certificate.
+          - serial - Request verification by serial number.
+        choices: ['certificate', 'serial']
+      certificate:
+        type: str
+        description: Certificate.
+      configuration_sync:
+        aliases: ['configuration-sync']
+        type: str
+        description:
+          - Configuration sync mode.
+          - default - Synchronize configuration for IPAM, FortiAnalyzer, FortiSandbox, and Central Management to root node.
+          - local - Do not synchronize configuration with root node.
+        choices: ['default', 'local']
+      downstream_access:
+        aliases: ['downstream-access']
+        type: str
+        description:
+          - Enable/disable downstream device access to this device&apos;s configuration and data.
+          - disable - Disable downstream device access to this device&apos;s configuration and data.
+          - enable - Enable downstream device access to this device&apos;s configuration and data.
+        choices: ['disable', 'enable']
+      downstream_accprofile:
+        aliases: ['downstream-accprofile']
+        type: str
+        description: Default access profile for requests from downstream devices.
+      fabric_connector:
+        aliases: ['fabric-connector']
+        type: list
+        elements: dict
+        description: Fabric connector.
         suboptions:
-            accept_auth_by_cert:
-                aliases: ['accept-auth-by-cert']
+          accprofile:
+            type: str
+            description: Override access profile.
+          configuration_write_access:
+            aliases: ['configuration-write-access']
+            type: str
+            description:
+              - Enable/disable downstream device write access to configuration.
+              - disable - Disable downstream device write access to configuration.
+              - enable - Enable downstream device write access to configuration.
+            choices: ['disable', 'enable']
+          serial:
+            type: str
+            description: Serial.
+      fabric_object_unification:
+        aliases: ['fabric-object-unification']
+        type: str
+        description:
+          - Fabric CMDB Object Unification.
+          - local - Global CMDB objects will not be synchronized to and from this device.
+          - default - Global CMDB objects will be synchronized in Security Fabric.
+        choices: ['local', 'default']
+      fabric_workers:
+        aliases: ['fabric-workers']
+        type: int
+        description: Number of worker processes for Security Fabric daemon.
+      file_mgmt:
+        aliases: ['file-mgmt']
+        type: str
+        description:
+          - Enable/disable Security Fabric daemon file management.
+          - disable - Disable daemon file management.
+          - enable - Enable daemon file management.
+        choices: ['disable', 'enable']
+      file_quota:
+        aliases: ['file-quota']
+        type: int
+        description: Maximum amount of memory that can be used by the daemon files
+      file_quota_warning:
+        aliases: ['file-quota-warning']
+        type: int
+        description: Warn when the set percentage of quota has been used.
+      fixed_key:
+        aliases: ['fixed-key']
+        type: list
+        elements: str
+        description: Auto-generated fixed key used when this device is the root.
+      forticloud_account_enforcement:
+        aliases: ['forticloud-account-enforcement']
+        type: str
+        description:
+          - Fabric FortiCloud account unification.
+          - disable - Disable FortiCloud accound ID matching for Security Fabric.
+          - enable - Enable FortiCloud account ID matching for Security Fabric.
+        choices: ['disable', 'enable']
+      group_name:
+        aliases: ['group-name']
+        type: str
+        description: Security Fabric group name.
+      group_password:
+        aliases: ['group-password']
+        type: list
+        elements: str
+        description: Security Fabric group password.
+      log_unification:
+        aliases: ['log-unification']
+        type: str
+        description:
+          - Enable/disable broadcast of discovery messages for log unification.
+          - disable - Disable broadcast of discovery messages for log unification.
+          - enable - Enable broadcast of discovery messages for log unification.
+        choices: ['disable', 'enable']
+      saml_configuration_sync:
+        aliases: ['saml-configuration-sync']
+        type: str
+        description:
+          - SAML setting configuration synchronization.
+          - local - Do not apply SAML configuration generated by root.
+          - default - SAML setting for fabric members is created by fabric root.
+        choices: ['local', 'default']
+      status:
+        type: str
+        description:
+          - Enable/disable Security Fabric.
+          - disable - Disable Security Fabric.
+          - enable - Enable Security Fabric.
+        choices: ['disable', 'enable']
+      trusted_list:
+        aliases: ['trusted-list']
+        type: list
+        elements: dict
+        description: Trusted list.
+        suboptions:
+          action:
+            type: str
+            description:
+              - Security fabric authorization action.
+              - accept - Accept authorization request.
+              - deny - Deny authorization request.
+            choices: ['accept', 'deny']
+          authorization_type:
+            aliases: ['authorization-type']
+            type: str
+            description:
+              - Authorization type.
+              - serial - Verify downstream by serial number.
+              - certificate - Verify downstream by certificate.
+            choices: ['serial', 'certificate']
+          certificate:
+            type: str
+            description: Certificate.
+          downstream_authorization:
+            aliases: ['downstream-authorization']
+            type: str
+            description:
+              - Trust authorizations by this node&apos;s administrator.
+              - disable - Disable downstream authorization.
+              - enable - Enable downstream authorization.
+            choices: ['disable', 'enable']
+          ha_members:
+            aliases: ['ha-members']
+            type: str
+            description: HA members.
+          index:
+            type: int
+            description: Index of the downstream in tree.
+          name:
+            type: str
+            description: Name.
+          serial:
+            type: str
+            description: Serial.
+          adom:
+            type: list
+            elements: dict
+            description: Adom.
+            suboptions:
+              adom_name:
+                aliases: ['adom-name']
                 type: str
-                description:
-                    - Accept connections with unknown certificates and ask admin for approval.
-                    - disable - Do not accept SSL connections with unknown certificates.
-                    - enable - Accept SSL connections without automatic certificate verification.
-                choices: ['disable', 'enable']
-            authorization_request_type:
-                aliases: ['authorization-request-type']
-                type: str
-                description:
-                    - Authorization request type.
-                    - certificate - Request verification by certificate.
-                    - serial - Request verification by serial number.
-                choices: ['certificate', 'serial']
-            certificate:
-                type: str
-                description: Certificate.
-            configuration_sync:
-                aliases: ['configuration-sync']
-                type: str
-                description:
-                    - Configuration sync mode.
-                    - default - Synchronize configuration for IPAM, FortiAnalyzer, FortiSandbox, and Central Management to root node.
-                    - local - Do not synchronize configuration with root node.
-                choices: ['default', 'local']
-            downstream_access:
-                aliases: ['downstream-access']
-                type: str
-                description:
-                    - Enable/disable downstream device access to this device&apos;s configuration and data.
-                    - disable - Disable downstream device access to this device&apos;s configuration and data.
-                    - enable - Enable downstream device access to this device&apos;s configuration and data.
-                choices: ['disable', 'enable']
-            downstream_accprofile:
-                aliases: ['downstream-accprofile']
-                type: str
-                description: Default access profile for requests from downstream devices.
-            fabric_connector:
-                aliases: ['fabric-connector']
-                type: list
-                elements: dict
-                description: Fabric connector.
-                suboptions:
-                    accprofile:
-                        type: str
-                        description: Override access profile.
-                    configuration_write_access:
-                        aliases: ['configuration-write-access']
-                        type: str
-                        description:
-                            - Enable/disable downstream device write access to configuration.
-                            - disable - Disable downstream device write access to configuration.
-                            - enable - Enable downstream device write access to configuration.
-                        choices: ['disable', 'enable']
-                    serial:
-                        type: str
-                        description: Serial.
-            fabric_object_unification:
-                aliases: ['fabric-object-unification']
-                type: str
-                description:
-                    - Fabric CMDB Object Unification.
-                    - local - Global CMDB objects will not be synchronized to and from this device.
-                    - default - Global CMDB objects will be synchronized in Security Fabric.
-                choices: ['local', 'default']
-            fabric_workers:
-                aliases: ['fabric-workers']
-                type: int
-                description: Number of worker processes for Security Fabric daemon.
-            file_mgmt:
-                aliases: ['file-mgmt']
-                type: str
-                description:
-                    - Enable/disable Security Fabric daemon file management.
-                    - disable - Disable daemon file management.
-                    - enable - Enable daemon file management.
-                choices: ['disable', 'enable']
-            file_quota:
-                aliases: ['file-quota']
-                type: int
-                description: Maximum amount of memory that can be used by the daemon files
-            file_quota_warning:
-                aliases: ['file-quota-warning']
-                type: int
-                description: Warn when the set percentage of quota has been used.
-            fixed_key:
-                aliases: ['fixed-key']
-                type: list
-                elements: str
-                description: Auto-generated fixed key used when this device is the root.
-            forticloud_account_enforcement:
-                aliases: ['forticloud-account-enforcement']
-                type: str
-                description:
-                    - Fabric FortiCloud account unification.
-                    - disable - Disable FortiCloud accound ID matching for Security Fabric.
-                    - enable - Enable FortiCloud account ID matching for Security Fabric.
-                choices: ['disable', 'enable']
-            group_name:
-                aliases: ['group-name']
-                type: str
-                description: Security Fabric group name.
-            group_password:
-                aliases: ['group-password']
-                type: list
-                elements: str
-                description: Security Fabric group password.
-            log_unification:
-                aliases: ['log-unification']
-                type: str
-                description:
-                    - Enable/disable broadcast of discovery messages for log unification.
-                    - disable - Disable broadcast of discovery messages for log unification.
-                    - enable - Enable broadcast of discovery messages for log unification.
-                choices: ['disable', 'enable']
-            saml_configuration_sync:
-                aliases: ['saml-configuration-sync']
-                type: str
-                description:
-                    - SAML setting configuration synchronization.
-                    - local - Do not apply SAML configuration generated by root.
-                    - default - SAML setting for fabric members is created by fabric root.
-                choices: ['local', 'default']
-            status:
-                type: str
-                description:
-                    - Enable/disable Security Fabric.
-                    - disable - Disable Security Fabric.
-                    - enable - Enable Security Fabric.
-                choices: ['disable', 'enable']
-            trusted_list:
-                aliases: ['trusted-list']
-                type: list
-                elements: dict
-                description: Trusted list.
-                suboptions:
-                    action:
-                        type: str
-                        description:
-                            - Security fabric authorization action.
-                            - accept - Accept authorization request.
-                            - deny - Deny authorization request.
-                        choices: ['accept', 'deny']
-                    authorization_type:
-                        aliases: ['authorization-type']
-                        type: str
-                        description:
-                            - Authorization type.
-                            - serial - Verify downstream by serial number.
-                            - certificate - Verify downstream by certificate.
-                        choices: ['serial', 'certificate']
-                    certificate:
-                        type: str
-                        description: Certificate.
-                    downstream_authorization:
-                        aliases: ['downstream-authorization']
-                        type: str
-                        description:
-                            - Trust authorizations by this node&apos;s administrator.
-                            - disable - Disable downstream authorization.
-                            - enable - Enable downstream authorization.
-                        choices: ['disable', 'enable']
-                    ha_members:
-                        aliases: ['ha-members']
-                        type: str
-                        description: HA members.
-                    index:
-                        type: int
-                        description: Index of the downstream in tree.
-                    name:
-                        type: str
-                        description: Name.
-                    serial:
-                        type: str
-                        description: Serial.
-            upstream:
-                type: str
-                description: IP/FQDN of the FortiGate upstream from this FortiGate in the Security Fabric.
-            upstream_port:
-                aliases: ['upstream-port']
-                type: int
-                description: The port number to use to communicate with the FortiGate upstream from this FortiGate in the Security Fabric
-            upstream_confirm:
-                aliases: ['upstream-confirm']
-                type: str
-                description:
-                    - Upstream authorization confirm.
-                    - discover - Discover upstream device&apos;s info.
-                    - confirm - Confirm upstream device&apos;s access.
-                choices: ['discover', 'confirm']
-            ssl_protocol:
-                aliases: ['ssl-protocol']
-                type: str
-                description:
-                    - set the lowest SSL protocol version for upstream and downstream connections.
-                    - follow-global-ssl-protocol - Follow system.
-                    - sslv3 - set SSLv3 as the lowest version.
-                    - tlsv1.
-                    - tlsv1.
-                    - tlsv1.
-                    - tlsv1.
-                choices: ['follow-global-ssl-protocol', 'sslv3', 'tlsv1.0', 'tlsv1.1', 'tlsv1.2',
-                          'tlsv1.3']
+                description: Adom name.
+          adom_access:
+            aliases: ['adom-access']
+            type: str
+            description: Adom access.
+            choices: ['all', 'specify']
+      upstream:
+        type: str
+        description: IP/FQDN of the FortiGate upstream from this FortiGate in the Security Fabric.
+      upstream_port:
+        aliases: ['upstream-port']
+        type: int
+        description: The port number to use to communicate with the FortiGate upstream from this FortiGate in the Security Fabric
+      upstream_confirm:
+        aliases: ['upstream-confirm']
+        type: str
+        description:
+          - Upstream authorization confirm.
+          - discover - Discover upstream device&apos;s info.
+          - confirm - Confirm upstream device&apos;s access.
+        choices: ['discover', 'confirm']
+      ssl_protocol:
+        aliases: ['ssl-protocol']
+        type: str
+        description:
+          - set the lowest SSL protocol version for upstream and downstream connections.
+          - follow-global-ssl-protocol - Follow system.
+          - sslv3 - set SSLv3 as the lowest version.
+          - tlsv1.
+          - tlsv1.
+          - tlsv1.
+          - tlsv1.
+        choices: ['follow-global-ssl-protocol', 'sslv3', 'tlsv1.0', 'tlsv1.1', 'tlsv1.2', 'tlsv1.3']
 '''
 
 EXAMPLES = '''
@@ -271,6 +284,9 @@ EXAMPLES = '''
           #     index: <integer>
           #     name: <string>
           #     serial: <string>
+          #     adom:
+          #       - adom_name: <string>
+          #     adom_access: <value in [all, specify]>
           # upstream: <string>
           # upstream_port: <integer>
           # upstream_confirm: <value in [discover, confirm]>
@@ -279,42 +295,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -369,7 +385,14 @@ def main():
                         'ha-members': {'v_range': [['7.4.1', '']], 'type': 'str'},
                         'index': {'v_range': [['7.4.1', '']], 'type': 'int'},
                         'name': {'v_range': [['7.4.1', '']], 'type': 'str'},
-                        'serial': {'v_range': [['7.4.1', '']], 'type': 'str'}
+                        'serial': {'v_range': [['7.4.1', '']], 'type': 'str'},
+                        'adom': {
+                            'v_range': [['7.6.7', '']],
+                            'type': 'list',
+                            'options': {'adom-name': {'v_range': [['7.6.7', '']], 'type': 'str'}},
+                            'elements': 'dict'
+                        },
+                        'adom-access': {'v_range': [['7.6.7', '']], 'choices': ['all', 'specify'], 'type': 'str'}
                     },
                     'elements': 'dict'
                 },
@@ -377,7 +400,7 @@ def main():
                 'upstream-port': {'v_range': [['7.4.1', '']], 'type': 'int'},
                 'upstream-confirm': {'v_range': [['7.6.0', '']], 'choices': ['discover', 'confirm'], 'type': 'str'},
                 'ssl-protocol': {
-                    'v_range': [['7.4.4', '7.4.10'], ['7.6.2', '']],
+                    'v_range': [['7.4.4', '7.4.11'], ['7.6.2', '']],
                     'choices': ['follow-global-ssl-protocol', 'sslv3', 'tlsv1.0', 'tlsv1.1', 'tlsv1.2', 'tlsv1.3'],
                     'type': 'str'
                 }

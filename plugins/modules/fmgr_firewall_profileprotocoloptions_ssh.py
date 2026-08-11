@@ -15,88 +15,88 @@ module: fmgr_firewall_profileprotocoloptions_ssh
 short_description: Configure SFTP and SCP protocol options.
 version_added: "2.1.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.partial_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.partial_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  profile-protocol-options:
+    description: Deprecated, please use "profile_protocol_options"
+    type: str
+  profile_protocol_options:
+    description: The parameter (profile-protocol-options) in requested url.
+    type: str
+  firewall_profileprotocoloptions_ssh:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      comfort_amount:
+        aliases: ['comfort-amount']
+        type: int
+        description: Amount of data to send in a transmission for client comforting
+      comfort_interval:
+        aliases: ['comfort-interval']
+        type: int
+        description: Period of time between start, or last transmission, and the next client comfort transmission of data
+      options:
+        type: list
+        elements: str
+        description: One or more options that can be applied to the session.
+        choices: ['oversize', 'clientcomfort', 'servercomfort']
+      oversize_limit:
+        aliases: ['oversize-limit']
+        type: int
+        description: Maximum in-memory file size that can be scanned
+      scan_bzip2:
+        aliases: ['scan-bzip2']
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Enable/disable scanning of BZip2 compressed files.
+        choices: ['disable', 'enable']
+      uncompressed_nest_limit:
+        aliases: ['uncompressed-nest-limit']
+        type: int
+        description: Maximum nested levels of compression that can be uncompressed and scanned
+      uncompressed_oversize_limit:
+        aliases: ['uncompressed-oversize-limit']
+        type: int
+        description: Maximum in-memory uncompressed file size that can be scanned
+      ssl_offloaded:
+        aliases: ['ssl-offloaded']
         type: str
-        required: true
-    profile-protocol-options:
-        description: Deprecated, please use "profile_protocol_options"
+        description: SSL decryption and encryption performed by an external device.
+        choices: ['no', 'yes']
+      stream_based_uncompressed_limit:
+        aliases: ['stream-based-uncompressed-limit']
+        type: int
+        description: Maximum stream-based uncompressed data size that will be scanned
+      tcp_window_maximum:
+        aliases: ['tcp-window-maximum']
+        type: int
+        description: Maximum dynamic TCP window size.
+      tcp_window_minimum:
+        aliases: ['tcp-window-minimum']
+        type: int
+        description: Minimum dynamic TCP window size.
+      tcp_window_size:
+        aliases: ['tcp-window-size']
+        type: int
+        description: Set TCP static window size.
+      tcp_window_type:
+        aliases: ['tcp-window-type']
         type: str
-    profile_protocol_options:
-        description: The parameter (profile-protocol-options) in requested url.
+        description: TCP window type to use for this protocol.
+        choices: ['system', 'static', 'dynamic', 'auto-tuning']
+      explicit_ftp_tls:
+        aliases: ['explicit-ftp-tls']
         type: str
-    firewall_profileprotocoloptions_ssh:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            comfort_amount:
-                aliases: ['comfort-amount']
-                type: int
-                description: Amount of data to send in a transmission for client comforting
-            comfort_interval:
-                aliases: ['comfort-interval']
-                type: int
-                description: Period of time between start, or last transmission, and the next client comfort transmission of data
-            options:
-                type: list
-                elements: str
-                description: One or more options that can be applied to the session.
-                choices: ['oversize', 'clientcomfort', 'servercomfort']
-            oversize_limit:
-                aliases: ['oversize-limit']
-                type: int
-                description: Maximum in-memory file size that can be scanned
-            scan_bzip2:
-                aliases: ['scan-bzip2']
-                type: str
-                description: Enable/disable scanning of BZip2 compressed files.
-                choices: ['disable', 'enable']
-            uncompressed_nest_limit:
-                aliases: ['uncompressed-nest-limit']
-                type: int
-                description: Maximum nested levels of compression that can be uncompressed and scanned
-            uncompressed_oversize_limit:
-                aliases: ['uncompressed-oversize-limit']
-                type: int
-                description: Maximum in-memory uncompressed file size that can be scanned
-            ssl_offloaded:
-                aliases: ['ssl-offloaded']
-                type: str
-                description: SSL decryption and encryption performed by an external device.
-                choices: ['no', 'yes']
-            stream_based_uncompressed_limit:
-                aliases: ['stream-based-uncompressed-limit']
-                type: int
-                description: Maximum stream-based uncompressed data size that will be scanned
-            tcp_window_maximum:
-                aliases: ['tcp-window-maximum']
-                type: int
-                description: Maximum dynamic TCP window size.
-            tcp_window_minimum:
-                aliases: ['tcp-window-minimum']
-                type: int
-                description: Minimum dynamic TCP window size.
-            tcp_window_size:
-                aliases: ['tcp-window-size']
-                type: int
-                description: Set TCP static window size.
-            tcp_window_type:
-                aliases: ['tcp-window-type']
-                type: str
-                description: TCP window type to use for this protocol.
-                choices: ['system', 'static', 'dynamic', 'auto-tuning']
-            explicit_ftp_tls:
-                aliases: ['explicit-ftp-tls']
-                type: str
-                description: Explicit ftp tls.
-                choices: ['disable', 'enable']
+        description: Explicit ftp tls.
+        choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -129,42 +129,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -198,7 +198,7 @@ def main():
                 'tcp-window-minimum': {'v_range': [['7.0.0', '']], 'type': 'int'},
                 'tcp-window-size': {'v_range': [['7.0.0', '']], 'type': 'int'},
                 'tcp-window-type': {'v_range': [['7.0.0', '']], 'choices': ['system', 'static', 'dynamic', 'auto-tuning'], 'type': 'str'},
-                'explicit-ftp-tls': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'explicit-ftp-tls': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

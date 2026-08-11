@@ -15,36 +15,36 @@ module: fmgr_securityconsole_package_clone
 short_description: Clone a policy package within the same ADOM.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
+  - fortinet.fortimanager.general
 options:
-    securityconsole_package_clone:
-        description: The top level parameters set.
-        required: false
-        type: dict
+  securityconsole_package_clone:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      adom:
+        type: str
+        description: Source ADOM name.
+      dst_name:
+        type: str
+        description: Name of the new policy package.
+      dst_parent:
+        type: str
+        description: Path to the folder for the target package.
+      pkg:
+        type: str
+        description: Source package path and name.
+      scope:
+        type: list
+        elements: dict
+        description: Scope.
         suboptions:
-            adom:
-                type: str
-                description: Source ADOM name.
-            dst_name:
-                type: str
-                description: Name of the new policy package.
-            dst_parent:
-                type: str
-                description: Path to the folder for the target package.
-            pkg:
-                type: str
-                description: Source package path and name.
-            scope:
-                type: list
-                elements: dict
-                description: Scope.
-                suboptions:
-                    name:
-                        type: str
-                        description: Name.
-                    vdom:
-                        type: str
-                        description: Vdom.
+          name:
+            type: str
+            description: Name.
+          vdom:
+            type: str
+            description: Vdom.
 '''
 
 EXAMPLES = '''
@@ -68,42 +68,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

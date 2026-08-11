@@ -15,58 +15,68 @@ module: fmgr_firewall_schedule_recurring
 short_description: Recurring schedule configuration.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  firewall_schedule_recurring:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      color:
+        type: int
+        description: Color of icon on the GUI.
+      day:
+        type: list
+        elements: str
+        description: One or more days of the week on which the schedule is valid.
+        choices: ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday',
+                  'none']
+      end:
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Time of day to end the schedule, format hh
+      name:
         type: str
+        description: Recurring schedule name.
         required: true
-    firewall_schedule_recurring:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            color:
-                type: int
-                description: Color of icon on the GUI.
-            day:
-                type: list
-                elements: str
-                description: One or more days of the week on which the schedule is valid.
-                choices: ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday',
-                          'saturday', 'none']
-            end:
-                type: str
-                description: Time of day to end the schedule, format hh
-            name:
-                type: str
-                description: Recurring schedule name.
-                required: true
-            start:
-                type: str
-                description: Time of day to start the schedule, format hh
-            global_object:
-                aliases: ['global-object']
-                type: int
-                description: Global Object.
-            fabric_object:
-                aliases: ['fabric-object']
-                type: str
-                description: Security Fabric global object setting.
-                choices: ['disable', 'enable']
-            uuid:
-                type: str
-                description: Universally Unique Identifier
-            label_day:
-                aliases: ['label-day']
-                type: str
-                description: Configure a window during the time of day in which the schedule job is executed.
-                choices: ['none', 'over-night', 'early-morning', 'morning', 'midday', 'afternoon',
-                          'evening', 'night', 'late-night']
+      start:
+        type: str
+        description: Time of day to start the schedule, format hh
+      global_object:
+        aliases: ['global-object']
+        type: int
+        description: Global Object.
+      fabric_object:
+        aliases: ['fabric-object']
+        type: str
+        description: Security Fabric global object setting.
+        choices: ['disable', 'enable']
+      uuid:
+        type: str
+        description: Universally Unique Identifier
+      label_day:
+        aliases: ['label-day']
+        type: str
+        description: Configure a window during the time of day in which the schedule job is executed.
+        choices: ['none', 'over-night', 'early-morning', 'morning', 'midday', 'afternoon',
+                  'evening', 'night', 'late-night']
+      fabric_force_sync:
+        aliases: ['fabric-force-sync']
+        type: str
+        description: Enable/disable forced synchronization of configuration objects from the root FortiGate unit to the downstream devices.
+        choices: ['disable', 'enable']
+      fabric_object_source:
+        aliases: ['fabric-object-source']
+        type: str
+        description: Source of truth for fabric object.
+        choices: ['member', 'local', 'root']
 '''
 
 EXAMPLES = '''
@@ -119,42 +129,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -182,14 +192,16 @@ def main():
                 'end': {'type': 'str'},
                 'name': {'required': True, 'type': 'str'},
                 'start': {'type': 'str'},
-                'global-object': {'v_range': [['6.4.0', '']], 'type': 'int'},
+                'global-object': {'v_range': [['6.4.0', '7.6.7']], 'type': 'int'},
                 'fabric-object': {'v_range': [['6.4.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'uuid': {'v_range': [['7.6.0', '']], 'type': 'str'},
                 'label-day': {
                     'v_range': [['7.6.5', '']],
                     'choices': ['none', 'over-night', 'early-morning', 'morning', 'midday', 'afternoon', 'evening', 'night', 'late-night'],
                     'type': 'str'
-                }
+                },
+                'fabric-force-sync': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'fabric-object-source': {'v_range': [['8.0.0', '']], 'choices': ['member', 'local', 'root'], 'type': 'str'}
             }
         }
     }

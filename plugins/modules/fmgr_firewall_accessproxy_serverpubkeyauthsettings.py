@@ -15,81 +15,81 @@ module: fmgr_firewall_accessproxy_serverpubkeyauthsettings
 short_description: Server SSH public key authentication settings.
 version_added: "2.1.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.partial_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.partial_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  access-proxy:
+    description: Deprecated, please use "access_proxy"
+    type: str
+  access_proxy:
+    description: The parameter (access-proxy) in requested url.
+    type: str
+  firewall_accessproxy_serverpubkeyauthsettings:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      auth_ca:
+        aliases: ['auth-ca']
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
-        type: str
-        required: true
-    access-proxy:
-        description: Deprecated, please use "access_proxy"
-        type: str
-    access_proxy:
-        description: The parameter (access-proxy) in requested url.
-        type: str
-    firewall_accessproxy_serverpubkeyauthsettings:
-        description: The top level parameters set.
-        required: false
-        type: dict
+        description: Name of the SSH server public key authentication CA.
+      cert_extension:
+        aliases: ['cert-extension']
+        type: list
+        elements: dict
+        description: Cert extension.
         suboptions:
-            auth_ca:
-                aliases: ['auth-ca']
-                type: str
-                description: Name of the SSH server public key authentication CA.
-            cert_extension:
-                aliases: ['cert-extension']
-                type: list
-                elements: dict
-                description: Cert extension.
-                suboptions:
-                    critical:
-                        type: str
-                        description: Critical option.
-                        choices: ['no', 'yes']
-                    data:
-                        type: str
-                        description: Name of certificate extension.
-                    name:
-                        type: str
-                        description: Name of certificate extension.
-                    type:
-                        type: str
-                        description: Type of certificate extension.
-                        choices: ['fixed', 'user']
-            permit_agent_forwarding:
-                aliases: ['permit-agent-forwarding']
-                type: str
-                description: Enable/disable appending permit-agent-forwarding certificate extension.
-                choices: ['disable', 'enable']
-            permit_port_forwarding:
-                aliases: ['permit-port-forwarding']
-                type: str
-                description: Enable/disable appending permit-port-forwarding certificate extension.
-                choices: ['disable', 'enable']
-            permit_pty:
-                aliases: ['permit-pty']
-                type: str
-                description: Enable/disable appending permit-pty certificate extension.
-                choices: ['disable', 'enable']
-            permit_user_rc:
-                aliases: ['permit-user-rc']
-                type: str
-                description: Enable/disable appending permit-user-rc certificate extension.
-                choices: ['disable', 'enable']
-            permit_x11_forwarding:
-                aliases: ['permit-x11-forwarding']
-                type: str
-                description: Enable/disable appending permit-x11-forwarding certificate extension.
-                choices: ['disable', 'enable']
-            source_address:
-                aliases: ['source-address']
-                type: str
-                description: Enable/disable appending source-address certificate critical option.
-                choices: ['disable', 'enable']
+          critical:
+            type: str
+            description: Critical option.
+            choices: ['no', 'yes']
+          data:
+            type: str
+            description: Name of certificate extension.
+          name:
+            type: str
+            description: Name of certificate extension.
+          type:
+            type: str
+            description: Type of certificate extension.
+            choices: ['fixed', 'user']
+      permit_agent_forwarding:
+        aliases: ['permit-agent-forwarding']
+        type: str
+        description: Enable/disable appending permit-agent-forwarding certificate extension.
+        choices: ['disable', 'enable']
+      permit_port_forwarding:
+        aliases: ['permit-port-forwarding']
+        type: str
+        description: Enable/disable appending permit-port-forwarding certificate extension.
+        choices: ['disable', 'enable']
+      permit_pty:
+        aliases: ['permit-pty']
+        type: str
+        description: Enable/disable appending permit-pty certificate extension.
+        choices: ['disable', 'enable']
+      permit_user_rc:
+        aliases: ['permit-user-rc']
+        type: str
+        description: Enable/disable appending permit-user-rc certificate extension.
+        choices: ['disable', 'enable']
+      permit_x11_forwarding:
+        aliases: ['permit-x11-forwarding']
+        type: str
+        description: Enable/disable appending permit-x11-forwarding certificate extension.
+        choices: ['disable', 'enable']
+      source_address:
+        aliases: ['source-address']
+        type: str
+        description: Enable/disable appending source-address certificate critical option.
+        choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -120,42 +120,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

@@ -15,648 +15,648 @@ module: fmgr_system_log_settings
 short_description: Log settings.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.partial_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.partial_crud
 options:
-    system_log_settings:
-        description: The top level parameters set.
-        required: false
+  system_log_settings:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      FAC_custom_field1:
+        aliases: ['FAC-custom-field1']
+        type: str
+        description: Name of custom log field to index.
+      FAZ_custom_field1:
+        aliases: ['FAZ-custom-field1']
+        type: str
+        description: Name of custom log field to index.
+      FCH_custom_field1:
+        aliases: ['FCH-custom-field1']
+        type: str
+        description: Name of custom log field to index.
+      FCT_custom_field1:
+        aliases: ['FCT-custom-field1']
+        type: str
+        description: Name of custom log field to index.
+      FDD_custom_field1:
+        aliases: ['FDD-custom-field1']
+        type: str
+        description: Name of custom log field to index.
+      FGT_custom_field1:
+        aliases: ['FGT-custom-field1']
+        type: str
+        description: Name of custom log field to index.
+      FMG_custom_field1:
+        aliases: ['FMG-custom-field1']
+        type: str
+        description: Name of custom log field to index.
+      FML_custom_field1:
+        aliases: ['FML-custom-field1']
+        type: str
+        description: Name of custom log field to index.
+      FPX_custom_field1:
+        aliases: ['FPX-custom-field1']
+        type: str
+        description: Name of custom log field to index.
+      FSA_custom_field1:
+        aliases: ['FSA-custom-field1']
+        type: str
+        description: Name of custom log field to index.
+      FWB_custom_field1:
+        aliases: ['FWB-custom-field1']
+        type: str
+        description: Name of custom log field to index.
+      browse_max_logfiles:
+        aliases: ['browse-max-logfiles']
+        type: int
+        description: Maximum number of log files for each log browse attempt for each Adom.
+      dns_resolve_dstip:
+        aliases: ['dns-resolve-dstip']
+        type: str
+        description:
+          - Enable/Disable resolving destination IP by DNS.
+          - disable - Disable resolving destination IP by DNS.
+          - enable - Enable resolving destination IP by DNS.
+        choices: ['disable', 'enable']
+      download_max_logs:
+        aliases: ['download-max-logs']
+        type: int
+        description: Maximum number of logs for each log download attempt.
+      ha_auto_migrate:
+        aliases: ['ha-auto-migrate']
+        type: str
+        description:
+          - Enabled/Disable automatically merging HA members logs to HA cluster.
+          - disable - Disable automatically merging HA members logs to HA cluster.
+          - enable - Enable automatically merging HA members logs to HA cluster.
+        choices: ['disable', 'enable']
+      import_max_logfiles:
+        aliases: ['import-max-logfiles']
+        type: int
+        description: Maximum number of log files for each log import attempt.
+      log_file_archive_name:
+        aliases: ['log-file-archive-name']
+        type: str
+        description:
+          - Log file name format for archiving, such as backup, upload or download.
+          - basic - Basic format for log archive file name, e.
+          - extended - Extended format for log archive file name, e.
+        choices: ['basic', 'extended']
+      rolling_analyzer:
+        aliases: ['rolling-analyzer']
         type: dict
+        description: Rolling analyzer.
         suboptions:
-            FAC_custom_field1:
-                aliases: ['FAC-custom-field1']
+          days:
+            type: list
+            elements: str
+            description:
+              - Log files rolling schedule
+              - sun - Sunday.
+              - mon - Monday.
+              - tue - Tuesday.
+              - wed - Wednesday.
+              - thu - Thursday.
+              - fri - Friday.
+              - sat - Saturday.
+            choices: ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat']
+          del_files:
+            aliases: ['del-files']
+            type: str
+            description:
+              - Enable/disable log file deletion after uploading.
+              - disable - Disable log file deletion.
+              - enable - Enable log file deletion.
+            choices: ['disable', 'enable']
+          directory:
+            type: str
+            description: Upload server directory, for Unix server, use absolute
+          file_size:
+            aliases: ['file-size']
+            type: int
+            description: Roll log files when they reach this size
+          gzip_format:
+            aliases: ['gzip-format']
+            type: str
+            description:
+              - Enable/disable compression of uploaded log files.
+              - disable - Disable compression.
+              - enable - Enable compression.
+            choices: ['disable', 'enable']
+          hour:
+            type: int
+            description: Log files rolling schedule
+          ip:
+            type: str
+            description: Upload server IP address.
+          ip2:
+            type: str
+            description: Upload server IP2 address.
+          ip3:
+            type: str
+            description: Upload server IP3 address.
+          log_format:
+            aliases: ['log-format']
+            type: str
+            description:
+              - Format of uploaded log files.
+              - native - Native format
+              - text - Text format
+              - csv - CSV
+            choices: ['native', 'text', 'csv']
+          min:
+            type: int
+            description: Log files rolling schedule
+          password:
+            type: raw
+            description: (list) Upload server login password.
+          password2:
+            type: raw
+            description: (list) Upload server login password2.
+          password3:
+            type: raw
+            description: (list) Upload server login password3.
+          server_type:
+            aliases: ['server-type']
+            type: str
+            description:
+              - Upload server type.
+              - ftp - Upload via FTP.
+              - sftp - Upload via SFTP.
+              - scp - Upload via SCP.
+            choices: ['ftp', 'sftp', 'scp']
+          upload:
+            type: str
+            description:
+              - Enable/disable log file uploads.
+              - disable - Disable log files uploading.
+              - enable - Enable log files uploading.
+            choices: ['disable', 'enable']
+          upload_hour:
+            aliases: ['upload-hour']
+            type: int
+            description: Log files upload schedule
+          upload_mode:
+            aliases: ['upload-mode']
+            type: str
+            description:
+              - Upload mode with multiple servers.
+              - backup - Servers are attempted and used one after the other upon failure to connect.
+              - mirror - All configured servers are attempted and used.
+            choices: ['backup', 'mirror']
+          upload_trigger:
+            aliases: ['upload-trigger']
+            type: str
+            description:
+              - Event triggering log files upload.
+              - on-roll - Upload log files after they are rolled.
+              - on-schedule - Upload log files daily.
+            choices: ['on-roll', 'on-schedule']
+          username:
+            type: str
+            description: Upload server login username.
+          username2:
+            type: str
+            description: Upload server login username2.
+          username3:
+            type: str
+            description: Upload server login username3.
+          when:
+            type: str
+            description:
+              - Roll log files periodically.
+              - none - Do not roll log files periodically.
+              - daily - Roll log files daily.
+              - weekly - Roll log files on certain days of week.
+            choices: ['none', 'daily', 'weekly']
+          port:
+            type: int
+            description: Upload server IP1 port number.
+          port2:
+            type: int
+            description: Upload server IP2 port number.
+          port3:
+            type: int
+            description: Upload server IP3 port number.
+          rolling_upgrade_status:
+            aliases: ['rolling-upgrade-status']
+            type: int
+            description: Rolling upgrade status
+          server:
+            type: str
+            description: Upload server FQDN/IP.
+          server2:
+            type: str
+            description: Upload server2 FQDN/IP.
+          server3:
+            type: str
+            description: Upload server3 FQDN/IP.
+      rolling_local:
+        aliases: ['rolling-local']
+        type: dict
+        description: Rolling local.
+        suboptions:
+          days:
+            type: list
+            elements: str
+            description:
+              - Log files rolling schedule
+              - sun - Sunday.
+              - mon - Monday.
+              - tue - Tuesday.
+              - wed - Wednesday.
+              - thu - Thursday.
+              - fri - Friday.
+              - sat - Saturday.
+            choices: ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat']
+          del_files:
+            aliases: ['del-files']
+            type: str
+            description:
+              - Enable/disable log file deletion after uploading.
+              - disable - Disable log file deletion.
+              - enable - Enable log file deletion.
+            choices: ['disable', 'enable']
+          directory:
+            type: str
+            description: Upload server directory, for Unix server, use absolute
+          file_size:
+            aliases: ['file-size']
+            type: int
+            description: Roll log files when they reach this size
+          gzip_format:
+            aliases: ['gzip-format']
+            type: str
+            description:
+              - Enable/disable compression of uploaded log files.
+              - disable - Disable compression.
+              - enable - Enable compression.
+            choices: ['disable', 'enable']
+          hour:
+            type: int
+            description: Log files rolling schedule
+          ip:
+            type: str
+            description: Upload server IP address.
+          ip2:
+            type: str
+            description: Upload server IP2 address.
+          ip3:
+            type: str
+            description: Upload server IP3 address.
+          log_format:
+            aliases: ['log-format']
+            type: str
+            description:
+              - Format of uploaded log files.
+              - native - Native format
+              - text - Text format
+              - csv - CSV
+            choices: ['native', 'text', 'csv']
+          min:
+            type: int
+            description: Log files rolling schedule
+          password:
+            type: raw
+            description: (list) Upload server login password.
+          password2:
+            type: raw
+            description: (list) Upload server login password2.
+          password3:
+            type: raw
+            description: (list) Upload server login password3.
+          server_type:
+            aliases: ['server-type']
+            type: str
+            description:
+              - Upload server type.
+              - ftp - Upload via FTP.
+              - sftp - Upload via SFTP.
+              - scp - Upload via SCP.
+            choices: ['ftp', 'sftp', 'scp']
+          upload:
+            type: str
+            description:
+              - Enable/disable log file uploads.
+              - disable - Disable log files uploading.
+              - enable - Enable log files uploading.
+            choices: ['disable', 'enable']
+          upload_hour:
+            aliases: ['upload-hour']
+            type: int
+            description: Log files upload schedule
+          upload_mode:
+            aliases: ['upload-mode']
+            type: str
+            description:
+              - Upload mode with multiple servers.
+              - backup - Servers are attempted and used one after the other upon failure to connect.
+              - mirror - All configured servers are attempted and used.
+            choices: ['backup', 'mirror']
+          upload_trigger:
+            aliases: ['upload-trigger']
+            type: str
+            description:
+              - Event triggering log files upload.
+              - on-roll - Upload log files after they are rolled.
+              - on-schedule - Upload log files daily.
+            choices: ['on-roll', 'on-schedule']
+          username:
+            type: str
+            description: Upload server login username.
+          username2:
+            type: str
+            description: Upload server login username2.
+          username3:
+            type: str
+            description: Upload server login username3.
+          when:
+            type: str
+            description:
+              - Roll log files periodically.
+              - none - Do not roll log files periodically.
+              - daily - Roll log files daily.
+              - weekly - Roll log files on certain days of week.
+            choices: ['none', 'daily', 'weekly']
+          port:
+            type: int
+            description: Upload server IP1 port number.
+          port2:
+            type: int
+            description: Upload server IP2 port number.
+          port3:
+            type: int
+            description: Upload server IP3 port number.
+          rolling_upgrade_status:
+            aliases: ['rolling-upgrade-status']
+            type: int
+            description: Rolling upgrade status
+          server:
+            type: str
+            description: Upload server FQDN/IP.
+          server2:
+            type: str
+            description: Upload server2 FQDN/IP.
+          server3:
+            type: str
+            description: Upload server3 FQDN/IP.
+      rolling_regular:
+        aliases: ['rolling-regular']
+        type: dict
+        description: Rolling regular.
+        suboptions:
+          days:
+            type: list
+            elements: str
+            description:
+              - Log files rolling schedule
+              - sun - Sunday.
+              - mon - Monday.
+              - tue - Tuesday.
+              - wed - Wednesday.
+              - thu - Thursday.
+              - fri - Friday.
+              - sat - Saturday.
+            choices: ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat']
+          del_files:
+            aliases: ['del-files']
+            type: str
+            description:
+              - Enable/disable log file deletion after uploading.
+              - disable - Disable log file deletion.
+              - enable - Enable log file deletion.
+            choices: ['disable', 'enable']
+          directory:
+            type: str
+            description: Upload server directory, for Unix server, use absolute
+          file_size:
+            aliases: ['file-size']
+            type: int
+            description: Roll log files when they reach this size
+          gzip_format:
+            aliases: ['gzip-format']
+            type: str
+            description:
+              - Enable/disable compression of uploaded log files.
+              - disable - Disable compression.
+              - enable - Enable compression.
+            choices: ['disable', 'enable']
+          hour:
+            type: int
+            description: Log files rolling schedule
+          ip:
+            type: str
+            description: Upload server IP address.
+          ip2:
+            type: str
+            description: Upload server IP2 address.
+          ip3:
+            type: str
+            description: Upload server IP3 address.
+          log_format:
+            aliases: ['log-format']
+            type: str
+            description:
+              - Format of uploaded log files.
+              - native - Native format
+              - text - Text format
+              - csv - CSV
+            choices: ['native', 'text', 'csv']
+          min:
+            type: int
+            description: Log files rolling schedule
+          password:
+            type: raw
+            description: (list) Upload server login password.
+          password2:
+            type: raw
+            description: (list) Upload server login password2.
+          password3:
+            type: raw
+            description: (list) Upload server login password3.
+          server_type:
+            aliases: ['server-type']
+            type: str
+            description:
+              - Upload server type.
+              - ftp - Upload via FTP.
+              - sftp - Upload via SFTP.
+              - scp - Upload via SCP.
+            choices: ['ftp', 'sftp', 'scp']
+          upload:
+            type: str
+            description:
+              - Enable/disable log file uploads.
+              - disable - Disable log files uploading.
+              - enable - Enable log files uploading.
+            choices: ['disable', 'enable']
+          upload_hour:
+            aliases: ['upload-hour']
+            type: int
+            description: Log files upload schedule
+          upload_mode:
+            aliases: ['upload-mode']
+            type: str
+            description:
+              - Upload mode with multiple servers.
+              - backup - Servers are attempted and used one after the other upon failure to connect.
+              - mirror - All configured servers are attempted and used.
+            choices: ['backup', 'mirror']
+          upload_trigger:
+            aliases: ['upload-trigger']
+            type: str
+            description:
+              - Event triggering log files upload.
+              - on-roll - Upload log files after they are rolled.
+              - on-schedule - Upload log files daily.
+            choices: ['on-roll', 'on-schedule']
+          username:
+            type: str
+            description: Upload server login username.
+          username2:
+            type: str
+            description: Upload server login username2.
+          username3:
+            type: str
+            description: Upload server login username3.
+          when:
+            type: str
+            description:
+              - Roll log files periodically.
+              - none - Do not roll log files periodically.
+              - daily - Roll log files daily.
+              - weekly - Roll log files on certain days of week.
+            choices: ['none', 'daily', 'weekly']
+          port:
+            type: int
+            description: Upload server IP1 port number.
+          port2:
+            type: int
+            description: Upload server IP2 port number.
+          port3:
+            type: int
+            description: Upload server IP3 port number.
+          rolling_upgrade_status:
+            aliases: ['rolling-upgrade-status']
+            type: int
+            description: Rolling upgrade status
+          server:
+            type: str
+            description: Upload server FQDN/IP.
+          server2:
+            type: str
+            description: Upload server2 FQDN/IP.
+          server3:
+            type: str
+            description: Upload server3 FQDN/IP.
+      sync_search_timeout:
+        aliases: ['sync-search-timeout']
+        type: int
+        description: Maximum number of seconds for running a log search session in synchronous mode.
+      keep_dev_logs:
+        aliases: ['keep-dev-logs']
+        type: str
+        description:
+          - Enable/Disable keeping the dev logs after the device has been deleted.
+          - disable - Disable keeping the dev logs after the device has been deleted.
+          - enable - Enable keeping the dev logs after the device has been deleted.
+        choices: ['disable', 'enable']
+      device_auto_detect:
+        aliases: ['device-auto-detect']
+        type: str
+        description:
+          - Enable/Disable looking up device ID in syslog received with no encryption.
+          - disable - Disable looking up device ID in syslog received with no encryption.
+          - enable - Enable looking up device ID in syslog received with no encryption.
+        choices: ['disable', 'enable']
+      unencrypted_logging:
+        aliases: ['unencrypted-logging']
+        type: str
+        description:
+          - Enable/Disable receiving syslog through UDP
+          - disable - Disable receiving syslog through UDP
+          - enable - Enable receiving syslog through UDP
+        choices: ['disable', 'enable']
+      log_interval_dev_no_logging:
+        aliases: ['log-interval-dev-no-logging']
+        type: int
+        description: Interval in minute of no log received from a device when considering the device down.
+      log_upload_interval_dev_no_logging:
+        aliases: ['log-upload-interval-dev-no-logging']
+        type: int
+        description: Interval in minute of no log uploaded from a device when considering the device down.
+      legacy_auth_mode:
+        aliases: ['legacy-auth-mode']
+        type: str
+        description:
+          - Enable/Disable legacy mode of device authentication by username/password.
+          - disable - Disable legacy authentication mode support.
+          - enable - Enable legacy authentication mode support.
+        choices: ['disable', 'enable']
+      log_process_fast_mode:
+        aliases: ['log-process-fast-mode']
+        type: str
+        description:
+          - Enable/Disable log process fast mode.
+          - disable - Disable log process fast mode.
+          - enable - Enable log process fast mode.
+        choices: ['disable', 'enable']
+      FFW_custom_field1:
+        aliases: ['FFW-custom-field1']
+        type: str
+        description: FFW custom field1.
+      unencrypted_logging_tcp:
+        aliases: ['unencrypted-logging-tcp']
+        type: str
+        description: Unencrypted logging tcp.
+        choices: ['disable', 'enable']
+      unencrypted_logging_udp:
+        aliases: ['unencrypted-logging-udp']
+        type: str
+        description: Unencrypted logging udp.
+        choices: ['disable', 'enable']
+      syslog_over_tls_port:
+        aliases: ['syslog-over-tls-port']
+        type: str
+        description: Syslog over tls port.
+        choices: ['514', '6514']
+      client_cert_auth:
+        aliases: ['client-cert-auth']
+        type: dict
+        description: Client cert auth.
+        suboptions:
+          mode:
+            type: str
+            description: Mode.
+            choices: ['basic', 'strict']
+          tls_port:
+            aliases: ['tls-port']
+            type: str
+            description: Tls port.
+            choices: ['both', '514', '6514']
+          trusted_client:
+            aliases: ['trusted-client']
+            type: list
+            elements: dict
+            description: Trusted client.
+            suboptions:
+              certificate:
+                type: raw
+                description: (list) Certificate.
+              description:
                 type: str
-                description: Name of custom log field to index.
-            FAZ_custom_field1:
-                aliases: ['FAZ-custom-field1']
+                description: Description.
+              domain:
                 type: str
-                description: Name of custom log field to index.
-            FCH_custom_field1:
-                aliases: ['FCH-custom-field1']
-                type: str
-                description: Name of custom log field to index.
-            FCT_custom_field1:
-                aliases: ['FCT-custom-field1']
-                type: str
-                description: Name of custom log field to index.
-            FDD_custom_field1:
-                aliases: ['FDD-custom-field1']
-                type: str
-                description: Name of custom log field to index.
-            FGT_custom_field1:
-                aliases: ['FGT-custom-field1']
-                type: str
-                description: Name of custom log field to index.
-            FMG_custom_field1:
-                aliases: ['FMG-custom-field1']
-                type: str
-                description: Name of custom log field to index.
-            FML_custom_field1:
-                aliases: ['FML-custom-field1']
-                type: str
-                description: Name of custom log field to index.
-            FPX_custom_field1:
-                aliases: ['FPX-custom-field1']
-                type: str
-                description: Name of custom log field to index.
-            FSA_custom_field1:
-                aliases: ['FSA-custom-field1']
-                type: str
-                description: Name of custom log field to index.
-            FWB_custom_field1:
-                aliases: ['FWB-custom-field1']
-                type: str
-                description: Name of custom log field to index.
-            browse_max_logfiles:
-                aliases: ['browse-max-logfiles']
+                description: Domain.
+              id:
                 type: int
-                description: Maximum number of log files for each log browse attempt for each Adom.
-            dns_resolve_dstip:
-                aliases: ['dns-resolve-dstip']
+                description: Id.
+              type:
                 type: str
-                description:
-                    - Enable/Disable resolving destination IP by DNS.
-                    - disable - Disable resolving destination IP by DNS.
-                    - enable - Enable resolving destination IP by DNS.
-                choices: ['disable', 'enable']
-            download_max_logs:
-                aliases: ['download-max-logs']
-                type: int
-                description: Maximum number of logs for each log download attempt.
-            ha_auto_migrate:
-                aliases: ['ha-auto-migrate']
-                type: str
-                description:
-                    - Enabled/Disable automatically merging HA members logs to HA cluster.
-                    - disable - Disable automatically merging HA members logs to HA cluster.
-                    - enable - Enable automatically merging HA members logs to HA cluster.
-                choices: ['disable', 'enable']
-            import_max_logfiles:
-                aliases: ['import-max-logfiles']
-                type: int
-                description: Maximum number of log files for each log import attempt.
-            log_file_archive_name:
-                aliases: ['log-file-archive-name']
-                type: str
-                description:
-                    - Log file name format for archiving, such as backup, upload or download.
-                    - basic - Basic format for log archive file name, e.
-                    - extended - Extended format for log archive file name, e.
-                choices: ['basic', 'extended']
-            rolling_analyzer:
-                aliases: ['rolling-analyzer']
-                type: dict
-                description: Rolling analyzer.
-                suboptions:
-                    days:
-                        type: list
-                        elements: str
-                        description:
-                            - Log files rolling schedule
-                            - sun - Sunday.
-                            - mon - Monday.
-                            - tue - Tuesday.
-                            - wed - Wednesday.
-                            - thu - Thursday.
-                            - fri - Friday.
-                            - sat - Saturday.
-                        choices: ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat']
-                    del_files:
-                        aliases: ['del-files']
-                        type: str
-                        description:
-                            - Enable/disable log file deletion after uploading.
-                            - disable - Disable log file deletion.
-                            - enable - Enable log file deletion.
-                        choices: ['disable', 'enable']
-                    directory:
-                        type: str
-                        description: Upload server directory, for Unix server, use absolute
-                    file_size:
-                        aliases: ['file-size']
-                        type: int
-                        description: Roll log files when they reach this size
-                    gzip_format:
-                        aliases: ['gzip-format']
-                        type: str
-                        description:
-                            - Enable/disable compression of uploaded log files.
-                            - disable - Disable compression.
-                            - enable - Enable compression.
-                        choices: ['disable', 'enable']
-                    hour:
-                        type: int
-                        description: Log files rolling schedule
-                    ip:
-                        type: str
-                        description: Upload server IP address.
-                    ip2:
-                        type: str
-                        description: Upload server IP2 address.
-                    ip3:
-                        type: str
-                        description: Upload server IP3 address.
-                    log_format:
-                        aliases: ['log-format']
-                        type: str
-                        description:
-                            - Format of uploaded log files.
-                            - native - Native format
-                            - text - Text format
-                            - csv - CSV
-                        choices: ['native', 'text', 'csv']
-                    min:
-                        type: int
-                        description: Log files rolling schedule
-                    password:
-                        type: raw
-                        description: (list) Upload server login password.
-                    password2:
-                        type: raw
-                        description: (list) Upload server login password2.
-                    password3:
-                        type: raw
-                        description: (list) Upload server login password3.
-                    server_type:
-                        aliases: ['server-type']
-                        type: str
-                        description:
-                            - Upload server type.
-                            - ftp - Upload via FTP.
-                            - sftp - Upload via SFTP.
-                            - scp - Upload via SCP.
-                        choices: ['ftp', 'sftp', 'scp']
-                    upload:
-                        type: str
-                        description:
-                            - Enable/disable log file uploads.
-                            - disable - Disable log files uploading.
-                            - enable - Enable log files uploading.
-                        choices: ['disable', 'enable']
-                    upload_hour:
-                        aliases: ['upload-hour']
-                        type: int
-                        description: Log files upload schedule
-                    upload_mode:
-                        aliases: ['upload-mode']
-                        type: str
-                        description:
-                            - Upload mode with multiple servers.
-                            - backup - Servers are attempted and used one after the other upon failure to connect.
-                            - mirror - All configured servers are attempted and used.
-                        choices: ['backup', 'mirror']
-                    upload_trigger:
-                        aliases: ['upload-trigger']
-                        type: str
-                        description:
-                            - Event triggering log files upload.
-                            - on-roll - Upload log files after they are rolled.
-                            - on-schedule - Upload log files daily.
-                        choices: ['on-roll', 'on-schedule']
-                    username:
-                        type: str
-                        description: Upload server login username.
-                    username2:
-                        type: str
-                        description: Upload server login username2.
-                    username3:
-                        type: str
-                        description: Upload server login username3.
-                    when:
-                        type: str
-                        description:
-                            - Roll log files periodically.
-                            - none - Do not roll log files periodically.
-                            - daily - Roll log files daily.
-                            - weekly - Roll log files on certain days of week.
-                        choices: ['none', 'daily', 'weekly']
-                    port:
-                        type: int
-                        description: Upload server IP1 port number.
-                    port2:
-                        type: int
-                        description: Upload server IP2 port number.
-                    port3:
-                        type: int
-                        description: Upload server IP3 port number.
-                    rolling_upgrade_status:
-                        aliases: ['rolling-upgrade-status']
-                        type: int
-                        description: Rolling upgrade status
-                    server:
-                        type: str
-                        description: Upload server FQDN/IP.
-                    server2:
-                        type: str
-                        description: Upload server2 FQDN/IP.
-                    server3:
-                        type: str
-                        description: Upload server3 FQDN/IP.
-            rolling_local:
-                aliases: ['rolling-local']
-                type: dict
-                description: Rolling local.
-                suboptions:
-                    days:
-                        type: list
-                        elements: str
-                        description:
-                            - Log files rolling schedule
-                            - sun - Sunday.
-                            - mon - Monday.
-                            - tue - Tuesday.
-                            - wed - Wednesday.
-                            - thu - Thursday.
-                            - fri - Friday.
-                            - sat - Saturday.
-                        choices: ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat']
-                    del_files:
-                        aliases: ['del-files']
-                        type: str
-                        description:
-                            - Enable/disable log file deletion after uploading.
-                            - disable - Disable log file deletion.
-                            - enable - Enable log file deletion.
-                        choices: ['disable', 'enable']
-                    directory:
-                        type: str
-                        description: Upload server directory, for Unix server, use absolute
-                    file_size:
-                        aliases: ['file-size']
-                        type: int
-                        description: Roll log files when they reach this size
-                    gzip_format:
-                        aliases: ['gzip-format']
-                        type: str
-                        description:
-                            - Enable/disable compression of uploaded log files.
-                            - disable - Disable compression.
-                            - enable - Enable compression.
-                        choices: ['disable', 'enable']
-                    hour:
-                        type: int
-                        description: Log files rolling schedule
-                    ip:
-                        type: str
-                        description: Upload server IP address.
-                    ip2:
-                        type: str
-                        description: Upload server IP2 address.
-                    ip3:
-                        type: str
-                        description: Upload server IP3 address.
-                    log_format:
-                        aliases: ['log-format']
-                        type: str
-                        description:
-                            - Format of uploaded log files.
-                            - native - Native format
-                            - text - Text format
-                            - csv - CSV
-                        choices: ['native', 'text', 'csv']
-                    min:
-                        type: int
-                        description: Log files rolling schedule
-                    password:
-                        type: raw
-                        description: (list) Upload server login password.
-                    password2:
-                        type: raw
-                        description: (list) Upload server login password2.
-                    password3:
-                        type: raw
-                        description: (list) Upload server login password3.
-                    server_type:
-                        aliases: ['server-type']
-                        type: str
-                        description:
-                            - Upload server type.
-                            - ftp - Upload via FTP.
-                            - sftp - Upload via SFTP.
-                            - scp - Upload via SCP.
-                        choices: ['ftp', 'sftp', 'scp']
-                    upload:
-                        type: str
-                        description:
-                            - Enable/disable log file uploads.
-                            - disable - Disable log files uploading.
-                            - enable - Enable log files uploading.
-                        choices: ['disable', 'enable']
-                    upload_hour:
-                        aliases: ['upload-hour']
-                        type: int
-                        description: Log files upload schedule
-                    upload_mode:
-                        aliases: ['upload-mode']
-                        type: str
-                        description:
-                            - Upload mode with multiple servers.
-                            - backup - Servers are attempted and used one after the other upon failure to connect.
-                            - mirror - All configured servers are attempted and used.
-                        choices: ['backup', 'mirror']
-                    upload_trigger:
-                        aliases: ['upload-trigger']
-                        type: str
-                        description:
-                            - Event triggering log files upload.
-                            - on-roll - Upload log files after they are rolled.
-                            - on-schedule - Upload log files daily.
-                        choices: ['on-roll', 'on-schedule']
-                    username:
-                        type: str
-                        description: Upload server login username.
-                    username2:
-                        type: str
-                        description: Upload server login username2.
-                    username3:
-                        type: str
-                        description: Upload server login username3.
-                    when:
-                        type: str
-                        description:
-                            - Roll log files periodically.
-                            - none - Do not roll log files periodically.
-                            - daily - Roll log files daily.
-                            - weekly - Roll log files on certain days of week.
-                        choices: ['none', 'daily', 'weekly']
-                    port:
-                        type: int
-                        description: Upload server IP1 port number.
-                    port2:
-                        type: int
-                        description: Upload server IP2 port number.
-                    port3:
-                        type: int
-                        description: Upload server IP3 port number.
-                    rolling_upgrade_status:
-                        aliases: ['rolling-upgrade-status']
-                        type: int
-                        description: Rolling upgrade status
-                    server:
-                        type: str
-                        description: Upload server FQDN/IP.
-                    server2:
-                        type: str
-                        description: Upload server2 FQDN/IP.
-                    server3:
-                        type: str
-                        description: Upload server3 FQDN/IP.
-            rolling_regular:
-                aliases: ['rolling-regular']
-                type: dict
-                description: Rolling regular.
-                suboptions:
-                    days:
-                        type: list
-                        elements: str
-                        description:
-                            - Log files rolling schedule
-                            - sun - Sunday.
-                            - mon - Monday.
-                            - tue - Tuesday.
-                            - wed - Wednesday.
-                            - thu - Thursday.
-                            - fri - Friday.
-                            - sat - Saturday.
-                        choices: ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat']
-                    del_files:
-                        aliases: ['del-files']
-                        type: str
-                        description:
-                            - Enable/disable log file deletion after uploading.
-                            - disable - Disable log file deletion.
-                            - enable - Enable log file deletion.
-                        choices: ['disable', 'enable']
-                    directory:
-                        type: str
-                        description: Upload server directory, for Unix server, use absolute
-                    file_size:
-                        aliases: ['file-size']
-                        type: int
-                        description: Roll log files when they reach this size
-                    gzip_format:
-                        aliases: ['gzip-format']
-                        type: str
-                        description:
-                            - Enable/disable compression of uploaded log files.
-                            - disable - Disable compression.
-                            - enable - Enable compression.
-                        choices: ['disable', 'enable']
-                    hour:
-                        type: int
-                        description: Log files rolling schedule
-                    ip:
-                        type: str
-                        description: Upload server IP address.
-                    ip2:
-                        type: str
-                        description: Upload server IP2 address.
-                    ip3:
-                        type: str
-                        description: Upload server IP3 address.
-                    log_format:
-                        aliases: ['log-format']
-                        type: str
-                        description:
-                            - Format of uploaded log files.
-                            - native - Native format
-                            - text - Text format
-                            - csv - CSV
-                        choices: ['native', 'text', 'csv']
-                    min:
-                        type: int
-                        description: Log files rolling schedule
-                    password:
-                        type: raw
-                        description: (list) Upload server login password.
-                    password2:
-                        type: raw
-                        description: (list) Upload server login password2.
-                    password3:
-                        type: raw
-                        description: (list) Upload server login password3.
-                    server_type:
-                        aliases: ['server-type']
-                        type: str
-                        description:
-                            - Upload server type.
-                            - ftp - Upload via FTP.
-                            - sftp - Upload via SFTP.
-                            - scp - Upload via SCP.
-                        choices: ['ftp', 'sftp', 'scp']
-                    upload:
-                        type: str
-                        description:
-                            - Enable/disable log file uploads.
-                            - disable - Disable log files uploading.
-                            - enable - Enable log files uploading.
-                        choices: ['disable', 'enable']
-                    upload_hour:
-                        aliases: ['upload-hour']
-                        type: int
-                        description: Log files upload schedule
-                    upload_mode:
-                        aliases: ['upload-mode']
-                        type: str
-                        description:
-                            - Upload mode with multiple servers.
-                            - backup - Servers are attempted and used one after the other upon failure to connect.
-                            - mirror - All configured servers are attempted and used.
-                        choices: ['backup', 'mirror']
-                    upload_trigger:
-                        aliases: ['upload-trigger']
-                        type: str
-                        description:
-                            - Event triggering log files upload.
-                            - on-roll - Upload log files after they are rolled.
-                            - on-schedule - Upload log files daily.
-                        choices: ['on-roll', 'on-schedule']
-                    username:
-                        type: str
-                        description: Upload server login username.
-                    username2:
-                        type: str
-                        description: Upload server login username2.
-                    username3:
-                        type: str
-                        description: Upload server login username3.
-                    when:
-                        type: str
-                        description:
-                            - Roll log files periodically.
-                            - none - Do not roll log files periodically.
-                            - daily - Roll log files daily.
-                            - weekly - Roll log files on certain days of week.
-                        choices: ['none', 'daily', 'weekly']
-                    port:
-                        type: int
-                        description: Upload server IP1 port number.
-                    port2:
-                        type: int
-                        description: Upload server IP2 port number.
-                    port3:
-                        type: int
-                        description: Upload server IP3 port number.
-                    rolling_upgrade_status:
-                        aliases: ['rolling-upgrade-status']
-                        type: int
-                        description: Rolling upgrade status
-                    server:
-                        type: str
-                        description: Upload server FQDN/IP.
-                    server2:
-                        type: str
-                        description: Upload server2 FQDN/IP.
-                    server3:
-                        type: str
-                        description: Upload server3 FQDN/IP.
-            sync_search_timeout:
-                aliases: ['sync-search-timeout']
-                type: int
-                description: Maximum number of seconds for running a log search session in synchronous mode.
-            keep_dev_logs:
-                aliases: ['keep-dev-logs']
-                type: str
-                description:
-                    - Enable/Disable keeping the dev logs after the device has been deleted.
-                    - disable - Disable keeping the dev logs after the device has been deleted.
-                    - enable - Enable keeping the dev logs after the device has been deleted.
-                choices: ['disable', 'enable']
-            device_auto_detect:
-                aliases: ['device-auto-detect']
-                type: str
-                description:
-                    - Enable/Disable looking up device ID in syslog received with no encryption.
-                    - disable - Disable looking up device ID in syslog received with no encryption.
-                    - enable - Enable looking up device ID in syslog received with no encryption.
-                choices: ['disable', 'enable']
-            unencrypted_logging:
-                aliases: ['unencrypted-logging']
-                type: str
-                description:
-                    - Enable/Disable receiving syslog through UDP
-                    - disable - Disable receiving syslog through UDP
-                    - enable - Enable receiving syslog through UDP
-                choices: ['disable', 'enable']
-            log_interval_dev_no_logging:
-                aliases: ['log-interval-dev-no-logging']
-                type: int
-                description: Interval in minute of no log received from a device when considering the device down.
-            log_upload_interval_dev_no_logging:
-                aliases: ['log-upload-interval-dev-no-logging']
-                type: int
-                description: Interval in minute of no log uploaded from a device when considering the device down.
-            legacy_auth_mode:
-                aliases: ['legacy-auth-mode']
-                type: str
-                description:
-                    - Enable/Disable legacy mode of device authentication by username/password.
-                    - disable - Disable legacy authentication mode support.
-                    - enable - Enable legacy authentication mode support.
-                choices: ['disable', 'enable']
-            log_process_fast_mode:
-                aliases: ['log-process-fast-mode']
-                type: str
-                description:
-                    - Enable/Disable log process fast mode.
-                    - disable - Disable log process fast mode.
-                    - enable - Enable log process fast mode.
-                choices: ['disable', 'enable']
-            FFW_custom_field1:
-                aliases: ['FFW-custom-field1']
-                type: str
-                description: FFW custom field1.
-            unencrypted_logging_tcp:
-                aliases: ['unencrypted-logging-tcp']
-                type: str
-                description: Unencrypted logging tcp.
-                choices: ['disable', 'enable']
-            unencrypted_logging_udp:
-                aliases: ['unencrypted-logging-udp']
-                type: str
-                description: Unencrypted logging udp.
-                choices: ['disable', 'enable']
-            syslog_over_tls_port:
-                aliases: ['syslog-over-tls-port']
-                type: str
-                description: Syslog over tls port.
-                choices: ['514', '6514']
-            client_cert_auth:
-                aliases: ['client-cert-auth']
-                type: dict
-                description: Client cert auth.
-                suboptions:
-                    mode:
-                        type: str
-                        description: Mode.
-                        choices: ['basic', 'strict']
-                    tls_port:
-                        aliases: ['tls-port']
-                        type: str
-                        description: Tls port.
-                        choices: ['both', '514', '6514']
-                    trusted_client:
-                        aliases: ['trusted-client']
-                        type: list
-                        elements: dict
-                        description: Trusted client.
-                        suboptions:
-                            certificate:
-                                type: raw
-                                description: (list) Certificate.
-                            description:
-                                type: str
-                                description: Description.
-                            domain:
-                                type: str
-                                description: Domain.
-                            id:
-                                type: int
-                                description: Id.
-                            type:
-                                type: str
-                                description: Type.
-                                choices: ['certificate', 'domain']
+                description: Type.
+                choices: ['certificate', 'domain']
 '''
 
 EXAMPLES = '''
@@ -804,42 +804,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -992,11 +992,11 @@ def main():
                 'log-interval-dev-no-logging': {'v_range': [['7.2.5', '7.2.12'], ['7.4.2', '']], 'type': 'int'},
                 'log-upload-interval-dev-no-logging': {'v_range': [['7.2.5', '7.2.12'], ['7.4.2', '']], 'type': 'int'},
                 'legacy-auth-mode': {
-                    'v_range': [['7.0.14', '7.0.16'], ['7.2.10', '7.2.12'], ['7.4.7', '7.4.10'], ['7.6.3', '']],
+                    'v_range': [['7.0.14', '7.0.16'], ['7.2.10', '7.2.12'], ['7.4.7', '7.4.11'], ['7.6.3', '']],
                     'choices': ['disable', 'enable'],
                     'type': 'str'
                 },
-                'log-process-fast-mode': {'v_range': [['7.4.7', '7.4.10'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'log-process-fast-mode': {'v_range': [['7.4.7', '7.4.11'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'FFW-custom-field1': {'v_range': [['7.6.3', '']], 'type': 'str'},
                 'unencrypted-logging-tcp': {'v_range': [['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'unencrypted-logging-udp': {'v_range': [['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},

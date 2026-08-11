@@ -15,24 +15,24 @@ module: fmgr_system_localinpolicy_dport
 short_description: Cli system local in policy dport
 version_added: "2.12.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    local-in-policy:
-        description: Deprecated, please use "local_in_policy"
+  local-in-policy:
+    description: Deprecated, please use "local_in_policy"
+    type: str
+  local_in_policy:
+    description: The parameter (local-in-policy) in requested url.
+    type: str
+  system_localinpolicy_dport:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      dport_value:
+        aliases: ['dport-value']
         type: str
-    local_in_policy:
-        description: The parameter (local-in-policy) in requested url.
-        type: str
-    system_localinpolicy_dport:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            dport_value:
-                aliases: ['dport-value']
-                type: str
-                description: Dport value.
+        description: Dport value.
 '''
 
 EXAMPLES = '''
@@ -52,42 +52,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

@@ -15,94 +15,115 @@ module: fmgr_webproxy_forwardserver
 short_description: Configure forward-server addresses.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  webproxy_forwardserver:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      addr_type:
+        aliases: ['addr-type']
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Address type of the forwarding proxy server
+        choices: ['fqdn', 'ip', 'ipv6']
+      comment:
         type: str
+        description: Comment.
+      fqdn:
+        type: str
+        description: Forward server Fully Qualified Domain Name
+      healthcheck:
+        type: str
+        description: Enable/disable forward server health checking.
+        choices: ['disable', 'enable']
+      ip:
+        type: str
+        description: Forward proxy server IP address.
+      monitor:
+        type: str
+        description: URL for forward server health check monitoring
+      name:
+        type: str
+        description: Server name.
         required: true
-    webproxy_forwardserver:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            addr_type:
-                aliases: ['addr-type']
-                type: str
-                description: Address type of the forwarding proxy server
-                choices: ['fqdn', 'ip', 'ipv6']
-            comment:
-                type: str
-                description: Comment.
-            fqdn:
-                type: str
-                description: Forward server Fully Qualified Domain Name
-            healthcheck:
-                type: str
-                description: Enable/disable forward server health checking.
-                choices: ['disable', 'enable']
-            ip:
-                type: str
-                description: Forward proxy server IP address.
-            monitor:
-                type: str
-                description: URL for forward server health check monitoring
-            name:
-                type: str
-                description: Server name.
-                required: true
-            port:
-                type: int
-                description: Port number that the forwarding server expects to receive HTTP sessions on
-            server_down_option:
-                aliases: ['server-down-option']
-                type: str
-                description: Action to take when the forward server is found to be down
-                choices: ['block', 'pass']
-            password:
-                type: raw
-                description: (list) HTTP authentication password.
-            username:
-                type: str
-                description: HTTP authentication user name.
-            ipv6:
-                type: str
-                description: Forward proxy server IPv6 address.
-            masquerade:
-                type: str
-                description: Enable/disable use of the of the IP address of the outgoing interface as the client IP address
-                choices: ['disable', 'enable']
-            interface:
-                type: raw
-                description: (list) Specify outgoing interface to reach server.
-            interface_select_method:
-                aliases: ['interface-select-method']
-                type: str
-                description: Specify how to select outgoing interface to reach server.
-                choices: ['auto', 'sdwan', 'specify']
-            vrf_select:
-                aliases: ['vrf-select']
-                type: int
-                description: VRF ID used for connection to server.
-            ippool:
-                type: raw
-                description: (list) Ippool.
-            protocol:
-                type: list
-                elements: str
-                description: Protocol.
-                choices: ['http', 'ftp', 'socks']
-            authentication:
-                type: str
-                description: Authentication type.
-                choices: ['disabled', 'immediately', 'upon-challenge']
-            user:
-                type: str
-                description: User name of basic proxy authentication.
+      port:
+        type: int
+        description: Port number that the forwarding server expects to receive HTTP sessions on
+      server_down_option:
+        aliases: ['server-down-option']
+        type: str
+        description: Action to take when the forward server is found to be down
+        choices: ['block', 'pass']
+      password:
+        type: raw
+        description: (list) HTTP authentication password.
+      username:
+        type: str
+        description: HTTP authentication user name.
+      ipv6:
+        type: str
+        description: Forward proxy server IPv6 address.
+      masquerade:
+        type: str
+        description: Enable/disable use of the of the IP address of the outgoing interface as the client IP address
+        choices: ['disable', 'enable']
+      interface:
+        type: raw
+        description: (list) Specify outgoing interface to reach server.
+      interface_select_method:
+        aliases: ['interface-select-method']
+        type: str
+        description: Specify how to select outgoing interface to reach server.
+        choices: ['auto', 'sdwan', 'specify']
+      vrf_select:
+        aliases: ['vrf-select']
+        type: int
+        description: VRF ID used for connection to server.
+      ippool:
+        type: raw
+        description: (list) Ippool.
+      protocol:
+        type: list
+        elements: str
+        description: Protocol.
+        choices: ['http', 'ftp', 'socks']
+      authentication:
+        type: str
+        description: Authentication type.
+        choices: ['disabled', 'immediately', 'upon-challenge']
+      user:
+        type: str
+        description: User name of basic proxy authentication.
+      ippool6:
+        type: raw
+        description: (list) Ippool6.
+      fabric_force_sync:
+        aliases: ['fabric-force-sync']
+        type: str
+        description: Enable/disable forced synchronization of configuration objects from the root FortiGate unit to the downstream devices.
+        choices: ['disable', 'enable']
+      fabric_object:
+        aliases: ['fabric-object']
+        type: str
+        description: Security Fabric global object setting.
+        choices: ['disable', 'enable']
+      fabric_object_source:
+        aliases: ['fabric-object-source']
+        type: str
+        description: Source of truth for fabric object.
+        choices: ['member', 'local', 'root']
+      uuid:
+        type: str
+        description: Universally Unique Identifier
 '''
 
 EXAMPLES = '''
@@ -137,46 +158,51 @@ EXAMPLES = '''
           # protocol: ["http", "ftp", "socks"]
           # authentication: <value in [disabled, immediately, upon-challenge]>
           # user: <string>
+          # ippool6: <list or string>
+          # fabric_force_sync: <value in [disable, enable]>
+          # fabric_object: <value in [disable, enable]>
+          # fabric_object_source: <value in [member, local, root]>
+          # uuid: <string>
 '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -211,10 +237,15 @@ def main():
                 'interface': {'v_range': [['7.6.2', '']], 'type': 'raw'},
                 'interface-select-method': {'v_range': [['7.6.2', '']], 'choices': ['auto', 'sdwan', 'specify'], 'type': 'str'},
                 'vrf-select': {'v_range': [['7.6.2', '']], 'type': 'int'},
-                'ippool': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'raw'},
-                'protocol': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'list', 'choices': ['http', 'ftp', 'socks'], 'elements': 'str'},
-                'authentication': {'v_range': [['7.4.8', '7.4.10']], 'choices': ['disabled', 'immediately', 'upon-challenge'], 'type': 'str'},
-                'user': {'v_range': [['7.4.8', '7.4.10']], 'type': 'str'}
+                'ippool': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'type': 'raw'},
+                'protocol': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'type': 'list', 'choices': ['http', 'ftp', 'socks'], 'elements': 'str'},
+                'authentication': {'v_range': [['7.4.8', '7.4.11']], 'choices': ['disabled', 'immediately', 'upon-challenge'], 'type': 'str'},
+                'user': {'v_range': [['7.4.8', '7.4.11']], 'type': 'str'},
+                'ippool6': {'v_range': [['7.6.7', '7.6.7']], 'type': 'raw'},
+                'fabric-force-sync': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'fabric-object': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'fabric-object-source': {'v_range': [['8.0.0', '']], 'choices': ['member', 'local', 'root'], 'type': 'str'},
+                'uuid': {'v_range': [['8.0.0', '']], 'type': 'str'}
             }
         }
     }

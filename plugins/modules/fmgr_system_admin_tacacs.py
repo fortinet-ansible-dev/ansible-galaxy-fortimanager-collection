@@ -15,65 +15,65 @@ module: fmgr_system_admin_tacacs
 short_description: TACACS+ server entry configuration.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    system_admin_tacacs:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            authen_type:
-                aliases: ['authen-type']
-                type: str
-                description:
-                    - Authentication type.
-                    - auto - Use PAP, MSCHAP, and CHAP
-                    - ascii - ASCII.
-                    - pap - PAP.
-                    - chap - CHAP.
-                    - mschap - MSCHAP.
-                choices: ['auto', 'ascii', 'pap', 'chap', 'mschap']
-            authorization:
-                type: str
-                description:
-                    - Enable/disable TACACS+ authorization.
-                    - disable - Disable TACACS+ authorization.
-                    - enable - Enable TACACS+ authorization
-                choices: ['disable', 'enable']
-            key:
-                type: raw
-                description: (list) No description
-            name:
-                type: str
-                description: TACACS+ server entry name.
-                required: true
-            port:
-                type: int
-                description: Port number of TACACS+ server.
-            secondary_key:
-                aliases: ['secondary-key']
-                type: raw
-                description: (list) No description
-            secondary_server:
-                aliases: ['secondary-server']
-                type: str
-                description: No description
-            server:
-                type: str
-                description: No description
-            tertiary_key:
-                aliases: ['tertiary-key']
-                type: raw
-                description: (list) No description
-            tertiary_server:
-                aliases: ['tertiary-server']
-                type: str
-                description: No description
-            src_ip:
-                aliases: ['src-ip']
-                type: str
-                description: Src ip.
+  system_admin_tacacs:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      authen_type:
+        aliases: ['authen-type']
+        type: str
+        description:
+          - Authentication type.
+          - auto - Use PAP, MSCHAP, and CHAP
+          - ascii - ASCII.
+          - pap - PAP.
+          - chap - CHAP.
+          - mschap - MSCHAP.
+        choices: ['auto', 'ascii', 'pap', 'chap', 'mschap']
+      authorization:
+        type: str
+        description:
+          - Enable/disable TACACS+ authorization.
+          - disable - Disable TACACS+ authorization.
+          - enable - Enable TACACS+ authorization
+        choices: ['disable', 'enable']
+      key:
+        type: raw
+        description: (list) No description
+      name:
+        type: str
+        description: TACACS+ server entry name.
+        required: true
+      port:
+        type: int
+        description: Port number of TACACS+ server.
+      secondary_key:
+        aliases: ['secondary-key']
+        type: raw
+        description: (list) No description
+      secondary_server:
+        aliases: ['secondary-server']
+        type: str
+        description: No description
+      server:
+        type: str
+        description: No description
+      tertiary_key:
+        aliases: ['tertiary-key']
+        type: raw
+        description: (list) No description
+      tertiary_server:
+        aliases: ['tertiary-server']
+        type: str
+        description: No description
+      src_ip:
+        aliases: ['src-ip']
+        type: str
+        description: Src ip.
 '''
 
 EXAMPLES = '''
@@ -117,42 +117,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

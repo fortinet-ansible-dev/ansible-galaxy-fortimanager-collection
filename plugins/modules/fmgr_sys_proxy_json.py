@@ -15,30 +15,30 @@ module: fmgr_sys_proxy_json
 short_description: Send and receive JSON request to/from managed devices.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
+  - fortinet.fortimanager.general
 options:
-    sys_proxy_json:
-        description: The top level parameters set.
-        required: false
+  sys_proxy_json:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      action:
+        type: str
+        description: Specify HTTP action for the request.
+        choices: ['get', 'post', 'put', 'delete']
+      payload:
         type: dict
-        suboptions:
-            action:
-                type: str
-                description: Specify HTTP action for the request.
-                choices: ['get', 'post', 'put', 'delete']
-            payload:
-                type: dict
-                description: Payload.
-            resource:
-                type: str
-                description: URL on the remote device to be accessed.
-            target:
-                type: list
-                elements: str
-                description: Target.
-            timeout:
-                type: int
-                description: Maximum time in seconds to wait for response from remote device.
+        description: Payload.
+      resource:
+        type: str
+        description: URL on the remote device to be accessed.
+      target:
+        type: list
+        elements: str
+        description: Target.
+      timeout:
+        type: int
+        description: Maximum time in seconds to wait for response from remote device.
 '''
 
 EXAMPLES = '''
@@ -60,42 +60,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

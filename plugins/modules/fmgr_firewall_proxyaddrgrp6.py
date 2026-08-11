@@ -12,66 +12,76 @@ ANSIBLE_METADATA = {'status': ['preview'],
 DOCUMENTATION = '''
 ---
 module: fmgr_firewall_proxyaddrgrp6
-short_description: Firewall proxy addrgrp6
+short_description: Configure web proxy address group6.
 version_added: "2.12.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  firewall_proxyaddrgrp6:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      color:
+        type: int
+        description: Color.
+      comment:
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Comment.
+      member:
+        type: list
+        elements: str
+        description: Member.
+      name:
         type: str
+        description: Name.
         required: true
-    firewall_proxyaddrgrp6:
-        description: The top level parameters set.
-        required: false
-        type: dict
+      tagging:
+        type: list
+        elements: dict
+        description: Tagging.
         suboptions:
-            color:
-                type: int
-                description: Color.
-            comment:
-                type: str
-                description: Comment.
-            member:
-                type: list
-                elements: str
-                description: Member.
-            name:
-                type: str
-                description: Name.
-                required: true
-            tagging:
-                type: list
-                elements: dict
-                description: Tagging.
-                suboptions:
-                    category:
-                        type: list
-                        elements: str
-                        description: Category.
-                    name:
-                        type: str
-                        description: Name.
-                    tags:
-                        type: list
-                        elements: str
-                        description: Tags.
-            type:
-                type: str
-                description: Type.
-                choices: ['src', 'dst']
-            uuid:
-                type: str
-                description: Uuid.
-            logic_type:
-                aliases: ['logic-type']
-                type: str
-                description: Logic type.
-                choices: ['or', 'and']
+          category:
+            type: list
+            elements: str
+            description: Category.
+          name:
+            type: str
+            description: Name.
+          tags:
+            type: list
+            elements: str
+            description: Tags.
+      type:
+        type: str
+        description: Type.
+        choices: ['src', 'dst']
+      uuid:
+        type: str
+        description: Uuid.
+      logic_type:
+        aliases: ['logic-type']
+        type: str
+        description: Logic type.
+        choices: ['or', 'and']
+      custom_tags:
+        aliases: ['custom-tags']
+        type: list
+        elements: str
+        description: Custom tags.
+      display_with:
+        aliases: ['display-with']
+        type: str
+        description: Display object with first tag, all tags, or just the icon.
+        choices: ['all-tags', 'first-tag-only', 'icon-and-color']
 '''
 
 EXAMPLES = '''
@@ -80,7 +90,7 @@ EXAMPLES = '''
   connection: httpapi
   gather_facts: false
   tasks:
-    - name: Firewall proxy addrgrp6
+    - name: Configure web proxy address group6.
       fortinet.fortimanager.fmgr_firewall_proxyaddrgrp6:
         # workspace_locking_adom: <global or your adom name>
         adom: <your own value>
@@ -97,46 +107,48 @@ EXAMPLES = '''
           # type: <value in [src, dst]>
           # uuid: <string>
           # logic_type: <value in [or, and]>
+          # custom_tags: <list or string>
+          # display_with: <value in [all-tags, first-tag-only, icon-and-color]>
 '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -171,7 +183,9 @@ def main():
                 },
                 'type': {'v_range': [['7.6.4', '']], 'choices': ['src', 'dst'], 'type': 'str'},
                 'uuid': {'v_range': [['7.6.4', '']], 'type': 'str'},
-                'logic-type': {'v_range': [['7.6.5', '']], 'choices': ['or', 'and'], 'type': 'str'}
+                'logic-type': {'v_range': [['7.6.5', '']], 'choices': ['or', 'and'], 'type': 'str'},
+                'custom-tags': {'v_range': [['8.0.0', '']], 'type': 'list', 'elements': 'str'},
+                'display-with': {'v_range': [['8.0.0', '']], 'choices': ['all-tags', 'first-tag-only', 'icon-and-color'], 'type': 'str'}
             }
         }
     }

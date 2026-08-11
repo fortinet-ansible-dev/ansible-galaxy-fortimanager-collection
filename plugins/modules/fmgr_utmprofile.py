@@ -15,54 +15,54 @@ module: fmgr_utmprofile
 short_description: Configure UTM
 version_added: "2.1.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  utmprofile:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      antivirus_profile:
+        aliases: ['antivirus-profile']
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: AntiVirus profile name.
+      application_list:
+        aliases: ['application-list']
         type: str
+        description: Application control list name.
+      comment:
+        type: str
+        description: Comment.
+      ips_sensor:
+        aliases: ['ips-sensor']
+        type: str
+        description: IPS sensor name.
+      name:
+        type: str
+        description: UTM profile name.
         required: true
-    utmprofile:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            antivirus_profile:
-                aliases: ['antivirus-profile']
-                type: str
-                description: AntiVirus profile name.
-            application_list:
-                aliases: ['application-list']
-                type: str
-                description: Application control list name.
-            comment:
-                type: str
-                description: Comment.
-            ips_sensor:
-                aliases: ['ips-sensor']
-                type: str
-                description: IPS sensor name.
-            name:
-                type: str
-                description: UTM profile name.
-                required: true
-            scan_botnet_connections:
-                aliases: ['scan-botnet-connections']
-                type: str
-                description: Block or monitor connections to Botnet servers or disable Botnet scanning.
-                choices: ['disable', 'block', 'monitor']
-            utm_log:
-                aliases: ['utm-log']
-                type: str
-                description: Enable/disable UTM logging.
-                choices: ['disable', 'enable']
-            webfilter_profile:
-                aliases: ['webfilter-profile']
-                type: str
-                description: WebFilter profile name.
+      scan_botnet_connections:
+        aliases: ['scan-botnet-connections']
+        type: str
+        description: Block or monitor connections to Botnet servers or disable Botnet scanning.
+        choices: ['disable', 'block', 'monitor']
+      utm_log:
+        aliases: ['utm-log']
+        type: str
+        description: Enable/disable UTM logging.
+        choices: ['disable', 'enable']
+      webfilter_profile:
+        aliases: ['webfilter-profile']
+        type: str
+        description: WebFilter profile name.
 '''
 
 EXAMPLES = '''
@@ -89,42 +89,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

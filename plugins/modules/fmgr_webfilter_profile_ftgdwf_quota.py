@@ -15,55 +15,55 @@ module: fmgr_webfilter_profile_ftgdwf_quota
 short_description: FortiGuard traffic quota settings.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  profile:
+    description: The parameter (profile) in requested url.
+    type: str
+    required: true
+  webfilter_profile_ftgdwf_quota:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      category:
+        type: raw
+        description: (list or str) FortiGuard categories to apply quota to
+      duration:
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
-        type: str
+        description: Duration of quota.
+      id:
+        type: int
+        description: ID number.
         required: true
-    profile:
-        description: The parameter (profile) in requested url.
+      override_replacemsg:
+        aliases: ['override-replacemsg']
         type: str
-        required: true
-    webfilter_profile_ftgdwf_quota:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            category:
-                type: raw
-                description: (list or str) FortiGuard categories to apply quota to
-            duration:
-                type: str
-                description: Duration of quota.
-            id:
-                type: int
-                description: ID number.
-                required: true
-            override_replacemsg:
-                aliases: ['override-replacemsg']
-                type: str
-                description: Override replacement message.
-            type:
-                type: str
-                description: Quota type.
-                choices: ['time', 'traffic']
-            unit:
-                type: str
-                description: Traffic quota unit of measurement.
-                choices: ['B', 'KB', 'MB', 'GB']
-            value:
-                type: int
-                description: Traffic quota value.
-            reset_frequency:
-                aliases: ['reset-frequency']
-                type: str
-                description: Quota reset frequency
-                choices: ['daily', 'weekly', 'monthly']
+        description: Override replacement message.
+      type:
+        type: str
+        description: Quota type.
+        choices: ['time', 'traffic']
+      unit:
+        type: str
+        description: Traffic quota unit of measurement.
+        choices: ['B', 'KB', 'MB', 'GB']
+      value:
+        type: int
+        description: Traffic quota value.
+      reset_frequency:
+        aliases: ['reset-frequency']
+        type: str
+        description: Quota reset frequency
+        choices: ['daily', 'weekly', 'monthly']
 '''
 
 EXAMPLES = '''
@@ -91,42 +91,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -153,7 +153,7 @@ def main():
                 'type': {'choices': ['time', 'traffic'], 'type': 'str'},
                 'unit': {'choices': ['B', 'KB', 'MB', 'GB'], 'type': 'str'},
                 'value': {'type': 'int'},
-                'reset-frequency': {'v_range': [['7.4.8', '7.4.10']], 'choices': ['daily', 'weekly', 'monthly'], 'type': 'str'}
+                'reset-frequency': {'v_range': [['7.4.8', '7.4.11']], 'choices': ['daily', 'weekly', 'monthly'], 'type': 'str'}
             }
         }
     }

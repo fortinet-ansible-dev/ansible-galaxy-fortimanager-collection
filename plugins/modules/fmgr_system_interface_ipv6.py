@@ -15,45 +15,44 @@ module: fmgr_system_interface_ipv6
 short_description: IPv6 of interface.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.partial_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.partial_crud
 options:
-    interface:
-        description: The parameter (interface) in requested url.
+  interface:
+    description: The parameter (interface) in requested url.
+    type: str
+    required: true
+  system_interface_ipv6:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      ip6_address:
+        aliases: ['ip6-address']
         type: str
-        required: true
-    system_interface_ipv6:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            ip6_address:
-                aliases: ['ip6-address']
-                type: str
-                description: IPv6 address/prefix of interface.
-            ip6_allowaccess:
-                aliases: ['ip6-allowaccess']
-                type: list
-                elements: str
-                description:
-                    - Allow management access to interface.
-                    - ping - PING access.
-                    - https - HTTPS access.
-                    - ssh - SSH access.
-                    - snmp - SNMP access.
-                    - http - HTTP access.
-                    - webservice - Web service access.
-                    - https-logging - Logging over HTTPS access.
-                choices: ['ping', 'https', 'ssh', 'snmp', 'http', 'webservice', 'https-logging',
-                          'fabric']
-            ip6_autoconf:
-                aliases: ['ip6-autoconf']
-                type: str
-                description:
-                    - Enable/disable address auto config
-                    - disable - Disable setting.
-                    - enable - Enable setting.
-                choices: ['disable', 'enable']
+        description: IPv6 address/prefix of interface.
+      ip6_allowaccess:
+        aliases: ['ip6-allowaccess']
+        type: list
+        elements: str
+        description:
+          - Allow management access to interface.
+          - ping - PING access.
+          - https - HTTPS access.
+          - ssh - SSH access.
+          - snmp - SNMP access.
+          - http - HTTP access.
+          - webservice - Web service access.
+          - https-logging - Logging over HTTPS access.
+        choices: ['ping', 'https', 'ssh', 'snmp', 'http', 'webservice', 'https-logging', 'fabric']
+      ip6_autoconf:
+        aliases: ['ip6-autoconf']
+        type: str
+        description:
+          - Enable/disable address auto config
+          - disable - Disable setting.
+          - enable - Enable setting.
+        choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -75,42 +74,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

@@ -15,39 +15,39 @@ module: fmgr_system_geoipoverride_iprange
 short_description: Table of IP ranges assigned to country.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  geoip-override:
+    description: Deprecated, please use "geoip_override"
+    type: str
+  geoip_override:
+    description: The parameter (geoip-override) in requested url.
+    type: str
+  system_geoipoverride_iprange:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      end_ip:
+        aliases: ['end-ip']
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
-        type: str
+        description: Final IP address, inclusive, of the address range
+      id:
+        type: int
+        description: ID number for individual entry in the IP-Range table.
         required: true
-    geoip-override:
-        description: Deprecated, please use "geoip_override"
+      start_ip:
+        aliases: ['start-ip']
         type: str
-    geoip_override:
-        description: The parameter (geoip-override) in requested url.
-        type: str
-    system_geoipoverride_iprange:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            end_ip:
-                aliases: ['end-ip']
-                type: str
-                description: Final IP address, inclusive, of the address range
-            id:
-                type: int
-                description: ID number for individual entry in the IP-Range table.
-                required: true
-            start_ip:
-                aliases: ['start-ip']
-                type: str
-                description: Starting IP address, inclusive, of the address range
+        description: Starting IP address, inclusive, of the address range
 '''
 
 EXAMPLES = '''
@@ -99,42 +99,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

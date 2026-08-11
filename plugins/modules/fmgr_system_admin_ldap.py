@@ -15,119 +15,118 @@ module: fmgr_system_admin_ldap
 short_description: LDAP server entry configuration.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    system_admin_ldap:
-        description: The top level parameters set.
-        required: false
-        type: dict
+  system_admin_ldap:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      adom:
+        type: list
+        elements: dict
+        description: Adom.
         suboptions:
-            adom:
-                type: list
-                elements: dict
-                description: Adom.
-                suboptions:
-                    adom_name:
-                        aliases: ['adom-name']
-                        type: str
-                        description: Admin domain names.
-            adom_attr:
-                aliases: ['adom-attr']
-                type: str
-                description: Attribute used to retrieve adom
-            attributes:
-                type: str
-                description: Attributes used for group searching.
-            ca_cert:
-                aliases: ['ca-cert']
-                type: str
-                description: CA certificate name.
-            cnid:
-                type: str
-                description: Common Name Identifier
-            connect_timeout:
-                aliases: ['connect-timeout']
-                type: int
-                description: LDAP connection timeout
-            dn:
-                type: str
-                description: Distinguished Name.
-            filter:
-                type: str
-                description: Filter used for group searching.
-            group:
-                type: str
-                description: Full base DN used for group searching.
-            memberof_attr:
-                aliases: ['memberof-attr']
-                type: str
-                description: Attribute used to retrieve memeberof.
-            name:
-                type: str
-                description: LDAP server entry name.
-                required: true
-            password:
-                type: raw
-                description: (list) Password for initial binding.
-            port:
-                type: int
-                description: Port number of LDAP server
-            profile_attr:
-                aliases: ['profile-attr']
-                type: str
-                description: Attribute used to retrieve admin profile.
-            secondary_server:
-                aliases: ['secondary-server']
-                type: str
-                description: No description
-            secure:
-                type: str
-                description:
-                    - SSL connection.
-                    - disable - No SSL.
-                    - starttls - Use StartTLS.
-                    - ldaps - Use LDAPS.
-                choices: ['disable', 'starttls', 'ldaps']
-            server:
-                type: str
-                description: No description
-            tertiary_server:
-                aliases: ['tertiary-server']
-                type: str
-                description: No description
-            type:
-                type: str
-                description:
-                    - Type of LDAP binding.
-                    - simple - Simple password authentication without search.
-                    - anonymous - Bind using anonymous user search.
-                    - regular - Bind using username/password and then search.
-                choices: ['simple', 'anonymous', 'regular']
-            username:
-                type: str
-                description: Username
-            adom_access:
-                aliases: ['adom-access']
-                type: str
-                description:
-                    - set all or specify adom access type.
-                    - all - All ADOMs access.
-                    - specify - Specify ADOMs access.
-                choices: ['all', 'specify']
-            ssl_protocol:
-                aliases: ['ssl-protocol']
-                type: str
-                description:
-                    - set the lowest SSL protocol version for connection to ldap server.
-                    - follow-global-ssl-protocol - Follow system.
-                    - sslv3 - set SSLv3 as the lowest version.
-                    - tlsv1.
-                    - tlsv1.
-                    - tlsv1.
-                    - tlsv1.
-                choices: ['follow-global-ssl-protocol', 'sslv3', 'tlsv1.0', 'tlsv1.1', 'tlsv1.2',
-                          'tlsv1.3']
+          adom_name:
+            aliases: ['adom-name']
+            type: str
+            description: Admin domain names.
+      adom_attr:
+        aliases: ['adom-attr']
+        type: str
+        description: Attribute used to retrieve adom
+      attributes:
+        type: str
+        description: Attributes used for group searching.
+      ca_cert:
+        aliases: ['ca-cert']
+        type: str
+        description: CA certificate name.
+      cnid:
+        type: str
+        description: Common Name Identifier
+      connect_timeout:
+        aliases: ['connect-timeout']
+        type: int
+        description: LDAP connection timeout
+      dn:
+        type: str
+        description: Distinguished Name.
+      filter:
+        type: str
+        description: Filter used for group searching.
+      group:
+        type: str
+        description: Full base DN used for group searching.
+      memberof_attr:
+        aliases: ['memberof-attr']
+        type: str
+        description: Attribute used to retrieve memeberof.
+      name:
+        type: str
+        description: LDAP server entry name.
+        required: true
+      password:
+        type: raw
+        description: (list) Password for initial binding.
+      port:
+        type: int
+        description: Port number of LDAP server
+      profile_attr:
+        aliases: ['profile-attr']
+        type: str
+        description: Attribute used to retrieve admin profile.
+      secondary_server:
+        aliases: ['secondary-server']
+        type: str
+        description: No description
+      secure:
+        type: str
+        description:
+          - SSL connection.
+          - disable - No SSL.
+          - starttls - Use StartTLS.
+          - ldaps - Use LDAPS.
+        choices: ['disable', 'starttls', 'ldaps']
+      server:
+        type: str
+        description: No description
+      tertiary_server:
+        aliases: ['tertiary-server']
+        type: str
+        description: No description
+      type:
+        type: str
+        description:
+          - Type of LDAP binding.
+          - simple - Simple password authentication without search.
+          - anonymous - Bind using anonymous user search.
+          - regular - Bind using username/password and then search.
+        choices: ['simple', 'anonymous', 'regular']
+      username:
+        type: str
+        description: Username
+      adom_access:
+        aliases: ['adom-access']
+        type: str
+        description:
+          - set all or specify adom access type.
+          - all - All ADOMs access.
+          - specify - Specify ADOMs access.
+        choices: ['all', 'specify']
+      ssl_protocol:
+        aliases: ['ssl-protocol']
+        type: str
+        description:
+          - set the lowest SSL protocol version for connection to ldap server.
+          - follow-global-ssl-protocol - Follow system.
+          - sslv3 - set SSLv3 as the lowest version.
+          - tlsv1.
+          - tlsv1.
+          - tlsv1.
+          - tlsv1.
+        choices: ['follow-global-ssl-protocol', 'sslv3', 'tlsv1.0', 'tlsv1.1', 'tlsv1.2', 'tlsv1.3']
 '''
 
 EXAMPLES = '''
@@ -173,42 +172,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -246,7 +245,7 @@ def main():
                 'username': {'type': 'str'},
                 'adom-access': {'v_range': [['7.0.3', '']], 'choices': ['all', 'specify'], 'type': 'str'},
                 'ssl-protocol': {
-                    'v_range': [['7.4.4', '7.4.10'], ['7.6.2', '']],
+                    'v_range': [['7.4.4', '7.4.11'], ['7.6.2', '']],
                     'choices': ['follow-global-ssl-protocol', 'sslv3', 'tlsv1.0', 'tlsv1.1', 'tlsv1.2', 'tlsv1.3'],
                     'type': 'str'
                 }

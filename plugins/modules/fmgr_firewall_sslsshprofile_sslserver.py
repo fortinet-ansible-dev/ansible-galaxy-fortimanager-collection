@@ -15,94 +15,94 @@ module: fmgr_firewall_sslsshprofile_sslserver
 short_description: SSL servers.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  ssl-ssh-profile:
+    description: Deprecated, please use "ssl_ssh_profile"
+    type: str
+  ssl_ssh_profile:
+    description: The parameter (ssl-ssh-profile) in requested url.
+    type: str
+  firewall_sslsshprofile_sslserver:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      ftps_client_cert_request:
+        aliases: ['ftps-client-cert-request']
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Action based on client certificate request during the FTPS handshake.
+        choices: ['bypass', 'inspect', 'block']
+      https_client_cert_request:
+        aliases: ['https-client-cert-request']
         type: str
+        description: Action based on client certificate request during the HTTPS handshake.
+        choices: ['bypass', 'inspect', 'block']
+      id:
+        type: int
+        description: SSL server ID.
         required: true
-    ssl-ssh-profile:
-        description: Deprecated, please use "ssl_ssh_profile"
+      imaps_client_cert_request:
+        aliases: ['imaps-client-cert-request']
         type: str
-    ssl_ssh_profile:
-        description: The parameter (ssl-ssh-profile) in requested url.
+        description: Action based on client certificate request during the IMAPS handshake.
+        choices: ['bypass', 'inspect', 'block']
+      ip:
         type: str
-    firewall_sslsshprofile_sslserver:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            ftps_client_cert_request:
-                aliases: ['ftps-client-cert-request']
-                type: str
-                description: Action based on client certificate request during the FTPS handshake.
-                choices: ['bypass', 'inspect', 'block']
-            https_client_cert_request:
-                aliases: ['https-client-cert-request']
-                type: str
-                description: Action based on client certificate request during the HTTPS handshake.
-                choices: ['bypass', 'inspect', 'block']
-            id:
-                type: int
-                description: SSL server ID.
-                required: true
-            imaps_client_cert_request:
-                aliases: ['imaps-client-cert-request']
-                type: str
-                description: Action based on client certificate request during the IMAPS handshake.
-                choices: ['bypass', 'inspect', 'block']
-            ip:
-                type: str
-                description: IPv4 address of the SSL server.
-            pop3s_client_cert_request:
-                aliases: ['pop3s-client-cert-request']
-                type: str
-                description: Action based on client certificate request during the POP3S handshake.
-                choices: ['bypass', 'inspect', 'block']
-            smtps_client_cert_request:
-                aliases: ['smtps-client-cert-request']
-                type: str
-                description: Action based on client certificate request during the SMTPS handshake.
-                choices: ['bypass', 'inspect', 'block']
-            ssl_other_client_cert_request:
-                aliases: ['ssl-other-client-cert-request']
-                type: str
-                description: Action based on client certificate request during an SSL protocol handshake.
-                choices: ['bypass', 'inspect', 'block']
-            ftps_client_certificate:
-                aliases: ['ftps-client-certificate']
-                type: str
-                description: Action based on received client certificate during the FTPS handshake.
-                choices: ['bypass', 'inspect', 'block']
-            https_client_certificate:
-                aliases: ['https-client-certificate']
-                type: str
-                description: Action based on received client certificate during the HTTPS handshake.
-                choices: ['bypass', 'inspect', 'block']
-            imaps_client_certificate:
-                aliases: ['imaps-client-certificate']
-                type: str
-                description: Action based on received client certificate during the IMAPS handshake.
-                choices: ['bypass', 'inspect', 'block']
-            pop3s_client_certificate:
-                aliases: ['pop3s-client-certificate']
-                type: str
-                description: Action based on received client certificate during the POP3S handshake.
-                choices: ['bypass', 'inspect', 'block']
-            smtps_client_certificate:
-                aliases: ['smtps-client-certificate']
-                type: str
-                description: Action based on received client certificate during the SMTPS handshake.
-                choices: ['bypass', 'inspect', 'block']
-            ssl_other_client_certificate:
-                aliases: ['ssl-other-client-certificate']
-                type: str
-                description: Action based on received client certificate during an SSL protocol handshake.
-                choices: ['bypass', 'inspect', 'block']
+        description: IPv4 address of the SSL server.
+      pop3s_client_cert_request:
+        aliases: ['pop3s-client-cert-request']
+        type: str
+        description: Action based on client certificate request during the POP3S handshake.
+        choices: ['bypass', 'inspect', 'block']
+      smtps_client_cert_request:
+        aliases: ['smtps-client-cert-request']
+        type: str
+        description: Action based on client certificate request during the SMTPS handshake.
+        choices: ['bypass', 'inspect', 'block']
+      ssl_other_client_cert_request:
+        aliases: ['ssl-other-client-cert-request']
+        type: str
+        description: Action based on client certificate request during an SSL protocol handshake.
+        choices: ['bypass', 'inspect', 'block']
+      ftps_client_certificate:
+        aliases: ['ftps-client-certificate']
+        type: str
+        description: Action based on received client certificate during the FTPS handshake.
+        choices: ['bypass', 'inspect', 'block']
+      https_client_certificate:
+        aliases: ['https-client-certificate']
+        type: str
+        description: Action based on received client certificate during the HTTPS handshake.
+        choices: ['bypass', 'inspect', 'block']
+      imaps_client_certificate:
+        aliases: ['imaps-client-certificate']
+        type: str
+        description: Action based on received client certificate during the IMAPS handshake.
+        choices: ['bypass', 'inspect', 'block']
+      pop3s_client_certificate:
+        aliases: ['pop3s-client-certificate']
+        type: str
+        description: Action based on received client certificate during the POP3S handshake.
+        choices: ['bypass', 'inspect', 'block']
+      smtps_client_certificate:
+        aliases: ['smtps-client-certificate']
+        type: str
+        description: Action based on received client certificate during the SMTPS handshake.
+        choices: ['bypass', 'inspect', 'block']
+      ssl_other_client_certificate:
+        aliases: ['ssl-other-client-certificate']
+        type: str
+        description: Action based on received client certificate during an SSL protocol handshake.
+        choices: ['bypass', 'inspect', 'block']
 '''
 
 EXAMPLES = '''
@@ -148,42 +148,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

@@ -15,58 +15,58 @@ module: fmgr_user_radius_accountingserver
 short_description: Additional accounting servers.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
-        type: str
-    adom:
-        description: The parameter (adom) in requested url.
-        type: str
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  radius:
+    description: The parameter (radius) in requested url.
+    type: str
+    required: true
+  user_radius_accountingserver:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      id:
+        type: int
+        description: ID
         required: true
-    radius:
-        description: The parameter (radius) in requested url.
+      port:
+        type: int
+        description: RADIUS accounting port number.
+      secret:
+        type: raw
+        description: (list) Secret key.
+      server:
         type: str
-        required: true
-    user_radius_accountingserver:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            id:
-                type: int
-                description: ID
-                required: true
-            port:
-                type: int
-                description: RADIUS accounting port number.
-            secret:
-                type: raw
-                description: (list) Secret key.
-            server:
-                type: str
-                description: No description
-            source_ip:
-                aliases: ['source-ip']
-                type: str
-                description: Source IP address for communications to the RADIUS server.
-            status:
-                type: str
-                description: Status.
-                choices: ['disable', 'enable']
-            interface:
-                type: str
-                description: Specify outgoing interface to reach server.
-            interface_select_method:
-                aliases: ['interface-select-method']
-                type: str
-                description: Specify how to select outgoing interface to reach server.
-                choices: ['auto', 'sdwan', 'specify']
-            vrf_select:
-                aliases: ['vrf-select']
-                type: int
-                description: VRF ID used for connection to server.
+        description: No description
+      source_ip:
+        aliases: ['source-ip']
+        type: str
+        description: Source IP address for communications to the RADIUS server.
+      status:
+        type: str
+        description: Status.
+        choices: ['disable', 'enable']
+      interface:
+        type: str
+        description: Specify outgoing interface to reach server.
+      interface_select_method:
+        aliases: ['interface-select-method']
+        type: str
+        description: Specify how to select outgoing interface to reach server.
+        choices: ['auto', 'sdwan', 'specify']
+      vrf_select:
+        aliases: ['vrf-select']
+        type: int
+        description: VRF ID used for connection to server.
 '''
 
 EXAMPLES = '''
@@ -112,42 +112,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

@@ -15,109 +15,109 @@ module: fmgr_pkg_firewall_responseshapingpolicy
 short_description: Policy package firewall response shaping policy
 version_added: "2.12.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  pkg:
+    description: The parameter (pkg) in requested url.
+    type: str
+    required: true
+  pkg_firewall_responseshapingpolicy:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      class_id:
+        aliases: ['class-id']
+        type: int
+        description: Class id.
+      class_id_reverse:
+        aliases: ['class-id-reverse']
+        type: int
+        description: Class id reverse.
+      comment:
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
-        type: str
+        description: Comment.
+      dstaddr:
+        type: list
+        elements: str
+        description: Dstaddr.
+      dstaddr6:
+        type: list
+        elements: str
+        description: Dstaddr6.
+      id:
+        type: int
+        description: Id.
         required: true
-    pkg:
-        description: The parameter (pkg) in requested url.
+      ip_version:
+        aliases: ['ip-version']
         type: str
-        required: true
-    pkg_firewall_responseshapingpolicy:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            class_id:
-                aliases: ['class-id']
-                type: int
-                description: Class id.
-            class_id_reverse:
-                aliases: ['class-id-reverse']
-                type: int
-                description: Class id reverse.
-            comment:
-                type: str
-                description: Comment.
-            dstaddr:
-                type: list
-                elements: str
-                description: Dstaddr.
-            dstaddr6:
-                type: list
-                elements: str
-                description: Dstaddr6.
-            id:
-                type: int
-                description: Id.
-                required: true
-            ip_version:
-                aliases: ['ip-version']
-                type: str
-                description: Ip version.
-                choices: ['6', '4']
-            name:
-                type: str
-                description: Name.
-            per_ip_shaper:
-                aliases: ['per-ip-shaper']
-                type: list
-                elements: str
-                description: Per ip shaper.
-            schedule:
-                type: list
-                elements: str
-                description: Schedule.
-            srcaddr:
-                type: list
-                elements: str
-                description: Srcaddr.
-            status:
-                type: str
-                description: Status.
-                choices: ['disable', 'enable']
-            traffic_shaper:
-                aliases: ['traffic-shaper']
-                type: list
-                elements: str
-                description: Traffic shaper.
-            traffic_shaper_reverse:
-                aliases: ['traffic-shaper-reverse']
-                type: list
-                elements: str
-                description: Traffic shaper reverse.
-            uuid:
-                type: str
-                description: Uuid.
-            diffserv_forward:
-                aliases: ['diffserv-forward']
-                type: str
-                description: Diffserv forward.
-                choices: ['disable', 'enable']
-            diffserv_reverse:
-                aliases: ['diffserv-reverse']
-                type: str
-                description: Diffserv reverse.
-                choices: ['disable', 'enable']
-            diffservcode_forward:
-                aliases: ['diffservcode-forward']
-                type: str
-                description: Diffservcode forward.
-            diffservcode_rev:
-                aliases: ['diffservcode-rev']
-                type: str
-                description: Diffservcode rev.
-            matched_shaping_policies:
-                aliases: ['matched-shaping-policies']
-                type: list
-                elements: str
-                description: Matched shaping policies.
+        description: Ip version.
+        choices: ['6', '4']
+      name:
+        type: str
+        description: Name.
+      per_ip_shaper:
+        aliases: ['per-ip-shaper']
+        type: list
+        elements: str
+        description: Per ip shaper.
+      schedule:
+        type: list
+        elements: str
+        description: Schedule.
+      srcaddr:
+        type: list
+        elements: str
+        description: Srcaddr.
+      status:
+        type: str
+        description: Status.
+        choices: ['disable', 'enable']
+      traffic_shaper:
+        aliases: ['traffic-shaper']
+        type: list
+        elements: str
+        description: Traffic shaper.
+      traffic_shaper_reverse:
+        aliases: ['traffic-shaper-reverse']
+        type: list
+        elements: str
+        description: Traffic shaper reverse.
+      uuid:
+        type: str
+        description: Uuid.
+      diffserv_forward:
+        aliases: ['diffserv-forward']
+        type: str
+        description: Diffserv forward.
+        choices: ['disable', 'enable']
+      diffserv_reverse:
+        aliases: ['diffserv-reverse']
+        type: str
+        description: Diffserv reverse.
+        choices: ['disable', 'enable']
+      diffservcode_forward:
+        aliases: ['diffservcode-forward']
+        type: str
+        description: Diffservcode forward.
+      diffservcode_rev:
+        aliases: ['diffservcode-rev']
+        type: str
+        description: Diffservcode rev.
+      matched_shaping_policies:
+        aliases: ['matched-shaping-policies']
+        type: list
+        elements: str
+        description: Matched shaping policies.
 '''
 
 EXAMPLES = '''
@@ -157,42 +157,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -209,28 +209,28 @@ def main():
         'pkg': {'required': True, 'type': 'str'},
         'revision_note': {'type': 'str'},
         'pkg_firewall_responseshapingpolicy': {
-            'type': 'dict', 'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']],
+            'type': 'dict', 'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']],
             'options': {
-                'class-id': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'int'},
-                'class-id-reverse': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'int'},
-                'comment': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'str'},
-                'dstaddr': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'list', 'elements': 'str'},
-                'dstaddr6': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'list', 'elements': 'str'},
-                'id': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'required': True, 'type': 'int'},
-                'ip-version': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'choices': ['6', '4'], 'type': 'str'},
-                'name': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'str'},
-                'per-ip-shaper': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'list', 'elements': 'str'},
-                'schedule': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'list', 'elements': 'str'},
-                'srcaddr': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'list', 'elements': 'str'},
-                'status': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'traffic-shaper': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'list', 'elements': 'str'},
-                'traffic-shaper-reverse': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'list', 'elements': 'str'},
-                'uuid': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'str'},
-                'diffserv-forward': {'v_range': [['7.4.9', '7.4.10'], ['7.6.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'diffserv-reverse': {'v_range': [['7.4.9', '7.4.10'], ['7.6.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'diffservcode-forward': {'v_range': [['7.4.9', '7.4.10'], ['7.6.5', '']], 'type': 'str'},
-                'diffservcode-rev': {'v_range': [['7.4.9', '7.4.10'], ['7.6.5', '']], 'type': 'str'},
-                'matched-shaping-policies': {'v_range': [['7.4.9', '7.4.10'], ['7.6.5', '']], 'type': 'list', 'elements': 'str'}
+                'class-id': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'type': 'int'},
+                'class-id-reverse': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'type': 'int'},
+                'comment': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'type': 'str'},
+                'dstaddr': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'type': 'list', 'elements': 'str'},
+                'dstaddr6': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'type': 'list', 'elements': 'str'},
+                'id': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'required': True, 'type': 'int'},
+                'ip-version': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'choices': ['6', '4'], 'type': 'str'},
+                'name': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'type': 'str'},
+                'per-ip-shaper': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'type': 'list', 'elements': 'str'},
+                'schedule': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'type': 'list', 'elements': 'str'},
+                'srcaddr': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'type': 'list', 'elements': 'str'},
+                'status': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'traffic-shaper': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'type': 'list', 'elements': 'str'},
+                'traffic-shaper-reverse': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'type': 'list', 'elements': 'str'},
+                'uuid': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'type': 'str'},
+                'diffserv-forward': {'v_range': [['7.4.9', '7.4.11'], ['7.6.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'diffserv-reverse': {'v_range': [['7.4.9', '7.4.11'], ['7.6.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'diffservcode-forward': {'v_range': [['7.4.9', '7.4.11'], ['7.6.5', '']], 'type': 'str'},
+                'diffservcode-rev': {'v_range': [['7.4.9', '7.4.11'], ['7.6.5', '']], 'type': 'str'},
+                'matched-shaping-policies': {'v_range': [['7.4.9', '7.4.11'], ['7.6.5', '']], 'type': 'list', 'elements': 'str'}
             }
         }
     }

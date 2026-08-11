@@ -15,116 +15,116 @@ module: fmgr_system_snmp_community
 short_description: SNMP community configuration.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    system_snmp_community:
-        description: The top level parameters set.
-        required: false
-        type: dict
+  system_snmp_community:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      events:
+        type: list
+        elements: str
+        description:
+          - SNMP trap events.
+          - disk_low - Disk usage too high.
+          - ha_switch - HA switch.
+          - intf_ip_chg - Interface IP address changed.
+          - sys_reboot - System reboot.
+          - cpu_high - CPU usage too high.
+          - mem_low - Available memory is low.
+          - log-alert - Log base alert message.
+          - log-rate - High incoming log rate detected.
+          - log-data-rate - High incoming log data rate detected.
+          - lic-gbday - High licensed log GB/day detected.
+          - lic-dev-quota - High licensed device quota detected.
+          - cpu-high-exclude-nice - CPU usage exclude NICE threshold.
+        choices: ['disk_low', 'ha_switch', 'intf_ip_chg', 'sys_reboot', 'cpu_high', 'mem_low',
+                  'log-alert', 'log-rate', 'log-data-rate', 'lic-gbday', 'lic-dev-quota',
+                  'cpu-high-exclude-nice']
+      hosts:
+        type: list
+        elements: dict
+        description: Hosts.
         suboptions:
-            events:
-                type: list
-                elements: str
-                description:
-                    - SNMP trap events.
-                    - disk_low - Disk usage too high.
-                    - ha_switch - HA switch.
-                    - intf_ip_chg - Interface IP address changed.
-                    - sys_reboot - System reboot.
-                    - cpu_high - CPU usage too high.
-                    - mem_low - Available memory is low.
-                    - log-alert - Log base alert message.
-                    - log-rate - High incoming log rate detected.
-                    - log-data-rate - High incoming log data rate detected.
-                    - lic-gbday - High licensed log GB/day detected.
-                    - lic-dev-quota - High licensed device quota detected.
-                    - cpu-high-exclude-nice - CPU usage exclude NICE threshold.
-                choices: ['disk_low', 'ha_switch', 'intf_ip_chg', 'sys_reboot', 'cpu_high',
-                          'mem_low', 'log-alert', 'log-rate', 'log-data-rate', 'lic-gbday',
-                          'lic-dev-quota', 'cpu-high-exclude-nice']
-            hosts:
-                type: list
-                elements: dict
-                description: Hosts.
-                suboptions:
-                    id:
-                        type: int
-                        description: Host entry ID.
-                    interface:
-                        type: str
-                        description: Allow interface name.
-                    ip:
-                        type: str
-                        description: Allow host IP address.
-            hosts6:
-                type: list
-                elements: dict
-                description: Hosts6.
-                suboptions:
-                    id:
-                        type: int
-                        description: Host entry ID.
-                    interface:
-                        type: str
-                        description: Allow interface name.
-                    ip:
-                        type: str
-                        description: Allow host IP address.
-            id:
-                type: int
-                description: Community ID.
-                required: true
-            name:
-                type: str
-                description: Community name.
-            query_v1_port:
-                type: int
-                description: SNMP v1 query port.
-            query_v1_status:
-                type: str
-                description:
-                    - Enable/disable SNMP v1 query.
-                    - disable - Disable setting.
-                    - enable - Enable setting.
-                choices: ['disable', 'enable']
-            query_v2c_port:
-                type: int
-                description: SNMP v2c query port.
-            query_v2c_status:
-                type: str
-                description:
-                    - Enable/disable SNMP v2c query.
-                    - disable - Disable setting.
-                    - enable - Enable setting.
-                choices: ['disable', 'enable']
-            status:
-                type: str
-                description:
-                    - Enable/disable community.
-                    - disable - Disable setting.
-                    - enable - Enable setting.
-                choices: ['disable', 'enable']
-            trap_v1_rport:
-                type: int
-                description: SNMP v1 trap remote port.
-            trap_v1_status:
-                type: str
-                description:
-                    - Enable/disable SNMP v1 trap.
-                    - disable - Disable setting.
-                    - enable - Enable setting.
-                choices: ['disable', 'enable']
-            trap_v2c_rport:
-                type: int
-                description: SNMP v2c trap remote port.
-            trap_v2c_status:
-                type: str
-                description:
-                    - Enable/disable SNMP v2c trap.
-                    - disable - Disable setting.
-                    - enable - Enable setting.
-                choices: ['disable', 'enable']
+          id:
+            type: int
+            description: Host entry ID.
+          interface:
+            type: str
+            description: Allow interface name.
+          ip:
+            type: str
+            description: Allow host IP address.
+      hosts6:
+        type: list
+        elements: dict
+        description: Hosts6.
+        suboptions:
+          id:
+            type: int
+            description: Host entry ID.
+          interface:
+            type: str
+            description: Allow interface name.
+          ip:
+            type: str
+            description: Allow host IP address.
+      id:
+        type: int
+        description: Community ID.
+        required: true
+      name:
+        type: str
+        description: Community name.
+      query_v1_port:
+        type: int
+        description: SNMP v1 query port.
+      query_v1_status:
+        type: str
+        description:
+          - Enable/disable SNMP v1 query.
+          - disable - Disable setting.
+          - enable - Enable setting.
+        choices: ['disable', 'enable']
+      query_v2c_port:
+        type: int
+        description: SNMP v2c query port.
+      query_v2c_status:
+        type: str
+        description:
+          - Enable/disable SNMP v2c query.
+          - disable - Disable setting.
+          - enable - Enable setting.
+        choices: ['disable', 'enable']
+      status:
+        type: str
+        description:
+          - Enable/disable community.
+          - disable - Disable setting.
+          - enable - Enable setting.
+        choices: ['disable', 'enable']
+      trap_v1_rport:
+        type: int
+        description: SNMP v1 trap remote port.
+      trap_v1_status:
+        type: str
+        description:
+          - Enable/disable SNMP v1 trap.
+          - disable - Disable setting.
+          - enable - Enable setting.
+        choices: ['disable', 'enable']
+      trap_v2c_rport:
+        type: int
+        description: SNMP v2c trap remote port.
+      trap_v2c_status:
+        type: str
+        description:
+          - Enable/disable SNMP v2c trap.
+          - disable - Disable setting.
+          - enable - Enable setting.
+        choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -165,42 +165,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

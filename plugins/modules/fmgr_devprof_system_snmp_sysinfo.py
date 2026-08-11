@@ -15,75 +15,75 @@ module: fmgr_devprof_system_snmp_sysinfo
 short_description: SNMP system info configuration.
 version_added: "1.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.partial_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.partial_crud
 options:
-    adom:
-        description: The parameter (adom) in requested url.
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  devprof:
+    description: The parameter (devprof) in requested url.
+    type: str
+    required: true
+  devprof_system_snmp_sysinfo:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      status:
         type: str
-        required: true
-    devprof:
-        description: The parameter (devprof) in requested url.
+        description: Enable/disable SNMP.
+        choices: ['disable', 'enable']
+      append_index:
+        aliases: ['append-index']
         type: str
-        required: true
-    devprof_system_snmp_sysinfo:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            status:
-                type: str
-                description: Enable/disable SNMP.
-                choices: ['disable', 'enable']
-            append_index:
-                aliases: ['append-index']
-                type: str
-                description: Enable/disable allowance of appending vdom or interface index in some RFC tables.
-                choices: ['disable', 'enable']
-            trap_high_cpu_threshold:
-                aliases: ['trap-high-cpu-threshold']
-                type: int
-                description: CPU usage when trap is sent.
-            trap_log_full_threshold:
-                aliases: ['trap-log-full-threshold']
-                type: int
-                description: Log disk usage when trap is sent.
-            engine_id:
-                aliases: ['engine-id']
-                type: str
-                description: Local SNMP engineID string
-            trap_freeable_memory_threshold:
-                aliases: ['trap-freeable-memory-threshold']
-                type: int
-                description: Freeable memory usage when trap is sent.
-            contact_info:
-                aliases: ['contact-info']
-                type: str
-                description: Contact information.
-            engine_id_type:
-                aliases: ['engine-id-type']
-                type: str
-                description: Local SNMP engineID type
-                choices: ['text', 'hex', 'mac']
-            description:
-                type: str
-                description: System description.
-            trap_free_memory_threshold:
-                aliases: ['trap-free-memory-threshold']
-                type: int
-                description: Free memory usage when trap is sent.
-            trap_low_memory_threshold:
-                aliases: ['trap-low-memory-threshold']
-                type: int
-                description: Memory usage when trap is sent.
-            location:
-                type: str
-                description: System location.
-            non_mgmt_vdom_query:
-                aliases: ['non-mgmt-vdom-query']
-                type: str
-                description: Enable/disable allowance of SNMPv3 query from non-management vdoms.
-                choices: ['disable', 'enable']
+        description: Enable/disable allowance of appending vdom or interface index in some RFC tables.
+        choices: ['disable', 'enable']
+      trap_high_cpu_threshold:
+        aliases: ['trap-high-cpu-threshold']
+        type: int
+        description: CPU usage when trap is sent.
+      trap_log_full_threshold:
+        aliases: ['trap-log-full-threshold']
+        type: int
+        description: Log disk usage when trap is sent.
+      engine_id:
+        aliases: ['engine-id']
+        type: str
+        description: Local SNMP engineID string
+      trap_freeable_memory_threshold:
+        aliases: ['trap-freeable-memory-threshold']
+        type: int
+        description: Freeable memory usage when trap is sent.
+      contact_info:
+        aliases: ['contact-info']
+        type: str
+        description: Contact information.
+      engine_id_type:
+        aliases: ['engine-id-type']
+        type: str
+        description: Local SNMP engineID type
+        choices: ['text', 'hex', 'mac']
+      description:
+        type: str
+        description: System description.
+      trap_free_memory_threshold:
+        aliases: ['trap-free-memory-threshold']
+        type: int
+        description: Free memory usage when trap is sent.
+      trap_low_memory_threshold:
+        aliases: ['trap-low-memory-threshold']
+        type: int
+        description: Memory usage when trap is sent.
+      location:
+        type: str
+        description: System location.
+      non_mgmt_vdom_query:
+        aliases: ['non-mgmt-vdom-query']
+        type: str
+        description: Enable/disable allowance of SNMPv3 query from non-management vdoms.
+        choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -115,42 +115,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

@@ -15,61 +15,61 @@ module: fmgr_webproxy_profile_headers
 short_description: Configure HTTP forwarded requests headers.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  profile:
+    description: The parameter (profile) in requested url.
+    type: str
+    required: true
+  webproxy_profile_headers:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      action:
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Action when HTTP the header forwarded.
+        choices: ['add-to-request', 'add-to-response', 'remove-from-request',
+                  'remove-from-response', 'monitor-request', 'monitor-response']
+      content:
         type: str
+        description: HTTP headers content.
+      id:
+        type: int
+        description: HTTP forwarded header id.
         required: true
-    profile:
-        description: The parameter (profile) in requested url.
+      name:
         type: str
-        required: true
-    webproxy_profile_headers:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            action:
-                type: str
-                description: Action when HTTP the header forwarded.
-                choices: ['add-to-request', 'add-to-response', 'remove-from-request',
-                          'remove-from-response', 'monitor-request', 'monitor-response']
-            content:
-                type: str
-                description: HTTP headers content.
-            id:
-                type: int
-                description: HTTP forwarded header id.
-                required: true
-            name:
-                type: str
-                description: HTTP forwarded header name.
-            add_option:
-                aliases: ['add-option']
-                type: str
-                description: Configure options to append content to existing HTTP header or add new HTTP header.
-                choices: ['append', 'new-on-not-found', 'new', 'replace', 'replace-when-match']
-            base64_encoding:
-                aliases: ['base64-encoding']
-                type: str
-                description: Enable/disable use of base64 encoding of HTTP content.
-                choices: ['disable', 'enable']
-            dstaddr:
-                type: raw
-                description: (list or str) Destination address and address group names.
-            dstaddr6:
-                type: raw
-                description: (list or str) Destination address and address group names
-            protocol:
-                type: list
-                elements: str
-                description: Configure protocol
-                choices: ['https', 'http']
+        description: HTTP forwarded header name.
+      add_option:
+        aliases: ['add-option']
+        type: str
+        description: Configure options to append content to existing HTTP header or add new HTTP header.
+        choices: ['append', 'new-on-not-found', 'new', 'replace', 'replace-when-match']
+      base64_encoding:
+        aliases: ['base64-encoding']
+        type: str
+        description: Enable/disable use of base64 encoding of HTTP content.
+        choices: ['disable', 'enable']
+      dstaddr:
+        type: raw
+        description: (list or str) Destination address and address group names.
+      dstaddr6:
+        type: raw
+        description: (list or str) Destination address and address group names
+      protocol:
+        type: list
+        elements: str
+        description: Configure protocol
+        choices: ['https', 'http']
 '''
 
 EXAMPLES = '''
@@ -98,42 +98,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

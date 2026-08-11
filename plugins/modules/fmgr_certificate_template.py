@@ -15,93 +15,142 @@ module: fmgr_certificate_template
 short_description: Certificate template
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  certificate_template:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      city:
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: City.
+      country:
         type: str
+        description: Country.
+      digest_type:
+        aliases: ['digest-type']
+        type: str
+        description: Digest type.
+        choices: ['sha1', 'sha256']
+      email:
+        type: str
+        description: Email.
+      id_type:
+        aliases: ['id-type']
+        type: str
+        description: Id type.
+        choices: ['host-ip', 'domain-name', 'email']
+      key_size:
+        aliases: ['key-size']
+        type: str
+        description: Key size.
+        choices: ['512', '1024', '1536', '2048', '4096']
+      key_type:
+        aliases: ['key-type']
+        type: str
+        description: Key type.
+        choices: ['rsa', 'ec']
+      name:
+        type: str
+        description: Name.
         required: true
-    certificate_template:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            city:
-                type: str
-                description: City.
-            country:
-                type: str
-                description: Country.
-            digest_type:
-                aliases: ['digest-type']
-                type: str
-                description: Digest type.
-                choices: ['sha1', 'sha256']
-            email:
-                type: str
-                description: Email.
-            id_type:
-                aliases: ['id-type']
-                type: str
-                description: Id type.
-                choices: ['host-ip', 'domain-name', 'email']
-            key_size:
-                aliases: ['key-size']
-                type: str
-                description: Key size.
-                choices: ['512', '1024', '1536', '2048', '4096']
-            key_type:
-                aliases: ['key-type']
-                type: str
-                description: Key type.
-                choices: ['rsa', 'ec']
-            name:
-                type: str
-                description: Name.
-                required: true
-            organization:
-                type: str
-                description: Organization.
-            organization_unit:
-                aliases: ['organization-unit']
-                type: raw
-                description: (list) Organization unit.
-            scep_password:
-                aliases: ['scep-password']
-                type: raw
-                description: (list) Scep password.
-            scep_server:
-                aliases: ['scep-server']
-                type: str
-                description: Scep server.
-            state:
-                type: str
-                description: State.
-            subject_name:
-                aliases: ['subject-name']
-                type: str
-                description: Subject name.
-            type:
-                type: str
-                description: Type.
-                choices: ['external', 'local']
-            curve_name:
-                aliases: ['curve-name']
-                type: str
-                description: Curve name.
-                choices: ['secp256r1', 'secp384r1', 'secp521r1']
-            scep_ca_identifier:
-                aliases: ['scep-ca-identifier']
-                type: str
-                description: Scep ca identifier.
-            subject_alt_name:
-                aliases: ['subject-alt-name']
-                type: str
-                description: Support meta variable
+      organization:
+        type: str
+        description: Organization.
+      organization_unit:
+        aliases: ['organization-unit']
+        type: raw
+        description: (list) Organization unit.
+      scep_password:
+        aliases: ['scep-password']
+        type: raw
+        description: (list) Scep password.
+      scep_server:
+        aliases: ['scep-server']
+        type: str
+        description: Scep server.
+      state:
+        type: str
+        description: State.
+      subject_name:
+        aliases: ['subject-name']
+        type: str
+        description: Subject name.
+      type:
+        type: str
+        description: Type.
+        choices: ['external', 'local']
+      curve_name:
+        aliases: ['curve-name']
+        type: str
+        description: Curve name.
+        choices: ['secp256r1', 'secp384r1', 'secp521r1']
+      scep_ca_identifier:
+        aliases: ['scep-ca-identifier']
+        type: str
+        description: Scep ca identifier.
+      subject_alt_name:
+        aliases: ['subject-alt-name']
+        type: str
+        description: Support meta variable
+      enroll_protocol:
+        aliases: ['enroll-protocol']
+        type: str
+        description: Enroll protocol.
+        choices: ['scep', 'est']
+      est_ca_id:
+        aliases: ['est-ca-id']
+        type: str
+        description: Est ca id.
+      est_client_cert:
+        aliases: ['est-client-cert']
+        type: raw
+        description: (list) Est client cert.
+      est_http_password:
+        aliases: ['est-http-password']
+        type: raw
+        description: (list) Est http password.
+      est_http_username:
+        aliases: ['est-http-username']
+        type: str
+        description: Est http username.
+      est_regeneration_method:
+        aliases: ['est-regeneration-method']
+        type: str
+        description: Est regeneration method.
+        choices: ['create-new-key', 'use-existing-key']
+      est_server_cert:
+        aliases: ['est-server-cert']
+        type: raw
+        description: (list) Est server cert.
+      est_server_url:
+        aliases: ['est-server-url']
+        type: str
+        description: Est server url.
+      est_srp_password:
+        aliases: ['est-srp-password']
+        type: raw
+        description: (list) Est srp password.
+      est_srp_username:
+        aliases: ['est-srp-username']
+        type: str
+        description: Est srp username.
+      source_ip:
+        aliases: ['source-ip']
+        type: str
+        description: Source ip.
+      validity:
+        type: int
+        description: Validity.
 '''
 
 EXAMPLES = '''
@@ -147,42 +196,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -218,7 +267,19 @@ def main():
                 'type': {'choices': ['external', 'local'], 'type': 'str'},
                 'curve-name': {'v_range': [['6.2.1', '']], 'choices': ['secp256r1', 'secp384r1', 'secp521r1'], 'type': 'str'},
                 'scep-ca-identifier': {'v_range': [['7.0.4', '']], 'type': 'str'},
-                'subject-alt-name': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'str'}
+                'subject-alt-name': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'type': 'str'},
+                'enroll-protocol': {'v_range': [['7.6.7', '7.6.7']], 'choices': ['scep', 'est'], 'type': 'str'},
+                'est-ca-id': {'v_range': [['7.6.7', '7.6.7']], 'type': 'str'},
+                'est-client-cert': {'v_range': [['7.6.7', '7.6.7']], 'type': 'raw'},
+                'est-http-password': {'v_range': [['7.6.7', '7.6.7']], 'no_log': True, 'type': 'raw'},
+                'est-http-username': {'v_range': [['7.6.7', '7.6.7']], 'type': 'str'},
+                'est-regeneration-method': {'v_range': [['7.6.7', '7.6.7']], 'choices': ['create-new-key', 'use-existing-key'], 'type': 'str'},
+                'est-server-cert': {'v_range': [['7.6.7', '7.6.7']], 'type': 'raw'},
+                'est-server-url': {'v_range': [['7.6.7', '7.6.7']], 'type': 'str'},
+                'est-srp-password': {'v_range': [['7.6.7', '7.6.7']], 'no_log': True, 'type': 'raw'},
+                'est-srp-username': {'v_range': [['7.6.7', '7.6.7']], 'type': 'str'},
+                'source-ip': {'v_range': [['7.6.7', '7.6.7']], 'type': 'str'},
+                'validity': {'v_range': [['8.0.0', '']], 'type': 'int'}
             }
         }
     }

@@ -15,35 +15,35 @@ module: fmgr_system_log_ueba
 short_description: UEBAsettings.
 version_added: "2.6.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.partial_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.partial_crud
 options:
-    system_log_ueba:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            ip_only_ep:
-                aliases: ['ip-only-ep']
-                type: str
-                description:
-                    - Disable/Enable IP-only endpoint identification.
-                    - disable - Disable IP-only endpoint identification.
-                    - enable - Enable IP-only endpoint identification.
-                choices: ['disable', 'enable']
-            ip_unique_scope:
-                aliases: ['ip-unique-scope']
-                type: str
-                description:
-                    - set ip-unique-scope.
-                    - adom - set ip-unique-scope to adom.
-                    - vdom - set ip-unique-scope to vdom.
-                choices: ['adom', 'vdom']
-            hostname_ep_unifier:
-                aliases: ['hostname-ep-unifier']
-                type: str
-                description: Hostname ep unifier.
-                choices: ['disable', 'enable']
+  system_log_ueba:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      ip_only_ep:
+        aliases: ['ip-only-ep']
+        type: str
+        description:
+          - Disable/Enable IP-only endpoint identification.
+          - disable - Disable IP-only endpoint identification.
+          - enable - Enable IP-only endpoint identification.
+        choices: ['disable', 'enable']
+      ip_unique_scope:
+        aliases: ['ip-unique-scope']
+        type: str
+        description:
+          - set ip-unique-scope.
+          - adom - set ip-unique-scope to adom.
+          - vdom - set ip-unique-scope to vdom.
+        choices: ['adom', 'vdom']
+      hostname_ep_unifier:
+        aliases: ['hostname-ep-unifier']
+        type: str
+        description: Hostname ep unifier.
+        choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -63,42 +63,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -116,7 +116,7 @@ def main():
             'options': {
                 'ip-only-ep': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'ip-unique-scope': {'v_range': [['7.4.3', '']], 'choices': ['adom', 'vdom'], 'type': 'str'},
-                'hostname-ep-unifier': {'v_range': [['7.4.7', '7.4.10'], ['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'hostname-ep-unifier': {'v_range': [['7.4.7', '7.4.11'], ['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

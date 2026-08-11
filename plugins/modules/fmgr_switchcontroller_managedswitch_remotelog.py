@@ -15,57 +15,56 @@ module: fmgr_switchcontroller_managedswitch_remotelog
 short_description: Configure logging by FortiSwitch device to a remote syslog server.
 version_added: "2.1.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  managed-switch:
+    description: Deprecated, please use "managed_switch"
+    type: str
+  managed_switch:
+    description: The parameter (managed-switch) in requested url.
+    type: str
+  switchcontroller_managedswitch_remotelog:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      csv:
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Enable/disable comma-separated value
+        choices: ['disable', 'enable']
+      facility:
         type: str
+        description: Facility to log to remote syslog server.
+        choices: ['kernel', 'user', 'mail', 'daemon', 'auth', 'syslog', 'lpr', 'news', 'uucp',
+                  'cron', 'authpriv', 'ftp', 'ntp', 'audit', 'alert', 'clock', 'local0', 'local1',
+                  'local2', 'local3', 'local4', 'local5', 'local6', 'local7']
+      name:
+        type: str
+        description: Remote log name.
         required: true
-    managed-switch:
-        description: Deprecated, please use "managed_switch"
+      port:
+        type: int
+        description: Remote syslog server listening port.
+      server:
         type: str
-    managed_switch:
-        description: The parameter (managed-switch) in requested url.
+        description: IPv4 address of the remote syslog server.
+      severity:
         type: str
-    switchcontroller_managedswitch_remotelog:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            csv:
-                type: str
-                description: Enable/disable comma-separated value
-                choices: ['disable', 'enable']
-            facility:
-                type: str
-                description: Facility to log to remote syslog server.
-                choices: ['kernel', 'user', 'mail', 'daemon', 'auth', 'syslog', 'lpr', 'news',
-                          'uucp', 'cron', 'authpriv', 'ftp', 'ntp', 'audit', 'alert', 'clock',
-                          'local0', 'local1', 'local2', 'local3', 'local4', 'local5', 'local6',
-                          'local7']
-            name:
-                type: str
-                description: Remote log name.
-                required: true
-            port:
-                type: int
-                description: Remote syslog server listening port.
-            server:
-                type: str
-                description: IPv4 address of the remote syslog server.
-            severity:
-                type: str
-                description: Severity of logs to be transferred to remote log server.
-                choices: ['emergency', 'alert', 'critical', 'error', 'warning', 'notification',
-                          'information', 'debug']
-            status:
-                type: str
-                description: Enable/disable logging by FortiSwitch device to a remote syslog server.
-                choices: ['disable', 'enable']
+        description: Severity of logs to be transferred to remote log server.
+        choices: ['emergency', 'alert', 'critical', 'error', 'warning', 'notification',
+                  'information', 'debug']
+      status:
+        type: str
+        description: Enable/disable logging by FortiSwitch device to a remote syslog server.
+        choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -92,42 +91,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

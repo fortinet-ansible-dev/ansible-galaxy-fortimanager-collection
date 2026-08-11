@@ -15,116 +15,116 @@ module: fmgr_firewall_shapingprofile
 short_description: Configure shaping profiles.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  firewall_shapingprofile:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      comment:
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Comment.
+      default_class_id:
+        aliases: ['default-class-id']
+        type: raw
+        description: (int or str) Default class ID to handle unclassified packets
+      profile_name:
+        aliases: ['profile-name']
         type: str
+        description: Shaping profile name.
         required: true
-    firewall_shapingprofile:
-        description: The top level parameters set.
-        required: false
-        type: dict
+      shaping_entries:
+        aliases: ['shaping-entries']
+        type: list
+        elements: dict
+        description: Shaping entries.
         suboptions:
-            comment:
-                type: str
-                description: Comment.
-            default_class_id:
-                aliases: ['default-class-id']
-                type: raw
-                description: (int or str) Default class ID to handle unclassified packets
-            profile_name:
-                aliases: ['profile-name']
-                type: str
-                description: Shaping profile name.
-                required: true
-            shaping_entries:
-                aliases: ['shaping-entries']
-                type: list
-                elements: dict
-                description: Shaping entries.
-                suboptions:
-                    class_id:
-                        aliases: ['class-id']
-                        type: raw
-                        description: (int or str) Class ID.
-                    guaranteed_bandwidth_percentage:
-                        aliases: ['guaranteed-bandwidth-percentage']
-                        type: int
-                        description: Guaranteed bandwith in percentage.
-                    id:
-                        type: int
-                        description: ID number.
-                    maximum_bandwidth_percentage:
-                        aliases: ['maximum-bandwidth-percentage']
-                        type: int
-                        description: Maximum bandwith in percentage.
-                    priority:
-                        type: str
-                        description: Priority.
-                        choices: ['low', 'medium', 'high', 'critical', 'top']
-                    burst_in_msec:
-                        aliases: ['burst-in-msec']
-                        type: int
-                        description: Number of bytes that can be burst at maximum-bandwidth speed.
-                    cburst_in_msec:
-                        aliases: ['cburst-in-msec']
-                        type: int
-                        description: Number of bytes that can be burst as fast as the interface can transmit.
-                    limit:
-                        type: int
-                        description: Hard limit on the real queue size in packets.
-                    max:
-                        type: int
-                        description: Average queue size in packets at which RED drop probability is maximal.
-                    min:
-                        type: int
-                        description: Average queue size in packets at which RED drop becomes a possibility.
-                    red_probability:
-                        aliases: ['red-probability']
-                        type: int
-                        description: Maximum probability
-            type:
-                type: str
-                description: Select shaping profile type
-                choices: ['policing', 'queuing']
-            npu_offloading:
-                aliases: ['npu-offloading']
-                type: str
-                description: Enable/disable NPU offloading.
-                choices: ['disable', 'enable']
-            classes:
-                type: list
-                elements: dict
-                description: Classes.
-                suboptions:
-                    class_id:
-                        aliases: ['class-id']
-                        type: int
-                        description: Class ID.
-                    guaranteed_bandwidth:
-                        aliases: ['guaranteed-bandwidth']
-                        type: int
-                        description: Guaranteed bandwith in percentage.
-                    maximum_bandwidth:
-                        aliases: ['maximum-bandwidth']
-                        type: int
-                        description: Maximum bandwith in percentage.
-                    name:
-                        type: str
-                        description: Class Name.
-                    priority:
-                        type: str
-                        description: Priority.
-                        choices: ['top', 'critical', 'high', 'medium', 'low']
-            default_class:
-                aliases: ['default-class']
-                type: int
-                description: Default class ID to handle unclassified packets.
+          class_id:
+            aliases: ['class-id']
+            type: raw
+            description: (int or str) Class ID.
+          guaranteed_bandwidth_percentage:
+            aliases: ['guaranteed-bandwidth-percentage']
+            type: int
+            description: Guaranteed bandwith in percentage.
+          id:
+            type: int
+            description: ID number.
+          maximum_bandwidth_percentage:
+            aliases: ['maximum-bandwidth-percentage']
+            type: int
+            description: Maximum bandwith in percentage.
+          priority:
+            type: str
+            description: Priority.
+            choices: ['low', 'medium', 'high', 'critical', 'top']
+          burst_in_msec:
+            aliases: ['burst-in-msec']
+            type: int
+            description: Number of bytes that can be burst at maximum-bandwidth speed.
+          cburst_in_msec:
+            aliases: ['cburst-in-msec']
+            type: int
+            description: Number of bytes that can be burst as fast as the interface can transmit.
+          limit:
+            type: int
+            description: Hard limit on the real queue size in packets.
+          max:
+            type: int
+            description: Average queue size in packets at which RED drop probability is maximal.
+          min:
+            type: int
+            description: Average queue size in packets at which RED drop becomes a possibility.
+          red_probability:
+            aliases: ['red-probability']
+            type: int
+            description: Maximum probability
+      type:
+        type: str
+        description: Select shaping profile type
+        choices: ['policing', 'queuing']
+      npu_offloading:
+        aliases: ['npu-offloading']
+        type: str
+        description: Enable/disable NPU offloading.
+        choices: ['disable', 'enable']
+      classes:
+        type: list
+        elements: dict
+        description: Classes.
+        suboptions:
+          class_id:
+            aliases: ['class-id']
+            type: int
+            description: Class ID.
+          guaranteed_bandwidth:
+            aliases: ['guaranteed-bandwidth']
+            type: int
+            description: Guaranteed bandwith in percentage.
+          maximum_bandwidth:
+            aliases: ['maximum-bandwidth']
+            type: int
+            description: Maximum bandwith in percentage.
+          name:
+            type: str
+            description: Class Name.
+          priority:
+            type: str
+            description: Priority.
+            choices: ['top', 'critical', 'high', 'medium', 'low']
+      default_class:
+        aliases: ['default-class']
+        type: int
+        description: Default class ID to handle unclassified packets.
 '''
 
 EXAMPLES = '''
@@ -166,42 +166,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -243,22 +243,22 @@ def main():
                 'type': {'v_range': [['6.2.1', '']], 'choices': ['policing', 'queuing'], 'type': 'str'},
                 'npu-offloading': {'v_range': [['7.2.6', '7.2.12'], ['7.4.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'classes': {
-                    'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']],
+                    'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']],
                     'type': 'list',
                     'options': {
-                        'class-id': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'int'},
-                        'guaranteed-bandwidth': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'int'},
-                        'maximum-bandwidth': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'int'},
-                        'name': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'str'},
+                        'class-id': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'type': 'int'},
+                        'guaranteed-bandwidth': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'type': 'int'},
+                        'maximum-bandwidth': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'type': 'int'},
+                        'name': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'type': 'str'},
                         'priority': {
-                            'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']],
+                            'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']],
                             'choices': ['top', 'critical', 'high', 'medium', 'low'],
                             'type': 'str'
                         }
                     },
                     'elements': 'dict'
                 },
-                'default-class': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'int'}
+                'default-class': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'type': 'int'}
             }
         }
     }

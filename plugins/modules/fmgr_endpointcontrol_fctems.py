@@ -15,171 +15,171 @@ module: fmgr_endpointcontrol_fctems
 short_description: Configure FortiClient Enterprise Management Server
 version_added: "2.1.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  endpointcontrol_fctems:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      call_timeout:
+        aliases: ['call-timeout']
+        type: int
+        description: FortiClient EMS call timeout in seconds
+      capabilities:
+        type: list
+        elements: str
+        description: List of EMS capabilities.
+        choices: ['fabric-auth', 'silent-approval', 'websocket', 'websocket-malware',
+                  'push-ca-certs', 'common-tags-api', 'tenant-id', 'single-vdom-connector',
+                  'client-avatars', 'fgt-sysinfo-api', 'ztna-server-info', 'used-tags', 'crl',
+                  'tag-def']
+      certificate_fingerprint:
+        aliases: ['certificate-fingerprint']
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: EMS certificate fingerprint.
+      cloud_server_type:
+        aliases: ['cloud-server-type']
         type: str
+        description: Cloud server type.
+        choices: ['production', 'alpha', 'beta']
+      fortinetone_cloud_authentication:
+        aliases: ['fortinetone-cloud-authentication']
+        type: str
+        description: Enable/disable authentication of FortiClient EMS Cloud through FortiCloud account.
+        choices: ['disable', 'enable']
+      https_port:
+        aliases: ['https-port']
+        type: int
+        description: FortiClient EMS HTTPS access port number.
+      name:
+        type: str
+        description: FortiClient Enterprise Management Server
         required: true
-    endpointcontrol_fctems:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            call_timeout:
-                aliases: ['call-timeout']
-                type: int
-                description: FortiClient EMS call timeout in seconds
-            capabilities:
-                type: list
-                elements: str
-                description: List of EMS capabilities.
-                choices: ['fabric-auth', 'silent-approval', 'websocket', 'websocket-malware',
-                          'push-ca-certs', 'common-tags-api', 'tenant-id',
-                          'single-vdom-connector', 'client-avatars', 'fgt-sysinfo-api',
-                          'ztna-server-info', 'used-tags']
-            certificate_fingerprint:
-                aliases: ['certificate-fingerprint']
-                type: str
-                description: EMS certificate fingerprint.
-            cloud_server_type:
-                aliases: ['cloud-server-type']
-                type: str
-                description: Cloud server type.
-                choices: ['production', 'alpha', 'beta']
-            fortinetone_cloud_authentication:
-                aliases: ['fortinetone-cloud-authentication']
-                type: str
-                description: Enable/disable authentication of FortiClient EMS Cloud through FortiCloud account.
-                choices: ['disable', 'enable']
-            https_port:
-                aliases: ['https-port']
-                type: int
-                description: FortiClient EMS HTTPS access port number.
-            name:
-                type: str
-                description: FortiClient Enterprise Management Server
-                required: true
-            out_of_sync_threshold:
-                aliases: ['out-of-sync-threshold']
-                type: int
-                description: Outdated resource threshold in seconds
-            preserve_ssl_session:
-                aliases: ['preserve-ssl-session']
-                type: str
-                description: Enable/disable preservation of EMS SSL session connection.
-                choices: ['disable', 'enable']
-            pull_avatars:
-                aliases: ['pull-avatars']
-                type: str
-                description: Enable/disable pulling avatars from EMS.
-                choices: ['disable', 'enable']
-            pull_malware_hash:
-                aliases: ['pull-malware-hash']
-                type: str
-                description: Enable/disable pulling FortiClient malware hash from EMS.
-                choices: ['disable', 'enable']
-            pull_sysinfo:
-                aliases: ['pull-sysinfo']
-                type: str
-                description: Enable/disable pulling SysInfo from EMS.
-                choices: ['disable', 'enable']
-            pull_tags:
-                aliases: ['pull-tags']
-                type: str
-                description: Enable/disable pulling FortiClient user tags from EMS.
-                choices: ['disable', 'enable']
-            pull_vulnerabilities:
-                aliases: ['pull-vulnerabilities']
-                type: str
-                description: Enable/disable pulling vulnerabilities from EMS.
-                choices: ['disable', 'enable']
-            server:
-                type: str
-                description: FortiClient EMS FQDN or IPv4 address.
-            source_ip:
-                aliases: ['source-ip']
-                type: str
-                description: REST API call source IP.
-            websocket_override:
-                aliases: ['websocket-override']
-                type: str
-                description: Enable/disable override behavior for how this FortiGate unit connects to EMS using a WebSocket connection.
-                choices: ['disable', 'enable']
-            status_check_interval:
-                aliases: ['status-check-interval']
-                type: int
-                description: FortiClient EMS call timeout in seconds
-            certificate:
-                type: str
-                description: FortiClient EMS certificate.
-            admin_username:
-                aliases: ['admin-username']
-                type: str
-                description: FortiClient EMS admin username.
-            serial_number:
-                aliases: ['serial-number']
-                type: str
-                description: FortiClient EMS Serial Number.
-            admin_password:
-                aliases: ['admin-password']
-                type: raw
-                description: (list) FortiClient EMS admin password.
-            interface:
-                type: str
-                description: Specify outgoing interface to reach server.
-            interface_select_method:
-                aliases: ['interface-select-method']
-                type: str
-                description: Specify how to select outgoing interface to reach server.
-                choices: ['auto', 'sdwan', 'specify']
-            dirty_reason:
-                aliases: ['dirty-reason']
-                type: str
-                description: Dirty Reason for FortiClient EMS.
-                choices: ['none', 'mismatched-ems-sn']
-            ems_id:
-                aliases: ['ems-id']
-                type: int
-                description: EMS ID in order
-            status:
-                type: str
-                description: Enable or disable this EMS configuration.
-                choices: ['disable', 'enable']
-            ca_cn_info:
-                aliases: ['ca-cn-info']
-                type: str
-                description: Ca cn info.
-            trust_ca_cn:
-                aliases: ['trust-ca-cn']
-                type: str
-                description: Trust ca cn.
-                choices: ['disable', 'enable']
-            tenant_id:
-                aliases: ['tenant-id']
-                type: str
-                description: EMS Tenant ID.
-            send_tags_to_all_vdoms:
-                aliases: ['send-tags-to-all-vdoms']
-                type: str
-                description: Relax restrictions on tags to send all EMS tags to all VDOMs
-                choices: ['disable', 'enable']
-            verified_cn:
-                aliases: ['verified-cn']
-                type: str
-                description: EMS certificate CN.
-            verifying_ca:
-                aliases: ['verifying-ca']
-                type: str
-                description: Lowest CA cert on Fortigate in verified EMS cert chain.
-            cloud_authentication_access_key:
-                aliases: ['cloud-authentication-access-key']
-                type: str
-                description: FortiClient EMS Cloud multitenancy access key
+      out_of_sync_threshold:
+        aliases: ['out-of-sync-threshold']
+        type: int
+        description: Outdated resource threshold in seconds
+      preserve_ssl_session:
+        aliases: ['preserve-ssl-session']
+        type: str
+        description: Enable/disable preservation of EMS SSL session connection.
+        choices: ['disable', 'enable']
+      pull_avatars:
+        aliases: ['pull-avatars']
+        type: str
+        description: Enable/disable pulling avatars from EMS.
+        choices: ['disable', 'enable']
+      pull_malware_hash:
+        aliases: ['pull-malware-hash']
+        type: str
+        description: Enable/disable pulling FortiClient malware hash from EMS.
+        choices: ['disable', 'enable']
+      pull_sysinfo:
+        aliases: ['pull-sysinfo']
+        type: str
+        description: Enable/disable pulling SysInfo from EMS.
+        choices: ['disable', 'enable']
+      pull_tags:
+        aliases: ['pull-tags']
+        type: str
+        description: Enable/disable pulling FortiClient user tags from EMS.
+        choices: ['disable', 'enable']
+      pull_vulnerabilities:
+        aliases: ['pull-vulnerabilities']
+        type: str
+        description: Enable/disable pulling vulnerabilities from EMS.
+        choices: ['disable', 'enable']
+      server:
+        type: str
+        description: FortiClient EMS FQDN or IPv4 address.
+      source_ip:
+        aliases: ['source-ip']
+        type: str
+        description: REST API call source IP.
+      websocket_override:
+        aliases: ['websocket-override']
+        type: str
+        description: Enable/disable override behavior for how this FortiGate unit connects to EMS using a WebSocket connection.
+        choices: ['disable', 'enable']
+      status_check_interval:
+        aliases: ['status-check-interval']
+        type: int
+        description: FortiClient EMS call timeout in seconds
+      certificate:
+        type: str
+        description: FortiClient EMS certificate.
+      admin_username:
+        aliases: ['admin-username']
+        type: str
+        description: FortiClient EMS admin username.
+      serial_number:
+        aliases: ['serial-number']
+        type: str
+        description: FortiClient EMS Serial Number.
+      admin_password:
+        aliases: ['admin-password']
+        type: raw
+        description: (list) FortiClient EMS admin password.
+      interface:
+        type: str
+        description: Specify outgoing interface to reach server.
+      interface_select_method:
+        aliases: ['interface-select-method']
+        type: str
+        description: Specify how to select outgoing interface to reach server.
+        choices: ['auto', 'sdwan', 'specify']
+      dirty_reason:
+        aliases: ['dirty-reason']
+        type: str
+        description: Dirty Reason for FortiClient EMS.
+        choices: ['none', 'mismatched-ems-sn']
+      ems_id:
+        aliases: ['ems-id']
+        type: int
+        description: EMS ID in order
+      status:
+        type: str
+        description: Enable or disable this EMS configuration.
+        choices: ['disable', 'enable']
+      ca_cn_info:
+        aliases: ['ca-cn-info']
+        type: str
+        description: Ca cn info.
+      trust_ca_cn:
+        aliases: ['trust-ca-cn']
+        type: str
+        description: Trust ca cn.
+        choices: ['disable', 'enable']
+      tenant_id:
+        aliases: ['tenant-id']
+        type: str
+        description: EMS Tenant ID.
+      send_tags_to_all_vdoms:
+        aliases: ['send-tags-to-all-vdoms']
+        type: str
+        description: Relax restrictions on tags to send all EMS tags to all VDOMs
+        choices: ['disable', 'enable']
+      verified_cn:
+        aliases: ['verified-cn']
+        type: str
+        description: EMS certificate CN.
+      verifying_ca:
+        aliases: ['verifying-ca']
+        type: str
+        description: Lowest CA cert on Fortigate in verified EMS cert chain.
+      cloud_authentication_access_key:
+        aliases: ['cloud-authentication-access-key']
+        type: str
+        description: FortiClient EMS Cloud multitenancy access key
 '''
 
 EXAMPLES = '''
@@ -199,7 +199,7 @@ EXAMPLES = '''
           # capabilities: ["fabric-auth", "silent-approval", "websocket", "websocket-malware",
           #                "push-ca-certs", "common-tags-api", "tenant-id",
           #                "single-vdom-connector", "client-avatars", "fgt-sysinfo-api",
-          #                "ztna-server-info", "used-tags"]
+          #                "ztna-server-info", "used-tags", "crl", "tag-def"]
           # certificate_fingerprint: <string>
           # cloud_server_type: <value in [production, alpha, beta]>
           # fortinetone_cloud_authentication: <value in [disable, enable]>
@@ -235,42 +235,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -295,7 +295,7 @@ def main():
                     'type': 'list',
                     'choices': [
                         'fabric-auth', 'silent-approval', 'websocket', 'websocket-malware', 'push-ca-certs', 'common-tags-api', 'tenant-id',
-                        'single-vdom-connector', 'client-avatars', 'fgt-sysinfo-api', 'ztna-server-info', 'used-tags'
+                        'single-vdom-connector', 'client-avatars', 'fgt-sysinfo-api', 'ztna-server-info', 'used-tags', 'crl', 'tag-def'
                     ],
                     'elements': 'str'
                 },
@@ -314,8 +314,8 @@ def main():
                 'server': {'v_range': [['7.0.2', '']], 'type': 'str'},
                 'source-ip': {'v_range': [['7.0.2', '']], 'type': 'str'},
                 'websocket-override': {'v_range': [['7.0.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'status-check-interval': {'v_range': [['7.0.2', '']], 'type': 'int'},
-                'certificate': {'v_range': [['7.0.2', '']], 'type': 'str'},
+                'status-check-interval': {'v_range': [['7.0.2', '7.6.7']], 'type': 'int'},
+                'certificate': {'v_range': [['7.0.2', '7.6.7']], 'type': 'str'},
                 'admin-username': {'v_range': [['7.0.2', '7.6.2']], 'type': 'str'},
                 'serial-number': {'v_range': [['7.0.2', '']], 'type': 'str'},
                 'admin-password': {'v_range': [['7.0.2', '7.6.2']], 'no_log': True, 'type': 'raw'},

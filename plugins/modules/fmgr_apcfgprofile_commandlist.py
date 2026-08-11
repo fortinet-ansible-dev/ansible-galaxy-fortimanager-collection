@@ -15,45 +15,45 @@ module: fmgr_apcfgprofile_commandlist
 short_description: AP local configuration command list.
 version_added: "2.1.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
-        type: str
-    adom:
-        description: The parameter (adom) in requested url.
-        type: str
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  apcfg-profile:
+    description: Deprecated, please use "apcfg_profile"
+    type: str
+  apcfg_profile:
+    description: The parameter (apcfg-profile) in requested url.
+    type: str
+  apcfgprofile_commandlist:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      id:
+        type: int
+        description: Command ID.
         required: true
-    apcfg-profile:
-        description: Deprecated, please use "apcfg_profile"
+      name:
         type: str
-    apcfg_profile:
-        description: The parameter (apcfg-profile) in requested url.
+        description: AP local configuration command name.
+      passwd_value:
+        aliases: ['passwd-value']
+        type: raw
+        description: (list) AP local configuration command password value.
+      type:
         type: str
-    apcfgprofile_commandlist:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            id:
-                type: int
-                description: Command ID.
-                required: true
-            name:
-                type: str
-                description: AP local configuration command name.
-            passwd_value:
-                aliases: ['passwd-value']
-                type: raw
-                description: (list) AP local configuration command password value.
-            type:
-                type: str
-                description: The command type
-                choices: ['non-password', 'password']
-            value:
-                type: str
-                description: AP local configuration command value.
+        description: The command type
+        choices: ['non-password', 'password']
+      value:
+        type: str
+        description: AP local configuration command value.
 '''
 
 EXAMPLES = '''
@@ -78,42 +78,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

@@ -15,219 +15,216 @@ module: fmgr_vpnmgr_vpntable
 short_description: Vpnmgr vpntable
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  vpnmgr_vpntable:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      authmethod:
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Authmethod.
+        choices: ['psk', 'rsa-signature', 'signature']
+      auto_zone_policy:
+        aliases: ['auto-zone-policy']
         type: str
+        description: Auto zone policy.
+        choices: ['disable', 'enable']
+      certificate:
+        type: raw
+        description: (list or str) Certificate.
+      description:
+        type: str
+        description: Description.
+      dpd:
+        type: str
+        description: Dpd.
+        choices: ['disable', 'enable', 'on-idle', 'on-demand']
+      dpd_retrycount:
+        aliases: ['dpd-retrycount']
+        type: int
+        description: Dpd retrycount.
+      dpd_retryinterval:
+        aliases: ['dpd-retryinterval']
+        type: raw
+        description: (list) Dpd retryinterval.
+      fcc_enforcement:
+        aliases: ['fcc-enforcement']
+        type: str
+        description: Fcc enforcement.
+        choices: ['disable', 'enable']
+      hub2spoke_zone:
+        aliases: ['hub2spoke-zone']
+        type: raw
+        description: (list or str) Hub2spoke zone.
+      ike_version:
+        aliases: ['ike-version']
+        type: str
+        description: Ike version.
+        choices: ['1', '2']
+      ike1dhgroup:
+        type: list
+        elements: str
+        description: Ike1dhgroup.
+        choices: ['1', '2', '5', '14', '15', '16', '17', '18', '19', '20', '21', '27', '28', '29',
+                  '30', '31', '32']
+      ike1dpd:
+        type: str
+        description: Ike1dpd.
+        choices: ['disable', 'enable']
+      ike1keylifesec:
+        type: int
+        description: Ike1keylifesec.
+      ike1localid:
+        type: str
+        description: Ike1localid.
+      ike1mode:
+        type: str
+        description: Ike1mode.
+        choices: ['main', 'aggressive']
+      ike1natkeepalive:
+        type: int
+        description: Ike1natkeepalive.
+      ike1nattraversal:
+        type: str
+        description: Ike1nattraversal.
+        choices: ['disable', 'enable', 'forced']
+      ike1proposal:
+        type: str
+        description: Ike1proposal.
+        choices: ['des-md5', 'des-sha1', '3des-md5', '3des-sha1', 'aes128-md5', 'aes128-sha1',
+                  'aes192-md5', 'aes192-sha1', 'aes256-md5', 'aes256-sha1', 'des-sha256',
+                  '3des-sha256', 'aes128-sha256', 'aes192-sha256', 'aes256-sha256', 'des-sha384',
+                  'des-sha512', '3des-sha384', '3des-sha512', 'aes128-sha384', 'aes128-sha512',
+                  'aes192-sha384', 'aes192-sha512', 'aes256-sha384', 'aes256-sha512',
+                  'aria128-md5', 'aria128-sha1', 'aria128-sha256', 'aria128-sha384',
+                  'aria128-sha512', 'aria192-md5', 'aria192-sha1', 'aria192-sha256',
+                  'aria192-sha384', 'aria192-sha512', 'aria256-md5', 'aria256-sha1',
+                  'aria256-sha256', 'aria256-sha384', 'aria256-sha512', 'seed-md5', 'seed-sha1',
+                  'seed-sha256', 'seed-sha384', 'seed-sha512', 'aes128gcm-prfsha1',
+                  'aes128gcm-prfsha256', 'aes128gcm-prfsha384', 'aes128gcm-prfsha512',
+                  'aes256gcm-prfsha1', 'aes256gcm-prfsha256', 'aes256gcm-prfsha384',
+                  'aes256gcm-prfsha512', 'chacha20poly1305-prfsha1', 'chacha20poly1305-prfsha256',
+                  'chacha20poly1305-prfsha384', 'chacha20poly1305-prfsha512', 'sm4-sm3']
+      ike2autonego:
+        type: str
+        description: Ike2autonego.
+        choices: ['disable', 'enable']
+      ike2dhgroup:
+        type: list
+        elements: str
+        description: Ike2dhgroup.
+        choices: ['1', '2', '5', '14', '15', '16', '17', '18', '19', '20', '21', '27', '28', '29',
+                  '30', '31', '32']
+      ike2keepalive:
+        type: str
+        description: Ike2keepalive.
+        choices: ['disable', 'enable']
+      ike2keylifekbs:
+        type: int
+        description: Ike2keylifekbs.
+      ike2keylifesec:
+        type: int
+        description: Ike2keylifesec.
+      ike2keylifetype:
+        type: str
+        description: Ike2keylifetype.
+        choices: ['seconds', 'kbs', 'both']
+      ike2proposal:
+        type: str
+        description: Ike2proposal.
+        choices: ['null-md5', 'null-sha1', 'des-null', '3des-null', 'des-md5', 'des-sha1',
+                  '3des-md5', '3des-sha1', 'aes128-md5', 'aes128-sha1', 'aes192-md5',
+                  'aes192-sha1', 'aes256-md5', 'aes256-sha1', 'aes128-null', 'aes192-null',
+                  'aes256-null', 'null-sha256', 'des-sha256', '3des-sha256', 'aes128-sha256',
+                  'aes192-sha256', 'aes256-sha256', 'des-sha384', 'des-sha512', '3des-sha384',
+                  '3des-sha512', 'aes128-sha384', 'aes128-sha512', 'aes192-sha384',
+                  'aes192-sha512', 'aes256-sha384', 'aes256-sha512', 'null-sha384', 'null-sha512',
+                  'aria128-null', 'aria128-md5', 'aria128-sha1', 'aria128-sha256',
+                  'aria128-sha384', 'aria128-sha512', 'aria192-null', 'aria192-md5',
+                  'aria192-sha1', 'aria192-sha256', 'aria192-sha384', 'aria192-sha512',
+                  'aria256-null', 'aria256-md5', 'aria256-sha1', 'aria256-sha256',
+                  'aria256-sha384', 'aria256-sha512', 'seed-null', 'seed-md5', 'seed-sha1',
+                  'seed-sha256', 'seed-sha384', 'seed-sha512', 'aes128gcm', 'aes256gcm',
+                  'chacha20poly1305', 'sm4-sm3']
+      inter_vdom:
+        aliases: ['inter-vdom']
+        type: str
+        description: Inter vdom.
+        choices: ['disable', 'enable']
+      intf_mode:
+        aliases: ['intf-mode']
+        type: str
+        description: Intf mode.
+        choices: ['off', 'on']
+      localid_type:
+        aliases: ['localid-type']
+        type: str
+        description: Localid type.
+        choices: ['auto', 'fqdn', 'user-fqdn', 'keyid', 'address', 'asn1dn']
+      name:
+        type: str
+        description: Name.
         required: true
-    vpnmgr_vpntable:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            authmethod:
-                type: str
-                description: Authmethod.
-                choices: ['psk', 'rsa-signature', 'signature']
-            auto_zone_policy:
-                aliases: ['auto-zone-policy']
-                type: str
-                description: Auto zone policy.
-                choices: ['disable', 'enable']
-            certificate:
-                type: raw
-                description: (list or str) Certificate.
-            description:
-                type: str
-                description: Description.
-            dpd:
-                type: str
-                description: Dpd.
-                choices: ['disable', 'enable', 'on-idle', 'on-demand']
-            dpd_retrycount:
-                aliases: ['dpd-retrycount']
-                type: int
-                description: Dpd retrycount.
-            dpd_retryinterval:
-                aliases: ['dpd-retryinterval']
-                type: raw
-                description: (list) Dpd retryinterval.
-            fcc_enforcement:
-                aliases: ['fcc-enforcement']
-                type: str
-                description: Fcc enforcement.
-                choices: ['disable', 'enable']
-            hub2spoke_zone:
-                aliases: ['hub2spoke-zone']
-                type: raw
-                description: (list or str) Hub2spoke zone.
-            ike_version:
-                aliases: ['ike-version']
-                type: str
-                description: Ike version.
-                choices: ['1', '2']
-            ike1dhgroup:
-                type: list
-                elements: str
-                description: Ike1dhgroup.
-                choices: ['1', '2', '5', '14', '15', '16', '17', '18', '19', '20', '21', '27',
-                          '28', '29', '30', '31', '32']
-            ike1dpd:
-                type: str
-                description: Ike1dpd.
-                choices: ['disable', 'enable']
-            ike1keylifesec:
-                type: int
-                description: Ike1keylifesec.
-            ike1localid:
-                type: str
-                description: Ike1localid.
-            ike1mode:
-                type: str
-                description: Ike1mode.
-                choices: ['main', 'aggressive']
-            ike1natkeepalive:
-                type: int
-                description: Ike1natkeepalive.
-            ike1nattraversal:
-                type: str
-                description: Ike1nattraversal.
-                choices: ['disable', 'enable', 'forced']
-            ike1proposal:
-                type: str
-                description: Ike1proposal.
-                choices: ['des-md5', 'des-sha1', '3des-md5', '3des-sha1', 'aes128-md5',
-                          'aes128-sha1', 'aes192-md5', 'aes192-sha1', 'aes256-md5', 'aes256-sha1',
-                          'des-sha256', '3des-sha256', 'aes128-sha256', 'aes192-sha256',
-                          'aes256-sha256', 'des-sha384', 'des-sha512', '3des-sha384',
-                          '3des-sha512', 'aes128-sha384', 'aes128-sha512', 'aes192-sha384',
-                          'aes192-sha512', 'aes256-sha384', 'aes256-sha512', 'aria128-md5',
-                          'aria128-sha1', 'aria128-sha256', 'aria128-sha384', 'aria128-sha512',
-                          'aria192-md5', 'aria192-sha1', 'aria192-sha256', 'aria192-sha384',
-                          'aria192-sha512', 'aria256-md5', 'aria256-sha1', 'aria256-sha256',
-                          'aria256-sha384', 'aria256-sha512', 'seed-md5', 'seed-sha1',
-                          'seed-sha256', 'seed-sha384', 'seed-sha512', 'aes128gcm-prfsha1',
-                          'aes128gcm-prfsha256', 'aes128gcm-prfsha384', 'aes128gcm-prfsha512',
-                          'aes256gcm-prfsha1', 'aes256gcm-prfsha256', 'aes256gcm-prfsha384',
-                          'aes256gcm-prfsha512', 'chacha20poly1305-prfsha1',
-                          'chacha20poly1305-prfsha256', 'chacha20poly1305-prfsha384',
-                          'chacha20poly1305-prfsha512']
-            ike2autonego:
-                type: str
-                description: Ike2autonego.
-                choices: ['disable', 'enable']
-            ike2dhgroup:
-                type: list
-                elements: str
-                description: Ike2dhgroup.
-                choices: ['1', '2', '5', '14', '15', '16', '17', '18', '19', '20', '21', '27',
-                          '28', '29', '30', '31', '32']
-            ike2keepalive:
-                type: str
-                description: Ike2keepalive.
-                choices: ['disable', 'enable']
-            ike2keylifekbs:
-                type: int
-                description: Ike2keylifekbs.
-            ike2keylifesec:
-                type: int
-                description: Ike2keylifesec.
-            ike2keylifetype:
-                type: str
-                description: Ike2keylifetype.
-                choices: ['seconds', 'kbs', 'both']
-            ike2proposal:
-                type: str
-                description: Ike2proposal.
-                choices: ['null-md5', 'null-sha1', 'des-null', '3des-null', 'des-md5', 'des-sha1',
-                          '3des-md5', '3des-sha1', 'aes128-md5', 'aes128-sha1', 'aes192-md5',
-                          'aes192-sha1', 'aes256-md5', 'aes256-sha1', 'aes128-null',
-                          'aes192-null', 'aes256-null', 'null-sha256', 'des-sha256',
-                          '3des-sha256', 'aes128-sha256', 'aes192-sha256', 'aes256-sha256',
-                          'des-sha384', 'des-sha512', '3des-sha384', '3des-sha512',
-                          'aes128-sha384', 'aes128-sha512', 'aes192-sha384', 'aes192-sha512',
-                          'aes256-sha384', 'aes256-sha512', 'null-sha384', 'null-sha512',
-                          'aria128-null', 'aria128-md5', 'aria128-sha1', 'aria128-sha256',
-                          'aria128-sha384', 'aria128-sha512', 'aria192-null', 'aria192-md5',
-                          'aria192-sha1', 'aria192-sha256', 'aria192-sha384', 'aria192-sha512',
-                          'aria256-null', 'aria256-md5', 'aria256-sha1', 'aria256-sha256',
-                          'aria256-sha384', 'aria256-sha512', 'seed-null', 'seed-md5',
-                          'seed-sha1', 'seed-sha256', 'seed-sha384', 'seed-sha512', 'aes128gcm',
-                          'aes256gcm', 'chacha20poly1305']
-            inter_vdom:
-                aliases: ['inter-vdom']
-                type: str
-                description: Inter vdom.
-                choices: ['disable', 'enable']
-            intf_mode:
-                aliases: ['intf-mode']
-                type: str
-                description: Intf mode.
-                choices: ['off', 'on']
-            localid_type:
-                aliases: ['localid-type']
-                type: str
-                description: Localid type.
-                choices: ['auto', 'fqdn', 'user-fqdn', 'keyid', 'address', 'asn1dn']
-            name:
-                type: str
-                description: Name.
-                required: true
-            negotiate_timeout:
-                aliases: ['negotiate-timeout']
-                type: int
-                description: Negotiate timeout.
-            npu_offload:
-                aliases: ['npu-offload']
-                type: str
-                description: Npu offload.
-                choices: ['disable', 'enable']
-            pfs:
-                type: str
-                description: Pfs.
-                choices: ['disable', 'enable']
-            psk_auto_generate:
-                aliases: ['psk-auto-generate']
-                type: str
-                description: Psk auto generate.
-                choices: ['disable', 'enable']
-            psksecret:
-                type: raw
-                description: (list) Psksecret.
-            replay:
-                type: str
-                description: Replay.
-                choices: ['disable', 'enable']
-            rsa_certificate:
-                aliases: ['rsa-certificate']
-                type: str
-                description: Rsa certificate.
-            spoke2hub_zone:
-                aliases: ['spoke2hub-zone']
-                type: raw
-                description: (list or str) Spoke2hub zone.
-            topology:
-                type: str
-                description: Topology.
-                choices: ['meshed', 'star', 'dialup']
-            vpn_zone:
-                aliases: ['vpn-zone']
-                type: raw
-                description: (list or str) Vpn zone.
-            network_id:
-                aliases: ['network-id']
-                type: int
-                description: Network id.
-            network_overlay:
-                aliases: ['network-overlay']
-                type: str
-                description: Network overlay.
-                choices: ['disable', 'enable']
+      negotiate_timeout:
+        aliases: ['negotiate-timeout']
+        type: int
+        description: Negotiate timeout.
+      npu_offload:
+        aliases: ['npu-offload']
+        type: str
+        description: Npu offload.
+        choices: ['disable', 'enable']
+      pfs:
+        type: str
+        description: Pfs.
+        choices: ['disable', 'enable']
+      psk_auto_generate:
+        aliases: ['psk-auto-generate']
+        type: str
+        description: Psk auto generate.
+        choices: ['disable', 'enable']
+      psksecret:
+        type: raw
+        description: (list) Psksecret.
+      replay:
+        type: str
+        description: Replay.
+        choices: ['disable', 'enable']
+      rsa_certificate:
+        aliases: ['rsa-certificate']
+        type: str
+        description: Rsa certificate.
+      spoke2hub_zone:
+        aliases: ['spoke2hub-zone']
+        type: raw
+        description: (list or str) Spoke2hub zone.
+      topology:
+        type: str
+        description: Topology.
+        choices: ['meshed', 'star', 'dialup']
+      vpn_zone:
+        aliases: ['vpn-zone']
+        type: raw
+        description: (list or str) Vpn zone.
+      network_id:
+        aliases: ['network-id']
+        type: int
+        description: Network id.
+      network_overlay:
+        aliases: ['network-overlay']
+        type: str
+        description: Network overlay.
+        choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -289,42 +286,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -374,7 +371,7 @@ def main():
                         'aria256-sha384', 'aria256-sha512', 'seed-md5', 'seed-sha1', 'seed-sha256', 'seed-sha384', 'seed-sha512', 'aes128gcm-prfsha1',
                         'aes128gcm-prfsha256', 'aes128gcm-prfsha384', 'aes128gcm-prfsha512', 'aes256gcm-prfsha1', 'aes256gcm-prfsha256',
                         'aes256gcm-prfsha384', 'aes256gcm-prfsha512', 'chacha20poly1305-prfsha1', 'chacha20poly1305-prfsha256',
-                        'chacha20poly1305-prfsha384', 'chacha20poly1305-prfsha512'
+                        'chacha20poly1305-prfsha384', 'chacha20poly1305-prfsha512', 'sm4-sm3'
                     ],
                     'type': 'str'
                 },
@@ -397,7 +394,7 @@ def main():
                         'null-sha384', 'null-sha512', 'aria128-null', 'aria128-md5', 'aria128-sha1', 'aria128-sha256', 'aria128-sha384',
                         'aria128-sha512', 'aria192-null', 'aria192-md5', 'aria192-sha1', 'aria192-sha256', 'aria192-sha384', 'aria192-sha512',
                         'aria256-null', 'aria256-md5', 'aria256-sha1', 'aria256-sha256', 'aria256-sha384', 'aria256-sha512', 'seed-null', 'seed-md5',
-                        'seed-sha1', 'seed-sha256', 'seed-sha384', 'seed-sha512', 'aes128gcm', 'aes256gcm', 'chacha20poly1305'
+                        'seed-sha1', 'seed-sha256', 'seed-sha384', 'seed-sha512', 'aes128gcm', 'aes256gcm', 'chacha20poly1305', 'sm4-sm3'
                     ],
                     'type': 'str'
                 },

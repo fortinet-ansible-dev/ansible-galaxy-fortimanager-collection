@@ -15,89 +15,108 @@ module: fmgr_firewall_addrgrp_dynamicmapping
 short_description: Configure IPv4 address groups.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
-        type: str
-    adom:
-        description: The parameter (adom) in requested url.
-        type: str
-        required: true
-    addrgrp:
-        description: The parameter (addrgrp) in requested url.
-        type: str
-        required: true
-    firewall_addrgrp_dynamicmapping:
-        description: The top level parameters set.
-        required: false
-        type: dict
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  addrgrp:
+    description: The parameter (addrgrp) in requested url.
+    type: str
+    required: true
+  firewall_addrgrp_dynamicmapping:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      _scope:
+        type: list
+        elements: dict
+        description: Scope.
         suboptions:
-            _scope:
-                type: list
-                elements: dict
-                description: Scope.
-                suboptions:
-                    name:
-                        type: str
-                        description: Name.
-                    vdom:
-                        type: str
-                        description: Vdom.
-            allow_routing:
-                aliases: ['allow-routing']
-                type: str
-                description: Allow routing.
-                choices: ['disable', 'enable']
-            color:
-                type: int
-                description: Color.
-            comment:
-                type: raw
-                description: (dict or str) Comment.
-            exclude:
-                type: str
-                description: Exclude.
-                choices: ['disable', 'enable']
-            exclude_member:
-                aliases: ['exclude-member']
-                type: raw
-                description: (list or str) Exclude member.
-            member:
-                type: raw
-                description: (list or str) Member.
-            tags:
-                type: raw
-                description: (list or str) Tags.
-            uuid:
-                type: str
-                description: Uuid.
-            visibility:
-                type: str
-                description: Visibility.
-                choices: ['disable', 'enable']
-            _image_base64:
-                aliases: ['_image-base64']
-                type: str
-                description: Image base64.
-            global_object:
-                aliases: ['global-object']
-                type: int
-                description: Global object.
-            type:
-                type: str
-                description: Type.
-                choices: ['default', 'array', 'folder']
-            fabric_object:
-                aliases: ['fabric-object']
-                type: str
-                description: Security Fabric global object setting.
-                choices: ['disable', 'enable']
-            category:
-                type: str
-                description: Address group category.
-                choices: ['default', 'ztna-ems-tag', 'ztna-geo-tag', 'telemetry']
+          name:
+            type: str
+            description: Name.
+          vdom:
+            type: str
+            description: Vdom.
+      allow_routing:
+        aliases: ['allow-routing']
+        type: str
+        description: Allow routing.
+        choices: ['disable', 'enable']
+      color:
+        type: int
+        description: Color.
+      comment:
+        type: raw
+        description: (dict or str) Comment.
+      exclude:
+        type: str
+        description: Exclude.
+        choices: ['disable', 'enable']
+      exclude_member:
+        aliases: ['exclude-member']
+        type: raw
+        description: (list or str) Exclude member.
+      member:
+        type: raw
+        description: (list or str) Member.
+      tags:
+        type: raw
+        description: (list or str) Tags.
+      uuid:
+        type: str
+        description: Uuid.
+      visibility:
+        type: str
+        description: Visibility.
+        choices: ['disable', 'enable']
+      _image_base64:
+        aliases: ['_image-base64']
+        type: str
+        description: Image base64.
+      global_object:
+        aliases: ['global-object']
+        type: int
+        description: Global object.
+      type:
+        type: str
+        description: Type.
+        choices: ['default', 'array', 'folder', 'dynamic-tag']
+      fabric_object:
+        aliases: ['fabric-object']
+        type: str
+        description: Security Fabric global object setting.
+        choices: ['disable', 'enable']
+      category:
+        type: str
+        description: Address group category.
+        choices: ['default', 'ztna-ems-tag', 'ztna-geo-tag', 'telemetry']
+      custom_tags:
+        aliases: ['custom-tags']
+        type: raw
+        description: (list) Custom tags.
+      display_with:
+        aliases: ['display-with']
+        type: str
+        description: Display object with first tag, all tags, or just the icon.
+        choices: ['all-tags', 'first-tag-only', 'icon-and-color']
+      fabric_force_sync:
+        aliases: ['fabric-force-sync']
+        type: str
+        description: Enable/disable forced synchronization of configuration objects from the root FortiGate unit to the downstream devices.
+        choices: ['disable', 'enable']
+      fabric_object_source:
+        aliases: ['fabric-object-source']
+        type: str
+        description: Source of truth for fabric object.
+        choices: ['member', 'local', 'root']
 '''
 
 EXAMPLES = '''
@@ -146,42 +165,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -213,9 +232,13 @@ def main():
                 'visibility': {'choices': ['disable', 'enable'], 'type': 'str'},
                 '_image-base64': {'v_range': [['6.2.2', '']], 'type': 'str'},
                 'global-object': {'v_range': [['6.4.0', '']], 'type': 'int'},
-                'type': {'v_range': [['6.4.0', '']], 'choices': ['default', 'array', 'folder'], 'type': 'str'},
+                'type': {'v_range': [['6.4.0', '']], 'choices': ['default', 'array', 'folder', 'dynamic-tag'], 'type': 'str'},
                 'fabric-object': {'v_range': [['6.4.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'category': {'v_range': [['7.0.0', '']], 'choices': ['default', 'ztna-ems-tag', 'ztna-geo-tag', 'telemetry'], 'type': 'str'}
+                'category': {'v_range': [['7.0.0', '']], 'choices': ['default', 'ztna-ems-tag', 'ztna-geo-tag', 'telemetry'], 'type': 'str'},
+                'custom-tags': {'v_range': [['8.0.0', '']], 'type': 'raw'},
+                'display-with': {'v_range': [['8.0.0', '']], 'choices': ['all-tags', 'first-tag-only', 'icon-and-color'], 'type': 'str'},
+                'fabric-force-sync': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'fabric-object-source': {'v_range': [['8.0.0', '']], 'choices': ['member', 'local', 'root'], 'type': 'str'}
             }
         }
     }

@@ -15,54 +15,54 @@ module: fmgr_application_internetservicecustom_entry
 short_description: Entries added to the Internet service database and custom database.
 version_added: "2.2.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  internet-service-custom:
+    description: Deprecated, please use "internet_service_custom"
+    type: str
+  internet_service_custom:
+    description: The parameter (internet-service-custom) in requested url.
+    type: str
+  application_internetservicecustom_entry:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      dst:
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
-        type: str
+        description: Destination address name.
+      id:
+        type: int
+        description: Entry ID
         required: true
-    internet-service-custom:
-        description: Deprecated, please use "internet_service_custom"
-        type: str
-    internet_service_custom:
-        description: The parameter (internet-service-custom) in requested url.
-        type: str
-    application_internetservicecustom_entry:
-        description: The top level parameters set.
-        required: false
-        type: dict
+      port_range:
+        aliases: ['port-range']
+        type: list
+        elements: dict
+        description: Port range.
         suboptions:
-            dst:
-                type: str
-                description: Destination address name.
-            id:
-                type: int
-                description: Entry ID
-                required: true
-            port_range:
-                aliases: ['port-range']
-                type: list
-                elements: dict
-                description: Port range.
-                suboptions:
-                    end_port:
-                        aliases: ['end-port']
-                        type: int
-                        description: End destination port number
-                    id:
-                        type: int
-                        description: Custom entry port range ID.
-                    start_port:
-                        aliases: ['start-port']
-                        type: int
-                        description: Start destination port number
-            protocol:
-                type: int
-                description: Protocol number.
+          end_port:
+            aliases: ['end-port']
+            type: int
+            description: End destination port number
+          id:
+            type: int
+            description: Custom entry port range ID.
+          start_port:
+            aliases: ['start-port']
+            type: int
+            description: Start destination port number
+      protocol:
+        type: int
+        description: Protocol number.
 '''
 
 EXAMPLES = '''
@@ -89,42 +89,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

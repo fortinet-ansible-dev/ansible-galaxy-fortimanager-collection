@@ -15,130 +15,130 @@ module: fmgr_system_alertevent
 short_description: Alert events.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    system_alertevent:
-        description: The top level parameters set.
-        required: false
-        type: dict
+  system_alertevent:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      alert_destination:
+        aliases: ['alert-destination']
+        type: list
+        elements: dict
+        description: Alert destination.
         suboptions:
-            alert_destination:
-                aliases: ['alert-destination']
-                type: list
-                elements: dict
-                description: Alert destination.
-                suboptions:
-                    from:
-                        type: str
-                        description: Sender email address to use in alert emails.
-                    smtp_name:
-                        aliases: ['smtp-name']
-                        type: str
-                        description: SMTP server name.
-                    snmp_name:
-                        aliases: ['snmp-name']
-                        type: str
-                        description: SNMP trap name.
-                    syslog_name:
-                        aliases: ['syslog-name']
-                        type: str
-                        description: Syslog server name.
-                    to:
-                        type: str
-                        description: Recipient email address to use in alert emails.
-                    type:
-                        type: str
-                        description:
-                            - Destination type.
-                            - mail - Send email alert.
-                            - snmp - Send SNMP trap.
-                            - syslog - Send syslog message.
-                        choices: ['mail', 'snmp', 'syslog']
-            enable_generic_text:
-                aliases: ['enable-generic-text']
-                type: list
-                elements: str
-                description:
-                    - Enable/disable generic text match.
-                    - enable - Enable setting.
-                    - disable - Disable setting.
-                choices: ['enable', 'disable']
-            enable_severity_filter:
-                aliases: ['enable-severity-filter']
-                type: list
-                elements: str
-                description:
-                    - Enable/disable alert severity filter.
-                    - enable - Enable setting.
-                    - disable - Disable setting.
-                choices: ['enable', 'disable']
-            event_time_period:
-                aliases: ['event-time-period']
-                type: str
-                description:
-                    - Time period
-                    - '0.'
-                    - 1 - 1 hour.
-                    - 3 - 3 hours.
-                    - 6 - 6 hours.
-                    - 12 - 12 hours.
-                    - 24 - 1 day.
-                    - 72 - 3 days.
-                    - 168 - 1 week.
-                choices: ['0.5', '1', '3', '6', '12', '24', '72', '168']
-            generic_text:
-                aliases: ['generic-text']
-                type: str
-                description: Text that must be contained in a log to trigger alert.
-            name:
-                type: str
-                description: Alert name.
-                required: true
-            num_events:
-                aliases: ['num-events']
-                type: str
-                description:
-                    - Minimum number of events required within time period.
-                    - 1 - 1 event.
-                    - 5 - 5 events.
-                    - 10 - 10 events.
-                    - 50 - 50 events.
-                    - 100 - 100 events.
-                choices: ['1', '5', '10', '50', '100']
-            severity_filter:
-                aliases: ['severity-filter']
-                type: str
-                description:
-                    - Required log severity to trigger alert.
-                    - high - High level alert.
-                    - medium-high - Medium-high level alert.
-                    - medium - Medium level alert.
-                    - medium-low - Medium-low level alert.
-                    - low - Low level alert.
-                choices: ['high', 'medium-high', 'medium', 'medium-low', 'low']
-            severity_level_comp:
-                aliases: ['severity-level-comp']
-                type: list
-                elements: str
-                description: Log severity threshold comparison criterion.
-                choices: ['>=', '=', '<=']
-            severity_level_logs:
-                aliases: ['severity-level-logs']
-                type: list
-                elements: str
-                description:
-                    - Log severity threshold level.
-                    - no-check - Do not check severity level for this log type.
-                    - information - Information level.
-                    - notify - Notify level.
-                    - warning - Warning level.
-                    - error - Error level.
-                    - critical - Critical level.
-                    - alert - Alert level.
-                    - emergency - Emergency level.
-                choices: ['no-check', 'information', 'notify', 'warning', 'error', 'critical',
-                          'alert', 'emergency']
+          from:
+            type: str
+            description: Sender email address to use in alert emails.
+          smtp_name:
+            aliases: ['smtp-name']
+            type: str
+            description: SMTP server name.
+          snmp_name:
+            aliases: ['snmp-name']
+            type: str
+            description: SNMP trap name.
+          syslog_name:
+            aliases: ['syslog-name']
+            type: str
+            description: Syslog server name.
+          to:
+            type: str
+            description: Recipient email address to use in alert emails.
+          type:
+            type: str
+            description:
+              - Destination type.
+              - mail - Send email alert.
+              - snmp - Send SNMP trap.
+              - syslog - Send syslog message.
+            choices: ['mail', 'snmp', 'syslog']
+      enable_generic_text:
+        aliases: ['enable-generic-text']
+        type: list
+        elements: str
+        description:
+          - Enable/disable generic text match.
+          - enable - Enable setting.
+          - disable - Disable setting.
+        choices: ['enable', 'disable']
+      enable_severity_filter:
+        aliases: ['enable-severity-filter']
+        type: list
+        elements: str
+        description:
+          - Enable/disable alert severity filter.
+          - enable - Enable setting.
+          - disable - Disable setting.
+        choices: ['enable', 'disable']
+      event_time_period:
+        aliases: ['event-time-period']
+        type: str
+        description:
+          - Time period
+          - '0.'
+          - 1 - 1 hour.
+          - 3 - 3 hours.
+          - 6 - 6 hours.
+          - 12 - 12 hours.
+          - 24 - 1 day.
+          - 72 - 3 days.
+          - 168 - 1 week.
+        choices: ['0.5', '1', '3', '6', '12', '24', '72', '168']
+      generic_text:
+        aliases: ['generic-text']
+        type: str
+        description: Text that must be contained in a log to trigger alert.
+      name:
+        type: str
+        description: Alert name.
+        required: true
+      num_events:
+        aliases: ['num-events']
+        type: str
+        description:
+          - Minimum number of events required within time period.
+          - 1 - 1 event.
+          - 5 - 5 events.
+          - 10 - 10 events.
+          - 50 - 50 events.
+          - 100 - 100 events.
+        choices: ['1', '5', '10', '50', '100']
+      severity_filter:
+        aliases: ['severity-filter']
+        type: str
+        description:
+          - Required log severity to trigger alert.
+          - high - High level alert.
+          - medium-high - Medium-high level alert.
+          - medium - Medium level alert.
+          - medium-low - Medium-low level alert.
+          - low - Low level alert.
+        choices: ['high', 'medium-high', 'medium', 'medium-low', 'low']
+      severity_level_comp:
+        aliases: ['severity-level-comp']
+        type: list
+        elements: str
+        description: Log severity threshold comparison criterion.
+        choices: ['>=', '=', '<=']
+      severity_level_logs:
+        aliases: ['severity-level-logs']
+        type: list
+        elements: str
+        description:
+          - Log severity threshold level.
+          - no-check - Do not check severity level for this log type.
+          - information - Information level.
+          - notify - Notify level.
+          - warning - Warning level.
+          - error - Error level.
+          - critical - Critical level.
+          - alert - Alert level.
+          - emergency - Emergency level.
+        choices: ['no-check', 'information', 'notify', 'warning', 'error', 'critical', 'alert',
+                  'emergency']
 '''
 
 EXAMPLES = '''
@@ -197,42 +197,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

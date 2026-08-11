@@ -15,57 +15,57 @@ module: fmgr_wagprofile
 short_description: Configure wireless access gateway
 version_added: "2.1.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  wagprofile:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      comment:
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Comment.
+      dhcp_ip_addr:
+        aliases: ['dhcp-ip-addr']
         type: str
+        description: IP address of the monitoring DHCP request packet sent through the tunnel.
+      name:
+        type: str
+        description: Tunnel profile name.
         required: true
-    wagprofile:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            comment:
-                type: str
-                description: Comment.
-            dhcp_ip_addr:
-                aliases: ['dhcp-ip-addr']
-                type: str
-                description: IP address of the monitoring DHCP request packet sent through the tunnel.
-            name:
-                type: str
-                description: Tunnel profile name.
-                required: true
-            ping_interval:
-                aliases: ['ping-interval']
-                type: int
-                description: Interval between two tunnel monitoring echo packets
-            ping_number:
-                aliases: ['ping-number']
-                type: int
-                description: Number of the tunnel monitoring echo packets
-            return_packet_timeout:
-                aliases: ['return-packet-timeout']
-                type: int
-                description: Window of time for the return packets from the tunnels remote end
-            tunnel_type:
-                aliases: ['tunnel-type']
-                type: str
-                description: Tunnel type.
-                choices: ['gre', 'l2tpv3']
-            wag_ip:
-                aliases: ['wag-ip']
-                type: str
-                description: IP Address of the wireless access gateway.
-            wag_port:
-                aliases: ['wag-port']
-                type: int
-                description: UDP port of the wireless access gateway.
+      ping_interval:
+        aliases: ['ping-interval']
+        type: int
+        description: Interval between two tunnel monitoring echo packets
+      ping_number:
+        aliases: ['ping-number']
+        type: int
+        description: Number of the tunnel monitoring echo packets
+      return_packet_timeout:
+        aliases: ['return-packet-timeout']
+        type: int
+        description: Window of time for the return packets from the tunnels remote end
+      tunnel_type:
+        aliases: ['tunnel-type']
+        type: str
+        description: Tunnel type.
+        choices: ['gre', 'l2tpv3']
+      wag_ip:
+        aliases: ['wag-ip']
+        type: str
+        description: IP Address of the wireless access gateway.
+      wag_port:
+        aliases: ['wag-port']
+        type: int
+        description: UDP port of the wireless access gateway.
 '''
 
 EXAMPLES = '''
@@ -93,42 +93,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

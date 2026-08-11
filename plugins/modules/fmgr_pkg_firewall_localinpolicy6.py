@@ -15,112 +15,119 @@ module: fmgr_pkg_firewall_localinpolicy6
 short_description: Configure user defined IPv6 local-in policies.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  pkg:
+    description: The parameter (pkg) in requested url.
+    type: str
+    required: true
+  pkg_firewall_localinpolicy6:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      action:
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
-        type: str
+        description: Action performed on traffic matching the policy
+        choices: ['deny', 'accept']
+      dstaddr:
+        type: raw
+        description: (list or str) Destination address object from available options.
+      intf:
+        type: raw
+        description: Incoming interface name from available options.
+      policyid:
+        type: int
+        description: User defined local in policy ID.
         required: true
-    pkg:
-        description: The parameter (pkg) in requested url.
+      schedule:
         type: str
-        required: true
-    pkg_firewall_localinpolicy6:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            action:
-                type: str
-                description: Action performed on traffic matching the policy
-                choices: ['deny', 'accept']
-            dstaddr:
-                type: raw
-                description: (list or str) Destination address object from available options.
-            intf:
-                type: raw
-                description: Incoming interface name from available options.
-            policyid:
-                type: int
-                description: User defined local in policy ID.
-                required: true
-            schedule:
-                type: str
-                description: Schedule object from available options.
-            service:
-                type: raw
-                description: (list or str) Service object from available options.
-            srcaddr:
-                type: raw
-                description: (list or str) Source address object from available options.
-            status:
-                type: str
-                description: Enable/disable this local-in policy.
-                choices: ['disable', 'enable']
-            comments:
-                type: str
-                description: Comment.
-            uuid:
-                type: str
-                description: Universally Unique Identifier
-            dstaddr_negate:
-                aliases: ['dstaddr-negate']
-                type: str
-                description: When enabled dstaddr specifies what the destination address must NOT be.
-                choices: ['disable', 'enable']
-            service_negate:
-                aliases: ['service-negate']
-                type: str
-                description: When enabled service specifies what the service must NOT be.
-                choices: ['disable', 'enable']
-            srcaddr_negate:
-                aliases: ['srcaddr-negate']
-                type: str
-                description: When enabled srcaddr specifies what the source address must NOT be.
-                choices: ['disable', 'enable']
-            virtual_patch:
-                aliases: ['virtual-patch']
-                type: str
-                description: Enable/disable the virtual patching feature.
-                choices: ['disable', 'enable']
-            internet_service6_src:
-                aliases: ['internet-service6-src']
-                type: str
-                description: Enable/disable use of IPv6 Internet Services in source for this local-in policy.
-                choices: ['disable', 'enable']
-            internet_service6_src_custom:
-                aliases: ['internet-service6-src-custom']
-                type: raw
-                description: (list) Custom IPv6 Internet Service source name.
-            internet_service6_src_custom_group:
-                aliases: ['internet-service6-src-custom-group']
-                type: raw
-                description: (list) Custom Internet Service6 source group name.
-            internet_service6_src_group:
-                aliases: ['internet-service6-src-group']
-                type: raw
-                description: (list) Internet Service6 source group name.
-            internet_service6_src_name:
-                aliases: ['internet-service6-src-name']
-                type: raw
-                description: (list) IPv6 Internet Service source name.
-            internet_service6_src_negate:
-                aliases: ['internet-service6-src-negate']
-                type: str
-                description: When enabled internet-service6-src specifies what the service must NOT be.
-                choices: ['disable', 'enable']
-            logtraffic:
-                type: str
-                description: Enable/disable local-in traffic logging.
-                choices: ['disable', 'enable']
-            internet_service6_src_fortiguard:
-                aliases: ['internet-service6-src-fortiguard']
-                type: raw
-                description: (list) FortiGuard IPv6 Internet Service source name.
+        description: Schedule object from available options.
+      service:
+        type: raw
+        description: (list or str) Service object from available options.
+      srcaddr:
+        type: raw
+        description: (list or str) Source address object from available options.
+      status:
+        type: str
+        description: Enable/disable this local-in policy.
+        choices: ['disable', 'enable']
+      comments:
+        type: str
+        description: Comment.
+      uuid:
+        type: str
+        description: Universally Unique Identifier
+      dstaddr_negate:
+        aliases: ['dstaddr-negate']
+        type: str
+        description: When enabled dstaddr specifies what the destination address must NOT be.
+        choices: ['disable', 'enable']
+      service_negate:
+        aliases: ['service-negate']
+        type: str
+        description: When enabled service specifies what the service must NOT be.
+        choices: ['disable', 'enable']
+      srcaddr_negate:
+        aliases: ['srcaddr-negate']
+        type: str
+        description: When enabled srcaddr specifies what the source address must NOT be.
+        choices: ['disable', 'enable']
+      virtual_patch:
+        aliases: ['virtual-patch']
+        type: str
+        description: Enable/disable the virtual patching feature.
+        choices: ['disable', 'enable']
+      internet_service6_src:
+        aliases: ['internet-service6-src']
+        type: str
+        description: Enable/disable use of IPv6 Internet Services in source for this local-in policy.
+        choices: ['disable', 'enable']
+      internet_service6_src_custom:
+        aliases: ['internet-service6-src-custom']
+        type: raw
+        description: (list) Custom IPv6 Internet Service source name.
+      internet_service6_src_custom_group:
+        aliases: ['internet-service6-src-custom-group']
+        type: raw
+        description: (list) Custom Internet Service6 source group name.
+      internet_service6_src_group:
+        aliases: ['internet-service6-src-group']
+        type: raw
+        description: (list) Internet Service6 source group name.
+      internet_service6_src_name:
+        aliases: ['internet-service6-src-name']
+        type: raw
+        description: (list) IPv6 Internet Service source name.
+      internet_service6_src_negate:
+        aliases: ['internet-service6-src-negate']
+        type: str
+        description: When enabled internet-service6-src specifies what the service must NOT be.
+        choices: ['disable', 'enable']
+      logtraffic:
+        type: str
+        description: Enable/disable local-in traffic logging.
+        choices: ['disable', 'enable']
+      internet_service6_src_fortiguard:
+        aliases: ['internet-service6-src-fortiguard']
+        type: raw
+        description: (list) FortiGuard IPv6 Internet Service source name.
+      _policy_block:
+        type: int
+        description: Assigned policy block.
+      custom_tags:
+        aliases: ['custom-tags']
+        type: raw
+        description: (list) Custom tags.
 '''
 
 EXAMPLES = '''
@@ -170,42 +177,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -245,7 +252,9 @@ def main():
                 'internet-service6-src-name': {'v_range': [['7.4.3', '']], 'type': 'raw'},
                 'internet-service6-src-negate': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'logtraffic': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'internet-service6-src-fortiguard': {'v_range': [['7.6.4', '']], 'type': 'raw'}
+                'internet-service6-src-fortiguard': {'v_range': [['7.6.4', '']], 'type': 'raw'},
+                '_policy_block': {'v_range': [['8.0.0', '']], 'type': 'int'},
+                'custom-tags': {'v_range': [['8.0.0', '']], 'type': 'raw'}
             }
         }
     }

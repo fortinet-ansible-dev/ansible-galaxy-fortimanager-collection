@@ -15,38 +15,38 @@ module: fmgr_dlp_exactdatamatch_columns
 short_description: DLP exact-data-match column types.
 version_added: "2.10.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  exact-data-match:
+    description: Deprecated, please use "exact_data_match"
+    type: str
+  exact_data_match:
+    description: The parameter (exact-data-match) in requested url.
+    type: str
+  dlp_exactdatamatch_columns:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      index:
+        type: int
+        description: Column index.
+      optional:
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
-        type: str
-        required: true
-    exact-data-match:
-        description: Deprecated, please use "exact_data_match"
-        type: str
-    exact_data_match:
-        description: The parameter (exact-data-match) in requested url.
-        type: str
-    dlp_exactdatamatch_columns:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            index:
-                type: int
-                description: Column index.
-            optional:
-                type: str
-                description: Enable/disable optional match.
-                choices: ['disable', 'enable']
-            type:
-                type: list
-                elements: str
-                description: Data-type for this column.
+        description: Enable/disable optional match.
+        choices: ['disable', 'enable']
+      type:
+        type: list
+        elements: str
+        description: Data-type for this column.
 '''
 
 EXAMPLES = '''
@@ -69,42 +69,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -123,11 +123,11 @@ def main():
         'exact_data_match': {'type': 'str'},
         'revision_note': {'type': 'str'},
         'dlp_exactdatamatch_columns': {
-            'type': 'dict', 'v_range': [['7.4.7', '7.4.10'], ['7.6.3', '']],
+            'type': 'dict', 'v_range': [['7.4.7', '7.4.11'], ['7.6.3', '']],
             'options': {
-                'index': {'v_range': [['7.4.7', '7.4.10'], ['7.6.3', '']], 'type': 'int'},
-                'optional': {'v_range': [['7.4.7', '7.4.10'], ['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'type': {'v_range': [['7.4.7', '7.4.10'], ['7.6.3', '']], 'type': 'list', 'elements': 'str'}
+                'index': {'v_range': [['7.4.7', '7.4.11'], ['7.6.3', '']], 'type': 'int'},
+                'optional': {'v_range': [['7.4.7', '7.4.11'], ['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'type': {'v_range': [['7.4.7', '7.4.11'], ['7.6.3', '']], 'type': 'list', 'elements': 'str'}
             }
         }
     }

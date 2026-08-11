@@ -15,118 +15,118 @@ module: fmgr_devprof_system_ntp
 short_description: Configure system NTP information.
 version_added: "1.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.partial_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.partial_crud
 options:
-    adom:
-        description: The parameter (adom) in requested url.
-        type: str
-        required: true
-    devprof:
-        description: The parameter (devprof) in requested url.
-        type: str
-        required: true
-    devprof_system_ntp:
-        description: The top level parameters set.
-        required: false
-        type: dict
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  devprof:
+    description: The parameter (devprof) in requested url.
+    type: str
+    required: true
+  devprof_system_ntp:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      ntpserver:
+        type: list
+        elements: dict
+        description: Ntpserver.
         suboptions:
-            ntpserver:
-                type: list
-                elements: dict
-                description: Ntpserver.
-                suboptions:
-                    authentication:
-                        type: str
-                        description: Enable/disable MD5 authentication.
-                        choices: ['disable', 'enable']
-                    id:
-                        type: int
-                        description: NTP server ID.
-                    key:
-                        type: raw
-                        description: (list) Key for MD5 authentication.
-                    key_id:
-                        aliases: ['key-id']
-                        type: int
-                        description: Key ID for authentication.
-                    ntpv3:
-                        type: str
-                        description: Enable to use NTPv3 instead of NTPv4.
-                        choices: ['disable', 'enable']
-                    server:
-                        type: str
-                        description: IP address or hostname of the NTP Server.
-                    interface:
-                        type: str
-                        description: Specify outgoing interface to reach server.
-                    interface_select_method:
-                        aliases: ['interface-select-method']
-                        type: str
-                        description: Specify how to select outgoing interface to reach server.
-                        choices: ['auto', 'sdwan', 'specify']
-                    ip_type:
-                        aliases: ['ip-type']
-                        type: str
-                        description: Choose to connect to IPv4 or/and IPv6 NTP server.
-                        choices: ['IPv6', 'IPv4', 'Both']
-                    key_type:
-                        aliases: ['key-type']
-                        type: str
-                        description: Select NTP authentication type.
-                        choices: ['SHA1', 'SHA256', 'MD5']
-                    vrf_select:
-                        aliases: ['vrf-select']
-                        type: int
-                        description: VRF ID used for connection to server.
-            ntpsync:
-                type: str
-                description: Enable/disable setting the FortiGate system time by synchronizing with an NTP Server.
-                choices: ['disable', 'enable']
-            source_ip6:
-                aliases: ['source-ip6']
-                type: str
-                description: Source IPv6 address for communication to the NTP server.
-            syncinterval:
-                type: int
-                description: NTP synchronization interval
-            type:
-                type: str
-                description: Use the FortiGuard NTP server or any other available NTP Server.
-                choices: ['fortiguard', 'custom']
-            authentication:
-                type: str
-                description: Enable/disable authentication.
-                choices: ['disable', 'enable']
-            key:
-                type: raw
-                description: (list) Key for authentication.
-            key_id:
-                aliases: ['key-id']
-                type: int
-                description: Key ID for authentication.
-            key_type:
-                aliases: ['key-type']
-                type: str
-                description: Key type for authentication
-                choices: ['MD5', 'SHA1', 'SHA256']
-            interface:
-                type: raw
-                description:
-                    - (list)
-                    - Support meta variable
-                    - FortiGate interface
-            server_mode:
-                aliases: ['server-mode']
-                type: str
-                description: Enable/disable FortiGate NTP Server Mode.
-                choices: ['disable', 'enable']
-            source_ip:
-                aliases: ['source-ip']
-                type: str
-                description:
-                    - Support meta variable
-                    - Source IP address for communication to the NTP server.
+          authentication:
+            type: str
+            description: Enable/disable MD5 authentication.
+            choices: ['disable', 'enable']
+          id:
+            type: int
+            description: NTP server ID.
+          key:
+            type: raw
+            description: (list) Key for MD5 authentication.
+          key_id:
+            aliases: ['key-id']
+            type: int
+            description: Key ID for authentication.
+          ntpv3:
+            type: str
+            description: Enable to use NTPv3 instead of NTPv4.
+            choices: ['disable', 'enable']
+          server:
+            type: str
+            description: IP address or hostname of the NTP Server.
+          interface:
+            type: str
+            description: Specify outgoing interface to reach server.
+          interface_select_method:
+            aliases: ['interface-select-method']
+            type: str
+            description: Specify how to select outgoing interface to reach server.
+            choices: ['auto', 'sdwan', 'specify']
+          ip_type:
+            aliases: ['ip-type']
+            type: str
+            description: Choose to connect to IPv4 or/and IPv6 NTP server.
+            choices: ['IPv6', 'IPv4', 'Both']
+          key_type:
+            aliases: ['key-type']
+            type: str
+            description: Select NTP authentication type.
+            choices: ['SHA1', 'SHA256', 'MD5']
+          vrf_select:
+            aliases: ['vrf-select']
+            type: int
+            description: VRF ID used for connection to server.
+      ntpsync:
+        type: str
+        description: Enable/disable setting the FortiGate system time by synchronizing with an NTP Server.
+        choices: ['disable', 'enable']
+      source_ip6:
+        aliases: ['source-ip6']
+        type: str
+        description: Source IPv6 address for communication to the NTP server.
+      syncinterval:
+        type: int
+        description: NTP synchronization interval
+      type:
+        type: str
+        description: Use the FortiGuard NTP server or any other available NTP Server.
+        choices: ['fortiguard', 'custom']
+      authentication:
+        type: str
+        description: Enable/disable authentication.
+        choices: ['disable', 'enable']
+      key:
+        type: raw
+        description: (list) Key for authentication.
+      key_id:
+        aliases: ['key-id']
+        type: int
+        description: Key ID for authentication.
+      key_type:
+        aliases: ['key-type']
+        type: str
+        description: Key type for authentication
+        choices: ['MD5', 'SHA1', 'SHA256']
+      interface:
+        type: raw
+        description:
+          - (list)
+          - Support meta variable
+          - FortiGate interface
+      server_mode:
+        aliases: ['server-mode']
+        type: str
+        description: Enable/disable FortiGate NTP Server Mode.
+        choices: ['disable', 'enable']
+      source_ip:
+        aliases: ['source-ip']
+        type: str
+        description:
+          - Support meta variable
+          - Source IP address for communication to the NTP server.
 '''
 
 EXAMPLES = '''
@@ -168,42 +168,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

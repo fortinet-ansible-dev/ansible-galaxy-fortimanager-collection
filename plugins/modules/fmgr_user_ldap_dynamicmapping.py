@@ -15,245 +15,263 @@ module: fmgr_user_ldap_dynamicmapping
 short_description: Configure LDAP server entries.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
-        type: str
-    adom:
-        description: The parameter (adom) in requested url.
-        type: str
-        required: true
-    ldap:
-        description: The parameter (ldap) in requested url.
-        type: str
-        required: true
-    user_ldap_dynamicmapping:
-        description: The top level parameters set.
-        required: false
-        type: dict
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  ldap:
+    description: The parameter (ldap) in requested url.
+    type: str
+    required: true
+  user_ldap_dynamicmapping:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      _scope:
+        type: list
+        elements: dict
+        description: Scope.
         suboptions:
-            _scope:
-                type: list
-                elements: dict
-                description: Scope.
-                suboptions:
-                    name:
-                        type: str
-                        description: Name.
-                    vdom:
-                        type: str
-                        description: Vdom.
-            account_key_filter:
-                aliases: ['account-key-filter']
-                type: str
-                description: Account key filter.
-            account_key_name:
-                aliases: ['account-key-name']
-                type: str
-                description: Account key name.
-            account_key_processing:
-                aliases: ['account-key-processing']
-                type: str
-                description: Account key processing.
-                choices: ['same', 'strip']
-            ca_cert:
-                aliases: ['ca-cert']
-                type: str
-                description: Ca cert.
-            cnid:
-                type: str
-                description: Cnid.
-            dn:
-                type: str
-                description: Dn.
-            filter:
-                type: str
-                description: Filter.
-            group:
-                type: str
-                description: Group.
-            group_filter:
-                aliases: ['group-filter']
-                type: str
-                description: Group filter.
-            group_member_check:
-                aliases: ['group-member-check']
-                type: str
-                description: Group member check.
-                choices: ['user-attr', 'group-object', 'posix-group-object']
-            group_object_filter:
-                aliases: ['group-object-filter']
-                type: str
-                description: Group object filter.
-            group_object_search_base:
-                aliases: ['group-object-search-base']
-                type: str
-                description: Group object search base.
-            group_search_base:
-                aliases: ['group-search-base']
-                type: str
-                description: Group search base.
-            member_attr:
-                aliases: ['member-attr']
-                type: str
-                description: Member attr.
-            obtain_user_info:
-                aliases: ['obtain-user-info']
-                type: str
-                description: Obtain user info.
-                choices: ['disable', 'enable']
-            password:
-                type: raw
-                description: (list) Password.
-            password_expiry_warning:
-                aliases: ['password-expiry-warning']
-                type: str
-                description: Password expiry warning.
-                choices: ['disable', 'enable']
-            password_renewal:
-                aliases: ['password-renewal']
-                type: str
-                description: Password renewal.
-                choices: ['disable', 'enable']
-            port:
-                type: int
-                description: Port.
-            retrieve_protection_profile:
-                aliases: ['retrieve-protection-profile']
-                type: str
-                description: Retrieve protection profile.
-            search_type:
-                aliases: ['search-type']
-                type: list
-                elements: str
-                description: Search type.
-                choices: ['nested', 'recursive']
-            secondary_server:
-                aliases: ['secondary-server']
-                type: str
-                description: Secondary server.
-            secure:
-                type: str
-                description: Secure.
-                choices: ['disable', 'starttls', 'ldaps']
-            server:
-                type: str
-                description: Server.
-            server_identity_check:
-                aliases: ['server-identity-check']
-                type: str
-                description: Server identity check.
-                choices: ['disable', 'enable']
-            source_ip:
-                aliases: ['source-ip']
-                type: str
-                description: Source ip.
-            ssl_min_proto_version:
-                aliases: ['ssl-min-proto-version']
-                type: str
-                description: Ssl min proto version.
-                choices: ['default', 'TLSv1', 'TLSv1-1', 'TLSv1-2', 'SSLv3', 'TLSv1-3']
-            tertiary_server:
-                aliases: ['tertiary-server']
-                type: str
-                description: Tertiary server.
-            type:
-                type: str
-                description: Type.
-                choices: ['simple', 'anonymous', 'regular']
-            user_info_exchange_server:
-                aliases: ['user-info-exchange-server']
-                type: str
-                description: User info exchange server.
-            username:
-                type: str
-                description: Username.
-            two_factor:
-                aliases: ['two-factor']
-                type: str
-                description: Two factor.
-                choices: ['disable', 'fortitoken-cloud']
-            interface:
-                type: str
-                description: Interface.
-            interface_select_method:
-                aliases: ['interface-select-method']
-                type: str
-                description: Interface select method.
-                choices: ['auto', 'sdwan', 'specify']
-            two_factor_authentication:
-                aliases: ['two-factor-authentication']
-                type: str
-                description: Two factor authentication.
-                choices: ['fortitoken', 'email', 'sms']
-            two_factor_notification:
-                aliases: ['two-factor-notification']
-                type: str
-                description: Two factor notification.
-                choices: ['email', 'sms']
-            antiphish:
-                type: str
-                description: Enable/disable AntiPhishing credential backend.
-                choices: ['disable', 'enable']
-            password_attr:
-                aliases: ['password-attr']
-                type: str
-                description: Name of attribute to get password hash.
-            source_port:
-                aliases: ['source-port']
-                type: int
-                description: Source port to be used for communication with the LDAP server.
-            client_cert:
-                aliases: ['client-cert']
-                type: str
-                description: Client certificate name.
-            client_cert_auth:
-                aliases: ['client-cert-auth']
-                type: str
-                description: Enable/disable using client certificate for TLS authentication.
-                choices: ['disable', 'enable']
-            max_connections:
-                aliases: ['max-connections']
-                type: int
-                description: Max connections.
-            two_factor_filter:
-                aliases: ['two-factor-filter']
-                type: str
-                description: Filter used to synchronize users to FortiToken Cloud.
-            account_key_upn_san:
-                aliases: ['account-key-upn-san']
-                type: str
-                description: Define SAN in certificate for user principle name matching.
-                choices: ['othername', 'rfc822name', 'dnsname']
-            account_key_cert_field:
-                aliases: ['account-key-cert-field']
-                type: str
-                description: Define subject identity field in certificate for user access right checking.
-                choices: ['othername', 'rfc822name', 'dnsname', 'cn']
-            status_ttl:
-                aliases: ['status-ttl']
-                type: int
-                description: Time for which server reachability is cached so that when a server is unreachable, it will not be retried for at least thi...
-            source_ip_interface:
-                aliases: ['source-ip-interface']
-                type: raw
-                description: (list) Source interface for communication with the LDAP server.
-            ssl_max_proto_version:
-                aliases: ['ssl-max-proto-version']
-                type: str
-                description: Ssl max proto version.
-                choices: ['TLSv1-1', 'TLSv1-2', 'SSLv3', 'TLSv1', 'TLSv1-3']
-            vrf_select:
-                aliases: ['vrf-select']
-                type: int
-                description: VRF ID used for connection to server.
-            validate_server_certificate:
-                aliases: ['validate-server-certificate']
-                type: str
-                description: Validate server certificate.
-                choices: ['disable', 'enable']
+          name:
+            type: str
+            description: Name.
+          vdom:
+            type: str
+            description: Vdom.
+      account_key_filter:
+        aliases: ['account-key-filter']
+        type: str
+        description: Account key filter.
+      account_key_name:
+        aliases: ['account-key-name']
+        type: str
+        description: Account key name.
+      account_key_processing:
+        aliases: ['account-key-processing']
+        type: str
+        description: Account key processing.
+        choices: ['same', 'strip']
+      ca_cert:
+        aliases: ['ca-cert']
+        type: str
+        description: Ca cert.
+      cnid:
+        type: str
+        description: Cnid.
+      dn:
+        type: str
+        description: Dn.
+      filter:
+        type: str
+        description: Filter.
+      group:
+        type: str
+        description: Group.
+      group_filter:
+        aliases: ['group-filter']
+        type: str
+        description: Group filter.
+      group_member_check:
+        aliases: ['group-member-check']
+        type: str
+        description: Group member check.
+        choices: ['user-attr', 'group-object', 'posix-group-object']
+      group_object_filter:
+        aliases: ['group-object-filter']
+        type: str
+        description: Group object filter.
+      group_object_search_base:
+        aliases: ['group-object-search-base']
+        type: str
+        description: Group object search base.
+      group_search_base:
+        aliases: ['group-search-base']
+        type: str
+        description: Group search base.
+      member_attr:
+        aliases: ['member-attr']
+        type: str
+        description: Member attr.
+      obtain_user_info:
+        aliases: ['obtain-user-info']
+        type: str
+        description: Obtain user info.
+        choices: ['disable', 'enable']
+      password:
+        type: raw
+        description: (list) Password.
+      password_expiry_warning:
+        aliases: ['password-expiry-warning']
+        type: str
+        description: Password expiry warning.
+        choices: ['disable', 'enable']
+      password_renewal:
+        aliases: ['password-renewal']
+        type: str
+        description: Password renewal.
+        choices: ['disable', 'enable']
+      port:
+        type: int
+        description: Port.
+      retrieve_protection_profile:
+        aliases: ['retrieve-protection-profile']
+        type: str
+        description: Retrieve protection profile.
+      search_type:
+        aliases: ['search-type']
+        type: list
+        elements: str
+        description: Search type.
+        choices: ['nested', 'recursive']
+      secondary_server:
+        aliases: ['secondary-server']
+        type: str
+        description: Secondary server.
+      secure:
+        type: str
+        description: Secure.
+        choices: ['disable', 'starttls', 'ldaps']
+      server:
+        type: str
+        description: Server.
+      server_identity_check:
+        aliases: ['server-identity-check']
+        type: str
+        description: Server identity check.
+        choices: ['disable', 'enable']
+      source_ip:
+        aliases: ['source-ip']
+        type: str
+        description: Source ip.
+      ssl_min_proto_version:
+        aliases: ['ssl-min-proto-version']
+        type: str
+        description: Ssl min proto version.
+        choices: ['default', 'TLSv1', 'TLSv1-1', 'TLSv1-2', 'SSLv3', 'TLSv1-3']
+      tertiary_server:
+        aliases: ['tertiary-server']
+        type: str
+        description: Tertiary server.
+      type:
+        type: str
+        description: Type.
+        choices: ['simple', 'anonymous', 'regular']
+      user_info_exchange_server:
+        aliases: ['user-info-exchange-server']
+        type: str
+        description: User info exchange server.
+      username:
+        type: str
+        description: Username.
+      two_factor:
+        aliases: ['two-factor']
+        type: str
+        description: Two factor.
+        choices: ['disable', 'fortitoken-cloud']
+      interface:
+        type: str
+        description: Interface.
+      interface_select_method:
+        aliases: ['interface-select-method']
+        type: str
+        description: Interface select method.
+        choices: ['auto', 'sdwan', 'specify']
+      two_factor_authentication:
+        aliases: ['two-factor-authentication']
+        type: str
+        description: Two factor authentication.
+        choices: ['fortitoken', 'email', 'sms']
+      two_factor_notification:
+        aliases: ['two-factor-notification']
+        type: str
+        description: Two factor notification.
+        choices: ['email', 'sms']
+      antiphish:
+        type: str
+        description: Enable/disable AntiPhishing credential backend.
+        choices: ['disable', 'enable']
+      password_attr:
+        aliases: ['password-attr']
+        type: str
+        description: Name of attribute to get password hash.
+      source_port:
+        aliases: ['source-port']
+        type: int
+        description: Source port to be used for communication with the LDAP server.
+      client_cert:
+        aliases: ['client-cert']
+        type: str
+        description: Client certificate name.
+      client_cert_auth:
+        aliases: ['client-cert-auth']
+        type: str
+        description: Enable/disable using client certificate for TLS authentication.
+        choices: ['disable', 'enable']
+      max_connections:
+        aliases: ['max-connections']
+        type: int
+        description: Max connections.
+      two_factor_filter:
+        aliases: ['two-factor-filter']
+        type: str
+        description: Filter used to synchronize users to FortiToken Cloud.
+      account_key_upn_san:
+        aliases: ['account-key-upn-san']
+        type: str
+        description: Define SAN in certificate for user principle name matching.
+        choices: ['othername', 'rfc822name', 'dnsname']
+      account_key_cert_field:
+        aliases: ['account-key-cert-field']
+        type: str
+        description: Define subject identity field in certificate for user access right checking.
+        choices: ['othername', 'rfc822name', 'dnsname', 'cn']
+      status_ttl:
+        aliases: ['status-ttl']
+        type: int
+        description: Time for which server reachability is cached so that when a server is unreachable, it will not be retried for at least this period...
+      source_ip_interface:
+        aliases: ['source-ip-interface']
+        type: raw
+        description: (list) Source interface for communication with the LDAP server.
+      ssl_max_proto_version:
+        aliases: ['ssl-max-proto-version']
+        type: str
+        description: Ssl max proto version.
+        choices: ['TLSv1-1', 'TLSv1-2', 'SSLv3', 'TLSv1', 'TLSv1-3']
+      vrf_select:
+        aliases: ['vrf-select']
+        type: int
+        description: VRF ID used for connection to server.
+      validate_server_certificate:
+        aliases: ['validate-server-certificate']
+        type: str
+        description: Validate server certificate.
+        choices: ['disable', 'enable']
+      fabric_force_sync:
+        aliases: ['fabric-force-sync']
+        type: str
+        description: Enable/disable forced synchronization of configuration objects from the root FortiGate unit to the downstream devices.
+        choices: ['disable', 'enable']
+      fabric_object:
+        aliases: ['fabric-object']
+        type: str
+        description: Security Fabric global object setting.
+        choices: ['disable', 'enable']
+      fabric_object_source:
+        aliases: ['fabric-object-source']
+        type: str
+        description: Source of truth for fabric object.
+        choices: ['member', 'local', 'root']
+      uuid:
+        type: str
+        description: Universally Unique Identifier
 '''
 
 EXAMPLES = '''
@@ -303,42 +321,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -407,12 +425,16 @@ def main():
                 'status-ttl': {'v_range': [['7.4.3', '']], 'type': 'int'},
                 'source-ip-interface': {'v_range': [['7.6.0', '']], 'type': 'raw'},
                 'ssl-max-proto-version': {
-                    'v_range': [['7.2.10', '7.2.12'], ['7.4.4', '7.4.10'], ['7.6.2', '']],
+                    'v_range': [['7.2.10', '7.2.12'], ['7.4.4', '7.4.11'], ['7.6.2', '']],
                     'choices': ['TLSv1-1', 'TLSv1-2', 'SSLv3', 'TLSv1', 'TLSv1-3'],
                     'type': 'str'
                 },
                 'vrf-select': {'v_range': [['7.6.2', '']], 'type': 'int'},
-                'validate-server-certificate': {'v_range': [['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'validate-server-certificate': {'v_range': [['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'fabric-force-sync': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'fabric-object': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'fabric-object-source': {'v_range': [['8.0.0', '']], 'choices': ['member', 'local', 'root'], 'type': 'str'},
+                'uuid': {'v_range': [['8.0.0', '']], 'type': 'str'}
             }
         }
     }

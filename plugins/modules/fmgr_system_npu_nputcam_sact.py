@@ -15,266 +15,266 @@ module: fmgr_system_npu_nputcam_sact
 short_description: Source action of TCAM.
 version_added: "2.4.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.partial_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.partial_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  npu-tcam:
+    description: Deprecated, please use "npu_tcam"
+    type: str
+  npu_tcam:
+    description: The parameter (npu-tcam) in requested url.
+    type: str
+  system_npu_nputcam_sact:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      act:
+        type: int
+        description: Tcam sact act.
+      act_v:
+        aliases: ['act-v']
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Enable to set sact act.
+        choices: ['disable', 'enable']
+      bmproc:
+        type: int
+        description: Tcam sact bmproc.
+      bmproc_v:
+        aliases: ['bmproc-v']
         type: str
-        required: true
-    npu-tcam:
-        description: Deprecated, please use "npu_tcam"
+        description: Enable to set sact bmproc.
+        choices: ['disable', 'enable']
+      df_lif:
+        aliases: ['df-lif']
+        type: int
+        description: Tcam sact df-lif.
+      df_lif_v:
+        aliases: ['df-lif-v']
         type: str
-    npu_tcam:
-        description: The parameter (npu-tcam) in requested url.
+        description: Enable to set sact df-lif.
+        choices: ['disable', 'enable']
+      dfr:
+        type: int
+        description: Tcam sact dfr.
+      dfr_v:
+        aliases: ['dfr-v']
         type: str
-    system_npu_nputcam_sact:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            act:
-                type: int
-                description: Tcam sact act.
-            act_v:
-                aliases: ['act-v']
-                type: str
-                description: Enable to set sact act.
-                choices: ['disable', 'enable']
-            bmproc:
-                type: int
-                description: Tcam sact bmproc.
-            bmproc_v:
-                aliases: ['bmproc-v']
-                type: str
-                description: Enable to set sact bmproc.
-                choices: ['disable', 'enable']
-            df_lif:
-                aliases: ['df-lif']
-                type: int
-                description: Tcam sact df-lif.
-            df_lif_v:
-                aliases: ['df-lif-v']
-                type: str
-                description: Enable to set sact df-lif.
-                choices: ['disable', 'enable']
-            dfr:
-                type: int
-                description: Tcam sact dfr.
-            dfr_v:
-                aliases: ['dfr-v']
-                type: str
-                description: Enable to set sact dfr.
-                choices: ['disable', 'enable']
-            dmac_skip:
-                aliases: ['dmac-skip']
-                type: int
-                description: Tcam sact dmac-skip.
-            dmac_skip_v:
-                aliases: ['dmac-skip-v']
-                type: str
-                description: Enable to set sact dmac-skip.
-                choices: ['disable', 'enable']
-            dosen:
-                type: int
-                description: Tcam sact dosen.
-            dosen_v:
-                aliases: ['dosen-v']
-                type: str
-                description: Enable to set sact dosen.
-                choices: ['disable', 'enable']
-            espff_proc:
-                aliases: ['espff-proc']
-                type: int
-                description: Tcam sact espff-proc.
-            espff_proc_v:
-                aliases: ['espff-proc-v']
-                type: str
-                description: Enable to set sact espff-proc.
-                choices: ['disable', 'enable']
-            etype_pid:
-                aliases: ['etype-pid']
-                type: int
-                description: Tcam sact etype-pid.
-            etype_pid_v:
-                aliases: ['etype-pid-v']
-                type: str
-                description: Enable to set sact etype-pid.
-                choices: ['disable', 'enable']
-            frag_proc:
-                aliases: ['frag-proc']
-                type: int
-                description: Tcam sact frag-proc.
-            frag_proc_v:
-                aliases: ['frag-proc-v']
-                type: str
-                description: Enable to set sact frag-proc.
-                choices: ['disable', 'enable']
-            fwd:
-                type: int
-                description: Tcam sact fwd.
-            fwd_lif:
-                aliases: ['fwd-lif']
-                type: int
-                description: Tcam sact fwd-lif.
-            fwd_lif_v:
-                aliases: ['fwd-lif-v']
-                type: str
-                description: Enable to set sact fwd-lif.
-                choices: ['disable', 'enable']
-            fwd_tvid:
-                aliases: ['fwd-tvid']
-                type: int
-                description: Tcam sact fwd-tvid.
-            fwd_tvid_v:
-                aliases: ['fwd-tvid-v']
-                type: str
-                description: Enable to set sact fwd-vid.
-                choices: ['disable', 'enable']
-            fwd_v:
-                aliases: ['fwd-v']
-                type: str
-                description: Enable to set sact fwd.
-                choices: ['disable', 'enable']
-            icpen:
-                type: int
-                description: Tcam sact icpen.
-            icpen_v:
-                aliases: ['icpen-v']
-                type: str
-                description: Enable to set sact icpen.
-                choices: ['disable', 'enable']
-            igmp_mld_snp:
-                aliases: ['igmp-mld-snp']
-                type: int
-                description: Tcam sact igmp-mld-snp.
-            igmp_mld_snp_v:
-                aliases: ['igmp-mld-snp-v']
-                type: str
-                description: Enable to set sact igmp-mld-snp.
-                choices: ['disable', 'enable']
-            learn:
-                type: int
-                description: Tcam sact learn.
-            learn_v:
-                aliases: ['learn-v']
-                type: str
-                description: Enable to set sact learn.
-                choices: ['disable', 'enable']
-            m_srh_ctrl:
-                aliases: ['m-srh-ctrl']
-                type: int
-                description: Tcam sact m-srh-ctrl.
-            m_srh_ctrl_v:
-                aliases: ['m-srh-ctrl-v']
-                type: str
-                description: Enable to set sact m-srh-ctrl.
-                choices: ['disable', 'enable']
-            mac_id:
-                aliases: ['mac-id']
-                type: int
-                description: Tcam sact mac-id.
-            mac_id_v:
-                aliases: ['mac-id-v']
-                type: str
-                description: Enable to set sact mac-id.
-                choices: ['disable', 'enable']
-            mss:
-                type: int
-                description: Tcam sact mss.
-            mss_v:
-                aliases: ['mss-v']
-                type: str
-                description: Enable to set sact mss.
-                choices: ['disable', 'enable']
-            pleen:
-                type: int
-                description: Tcam sact pleen.
-            pleen_v:
-                aliases: ['pleen-v']
-                type: str
-                description: Enable to set sact pleen.
-                choices: ['disable', 'enable']
-            prio_pid:
-                aliases: ['prio-pid']
-                type: int
-                description: Tcam sact prio-pid.
-            prio_pid_v:
-                aliases: ['prio-pid-v']
-                type: str
-                description: Enable to set sact prio-pid.
-                choices: ['disable', 'enable']
-            promis:
-                type: int
-                description: Tcam sact promis.
-            promis_v:
-                aliases: ['promis-v']
-                type: str
-                description: Enable to set sact promis.
-                choices: ['disable', 'enable']
-            rfsh:
-                type: int
-                description: Tcam sact rfsh.
-            rfsh_v:
-                aliases: ['rfsh-v']
-                type: str
-                description: Enable to set sact rfsh.
-                choices: ['disable', 'enable']
-            smac_skip:
-                aliases: ['smac-skip']
-                type: int
-                description: Tcam sact smac-skip.
-            smac_skip_v:
-                aliases: ['smac-skip-v']
-                type: str
-                description: Enable to set sact smac-skip.
-                choices: ['disable', 'enable']
-            tp_smchk_v:
-                aliases: ['tp-smchk-v']
-                type: str
-                description: Enable to set sact tp mode.
-                choices: ['disable', 'enable']
-            tp_smchk:
-                type: int
-                description: Tcam sact tp mode.
-            tpe_id:
-                aliases: ['tpe-id']
-                type: int
-                description: Tcam sact tpe-id.
-            tpe_id_v:
-                aliases: ['tpe-id-v']
-                type: str
-                description: Enable to set sact tpe-id.
-                choices: ['disable', 'enable']
-            vdm:
-                type: int
-                description: Tcam sact vdm.
-            vdm_v:
-                aliases: ['vdm-v']
-                type: str
-                description: Enable to set sact vdm.
-                choices: ['disable', 'enable']
-            vdom_id:
-                aliases: ['vdom-id']
-                type: int
-                description: Tcam sact vdom-id.
-            vdom_id_v:
-                aliases: ['vdom-id-v']
-                type: str
-                description: Enable to set sact vdom-id.
-                choices: ['disable', 'enable']
-            x_mode:
-                aliases: ['x-mode']
-                type: int
-                description: Tcam sact x-mode.
-            x_mode_v:
-                aliases: ['x-mode-v']
-                type: str
-                description: Enable to set sact x-mode.
-                choices: ['disable', 'enable']
+        description: Enable to set sact dfr.
+        choices: ['disable', 'enable']
+      dmac_skip:
+        aliases: ['dmac-skip']
+        type: int
+        description: Tcam sact dmac-skip.
+      dmac_skip_v:
+        aliases: ['dmac-skip-v']
+        type: str
+        description: Enable to set sact dmac-skip.
+        choices: ['disable', 'enable']
+      dosen:
+        type: int
+        description: Tcam sact dosen.
+      dosen_v:
+        aliases: ['dosen-v']
+        type: str
+        description: Enable to set sact dosen.
+        choices: ['disable', 'enable']
+      espff_proc:
+        aliases: ['espff-proc']
+        type: int
+        description: Tcam sact espff-proc.
+      espff_proc_v:
+        aliases: ['espff-proc-v']
+        type: str
+        description: Enable to set sact espff-proc.
+        choices: ['disable', 'enable']
+      etype_pid:
+        aliases: ['etype-pid']
+        type: int
+        description: Tcam sact etype-pid.
+      etype_pid_v:
+        aliases: ['etype-pid-v']
+        type: str
+        description: Enable to set sact etype-pid.
+        choices: ['disable', 'enable']
+      frag_proc:
+        aliases: ['frag-proc']
+        type: int
+        description: Tcam sact frag-proc.
+      frag_proc_v:
+        aliases: ['frag-proc-v']
+        type: str
+        description: Enable to set sact frag-proc.
+        choices: ['disable', 'enable']
+      fwd:
+        type: int
+        description: Tcam sact fwd.
+      fwd_lif:
+        aliases: ['fwd-lif']
+        type: int
+        description: Tcam sact fwd-lif.
+      fwd_lif_v:
+        aliases: ['fwd-lif-v']
+        type: str
+        description: Enable to set sact fwd-lif.
+        choices: ['disable', 'enable']
+      fwd_tvid:
+        aliases: ['fwd-tvid']
+        type: int
+        description: Tcam sact fwd-tvid.
+      fwd_tvid_v:
+        aliases: ['fwd-tvid-v']
+        type: str
+        description: Enable to set sact fwd-vid.
+        choices: ['disable', 'enable']
+      fwd_v:
+        aliases: ['fwd-v']
+        type: str
+        description: Enable to set sact fwd.
+        choices: ['disable', 'enable']
+      icpen:
+        type: int
+        description: Tcam sact icpen.
+      icpen_v:
+        aliases: ['icpen-v']
+        type: str
+        description: Enable to set sact icpen.
+        choices: ['disable', 'enable']
+      igmp_mld_snp:
+        aliases: ['igmp-mld-snp']
+        type: int
+        description: Tcam sact igmp-mld-snp.
+      igmp_mld_snp_v:
+        aliases: ['igmp-mld-snp-v']
+        type: str
+        description: Enable to set sact igmp-mld-snp.
+        choices: ['disable', 'enable']
+      learn:
+        type: int
+        description: Tcam sact learn.
+      learn_v:
+        aliases: ['learn-v']
+        type: str
+        description: Enable to set sact learn.
+        choices: ['disable', 'enable']
+      m_srh_ctrl:
+        aliases: ['m-srh-ctrl']
+        type: int
+        description: Tcam sact m-srh-ctrl.
+      m_srh_ctrl_v:
+        aliases: ['m-srh-ctrl-v']
+        type: str
+        description: Enable to set sact m-srh-ctrl.
+        choices: ['disable', 'enable']
+      mac_id:
+        aliases: ['mac-id']
+        type: int
+        description: Tcam sact mac-id.
+      mac_id_v:
+        aliases: ['mac-id-v']
+        type: str
+        description: Enable to set sact mac-id.
+        choices: ['disable', 'enable']
+      mss:
+        type: int
+        description: Tcam sact mss.
+      mss_v:
+        aliases: ['mss-v']
+        type: str
+        description: Enable to set sact mss.
+        choices: ['disable', 'enable']
+      pleen:
+        type: int
+        description: Tcam sact pleen.
+      pleen_v:
+        aliases: ['pleen-v']
+        type: str
+        description: Enable to set sact pleen.
+        choices: ['disable', 'enable']
+      prio_pid:
+        aliases: ['prio-pid']
+        type: int
+        description: Tcam sact prio-pid.
+      prio_pid_v:
+        aliases: ['prio-pid-v']
+        type: str
+        description: Enable to set sact prio-pid.
+        choices: ['disable', 'enable']
+      promis:
+        type: int
+        description: Tcam sact promis.
+      promis_v:
+        aliases: ['promis-v']
+        type: str
+        description: Enable to set sact promis.
+        choices: ['disable', 'enable']
+      rfsh:
+        type: int
+        description: Tcam sact rfsh.
+      rfsh_v:
+        aliases: ['rfsh-v']
+        type: str
+        description: Enable to set sact rfsh.
+        choices: ['disable', 'enable']
+      smac_skip:
+        aliases: ['smac-skip']
+        type: int
+        description: Tcam sact smac-skip.
+      smac_skip_v:
+        aliases: ['smac-skip-v']
+        type: str
+        description: Enable to set sact smac-skip.
+        choices: ['disable', 'enable']
+      tp_smchk_v:
+        aliases: ['tp-smchk-v']
+        type: str
+        description: Enable to set sact tp mode.
+        choices: ['disable', 'enable']
+      tp_smchk:
+        type: int
+        description: Tcam sact tp mode.
+      tpe_id:
+        aliases: ['tpe-id']
+        type: int
+        description: Tcam sact tpe-id.
+      tpe_id_v:
+        aliases: ['tpe-id-v']
+        type: str
+        description: Enable to set sact tpe-id.
+        choices: ['disable', 'enable']
+      vdm:
+        type: int
+        description: Tcam sact vdm.
+      vdm_v:
+        aliases: ['vdm-v']
+        type: str
+        description: Enable to set sact vdm.
+        choices: ['disable', 'enable']
+      vdom_id:
+        aliases: ['vdom-id']
+        type: int
+        description: Tcam sact vdom-id.
+      vdom_id_v:
+        aliases: ['vdom-id-v']
+        type: str
+        description: Enable to set sact vdom-id.
+        choices: ['disable', 'enable']
+      x_mode:
+        aliases: ['x-mode']
+        type: int
+        description: Tcam sact x-mode.
+      x_mode_v:
+        aliases: ['x-mode-v']
+        type: str
+        description: Enable to set sact x-mode.
+        choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -349,42 +349,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

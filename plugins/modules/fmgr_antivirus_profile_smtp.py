@@ -15,93 +15,93 @@ module: fmgr_antivirus_profile_smtp
 short_description: Configure SMTP AntiVirus options.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.partial_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.partial_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  profile:
+    description: The parameter (profile) in requested url.
+    type: str
+    required: true
+  antivirus_profile_smtp:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      archive_block:
+        aliases: ['archive-block']
+        type: list
+        elements: str
+        description: Select the archive types to block.
+        choices: ['encrypted', 'corrupted', 'multipart', 'nested', 'mailbomb', 'unhandled',
+                  'partiallycorrupted', 'fileslimit', 'timeout']
+      archive_log:
+        aliases: ['archive-log']
+        type: list
+        elements: str
+        description: Select the archive types to log.
+        choices: ['encrypted', 'corrupted', 'multipart', 'nested', 'mailbomb', 'unhandled',
+                  'partiallycorrupted', 'fileslimit', 'timeout']
+      content_disarm:
+        aliases: ['content-disarm']
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Enable Content Disarm and Reconstruction for this protocol.
+        choices: ['disable', 'enable']
+      emulator:
         type: str
-        required: true
-    profile:
-        description: The parameter (profile) in requested url.
+        description: Enable/disable the virus emulator.
+        choices: ['disable', 'enable']
+      executables:
         type: str
-        required: true
-    antivirus_profile_smtp:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            archive_block:
-                aliases: ['archive-block']
-                type: list
-                elements: str
-                description: Select the archive types to block.
-                choices: ['encrypted', 'corrupted', 'multipart', 'nested', 'mailbomb',
-                          'unhandled', 'partiallycorrupted', 'fileslimit', 'timeout']
-            archive_log:
-                aliases: ['archive-log']
-                type: list
-                elements: str
-                description: Select the archive types to log.
-                choices: ['encrypted', 'corrupted', 'multipart', 'nested', 'mailbomb',
-                          'unhandled', 'partiallycorrupted', 'fileslimit', 'timeout']
-            content_disarm:
-                aliases: ['content-disarm']
-                type: str
-                description: Enable Content Disarm and Reconstruction for this protocol.
-                choices: ['disable', 'enable']
-            emulator:
-                type: str
-                description: Enable/disable the virus emulator.
-                choices: ['disable', 'enable']
-            executables:
-                type: str
-                description: Treat Windows executable files as viruses for the purpose of blocking or monitoring.
-                choices: ['default', 'virus']
-            options:
-                type: list
-                elements: str
-                description: Enable/disable SMTP AntiVirus scanning, monitoring, and quarantine.
-                choices: ['scan', 'file-filter', 'quarantine', 'avquery', 'avmonitor']
-            outbreak_prevention:
-                aliases: ['outbreak-prevention']
-                type: str
-                description: Enable FortiGuard Virus Outbreak Prevention service.
-                choices: ['disabled', 'files', 'full-archive', 'disable', 'block', 'monitor']
-            av_scan:
-                aliases: ['av-scan']
-                type: str
-                description: Enable AntiVirus scan service.
-                choices: ['disable', 'monitor', 'block']
-            external_blocklist:
-                aliases: ['external-blocklist']
-                type: str
-                description: Enable external-blocklist.
-                choices: ['disable', 'monitor', 'block']
-            quarantine:
-                type: str
-                description: Enable/disable quarantine for infected files.
-                choices: ['disable', 'enable']
-            fortindr:
-                type: str
-                description: Enable scanning of files by FortiNDR.
-                choices: ['disable', 'block', 'monitor']
-            fortisandbox:
-                type: str
-                description: Enable scanning of files by FortiSandbox.
-                choices: ['disable', 'block', 'monitor']
-            fortiai:
-                type: str
-                description: Enable/disable scanning of files by FortiAI.
-                choices: ['disable', 'monitor', 'block']
-            malware_stream:
-                aliases: ['malware-stream']
-                type: str
-                description: Enable 0-day malware-stream scanning.
-                choices: ['disable', 'monitor', 'block']
+        description: Treat Windows executable files as viruses for the purpose of blocking or monitoring.
+        choices: ['default', 'virus']
+      options:
+        type: list
+        elements: str
+        description: Enable/disable SMTP AntiVirus scanning, monitoring, and quarantine.
+        choices: ['scan', 'file-filter', 'quarantine', 'avquery', 'avmonitor']
+      outbreak_prevention:
+        aliases: ['outbreak-prevention']
+        type: str
+        description: Enable FortiGuard Virus Outbreak Prevention service.
+        choices: ['disabled', 'files', 'full-archive', 'disable', 'block', 'monitor']
+      av_scan:
+        aliases: ['av-scan']
+        type: str
+        description: Enable AntiVirus scan service.
+        choices: ['disable', 'monitor', 'block']
+      external_blocklist:
+        aliases: ['external-blocklist']
+        type: str
+        description: Enable external-blocklist.
+        choices: ['disable', 'monitor', 'block']
+      quarantine:
+        type: str
+        description: Enable/disable quarantine for infected files.
+        choices: ['disable', 'enable']
+      fortindr:
+        type: str
+        description: Enable scanning of files by FortiNDR.
+        choices: ['disable', 'block', 'monitor']
+      fortisandbox:
+        type: str
+        description: Enable scanning of files by FortiSandbox.
+        choices: ['disable', 'block', 'monitor']
+      fortiai:
+        type: str
+        description: Enable/disable scanning of files by FortiAI.
+        choices: ['disable', 'monitor', 'block']
+      malware_stream:
+        aliases: ['malware-stream']
+        type: str
+        description: Enable 0-day malware-stream scanning.
+        choices: ['disable', 'monitor', 'block']
 '''
 
 EXAMPLES = '''
@@ -136,42 +136,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -204,7 +204,12 @@ def main():
                 'content-disarm': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'emulator': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'executables': {'choices': ['default', 'virus'], 'type': 'str'},
-                'options': {'type': 'list', 'choices': ['scan', 'file-filter', 'quarantine', 'avquery', 'avmonitor'], 'elements': 'str'},
+                'options': {
+                    'v_range': [['6.0.0', '7.6.7']],
+                    'type': 'list',
+                    'choices': ['scan', 'file-filter', 'quarantine', 'avquery', 'avmonitor'],
+                    'elements': 'str'
+                },
                 'outbreak-prevention': {'choices': ['disabled', 'files', 'full-archive', 'disable', 'block', 'monitor'], 'type': 'str'},
                 'av-scan': {'v_range': [['7.0.0', '']], 'choices': ['disable', 'monitor', 'block'], 'type': 'str'},
                 'external-blocklist': {'v_range': [['7.0.0', '']], 'choices': ['disable', 'monitor', 'block'], 'type': 'str'},

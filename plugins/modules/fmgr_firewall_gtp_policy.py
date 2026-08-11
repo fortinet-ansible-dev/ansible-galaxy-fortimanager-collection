@@ -15,85 +15,84 @@ module: fmgr_firewall_gtp_policy
 short_description: Policy.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  gtp:
+    description: The parameter (gtp) in requested url.
+    type: str
+    required: true
+  firewall_gtp_policy:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      action:
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
-        type: str
+        description: Action.
+        choices: ['allow', 'deny']
+      apn_sel_mode:
+        aliases: ['apn-sel-mode']
+        type: list
+        elements: str
+        description: APN selection mode.
+        choices: ['ms', 'net', 'vrf']
+      apnmember:
+        type: raw
+        description: (list or str) APN member.
+      id:
+        type: int
+        description: ID.
         required: true
-    gtp:
-        description: The parameter (gtp) in requested url.
+      imei:
         type: str
-        required: true
-    firewall_gtp_policy:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            action:
-                type: str
-                description: Action.
-                choices: ['allow', 'deny']
-            apn_sel_mode:
-                aliases: ['apn-sel-mode']
-                type: list
-                elements: str
-                description: APN selection mode.
-                choices: ['ms', 'net', 'vrf']
-            apnmember:
-                type: raw
-                description: (list or str) APN member.
-            id:
-                type: int
-                description: ID.
-                required: true
-            imei:
-                type: str
-                description: IMEI
-            imsi:
-                type: str
-                description: IMSI prefix.
-            max_apn_restriction:
-                aliases: ['max-apn-restriction']
-                type: str
-                description: Maximum APN restriction value.
-                choices: ['all', 'public-1', 'public-2', 'private-1', 'private-2']
-            messages:
-                type: list
-                elements: str
-                description: GTP messages.
-                choices: ['create-req', 'create-res', 'update-req', 'update-res']
-            msisdn:
-                type: str
-                description: MSISDN prefix.
-            rai:
-                type: str
-                description: RAI pattern.
-            rat_type:
-                aliases: ['rat-type']
-                type: list
-                elements: str
-                description: RAT Type.
-                choices: ['any', 'utran', 'geran', 'wlan', 'gan', 'hspa', 'eutran', 'virtual',
-                          'nbiot']
-            uli:
-                type: str
-                description: ULI pattern.
-            imsi_prefix:
-                aliases: ['imsi-prefix']
-                type: str
-                description: IMSI prefix.
-            msisdn_prefix:
-                aliases: ['msisdn-prefix']
-                type: str
-                description: MSISDN prefix.
-            apn:
-                type: str
-                description: APN subfix.
+        description: IMEI
+      imsi:
+        type: str
+        description: IMSI prefix.
+      max_apn_restriction:
+        aliases: ['max-apn-restriction']
+        type: str
+        description: Maximum APN restriction value.
+        choices: ['all', 'public-1', 'public-2', 'private-1', 'private-2']
+      messages:
+        type: list
+        elements: str
+        description: GTP messages.
+        choices: ['create-req', 'create-res', 'update-req', 'update-res']
+      msisdn:
+        type: str
+        description: MSISDN prefix.
+      rai:
+        type: str
+        description: RAI pattern.
+      rat_type:
+        aliases: ['rat-type']
+        type: list
+        elements: str
+        description: RAT Type.
+        choices: ['any', 'utran', 'geran', 'wlan', 'gan', 'hspa', 'eutran', 'virtual', 'nbiot']
+      uli:
+        type: str
+        description: ULI pattern.
+      imsi_prefix:
+        aliases: ['imsi-prefix']
+        type: str
+        description: IMSI prefix.
+      msisdn_prefix:
+        aliases: ['msisdn-prefix']
+        type: str
+        description: MSISDN prefix.
+      apn:
+        type: str
+        description: APN subfix.
 '''
 
 EXAMPLES = '''
@@ -157,42 +156,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

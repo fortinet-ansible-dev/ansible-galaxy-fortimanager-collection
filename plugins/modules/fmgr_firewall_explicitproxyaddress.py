@@ -15,102 +15,102 @@ module: fmgr_firewall_explicitproxyaddress
 short_description: Explicit web proxy address configuration.
 version_added: "2.2.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  firewall_explicitproxyaddress:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      case_sensitivity:
+        aliases: ['case-sensitivity']
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Case sensitivity in pattern.
+        choices: ['disable', 'enable']
+      category:
         type: str
-        required: true
-    firewall_explicitproxyaddress:
-        description: The top level parameters set.
-        required: false
-        type: dict
+        description: FortiGuard category ID.
+      color:
+        type: int
+        description: GUI icon color.
+      comment:
+        type: str
+        description: Comment.
+      header:
+        type: str
+        description: HTTP header regular expression.
+      header_group:
+        aliases: ['header-group']
+        type: list
+        elements: dict
+        description: Header group.
         suboptions:
-            case_sensitivity:
-                aliases: ['case-sensitivity']
-                type: str
-                description: Case sensitivity in pattern.
-                choices: ['disable', 'enable']
-            category:
-                type: str
-                description: FortiGuard category ID.
-            color:
-                type: int
-                description: GUI icon color.
-            comment:
-                type: str
-                description: Comment.
-            header:
-                type: str
-                description: HTTP header regular expression.
-            header_group:
-                aliases: ['header-group']
-                type: list
-                elements: dict
-                description: Header group.
-                suboptions:
-                    case_sensitivity:
-                        aliases: ['case-sensitivity']
-                        type: str
-                        description: Case sensitivity in pattern.
-                        choices: ['disable', 'enable']
-                    header:
-                        type: str
-                        description: HTTP header regular expression.
-                    header_name:
-                        aliases: ['header-name']
-                        type: str
-                        description: HTTP header.
-                    id:
-                        type: int
-                        description: ID.
-            header_name:
-                aliases: ['header-name']
-                type: str
-                description: HTTP header.
-            host:
-                type: str
-                description: Host address
-            host_regex:
-                aliases: ['host-regex']
-                type: str
-                description: Host regular expression.
-            method:
-                type: list
-                elements: str
-                description: HTTP methods.
-                choices: ['delete', 'get', 'head', 'options', 'post', 'put', 'trace', 'connect']
-            name:
-                type: str
-                description: Address name.
-                required: true
-            path:
-                type: str
-                description: URL path regular expression.
-            tags:
-                type: str
-                description: Applied object tags.
-            type:
-                type: str
-                description: Address type.
-                choices: ['host-regex', 'url', 'category', 'method', 'ua', 'header',
-                          'src-advanced', 'dst-advanced']
-            ua:
-                type: list
-                elements: str
-                description: User agent.
-                choices: ['chrome', 'ms', 'firefox', 'safari', 'other']
-            uuid:
-                type: str
-                description: Universally Unique IDentifier.
-            visibility:
-                type: str
-                description: Enable/disable address visibility.
-                choices: ['disable', 'enable']
+          case_sensitivity:
+            aliases: ['case-sensitivity']
+            type: str
+            description: Case sensitivity in pattern.
+            choices: ['disable', 'enable']
+          header:
+            type: str
+            description: HTTP header regular expression.
+          header_name:
+            aliases: ['header-name']
+            type: str
+            description: HTTP header.
+          id:
+            type: int
+            description: ID.
+      header_name:
+        aliases: ['header-name']
+        type: str
+        description: HTTP header.
+      host:
+        type: str
+        description: Host address
+      host_regex:
+        aliases: ['host-regex']
+        type: str
+        description: Host regular expression.
+      method:
+        type: list
+        elements: str
+        description: HTTP methods.
+        choices: ['delete', 'get', 'head', 'options', 'post', 'put', 'trace', 'connect']
+      name:
+        type: str
+        description: Address name.
+        required: true
+      path:
+        type: str
+        description: URL path regular expression.
+      tags:
+        type: str
+        description: Applied object tags.
+      type:
+        type: str
+        description: Address type.
+        choices: ['host-regex', 'url', 'category', 'method', 'ua', 'header', 'src-advanced',
+                  'dst-advanced']
+      ua:
+        type: list
+        elements: str
+        description: User agent.
+        choices: ['chrome', 'ms', 'firefox', 'safari', 'other']
+      uuid:
+        type: str
+        description: Universally Unique IDentifier.
+      visibility:
+        type: str
+        description: Enable/disable address visibility.
+        choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -150,42 +150,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

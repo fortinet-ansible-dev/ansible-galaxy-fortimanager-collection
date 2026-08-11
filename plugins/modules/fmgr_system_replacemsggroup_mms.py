@@ -15,50 +15,50 @@ module: fmgr_system_replacemsggroup_mms
 short_description: Replacement message table entries.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  replacemsg-group:
+    description: Deprecated, please use "replacemsg_group"
+    type: str
+  replacemsg_group:
+    description: The parameter (replacemsg-group) in requested url.
+    type: str
+  system_replacemsggroup_mms:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      buffer:
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Message string.
+      charset:
         type: str
+        description: Character encoding used for replacement message
+        choices: ['us-ascii', 'utf-8']
+      format:
+        type: str
+        description: Format flag.
+        choices: ['none', 'text', 'html', 'wml']
+      header:
+        type: str
+        description: Header flag.
+        choices: ['none', 'http', '8bit']
+      image:
+        type: str
+        description: Message string.
+      msg_type:
+        aliases: ['msg-type']
+        type: str
+        description: Message type.
         required: true
-    replacemsg-group:
-        description: Deprecated, please use "replacemsg_group"
-        type: str
-    replacemsg_group:
-        description: The parameter (replacemsg-group) in requested url.
-        type: str
-    system_replacemsggroup_mms:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            buffer:
-                type: str
-                description: Message string.
-            charset:
-                type: str
-                description: Character encoding used for replacement message
-                choices: ['us-ascii', 'utf-8']
-            format:
-                type: str
-                description: Format flag.
-                choices: ['none', 'text', 'html', 'wml']
-            header:
-                type: str
-                description: Header flag.
-                choices: ['none', 'http', '8bit']
-            image:
-                type: str
-                description: Message string.
-            msg_type:
-                aliases: ['msg-type']
-                type: str
-                description: Message type.
-                required: true
 '''
 
 EXAMPLES = '''
@@ -84,42 +84,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

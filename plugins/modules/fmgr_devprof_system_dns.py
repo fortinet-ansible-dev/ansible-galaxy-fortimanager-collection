@@ -15,137 +15,137 @@ module: fmgr_devprof_system_dns
 short_description: Configure DNS.
 version_added: "1.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.partial_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.partial_crud
 options:
-    adom:
-        description: The parameter (adom) in requested url.
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  devprof:
+    description: The parameter (devprof) in requested url.
+    type: str
+    required: true
+  devprof_system_dns:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      cache_notfound_responses:
+        aliases: ['cache-notfound-responses']
         type: str
-        required: true
-    devprof:
-        description: The parameter (devprof) in requested url.
+        description: Enable/disable response from the DNS server when a record is not in cache.
+        choices: ['disable', 'enable']
+      dns_cache_limit:
+        aliases: ['dns-cache-limit']
+        type: int
+        description: Maximum number of records in the DNS cache.
+      dns_cache_ttl:
+        aliases: ['dns-cache-ttl']
+        type: int
+        description: Duration in seconds that the DNS cache retains information.
+      domain:
+        type: raw
+        description: (list or str) Domain name suffix for the IP addresses of the DNS server.
+      ip6_primary:
+        aliases: ['ip6-primary']
         type: str
-        required: true
-    devprof_system_dns:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            cache_notfound_responses:
-                aliases: ['cache-notfound-responses']
-                type: str
-                description: Enable/disable response from the DNS server when a record is not in cache.
-                choices: ['disable', 'enable']
-            dns_cache_limit:
-                aliases: ['dns-cache-limit']
-                type: int
-                description: Maximum number of records in the DNS cache.
-            dns_cache_ttl:
-                aliases: ['dns-cache-ttl']
-                type: int
-                description: Duration in seconds that the DNS cache retains information.
-            domain:
-                type: raw
-                description: (list or str) Domain name suffix for the IP addresses of the DNS server.
-            ip6_primary:
-                aliases: ['ip6-primary']
-                type: str
-                description: Primary DNS server IPv6 address.
-            ip6_secondary:
-                aliases: ['ip6-secondary']
-                type: str
-                description: Secondary DNS server IPv6 address.
-            primary:
-                type: str
-                description: Primary DNS server IP address.
-            secondary:
-                type: str
-                description: Secondary DNS server IP address.
-            dns_over_tls:
-                aliases: ['dns-over-tls']
-                type: str
-                description: Enable/disable/enforce DNS over TLS.
-                choices: ['disable', 'enable', 'enforce']
-            retry:
-                type: int
-                description: Number of times to retry
-            server_hostname:
-                aliases: ['server-hostname']
-                type: raw
-                description: (list) DNS server host name list.
-            ssl_certificate:
-                aliases: ['ssl-certificate']
-                type: str
-                description: Name of local certificate for SSL connections.
-            timeout:
-                type: int
-                description: DNS query timeout interval in seconds
-            interface:
-                type: str
-                description: Specify outgoing interface to reach server.
-            interface_select_method:
-                aliases: ['interface-select-method']
-                type: str
-                description: Specify how to select outgoing interface to reach server.
-                choices: ['auto', 'sdwan', 'specify']
-            alt_primary:
-                aliases: ['alt-primary']
-                type: str
-                description: Alternate primary DNS server.
-            alt_secondary:
-                aliases: ['alt-secondary']
-                type: str
-                description: Alternate secondary DNS server.
-            fqdn_cache_ttl:
-                aliases: ['fqdn-cache-ttl']
-                type: int
-                description: FQDN cache time to live in seconds
-            fqdn_max_refresh:
-                aliases: ['fqdn-max-refresh']
-                type: int
-                description: FQDN cache maximum refresh time in seconds
-            fqdn_min_refresh:
-                aliases: ['fqdn-min-refresh']
-                type: int
-                description: FQDN cache minimum refresh time in seconds
-            log:
-                type: str
-                description: Local DNS log setting.
-                choices: ['disable', 'error', 'all']
-            protocol:
-                type: list
-                elements: str
-                description: DNS transport protocols.
-                choices: ['cleartext', 'dot', 'doh']
-            server_select_method:
-                aliases: ['server-select-method']
-                type: str
-                description: Specify how configured servers are prioritized.
-                choices: ['least-rtt', 'failover']
-            source_ip:
-                aliases: ['source-ip']
-                type: str
-                description: IP address used by the DNS server as its source IP.
-            vrf_select:
-                aliases: ['vrf-select']
-                type: int
-                description: VRF ID used for connection to server.
-            source_ip_interface:
-                aliases: ['source-ip-interface']
-                type: raw
-                description: (list) IP address of the specified interface as the source IP address.
-            hostname_ttl:
-                aliases: ['hostname-ttl']
-                type: int
-                description: TTL of hostname table entries
-            hostname_limit:
-                aliases: ['hostname-limit']
-                type: int
-                description: Limit of the number of hostname table entries
-            root_servers:
-                aliases: ['root-servers']
-                type: str
-                description: Configure up to two preferred servers that serve the DNS root zone
+        description: Primary DNS server IPv6 address.
+      ip6_secondary:
+        aliases: ['ip6-secondary']
+        type: str
+        description: Secondary DNS server IPv6 address.
+      primary:
+        type: str
+        description: Primary DNS server IP address.
+      secondary:
+        type: str
+        description: Secondary DNS server IP address.
+      dns_over_tls:
+        aliases: ['dns-over-tls']
+        type: str
+        description: Enable/disable/enforce DNS over TLS.
+        choices: ['disable', 'enable', 'enforce']
+      retry:
+        type: int
+        description: Number of times to retry
+      server_hostname:
+        aliases: ['server-hostname']
+        type: raw
+        description: (list) DNS server host name list.
+      ssl_certificate:
+        aliases: ['ssl-certificate']
+        type: str
+        description: Name of local certificate for SSL connections.
+      timeout:
+        type: int
+        description: DNS query timeout interval in seconds
+      interface:
+        type: str
+        description: Specify outgoing interface to reach server.
+      interface_select_method:
+        aliases: ['interface-select-method']
+        type: str
+        description: Specify how to select outgoing interface to reach server.
+        choices: ['auto', 'sdwan', 'specify']
+      alt_primary:
+        aliases: ['alt-primary']
+        type: str
+        description: Alternate primary DNS server.
+      alt_secondary:
+        aliases: ['alt-secondary']
+        type: str
+        description: Alternate secondary DNS server.
+      fqdn_cache_ttl:
+        aliases: ['fqdn-cache-ttl']
+        type: int
+        description: FQDN cache time to live in seconds
+      fqdn_max_refresh:
+        aliases: ['fqdn-max-refresh']
+        type: int
+        description: FQDN cache maximum refresh time in seconds
+      fqdn_min_refresh:
+        aliases: ['fqdn-min-refresh']
+        type: int
+        description: FQDN cache minimum refresh time in seconds
+      log:
+        type: str
+        description: Local DNS log setting.
+        choices: ['disable', 'error', 'all']
+      protocol:
+        type: list
+        elements: str
+        description: DNS transport protocols.
+        choices: ['cleartext', 'dot', 'doh']
+      server_select_method:
+        aliases: ['server-select-method']
+        type: str
+        description: Specify how configured servers are prioritized.
+        choices: ['least-rtt', 'failover']
+      source_ip:
+        aliases: ['source-ip']
+        type: str
+        description: IP address used by the DNS server as its source IP.
+      vrf_select:
+        aliases: ['vrf-select']
+        type: int
+        description: VRF ID used for connection to server.
+      source_ip_interface:
+        aliases: ['source-ip-interface']
+        type: raw
+        description: (list) IP address of the specified interface as the source IP address.
+      hostname_ttl:
+        aliases: ['hostname-ttl']
+        type: int
+        description: TTL of hostname table entries
+      hostname_limit:
+        aliases: ['hostname-limit']
+        type: int
+        description: Limit of the number of hostname table entries
+      root_servers:
+        aliases: ['root-servers']
+        type: str
+        description: Configure up to two preferred servers that serve the DNS root zone
 '''
 
 EXAMPLES = '''
@@ -193,42 +193,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -259,7 +259,7 @@ def main():
                 'primary': {'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1'], ['7.6.5', '']], 'type': 'str'},
                 'secondary': {'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1'], ['7.6.5', '']], 'type': 'str'},
                 'dns-over-tls': {
-                    'v_range': [['6.2.0', '6.2.5'], ['6.2.7', '6.4.1'], ['7.6.5', '']],
+                    'v_range': [['6.2.0', '6.2.5'], ['6.2.7', '6.4.1'], ['7.6.5', '7.6.7']],
                     'choices': ['disable', 'enable', 'enforce'],
                     'type': 'str'
                 },

@@ -15,127 +15,127 @@ module: fmgr_firewall_internetservice
 short_description: Show Internet Service application.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.partial_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.partial_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  firewall_internetservice:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      database:
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Database.
+        choices: ['isdb', 'irdb']
+      direction:
         type: str
-        required: true
-    firewall_internetservice:
-        description: The top level parameters set.
-        required: false
-        type: dict
+        description: Direction.
+        choices: ['src', 'dst', 'both']
+      entry:
+        type: list
+        elements: dict
+        description: Entry.
         suboptions:
-            database:
-                type: str
-                description: Database.
-                choices: ['isdb', 'irdb']
-            direction:
-                type: str
-                description: Direction.
-                choices: ['src', 'dst', 'both']
-            entry:
-                type: list
-                elements: dict
-                description: Entry.
-                suboptions:
-                    id:
-                        type: int
-                        description: Entry ID.
-                    ip_number:
-                        aliases: ['ip-number']
-                        type: int
-                        description: Total number of IP addresses.
-                    ip_range_number:
-                        aliases: ['ip-range-number']
-                        type: int
-                        description: Total number of IP ranges.
-                    port:
-                        type: raw
-                        description: (list) Integer value for the TCP/IP port
-                    protocol:
-                        type: int
-                        description: Integer value for the protocol type as defined by IANA
-            icon_id:
-                aliases: ['icon-id']
-                type: int
-                description: Icon id.
-            id:
-                type: int
-                description: Id.
-            name:
-                type: str
-                description: Name.
-            offset:
-                type: int
-                description: Offset.
-            reputation:
-                type: int
-                description: Reputation.
-            sld_id:
-                aliases: ['sld-id']
-                type: int
-                description: Sld id.
-            extra_ip_range_number:
-                aliases: ['extra-ip-range-number']
-                type: int
-                description: Extra ip range number.
-            ip_number:
-                aliases: ['ip-number']
-                type: int
-                description: Ip number.
-            ip_range_number:
-                aliases: ['ip-range-number']
-                type: int
-                description: Ip range number.
-            jitter_threshold:
-                aliases: ['jitter-threshold']
-                type: int
-                description: Jitter threshold.
-            latency_threshold:
-                aliases: ['latency-threshold']
-                type: int
-                description: Latency threshold.
-            obsolete:
-                type: int
-                description: Obsolete.
-            packetloss_threshold:
-                aliases: ['packetloss-threshold']
-                type: int
-                description: Packetloss threshold.
-            singularity:
-                type: int
-                description: Singularity.
-            city:
-                type: raw
-                description: (list) City sequence number list.
-            country:
-                type: raw
-                description: (list) Country sequence number list.
-            region:
-                type: raw
-                description: (list) Region sequence number list.
-            city6:
-                type: raw
-                description: (list) IPv6 City sequence number list.
-            country6:
-                type: raw
-                description: (list) IPv6 Country sequence number list.
-            extra_ip6_range_number:
-                aliases: ['extra-ip6-range-number']
-                type: int
-                description: Extra ip6 range number.
-            ip6_range_number:
-                aliases: ['ip6-range-number']
-                type: int
-                description: Ip6 range number.
-            region6:
-                type: raw
-                description: (list) IPv6 Region sequence number list.
+          id:
+            type: int
+            description: Entry ID.
+          ip_number:
+            aliases: ['ip-number']
+            type: int
+            description: Total number of IP addresses.
+          ip_range_number:
+            aliases: ['ip-range-number']
+            type: int
+            description: Total number of IP ranges.
+          port:
+            type: raw
+            description: (list) Integer value for the TCP/IP port
+          protocol:
+            type: int
+            description: Integer value for the protocol type as defined by IANA
+      icon_id:
+        aliases: ['icon-id']
+        type: int
+        description: Icon id.
+      id:
+        type: int
+        description: Id.
+      name:
+        type: str
+        description: Name.
+      offset:
+        type: int
+        description: Offset.
+      reputation:
+        type: int
+        description: Reputation.
+      sld_id:
+        aliases: ['sld-id']
+        type: int
+        description: Sld id.
+      extra_ip_range_number:
+        aliases: ['extra-ip-range-number']
+        type: int
+        description: Extra ip range number.
+      ip_number:
+        aliases: ['ip-number']
+        type: int
+        description: Ip number.
+      ip_range_number:
+        aliases: ['ip-range-number']
+        type: int
+        description: Ip range number.
+      jitter_threshold:
+        aliases: ['jitter-threshold']
+        type: int
+        description: Jitter threshold.
+      latency_threshold:
+        aliases: ['latency-threshold']
+        type: int
+        description: Latency threshold.
+      obsolete:
+        type: int
+        description: Obsolete.
+      packetloss_threshold:
+        aliases: ['packetloss-threshold']
+        type: int
+        description: Packetloss threshold.
+      singularity:
+        type: int
+        description: Singularity.
+      city:
+        type: raw
+        description: (list) City sequence number list.
+      country:
+        type: raw
+        description: (list) Country sequence number list.
+      region:
+        type: raw
+        description: (list) Region sequence number list.
+      city6:
+        type: raw
+        description: (list) IPv6 City sequence number list.
+      country6:
+        type: raw
+        description: (list) IPv6 Country sequence number list.
+      extra_ip6_range_number:
+        aliases: ['extra-ip6-range-number']
+        type: int
+        description: Extra ip6 range number.
+      ip6_range_number:
+        aliases: ['ip6-range-number']
+        type: int
+        description: Ip6 range number.
+      region6:
+        type: raw
+        description: (list) IPv6 Region sequence number list.
 '''
 
 EXAMPLES = '''
@@ -183,42 +183,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -240,21 +240,21 @@ def main():
                 'database': {'choices': ['isdb', 'irdb'], 'type': 'str'},
                 'direction': {'choices': ['src', 'dst', 'both'], 'type': 'str'},
                 'entry': {
-                    'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']],
+                    'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.11']],
                     'type': 'list',
                     'options': {
-                        'id': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']], 'type': 'int'},
-                        'ip-number': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']], 'type': 'int'},
-                        'ip-range-number': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']], 'type': 'int'},
-                        'port': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']], 'type': 'raw'},
-                        'protocol': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']], 'type': 'int'}
+                        'id': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.11']], 'type': 'int'},
+                        'ip-number': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.11']], 'type': 'int'},
+                        'ip-range-number': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.11']], 'type': 'int'},
+                        'port': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.11']], 'type': 'raw'},
+                        'protocol': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.11']], 'type': 'int'}
                     },
                     'elements': 'dict'
                 },
                 'icon-id': {'type': 'int'},
                 'id': {'type': 'int'},
                 'name': {'type': 'str'},
-                'offset': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']], 'type': 'int'},
+                'offset': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.11']], 'type': 'int'},
                 'reputation': {'v_range': [['6.0.0', '7.6.2']], 'type': 'int'},
                 'sld-id': {'v_range': [['6.0.0', '7.6.2']], 'type': 'int'},
                 'extra-ip-range-number': {'v_range': [['6.2.0', '']], 'type': 'int'},

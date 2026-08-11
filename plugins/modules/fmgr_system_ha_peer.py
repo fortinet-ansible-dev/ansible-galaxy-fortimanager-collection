@@ -15,28 +15,28 @@ module: fmgr_system_ha_peer
 short_description: Peer.
 version_added: "1.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    system_ha_peer:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            id:
-                type: int
-                description: Id.
-                required: true
-            ip:
-                type: str
-                description: IP address of peer.
-            ip6:
-                type: str
-                description: IP address
-            serial_number:
-                aliases: ['serial-number']
-                type: str
-                description: Serial number of peer.
+  system_ha_peer:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      id:
+        type: int
+        description: Id.
+        required: true
+      ip:
+        type: str
+        description: IP address of peer.
+      ip6:
+        type: str
+        description: IP address
+      serial_number:
+        aliases: ['serial-number']
+        type: str
+        description: Serial number of peer.
 '''
 
 EXAMPLES = '''
@@ -77,42 +77,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

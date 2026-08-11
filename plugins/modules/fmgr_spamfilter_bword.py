@@ -15,67 +15,67 @@ module: fmgr_spamfilter_bword
 short_description: Configure AntiSpam banned word list.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  spamfilter_bword:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      comment:
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
-        type: str
-        required: true
-    spamfilter_bword:
-        description: The top level parameters set.
-        required: false
-        type: dict
+        description: Optional comments.
+      entries:
+        type: list
+        elements: dict
+        description: Entries.
         suboptions:
-            comment:
-                type: str
-                description: Optional comments.
-            entries:
-                type: list
-                elements: dict
-                description: Entries.
-                suboptions:
-                    action:
-                        type: str
-                        description: Mark spam or good.
-                        choices: ['spam', 'clear']
-                    id:
-                        type: int
-                        description: Banned word entry ID.
-                    language:
-                        type: str
-                        description: Language for the banned word.
-                        choices: ['western', 'simch', 'trach', 'japanese', 'korean', 'french',
-                                  'thai', 'spanish']
-                    pattern:
-                        type: str
-                        description: Pattern for the banned word.
-                    pattern_type:
-                        aliases: ['pattern-type']
-                        type: str
-                        description: Wildcard pattern or regular expression.
-                        choices: ['wildcard', 'regexp']
-                    score:
-                        type: int
-                        description: Score value.
-                    status:
-                        type: str
-                        description: Enable/disable status.
-                        choices: ['disable', 'enable']
-                    where:
-                        type: str
-                        description: Component of the email to be scanned.
-                        choices: ['subject', 'body', 'all']
-            id:
-                type: int
-                description: ID.
-                required: true
-            name:
-                type: str
-                description: Name of table.
+          action:
+            type: str
+            description: Mark spam or good.
+            choices: ['spam', 'clear']
+          id:
+            type: int
+            description: Banned word entry ID.
+          language:
+            type: str
+            description: Language for the banned word.
+            choices: ['western', 'simch', 'trach', 'japanese', 'korean', 'french', 'thai',
+                      'spanish']
+          pattern:
+            type: str
+            description: Pattern for the banned word.
+          pattern_type:
+            aliases: ['pattern-type']
+            type: str
+            description: Wildcard pattern or regular expression.
+            choices: ['wildcard', 'regexp']
+          score:
+            type: int
+            description: Score value.
+          status:
+            type: str
+            description: Enable/disable status.
+            choices: ['disable', 'enable']
+          where:
+            type: str
+            description: Component of the email to be scanned.
+            choices: ['subject', 'body', 'all']
+      id:
+        type: int
+        description: ID.
+        required: true
+      name:
+        type: str
+        description: Name of table.
 '''
 
 EXAMPLES = '''
@@ -106,42 +106,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -158,30 +158,30 @@ def main():
         'adom': {'required': True, 'type': 'str'},
         'revision_note': {'type': 'str'},
         'spamfilter_bword': {
-            'type': 'dict', 'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']],
+            'type': 'dict', 'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.11']],
             'options': {
-                'comment': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']], 'type': 'str'},
+                'comment': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.11']], 'type': 'str'},
                 'entries': {
-                    'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']],
+                    'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.11']],
                     'type': 'list',
                     'options': {
-                        'action': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']], 'choices': ['spam', 'clear'], 'type': 'str'},
-                        'id': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']], 'type': 'int'},
+                        'action': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.11']], 'choices': ['spam', 'clear'], 'type': 'str'},
+                        'id': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.11']], 'type': 'int'},
                         'language': {
-                            'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']],
+                            'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.11']],
                             'choices': ['western', 'simch', 'trach', 'japanese', 'korean', 'french', 'thai', 'spanish'],
                             'type': 'str'
                         },
-                        'pattern': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']], 'type': 'str'},
-                        'pattern-type': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']], 'choices': ['wildcard', 'regexp'], 'type': 'str'},
-                        'score': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']], 'type': 'int'},
-                        'status': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'where': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']], 'choices': ['subject', 'body', 'all'], 'type': 'str'}
+                        'pattern': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.11']], 'type': 'str'},
+                        'pattern-type': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.11']], 'choices': ['wildcard', 'regexp'], 'type': 'str'},
+                        'score': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.11']], 'type': 'int'},
+                        'status': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.11']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'where': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.11']], 'choices': ['subject', 'body', 'all'], 'type': 'str'}
                     },
                     'elements': 'dict'
                 },
-                'id': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']], 'required': True, 'type': 'int'},
-                'name': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']], 'type': 'str'}
+                'id': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.11']], 'required': True, 'type': 'int'},
+                'name': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.11']], 'type': 'str'}
             }
         }
     }

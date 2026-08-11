@@ -15,45 +15,45 @@ module: fmgr_system_certificate_oftp
 short_description: OFTP certificates and keys.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.partial_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.partial_crud
 options:
-    system_certificate_oftp:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            certificate:
-                type: raw
-                description: (list) PEM format certificate.
-            comment:
-                type: str
-                description: OFTP certificate comment.
-            custom:
-                type: str
-                description:
-                    - Enable/disable custom certificate.
-                    - disable - Disable setting.
-                    - enable - Enable setting.
-                choices: ['disable', 'enable']
-            password:
-                type: raw
-                description: (list) Password for encrypted private-key, unset for non-encrypted.
-            private_key:
-                aliases: ['private-key']
-                type: raw
-                description: (list) PEM format private key.
-            local:
-                type: str
-                description: Choose from a local certificates.
-            mode:
-                type: str
-                description:
-                    - Mode of certificates used by oftpd.
-                    - default - Default mode.
-                    - custom - Use custom certificate.
-                    - local - Use a local certificate.
-                choices: ['default', 'custom', 'local']
+  system_certificate_oftp:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      certificate:
+        type: raw
+        description: (list) PEM format certificate.
+      comment:
+        type: str
+        description: OFTP certificate comment.
+      custom:
+        type: str
+        description:
+          - Enable/disable custom certificate.
+          - disable - Disable setting.
+          - enable - Enable setting.
+        choices: ['disable', 'enable']
+      password:
+        type: raw
+        description: (list) Password for encrypted private-key, unset for non-encrypted.
+      private_key:
+        aliases: ['private-key']
+        type: raw
+        description: (list) PEM format private key.
+      local:
+        type: str
+        description: Choose from a local certificates.
+      mode:
+        type: str
+        description:
+          - Mode of certificates used by oftpd.
+          - default - Default mode.
+          - custom - Use custom certificate.
+          - local - Use a local certificate.
+        choices: ['default', 'custom', 'local']
 '''
 
 EXAMPLES = '''
@@ -77,42 +77,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

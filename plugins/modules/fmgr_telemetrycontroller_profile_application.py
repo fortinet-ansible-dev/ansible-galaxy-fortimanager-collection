@@ -15,141 +15,140 @@ module: fmgr_telemetrycontroller_profile_application
 short_description: Configure applications.
 version_added: "2.10.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
-        type: str
-    adom:
-        description: The parameter (adom) in requested url.
-        type: str
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  profile:
+    description: The parameter (profile) in requested url.
+    type: str
+    required: true
+  telemetrycontroller_profile_application:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      app_name:
+        aliases: ['app-name']
+        type: list
+        elements: str
+        description: Application name.
+      app_throughput:
+        aliases: ['app-throughput']
+        type: int
+        description: Application throughput in megabytes
+      atdt_threshold:
+        aliases: ['atdt-threshold']
+        type: int
+        description: Threshold of application total downloading time in milliseconds
+      dns_time_threshold:
+        aliases: ['dns-time-threshold']
+        type: int
+        description: Threshold of DNS resolution time in milliseconds
+      experience_score_threshold:
+        aliases: ['experience-score-threshold']
+        type: int
+        description: Threshold of experience score
+      failure_rate_threshold:
+        aliases: ['failure-rate-threshold']
+        type: int
+        description: Threshold of failure rate
+      id:
+        type: int
+        description: ID.
         required: true
-    profile:
-        description: The parameter (profile) in requested url.
+      interval:
+        type: int
+        description: Time in milliseconds to check the application
+      jitter_threshold:
+        aliases: ['jitter-threshold']
+        type: int
+        description: Threshold of jitter in milliseconds
+      latency_threshold:
+        aliases: ['latency-threshold']
+        type: int
+        description: Threshold of latency in milliseconds
+      monitor:
         type: str
-        required: true
-    telemetrycontroller_profile_application:
-        description: The top level parameters set.
-        required: false
+        description: Enable/disable monitoring of the application.
+        choices: ['disable', 'enable']
+      packet_loss_threshold:
+        aliases: ['packet-loss-threshold']
+        type: int
+        description: Threshold of packet loss
+      sla:
         type: dict
+        description: Sla.
         suboptions:
-            app_name:
-                aliases: ['app-name']
-                type: list
-                elements: str
-                description: Application name.
-            app_throughput:
-                aliases: ['app-throughput']
-                type: int
-                description: Application throughput in megabytes
-            atdt_threshold:
-                aliases: ['atdt-threshold']
-                type: int
-                description: Threshold of application total downloading time in milliseconds
-            dns_time_threshold:
-                aliases: ['dns-time-threshold']
-                type: int
-                description: Threshold of DNS resolution time in milliseconds
-            experience_score_threshold:
-                aliases: ['experience-score-threshold']
-                type: int
-                description: Threshold of experience score
-            failure_rate_threshold:
-                aliases: ['failure-rate-threshold']
-                type: int
-                description: Threshold of failure rate
-            id:
-                type: int
-                description: ID.
-                required: true
-            interval:
-                type: int
-                description: Time in milliseconds to check the application
-            jitter_threshold:
-                aliases: ['jitter-threshold']
-                type: int
-                description: Threshold of jitter in milliseconds
-            latency_threshold:
-                aliases: ['latency-threshold']
-                type: int
-                description: Threshold of latency in milliseconds
-            monitor:
-                type: str
-                description: Enable/disable monitoring of the application.
-                choices: ['disable', 'enable']
-            packet_loss_threshold:
-                aliases: ['packet-loss-threshold']
-                type: int
-                description: Threshold of packet loss
-            sla:
-                type: dict
-                description: Sla.
-                suboptions:
-                    app_throughput_threshold:
-                        aliases: ['app-throughput-threshold']
-                        type: int
-                        description: Threshold of application throughput in megabytes
-                    atdt_threshold:
-                        aliases: ['atdt-threshold']
-                        type: int
-                        description: Threshold of application total downloading time in milliseconds
-                    dns_time_threshold:
-                        aliases: ['dns-time-threshold']
-                        type: int
-                        description: Threshold of 95th percentile of DNS resolution time in milliseconds
-                    experience_score_threshold:
-                        aliases: ['experience-score-threshold']
-                        type: int
-                        description: Threshold of experience score
-                    failure_rate_threshold:
-                        aliases: ['failure-rate-threshold']
-                        type: int
-                        description: Threshold of failure rate
-                    jitter_threshold:
-                        aliases: ['jitter-threshold']
-                        type: int
-                        description: Threshold of jitter in milliseconds
-                    latency_threshold:
-                        aliases: ['latency-threshold']
-                        type: int
-                        description: Threshold of latency in milliseconds
-                    packet_loss_threshold:
-                        aliases: ['packet-loss-threshold']
-                        type: int
-                        description: Threshold of packet loss
-                    sla_factor:
-                        aliases: ['sla-factor']
-                        type: list
-                        elements: str
-                        description: Criteria on which metric to SLA threshold list.
-                        choices: ['latency', 'jitter', 'packet-loss', 'experience-score',
-                                  'failure-rate', 'ttfb', 'atdt', 'tcp-rtt', 'dns-time',
-                                  'tls-time', 'app-throughput']
-                    tcp_rtt_threshold:
-                        aliases: ['tcp-rtt-threshold']
-                        type: int
-                        description: Threshold of TCP round-trip time in milliseconds
-                    tls_time_threshold:
-                        aliases: ['tls-time-threshold']
-                        type: int
-                        description: Threshold of 95th percentile of TLS handshake time in milliseconds
-                    ttfb_threshold:
-                        aliases: ['ttfb-threshold']
-                        type: int
-                        description: Threshold of time to first byte in milliseconds
-            tcp_rtt_threshold:
-                aliases: ['tcp-rtt-threshold']
-                type: int
-                description: Threshold of TCP round-trip time in milliseconds
-            tls_time_threshold:
-                aliases: ['tls-time-threshold']
-                type: int
-                description: Threshold of TLS handshake time in milliseconds
-            ttfb_threshold:
-                aliases: ['ttfb-threshold']
-                type: int
-                description: Threshold of time to first byte in milliseconds
+          app_throughput_threshold:
+            aliases: ['app-throughput-threshold']
+            type: int
+            description: Threshold of application throughput in megabytes
+          atdt_threshold:
+            aliases: ['atdt-threshold']
+            type: int
+            description: Threshold of application total downloading time in milliseconds
+          dns_time_threshold:
+            aliases: ['dns-time-threshold']
+            type: int
+            description: Threshold of 95th percentile of DNS resolution time in milliseconds
+          experience_score_threshold:
+            aliases: ['experience-score-threshold']
+            type: int
+            description: Threshold of experience score
+          failure_rate_threshold:
+            aliases: ['failure-rate-threshold']
+            type: int
+            description: Threshold of failure rate
+          jitter_threshold:
+            aliases: ['jitter-threshold']
+            type: int
+            description: Threshold of jitter in milliseconds
+          latency_threshold:
+            aliases: ['latency-threshold']
+            type: int
+            description: Threshold of latency in milliseconds
+          packet_loss_threshold:
+            aliases: ['packet-loss-threshold']
+            type: int
+            description: Threshold of packet loss
+          sla_factor:
+            aliases: ['sla-factor']
+            type: list
+            elements: str
+            description: Criteria on which metric to SLA threshold list.
+            choices: ['latency', 'jitter', 'packet-loss', 'experience-score', 'failure-rate',
+                      'ttfb', 'atdt', 'tcp-rtt', 'dns-time', 'tls-time', 'app-throughput']
+          tcp_rtt_threshold:
+            aliases: ['tcp-rtt-threshold']
+            type: int
+            description: Threshold of TCP round-trip time in milliseconds
+          tls_time_threshold:
+            aliases: ['tls-time-threshold']
+            type: int
+            description: Threshold of 95th percentile of TLS handshake time in milliseconds
+          ttfb_threshold:
+            aliases: ['ttfb-threshold']
+            type: int
+            description: Threshold of time to first byte in milliseconds
+      tcp_rtt_threshold:
+        aliases: ['tcp-rtt-threshold']
+        type: int
+        description: Threshold of TCP round-trip time in milliseconds
+      tls_time_threshold:
+        aliases: ['tls-time-threshold']
+        type: int
+        description: Threshold of TLS handshake time in milliseconds
+      ttfb_threshold:
+        aliases: ['ttfb-threshold']
+        type: int
+        description: Threshold of time to first byte in milliseconds
 '''
 
 EXAMPLES = '''
@@ -198,42 +197,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

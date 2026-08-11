@@ -15,58 +15,58 @@ module: fmgr_vpnsslweb_realm
 short_description: Realm.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  vpnsslweb_realm:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      login_page:
+        aliases: ['login-page']
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Replacement HTML for SSL-VPN login page.
+      max_concurrent_user:
+        aliases: ['max-concurrent-user']
+        type: int
+        description: Maximum concurrent users
+      url_path:
+        aliases: ['url-path']
         type: str
-        required: true
-    vpnsslweb_realm:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            login_page:
-                aliases: ['login-page']
-                type: str
-                description: Replacement HTML for SSL-VPN login page.
-            max_concurrent_user:
-                aliases: ['max-concurrent-user']
-                type: int
-                description: Maximum concurrent users
-            url_path:
-                aliases: ['url-path']
-                type: str
-                description: URL path to access SSL-VPN login page.
-            virtual_host:
-                aliases: ['virtual-host']
-                type: str
-                description: Virtual host name for realm.
-            nas_ip:
-                aliases: ['nas-ip']
-                type: str
-                description: IP address used as a NAS-IP to communicate with the RADIUS server.
-            radius_server:
-                aliases: ['radius-server']
-                type: str
-                description: RADIUS server associated with realm.
-            radius_port:
-                aliases: ['radius-port']
-                type: int
-                description: RADIUS service port number
-            virtual_host_only:
-                aliases: ['virtual-host-only']
-                type: str
-                description: Enable/disable enforcement of virtual host method for SSL-VPN client access.
-                choices: ['disable', 'enable']
-            virtual_host_server_cert:
-                aliases: ['virtual-host-server-cert']
-                type: str
-                description: Name of the server certificate to used for this realm.
+        description: URL path to access SSL-VPN login page.
+      virtual_host:
+        aliases: ['virtual-host']
+        type: str
+        description: Virtual host name for realm.
+      nas_ip:
+        aliases: ['nas-ip']
+        type: str
+        description: IP address used as a NAS-IP to communicate with the RADIUS server.
+      radius_server:
+        aliases: ['radius-server']
+        type: str
+        description: RADIUS server associated with realm.
+      radius_port:
+        aliases: ['radius-port']
+        type: int
+        description: RADIUS service port number
+      virtual_host_only:
+        aliases: ['virtual-host-only']
+        type: str
+        description: Enable/disable enforcement of virtual host method for SSL-VPN client access.
+        choices: ['disable', 'enable']
+      virtual_host_server_cert:
+        aliases: ['virtual-host-server-cert']
+        type: str
+        description: Name of the server certificate to used for this realm.
 '''
 
 EXAMPLES = '''
@@ -94,42 +94,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

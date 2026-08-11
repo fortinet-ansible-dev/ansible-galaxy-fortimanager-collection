@@ -12,43 +12,43 @@ ANSIBLE_METADATA = {'status': ['preview'],
 DOCUMENTATION = '''
 ---
 module: fmgr_ztna_trafficforwardproxy_urlroute
-short_description: Ztna traffic forward proxy url route
+short_description: Configure URL-based routing rules.
 version_added: "2.12.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  traffic-forward-proxy:
+    description: Deprecated, please use "traffic_forward_proxy"
+    type: str
+  traffic_forward_proxy:
+    description: The parameter (traffic-forward-proxy) in requested url.
+    type: str
+  ztna_trafficforwardproxy_urlroute:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      name:
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
-        type: str
+        description: Name.
         required: true
-    traffic-forward-proxy:
-        description: Deprecated, please use "traffic_forward_proxy"
+      service_connector:
+        aliases: ['service-connector']
+        type: list
+        elements: str
+        description: Service connector.
+      url_pattern:
+        aliases: ['url-pattern']
         type: str
-    traffic_forward_proxy:
-        description: The parameter (traffic-forward-proxy) in requested url.
-        type: str
-    ztna_trafficforwardproxy_urlroute:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            name:
-                type: str
-                description: Name.
-                required: true
-            service_connector:
-                aliases: ['service-connector']
-                type: list
-                elements: str
-                description: Service connector.
-            url_pattern:
-                aliases: ['url-pattern']
-                type: str
-                description: Url pattern.
+        description: Url pattern.
 '''
 
 EXAMPLES = '''
@@ -57,7 +57,7 @@ EXAMPLES = '''
   connection: httpapi
   gather_facts: false
   tasks:
-    - name: Ztna traffic forward proxy url route
+    - name: Configure URL-based routing rules.
       fortinet.fortimanager.fmgr_ztna_trafficforwardproxy_urlroute:
         # workspace_locking_adom: <global or your adom name>
         adom: <your own value>
@@ -71,42 +71,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

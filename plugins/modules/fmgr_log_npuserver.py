@@ -15,141 +15,141 @@ module: fmgr_log_npuserver
 short_description: Configure all the log servers and create the server groups.
 version_added: "2.2.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.partial_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.partial_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  log_npuserver:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      log_processing:
+        aliases: ['log-processing']
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Configure log processed by host to drop or no drop.
+        choices: ['may-drop', 'no-drop']
+      log_processor:
+        aliases: ['log-processor']
         type: str
-        required: true
-    log_npuserver:
-        description: The top level parameters set.
-        required: false
-        type: dict
+        description: Configure the log module.
+        choices: ['hardware', 'host']
+      netflow_ver:
+        aliases: ['netflow-ver']
+        type: str
+        description: Configure the netfow verson.
+        choices: ['v9', 'v10']
+      server_group:
+        aliases: ['server-group']
+        type: list
+        elements: dict
+        description: Server group.
         suboptions:
-            log_processing:
-                aliases: ['log-processing']
-                type: str
-                description: Configure log processed by host to drop or no drop.
-                choices: ['may-drop', 'no-drop']
-            log_processor:
-                aliases: ['log-processor']
-                type: str
-                description: Configure the log module.
-                choices: ['hardware', 'host']
-            netflow_ver:
-                aliases: ['netflow-ver']
-                type: str
-                description: Configure the netfow verson.
-                choices: ['v9', 'v10']
-            server_group:
-                aliases: ['server-group']
-                type: list
-                elements: dict
-                description: Server group.
-                suboptions:
-                    group_name:
-                        aliases: ['group-name']
-                        type: str
-                        description: Server group name.
-                    log_format:
-                        aliases: ['log-format']
-                        type: str
-                        description: Set the log format
-                        choices: ['syslog', 'netflow']
-                    log_mode:
-                        aliases: ['log-mode']
-                        type: str
-                        description: Set the log mode
-                        choices: ['per-session', 'per-nat-mapping', 'per-session-ending']
-                    log_tx_mode:
-                        aliases: ['log-tx-mode']
-                        type: str
-                        description: Configure log transmit mode.
-                        choices: ['multicast', 'roundrobin']
-                    server_number:
-                        aliases: ['server-number']
-                        type: int
-                        description: Server number in this group.
-                    server_start_id:
-                        aliases: ['server-start-id']
-                        type: int
-                        description: The start id of the continuous server series in this group,[1,16].
-                    sw_log_flags:
-                        aliases: ['sw-log-flags']
-                        type: raw
-                        description: (int or str) Set flags for software logging via driver.
-                    log_gen_event:
-                        aliases: ['log-gen-event']
-                        type: str
-                        description: Enable/disbale generating event for Per-Mapping log
-                        choices: ['disable', 'enable']
-                    log_user_info:
-                        aliases: ['log-user-info']
-                        type: str
-                        description: Enable/disbale logging user information.
-                        choices: ['disable', 'enable']
-            server_info:
-                aliases: ['server-info']
-                type: list
-                elements: dict
-                description: Server info.
-                suboptions:
-                    dest_port:
-                        aliases: ['dest-port']
-                        type: int
-                        description: Set the dest port for the log packet
-                    id:
-                        type: int
-                        description: Server id.
-                    ip_family:
-                        aliases: ['ip-family']
-                        type: str
-                        description: Set the version the IP address
-                        choices: ['v4', 'v6']
-                    ipv4_server:
-                        aliases: ['ipv4-server']
-                        type: str
-                        description: Set the IPv4 address for the log server
-                    ipv6_server:
-                        aliases: ['ipv6-server']
-                        type: str
-                        description: Set the IPv6 address for the log server
-                    source_port:
-                        aliases: ['source-port']
-                        type: int
-                        description: Set the source port for the log packet
-                    template_tx_timeout:
-                        aliases: ['template-tx-timeout']
-                        type: int
-                        description: Set the template tx timeout
-                    vdom:
-                        type: str
-                        description: Interface connected to the log server is in this virtual domain
-                    log_transport:
-                        aliases: ['log-transport']
-                        type: str
-                        description: Set transport protocol
-                        choices: ['udp', 'tcp']
-                    vdom_:
-                        type: str
-                        description: Vdom.
-            fmgr_syslog_facility:
-                aliases: ['syslog-facility']
-                type: int
-                description: Configure the syslog facility.
-            syslog_severity:
-                aliases: ['syslog-severity']
-                type: int
-                description: Configure the syslog severity.
-            enforce_seq_order:
-                aliases: ['enforce-seq-order']
-                type: str
-                description: Sw session netflow logs will be delivered in strict order if the option is enabled.
-                choices: ['disable', 'enable']
+          group_name:
+            aliases: ['group-name']
+            type: str
+            description: Server group name.
+          log_format:
+            aliases: ['log-format']
+            type: str
+            description: Set the log format
+            choices: ['syslog', 'netflow']
+          log_mode:
+            aliases: ['log-mode']
+            type: str
+            description: Set the log mode
+            choices: ['per-session', 'per-nat-mapping', 'per-session-ending']
+          log_tx_mode:
+            aliases: ['log-tx-mode']
+            type: str
+            description: Configure log transmit mode.
+            choices: ['multicast', 'roundrobin']
+          server_number:
+            aliases: ['server-number']
+            type: int
+            description: Server number in this group.
+          server_start_id:
+            aliases: ['server-start-id']
+            type: int
+            description: The start id of the continuous server series in this group,[1,16].
+          sw_log_flags:
+            aliases: ['sw-log-flags']
+            type: raw
+            description: (int or str) Set flags for software logging via driver.
+          log_gen_event:
+            aliases: ['log-gen-event']
+            type: str
+            description: Enable/disbale generating event for Per-Mapping log
+            choices: ['disable', 'enable']
+          log_user_info:
+            aliases: ['log-user-info']
+            type: str
+            description: Enable/disbale logging user information.
+            choices: ['disable', 'enable']
+      server_info:
+        aliases: ['server-info']
+        type: list
+        elements: dict
+        description: Server info.
+        suboptions:
+          dest_port:
+            aliases: ['dest-port']
+            type: int
+            description: Set the dest port for the log packet
+          id:
+            type: int
+            description: Server id.
+          ip_family:
+            aliases: ['ip-family']
+            type: str
+            description: Set the version the IP address
+            choices: ['v4', 'v6']
+          ipv4_server:
+            aliases: ['ipv4-server']
+            type: str
+            description: Set the IPv4 address for the log server
+          ipv6_server:
+            aliases: ['ipv6-server']
+            type: str
+            description: Set the IPv6 address for the log server
+          source_port:
+            aliases: ['source-port']
+            type: int
+            description: Set the source port for the log packet
+          template_tx_timeout:
+            aliases: ['template-tx-timeout']
+            type: int
+            description: Set the template tx timeout
+          vdom:
+            type: str
+            description: Interface connected to the log server is in this virtual domain
+          log_transport:
+            aliases: ['log-transport']
+            type: str
+            description: Set transport protocol
+            choices: ['udp', 'tcp']
+          vdom_:
+            type: str
+            description: Vdom.
+      fmgr_syslog_facility:
+        aliases: ['syslog-facility']
+        type: int
+        description: Configure the syslog facility.
+      syslog_severity:
+        aliases: ['syslog-severity']
+        type: int
+        description: Configure the syslog severity.
+      enforce_seq_order:
+        aliases: ['enforce-seq-order']
+        type: str
+        description: Sw session netflow logs will be delivered in strict order if the option is enabled.
+        choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -194,42 +194,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

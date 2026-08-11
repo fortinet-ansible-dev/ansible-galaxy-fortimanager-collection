@@ -15,46 +15,46 @@ module: fmgr_system_log_settings_clientcertauth
 short_description: Cli system log settings client cert auth
 version_added: "2.13.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.partial_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.partial_crud
 options:
-    system_log_settings_clientcertauth:
-        description: The top level parameters set.
-        required: false
-        type: dict
+  system_log_settings_clientcertauth:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      mode:
+        type: str
+        description: Mode.
+        choices: ['basic', 'strict']
+      tls_port:
+        aliases: ['tls-port']
+        type: str
+        description: Tls port.
+        choices: ['both', '514', '6514']
+      trusted_client:
+        aliases: ['trusted-client']
+        type: list
+        elements: dict
+        description: Trusted client.
         suboptions:
-            mode:
-                type: str
-                description: Mode.
-                choices: ['basic', 'strict']
-            tls_port:
-                aliases: ['tls-port']
-                type: str
-                description: Tls port.
-                choices: ['both', '514', '6514']
-            trusted_client:
-                aliases: ['trusted-client']
-                type: list
-                elements: dict
-                description: Trusted client.
-                suboptions:
-                    certificate:
-                        type: list
-                        elements: str
-                        description: Certificate.
-                    description:
-                        type: str
-                        description: Description.
-                    domain:
-                        type: str
-                        description: Domain.
-                    id:
-                        type: int
-                        description: Id.
-                    type:
-                        type: str
-                        description: Type.
-                        choices: ['certificate', 'domain']
+          certificate:
+            type: list
+            elements: str
+            description: Certificate.
+          description:
+            type: str
+            description: Description.
+          domain:
+            type: str
+            description: Domain.
+          id:
+            type: int
+            description: Id.
+          type:
+            type: str
+            description: Type.
+            choices: ['certificate', 'domain']
 '''
 
 EXAMPLES = '''
@@ -79,42 +79,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

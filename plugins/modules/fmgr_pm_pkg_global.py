@@ -15,141 +15,141 @@ module: fmgr_pm_pkg_global
 short_description: Policy package or folder.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.partial_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.partial_crud
 options:
-    pm_pkg_global:
-        description: The top level parameters set.
-        required: false
+  pm_pkg_global:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      name:
+        type: str
+        description: Name.
+      obj_ver:
+        aliases: ['obj ver']
+        type: int
+        description: Obj ver.
+      oid:
+        type: int
+        description: Oid.
+      package_setting:
+        aliases: ['package setting']
         type: dict
+        description: Package setting.
         suboptions:
-            name:
-                type: str
-                description: Name.
-            obj_ver:
-                aliases: ['obj ver']
-                type: int
-                description: Obj ver.
-            oid:
-                type: int
-                description: Oid.
-            package_setting:
-                aliases: ['package setting']
-                type: dict
-                description: Package setting.
-                suboptions:
-                    central_nat:
-                        aliases: ['central-nat']
-                        type: str
-                        description: Central nat.
-                        choices: ['disable', 'enable']
-                    consolidated_firewall_mode:
-                        aliases: ['consolidated-firewall-mode']
-                        type: str
-                        description: Consolidated firewall mode.
-                        choices: ['disable', 'enable']
-                    fwpolicy_implicit_log:
-                        aliases: ['fwpolicy-implicit-log']
-                        type: str
-                        description: Fwpolicy implicit log.
-                        choices: ['disable', 'enable']
-                    fwpolicy6_implicit_log:
-                        aliases: ['fwpolicy6-implicit-log']
-                        type: str
-                        description: Fwpolicy6 implicit log.
-                        choices: ['disable', 'enable']
-                    inspection_mode:
-                        aliases: ['inspection-mode']
-                        type: str
-                        description: Inspection mode.
-                        choices: ['proxy', 'flow']
-                    ngfw_mode:
-                        aliases: ['ngfw-mode']
-                        type: str
-                        description: Ngfw mode.
-                        choices: ['profile-based', 'policy-based']
-                    ssl_ssh_profile:
-                        aliases: ['ssl-ssh-profile']
-                        type: str
-                        description: Ssl ssh profile.
-            scope_member:
-                aliases: ['scope member']
-                type: list
-                elements: dict
-                description: Scope member.
-                suboptions:
-                    name:
-                        type: str
-                        description: Name.
-                    vdom:
-                        type: str
-                        description: Vdom.
-            type:
-                type: str
-                description: Type.
-                choices: ['pkg', 'folder']
-            package_settings:
-                aliases: ['package settings']
-                type: dict
-                description: Package settings.
-                suboptions:
-                    central_nat:
-                        aliases: ['central-nat']
-                        type: str
-                        description:
-                            - disable -
-                            - enable -
-                        choices: ['disable', 'enable']
-                    consolidated_firewall_mode:
-                        aliases: ['consolidated-firewall-mode']
-                        type: str
-                        description:
-                            - For flow-based policy package.
-                            - disable -
-                            - enable -
-                        choices: ['disable', 'enable']
-                    fwpolicy_implicit_log:
-                        aliases: ['fwpolicy-implicit-log']
-                        type: str
-                        description:
-                            - disable -
-                            - enable -
-                        choices: ['disable', 'enable']
-                    fwpolicy6_implicit_log:
-                        aliases: ['fwpolicy6-implicit-log']
-                        type: str
-                        description:
-                            - disable -
-                            - enable -
-                        choices: ['disable', 'enable']
-                    inspection_mode:
-                        aliases: ['inspection-mode']
-                        type: str
-                        description:
-                            - proxy -
-                            - flow -
-                        choices: ['proxy', 'flow']
-                    ngfw_mode:
-                        aliases: ['ngfw-mode']
-                        type: str
-                        description:
-                            - For flow-based policy package.
-                            - profile-based -
-                            - policy-based -
-                        choices: ['profile-based', 'policy-based']
-                    policy_offload_level:
-                        aliases: ['policy-offload-level']
-                        type: str
-                        description:
-                            - disable -
-                            - default -
-                            - dos-offload -
-                            - full-offload -
-                        choices: ['disable', 'default', 'dos-offload', 'full-offload']
-                    ssl_ssh_profile:
-                        aliases: ['ssl-ssh-profile']
-                        type: str
-                        description: SSL-SSH profile required for NGFW-mode policy package.
+          central_nat:
+            aliases: ['central-nat']
+            type: str
+            description: Central nat.
+            choices: ['disable', 'enable']
+          consolidated_firewall_mode:
+            aliases: ['consolidated-firewall-mode']
+            type: str
+            description: Consolidated firewall mode.
+            choices: ['disable', 'enable']
+          fwpolicy_implicit_log:
+            aliases: ['fwpolicy-implicit-log']
+            type: str
+            description: Fwpolicy implicit log.
+            choices: ['disable', 'enable']
+          fwpolicy6_implicit_log:
+            aliases: ['fwpolicy6-implicit-log']
+            type: str
+            description: Fwpolicy6 implicit log.
+            choices: ['disable', 'enable']
+          inspection_mode:
+            aliases: ['inspection-mode']
+            type: str
+            description: Inspection mode.
+            choices: ['proxy', 'flow']
+          ngfw_mode:
+            aliases: ['ngfw-mode']
+            type: str
+            description: Ngfw mode.
+            choices: ['profile-based', 'policy-based']
+          ssl_ssh_profile:
+            aliases: ['ssl-ssh-profile']
+            type: str
+            description: Ssl ssh profile.
+      scope_member:
+        aliases: ['scope member']
+        type: list
+        elements: dict
+        description: Scope member.
+        suboptions:
+          name:
+            type: str
+            description: Name.
+          vdom:
+            type: str
+            description: Vdom.
+      type:
+        type: str
+        description: Type.
+        choices: ['pkg', 'folder']
+      package_settings:
+        aliases: ['package settings']
+        type: dict
+        description: Package settings.
+        suboptions:
+          central_nat:
+            aliases: ['central-nat']
+            type: str
+            description:
+              - disable -
+              - enable -
+            choices: ['disable', 'enable']
+          consolidated_firewall_mode:
+            aliases: ['consolidated-firewall-mode']
+            type: str
+            description:
+              - For flow-based policy package.
+              - disable -
+              - enable -
+            choices: ['disable', 'enable']
+          fwpolicy_implicit_log:
+            aliases: ['fwpolicy-implicit-log']
+            type: str
+            description:
+              - disable -
+              - enable -
+            choices: ['disable', 'enable']
+          fwpolicy6_implicit_log:
+            aliases: ['fwpolicy6-implicit-log']
+            type: str
+            description:
+              - disable -
+              - enable -
+            choices: ['disable', 'enable']
+          inspection_mode:
+            aliases: ['inspection-mode']
+            type: str
+            description:
+              - proxy -
+              - flow -
+            choices: ['proxy', 'flow']
+          ngfw_mode:
+            aliases: ['ngfw-mode']
+            type: str
+            description:
+              - For flow-based policy package.
+              - profile-based -
+              - policy-based -
+            choices: ['profile-based', 'policy-based']
+          policy_offload_level:
+            aliases: ['policy-offload-level']
+            type: str
+            description:
+              - disable -
+              - default -
+              - dos-offload -
+              - full-offload -
+            choices: ['disable', 'default', 'dos-offload', 'full-offload']
+          ssl_ssh_profile:
+            aliases: ['ssl-ssh-profile']
+            type: str
+            description: SSL-SSH profile required for NGFW-mode policy package.
 '''
 
 EXAMPLES = '''
@@ -178,42 +178,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

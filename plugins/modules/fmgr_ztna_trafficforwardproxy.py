@@ -15,485 +15,459 @@ module: fmgr_ztna_trafficforwardproxy
 short_description: Configure ZTNA traffic forward proxy.
 version_added: "2.12.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  ztna_trafficforwardproxy:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      auth_portal:
+        aliases: ['auth-portal']
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Enable/disable authentication portal.
+        choices: ['disable', 'enable']
+      auth_virtual_host:
+        aliases: ['auth-virtual-host']
+        type: list
+        elements: str
+        description: Virtual host for authentication portal.
+      decrypted_traffic_mirror:
+        aliases: ['decrypted-traffic-mirror']
+        type: list
+        elements: str
+        description: Decrypted traffic mirror.
+      host:
+        type: list
+        elements: str
+        description: Virtual or real host name.
+      log_blocked_traffic:
+        aliases: ['log-blocked-traffic']
         type: str
+        description: Enable/disable logging of blocked traffic.
+        choices: ['disable', 'enable']
+      name:
+        type: str
+        description: ZTNA proxy name.
         required: true
-    ztna_trafficforwardproxy:
-        description: The top level parameters set.
-        required: false
-        type: dict
+      url_route:
+        aliases: ['url-route']
+        type: list
+        elements: dict
+        description: Url route.
         suboptions:
-            auth_portal:
-                aliases: ['auth-portal']
-                type: str
-                description: Enable/disable authentication portal.
-                choices: ['disable', 'enable']
-            auth_virtual_host:
-                aliases: ['auth-virtual-host']
-                type: list
-                elements: str
-                description: Virtual host for authentication portal.
-            decrypted_traffic_mirror:
-                aliases: ['decrypted-traffic-mirror']
-                type: list
-                elements: str
-                description: Decrypted traffic mirror.
-            host:
-                type: list
-                elements: str
-                description: Virtual or real host name.
-            log_blocked_traffic:
-                aliases: ['log-blocked-traffic']
-                type: str
-                description: Enable/disable logging of blocked traffic.
-                choices: ['disable', 'enable']
-            name:
-                type: str
-                description: ZTNA proxy name.
-                required: true
-            url_route:
-                aliases: ['url-route']
-                type: list
-                elements: dict
-                description: Url route.
-                suboptions:
-                    name:
-                        type: str
-                        description: Name.
-                    service_connector:
-                        aliases: ['service-connector']
-                        type: list
-                        elements: str
-                        description: Service connector.
-                    url_pattern:
-                        aliases: ['url-pattern']
-                        type: str
-                        description: Url pattern.
-            vip:
-                type: list
-                elements: str
-                description: Virtual IP name.
-            ssl_client_session_state_max:
-                aliases: ['ssl-client-session-state-max']
-                type: int
-                description: Ssl client session state max.
-            ssl_send_empty_frags:
-                aliases: ['ssl-send-empty-frags']
-                type: str
-                description: Ssl send empty frags.
-                choices: ['disable', 'enable']
-            ssl_server_max_version:
-                aliases: ['ssl-server-max-version']
-                type: str
-                description: Ssl server max version.
-                choices: ['ssl-3.0', 'tls-1.0', 'tls-1.1', 'tls-1.2', 'client', 'tls-1.3']
-            ssl_accept_ffdhe_groups:
-                aliases: ['ssl-accept-ffdhe-groups']
-                type: str
-                description: Ssl accept ffdhe groups.
-                choices: ['disable', 'enable']
-            empty_cert_action:
-                aliases: ['empty-cert-action']
-                type: str
-                description: Empty cert action.
-                choices: ['accept', 'block', 'accept-unmanageable']
-            quic:
-                type: dict
-                description: Quic.
-                suboptions:
-                    ack_delay_exponent:
-                        aliases: ['ack-delay-exponent']
-                        type: int
-                        description: Ack delay exponent.
-                    active_connection_id_limit:
-                        aliases: ['active-connection-id-limit']
-                        type: int
-                        description: Active connection id limit.
-                    active_migration:
-                        aliases: ['active-migration']
-                        type: str
-                        description: Active migration.
-                        choices: ['disable', 'enable']
-                    grease_quic_bit:
-                        aliases: ['grease-quic-bit']
-                        type: str
-                        description: Grease quic bit.
-                        choices: ['disable', 'enable']
-                    max_ack_delay:
-                        aliases: ['max-ack-delay']
-                        type: int
-                        description: Max ack delay.
-                    max_datagram_frame_size:
-                        aliases: ['max-datagram-frame-size']
-                        type: int
-                        description: Max datagram frame size.
-                    max_idle_timeout:
-                        aliases: ['max-idle-timeout']
-                        type: int
-                        description: Max idle timeout.
-                    max_udp_payload_size:
-                        aliases: ['max-udp-payload-size']
-                        type: int
-                        description: Max udp payload size.
-            ssl_server_session_state_max:
-                aliases: ['ssl-server-session-state-max']
-                type: int
-                description: Ssl server session state max.
-            ssl_client_session_state_type:
-                aliases: ['ssl-client-session-state-type']
-                type: str
-                description: Ssl client session state type.
-                choices: ['disable', 'time', 'count', 'both']
-            ssl_hpkp_age:
-                aliases: ['ssl-hpkp-age']
-                type: int
-                description: Ssl hpkp age.
-            ssl_hpkp_report_uri:
-                aliases: ['ssl-hpkp-report-uri']
-                type: str
-                description: Ssl hpkp report uri.
-            ssl_min_version:
-                aliases: ['ssl-min-version']
-                type: str
-                description: Ssl min version.
-                choices: ['ssl-3.0', 'tls-1.0', 'tls-1.1', 'tls-1.2', 'tls-1.3']
-            ssl_mode:
-                aliases: ['ssl-mode']
-                type: str
-                description: Ssl mode.
-                choices: ['half', 'full']
-            ssl_client_session_state_timeout:
-                aliases: ['ssl-client-session-state-timeout']
-                type: int
-                description: Ssl client session state timeout.
-            ssl_hsts_age:
-                aliases: ['ssl-hsts-age']
-                type: int
-                description: Ssl hsts age.
-            interface:
-                type: list
-                elements: str
-                description: Interface.
-            ssl_client_renegotiation:
-                aliases: ['ssl-client-renegotiation']
-                type: str
-                description: Ssl client renegotiation.
-                choices: ['allow', 'deny', 'secure']
-            ssl_server_session_state_timeout:
-                aliases: ['ssl-server-session-state-timeout']
-                type: int
-                description: Ssl server session state timeout.
-            ssl_server_min_version:
-                aliases: ['ssl-server-min-version']
-                type: str
-                description: Ssl server min version.
-                choices: ['ssl-3.0', 'tls-1.0', 'tls-1.1', 'tls-1.2', 'client', 'tls-1.3']
-            ssl_cipher_suites:
-                aliases: ['ssl-cipher-suites']
-                type: list
-                elements: dict
-                description: Ssl cipher suites.
-                suboptions:
-                    cipher:
-                        type: str
-                        description: Cipher.
-                        choices: ['TLS-RSA-WITH-RC4-128-MD5', 'TLS-RSA-WITH-RC4-128-SHA',
-                                  'TLS-RSA-WITH-DES-CBC-SHA', 'TLS-RSA-WITH-3DES-EDE-CBC-SHA',
-                                  'TLS-RSA-WITH-AES-128-CBC-SHA', 'TLS-RSA-WITH-AES-256-CBC-SHA',
-                                  'TLS-RSA-WITH-AES-128-CBC-SHA256',
-                                  'TLS-RSA-WITH-AES-256-CBC-SHA256',
-                                  'TLS-RSA-WITH-CAMELLIA-128-CBC-SHA',
-                                  'TLS-RSA-WITH-CAMELLIA-256-CBC-SHA',
-                                  'TLS-RSA-WITH-CAMELLIA-128-CBC-SHA256',
-                                  'TLS-RSA-WITH-CAMELLIA-256-CBC-SHA256',
-                                  'TLS-RSA-WITH-SEED-CBC-SHA', 'TLS-RSA-WITH-ARIA-128-CBC-SHA256',
-                                  'TLS-RSA-WITH-ARIA-256-CBC-SHA384',
-                                  'TLS-DHE-RSA-WITH-DES-CBC-SHA',
-                                  'TLS-DHE-RSA-WITH-3DES-EDE-CBC-SHA',
-                                  'TLS-DHE-RSA-WITH-AES-128-CBC-SHA',
-                                  'TLS-DHE-RSA-WITH-AES-256-CBC-SHA',
-                                  'TLS-DHE-RSA-WITH-AES-128-CBC-SHA256',
-                                  'TLS-DHE-RSA-WITH-AES-256-CBC-SHA256',
-                                  'TLS-DHE-RSA-WITH-CAMELLIA-128-CBC-SHA',
-                                  'TLS-DHE-RSA-WITH-CAMELLIA-256-CBC-SHA',
-                                  'TLS-DHE-RSA-WITH-CAMELLIA-128-CBC-SHA256',
-                                  'TLS-DHE-RSA-WITH-CAMELLIA-256-CBC-SHA256',
-                                  'TLS-DHE-RSA-WITH-SEED-CBC-SHA',
-                                  'TLS-DHE-RSA-WITH-ARIA-128-CBC-SHA256',
-                                  'TLS-DHE-RSA-WITH-ARIA-256-CBC-SHA384',
-                                  'TLS-ECDHE-RSA-WITH-RC4-128-SHA',
-                                  'TLS-ECDHE-RSA-WITH-3DES-EDE-CBC-SHA',
-                                  'TLS-ECDHE-RSA-WITH-AES-128-CBC-SHA',
-                                  'TLS-ECDHE-RSA-WITH-AES-256-CBC-SHA',
-                                  'TLS-ECDHE-RSA-WITH-CHACHA20-POLY1305-SHA256',
-                                  'TLS-ECDHE-ECDSA-WITH-CHACHA20-POLY1305-SHA256',
-                                  'TLS-DHE-RSA-WITH-CHACHA20-POLY1305-SHA256',
-                                  'TLS-DHE-RSA-WITH-AES-128-GCM-SHA256',
-                                  'TLS-DHE-RSA-WITH-AES-256-GCM-SHA384',
-                                  'TLS-DHE-DSS-WITH-AES-128-CBC-SHA',
-                                  'TLS-DHE-DSS-WITH-AES-256-CBC-SHA',
-                                  'TLS-DHE-DSS-WITH-AES-128-CBC-SHA256',
-                                  'TLS-DHE-DSS-WITH-AES-128-GCM-SHA256',
-                                  'TLS-DHE-DSS-WITH-AES-256-CBC-SHA256',
-                                  'TLS-DHE-DSS-WITH-AES-256-GCM-SHA384',
-                                  'TLS-ECDHE-RSA-WITH-AES-128-CBC-SHA256',
-                                  'TLS-ECDHE-RSA-WITH-AES-128-GCM-SHA256',
-                                  'TLS-ECDHE-RSA-WITH-AES-256-CBC-SHA384',
-                                  'TLS-ECDHE-RSA-WITH-AES-256-GCM-SHA384',
-                                  'TLS-ECDHE-ECDSA-WITH-AES-128-CBC-SHA',
-                                  'TLS-ECDHE-ECDSA-WITH-AES-128-CBC-SHA256',
-                                  'TLS-ECDHE-ECDSA-WITH-AES-128-GCM-SHA256',
-                                  'TLS-ECDHE-ECDSA-WITH-AES-256-CBC-SHA384',
-                                  'TLS-ECDHE-ECDSA-WITH-AES-256-GCM-SHA384',
-                                  'TLS-RSA-WITH-AES-128-GCM-SHA256',
-                                  'TLS-RSA-WITH-AES-256-GCM-SHA384',
-                                  'TLS-DHE-DSS-WITH-CAMELLIA-128-CBC-SHA',
-                                  'TLS-DHE-DSS-WITH-CAMELLIA-256-CBC-SHA',
-                                  'TLS-DHE-DSS-WITH-CAMELLIA-128-CBC-SHA256',
-                                  'TLS-DHE-DSS-WITH-CAMELLIA-256-CBC-SHA256',
-                                  'TLS-DHE-DSS-WITH-SEED-CBC-SHA',
-                                  'TLS-DHE-DSS-WITH-ARIA-128-CBC-SHA256',
-                                  'TLS-DHE-DSS-WITH-ARIA-256-CBC-SHA384',
-                                  'TLS-ECDHE-RSA-WITH-ARIA-128-CBC-SHA256',
-                                  'TLS-ECDHE-RSA-WITH-ARIA-256-CBC-SHA384',
-                                  'TLS-ECDHE-ECDSA-WITH-ARIA-128-CBC-SHA256',
-                                  'TLS-ECDHE-ECDSA-WITH-ARIA-256-CBC-SHA384',
-                                  'TLS-DHE-DSS-WITH-3DES-EDE-CBC-SHA',
-                                  'TLS-DHE-DSS-WITH-DES-CBC-SHA', 'TLS-AES-128-GCM-SHA256',
-                                  'TLS-AES-256-GCM-SHA384', 'TLS-CHACHA20-POLY1305-SHA256',
-                                  'TLS-ECDHE-ECDSA-WITH-AES-256-CBC-SHA']
-                    priority:
-                        type: int
-                        description: Priority.
-                    versions:
-                        type: list
-                        elements: str
-                        description: Versions.
-                        choices: ['ssl-3.0', 'tls-1.0', 'tls-1.1', 'tls-1.2', 'tls-1.3']
-            ssl_client_rekey_count:
-                aliases: ['ssl-client-rekey-count']
-                type: int
-                description: Ssl client rekey count.
-            svr_pool_server_max_request:
-                aliases: ['svr-pool-server-max-request']
-                type: int
-                description: Svr pool server max request.
-            ssl_dh_bits:
-                aliases: ['ssl-dh-bits']
-                type: str
-                description: Ssl dh bits.
-                choices: ['768', '1024', '1536', '2048', '3072', '4096']
-            port:
-                type: str
-                description: Port.
-            ssl_http_match_host:
-                aliases: ['ssl-http-match-host']
-                type: str
-                description: Ssl http match host.
-                choices: ['disable', 'enable']
-            ssl_server_session_state_type:
-                aliases: ['ssl-server-session-state-type']
-                type: str
-                description: Ssl server session state type.
-                choices: ['disable', 'time', 'count', 'both']
-            status:
-                type: str
-                description: Status.
-                choices: ['disable', 'enable']
-            svr_pool_multiplex:
-                aliases: ['svr-pool-multiplex']
-                type: str
-                description: Svr pool multiplex.
-                choices: ['disable', 'enable']
-            ssl_hpkp:
-                aliases: ['ssl-hpkp']
-                type: str
-                description: Ssl hpkp.
-                choices: ['disable', 'enable', 'report-only']
-            ssl_hsts:
-                aliases: ['ssl-hsts']
-                type: str
-                description: Ssl hsts.
-                choices: ['disable', 'enable']
-            svr_pool_server_max_concurrent_request:
-                aliases: ['svr-pool-server-max-concurrent-request']
-                type: int
-                description: Svr pool server max concurrent request.
-            h3_support:
-                aliases: ['h3-support']
-                type: str
-                description: H3 support.
-                choices: ['disable', 'enable']
-            ssl_http_location_conversion:
-                aliases: ['ssl-http-location-conversion']
-                type: str
-                description: Ssl http location conversion.
-                choices: ['disable', 'enable']
-            comment:
-                type: str
-                description: Comment.
-            ssl_pfs:
-                aliases: ['ssl-pfs']
-                type: str
-                description: Ssl pfs.
-                choices: ['require', 'deny', 'allow']
-            ssl_hsts_include_subdomains:
-                aliases: ['ssl-hsts-include-subdomains']
-                type: str
-                description: Ssl hsts include subdomains.
-                choices: ['disable', 'enable']
-            ssl_certificate:
-                aliases: ['ssl-certificate']
-                type: list
-                elements: str
-                description: Ssl certificate.
-            ssl_max_version:
-                aliases: ['ssl-max-version']
-                type: str
-                description: Ssl max version.
-                choices: ['ssl-3.0', 'tls-1.0', 'tls-1.1', 'tls-1.2', 'tls-1.3']
-            ssl_hpkp_backup:
-                aliases: ['ssl-hpkp-backup']
-                type: list
-                elements: str
-                description: Ssl hpkp backup.
-            client_cert:
-                aliases: ['client-cert']
-                type: str
-                description: Client cert.
-                choices: ['disable', 'enable']
-            ssl_client_fallback:
-                aliases: ['ssl-client-fallback']
-                type: str
-                description: Ssl client fallback.
-                choices: ['disable', 'enable']
-            vip6:
-                type: list
-                elements: str
-                description: Virtual IPv6 name.
-            ssl_algorithm:
-                aliases: ['ssl-algorithm']
-                type: str
-                description: Ssl algorithm.
-                choices: ['high', 'low', 'medium', 'custom']
-            ssl_server_algorithm:
-                aliases: ['ssl-server-algorithm']
-                type: str
-                description: Ssl server algorithm.
-                choices: ['high', 'low', 'medium', 'custom', 'client']
-            ssl_hpkp_include_subdomains:
-                aliases: ['ssl-hpkp-include-subdomains']
-                type: str
-                description: Ssl hpkp include subdomains.
-                choices: ['disable', 'enable']
-            user_agent_detect:
-                aliases: ['user-agent-detect']
-                type: str
-                description: User agent detect.
-                choices: ['disable', 'enable']
-            ssl_server_renegotiation:
-                aliases: ['ssl-server-renegotiation']
-                type: str
-                description: Ssl server renegotiation.
-                choices: ['disable', 'enable']
-            svr_pool_ttl:
-                aliases: ['svr-pool-ttl']
-                type: int
-                description: Svr pool ttl.
-            ssl_server_cipher_suites:
-                aliases: ['ssl-server-cipher-suites']
-                type: list
-                elements: dict
-                description: Ssl server cipher suites.
-                suboptions:
-                    cipher:
-                        type: str
-                        description: Cipher.
-                        choices: ['TLS-RSA-WITH-RC4-128-MD5', 'TLS-RSA-WITH-RC4-128-SHA',
-                                  'TLS-RSA-WITH-DES-CBC-SHA', 'TLS-RSA-WITH-3DES-EDE-CBC-SHA',
-                                  'TLS-RSA-WITH-AES-128-CBC-SHA', 'TLS-RSA-WITH-AES-256-CBC-SHA',
-                                  'TLS-RSA-WITH-AES-128-CBC-SHA256',
-                                  'TLS-RSA-WITH-AES-256-CBC-SHA256',
-                                  'TLS-RSA-WITH-CAMELLIA-128-CBC-SHA',
-                                  'TLS-RSA-WITH-CAMELLIA-256-CBC-SHA',
-                                  'TLS-RSA-WITH-CAMELLIA-128-CBC-SHA256',
-                                  'TLS-RSA-WITH-CAMELLIA-256-CBC-SHA256',
-                                  'TLS-RSA-WITH-SEED-CBC-SHA', 'TLS-RSA-WITH-ARIA-128-CBC-SHA256',
-                                  'TLS-RSA-WITH-ARIA-256-CBC-SHA384',
-                                  'TLS-DHE-RSA-WITH-DES-CBC-SHA',
-                                  'TLS-DHE-RSA-WITH-3DES-EDE-CBC-SHA',
-                                  'TLS-DHE-RSA-WITH-AES-128-CBC-SHA',
-                                  'TLS-DHE-RSA-WITH-AES-256-CBC-SHA',
-                                  'TLS-DHE-RSA-WITH-AES-128-CBC-SHA256',
-                                  'TLS-DHE-RSA-WITH-AES-256-CBC-SHA256',
-                                  'TLS-DHE-RSA-WITH-CAMELLIA-128-CBC-SHA',
-                                  'TLS-DHE-RSA-WITH-CAMELLIA-256-CBC-SHA',
-                                  'TLS-DHE-RSA-WITH-CAMELLIA-128-CBC-SHA256',
-                                  'TLS-DHE-RSA-WITH-CAMELLIA-256-CBC-SHA256',
-                                  'TLS-DHE-RSA-WITH-SEED-CBC-SHA',
-                                  'TLS-DHE-RSA-WITH-ARIA-128-CBC-SHA256',
-                                  'TLS-DHE-RSA-WITH-ARIA-256-CBC-SHA384',
-                                  'TLS-ECDHE-RSA-WITH-RC4-128-SHA',
-                                  'TLS-ECDHE-RSA-WITH-3DES-EDE-CBC-SHA',
-                                  'TLS-ECDHE-RSA-WITH-AES-128-CBC-SHA',
-                                  'TLS-ECDHE-RSA-WITH-AES-256-CBC-SHA',
-                                  'TLS-ECDHE-RSA-WITH-CHACHA20-POLY1305-SHA256',
-                                  'TLS-ECDHE-ECDSA-WITH-CHACHA20-POLY1305-SHA256',
-                                  'TLS-DHE-RSA-WITH-CHACHA20-POLY1305-SHA256',
-                                  'TLS-DHE-RSA-WITH-AES-128-GCM-SHA256',
-                                  'TLS-DHE-RSA-WITH-AES-256-GCM-SHA384',
-                                  'TLS-DHE-DSS-WITH-AES-128-CBC-SHA',
-                                  'TLS-DHE-DSS-WITH-AES-256-CBC-SHA',
-                                  'TLS-DHE-DSS-WITH-AES-128-CBC-SHA256',
-                                  'TLS-DHE-DSS-WITH-AES-128-GCM-SHA256',
-                                  'TLS-DHE-DSS-WITH-AES-256-CBC-SHA256',
-                                  'TLS-DHE-DSS-WITH-AES-256-GCM-SHA384',
-                                  'TLS-ECDHE-RSA-WITH-AES-128-CBC-SHA256',
-                                  'TLS-ECDHE-RSA-WITH-AES-128-GCM-SHA256',
-                                  'TLS-ECDHE-RSA-WITH-AES-256-CBC-SHA384',
-                                  'TLS-ECDHE-RSA-WITH-AES-256-GCM-SHA384',
-                                  'TLS-ECDHE-ECDSA-WITH-AES-128-CBC-SHA',
-                                  'TLS-ECDHE-ECDSA-WITH-AES-128-CBC-SHA256',
-                                  'TLS-ECDHE-ECDSA-WITH-AES-128-GCM-SHA256',
-                                  'TLS-ECDHE-ECDSA-WITH-AES-256-CBC-SHA384',
-                                  'TLS-ECDHE-ECDSA-WITH-AES-256-GCM-SHA384',
-                                  'TLS-RSA-WITH-AES-128-GCM-SHA256',
-                                  'TLS-RSA-WITH-AES-256-GCM-SHA384',
-                                  'TLS-DHE-DSS-WITH-CAMELLIA-128-CBC-SHA',
-                                  'TLS-DHE-DSS-WITH-CAMELLIA-256-CBC-SHA',
-                                  'TLS-DHE-DSS-WITH-CAMELLIA-128-CBC-SHA256',
-                                  'TLS-DHE-DSS-WITH-CAMELLIA-256-CBC-SHA256',
-                                  'TLS-DHE-DSS-WITH-SEED-CBC-SHA',
-                                  'TLS-DHE-DSS-WITH-ARIA-128-CBC-SHA256',
-                                  'TLS-DHE-DSS-WITH-ARIA-256-CBC-SHA384',
-                                  'TLS-ECDHE-RSA-WITH-ARIA-128-CBC-SHA256',
-                                  'TLS-ECDHE-RSA-WITH-ARIA-256-CBC-SHA384',
-                                  'TLS-ECDHE-ECDSA-WITH-ARIA-128-CBC-SHA256',
-                                  'TLS-ECDHE-ECDSA-WITH-ARIA-256-CBC-SHA384',
-                                  'TLS-DHE-DSS-WITH-3DES-EDE-CBC-SHA',
-                                  'TLS-DHE-DSS-WITH-DES-CBC-SHA', 'TLS-AES-128-GCM-SHA256',
-                                  'TLS-AES-256-GCM-SHA384', 'TLS-CHACHA20-POLY1305-SHA256',
-                                  'TLS-ECDHE-ECDSA-WITH-AES-256-CBC-SHA']
-                    priority:
-                        type: int
-                        description: Priority.
-                    versions:
-                        type: list
-                        elements: str
-                        description: Versions.
-                        choices: ['ssl-3.0', 'tls-1.0', 'tls-1.1', 'tls-1.2', 'tls-1.3']
-            ssl_hpkp_primary:
-                aliases: ['ssl-hpkp-primary']
-                type: list
-                elements: str
-                description: Ssl hpkp primary.
+          name:
+            type: str
+            description: Name.
+          service_connector:
+            aliases: ['service-connector']
+            type: list
+            elements: str
+            description: Service connector.
+          url_pattern:
+            aliases: ['url-pattern']
+            type: str
+            description: Url pattern.
+      vip:
+        type: list
+        elements: str
+        description: Virtual IP name.
+      ssl_client_session_state_max:
+        aliases: ['ssl-client-session-state-max']
+        type: int
+        description: Ssl client session state max.
+      ssl_send_empty_frags:
+        aliases: ['ssl-send-empty-frags']
+        type: str
+        description: Ssl send empty frags.
+        choices: ['disable', 'enable']
+      ssl_server_max_version:
+        aliases: ['ssl-server-max-version']
+        type: str
+        description: Ssl server max version.
+        choices: ['ssl-3.0', 'tls-1.0', 'tls-1.1', 'tls-1.2', 'client', 'tls-1.3']
+      ssl_accept_ffdhe_groups:
+        aliases: ['ssl-accept-ffdhe-groups']
+        type: str
+        description: Ssl accept ffdhe groups.
+        choices: ['disable', 'enable']
+      empty_cert_action:
+        aliases: ['empty-cert-action']
+        type: str
+        description: Empty cert action.
+        choices: ['accept', 'block', 'accept-unmanageable']
+      quic:
+        type: dict
+        description: Quic.
+        suboptions:
+          ack_delay_exponent:
+            aliases: ['ack-delay-exponent']
+            type: int
+            description: Ack delay exponent.
+          active_connection_id_limit:
+            aliases: ['active-connection-id-limit']
+            type: int
+            description: Active connection id limit.
+          active_migration:
+            aliases: ['active-migration']
+            type: str
+            description: Active migration.
+            choices: ['disable', 'enable']
+          grease_quic_bit:
+            aliases: ['grease-quic-bit']
+            type: str
+            description: Grease quic bit.
+            choices: ['disable', 'enable']
+          max_ack_delay:
+            aliases: ['max-ack-delay']
+            type: int
+            description: Max ack delay.
+          max_datagram_frame_size:
+            aliases: ['max-datagram-frame-size']
+            type: int
+            description: Max datagram frame size.
+          max_idle_timeout:
+            aliases: ['max-idle-timeout']
+            type: int
+            description: Max idle timeout.
+          max_udp_payload_size:
+            aliases: ['max-udp-payload-size']
+            type: int
+            description: Max udp payload size.
+      ssl_server_session_state_max:
+        aliases: ['ssl-server-session-state-max']
+        type: int
+        description: Ssl server session state max.
+      ssl_client_session_state_type:
+        aliases: ['ssl-client-session-state-type']
+        type: str
+        description: Ssl client session state type.
+        choices: ['disable', 'time', 'count', 'both']
+      ssl_hpkp_age:
+        aliases: ['ssl-hpkp-age']
+        type: int
+        description: Ssl hpkp age.
+      ssl_hpkp_report_uri:
+        aliases: ['ssl-hpkp-report-uri']
+        type: str
+        description: Ssl hpkp report uri.
+      ssl_min_version:
+        aliases: ['ssl-min-version']
+        type: str
+        description: Ssl min version.
+        choices: ['ssl-3.0', 'tls-1.0', 'tls-1.1', 'tls-1.2', 'tls-1.3']
+      ssl_mode:
+        aliases: ['ssl-mode']
+        type: str
+        description: Ssl mode.
+        choices: ['half', 'full']
+      ssl_client_session_state_timeout:
+        aliases: ['ssl-client-session-state-timeout']
+        type: int
+        description: Ssl client session state timeout.
+      ssl_hsts_age:
+        aliases: ['ssl-hsts-age']
+        type: int
+        description: Ssl hsts age.
+      interface:
+        type: list
+        elements: str
+        description: Interface.
+      ssl_client_renegotiation:
+        aliases: ['ssl-client-renegotiation']
+        type: str
+        description: Ssl client renegotiation.
+        choices: ['allow', 'deny', 'secure']
+      ssl_server_session_state_timeout:
+        aliases: ['ssl-server-session-state-timeout']
+        type: int
+        description: Ssl server session state timeout.
+      ssl_server_min_version:
+        aliases: ['ssl-server-min-version']
+        type: str
+        description: Ssl server min version.
+        choices: ['ssl-3.0', 'tls-1.0', 'tls-1.1', 'tls-1.2', 'client', 'tls-1.3']
+      ssl_cipher_suites:
+        aliases: ['ssl-cipher-suites']
+        type: list
+        elements: dict
+        description: Ssl cipher suites.
+        suboptions:
+          cipher:
+            type: str
+            description: Cipher.
+            choices: ['TLS-RSA-WITH-RC4-128-MD5', 'TLS-RSA-WITH-RC4-128-SHA',
+                      'TLS-RSA-WITH-DES-CBC-SHA', 'TLS-RSA-WITH-3DES-EDE-CBC-SHA',
+                      'TLS-RSA-WITH-AES-128-CBC-SHA', 'TLS-RSA-WITH-AES-256-CBC-SHA',
+                      'TLS-RSA-WITH-AES-128-CBC-SHA256', 'TLS-RSA-WITH-AES-256-CBC-SHA256',
+                      'TLS-RSA-WITH-CAMELLIA-128-CBC-SHA', 'TLS-RSA-WITH-CAMELLIA-256-CBC-SHA',
+                      'TLS-RSA-WITH-CAMELLIA-128-CBC-SHA256',
+                      'TLS-RSA-WITH-CAMELLIA-256-CBC-SHA256', 'TLS-RSA-WITH-SEED-CBC-SHA',
+                      'TLS-RSA-WITH-ARIA-128-CBC-SHA256', 'TLS-RSA-WITH-ARIA-256-CBC-SHA384',
+                      'TLS-DHE-RSA-WITH-DES-CBC-SHA', 'TLS-DHE-RSA-WITH-3DES-EDE-CBC-SHA',
+                      'TLS-DHE-RSA-WITH-AES-128-CBC-SHA', 'TLS-DHE-RSA-WITH-AES-256-CBC-SHA',
+                      'TLS-DHE-RSA-WITH-AES-128-CBC-SHA256',
+                      'TLS-DHE-RSA-WITH-AES-256-CBC-SHA256',
+                      'TLS-DHE-RSA-WITH-CAMELLIA-128-CBC-SHA',
+                      'TLS-DHE-RSA-WITH-CAMELLIA-256-CBC-SHA',
+                      'TLS-DHE-RSA-WITH-CAMELLIA-128-CBC-SHA256',
+                      'TLS-DHE-RSA-WITH-CAMELLIA-256-CBC-SHA256', 'TLS-DHE-RSA-WITH-SEED-CBC-SHA',
+                      'TLS-DHE-RSA-WITH-ARIA-128-CBC-SHA256',
+                      'TLS-DHE-RSA-WITH-ARIA-256-CBC-SHA384', 'TLS-ECDHE-RSA-WITH-RC4-128-SHA',
+                      'TLS-ECDHE-RSA-WITH-3DES-EDE-CBC-SHA', 'TLS-ECDHE-RSA-WITH-AES-128-CBC-SHA',
+                      'TLS-ECDHE-RSA-WITH-AES-256-CBC-SHA',
+                      'TLS-ECDHE-RSA-WITH-CHACHA20-POLY1305-SHA256',
+                      'TLS-ECDHE-ECDSA-WITH-CHACHA20-POLY1305-SHA256',
+                      'TLS-DHE-RSA-WITH-CHACHA20-POLY1305-SHA256',
+                      'TLS-DHE-RSA-WITH-AES-128-GCM-SHA256',
+                      'TLS-DHE-RSA-WITH-AES-256-GCM-SHA384', 'TLS-DHE-DSS-WITH-AES-128-CBC-SHA',
+                      'TLS-DHE-DSS-WITH-AES-256-CBC-SHA', 'TLS-DHE-DSS-WITH-AES-128-CBC-SHA256',
+                      'TLS-DHE-DSS-WITH-AES-128-GCM-SHA256',
+                      'TLS-DHE-DSS-WITH-AES-256-CBC-SHA256',
+                      'TLS-DHE-DSS-WITH-AES-256-GCM-SHA384',
+                      'TLS-ECDHE-RSA-WITH-AES-128-CBC-SHA256',
+                      'TLS-ECDHE-RSA-WITH-AES-128-GCM-SHA256',
+                      'TLS-ECDHE-RSA-WITH-AES-256-CBC-SHA384',
+                      'TLS-ECDHE-RSA-WITH-AES-256-GCM-SHA384',
+                      'TLS-ECDHE-ECDSA-WITH-AES-128-CBC-SHA',
+                      'TLS-ECDHE-ECDSA-WITH-AES-128-CBC-SHA256',
+                      'TLS-ECDHE-ECDSA-WITH-AES-128-GCM-SHA256',
+                      'TLS-ECDHE-ECDSA-WITH-AES-256-CBC-SHA384',
+                      'TLS-ECDHE-ECDSA-WITH-AES-256-GCM-SHA384',
+                      'TLS-RSA-WITH-AES-128-GCM-SHA256', 'TLS-RSA-WITH-AES-256-GCM-SHA384',
+                      'TLS-DHE-DSS-WITH-CAMELLIA-128-CBC-SHA',
+                      'TLS-DHE-DSS-WITH-CAMELLIA-256-CBC-SHA',
+                      'TLS-DHE-DSS-WITH-CAMELLIA-128-CBC-SHA256',
+                      'TLS-DHE-DSS-WITH-CAMELLIA-256-CBC-SHA256', 'TLS-DHE-DSS-WITH-SEED-CBC-SHA',
+                      'TLS-DHE-DSS-WITH-ARIA-128-CBC-SHA256',
+                      'TLS-DHE-DSS-WITH-ARIA-256-CBC-SHA384',
+                      'TLS-ECDHE-RSA-WITH-ARIA-128-CBC-SHA256',
+                      'TLS-ECDHE-RSA-WITH-ARIA-256-CBC-SHA384',
+                      'TLS-ECDHE-ECDSA-WITH-ARIA-128-CBC-SHA256',
+                      'TLS-ECDHE-ECDSA-WITH-ARIA-256-CBC-SHA384',
+                      'TLS-DHE-DSS-WITH-3DES-EDE-CBC-SHA', 'TLS-DHE-DSS-WITH-DES-CBC-SHA',
+                      'TLS-AES-128-GCM-SHA256', 'TLS-AES-256-GCM-SHA384',
+                      'TLS-CHACHA20-POLY1305-SHA256', 'TLS-ECDHE-ECDSA-WITH-AES-256-CBC-SHA']
+          priority:
+            type: int
+            description: Priority.
+          versions:
+            type: list
+            elements: str
+            description: Versions.
+            choices: ['ssl-3.0', 'tls-1.0', 'tls-1.1', 'tls-1.2', 'tls-1.3']
+      ssl_client_rekey_count:
+        aliases: ['ssl-client-rekey-count']
+        type: int
+        description: Ssl client rekey count.
+      svr_pool_server_max_request:
+        aliases: ['svr-pool-server-max-request']
+        type: int
+        description: Svr pool server max request.
+      ssl_dh_bits:
+        aliases: ['ssl-dh-bits']
+        type: str
+        description: Ssl dh bits.
+        choices: ['768', '1024', '1536', '2048', '3072', '4096']
+      port:
+        type: str
+        description: Port.
+      ssl_http_match_host:
+        aliases: ['ssl-http-match-host']
+        type: str
+        description: Ssl http match host.
+        choices: ['disable', 'enable']
+      ssl_server_session_state_type:
+        aliases: ['ssl-server-session-state-type']
+        type: str
+        description: Ssl server session state type.
+        choices: ['disable', 'time', 'count', 'both']
+      status:
+        type: str
+        description: Status.
+        choices: ['disable', 'enable']
+      svr_pool_multiplex:
+        aliases: ['svr-pool-multiplex']
+        type: str
+        description: Svr pool multiplex.
+        choices: ['disable', 'enable']
+      ssl_hpkp:
+        aliases: ['ssl-hpkp']
+        type: str
+        description: Ssl hpkp.
+        choices: ['disable', 'enable', 'report-only']
+      ssl_hsts:
+        aliases: ['ssl-hsts']
+        type: str
+        description: Ssl hsts.
+        choices: ['disable', 'enable']
+      svr_pool_server_max_concurrent_request:
+        aliases: ['svr-pool-server-max-concurrent-request']
+        type: int
+        description: Svr pool server max concurrent request.
+      h3_support:
+        aliases: ['h3-support']
+        type: str
+        description: H3 support.
+        choices: ['disable', 'enable']
+      ssl_http_location_conversion:
+        aliases: ['ssl-http-location-conversion']
+        type: str
+        description: Ssl http location conversion.
+        choices: ['disable', 'enable']
+      comment:
+        type: str
+        description: Comment.
+      ssl_pfs:
+        aliases: ['ssl-pfs']
+        type: str
+        description: Ssl pfs.
+        choices: ['require', 'deny', 'allow']
+      ssl_hsts_include_subdomains:
+        aliases: ['ssl-hsts-include-subdomains']
+        type: str
+        description: Ssl hsts include subdomains.
+        choices: ['disable', 'enable']
+      ssl_certificate:
+        aliases: ['ssl-certificate']
+        type: list
+        elements: str
+        description: Ssl certificate.
+      ssl_max_version:
+        aliases: ['ssl-max-version']
+        type: str
+        description: Ssl max version.
+        choices: ['ssl-3.0', 'tls-1.0', 'tls-1.1', 'tls-1.2', 'tls-1.3']
+      ssl_hpkp_backup:
+        aliases: ['ssl-hpkp-backup']
+        type: list
+        elements: str
+        description: Ssl hpkp backup.
+      client_cert:
+        aliases: ['client-cert']
+        type: str
+        description: Client cert.
+        choices: ['disable', 'enable']
+      ssl_client_fallback:
+        aliases: ['ssl-client-fallback']
+        type: str
+        description: Ssl client fallback.
+        choices: ['disable', 'enable']
+      vip6:
+        type: list
+        elements: str
+        description: Virtual IPv6 name.
+      ssl_algorithm:
+        aliases: ['ssl-algorithm']
+        type: str
+        description: Ssl algorithm.
+        choices: ['high', 'low', 'medium', 'custom']
+      ssl_server_algorithm:
+        aliases: ['ssl-server-algorithm']
+        type: str
+        description: Ssl server algorithm.
+        choices: ['high', 'low', 'medium', 'custom', 'client']
+      ssl_hpkp_include_subdomains:
+        aliases: ['ssl-hpkp-include-subdomains']
+        type: str
+        description: Ssl hpkp include subdomains.
+        choices: ['disable', 'enable']
+      user_agent_detect:
+        aliases: ['user-agent-detect']
+        type: str
+        description: User agent detect.
+        choices: ['disable', 'enable']
+      ssl_server_renegotiation:
+        aliases: ['ssl-server-renegotiation']
+        type: str
+        description: Ssl server renegotiation.
+        choices: ['disable', 'enable']
+      svr_pool_ttl:
+        aliases: ['svr-pool-ttl']
+        type: int
+        description: Svr pool ttl.
+      ssl_server_cipher_suites:
+        aliases: ['ssl-server-cipher-suites']
+        type: list
+        elements: dict
+        description: Ssl server cipher suites.
+        suboptions:
+          cipher:
+            type: str
+            description: Cipher.
+            choices: ['TLS-RSA-WITH-RC4-128-MD5', 'TLS-RSA-WITH-RC4-128-SHA',
+                      'TLS-RSA-WITH-DES-CBC-SHA', 'TLS-RSA-WITH-3DES-EDE-CBC-SHA',
+                      'TLS-RSA-WITH-AES-128-CBC-SHA', 'TLS-RSA-WITH-AES-256-CBC-SHA',
+                      'TLS-RSA-WITH-AES-128-CBC-SHA256', 'TLS-RSA-WITH-AES-256-CBC-SHA256',
+                      'TLS-RSA-WITH-CAMELLIA-128-CBC-SHA', 'TLS-RSA-WITH-CAMELLIA-256-CBC-SHA',
+                      'TLS-RSA-WITH-CAMELLIA-128-CBC-SHA256',
+                      'TLS-RSA-WITH-CAMELLIA-256-CBC-SHA256', 'TLS-RSA-WITH-SEED-CBC-SHA',
+                      'TLS-RSA-WITH-ARIA-128-CBC-SHA256', 'TLS-RSA-WITH-ARIA-256-CBC-SHA384',
+                      'TLS-DHE-RSA-WITH-DES-CBC-SHA', 'TLS-DHE-RSA-WITH-3DES-EDE-CBC-SHA',
+                      'TLS-DHE-RSA-WITH-AES-128-CBC-SHA', 'TLS-DHE-RSA-WITH-AES-256-CBC-SHA',
+                      'TLS-DHE-RSA-WITH-AES-128-CBC-SHA256',
+                      'TLS-DHE-RSA-WITH-AES-256-CBC-SHA256',
+                      'TLS-DHE-RSA-WITH-CAMELLIA-128-CBC-SHA',
+                      'TLS-DHE-RSA-WITH-CAMELLIA-256-CBC-SHA',
+                      'TLS-DHE-RSA-WITH-CAMELLIA-128-CBC-SHA256',
+                      'TLS-DHE-RSA-WITH-CAMELLIA-256-CBC-SHA256', 'TLS-DHE-RSA-WITH-SEED-CBC-SHA',
+                      'TLS-DHE-RSA-WITH-ARIA-128-CBC-SHA256',
+                      'TLS-DHE-RSA-WITH-ARIA-256-CBC-SHA384', 'TLS-ECDHE-RSA-WITH-RC4-128-SHA',
+                      'TLS-ECDHE-RSA-WITH-3DES-EDE-CBC-SHA', 'TLS-ECDHE-RSA-WITH-AES-128-CBC-SHA',
+                      'TLS-ECDHE-RSA-WITH-AES-256-CBC-SHA',
+                      'TLS-ECDHE-RSA-WITH-CHACHA20-POLY1305-SHA256',
+                      'TLS-ECDHE-ECDSA-WITH-CHACHA20-POLY1305-SHA256',
+                      'TLS-DHE-RSA-WITH-CHACHA20-POLY1305-SHA256',
+                      'TLS-DHE-RSA-WITH-AES-128-GCM-SHA256',
+                      'TLS-DHE-RSA-WITH-AES-256-GCM-SHA384', 'TLS-DHE-DSS-WITH-AES-128-CBC-SHA',
+                      'TLS-DHE-DSS-WITH-AES-256-CBC-SHA', 'TLS-DHE-DSS-WITH-AES-128-CBC-SHA256',
+                      'TLS-DHE-DSS-WITH-AES-128-GCM-SHA256',
+                      'TLS-DHE-DSS-WITH-AES-256-CBC-SHA256',
+                      'TLS-DHE-DSS-WITH-AES-256-GCM-SHA384',
+                      'TLS-ECDHE-RSA-WITH-AES-128-CBC-SHA256',
+                      'TLS-ECDHE-RSA-WITH-AES-128-GCM-SHA256',
+                      'TLS-ECDHE-RSA-WITH-AES-256-CBC-SHA384',
+                      'TLS-ECDHE-RSA-WITH-AES-256-GCM-SHA384',
+                      'TLS-ECDHE-ECDSA-WITH-AES-128-CBC-SHA',
+                      'TLS-ECDHE-ECDSA-WITH-AES-128-CBC-SHA256',
+                      'TLS-ECDHE-ECDSA-WITH-AES-128-GCM-SHA256',
+                      'TLS-ECDHE-ECDSA-WITH-AES-256-CBC-SHA384',
+                      'TLS-ECDHE-ECDSA-WITH-AES-256-GCM-SHA384',
+                      'TLS-RSA-WITH-AES-128-GCM-SHA256', 'TLS-RSA-WITH-AES-256-GCM-SHA384',
+                      'TLS-DHE-DSS-WITH-CAMELLIA-128-CBC-SHA',
+                      'TLS-DHE-DSS-WITH-CAMELLIA-256-CBC-SHA',
+                      'TLS-DHE-DSS-WITH-CAMELLIA-128-CBC-SHA256',
+                      'TLS-DHE-DSS-WITH-CAMELLIA-256-CBC-SHA256', 'TLS-DHE-DSS-WITH-SEED-CBC-SHA',
+                      'TLS-DHE-DSS-WITH-ARIA-128-CBC-SHA256',
+                      'TLS-DHE-DSS-WITH-ARIA-256-CBC-SHA384',
+                      'TLS-ECDHE-RSA-WITH-ARIA-128-CBC-SHA256',
+                      'TLS-ECDHE-RSA-WITH-ARIA-256-CBC-SHA384',
+                      'TLS-ECDHE-ECDSA-WITH-ARIA-128-CBC-SHA256',
+                      'TLS-ECDHE-ECDSA-WITH-ARIA-256-CBC-SHA384',
+                      'TLS-DHE-DSS-WITH-3DES-EDE-CBC-SHA', 'TLS-DHE-DSS-WITH-DES-CBC-SHA',
+                      'TLS-AES-128-GCM-SHA256', 'TLS-AES-256-GCM-SHA384',
+                      'TLS-CHACHA20-POLY1305-SHA256', 'TLS-ECDHE-ECDSA-WITH-AES-256-CBC-SHA']
+          priority:
+            type: int
+            description: Priority.
+          versions:
+            type: list
+            elements: str
+            description: Versions.
+            choices: ['ssl-3.0', 'tls-1.0', 'tls-1.1', 'tls-1.2', 'tls-1.3']
+      ssl_hpkp_primary:
+        aliases: ['ssl-hpkp-primary']
+        type: list
+        elements: str
+        description: Ssl hpkp primary.
 '''
 
 EXAMPLES = '''
@@ -586,42 +560,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

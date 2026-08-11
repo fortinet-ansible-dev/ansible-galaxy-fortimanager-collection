@@ -15,48 +15,48 @@ module: fmgr_firewall_explicitproxyaddrgrp
 short_description: Explicit web proxy address group configuration.
 version_added: "2.2.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  firewall_explicitproxyaddrgrp:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      color:
+        type: int
+        description: GUI icon color.
+      comment:
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Comment.
+      member:
         type: str
+        description: Address group members.
+      name:
+        type: str
+        description: Address group name.
         required: true
-    firewall_explicitproxyaddrgrp:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            color:
-                type: int
-                description: GUI icon color.
-            comment:
-                type: str
-                description: Comment.
-            member:
-                type: str
-                description: Address group members.
-            name:
-                type: str
-                description: Address group name.
-                required: true
-            tags:
-                type: str
-                description: Applied object tags.
-            type:
-                type: str
-                description: Address group type.
-                choices: ['src', 'dst']
-            uuid:
-                type: str
-                description: Universally Unique IDentifier.
-            visibility:
-                type: str
-                description: Enable/disable address visibility.
-                choices: ['disable', 'enable']
+      tags:
+        type: str
+        description: Applied object tags.
+      type:
+        type: str
+        description: Address group type.
+        choices: ['src', 'dst']
+      uuid:
+        type: str
+        description: Universally Unique IDentifier.
+      visibility:
+        type: str
+        description: Enable/disable address visibility.
+        choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -83,42 +83,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

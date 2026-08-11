@@ -15,140 +15,140 @@ module: fmgr_user_domaincontroller
 short_description: Configure domain controller entries.
 version_added: "2.1.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  user_domaincontroller:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      domain_name:
+        aliases: ['domain-name']
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
-        type: str
-        required: true
-    user_domaincontroller:
-        description: The top level parameters set.
-        required: false
-        type: dict
+        description: Domain DNS name.
+      extra_server:
+        aliases: ['extra-server']
+        type: list
+        elements: dict
+        description: Extra server.
         suboptions:
-            domain_name:
-                aliases: ['domain-name']
-                type: str
-                description: Domain DNS name.
-            extra_server:
-                aliases: ['extra-server']
-                type: list
-                elements: dict
-                description: Extra server.
-                suboptions:
-                    id:
-                        type: int
-                        description: Server ID.
-                    ip_address:
-                        aliases: ['ip-address']
-                        type: str
-                        description: Domain controller IP address.
-                    port:
-                        type: int
-                        description: Port to be used for communication with the domain controller
-                    source_ip_address:
-                        aliases: ['source-ip-address']
-                        type: str
-                        description: FortiGate IPv4 address to be used for communication with the domain controller.
-                    source_port:
-                        aliases: ['source-port']
-                        type: int
-                        description: Source port to be used for communication with the domain controller.
-            ip_address:
-                aliases: ['ip-address']
-                type: str
-                description: Domain controller IP address.
-            ldap_server:
-                aliases: ['ldap-server']
-                type: raw
-                description: (list or str) LDAP server name.
-            name:
-                type: str
-                description: Domain controller entry name.
-                required: true
-            port:
-                type: int
-                description: Port to be used for communication with the domain controller
-            ad_mode:
-                aliases: ['ad-mode']
-                type: str
-                description: Set Active Directory mode.
-                choices: ['none', 'ds', 'lds']
-            adlds_dn:
-                aliases: ['adlds-dn']
-                type: str
-                description: AD LDS distinguished name.
-            adlds_ip_address:
-                aliases: ['adlds-ip-address']
-                type: str
-                description: AD LDS IPv4 address.
-            adlds_ip6:
-                aliases: ['adlds-ip6']
-                type: str
-                description: AD LDS IPv6 address.
-            adlds_port:
-                aliases: ['adlds-port']
-                type: int
-                description: Port number of AD LDS service
-            dns_srv_lookup:
-                aliases: ['dns-srv-lookup']
-                type: str
-                description: Enable/disable DNS service lookup.
-                choices: ['disable', 'enable']
-            hostname:
-                type: str
-                description: Hostname of the server to connect to.
-            interface:
-                type: str
-                description: Specify outgoing interface to reach server.
-            interface_select_method:
-                aliases: ['interface-select-method']
-                type: str
-                description: Specify how to select outgoing interface to reach server.
-                choices: ['auto', 'sdwan', 'specify']
-            ip6:
-                type: str
-                description: Domain controller IPv6 address.
-            password:
-                type: raw
-                description: (list) Password for specified username.
-            replication_port:
-                aliases: ['replication-port']
-                type: int
-                description: Port to be used for communication with the domain controller for replication service.
-            source_ip_address:
-                aliases: ['source-ip-address']
-                type: str
-                description: FortiGate IPv4 address to be used for communication with the domain controller.
-            source_ip6:
-                aliases: ['source-ip6']
-                type: str
-                description: FortiGate IPv6 address to be used for communication with the domain controller.
-            source_port:
-                aliases: ['source-port']
-                type: int
-                description: Source port to be used for communication with the domain controller.
-            username:
-                type: str
-                description: User name to sign in with.
-            change_detection:
-                aliases: ['change-detection']
-                type: str
-                description: Enable/disable detection of a configuration change in the Active Directory server.
-                choices: ['disable', 'enable']
-            change_detection_period:
-                aliases: ['change-detection-period']
-                type: int
-                description: Minutes to detect a configuration change in the Active Directory server
-            domain_name_src:
-                aliases: ['domain-name-src']
-                type: str
-                description: Domain name src.
-                choices: ['server', 'client']
+          id:
+            type: int
+            description: Server ID.
+          ip_address:
+            aliases: ['ip-address']
+            type: str
+            description: Domain controller IP address.
+          port:
+            type: int
+            description: Port to be used for communication with the domain controller
+          source_ip_address:
+            aliases: ['source-ip-address']
+            type: str
+            description: FortiGate IPv4 address to be used for communication with the domain controller.
+          source_port:
+            aliases: ['source-port']
+            type: int
+            description: Source port to be used for communication with the domain controller.
+      ip_address:
+        aliases: ['ip-address']
+        type: str
+        description: Domain controller IP address.
+      ldap_server:
+        aliases: ['ldap-server']
+        type: raw
+        description: (list or str) LDAP server name.
+      name:
+        type: str
+        description: Domain controller entry name.
+        required: true
+      port:
+        type: int
+        description: Port to be used for communication with the domain controller
+      ad_mode:
+        aliases: ['ad-mode']
+        type: str
+        description: Set Active Directory mode.
+        choices: ['none', 'ds', 'lds']
+      adlds_dn:
+        aliases: ['adlds-dn']
+        type: str
+        description: AD LDS distinguished name.
+      adlds_ip_address:
+        aliases: ['adlds-ip-address']
+        type: str
+        description: AD LDS IPv4 address.
+      adlds_ip6:
+        aliases: ['adlds-ip6']
+        type: str
+        description: AD LDS IPv6 address.
+      adlds_port:
+        aliases: ['adlds-port']
+        type: int
+        description: Port number of AD LDS service
+      dns_srv_lookup:
+        aliases: ['dns-srv-lookup']
+        type: str
+        description: Enable/disable DNS service lookup.
+        choices: ['disable', 'enable']
+      hostname:
+        type: str
+        description: Hostname of the server to connect to.
+      interface:
+        type: str
+        description: Specify outgoing interface to reach server.
+      interface_select_method:
+        aliases: ['interface-select-method']
+        type: str
+        description: Specify how to select outgoing interface to reach server.
+        choices: ['auto', 'sdwan', 'specify']
+      ip6:
+        type: str
+        description: Domain controller IPv6 address.
+      password:
+        type: raw
+        description: (list) Password for specified username.
+      replication_port:
+        aliases: ['replication-port']
+        type: int
+        description: Port to be used for communication with the domain controller for replication service.
+      source_ip_address:
+        aliases: ['source-ip-address']
+        type: str
+        description: FortiGate IPv4 address to be used for communication with the domain controller.
+      source_ip6:
+        aliases: ['source-ip6']
+        type: str
+        description: FortiGate IPv6 address to be used for communication with the domain controller.
+      source_port:
+        aliases: ['source-port']
+        type: int
+        description: Source port to be used for communication with the domain controller.
+      username:
+        type: str
+        description: User name to sign in with.
+      change_detection:
+        aliases: ['change-detection']
+        type: str
+        description: Enable/disable detection of a configuration change in the Active Directory server.
+        choices: ['disable', 'enable']
+      change_detection_period:
+        aliases: ['change-detection-period']
+        type: int
+        description: Minutes to detect a configuration change in the Active Directory server
+      domain_name_src:
+        aliases: ['domain-name-src']
+        type: str
+        description: Domain name src.
+        choices: ['server', 'client']
 '''
 
 EXAMPLES = '''
@@ -197,42 +197,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -286,7 +286,7 @@ def main():
                 'username': {'v_range': [['7.0.0', '']], 'type': 'str'},
                 'change-detection': {'v_range': [['7.2.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'change-detection-period': {'v_range': [['7.2.3', '']], 'type': 'int'},
-                'domain-name-src': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'choices': ['server', 'client'], 'type': 'str'}
+                'domain-name-src': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'choices': ['server', 'client'], 'type': 'str'}
             }
         }
     }

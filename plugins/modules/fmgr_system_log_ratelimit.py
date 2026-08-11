@@ -15,72 +15,72 @@ module: fmgr_system_log_ratelimit
 short_description: Logging rate limit.
 version_added: "2.1.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.partial_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.partial_crud
 options:
-    system_log_ratelimit:
-        description: The top level parameters set.
-        required: false
-        type: dict
+  system_log_ratelimit:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      device:
+        type: list
+        elements: dict
+        description: Device.
         suboptions:
-            device:
-                type: list
-                elements: dict
-                description: Device.
-                suboptions:
-                    device:
-                        type: str
-                        description: Device
-                    filter_type:
-                        aliases: ['filter-type']
-                        type: str
-                        description:
-                            - Device filter type.
-                            - devid - Device ID.
-                        choices: ['devid']
-                    id:
-                        type: int
-                        description: Device filter ID.
-                    ratelimit:
-                        type: int
-                        description: Maximum device log rate limit.
-            device_ratelimit_default:
-                aliases: ['device-ratelimit-default']
-                type: int
-                description: Default maximum device log rate limit.
-            mode:
-                type: str
-                description:
-                    - Logging rate limit mode.
-                    - disable - Logging rate limit function disabled.
-                    - manual - System rate limit and device rate limit both configurable, no limit if not configured.
-                choices: ['disable', 'manual']
-            system_ratelimit:
-                aliases: ['system-ratelimit']
-                type: int
-                description: Maximum system log rate limit.
-            ratelimits:
-                type: list
-                elements: dict
-                description: Ratelimits.
-                suboptions:
-                    filter:
-                        type: str
-                        description: Device or ADOM filter according to filter-type setting, wildcard expression supported.
-                    filter_type:
-                        aliases: ['filter-type']
-                        type: str
-                        description:
-                            - Device filter type.
-                            - devid - Device ID.
-                            - adom - ADOM name.
-                        choices: ['devid', 'adom']
-                    id:
-                        type: int
-                        description: Filter ID.
-                    ratelimit:
-                        type: int
-                        description: Maximum log rate limit.
+          device:
+            type: str
+            description: Device
+          filter_type:
+            aliases: ['filter-type']
+            type: str
+            description:
+              - Device filter type.
+              - devid - Device ID.
+            choices: ['devid']
+          id:
+            type: int
+            description: Device filter ID.
+          ratelimit:
+            type: int
+            description: Maximum device log rate limit.
+      device_ratelimit_default:
+        aliases: ['device-ratelimit-default']
+        type: int
+        description: Default maximum device log rate limit.
+      mode:
+        type: str
+        description:
+          - Logging rate limit mode.
+          - disable - Logging rate limit function disabled.
+          - manual - System rate limit and device rate limit both configurable, no limit if not configured.
+        choices: ['disable', 'manual']
+      system_ratelimit:
+        aliases: ['system-ratelimit']
+        type: int
+        description: Maximum system log rate limit.
+      ratelimits:
+        type: list
+        elements: dict
+        description: Ratelimits.
+        suboptions:
+          filter:
+            type: str
+            description: Device or ADOM filter according to filter-type setting, wildcard expression supported.
+          filter_type:
+            aliases: ['filter-type']
+            type: str
+            description:
+              - Device filter type.
+              - devid - Device ID.
+              - adom - ADOM name.
+            choices: ['devid', 'adom']
+          id:
+            type: int
+            description: Filter ID.
+          ratelimit:
+            type: int
+            description: Maximum log rate limit.
 '''
 
 EXAMPLES = '''
@@ -110,42 +110,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

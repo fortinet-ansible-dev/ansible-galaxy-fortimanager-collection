@@ -15,83 +15,83 @@ module: fmgr_user_nsx
 short_description: User nsx
 version_added: "2.1.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  user_nsx:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      fmgip:
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Fmgip.
+      fmguser:
         type: str
+        description: Fmguser.
+      name:
+        type: str
+        description: Name.
         required: true
-    user_nsx:
-        description: The top level parameters set.
-        required: false
-        type: dict
+      password:
+        type: raw
+        description: (list) Password.
+      server:
+        type: str
+        description: Server.
+      status:
+        type: str
+        description: Status.
+        choices: ['disable', 'enable']
+      user:
+        type: str
+        description: User.
+      fmgpasswd:
+        type: raw
+        description: (list) Fmgpasswd.
+      service_id:
+        aliases: ['service-id']
+        type: raw
+        description: (list) Service id.
+      if_allgroup:
+        aliases: ['if-allgroup']
+        type: str
+        description: If allgroup.
+        choices: ['disable', 'enable']
+      service:
+        type: list
+        elements: dict
+        description: Service.
         suboptions:
-            fmgip:
-                type: str
-                description: Fmgip.
-            fmguser:
-                type: str
-                description: Fmguser.
-            name:
-                type: str
-                description: Name.
-                required: true
-            password:
-                type: raw
-                description: (list) Password.
-            server:
-                type: str
-                description: Server.
-            status:
-                type: str
-                description: Status.
-                choices: ['disable', 'enable']
-            user:
-                type: str
-                description: User.
-            fmgpasswd:
-                type: raw
-                description: (list) Fmgpasswd.
-            service_id:
-                aliases: ['service-id']
-                type: raw
-                description: (list) Service id.
-            if_allgroup:
-                aliases: ['if-allgroup']
-                type: str
-                description: If allgroup.
-                choices: ['disable', 'enable']
-            service:
-                type: list
-                elements: dict
-                description: Service.
-                suboptions:
-                    id:
-                        type: str
-                        description: Id.
-                    integration:
-                        type: str
-                        description: Integration.
-                        choices: ['east-west', 'north-south']
-                    name:
-                        type: str
-                        description: Name.
-                    ref_id:
-                        aliases: ['ref-id']
-                        type: str
-                        description: Ref id.
-            service_manager_id:
-                aliases: ['service-manager-id']
-                type: str
-                description: Service manager id.
-            service_manager_rev:
-                aliases: ['service-manager-rev']
-                type: int
-                description: Service manager rev.
+          id:
+            type: str
+            description: Id.
+          integration:
+            type: str
+            description: Integration.
+            choices: ['east-west', 'north-south']
+          name:
+            type: str
+            description: Name.
+          ref_id:
+            aliases: ['ref-id']
+            type: str
+            description: Ref id.
+      service_manager_id:
+        aliases: ['service-manager-id']
+        type: str
+        description: Service manager id.
+      service_manager_rev:
+        aliases: ['service-manager-rev']
+        type: int
+        description: Service manager rev.
 '''
 
 EXAMPLES = '''
@@ -127,42 +127,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

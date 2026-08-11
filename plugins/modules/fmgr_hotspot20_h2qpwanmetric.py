@@ -15,60 +15,60 @@ module: fmgr_hotspot20_h2qpwanmetric
 short_description: Configure WAN metrics.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  hotspot20_h2qpwanmetric:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      downlink_load:
+        aliases: ['downlink-load']
+        type: int
+        description: Downlink load.
+      downlink_speed:
+        aliases: ['downlink-speed']
+        type: int
+        description: Downlink speed
+      link_at_capacity:
+        aliases: ['link-at-capacity']
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Link at capacity.
+        choices: ['disable', 'enable']
+      link_status:
+        aliases: ['link-status']
         type: str
+        description: Link status.
+        choices: ['down', 'up', 'in-test']
+      load_measurement_duration:
+        aliases: ['load-measurement-duration']
+        type: int
+        description: Load measurement duration
+      name:
+        type: str
+        description: WAN metric name.
         required: true
-    hotspot20_h2qpwanmetric:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            downlink_load:
-                aliases: ['downlink-load']
-                type: int
-                description: Downlink load.
-            downlink_speed:
-                aliases: ['downlink-speed']
-                type: int
-                description: Downlink speed
-            link_at_capacity:
-                aliases: ['link-at-capacity']
-                type: str
-                description: Link at capacity.
-                choices: ['disable', 'enable']
-            link_status:
-                aliases: ['link-status']
-                type: str
-                description: Link status.
-                choices: ['down', 'up', 'in-test']
-            load_measurement_duration:
-                aliases: ['load-measurement-duration']
-                type: int
-                description: Load measurement duration
-            name:
-                type: str
-                description: WAN metric name.
-                required: true
-            symmetric_wan_link:
-                aliases: ['symmetric-wan-link']
-                type: str
-                description: WAN link symmetry.
-                choices: ['asymmetric', 'symmetric']
-            uplink_load:
-                aliases: ['uplink-load']
-                type: int
-                description: Uplink load.
-            uplink_speed:
-                aliases: ['uplink-speed']
-                type: int
-                description: Uplink speed
+      symmetric_wan_link:
+        aliases: ['symmetric-wan-link']
+        type: str
+        description: WAN link symmetry.
+        choices: ['asymmetric', 'symmetric']
+      uplink_load:
+        aliases: ['uplink-load']
+        type: int
+        description: Uplink load.
+      uplink_speed:
+        aliases: ['uplink-speed']
+        type: int
+        description: Uplink speed
 '''
 
 EXAMPLES = '''
@@ -96,42 +96,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

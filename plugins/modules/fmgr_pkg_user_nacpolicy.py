@@ -15,141 +15,150 @@ module: fmgr_pkg_user_nacpolicy
 short_description: Configure NAC policy matching pattern to identify matching NAC devices.
 version_added: "2.2.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  pkg:
+    description: The parameter (pkg) in requested url.
+    type: str
+    required: true
+  pkg_user_nacpolicy:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      category:
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Category of NAC policy.
+        choices: ['device', 'firewall-user', 'ems-tag', 'vulnerability', 'fortivoice-tag']
+      description:
         type: str
+        description: Description for the NAC policy matching pattern.
+      ems_tag:
+        aliases: ['ems-tag']
+        type: str
+        description: NAC policy matching EMS tag.
+      family:
+        type: str
+        description: NAC policy matching family.
+      host:
+        type: str
+        description: NAC policy matching host.
+      hw_vendor:
+        aliases: ['hw-vendor']
+        type: str
+        description: NAC policy matching hardware vendor.
+      hw_version:
+        aliases: ['hw-version']
+        type: str
+        description: NAC policy matching hardware version.
+      mac:
+        type: str
+        description: NAC policy matching MAC address.
+      name:
+        type: str
+        description: NAC policy name.
         required: true
-    pkg:
-        description: The parameter (pkg) in requested url.
+      os:
         type: str
-        required: true
-    pkg_user_nacpolicy:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            category:
-                type: str
-                description: Category of NAC policy.
-                choices: ['device', 'firewall-user', 'ems-tag', 'vulnerability', 'fortivoice-tag']
-            description:
-                type: str
-                description: Description for the NAC policy matching pattern.
-            ems_tag:
-                aliases: ['ems-tag']
-                type: str
-                description: NAC policy matching EMS tag.
-            family:
-                type: str
-                description: NAC policy matching family.
-            host:
-                type: str
-                description: NAC policy matching host.
-            hw_vendor:
-                aliases: ['hw-vendor']
-                type: str
-                description: NAC policy matching hardware vendor.
-            hw_version:
-                aliases: ['hw-version']
-                type: str
-                description: NAC policy matching hardware version.
-            mac:
-                type: str
-                description: NAC policy matching MAC address.
-            name:
-                type: str
-                description: NAC policy name.
-                required: true
-            os:
-                type: str
-                description: NAC policy matching operating system.
-            src:
-                type: str
-                description: NAC policy matching source.
-            ssid_policy:
-                aliases: ['ssid-policy']
-                type: str
-                description: SSID policy to be applied on the matched NAC policy.
-            status:
-                type: str
-                description: Enable/disable NAC policy.
-                choices: ['disable', 'enable']
-            sw_version:
-                aliases: ['sw-version']
-                type: str
-                description: NAC policy matching software version.
-            type:
-                type: str
-                description: NAC policy matching type.
-            user:
-                type: str
-                description: NAC policy matching user.
-            user_group:
-                aliases: ['user-group']
-                type: str
-                description: NAC policy matching user group.
-            severity:
-                type: raw
-                description: (list) NAC policy matching devices vulnerability severity lists.
-            firewall_address:
-                aliases: ['firewall-address']
-                type: raw
-                description: (list) Dynamic firewall address to associate MAC which match this policy.
-            fortivoice_tag:
-                aliases: ['fortivoice-tag']
-                type: raw
-                description: (list) NAC policy matching FortiVoice tag.
-            match_period:
-                aliases: ['match-period']
-                type: int
-                description: Number of days the matched devices will be retained
-            match_type:
-                aliases: ['match-type']
-                type: str
-                description: Match and retain the devices based on the type.
-                choices: ['dynamic', 'override']
-            switch_fortilink:
-                aliases: ['switch-fortilink']
-                type: raw
-                description:
-                    - (list)
-                    - Support meta variable
-                    - FortiLink interface for which this NAC policy belongs to.
-            switch_group:
-                aliases: ['switch-group']
-                type: raw
-                description:
-                    - (list)
-                    - Support meta variable
-                    - List of managed FortiSwitch groups on which NAC policy can be applied.
-            switch_mac_policy:
-                aliases: ['switch-mac-policy']
-                type: raw
-                description: (list) Switch MAC policy action to be applied on the matched NAC policy.
-            switch_scope:
-                aliases: ['switch-scope']
-                type: raw
-                description: (list) List of managed FortiSwitches on which NAC policy can be applied.
-            switch_port_policy:
-                aliases: ['switch-port-policy']
-                type: raw
-                description: (list) Switch-port-policy to be applied on the matched NAC policy.
-            switch_auto_auth:
-                aliases: ['switch-auto-auth']
-                type: str
-                description: NAC device auto authorization when discovered and nac-policy matched.
-                choices: ['disable', 'enable', 'global']
-            match_remove:
-                aliases: ['match-remove']
-                type: str
-                description: Options to remove the matched override devices.
-                choices: ['link-down', 'default']
+        description: NAC policy matching operating system.
+      src:
+        type: str
+        description: NAC policy matching source.
+      ssid_policy:
+        aliases: ['ssid-policy']
+        type: str
+        description: SSID policy to be applied on the matched NAC policy.
+      status:
+        type: str
+        description: Enable/disable NAC policy.
+        choices: ['disable', 'enable']
+      sw_version:
+        aliases: ['sw-version']
+        type: str
+        description: NAC policy matching software version.
+      type:
+        type: str
+        description: NAC policy matching type.
+      user:
+        type: str
+        description: NAC policy matching user.
+      user_group:
+        aliases: ['user-group']
+        type: str
+        description: NAC policy matching user group.
+      severity:
+        type: raw
+        description: (list) NAC policy matching devices vulnerability severity lists.
+      firewall_address:
+        aliases: ['firewall-address']
+        type: raw
+        description: (list) Dynamic firewall address to associate MAC which match this policy.
+      fortivoice_tag:
+        aliases: ['fortivoice-tag']
+        type: raw
+        description: (list) NAC policy matching FortiVoice tag.
+      match_period:
+        aliases: ['match-period']
+        type: int
+        description: Number of days the matched devices will be retained
+      match_type:
+        aliases: ['match-type']
+        type: str
+        description: Match and retain the devices based on the type.
+        choices: ['dynamic', 'override']
+      switch_fortilink:
+        aliases: ['switch-fortilink']
+        type: raw
+        description:
+          - (list)
+          - Support meta variable
+          - FortiLink interface for which this NAC policy belongs to.
+      switch_group:
+        aliases: ['switch-group']
+        type: raw
+        description:
+          - (list)
+          - Support meta variable
+          - List of managed FortiSwitch groups on which NAC policy can be applied.
+      switch_mac_policy:
+        aliases: ['switch-mac-policy']
+        type: raw
+        description: (list) Switch MAC policy action to be applied on the matched NAC policy.
+      switch_scope:
+        aliases: ['switch-scope']
+        type: raw
+        description: (list) List of managed FortiSwitches on which NAC policy can be applied.
+      switch_port_policy:
+        aliases: ['switch-port-policy']
+        type: raw
+        description: (list) Switch-port-policy to be applied on the matched NAC policy.
+      switch_auto_auth:
+        aliases: ['switch-auto-auth']
+        type: str
+        description: NAC device auto authorization when discovered and nac-policy matched.
+        choices: ['disable', 'enable', 'global']
+      match_remove:
+        aliases: ['match-remove']
+        type: str
+        description: Options to remove the matched override devices.
+        choices: ['link-down', 'default']
+      port_setting_override:
+        aliases: ['port-setting-override']
+        type: str
+        description: Enable/disable port setting action on the NAC policy.
+        choices: ['disable', 'enable']
+      qos_policy:
+        aliases: ['qos-policy']
+        type: raw
+        description: (list) Switch Port qos-policy action to be applied on the matched NAC policy.
 '''
 
 EXAMPLES = '''
@@ -194,46 +203,48 @@ EXAMPLES = '''
           # switch_port_policy: <list or string>
           # switch_auto_auth: <value in [disable, enable, global]>
           # match_remove: <value in [link-down, default]>
+          # port_setting_override: <value in [disable, enable]>
+          # qos_policy: <list or string>
 '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -282,9 +293,11 @@ def main():
                 'switch-group': {'v_range': [['7.2.6', '7.2.12'], ['7.4.3', '']], 'type': 'raw'},
                 'switch-mac-policy': {'v_range': [['7.2.6', '7.2.12'], ['7.4.3', '']], 'type': 'raw'},
                 'switch-scope': {'v_range': [['7.2.6', '7.2.12'], ['7.4.3', '']], 'type': 'raw'},
-                'switch-port-policy': {'v_range': [['7.2.6', '7.2.12'], ['7.4.3', '']], 'type': 'raw'},
-                'switch-auto-auth': {'v_range': [['7.2.6', '7.2.12'], ['7.4.3', '']], 'choices': ['disable', 'enable', 'global'], 'type': 'str'},
-                'match-remove': {'v_range': [['7.6.3', '']], 'choices': ['link-down', 'default'], 'type': 'str'}
+                'switch-port-policy': {'v_range': [['7.2.6', '7.2.12'], ['7.4.3', '7.6.7']], 'type': 'raw'},
+                'switch-auto-auth': {'v_range': [['7.2.6', '7.2.12'], ['7.4.3', '7.6.7']], 'choices': ['disable', 'enable', 'global'], 'type': 'str'},
+                'match-remove': {'v_range': [['7.6.3', '']], 'choices': ['link-down', 'default'], 'type': 'str'},
+                'port-setting-override': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'qos-policy': {'v_range': [['8.0.0', '']], 'type': 'raw'}
             }
         }
     }

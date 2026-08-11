@@ -15,404 +15,404 @@ module: fmgr_waf_profile_constraint
 short_description: WAF HTTP protocol restrictions.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.partial_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.partial_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
-        type: str
-    adom:
-        description: The parameter (adom) in requested url.
-        type: str
-        required: true
-    profile:
-        description: The parameter (profile) in requested url.
-        type: str
-        required: true
-    waf_profile_constraint:
-        description: The top level parameters set.
-        required: false
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  profile:
+    description: The parameter (profile) in requested url.
+    type: str
+    required: true
+  waf_profile_constraint:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      content_length:
+        aliases: ['content-length']
         type: dict
+        description: Content length.
         suboptions:
-            content_length:
-                aliases: ['content-length']
-                type: dict
-                description: Content length.
-                suboptions:
-                    action:
-                        type: str
-                        description: Action.
-                        choices: ['allow', 'block']
-                    length:
-                        type: int
-                        description: Length of HTTP content in bytes
-                    log:
-                        type: str
-                        description: Enable/disable logging.
-                        choices: ['disable', 'enable']
-                    severity:
-                        type: str
-                        description: Severity.
-                        choices: ['low', 'medium', 'high']
-                    status:
-                        type: str
-                        description: Enable/disable the constraint.
-                        choices: ['disable', 'enable']
-            exception:
-                type: list
-                elements: dict
-                description: Exception.
-                suboptions:
-                    address:
-                        type: str
-                        description: Host address.
-                    content_length:
-                        aliases: ['content-length']
-                        type: str
-                        description: HTTP content length in request.
-                        choices: ['disable', 'enable']
-                    header_length:
-                        aliases: ['header-length']
-                        type: str
-                        description: HTTP header length in request.
-                        choices: ['disable', 'enable']
-                    hostname:
-                        type: str
-                        description: Enable/disable hostname check.
-                        choices: ['disable', 'enable']
-                    id:
-                        type: int
-                        description: Exception ID.
-                    line_length:
-                        aliases: ['line-length']
-                        type: str
-                        description: HTTP line length in request.
-                        choices: ['disable', 'enable']
-                    malformed:
-                        type: str
-                        description: Enable/disable malformed HTTP request check.
-                        choices: ['disable', 'enable']
-                    max_cookie:
-                        aliases: ['max-cookie']
-                        type: str
-                        description: Maximum number of cookies in HTTP request.
-                        choices: ['disable', 'enable']
-                    max_header_line:
-                        aliases: ['max-header-line']
-                        type: str
-                        description: Maximum number of HTTP header line.
-                        choices: ['disable', 'enable']
-                    max_range_segment:
-                        aliases: ['max-range-segment']
-                        type: str
-                        description: Maximum number of range segments in HTTP range line.
-                        choices: ['disable', 'enable']
-                    max_url_param:
-                        aliases: ['max-url-param']
-                        type: str
-                        description: Maximum number of parameters in URL.
-                        choices: ['disable', 'enable']
-                    method:
-                        type: str
-                        description: Enable/disable HTTP method check.
-                        choices: ['disable', 'enable']
-                    param_length:
-                        aliases: ['param-length']
-                        type: str
-                        description: Maximum length of parameter in URL, HTTP POST request or HTTP body.
-                        choices: ['disable', 'enable']
-                    pattern:
-                        type: str
-                        description: URL pattern.
-                    regex:
-                        type: str
-                        description: Enable/disable regular expression based pattern match.
-                        choices: ['disable', 'enable']
-                    url_param_length:
-                        aliases: ['url-param-length']
-                        type: str
-                        description: Maximum length of parameter in URL.
-                        choices: ['disable', 'enable']
-                    version:
-                        type: str
-                        description: Enable/disable HTTP version check.
-                        choices: ['disable', 'enable']
-            header_length:
-                aliases: ['header-length']
-                type: dict
-                description: Header length.
-                suboptions:
-                    action:
-                        type: str
-                        description: Action.
-                        choices: ['allow', 'block']
-                    length:
-                        type: int
-                        description: Length of HTTP header in bytes
-                    log:
-                        type: str
-                        description: Enable/disable logging.
-                        choices: ['disable', 'enable']
-                    severity:
-                        type: str
-                        description: Severity.
-                        choices: ['low', 'medium', 'high']
-                    status:
-                        type: str
-                        description: Enable/disable the constraint.
-                        choices: ['disable', 'enable']
-            hostname:
-                type: dict
-                description: Hostname.
-                suboptions:
-                    action:
-                        type: str
-                        description: Action.
-                        choices: ['allow', 'block']
-                    log:
-                        type: str
-                        description: Enable/disable logging.
-                        choices: ['disable', 'enable']
-                    severity:
-                        type: str
-                        description: Severity.
-                        choices: ['low', 'medium', 'high']
-                    status:
-                        type: str
-                        description: Enable/disable the constraint.
-                        choices: ['disable', 'enable']
-            line_length:
-                aliases: ['line-length']
-                type: dict
-                description: Line length.
-                suboptions:
-                    action:
-                        type: str
-                        description: Action.
-                        choices: ['allow', 'block']
-                    length:
-                        type: int
-                        description: Length of HTTP line in bytes
-                    log:
-                        type: str
-                        description: Enable/disable logging.
-                        choices: ['disable', 'enable']
-                    severity:
-                        type: str
-                        description: Severity.
-                        choices: ['low', 'medium', 'high']
-                    status:
-                        type: str
-                        description: Enable/disable the constraint.
-                        choices: ['disable', 'enable']
-            malformed:
-                type: dict
-                description: Malformed.
-                suboptions:
-                    action:
-                        type: str
-                        description: Action.
-                        choices: ['allow', 'block']
-                    log:
-                        type: str
-                        description: Enable/disable logging.
-                        choices: ['disable', 'enable']
-                    severity:
-                        type: str
-                        description: Severity.
-                        choices: ['low', 'medium', 'high']
-                    status:
-                        type: str
-                        description: Enable/disable the constraint.
-                        choices: ['disable', 'enable']
-            max_cookie:
-                aliases: ['max-cookie']
-                type: dict
-                description: Max cookie.
-                suboptions:
-                    action:
-                        type: str
-                        description: Action.
-                        choices: ['allow', 'block']
-                    log:
-                        type: str
-                        description: Enable/disable logging.
-                        choices: ['disable', 'enable']
-                    max_cookie:
-                        aliases: ['max-cookie']
-                        type: int
-                        description: Maximum number of cookies in HTTP request
-                    severity:
-                        type: str
-                        description: Severity.
-                        choices: ['low', 'medium', 'high']
-                    status:
-                        type: str
-                        description: Enable/disable the constraint.
-                        choices: ['disable', 'enable']
-            max_header_line:
-                aliases: ['max-header-line']
-                type: dict
-                description: Max header line.
-                suboptions:
-                    action:
-                        type: str
-                        description: Action.
-                        choices: ['allow', 'block']
-                    log:
-                        type: str
-                        description: Enable/disable logging.
-                        choices: ['disable', 'enable']
-                    max_header_line:
-                        aliases: ['max-header-line']
-                        type: int
-                        description: Maximum number HTTP header lines
-                    severity:
-                        type: str
-                        description: Severity.
-                        choices: ['low', 'medium', 'high']
-                    status:
-                        type: str
-                        description: Enable/disable the constraint.
-                        choices: ['disable', 'enable']
-            max_range_segment:
-                aliases: ['max-range-segment']
-                type: dict
-                description: Max range segment.
-                suboptions:
-                    action:
-                        type: str
-                        description: Action.
-                        choices: ['allow', 'block']
-                    log:
-                        type: str
-                        description: Enable/disable logging.
-                        choices: ['disable', 'enable']
-                    max_range_segment:
-                        aliases: ['max-range-segment']
-                        type: int
-                        description: Maximum number of range segments in HTTP range line
-                    severity:
-                        type: str
-                        description: Severity.
-                        choices: ['low', 'medium', 'high']
-                    status:
-                        type: str
-                        description: Enable/disable the constraint.
-                        choices: ['disable', 'enable']
-            max_url_param:
-                aliases: ['max-url-param']
-                type: dict
-                description: Max url param.
-                suboptions:
-                    action:
-                        type: str
-                        description: Action.
-                        choices: ['allow', 'block']
-                    log:
-                        type: str
-                        description: Enable/disable logging.
-                        choices: ['disable', 'enable']
-                    max_url_param:
-                        aliases: ['max-url-param']
-                        type: int
-                        description: Maximum number of parameters in URL
-                    severity:
-                        type: str
-                        description: Severity.
-                        choices: ['low', 'medium', 'high']
-                    status:
-                        type: str
-                        description: Enable/disable the constraint.
-                        choices: ['disable', 'enable']
-            method:
-                type: dict
-                description: Method.
-                suboptions:
-                    action:
-                        type: str
-                        description: Action.
-                        choices: ['allow', 'block']
-                    log:
-                        type: str
-                        description: Enable/disable logging.
-                        choices: ['disable', 'enable']
-                    severity:
-                        type: str
-                        description: Severity.
-                        choices: ['low', 'medium', 'high']
-                    status:
-                        type: str
-                        description: Enable/disable the constraint.
-                        choices: ['disable', 'enable']
-            param_length:
-                aliases: ['param-length']
-                type: dict
-                description: Param length.
-                suboptions:
-                    action:
-                        type: str
-                        description: Action.
-                        choices: ['allow', 'block']
-                    length:
-                        type: int
-                        description: Maximum length of parameter in URL, HTTP POST request or HTTP body in bytes
-                    log:
-                        type: str
-                        description: Enable/disable logging.
-                        choices: ['disable', 'enable']
-                    severity:
-                        type: str
-                        description: Severity.
-                        choices: ['low', 'medium', 'high']
-                    status:
-                        type: str
-                        description: Enable/disable the constraint.
-                        choices: ['disable', 'enable']
-            url_param_length:
-                aliases: ['url-param-length']
-                type: dict
-                description: Url param length.
-                suboptions:
-                    action:
-                        type: str
-                        description: Action.
-                        choices: ['allow', 'block']
-                    length:
-                        type: int
-                        description: Maximum length of URL parameter in bytes
-                    log:
-                        type: str
-                        description: Enable/disable logging.
-                        choices: ['disable', 'enable']
-                    severity:
-                        type: str
-                        description: Severity.
-                        choices: ['low', 'medium', 'high']
-                    status:
-                        type: str
-                        description: Enable/disable the constraint.
-                        choices: ['disable', 'enable']
-            version:
-                type: dict
-                description: Version.
-                suboptions:
-                    action:
-                        type: str
-                        description: Action.
-                        choices: ['allow', 'block']
-                    log:
-                        type: str
-                        description: Enable/disable logging.
-                        choices: ['disable', 'enable']
-                    severity:
-                        type: str
-                        description: Severity.
-                        choices: ['low', 'medium', 'high']
-                    status:
-                        type: str
-                        description: Enable/disable the constraint.
-                        choices: ['disable', 'enable']
+          action:
+            type: str
+            description: Action.
+            choices: ['allow', 'block']
+          length:
+            type: int
+            description: Length of HTTP content in bytes
+          log:
+            type: str
+            description: Enable/disable logging.
+            choices: ['disable', 'enable']
+          severity:
+            type: str
+            description: Severity.
+            choices: ['low', 'medium', 'high']
+          status:
+            type: str
+            description: Enable/disable the constraint.
+            choices: ['disable', 'enable']
+      exception:
+        type: list
+        elements: dict
+        description: Exception.
+        suboptions:
+          address:
+            type: str
+            description: Host address.
+          content_length:
+            aliases: ['content-length']
+            type: str
+            description: HTTP content length in request.
+            choices: ['disable', 'enable']
+          header_length:
+            aliases: ['header-length']
+            type: str
+            description: HTTP header length in request.
+            choices: ['disable', 'enable']
+          hostname:
+            type: str
+            description: Enable/disable hostname check.
+            choices: ['disable', 'enable']
+          id:
+            type: int
+            description: Exception ID.
+          line_length:
+            aliases: ['line-length']
+            type: str
+            description: HTTP line length in request.
+            choices: ['disable', 'enable']
+          malformed:
+            type: str
+            description: Enable/disable malformed HTTP request check.
+            choices: ['disable', 'enable']
+          max_cookie:
+            aliases: ['max-cookie']
+            type: str
+            description: Maximum number of cookies in HTTP request.
+            choices: ['disable', 'enable']
+          max_header_line:
+            aliases: ['max-header-line']
+            type: str
+            description: Maximum number of HTTP header line.
+            choices: ['disable', 'enable']
+          max_range_segment:
+            aliases: ['max-range-segment']
+            type: str
+            description: Maximum number of range segments in HTTP range line.
+            choices: ['disable', 'enable']
+          max_url_param:
+            aliases: ['max-url-param']
+            type: str
+            description: Maximum number of parameters in URL.
+            choices: ['disable', 'enable']
+          method:
+            type: str
+            description: Enable/disable HTTP method check.
+            choices: ['disable', 'enable']
+          param_length:
+            aliases: ['param-length']
+            type: str
+            description: Maximum length of parameter in URL, HTTP POST request or HTTP body.
+            choices: ['disable', 'enable']
+          pattern:
+            type: str
+            description: URL pattern.
+          regex:
+            type: str
+            description: Enable/disable regular expression based pattern match.
+            choices: ['disable', 'enable']
+          url_param_length:
+            aliases: ['url-param-length']
+            type: str
+            description: Maximum length of parameter in URL.
+            choices: ['disable', 'enable']
+          version:
+            type: str
+            description: Enable/disable HTTP version check.
+            choices: ['disable', 'enable']
+      header_length:
+        aliases: ['header-length']
+        type: dict
+        description: Header length.
+        suboptions:
+          action:
+            type: str
+            description: Action.
+            choices: ['allow', 'block']
+          length:
+            type: int
+            description: Length of HTTP header in bytes
+          log:
+            type: str
+            description: Enable/disable logging.
+            choices: ['disable', 'enable']
+          severity:
+            type: str
+            description: Severity.
+            choices: ['low', 'medium', 'high']
+          status:
+            type: str
+            description: Enable/disable the constraint.
+            choices: ['disable', 'enable']
+      hostname:
+        type: dict
+        description: Hostname.
+        suboptions:
+          action:
+            type: str
+            description: Action.
+            choices: ['allow', 'block']
+          log:
+            type: str
+            description: Enable/disable logging.
+            choices: ['disable', 'enable']
+          severity:
+            type: str
+            description: Severity.
+            choices: ['low', 'medium', 'high']
+          status:
+            type: str
+            description: Enable/disable the constraint.
+            choices: ['disable', 'enable']
+      line_length:
+        aliases: ['line-length']
+        type: dict
+        description: Line length.
+        suboptions:
+          action:
+            type: str
+            description: Action.
+            choices: ['allow', 'block']
+          length:
+            type: int
+            description: Length of HTTP line in bytes
+          log:
+            type: str
+            description: Enable/disable logging.
+            choices: ['disable', 'enable']
+          severity:
+            type: str
+            description: Severity.
+            choices: ['low', 'medium', 'high']
+          status:
+            type: str
+            description: Enable/disable the constraint.
+            choices: ['disable', 'enable']
+      malformed:
+        type: dict
+        description: Malformed.
+        suboptions:
+          action:
+            type: str
+            description: Action.
+            choices: ['allow', 'block']
+          log:
+            type: str
+            description: Enable/disable logging.
+            choices: ['disable', 'enable']
+          severity:
+            type: str
+            description: Severity.
+            choices: ['low', 'medium', 'high']
+          status:
+            type: str
+            description: Enable/disable the constraint.
+            choices: ['disable', 'enable']
+      max_cookie:
+        aliases: ['max-cookie']
+        type: dict
+        description: Max cookie.
+        suboptions:
+          action:
+            type: str
+            description: Action.
+            choices: ['allow', 'block']
+          log:
+            type: str
+            description: Enable/disable logging.
+            choices: ['disable', 'enable']
+          max_cookie:
+            aliases: ['max-cookie']
+            type: int
+            description: Maximum number of cookies in HTTP request
+          severity:
+            type: str
+            description: Severity.
+            choices: ['low', 'medium', 'high']
+          status:
+            type: str
+            description: Enable/disable the constraint.
+            choices: ['disable', 'enable']
+      max_header_line:
+        aliases: ['max-header-line']
+        type: dict
+        description: Max header line.
+        suboptions:
+          action:
+            type: str
+            description: Action.
+            choices: ['allow', 'block']
+          log:
+            type: str
+            description: Enable/disable logging.
+            choices: ['disable', 'enable']
+          max_header_line:
+            aliases: ['max-header-line']
+            type: int
+            description: Maximum number HTTP header lines
+          severity:
+            type: str
+            description: Severity.
+            choices: ['low', 'medium', 'high']
+          status:
+            type: str
+            description: Enable/disable the constraint.
+            choices: ['disable', 'enable']
+      max_range_segment:
+        aliases: ['max-range-segment']
+        type: dict
+        description: Max range segment.
+        suboptions:
+          action:
+            type: str
+            description: Action.
+            choices: ['allow', 'block']
+          log:
+            type: str
+            description: Enable/disable logging.
+            choices: ['disable', 'enable']
+          max_range_segment:
+            aliases: ['max-range-segment']
+            type: int
+            description: Maximum number of range segments in HTTP range line
+          severity:
+            type: str
+            description: Severity.
+            choices: ['low', 'medium', 'high']
+          status:
+            type: str
+            description: Enable/disable the constraint.
+            choices: ['disable', 'enable']
+      max_url_param:
+        aliases: ['max-url-param']
+        type: dict
+        description: Max url param.
+        suboptions:
+          action:
+            type: str
+            description: Action.
+            choices: ['allow', 'block']
+          log:
+            type: str
+            description: Enable/disable logging.
+            choices: ['disable', 'enable']
+          max_url_param:
+            aliases: ['max-url-param']
+            type: int
+            description: Maximum number of parameters in URL
+          severity:
+            type: str
+            description: Severity.
+            choices: ['low', 'medium', 'high']
+          status:
+            type: str
+            description: Enable/disable the constraint.
+            choices: ['disable', 'enable']
+      method:
+        type: dict
+        description: Method.
+        suboptions:
+          action:
+            type: str
+            description: Action.
+            choices: ['allow', 'block']
+          log:
+            type: str
+            description: Enable/disable logging.
+            choices: ['disable', 'enable']
+          severity:
+            type: str
+            description: Severity.
+            choices: ['low', 'medium', 'high']
+          status:
+            type: str
+            description: Enable/disable the constraint.
+            choices: ['disable', 'enable']
+      param_length:
+        aliases: ['param-length']
+        type: dict
+        description: Param length.
+        suboptions:
+          action:
+            type: str
+            description: Action.
+            choices: ['allow', 'block']
+          length:
+            type: int
+            description: Maximum length of parameter in URL, HTTP POST request or HTTP body in bytes
+          log:
+            type: str
+            description: Enable/disable logging.
+            choices: ['disable', 'enable']
+          severity:
+            type: str
+            description: Severity.
+            choices: ['low', 'medium', 'high']
+          status:
+            type: str
+            description: Enable/disable the constraint.
+            choices: ['disable', 'enable']
+      url_param_length:
+        aliases: ['url-param-length']
+        type: dict
+        description: Url param length.
+        suboptions:
+          action:
+            type: str
+            description: Action.
+            choices: ['allow', 'block']
+          length:
+            type: int
+            description: Maximum length of URL parameter in bytes
+          log:
+            type: str
+            description: Enable/disable logging.
+            choices: ['disable', 'enable']
+          severity:
+            type: str
+            description: Severity.
+            choices: ['low', 'medium', 'high']
+          status:
+            type: str
+            description: Enable/disable the constraint.
+            choices: ['disable', 'enable']
+      version:
+        type: dict
+        description: Version.
+        suboptions:
+          action:
+            type: str
+            description: Action.
+            choices: ['allow', 'block']
+          log:
+            type: str
+            description: Enable/disable logging.
+            choices: ['disable', 'enable']
+          severity:
+            type: str
+            description: Severity.
+            choices: ['low', 'medium', 'high']
+          status:
+            type: str
+            description: Enable/disable the constraint.
+            choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -523,42 +523,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

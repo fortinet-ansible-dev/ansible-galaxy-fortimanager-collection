@@ -15,243 +15,261 @@ module: fmgr_icap_profile
 short_description: Configure ICAP profiles.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  icap_profile:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      methods:
+        type: list
+        elements: str
+        description: The allowed HTTP methods that will be sent to ICAP server for further processing.
+        choices: ['delete', 'get', 'head', 'options', 'post', 'put', 'trace', 'other', 'connect',
+                  'patch', 'query']
+      name:
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
-        type: str
+        description: ICAP profile name.
         required: true
-    icap_profile:
-        description: The top level parameters set.
-        required: false
-        type: dict
+      replacemsg_group:
+        aliases: ['replacemsg-group']
+        type: str
+        description: Replacement message group.
+      request:
+        type: str
+        description: Enable/disable whether an HTTP request is passed to an ICAP server.
+        choices: ['disable', 'enable']
+      request_failure:
+        aliases: ['request-failure']
+        type: str
+        description: Action to take if the ICAP server cannot be contacted when processing an HTTP request.
+        choices: ['error', 'bypass']
+      request_path:
+        aliases: ['request-path']
+        type: str
+        description: Path component of the ICAP URI that identifies the HTTP request processing service.
+      request_server:
+        aliases: ['request-server']
+        type: str
+        description: ICAP server to use for an HTTP request.
+      response:
+        type: str
+        description: Enable/disable whether an HTTP response is passed to an ICAP server.
+        choices: ['disable', 'enable']
+      response_failure:
+        aliases: ['response-failure']
+        type: str
+        description: Action to take if the ICAP server cannot be contacted when processing an HTTP response.
+        choices: ['error', 'bypass']
+      response_path:
+        aliases: ['response-path']
+        type: str
+        description: Path component of the ICAP URI that identifies the HTTP response processing service.
+      response_server:
+        aliases: ['response-server']
+        type: str
+        description: ICAP server to use for an HTTP response.
+      streaming_content_bypass:
+        aliases: ['streaming-content-bypass']
+        type: str
+        description: Enable/disable bypassing of ICAP server for streaming content.
+        choices: ['disable', 'enable']
+      icap_headers:
+        aliases: ['icap-headers']
+        type: list
+        elements: dict
+        description: Icap headers.
         suboptions:
-            methods:
-                type: list
-                elements: str
-                description: The allowed HTTP methods that will be sent to ICAP server for further processing.
-                choices: ['delete', 'get', 'head', 'options', 'post', 'put', 'trace', 'other',
-                          'connect']
-            name:
+          base64_encoding:
+            aliases: ['base64-encoding']
+            type: str
+            description: Enable/disable use of base64 encoding of HTTP content.
+            choices: ['disable', 'enable']
+          content:
+            type: str
+            description: HTTP header content.
+          id:
+            type: int
+            description: HTTP forwarded header ID.
+          name:
+            type: str
+            description: HTTP forwarded header name.
+          http_header:
+            aliases: ['http-header']
+            type: str
+            description: Http header.
+          sesson_info_type:
+            aliases: ['sesson-info-type']
+            type: str
+            description: Sesson info type.
+            choices: ['client-ip', 'user', 'upn', 'domain', 'local-grp', 'remote-grp',
+                      'proxy-name', 'auth-user-uri', 'auth-group-uri']
+          source:
+            type: str
+            description: Source.
+            choices: ['content', 'http-header', 'session']
+      preview:
+        type: str
+        description: Enable/disable preview of data to ICAP server.
+        choices: ['disable', 'enable']
+      preview_data_length:
+        aliases: ['preview-data-length']
+        type: int
+        description: Preview data length to be sent to ICAP server.
+      response_req_hdr:
+        aliases: ['response-req-hdr']
+        type: str
+        description: Enable/disable addition of req-hdr for ICAP response modification
+        choices: ['disable', 'enable']
+      respmod_default_action:
+        aliases: ['respmod-default-action']
+        type: str
+        description: Default action to ICAP response modification
+        choices: ['bypass', 'forward']
+      respmod_forward_rules:
+        aliases: ['respmod-forward-rules']
+        type: list
+        elements: dict
+        description: Respmod forward rules.
+        suboptions:
+          action:
+            type: str
+            description: Action to be taken for ICAP server.
+            choices: ['bypass', 'forward']
+          header_group:
+            aliases: ['header-group']
+            type: list
+            elements: dict
+            description: Header group.
+            suboptions:
+              case_sensitivity:
+                aliases: ['case-sensitivity']
                 type: str
-                description: ICAP profile name.
-                required: true
-            replacemsg_group:
-                aliases: ['replacemsg-group']
-                type: str
-                description: Replacement message group.
-            request:
-                type: str
-                description: Enable/disable whether an HTTP request is passed to an ICAP server.
+                description: Enable/disable case sensitivity when matching header.
                 choices: ['disable', 'enable']
-            request_failure:
-                aliases: ['request-failure']
+              header:
                 type: str
-                description: Action to take if the ICAP server cannot be contacted when processing an HTTP request.
-                choices: ['error', 'bypass']
-            request_path:
-                aliases: ['request-path']
+                description: HTTP header regular expression.
+              header_name:
+                aliases: ['header-name']
                 type: str
-                description: Path component of the ICAP URI that identifies the HTTP request processing service.
-            request_server:
-                aliases: ['request-server']
-                type: str
-                description: ICAP server to use for an HTTP request.
-            response:
-                type: str
-                description: Enable/disable whether an HTTP response is passed to an ICAP server.
-                choices: ['disable', 'enable']
-            response_failure:
-                aliases: ['response-failure']
-                type: str
-                description: Action to take if the ICAP server cannot be contacted when processing an HTTP response.
-                choices: ['error', 'bypass']
-            response_path:
-                aliases: ['response-path']
-                type: str
-                description: Path component of the ICAP URI that identifies the HTTP response processing service.
-            response_server:
-                aliases: ['response-server']
-                type: str
-                description: ICAP server to use for an HTTP response.
-            streaming_content_bypass:
-                aliases: ['streaming-content-bypass']
-                type: str
-                description: Enable/disable bypassing of ICAP server for streaming content.
-                choices: ['disable', 'enable']
-            icap_headers:
-                aliases: ['icap-headers']
-                type: list
-                elements: dict
-                description: Icap headers.
-                suboptions:
-                    base64_encoding:
-                        aliases: ['base64-encoding']
-                        type: str
-                        description: Enable/disable use of base64 encoding of HTTP content.
-                        choices: ['disable', 'enable']
-                    content:
-                        type: str
-                        description: HTTP header content.
-                    id:
-                        type: int
-                        description: HTTP forwarded header ID.
-                    name:
-                        type: str
-                        description: HTTP forwarded header name.
-                    http_header:
-                        aliases: ['http-header']
-                        type: str
-                        description: Http header.
-                    sesson_info_type:
-                        aliases: ['sesson-info-type']
-                        type: str
-                        description: Sesson info type.
-                        choices: ['client-ip', 'user', 'upn', 'domain', 'local-grp', 'remote-grp',
-                                  'proxy-name', 'auth-user-uri', 'auth-group-uri']
-                    source:
-                        type: str
-                        description: Source.
-                        choices: ['content', 'http-header', 'session']
-            preview:
-                type: str
-                description: Enable/disable preview of data to ICAP server.
-                choices: ['disable', 'enable']
-            preview_data_length:
-                aliases: ['preview-data-length']
+                description: HTTP header.
+              id:
                 type: int
-                description: Preview data length to be sent to ICAP server.
-            response_req_hdr:
-                aliases: ['response-req-hdr']
-                type: str
-                description: Enable/disable addition of req-hdr for ICAP response modification
-                choices: ['disable', 'enable']
-            respmod_default_action:
-                aliases: ['respmod-default-action']
-                type: str
-                description: Default action to ICAP response modification
-                choices: ['bypass', 'forward']
-            respmod_forward_rules:
-                aliases: ['respmod-forward-rules']
-                type: list
-                elements: dict
-                description: Respmod forward rules.
-                suboptions:
-                    action:
-                        type: str
-                        description: Action to be taken for ICAP server.
-                        choices: ['bypass', 'forward']
-                    header_group:
-                        aliases: ['header-group']
-                        type: list
-                        elements: dict
-                        description: Header group.
-                        suboptions:
-                            case_sensitivity:
-                                aliases: ['case-sensitivity']
-                                type: str
-                                description: Enable/disable case sensitivity when matching header.
-                                choices: ['disable', 'enable']
-                            header:
-                                type: str
-                                description: HTTP header regular expression.
-                            header_name:
-                                aliases: ['header-name']
-                                type: str
-                                description: HTTP header.
-                            id:
-                                type: int
-                                description: ID.
-                    host:
-                        type: str
-                        description: Address object for the host.
-                    http_resp_status_code:
-                        aliases: ['http-resp-status-code']
-                        type: raw
-                        description: (list) HTTP response status code.
-                    name:
-                        type: str
-                        description: Address name.
-            204_response:
-                aliases: ['204-response']
-                type: str
-                description: Enable/disable allowance of 204 response from ICAP server.
-                choices: ['disable', 'enable']
-            204_size_limit:
-                aliases: ['204-size-limit']
-                type: int
-                description: 204 response size limit to be saved by ICAP client in megabytes
-            chunk_encap:
-                aliases: ['chunk-encap']
-                type: str
-                description: Enable/disable chunked encapsulation
-                choices: ['disable', 'enable']
-            extension_feature:
-                aliases: ['extension-feature']
-                type: list
-                elements: str
-                description: Enable/disable ICAP extension features.
-                choices: ['scan-progress']
-            file_transfer:
-                aliases: ['file-transfer']
-                type: list
-                elements: str
-                description: Configure the file transfer protocols to pass transferred files to an ICAP server as REQMOD.
-                choices: ['ssh', 'ftp']
-            file_transfer_failure:
-                aliases: ['file-transfer-failure']
-                type: str
-                description: Action to take if the ICAP server cannot be contacted when processing a file transfer.
-                choices: ['error', 'bypass']
-            file_transfer_path:
-                aliases: ['file-transfer-path']
-                type: str
-                description: Path component of the ICAP URI that identifies the file transfer processing service.
-            file_transfer_server:
-                aliases: ['file-transfer-server']
-                type: str
-                description: ICAP server to use for a file transfer.
-            icap_block_log:
-                aliases: ['icap-block-log']
-                type: str
-                description: Enable/disable UTM log when infection found
-                choices: ['disable', 'enable']
-            scan_progress_interval:
-                aliases: ['scan-progress-interval']
-                type: int
-                description: Scan progress interval value.
-            timeout:
-                type: int
-                description: Time
-            comment:
-                type: str
-                description: Comment.
-            ocr-only:
-                type: str
-                description: Deprecated, please rename it to ocr_only. Enable/disable this FortiGate unit to submit only OCR interested content to the ...
-                choices: ['disable', 'enable']
-            ocr_only:
-                type: str
-                description: Ocr only.
-                choices: ['disable', 'enable']
-            scan_oversize_log:
-                aliases: ['scan-oversize-log']
-                type: str
-                description: Scan oversize log.
-                choices: ['disable', 'enable']
-            scan_size_limit:
-                aliases: ['scan-size-limit']
-                type: int
-                description: Scan size limit.
-            allow_204_response:
-                aliases: ['allow-204-response']
-                type: str
-                description: Enable/disable allowing of 204 response from icap server.
-                choices: ['disable', 'enable']
+                description: ID.
+          host:
+            type: str
+            description: Address object for the host.
+          http_resp_status_code:
+            aliases: ['http-resp-status-code']
+            type: raw
+            description: (list) HTTP response status code.
+          name:
+            type: str
+            description: Address name.
+      204_response:
+        aliases: ['204-response']
+        type: str
+        description: Enable/disable allowance of 204 response from ICAP server.
+        choices: ['disable', 'enable']
+      204_size_limit:
+        aliases: ['204-size-limit']
+        type: int
+        description: 204 response size limit to be saved by ICAP client in megabytes
+      chunk_encap:
+        aliases: ['chunk-encap']
+        type: str
+        description: Enable/disable chunked encapsulation
+        choices: ['disable', 'enable']
+      extension_feature:
+        aliases: ['extension-feature']
+        type: list
+        elements: str
+        description: Enable/disable ICAP extension features.
+        choices: ['scan-progress']
+      file_transfer:
+        aliases: ['file-transfer']
+        type: list
+        elements: str
+        description: Configure the file transfer protocols to pass transferred files to an ICAP server as REQMOD.
+        choices: ['ssh', 'ftp']
+      file_transfer_failure:
+        aliases: ['file-transfer-failure']
+        type: str
+        description: Action to take if the ICAP server cannot be contacted when processing a file transfer.
+        choices: ['error', 'bypass']
+      file_transfer_path:
+        aliases: ['file-transfer-path']
+        type: str
+        description: Path component of the ICAP URI that identifies the file transfer processing service.
+      file_transfer_server:
+        aliases: ['file-transfer-server']
+        type: str
+        description: ICAP server to use for a file transfer.
+      icap_block_log:
+        aliases: ['icap-block-log']
+        type: str
+        description: Enable/disable UTM log when infection found
+        choices: ['disable', 'enable']
+      scan_progress_interval:
+        aliases: ['scan-progress-interval']
+        type: int
+        description: Scan progress interval value.
+      timeout:
+        type: int
+        description: Time
+      comment:
+        type: str
+        description: Comment.
+      ocr-only:
+        type: str
+        description: Deprecated, please rename it to ocr_only. Enable/disable this FortiGate unit to submit only OCR interested content to the ICAP server.
+        choices: ['disable', 'enable']
+      ocr_only:
+        type: str
+        description: Ocr only.
+        choices: ['disable', 'enable']
+      scan_oversize_log:
+        aliases: ['scan-oversize-log']
+        type: str
+        description: Scan oversize log.
+        choices: ['disable', 'enable']
+      scan_size_limit:
+        aliases: ['scan-size-limit']
+        type: int
+        description: Scan size limit.
+      allow_204_response:
+        aliases: ['allow-204-response']
+        type: str
+        description: Enable/disable allowing of 204 response from icap server.
+        choices: ['disable', 'enable']
+      fabric_force_sync:
+        aliases: ['fabric-force-sync']
+        type: str
+        description: Enable/disable forced synchronization of configuration objects from the root FortiGate unit to the downstream devices.
+        choices: ['disable', 'enable']
+      fabric_object:
+        aliases: ['fabric-object']
+        type: str
+        description: Security Fabric global object setting.
+        choices: ['disable', 'enable']
+      fabric_object_source:
+        aliases: ['fabric-object-source']
+        type: str
+        description: Source of truth for fabric object.
+        choices: ['member', 'local', 'root']
+      uuid:
+        type: str
+        description: Universally Unique Identifier
 '''
 
 EXAMPLES = '''
@@ -268,7 +286,7 @@ EXAMPLES = '''
         icap_profile:
           name: "your value" # Required variable, string
           # methods: ["delete", "get", "head", "options", "post", "put", "trace", "other",
-          #           "connect"]
+          #           "connect", "patch", "query"]
           # replacemsg_group: <string>
           # request: <value in [disable, enable]>
           # request_failure: <value in [error, bypass]>
@@ -318,46 +336,50 @@ EXAMPLES = '''
           # scan_oversize_log: <value in [disable, enable]>
           # scan_size_limit: <integer>
           # allow_204_response: <value in [disable, enable]>
+          # fabric_force_sync: <value in [disable, enable]>
+          # fabric_object: <value in [disable, enable]>
+          # fabric_object_source: <value in [member, local, root]>
+          # uuid: <string>
 '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -378,7 +400,7 @@ def main():
             'options': {
                 'methods': {
                     'type': 'list',
-                    'choices': ['delete', 'get', 'head', 'options', 'post', 'put', 'trace', 'other', 'connect'],
+                    'choices': ['delete', 'get', 'head', 'options', 'post', 'put', 'trace', 'other', 'connect', 'patch', 'query'],
                     'elements': 'str'
                 },
                 'name': {'required': True, 'type': 'str'},
@@ -400,13 +422,13 @@ def main():
                         'content': {'v_range': [['6.2.0', '']], 'type': 'str'},
                         'id': {'v_range': [['6.2.0', '']], 'type': 'int'},
                         'name': {'v_range': [['6.2.0', '']], 'type': 'str'},
-                        'http-header': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'str'},
+                        'http-header': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'type': 'str'},
                         'sesson-info-type': {
-                            'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']],
+                            'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']],
                             'choices': ['client-ip', 'user', 'upn', 'domain', 'local-grp', 'remote-grp', 'proxy-name', 'auth-user-uri', 'auth-group-uri'],
                             'type': 'str'
                         },
-                        'source': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'choices': ['content', 'http-header', 'session'], 'type': 'str'}
+                        'source': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'choices': ['content', 'http-header', 'session'], 'type': 'str'}
                     },
                     'elements': 'dict'
                 },
@@ -449,10 +471,14 @@ def main():
                 'timeout': {'v_range': [['7.2.0', '']], 'type': 'int'},
                 'comment': {'v_range': [['7.2.2', '']], 'type': 'str'},
                 'ocr-only': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'ocr_only': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'scan-oversize-log': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'scan-size-limit': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'int'},
-                'allow-204-response': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'ocr_only': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'scan-oversize-log': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'scan-size-limit': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'type': 'int'},
+                'allow-204-response': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'fabric-force-sync': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'fabric-object': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'fabric-object-source': {'v_range': [['8.0.0', '']], 'choices': ['member', 'local', 'root'], 'type': 'str'},
+                'uuid': {'v_range': [['8.0.0', '']], 'type': 'str'}
             }
         }
     }

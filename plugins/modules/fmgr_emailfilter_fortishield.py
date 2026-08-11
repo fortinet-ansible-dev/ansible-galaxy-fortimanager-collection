@@ -15,35 +15,35 @@ module: fmgr_emailfilter_fortishield
 short_description: Configure FortiGuard - AntiSpam.
 version_added: "2.1.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.partial_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.partial_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  emailfilter_fortishield:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      spam_submit_force:
+        aliases: ['spam-submit-force']
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Enable/disable force insertion of a new mime entity for the submission text.
+        choices: ['disable', 'enable']
+      spam_submit_srv:
+        aliases: ['spam-submit-srv']
         type: str
-        required: true
-    emailfilter_fortishield:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            spam_submit_force:
-                aliases: ['spam-submit-force']
-                type: str
-                description: Enable/disable force insertion of a new mime entity for the submission text.
-                choices: ['disable', 'enable']
-            spam_submit_srv:
-                aliases: ['spam-submit-srv']
-                type: str
-                description: Hostname of the spam submission server.
-            spam_submit_txt2htm:
-                aliases: ['spam-submit-txt2htm']
-                type: str
-                description: Enable/disable conversion of text email to HTML email.
-                choices: ['disable', 'enable']
+        description: Hostname of the spam submission server.
+      spam_submit_txt2htm:
+        aliases: ['spam-submit-txt2htm']
+        type: str
+        description: Enable/disable conversion of text email to HTML email.
+        choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -64,42 +64,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

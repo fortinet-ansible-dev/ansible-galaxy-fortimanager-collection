@@ -15,59 +15,58 @@ module: fmgr_system_connector
 short_description: Configure connector.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.partial_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.partial_crud
 options:
-    system_connector:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            fsso_refresh_interval:
-                aliases: ['fsso-refresh-interval']
-                type: int
-                description: FSSO refresh interval
-            fsso_sess_timeout:
-                aliases: ['fsso-sess-timeout']
-                type: int
-                description: FSSO session timeout
-            px_refresh_interval:
-                aliases: ['px-refresh-interval']
-                type: int
-                description: PxGrid refresh interval
-            px_svr_timeout:
-                aliases: ['px-svr-timeout']
-                type: int
-                description: PxGrid server timeout
-            conn_refresh_interval:
-                aliases: ['conn-refresh-interval']
-                type: int
-                description: Connector refresh interval
-            cloud_orchest_refresh_interval:
-                aliases: ['cloud-orchest-refresh-interval']
-                type: int
-                description: Cloud Orchestration refresh interval
-            faznotify_msg_queue_max:
-                aliases: ['faznotify-msg-queue-max']
-                type: int
-                description: Faznotify max queued message per connector
-            faznotify_msg_timeout:
-                aliases: ['faznotify-msg-timeout']
-                type: int
-                description: Faznotify message timeout
-            conn_ssl_protocol:
-                aliases: ['conn-ssl-protocol']
-                type: str
-                description:
-                    - set the lowest SSL protocol version for connector.
-                    - follow-global-ssl-protocol - Follow system.
-                    - sslv3 - set SSLv3 as the lowest version.
-                    - tlsv1.
-                    - tlsv1.
-                    - tlsv1.
-                    - tlsv1.
-                choices: ['follow-global-ssl-protocol', 'sslv3', 'tlsv1.0', 'tlsv1.1', 'tlsv1.2',
-                          'tlsv1.3']
+  system_connector:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      fsso_refresh_interval:
+        aliases: ['fsso-refresh-interval']
+        type: int
+        description: FSSO refresh interval
+      fsso_sess_timeout:
+        aliases: ['fsso-sess-timeout']
+        type: int
+        description: FSSO session timeout
+      px_refresh_interval:
+        aliases: ['px-refresh-interval']
+        type: int
+        description: PxGrid refresh interval
+      px_svr_timeout:
+        aliases: ['px-svr-timeout']
+        type: int
+        description: PxGrid server timeout
+      conn_refresh_interval:
+        aliases: ['conn-refresh-interval']
+        type: int
+        description: Connector refresh interval
+      cloud_orchest_refresh_interval:
+        aliases: ['cloud-orchest-refresh-interval']
+        type: int
+        description: Cloud Orchestration refresh interval
+      faznotify_msg_queue_max:
+        aliases: ['faznotify-msg-queue-max']
+        type: int
+        description: Faznotify max queued message per connector
+      faznotify_msg_timeout:
+        aliases: ['faznotify-msg-timeout']
+        type: int
+        description: Faznotify message timeout
+      conn_ssl_protocol:
+        aliases: ['conn-ssl-protocol']
+        type: str
+        description:
+          - set the lowest SSL protocol version for connector.
+          - follow-global-ssl-protocol - Follow system.
+          - sslv3 - set SSLv3 as the lowest version.
+          - tlsv1.
+          - tlsv1.
+          - tlsv1.
+          - tlsv1.
+        choices: ['follow-global-ssl-protocol', 'sslv3', 'tlsv1.0', 'tlsv1.1', 'tlsv1.2', 'tlsv1.3']
 '''
 
 EXAMPLES = '''
@@ -93,42 +92,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -153,7 +152,7 @@ def main():
                 'faznotify-msg-queue-max': {'v_range': [['7.4.2', '']], 'type': 'int'},
                 'faznotify-msg-timeout': {'v_range': [['7.4.2', '']], 'type': 'int'},
                 'conn-ssl-protocol': {
-                    'v_range': [['7.4.4', '7.4.10'], ['7.6.2', '']],
+                    'v_range': [['7.4.4', '7.4.11'], ['7.6.2', '']],
                     'choices': ['follow-global-ssl-protocol', 'sslv3', 'tlsv1.0', 'tlsv1.1', 'tlsv1.2', 'tlsv1.3'],
                     'type': 'str'
                 }

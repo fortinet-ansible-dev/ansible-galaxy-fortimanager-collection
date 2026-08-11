@@ -15,43 +15,43 @@ module: fmgr_user_krbkeytab
 short_description: Configure Kerberos keytab entries.
 version_added: "2.1.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  user_krbkeytab:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      keytab:
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Base64 coded keytab file containing a pre-shared key.
+      ldap_server:
+        aliases: ['ldap-server']
+        type: raw
+        description: (list or str) LDAP server name.
+      name:
         type: str
+        description: Kerberos keytab entry name.
         required: true
-    user_krbkeytab:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            keytab:
-                type: str
-                description: Base64 coded keytab file containing a pre-shared key.
-            ldap_server:
-                aliases: ['ldap-server']
-                type: raw
-                description: (list or str) LDAP server name.
-            name:
-                type: str
-                description: Kerberos keytab entry name.
-                required: true
-            pac_data:
-                aliases: ['pac-data']
-                type: str
-                description: Enable/disable parsing PAC data in the ticket.
-                choices: ['disable', 'enable']
-            principal:
-                type: str
-                description: Kerberos service principal, e.
-            password:
-                type: raw
-                description: (list) Password for keytab.
+      pac_data:
+        aliases: ['pac-data']
+        type: str
+        description: Enable/disable parsing PAC data in the ticket.
+        choices: ['disable', 'enable']
+      principal:
+        type: str
+        description: Kerberos service principal, e.
+      password:
+        type: raw
+        description: (list) Password for keytab.
 '''
 
 EXAMPLES = '''
@@ -76,42 +76,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

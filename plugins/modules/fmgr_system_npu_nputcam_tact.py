@@ -15,181 +15,181 @@ module: fmgr_system_npu_nputcam_tact
 short_description: Target action of TCAM.
 version_added: "2.4.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.partial_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.partial_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  npu-tcam:
+    description: Deprecated, please use "npu_tcam"
+    type: str
+  npu_tcam:
+    description: The parameter (npu-tcam) in requested url.
+    type: str
+  system_npu_nputcam_tact:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      act:
+        type: int
+        description: Tcam tact act.
+      act_v:
+        aliases: ['act-v']
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Enable to set tact act.
+        choices: ['disable', 'enable']
+      fmtuv4_s:
+        aliases: ['fmtuv4-s']
+        type: int
+        description: Tcam tact fmtuv4-s.
+      fmtuv4_s_v:
+        aliases: ['fmtuv4-s-v']
         type: str
-        required: true
-    npu-tcam:
-        description: Deprecated, please use "npu_tcam"
+        description: Enable to set tact fmtuv4-s.
+        choices: ['disable', 'enable']
+      fmtuv6_s:
+        aliases: ['fmtuv6-s']
+        type: int
+        description: Tcam tact fmtuv6-s.
+      fmtuv6_s_v:
+        aliases: ['fmtuv6-s-v']
         type: str
-    npu_tcam:
-        description: The parameter (npu-tcam) in requested url.
+        description: Enable to set tact fmtuv6-s.
+        choices: ['disable', 'enable']
+      lnkid:
+        type: int
+        description: Tcam tact lnkid.
+      lnkid_v:
+        aliases: ['lnkid-v']
         type: str
-    system_npu_nputcam_tact:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            act:
-                type: int
-                description: Tcam tact act.
-            act_v:
-                aliases: ['act-v']
-                type: str
-                description: Enable to set tact act.
-                choices: ['disable', 'enable']
-            fmtuv4_s:
-                aliases: ['fmtuv4-s']
-                type: int
-                description: Tcam tact fmtuv4-s.
-            fmtuv4_s_v:
-                aliases: ['fmtuv4-s-v']
-                type: str
-                description: Enable to set tact fmtuv4-s.
-                choices: ['disable', 'enable']
-            fmtuv6_s:
-                aliases: ['fmtuv6-s']
-                type: int
-                description: Tcam tact fmtuv6-s.
-            fmtuv6_s_v:
-                aliases: ['fmtuv6-s-v']
-                type: str
-                description: Enable to set tact fmtuv6-s.
-                choices: ['disable', 'enable']
-            lnkid:
-                type: int
-                description: Tcam tact lnkid.
-            lnkid_v:
-                aliases: ['lnkid-v']
-                type: str
-                description: Enable to set tact lnkid.
-                choices: ['disable', 'enable']
-            mac_id:
-                aliases: ['mac-id']
-                type: int
-                description: Tcam tact mac-id.
-            mac_id_v:
-                aliases: ['mac-id-v']
-                type: str
-                description: Enable to set tact mac-id.
-                choices: ['disable', 'enable']
-            mss_t:
-                aliases: ['mss-t']
-                type: int
-                description: Tcam tact mss.
-            mss_t_v:
-                aliases: ['mss-t-v']
-                type: str
-                description: Enable to set tact mss.
-                choices: ['disable', 'enable']
-            mtuv4:
-                type: int
-                description: Tcam tact mtuv4.
-            mtuv4_v:
-                aliases: ['mtuv4-v']
-                type: str
-                description: Enable to set tact mtuv4.
-                choices: ['disable', 'enable']
-            mtuv6:
-                type: int
-                description: Tcam tact mtuv6.
-            mtuv6_v:
-                aliases: ['mtuv6-v']
-                type: str
-                description: Enable to set tact mtuv6.
-                choices: ['disable', 'enable']
-            slif_act:
-                aliases: ['slif-act']
-                type: int
-                description: Tcam tact slif-act.
-            slif_act_v:
-                aliases: ['slif-act-v']
-                type: str
-                description: Enable to set tact slif-act.
-                choices: ['disable', 'enable']
-            sublnkid:
-                type: int
-                description: Tcam tact sublnkid.
-            sublnkid_v:
-                aliases: ['sublnkid-v']
-                type: str
-                description: Enable to set tact sublnkid.
-                choices: ['disable', 'enable']
-            tgtv_act:
-                aliases: ['tgtv-act']
-                type: int
-                description: Tcam tact tgtv-act.
-            tgtv_act_v:
-                aliases: ['tgtv-act-v']
-                type: str
-                description: Enable to set tact tgtv-act.
-                choices: ['disable', 'enable']
-            tlif_act:
-                aliases: ['tlif-act']
-                type: int
-                description: Tcam tact tlif-act.
-            tlif_act_v:
-                aliases: ['tlif-act-v']
-                type: str
-                description: Enable to set tact tlif-act.
-                choices: ['disable', 'enable']
-            tpeid:
-                type: int
-                description: Tcam tact tpeid.
-            tpeid_v:
-                aliases: ['tpeid-v']
-                type: str
-                description: Enable to set tact tpeid.
-                choices: ['disable', 'enable']
-            v6fe:
-                type: int
-                description: Tcam tact v6fe.
-            v6fe_v:
-                aliases: ['v6fe-v']
-                type: str
-                description: Enable to set tact v6fe.
-                choices: ['disable', 'enable']
-            vep_en_v:
-                aliases: ['vep-en-v']
-                type: str
-                description: Enable to set tact vep-en.
-                choices: ['disable', 'enable']
-            vep_slid:
-                aliases: ['vep-slid']
-                type: int
-                description: Tcam tact vep_slid.
-            vep_slid_v:
-                aliases: ['vep-slid-v']
-                type: str
-                description: Enable to set tact vep-slid.
-                choices: ['disable', 'enable']
-            vep_en:
-                type: int
-                description: Tcam tact vep_en.
-            xlt_lif:
-                aliases: ['xlt-lif']
-                type: int
-                description: Tcam tact xlt-lif.
-            xlt_lif_v:
-                aliases: ['xlt-lif-v']
-                type: str
-                description: Enable to set tact xlt-lif.
-                choices: ['disable', 'enable']
-            xlt_vid:
-                aliases: ['xlt-vid']
-                type: int
-                description: Tcam tact xlt-vid.
-            xlt_vid_v:
-                aliases: ['xlt-vid-v']
-                type: str
-                description: Enable to set tact xlt-vid.
-                choices: ['disable', 'enable']
+        description: Enable to set tact lnkid.
+        choices: ['disable', 'enable']
+      mac_id:
+        aliases: ['mac-id']
+        type: int
+        description: Tcam tact mac-id.
+      mac_id_v:
+        aliases: ['mac-id-v']
+        type: str
+        description: Enable to set tact mac-id.
+        choices: ['disable', 'enable']
+      mss_t:
+        aliases: ['mss-t']
+        type: int
+        description: Tcam tact mss.
+      mss_t_v:
+        aliases: ['mss-t-v']
+        type: str
+        description: Enable to set tact mss.
+        choices: ['disable', 'enable']
+      mtuv4:
+        type: int
+        description: Tcam tact mtuv4.
+      mtuv4_v:
+        aliases: ['mtuv4-v']
+        type: str
+        description: Enable to set tact mtuv4.
+        choices: ['disable', 'enable']
+      mtuv6:
+        type: int
+        description: Tcam tact mtuv6.
+      mtuv6_v:
+        aliases: ['mtuv6-v']
+        type: str
+        description: Enable to set tact mtuv6.
+        choices: ['disable', 'enable']
+      slif_act:
+        aliases: ['slif-act']
+        type: int
+        description: Tcam tact slif-act.
+      slif_act_v:
+        aliases: ['slif-act-v']
+        type: str
+        description: Enable to set tact slif-act.
+        choices: ['disable', 'enable']
+      sublnkid:
+        type: int
+        description: Tcam tact sublnkid.
+      sublnkid_v:
+        aliases: ['sublnkid-v']
+        type: str
+        description: Enable to set tact sublnkid.
+        choices: ['disable', 'enable']
+      tgtv_act:
+        aliases: ['tgtv-act']
+        type: int
+        description: Tcam tact tgtv-act.
+      tgtv_act_v:
+        aliases: ['tgtv-act-v']
+        type: str
+        description: Enable to set tact tgtv-act.
+        choices: ['disable', 'enable']
+      tlif_act:
+        aliases: ['tlif-act']
+        type: int
+        description: Tcam tact tlif-act.
+      tlif_act_v:
+        aliases: ['tlif-act-v']
+        type: str
+        description: Enable to set tact tlif-act.
+        choices: ['disable', 'enable']
+      tpeid:
+        type: int
+        description: Tcam tact tpeid.
+      tpeid_v:
+        aliases: ['tpeid-v']
+        type: str
+        description: Enable to set tact tpeid.
+        choices: ['disable', 'enable']
+      v6fe:
+        type: int
+        description: Tcam tact v6fe.
+      v6fe_v:
+        aliases: ['v6fe-v']
+        type: str
+        description: Enable to set tact v6fe.
+        choices: ['disable', 'enable']
+      vep_en_v:
+        aliases: ['vep-en-v']
+        type: str
+        description: Enable to set tact vep-en.
+        choices: ['disable', 'enable']
+      vep_slid:
+        aliases: ['vep-slid']
+        type: int
+        description: Tcam tact vep_slid.
+      vep_slid_v:
+        aliases: ['vep-slid-v']
+        type: str
+        description: Enable to set tact vep-slid.
+        choices: ['disable', 'enable']
+      vep_en:
+        type: int
+        description: Tcam tact vep_en.
+      xlt_lif:
+        aliases: ['xlt-lif']
+        type: int
+        description: Tcam tact xlt-lif.
+      xlt_lif_v:
+        aliases: ['xlt-lif-v']
+        type: str
+        description: Enable to set tact xlt-lif.
+        choices: ['disable', 'enable']
+      xlt_vid:
+        aliases: ['xlt-vid']
+        type: int
+        description: Tcam tact xlt-vid.
+      xlt_vid_v:
+        aliases: ['xlt-vid-v']
+        type: str
+        description: Enable to set tact xlt-vid.
+        choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -244,42 +244,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

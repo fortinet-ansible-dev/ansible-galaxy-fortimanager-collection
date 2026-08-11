@@ -15,241 +15,241 @@ module: fmgr_system_npu_nputcam_data
 short_description: Data fields of TCAM.
 version_added: "2.4.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.partial_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.partial_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  npu-tcam:
+    description: Deprecated, please use "npu_tcam"
+    type: str
+  npu_tcam:
+    description: The parameter (npu-tcam) in requested url.
+    type: str
+  system_npu_nputcam_data:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      df:
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Tcam data ip flag df.
+        choices: ['disable', 'enable']
+      dstip:
         type: str
-        required: true
-    npu-tcam:
-        description: Deprecated, please use "npu_tcam"
+        description: Tcam data dst ipv4 address.
+      dstipv6:
         type: str
-    npu_tcam:
-        description: The parameter (npu-tcam) in requested url.
+        description: Tcam data dst ipv6 address.
+      dstmac:
         type: str
-    system_npu_nputcam_data:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            df:
-                type: str
-                description: Tcam data ip flag df.
-                choices: ['disable', 'enable']
-            dstip:
-                type: str
-                description: Tcam data dst ipv4 address.
-            dstipv6:
-                type: str
-                description: Tcam data dst ipv6 address.
-            dstmac:
-                type: str
-                description: Tcam data dst macaddr.
-            dstport:
-                type: int
-                description: Tcam data L4 dst port.
-            ethertype:
-                type: str
-                description: Tcam data ethertype.
-            ext_tag:
-                aliases: ['ext-tag']
-                type: str
-                description: Tcam data extension tag.
-                choices: ['disable', 'enable']
-            frag_off:
-                aliases: ['frag-off']
-                type: int
-                description: Tcam data ip flag fragment offset.
-            gen_buf_cnt:
-                aliases: ['gen-buf-cnt']
-                type: int
-                description: Tcam data gen info buffer count.
-            gen_iv:
-                aliases: ['gen-iv']
-                type: str
-                description: Tcam data gen info iv.
-                choices: ['invalid', 'valid']
-            gen_l3_flags:
-                aliases: ['gen-l3-flags']
-                type: int
-                description: Tcam data gen info L3 flags.
-            gen_l4_flags:
-                aliases: ['gen-l4-flags']
-                type: int
-                description: Tcam data gen info L4 flags.
-            gen_pkt_ctrl:
-                aliases: ['gen-pkt-ctrl']
-                type: int
-                description: Tcam data gen info packet control.
-            gen_pri:
-                aliases: ['gen-pri']
-                type: int
-                description: Tcam data gen info priority.
-            gen_pri_v:
-                aliases: ['gen-pri-v']
-                type: str
-                description: Tcam data gen info priority valid.
-                choices: ['invalid', 'valid']
-            gen_tv:
-                aliases: ['gen-tv']
-                type: str
-                description: Tcam data gen info tv.
-                choices: ['invalid', 'valid']
-            ihl:
-                type: int
-                description: Tcam data ipv4 IHL.
-            ip4_id:
-                aliases: ['ip4-id']
-                type: int
-                description: Tcam data ipv4 id.
-            ip6_fl:
-                aliases: ['ip6-fl']
-                type: int
-                description: Tcam data ipv6 flow label.
-            ipver:
-                type: int
-                description: Tcam data ip header version.
-            l4_wd10:
-                aliases: ['l4-wd10']
-                type: int
-                description: Tcam data L4 word10.
-            l4_wd11:
-                aliases: ['l4-wd11']
-                type: int
-                description: Tcam data L4 word11.
-            l4_wd8:
-                aliases: ['l4-wd8']
-                type: int
-                description: Tcam data L4 word8.
-            l4_wd9:
-                aliases: ['l4-wd9']
-                type: int
-                description: Tcam data L4 word9.
-            mf:
-                type: str
-                description: Tcam data ip flag mf.
-                choices: ['disable', 'enable']
-            protocol:
-                type: int
-                description: Tcam data ip protocol.
-            slink:
-                type: int
-                description: Tcam data sublink.
-            smac_change:
-                aliases: ['smac-change']
-                type: str
-                description: Tcam data source MAC change.
-                choices: ['disable', 'enable']
-            sp:
-                type: int
-                description: Tcam data source port.
-            src_cfi:
-                aliases: ['src-cfi']
-                type: str
-                description: Tcam data source cfi.
-                choices: ['disable', 'enable']
-            src_prio:
-                aliases: ['src-prio']
-                type: int
-                description: Tcam data source priority.
-            src_updt:
-                aliases: ['src-updt']
-                type: str
-                description: Tcam data source update.
-                choices: ['disable', 'enable']
-            srcip:
-                type: str
-                description: Tcam data src ipv4 address.
-            srcipv6:
-                type: str
-                description: Tcam data src ipv6 address.
-            srcmac:
-                type: str
-                description: Tcam data src macaddr.
-            srcport:
-                type: int
-                description: Tcam data L4 src port.
-            svid:
-                type: int
-                description: Tcam data source vid.
-            tcp_ack:
-                aliases: ['tcp-ack']
-                type: str
-                description: Tcam data tcp flag ack.
-                choices: ['disable', 'enable']
-            tcp_cwr:
-                aliases: ['tcp-cwr']
-                type: str
-                description: Tcam data tcp flag cwr.
-                choices: ['disable', 'enable']
-            tcp_ece:
-                aliases: ['tcp-ece']
-                type: str
-                description: Tcam data tcp flag ece.
-                choices: ['disable', 'enable']
-            tcp_fin:
-                aliases: ['tcp-fin']
-                type: str
-                description: Tcam data tcp flag fin.
-                choices: ['disable', 'enable']
-            tcp_push:
-                aliases: ['tcp-push']
-                type: str
-                description: Tcam data tcp flag push.
-                choices: ['disable', 'enable']
-            tcp_rst:
-                aliases: ['tcp-rst']
-                type: str
-                description: Tcam data tcp flag rst.
-                choices: ['disable', 'enable']
-            tcp_syn:
-                aliases: ['tcp-syn']
-                type: str
-                description: Tcam data tcp flag syn.
-                choices: ['disable', 'enable']
-            tcp_urg:
-                aliases: ['tcp-urg']
-                type: str
-                description: Tcam data tcp flag urg.
-                choices: ['disable', 'enable']
-            tgt_cfi:
-                aliases: ['tgt-cfi']
-                type: str
-                description: Tcam data target cfi.
-                choices: ['disable', 'enable']
-            tgt_prio:
-                aliases: ['tgt-prio']
-                type: int
-                description: Tcam data target priority.
-            tgt_updt:
-                aliases: ['tgt-updt']
-                type: str
-                description: Tcam data target port update.
-                choices: ['disable', 'enable']
-            tgt_v:
-                aliases: ['tgt-v']
-                type: str
-                description: Tcam data target valid.
-                choices: ['invalid', 'valid']
-            tos:
-                type: int
-                description: Tcam data ip tos.
-            tp:
-                type: int
-                description: Tcam data target port.
-            ttl:
-                type: int
-                description: Tcam data ip ttl.
-            tvid:
-                type: int
-                description: Tcam data target vid.
-            vdid:
-                type: int
-                description: Tcam data vdom id.
+        description: Tcam data dst macaddr.
+      dstport:
+        type: int
+        description: Tcam data L4 dst port.
+      ethertype:
+        type: str
+        description: Tcam data ethertype.
+      ext_tag:
+        aliases: ['ext-tag']
+        type: str
+        description: Tcam data extension tag.
+        choices: ['disable', 'enable']
+      frag_off:
+        aliases: ['frag-off']
+        type: int
+        description: Tcam data ip flag fragment offset.
+      gen_buf_cnt:
+        aliases: ['gen-buf-cnt']
+        type: int
+        description: Tcam data gen info buffer count.
+      gen_iv:
+        aliases: ['gen-iv']
+        type: str
+        description: Tcam data gen info iv.
+        choices: ['invalid', 'valid']
+      gen_l3_flags:
+        aliases: ['gen-l3-flags']
+        type: int
+        description: Tcam data gen info L3 flags.
+      gen_l4_flags:
+        aliases: ['gen-l4-flags']
+        type: int
+        description: Tcam data gen info L4 flags.
+      gen_pkt_ctrl:
+        aliases: ['gen-pkt-ctrl']
+        type: int
+        description: Tcam data gen info packet control.
+      gen_pri:
+        aliases: ['gen-pri']
+        type: int
+        description: Tcam data gen info priority.
+      gen_pri_v:
+        aliases: ['gen-pri-v']
+        type: str
+        description: Tcam data gen info priority valid.
+        choices: ['invalid', 'valid']
+      gen_tv:
+        aliases: ['gen-tv']
+        type: str
+        description: Tcam data gen info tv.
+        choices: ['invalid', 'valid']
+      ihl:
+        type: int
+        description: Tcam data ipv4 IHL.
+      ip4_id:
+        aliases: ['ip4-id']
+        type: int
+        description: Tcam data ipv4 id.
+      ip6_fl:
+        aliases: ['ip6-fl']
+        type: int
+        description: Tcam data ipv6 flow label.
+      ipver:
+        type: int
+        description: Tcam data ip header version.
+      l4_wd10:
+        aliases: ['l4-wd10']
+        type: int
+        description: Tcam data L4 word10.
+      l4_wd11:
+        aliases: ['l4-wd11']
+        type: int
+        description: Tcam data L4 word11.
+      l4_wd8:
+        aliases: ['l4-wd8']
+        type: int
+        description: Tcam data L4 word8.
+      l4_wd9:
+        aliases: ['l4-wd9']
+        type: int
+        description: Tcam data L4 word9.
+      mf:
+        type: str
+        description: Tcam data ip flag mf.
+        choices: ['disable', 'enable']
+      protocol:
+        type: int
+        description: Tcam data ip protocol.
+      slink:
+        type: int
+        description: Tcam data sublink.
+      smac_change:
+        aliases: ['smac-change']
+        type: str
+        description: Tcam data source MAC change.
+        choices: ['disable', 'enable']
+      sp:
+        type: int
+        description: Tcam data source port.
+      src_cfi:
+        aliases: ['src-cfi']
+        type: str
+        description: Tcam data source cfi.
+        choices: ['disable', 'enable']
+      src_prio:
+        aliases: ['src-prio']
+        type: int
+        description: Tcam data source priority.
+      src_updt:
+        aliases: ['src-updt']
+        type: str
+        description: Tcam data source update.
+        choices: ['disable', 'enable']
+      srcip:
+        type: str
+        description: Tcam data src ipv4 address.
+      srcipv6:
+        type: str
+        description: Tcam data src ipv6 address.
+      srcmac:
+        type: str
+        description: Tcam data src macaddr.
+      srcport:
+        type: int
+        description: Tcam data L4 src port.
+      svid:
+        type: int
+        description: Tcam data source vid.
+      tcp_ack:
+        aliases: ['tcp-ack']
+        type: str
+        description: Tcam data tcp flag ack.
+        choices: ['disable', 'enable']
+      tcp_cwr:
+        aliases: ['tcp-cwr']
+        type: str
+        description: Tcam data tcp flag cwr.
+        choices: ['disable', 'enable']
+      tcp_ece:
+        aliases: ['tcp-ece']
+        type: str
+        description: Tcam data tcp flag ece.
+        choices: ['disable', 'enable']
+      tcp_fin:
+        aliases: ['tcp-fin']
+        type: str
+        description: Tcam data tcp flag fin.
+        choices: ['disable', 'enable']
+      tcp_push:
+        aliases: ['tcp-push']
+        type: str
+        description: Tcam data tcp flag push.
+        choices: ['disable', 'enable']
+      tcp_rst:
+        aliases: ['tcp-rst']
+        type: str
+        description: Tcam data tcp flag rst.
+        choices: ['disable', 'enable']
+      tcp_syn:
+        aliases: ['tcp-syn']
+        type: str
+        description: Tcam data tcp flag syn.
+        choices: ['disable', 'enable']
+      tcp_urg:
+        aliases: ['tcp-urg']
+        type: str
+        description: Tcam data tcp flag urg.
+        choices: ['disable', 'enable']
+      tgt_cfi:
+        aliases: ['tgt-cfi']
+        type: str
+        description: Tcam data target cfi.
+        choices: ['disable', 'enable']
+      tgt_prio:
+        aliases: ['tgt-prio']
+        type: int
+        description: Tcam data target priority.
+      tgt_updt:
+        aliases: ['tgt-updt']
+        type: str
+        description: Tcam data target port update.
+        choices: ['disable', 'enable']
+      tgt_v:
+        aliases: ['tgt-v']
+        type: str
+        description: Tcam data target valid.
+        choices: ['invalid', 'valid']
+      tos:
+        type: int
+        description: Tcam data ip tos.
+      tp:
+        type: int
+        description: Tcam data target port.
+      ttl:
+        type: int
+        description: Tcam data ip ttl.
+      tvid:
+        type: int
+        description: Tcam data target vid.
+      vdid:
+        type: int
+        description: Tcam data vdom id.
 '''
 
 EXAMPLES = '''
@@ -322,42 +322,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

@@ -15,86 +15,86 @@ module: fmgr_pkg_firewall_hyperscalepolicy46
 short_description: Configure IPv4 to IPv6 policies.
 version_added: "2.2.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  pkg:
+    description: The parameter (pkg) in requested url.
+    type: str
+    required: true
+  pkg_firewall_hyperscalepolicy46:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      action:
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Accept or deny traffic matching the policy.
+        choices: ['deny', 'accept']
+      cgn_log_server_grp:
+        aliases: ['cgn-log-server-grp']
         type: str
+        description: NP log server group name
+      comments:
+        type: str
+        description: Comment.
+      dstaddr:
+        type: raw
+        description: (list or str) Destination address objects.
+      dstintf:
+        type: str
+        description: Destination interface name.
+      name:
+        type: str
+        description: Policy name.
+      policy_offload:
+        aliases: ['policy-offload']
+        type: str
+        description: Enable/disable offloading policy configuration to CP processors.
+        choices: ['disable', 'enable']
+      policyid:
+        type: int
+        description: Policy ID
         required: true
-    pkg:
-        description: The parameter (pkg) in requested url.
+      service:
+        type: raw
+        description: (list or str) Service name.
+      srcaddr:
+        type: raw
+        description: (list or str) Source address objects.
+      srcintf:
         type: str
-        required: true
-    pkg_firewall_hyperscalepolicy46:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            action:
-                type: str
-                description: Accept or deny traffic matching the policy.
-                choices: ['deny', 'accept']
-            cgn_log_server_grp:
-                aliases: ['cgn-log-server-grp']
-                type: str
-                description: NP log server group name
-            comments:
-                type: str
-                description: Comment.
-            dstaddr:
-                type: raw
-                description: (list or str) Destination address objects.
-            dstintf:
-                type: str
-                description: Destination interface name.
-            name:
-                type: str
-                description: Policy name.
-            policy_offload:
-                aliases: ['policy-offload']
-                type: str
-                description: Enable/disable offloading policy configuration to CP processors.
-                choices: ['disable', 'enable']
-            policyid:
-                type: int
-                description: Policy ID
-                required: true
-            service:
-                type: raw
-                description: (list or str) Service name.
-            srcaddr:
-                type: raw
-                description: (list or str) Source address objects.
-            srcintf:
-                type: str
-                description: Source interface name.
-            status:
-                type: str
-                description: Enable/disable this policy.
-                choices: ['disable', 'enable']
-            tcp_timeout_pid:
-                aliases: ['tcp-timeout-pid']
-                type: str
-                description: TCP timeout profile ID
-            traffic_shaper:
-                aliases: ['traffic-shaper']
-                type: str
-                description: Traffic shaper.
-            traffic_shaper_reverse:
-                aliases: ['traffic-shaper-reverse']
-                type: str
-                description: Reverse traffic shaper.
-            udp_timeout_pid:
-                aliases: ['udp-timeout-pid']
-                type: str
-                description: UDP timeout profile ID
-            uuid:
-                type: str
-                description: Universally Unique Identifier
+        description: Source interface name.
+      status:
+        type: str
+        description: Enable/disable this policy.
+        choices: ['disable', 'enable']
+      tcp_timeout_pid:
+        aliases: ['tcp-timeout-pid']
+        type: str
+        description: TCP timeout profile ID
+      traffic_shaper:
+        aliases: ['traffic-shaper']
+        type: str
+        description: Traffic shaper.
+      traffic_shaper_reverse:
+        aliases: ['traffic-shaper-reverse']
+        type: str
+        description: Reverse traffic shaper.
+      udp_timeout_pid:
+        aliases: ['udp-timeout-pid']
+        type: str
+        description: UDP timeout profile ID
+      uuid:
+        type: str
+        description: Universally Unique Identifier
 '''
 
 EXAMPLES = '''
@@ -131,42 +131,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -183,37 +183,41 @@ def main():
         'pkg': {'required': True, 'type': 'str'},
         'revision_note': {'type': 'str'},
         'pkg_firewall_hyperscalepolicy46': {
-            'type': 'dict', 'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '']],
+            'type': 'dict', 'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '7.6.7']],
             'options': {
                 'action': {
-                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '']],
+                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '7.6.7']],
                     'choices': ['deny', 'accept'],
                     'type': 'str'
                 },
-                'cgn-log-server-grp': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '']], 'type': 'str'},
-                'comments': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '']], 'type': 'str'},
-                'dstaddr': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '']], 'type': 'raw'},
-                'dstintf': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '']], 'type': 'str'},
-                'name': {'v_range': [['6.4.8', '6.4.15'], ['7.0.3', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '']], 'type': 'str'},
+                'cgn-log-server-grp': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '7.6.7']], 'type': 'str'},
+                'comments': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '7.6.7']], 'type': 'str'},
+                'dstaddr': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '7.6.7']], 'type': 'raw'},
+                'dstintf': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '7.6.7']], 'type': 'str'},
+                'name': {'v_range': [['6.4.8', '6.4.15'], ['7.0.3', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '7.6.7']], 'type': 'str'},
                 'policy-offload': {
-                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '']],
+                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '7.6.7']],
                     'choices': ['disable', 'enable'],
                     'type': 'str'
                 },
-                'policyid': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '']], 'required': True, 'type': 'int'},
-                'service': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '']], 'type': 'raw'},
-                'srcaddr': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '']], 'type': 'raw'},
-                'srcintf': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '']], 'type': 'str'},
+                'policyid': {
+                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '7.6.7']],
+                    'required': True,
+                    'type': 'int'
+                },
+                'service': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '7.6.7']], 'type': 'raw'},
+                'srcaddr': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '7.6.7']], 'type': 'raw'},
+                'srcintf': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '7.6.7']], 'type': 'str'},
                 'status': {
-                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '']],
+                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '7.6.7']],
                     'choices': ['disable', 'enable'],
                     'type': 'str'
                 },
-                'tcp-timeout-pid': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '']], 'type': 'str'},
-                'traffic-shaper': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '']], 'type': 'str'},
-                'traffic-shaper-reverse': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '']], 'type': 'str'},
-                'udp-timeout-pid': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '']], 'type': 'str'},
-                'uuid': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '']], 'type': 'str'}
+                'tcp-timeout-pid': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '7.6.7']], 'type': 'str'},
+                'traffic-shaper': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '7.6.7']], 'type': 'str'},
+                'traffic-shaper-reverse': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '7.6.7']], 'type': 'str'},
+                'udp-timeout-pid': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '7.6.7']], 'type': 'str'},
+                'uuid': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '7.6.7']], 'type': 'str'}
             }
         }
     }

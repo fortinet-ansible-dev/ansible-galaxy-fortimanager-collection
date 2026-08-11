@@ -15,115 +15,115 @@ module: fmgr_qosprofile
 short_description: Configure WiFi quality of service
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  qosprofile:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      bandwidth_admission_control:
+        aliases: ['bandwidth-admission-control']
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Enable/disable WMM bandwidth admission control.
+        choices: ['disable', 'enable']
+      bandwidth_capacity:
+        aliases: ['bandwidth-capacity']
+        type: int
+        description: Maximum bandwidth capacity allowed
+      burst:
         type: str
+        description: Enable/disable client rate burst.
+        choices: ['disable', 'enable']
+      call_admission_control:
+        aliases: ['call-admission-control']
+        type: str
+        description: Enable/disable WMM call admission control.
+        choices: ['disable', 'enable']
+      call_capacity:
+        aliases: ['call-capacity']
+        type: int
+        description: Maximum number of Voice over WLAN
+      comment:
+        type: str
+        description: Comment.
+      downlink:
+        type: int
+        description: Maximum downlink bandwidth for Virtual Access Points
+      downlink_sta:
+        aliases: ['downlink-sta']
+        type: int
+        description: Maximum downlink bandwidth for clients
+      dscp_wmm_be:
+        aliases: ['dscp-wmm-be']
+        type: raw
+        description: (list) DSCP mapping for best effort access
+      dscp_wmm_bk:
+        aliases: ['dscp-wmm-bk']
+        type: raw
+        description: (list) DSCP mapping for background access
+      dscp_wmm_mapping:
+        aliases: ['dscp-wmm-mapping']
+        type: str
+        description: Enable/disable Differentiated Services Code Point
+        choices: ['disable', 'enable']
+      dscp_wmm_vi:
+        aliases: ['dscp-wmm-vi']
+        type: raw
+        description: (list) DSCP mapping for video access
+      dscp_wmm_vo:
+        aliases: ['dscp-wmm-vo']
+        type: raw
+        description: (list) DSCP mapping for voice access
+      name:
+        type: str
+        description: WiFi QoS profile name.
         required: true
-    qosprofile:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            bandwidth_admission_control:
-                aliases: ['bandwidth-admission-control']
-                type: str
-                description: Enable/disable WMM bandwidth admission control.
-                choices: ['disable', 'enable']
-            bandwidth_capacity:
-                aliases: ['bandwidth-capacity']
-                type: int
-                description: Maximum bandwidth capacity allowed
-            burst:
-                type: str
-                description: Enable/disable client rate burst.
-                choices: ['disable', 'enable']
-            call_admission_control:
-                aliases: ['call-admission-control']
-                type: str
-                description: Enable/disable WMM call admission control.
-                choices: ['disable', 'enable']
-            call_capacity:
-                aliases: ['call-capacity']
-                type: int
-                description: Maximum number of Voice over WLAN
-            comment:
-                type: str
-                description: Comment.
-            downlink:
-                type: int
-                description: Maximum downlink bandwidth for Virtual Access Points
-            downlink_sta:
-                aliases: ['downlink-sta']
-                type: int
-                description: Maximum downlink bandwidth for clients
-            dscp_wmm_be:
-                aliases: ['dscp-wmm-be']
-                type: raw
-                description: (list) DSCP mapping for best effort access
-            dscp_wmm_bk:
-                aliases: ['dscp-wmm-bk']
-                type: raw
-                description: (list) DSCP mapping for background access
-            dscp_wmm_mapping:
-                aliases: ['dscp-wmm-mapping']
-                type: str
-                description: Enable/disable Differentiated Services Code Point
-                choices: ['disable', 'enable']
-            dscp_wmm_vi:
-                aliases: ['dscp-wmm-vi']
-                type: raw
-                description: (list) DSCP mapping for video access
-            dscp_wmm_vo:
-                aliases: ['dscp-wmm-vo']
-                type: raw
-                description: (list) DSCP mapping for voice access
-            name:
-                type: str
-                description: WiFi QoS profile name.
-                required: true
-            uplink:
-                type: int
-                description: Maximum uplink bandwidth for Virtual Access Points
-            uplink_sta:
-                aliases: ['uplink-sta']
-                type: int
-                description: Maximum uplink bandwidth for clients
-            wmm:
-                type: str
-                description: Enable/disable WiFi multi-media
-                choices: ['disable', 'enable']
-            wmm_uapsd:
-                aliases: ['wmm-uapsd']
-                type: str
-                description: Enable/disable WMM Unscheduled Automatic Power Save Delivery
-                choices: ['disable', 'enable']
-            wmm_be_dscp:
-                aliases: ['wmm-be-dscp']
-                type: int
-                description: DSCP marking for best effort access
-            wmm_bk_dscp:
-                aliases: ['wmm-bk-dscp']
-                type: int
-                description: DSCP marking for background access
-            wmm_dscp_marking:
-                aliases: ['wmm-dscp-marking']
-                type: str
-                description: Enable/disable WMM Differentiated Services Code Point
-                choices: ['disable', 'enable']
-            wmm_vi_dscp:
-                aliases: ['wmm-vi-dscp']
-                type: int
-                description: DSCP marking for video access
-            wmm_vo_dscp:
-                aliases: ['wmm-vo-dscp']
-                type: int
-                description: DSCP marking for voice access
+      uplink:
+        type: int
+        description: Maximum uplink bandwidth for Virtual Access Points
+      uplink_sta:
+        aliases: ['uplink-sta']
+        type: int
+        description: Maximum uplink bandwidth for clients
+      wmm:
+        type: str
+        description: Enable/disable WiFi multi-media
+        choices: ['disable', 'enable']
+      wmm_uapsd:
+        aliases: ['wmm-uapsd']
+        type: str
+        description: Enable/disable WMM Unscheduled Automatic Power Save Delivery
+        choices: ['disable', 'enable']
+      wmm_be_dscp:
+        aliases: ['wmm-be-dscp']
+        type: int
+        description: DSCP marking for best effort access
+      wmm_bk_dscp:
+        aliases: ['wmm-bk-dscp']
+        type: int
+        description: DSCP marking for background access
+      wmm_dscp_marking:
+        aliases: ['wmm-dscp-marking']
+        type: str
+        description: Enable/disable WMM Differentiated Services Code Point
+        choices: ['disable', 'enable']
+      wmm_vi_dscp:
+        aliases: ['wmm-vi-dscp']
+        type: int
+        description: DSCP marking for video access
+      wmm_vo_dscp:
+        aliases: ['wmm-vo-dscp']
+        type: int
+        description: DSCP marking for voice access
 '''
 
 EXAMPLES = '''
@@ -165,42 +165,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

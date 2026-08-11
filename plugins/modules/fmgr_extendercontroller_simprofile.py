@@ -15,123 +15,123 @@ module: fmgr_extendercontroller_simprofile
 short_description: Extender controller sim profile
 version_added: "2.1.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
-        type: str
-    adom:
-        description: The parameter (adom) in requested url.
-        type: str
-        required: true
-    extendercontroller_simprofile:
-        description: The top level parameters set.
-        required: false
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  extendercontroller_simprofile:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      auto_switch_profile:
+        aliases: ['auto-switch_profile']
         type: dict
+        description: Auto switch profile.
         suboptions:
-            auto_switch_profile:
-                aliases: ['auto-switch_profile']
-                type: dict
-                description: Auto switch profile.
-                suboptions:
-                    dataplan:
-                        type: str
-                        description: Dataplan.
-                        choices: ['disable', 'enable']
-                    disconnect:
-                        type: str
-                        description: Disconnect.
-                        choices: ['disable', 'enable']
-                    disconnect_period:
-                        aliases: ['disconnect-period']
-                        type: int
-                        description: Disconnect period.
-                    disconnect_threshold:
-                        aliases: ['disconnect-threshold']
-                        type: int
-                        description: Disconnect threshold.
-                    signal:
-                        type: str
-                        description: Signal.
-                        choices: ['disable', 'enable']
-                    status:
-                        type: str
-                        description: Status.
-                        choices: ['disable', 'enable']
-                    switch_back:
-                        aliases: ['switch-back']
-                        type: list
-                        elements: str
-                        description: Switch back.
-                        choices: ['time', 'timer']
-                    switch_back_time:
-                        aliases: ['switch-back-time']
-                        type: str
-                        description: Switch back time.
-                    switch_back_timer:
-                        aliases: ['switch-back-timer']
-                        type: int
-                        description: Switch back timer.
-            conn_status:
-                aliases: ['conn-status']
-                type: int
-                description: Conn status.
-            default_sim:
-                aliases: ['default-sim']
-                type: str
-                description: Default sim.
-                choices: ['sim1', 'sim2', 'carrier', 'cost']
-            description:
-                type: str
-                description: Description.
-            gps:
-                type: str
-                description: Gps.
-                choices: ['disable', 'enable']
-            modem_id:
-                aliases: ['modem-id']
-                type: int
-                description: Modem id.
-            name:
-                type: str
-                description: Name.
-                required: true
-            preferred_carrier:
-                aliases: ['preferred-carrier']
-                type: str
-                description: Preferred carrier.
-            redundant_intf:
-                aliases: ['redundant-intf']
-                type: str
-                description: Redundant intf.
-            redundant_mode:
-                aliases: ['redundant-mode']
-                type: str
-                description: Redundant mode.
-                choices: ['disable', 'enable']
-            sim1_pin:
-                aliases: ['sim1-pin']
-                type: str
-                description: Sim1 pin.
-                choices: ['disable', 'enable']
-            sim1_pin_code:
-                aliases: ['sim1-pin-code']
-                type: raw
-                description: (list) Sim1 pin code.
-            sim2_pin:
-                aliases: ['sim2-pin']
-                type: str
-                description: Sim2 pin.
-                choices: ['disable', 'enable']
-            sim2_pin_code:
-                aliases: ['sim2-pin-code']
-                type: raw
-                description: (list) Sim2 pin code.
-            status:
-                type: str
-                description: Status.
-                choices: ['disable', 'enable']
+          dataplan:
+            type: str
+            description: Dataplan.
+            choices: ['disable', 'enable']
+          disconnect:
+            type: str
+            description: Disconnect.
+            choices: ['disable', 'enable']
+          disconnect_period:
+            aliases: ['disconnect-period']
+            type: int
+            description: Disconnect period.
+          disconnect_threshold:
+            aliases: ['disconnect-threshold']
+            type: int
+            description: Disconnect threshold.
+          signal:
+            type: str
+            description: Signal.
+            choices: ['disable', 'enable']
+          status:
+            type: str
+            description: Status.
+            choices: ['disable', 'enable']
+          switch_back:
+            aliases: ['switch-back']
+            type: list
+            elements: str
+            description: Switch back.
+            choices: ['time', 'timer']
+          switch_back_time:
+            aliases: ['switch-back-time']
+            type: str
+            description: Switch back time.
+          switch_back_timer:
+            aliases: ['switch-back-timer']
+            type: int
+            description: Switch back timer.
+      conn_status:
+        aliases: ['conn-status']
+        type: int
+        description: Conn status.
+      default_sim:
+        aliases: ['default-sim']
+        type: str
+        description: Default sim.
+        choices: ['sim1', 'sim2', 'carrier', 'cost']
+      description:
+        type: str
+        description: Description.
+      gps:
+        type: str
+        description: Gps.
+        choices: ['disable', 'enable']
+      modem_id:
+        aliases: ['modem-id']
+        type: int
+        description: Modem id.
+      name:
+        type: str
+        description: Name.
+        required: true
+      preferred_carrier:
+        aliases: ['preferred-carrier']
+        type: str
+        description: Preferred carrier.
+      redundant_intf:
+        aliases: ['redundant-intf']
+        type: str
+        description: Redundant intf.
+      redundant_mode:
+        aliases: ['redundant-mode']
+        type: str
+        description: Redundant mode.
+        choices: ['disable', 'enable']
+      sim1_pin:
+        aliases: ['sim1-pin']
+        type: str
+        description: Sim1 pin.
+        choices: ['disable', 'enable']
+      sim1_pin_code:
+        aliases: ['sim1-pin-code']
+        type: raw
+        description: (list) Sim1 pin code.
+      sim2_pin:
+        aliases: ['sim2-pin']
+        type: str
+        description: Sim2 pin.
+        choices: ['disable', 'enable']
+      sim2_pin_code:
+        aliases: ['sim2-pin-code']
+        type: raw
+        description: (list) Sim2 pin code.
+      status:
+        type: str
+        description: Status.
+        choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -174,42 +174,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

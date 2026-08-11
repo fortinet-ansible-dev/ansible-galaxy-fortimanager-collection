@@ -15,94 +15,97 @@ module: fmgr_vpn_certificate_hsmlocal
 short_description: Local certificates whose keys are stored on HSM.
 version_added: "2.12.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  vpn_certificate_hsmlocal:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      api_version:
+        aliases: ['api-version']
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: API version for communicating with HSM.
+        choices: ['unknown', 'gch-default']
+      certificate:
         type: str
+        description: PEM format certificate.
+      comments:
+        type: str
+        description: Comment.
+      gch_cloud_service_name:
+        aliases: ['gch-cloud-service-name']
+        type: list
+        elements: str
+        description: Cloud service config name to generate access token.
+      gch_cryptokey:
+        aliases: ['gch-cryptokey']
+        type: str
+        description: Google Cloud HSM cryptokey.
+      gch_cryptokey_algorithm:
+        aliases: ['gch-cryptokey-algorithm']
+        type: str
+        description: Google Cloud HSM cryptokey algorithm.
+        choices: ['rsa-sign-pkcs1-2048-sha256', 'rsa-sign-pkcs1-3072-sha256',
+                  'rsa-sign-pkcs1-4096-sha256', 'rsa-sign-pkcs1-4096-sha512',
+                  'rsa-sign-pss-2048-sha256', 'rsa-sign-pss-3072-sha256',
+                  'rsa-sign-pss-4096-sha256', 'rsa-sign-pss-4096-sha512', 'ec-sign-p256-sha256',
+                  'ec-sign-p384-sha384', 'ec-sign-secp256k1-sha256', '2048-RSA-PKCS1v1.5-SHA256',
+                  '3072-RSA-PKCS1v1.5-SHA256', '4096-RSA-PKCS1v1.5-SHA256',
+                  '4096-RSA-PKCS1v1.5-SHA512', 'EC_P256_SHA256', 'EC_P384_SHA384',
+                  'EC_secp256k1_SHA256']
+      gch_cryptokey_version:
+        aliases: ['gch-cryptokey-version']
+        type: str
+        description: Google Cloud HSM cryptokey version.
+      gch_keyring:
+        aliases: ['gch-keyring']
+        type: str
+        description: Google Cloud HSM keyring.
+      gch_location:
+        aliases: ['gch-location']
+        type: str
+        description: Google Cloud HSM location.
+      gch_project:
+        aliases: ['gch-project']
+        type: str
+        description: Google Cloud HSM project ID.
+      gch_url:
+        aliases: ['gch-url']
+        type: str
+        description: Gch url.
+      name:
+        type: str
+        description: Name.
         required: true
-    vpn_certificate_hsmlocal:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            api_version:
-                aliases: ['api-version']
-                type: str
-                description: API version for communicating with HSM.
-                choices: ['unknown', 'gch-default']
-            certificate:
-                type: str
-                description: PEM format certificate.
-            comments:
-                type: str
-                description: Comment.
-            gch_cloud_service_name:
-                aliases: ['gch-cloud-service-name']
-                type: list
-                elements: str
-                description: Cloud service config name to generate access token.
-            gch_cryptokey:
-                aliases: ['gch-cryptokey']
-                type: str
-                description: Google Cloud HSM cryptokey.
-            gch_cryptokey_algorithm:
-                aliases: ['gch-cryptokey-algorithm']
-                type: str
-                description: Google Cloud HSM cryptokey algorithm.
-                choices: ['rsa-sign-pkcs1-2048-sha256', 'rsa-sign-pkcs1-3072-sha256',
-                          'rsa-sign-pkcs1-4096-sha256', 'rsa-sign-pkcs1-4096-sha512',
-                          'rsa-sign-pss-2048-sha256', 'rsa-sign-pss-3072-sha256',
-                          'rsa-sign-pss-4096-sha256', 'rsa-sign-pss-4096-sha512',
-                          'ec-sign-p256-sha256', 'ec-sign-p384-sha384',
-                          'ec-sign-secp256k1-sha256', '2048-RSA-PKCS1v1.5-SHA256',
-                          '3072-RSA-PKCS1v1.5-SHA256', '4096-RSA-PKCS1v1.5-SHA256',
-                          '4096-RSA-PKCS1v1.5-SHA512', 'EC_P256_SHA256', 'EC_P384_SHA384',
-                          'EC_secp256k1_SHA256']
-            gch_cryptokey_version:
-                aliases: ['gch-cryptokey-version']
-                type: str
-                description: Google Cloud HSM cryptokey version.
-            gch_keyring:
-                aliases: ['gch-keyring']
-                type: str
-                description: Google Cloud HSM keyring.
-            gch_location:
-                aliases: ['gch-location']
-                type: str
-                description: Google Cloud HSM location.
-            gch_project:
-                aliases: ['gch-project']
-                type: str
-                description: Google Cloud HSM project ID.
-            gch_url:
-                aliases: ['gch-url']
-                type: str
-                description: Gch url.
-            name:
-                type: str
-                description: Name.
-                required: true
-            range:
-                type: str
-                description: Either a global or VDOM IP address range for the certificate.
-                choices: ['global', 'vdom']
-            source:
-                type: str
-                description: Certificate source type.
-                choices: ['factory', 'user', 'bundle']
-            tmp_cert_file:
-                aliases: ['tmp-cert-file']
-                type: str
-                description: Temporary certificate file.
-            vendor:
-                type: str
-                description: HSM vendor.
-                choices: ['unknown', 'gch']
+      range:
+        type: str
+        description: Either a global or VDOM IP address range for the certificate.
+        choices: ['global', 'vdom']
+      source:
+        type: str
+        description: Certificate source type.
+        choices: ['factory', 'user', 'bundle']
+      tmp_cert_file:
+        aliases: ['tmp-cert-file']
+        type: str
+        description: Temporary certificate file.
+      vendor:
+        type: str
+        description: HSM vendor.
+        choices: ['unknown', 'gch']
+      scep_url:
+        aliases: ['scep-url']
+        type: str
+        description: Scep url.
 '''
 
 EXAMPLES = '''
@@ -133,46 +136,47 @@ EXAMPLES = '''
           # source: <value in [factory, user, bundle]>
           # tmp_cert_file: <string>
           # vendor: <value in [unknown, gch]>
+          # scep_url: <string>
 '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -216,7 +220,8 @@ def main():
                 'range': {'v_range': [['7.6.4', '']], 'choices': ['global', 'vdom'], 'type': 'str'},
                 'source': {'v_range': [['7.6.4', '']], 'choices': ['factory', 'user', 'bundle'], 'type': 'str'},
                 'tmp-cert-file': {'v_range': [['7.6.4', '']], 'type': 'str'},
-                'vendor': {'v_range': [['7.6.4', '']], 'choices': ['unknown', 'gch'], 'type': 'str'}
+                'vendor': {'v_range': [['7.6.4', '']], 'choices': ['unknown', 'gch'], 'type': 'str'},
+                'scep-url': {'v_range': [['7.6.7', '']], 'type': 'str'}
             }
         }
     }

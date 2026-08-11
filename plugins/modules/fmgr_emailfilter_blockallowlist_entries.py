@@ -15,68 +15,68 @@ module: fmgr_emailfilter_blockallowlist_entries
 short_description: Anti-spam block/allow entries.
 version_added: "2.1.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  block-allow-list:
+    description: Deprecated, please use "block_allow_list"
+    type: str
+  block_allow_list:
+    description: The parameter (block-allow-list) in requested url.
+    type: str
+  emailfilter_blockallowlist_entries:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      action:
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Reject, mark as spam or good email.
+        choices: ['spam', 'clear', 'reject']
+      addr_type:
+        aliases: ['addr-type']
         type: str
+        description: IP address type.
+        choices: ['ipv4', 'ipv6']
+      email_pattern:
+        aliases: ['email-pattern']
+        type: str
+        description: Email address pattern.
+      id:
+        type: int
+        description: Entry ID.
         required: true
-    block-allow-list:
-        description: Deprecated, please use "block_allow_list"
+      ip4_subnet:
+        aliases: ['ip4-subnet']
         type: str
-    block_allow_list:
-        description: The parameter (block-allow-list) in requested url.
+        description: IPv4 network address/subnet mask bits.
+      ip6_subnet:
+        aliases: ['ip6-subnet']
         type: str
-    emailfilter_blockallowlist_entries:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            action:
-                type: str
-                description: Reject, mark as spam or good email.
-                choices: ['spam', 'clear', 'reject']
-            addr_type:
-                aliases: ['addr-type']
-                type: str
-                description: IP address type.
-                choices: ['ipv4', 'ipv6']
-            email_pattern:
-                aliases: ['email-pattern']
-                type: str
-                description: Email address pattern.
-            id:
-                type: int
-                description: Entry ID.
-                required: true
-            ip4_subnet:
-                aliases: ['ip4-subnet']
-                type: str
-                description: IPv4 network address/subnet mask bits.
-            ip6_subnet:
-                aliases: ['ip6-subnet']
-                type: str
-                description: IPv6 network address/subnet mask bits.
-            pattern_type:
-                aliases: ['pattern-type']
-                type: str
-                description: Wildcard pattern or regular expression.
-                choices: ['wildcard', 'regexp']
-            status:
-                type: str
-                description: Enable/disable status.
-                choices: ['disable', 'enable']
-            type:
-                type: str
-                description: Entry type.
-                choices: ['ip', 'email', 'email-to', 'email-from', 'subject']
-            pattern:
-                type: str
-                description: Pattern to match.
+        description: IPv6 network address/subnet mask bits.
+      pattern_type:
+        aliases: ['pattern-type']
+        type: str
+        description: Wildcard pattern or regular expression.
+        choices: ['wildcard', 'regexp']
+      status:
+        type: str
+        description: Enable/disable status.
+        choices: ['disable', 'enable']
+      type:
+        type: str
+        description: Entry type.
+        choices: ['ip', 'email', 'email-to', 'email-from', 'subject']
+      pattern:
+        type: str
+        description: Pattern to match.
 '''
 
 EXAMPLES = '''
@@ -106,42 +106,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

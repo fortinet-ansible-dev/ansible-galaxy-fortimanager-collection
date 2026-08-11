@@ -15,275 +15,311 @@ module: fmgr_user_fsso
 short_description: Configure Fortinet Single Sign On
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  user_fsso:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      _gui_meta:
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
-        type: str
-        required: true
-    user_fsso:
-        description: The top level parameters set.
-        required: false
-        type: dict
+        description: Gui meta.
+      dynamic_mapping:
+        type: list
+        elements: dict
+        description: Dynamic mapping.
         suboptions:
-            _gui_meta:
-                type: str
-                description: Gui meta.
-            dynamic_mapping:
-                type: list
-                elements: dict
-                description: Dynamic mapping.
-                suboptions:
-                    _gui_meta:
-                        type: str
-                        description: Gui meta.
-                    _scope:
-                        type: list
-                        elements: dict
-                        description: Scope.
-                        suboptions:
-                            name:
-                                type: str
-                                description: Name.
-                            vdom:
-                                type: str
-                                description: Vdom.
-                    ldap_server:
-                        aliases: ['ldap-server']
-                        type: str
-                        description: Ldap server.
-                    password:
-                        type: raw
-                        description: (list) Password.
-                    password2:
-                        type: raw
-                        description: (list) Password2.
-                    password3:
-                        type: raw
-                        description: (list) Password3.
-                    password4:
-                        type: raw
-                        description: (list) Password4.
-                    password5:
-                        type: raw
-                        description: (list) Password5.
-                    port:
-                        type: int
-                        description: Port.
-                    port2:
-                        type: int
-                        description: Port2.
-                    port3:
-                        type: int
-                        description: Port3.
-                    port4:
-                        type: int
-                        description: Port4.
-                    port5:
-                        type: int
-                        description: Port5.
-                    server:
-                        type: str
-                        description: Server.
-                    server2:
-                        type: str
-                        description: Server2.
-                    server3:
-                        type: str
-                        description: Server3.
-                    server4:
-                        type: str
-                        description: Server4.
-                    server5:
-                        type: str
-                        description: Server5.
-                    source_ip:
-                        aliases: ['source-ip']
-                        type: str
-                        description: Source ip.
-                    source_ip6:
-                        aliases: ['source-ip6']
-                        type: str
-                        description: Source ip6.
-                    ssl:
-                        type: str
-                        description: Ssl.
-                        choices: ['disable', 'enable']
-                    ssl_trusted_cert:
-                        aliases: ['ssl-trusted-cert']
-                        type: str
-                        description: Ssl trusted cert.
-                    type:
-                        type: str
-                        description: Type.
-                        choices: ['default', 'fortiems', 'fortinac', 'fortiems-cloud']
-                    user_info_server:
-                        aliases: ['user-info-server']
-                        type: raw
-                        description: (list or str) User info server.
-                    ldap_poll:
-                        aliases: ['ldap-poll']
-                        type: str
-                        description: Ldap poll.
-                        choices: ['disable', 'enable']
-                    ldap_poll_filter:
-                        aliases: ['ldap-poll-filter']
-                        type: str
-                        description: Ldap poll filter.
-                    ldap_poll_interval:
-                        aliases: ['ldap-poll-interval']
-                        type: int
-                        description: Ldap poll interval.
-                    group_poll_interval:
-                        aliases: ['group-poll-interval']
-                        type: int
-                        description: Group poll interval.
-                    interface:
-                        type: str
-                        description: Interface.
-                    interface_select_method:
-                        aliases: ['interface-select-method']
-                        type: str
-                        description: Interface select method.
-                        choices: ['auto', 'sdwan', 'specify']
-                    logon_timeout:
-                        aliases: ['logon-timeout']
-                        type: int
-                        description: Interval in minutes to keep logons after FSSO server down.
-                    sni:
-                        type: str
-                        description: Server Name Indication.
-                    ssl_server_host_ip_check:
-                        aliases: ['ssl-server-host-ip-check']
-                        type: str
-                        description: Enable/disable server host/IP verification.
-                        choices: ['disable', 'enable']
-                    vrf_select:
-                        aliases: ['vrf-select']
-                        type: int
-                        description: VRF ID used for connection to server.
-            ldap_server:
-                aliases: ['ldap-server']
-                type: str
-                description: LDAP server to get group information.
-            name:
+          _gui_meta:
+            type: str
+            description: Gui meta.
+          _scope:
+            type: list
+            elements: dict
+            description: Scope.
+            suboptions:
+              name:
                 type: str
                 description: Name.
-                required: true
-            password:
-                type: raw
-                description: (list) Password of the first FSSO collector agent.
-            password2:
-                type: raw
-                description: (list) Password of the second FSSO collector agent.
-            password3:
-                type: raw
-                description: (list) Password of the third FSSO collector agent.
-            password4:
-                type: raw
-                description: (list) Password of the fourth FSSO collector agent.
-            password5:
-                type: raw
-                description: (list) Password of the fifth FSSO collector agent.
-            port:
-                type: int
-                description: Port of the first FSSO collector agent.
-            port2:
-                type: int
-                description: Port of the second FSSO collector agent.
-            port3:
-                type: int
-                description: Port of the third FSSO collector agent.
-            port4:
-                type: int
-                description: Port of the fourth FSSO collector agent.
-            port5:
-                type: int
-                description: Port of the fifth FSSO collector agent.
-            server:
+              vdom:
                 type: str
-                description: Domain name or IP address of the first FSSO collector agent.
-            server2:
-                type: str
-                description: Domain name or IP address of the second FSSO collector agent.
-            server3:
-                type: str
-                description: Domain name or IP address of the third FSSO collector agent.
-            server4:
-                type: str
-                description: Domain name or IP address of the fourth FSSO collector agent.
-            server5:
-                type: str
-                description: Domain name or IP address of the fifth FSSO collector agent.
-            source_ip:
-                aliases: ['source-ip']
-                type: str
-                description: Source IP for communications to FSSO agent.
-            source_ip6:
-                aliases: ['source-ip6']
-                type: str
-                description: IPv6 source for communications to FSSO agent.
-            ldap_poll:
-                aliases: ['ldap-poll']
-                type: str
-                description: Enable/disable automatic fetching of groups from LDAP server.
-                choices: ['disable', 'enable']
-            ldap_poll_filter:
-                aliases: ['ldap-poll-filter']
-                type: str
-                description: Filter used to fetch groups.
-            ldap_poll_interval:
-                aliases: ['ldap-poll-interval']
-                type: int
-                description: Interval in minutes within to fetch groups from LDAP server.
-            ssl:
-                type: str
-                description: Enable/disable use of SSL.
-                choices: ['disable', 'enable']
-            ssl_trusted_cert:
-                aliases: ['ssl-trusted-cert']
-                type: str
-                description: Trusted server certificate or CA certificate.
-            type:
-                type: str
-                description: Server type.
-                choices: ['default', 'fortiems', 'fortinac', 'fortiems-cloud']
-            user_info_server:
-                aliases: ['user-info-server']
-                type: str
-                description: LDAP server to get user information.
-            group_poll_interval:
-                aliases: ['group-poll-interval']
-                type: int
-                description: Interval in minutes within to fetch groups from FSSO server, or unset to disable.
-            interface:
-                type: str
-                description: Specify outgoing interface to reach server.
-            interface_select_method:
-                aliases: ['interface-select-method']
-                type: str
-                description: Specify how to select outgoing interface to reach server.
-                choices: ['auto', 'sdwan', 'specify']
-            logon_timeout:
-                aliases: ['logon-timeout']
-                type: int
-                description: Interval in minutes to keep logons after FSSO server down.
-            sni:
-                type: str
-                description: Server Name Indication.
-            ssl_server_host_ip_check:
-                aliases: ['ssl-server-host-ip-check']
-                type: str
-                description: Enable/disable server host/IP verification.
-                choices: ['disable', 'enable']
-            vrf_select:
-                aliases: ['vrf-select']
-                type: int
-                description: VRF ID used for connection to server.
+                description: Vdom.
+          ldap_server:
+            aliases: ['ldap-server']
+            type: str
+            description: Ldap server.
+          password:
+            type: raw
+            description: (list) Password.
+          password2:
+            type: raw
+            description: (list) Password2.
+          password3:
+            type: raw
+            description: (list) Password3.
+          password4:
+            type: raw
+            description: (list) Password4.
+          password5:
+            type: raw
+            description: (list) Password5.
+          port:
+            type: int
+            description: Port.
+          port2:
+            type: int
+            description: Port2.
+          port3:
+            type: int
+            description: Port3.
+          port4:
+            type: int
+            description: Port4.
+          port5:
+            type: int
+            description: Port5.
+          server:
+            type: str
+            description: Server.
+          server2:
+            type: str
+            description: Server2.
+          server3:
+            type: str
+            description: Server3.
+          server4:
+            type: str
+            description: Server4.
+          server5:
+            type: str
+            description: Server5.
+          source_ip:
+            aliases: ['source-ip']
+            type: str
+            description: Source ip.
+          source_ip6:
+            aliases: ['source-ip6']
+            type: str
+            description: Source ip6.
+          ssl:
+            type: str
+            description: Ssl.
+            choices: ['disable', 'enable']
+          ssl_trusted_cert:
+            aliases: ['ssl-trusted-cert']
+            type: str
+            description: Ssl trusted cert.
+          type:
+            type: str
+            description: Type.
+            choices: ['default', 'fortiems', 'fortinac', 'fortiems-cloud']
+          user_info_server:
+            aliases: ['user-info-server']
+            type: raw
+            description: (list or str) User info server.
+          ldap_poll:
+            aliases: ['ldap-poll']
+            type: str
+            description: Ldap poll.
+            choices: ['disable', 'enable']
+          ldap_poll_filter:
+            aliases: ['ldap-poll-filter']
+            type: str
+            description: Ldap poll filter.
+          ldap_poll_interval:
+            aliases: ['ldap-poll-interval']
+            type: int
+            description: Ldap poll interval.
+          group_poll_interval:
+            aliases: ['group-poll-interval']
+            type: int
+            description: Group poll interval.
+          interface:
+            type: str
+            description: Interface.
+          interface_select_method:
+            aliases: ['interface-select-method']
+            type: str
+            description: Interface select method.
+            choices: ['auto', 'sdwan', 'specify']
+          logon_timeout:
+            aliases: ['logon-timeout']
+            type: int
+            description: Interval in minutes to keep logons after FSSO server down.
+          sni:
+            type: str
+            description: Server Name Indication.
+          ssl_server_host_ip_check:
+            aliases: ['ssl-server-host-ip-check']
+            type: str
+            description: Enable/disable server host/IP verification.
+            choices: ['disable', 'enable']
+          vrf_select:
+            aliases: ['vrf-select']
+            type: int
+            description: VRF ID used for connection to server.
+          fabric_force_sync:
+            aliases: ['fabric-force-sync']
+            type: str
+            description: Enable/disable forced synchronization of configuration objects from the root FortiGate unit to the downstream devices.
+            choices: ['disable', 'enable']
+          fabric_object:
+            aliases: ['fabric-object']
+            type: str
+            description: Security Fabric global object setting.
+            choices: ['disable', 'enable']
+          fabric_object_source:
+            aliases: ['fabric-object-source']
+            type: str
+            description: Source of truth for fabric object.
+            choices: ['member', 'local', 'root']
+          uuid:
+            type: str
+            description: Universally Unique Identifier
+      ldap_server:
+        aliases: ['ldap-server']
+        type: str
+        description: LDAP server to get group information.
+      name:
+        type: str
+        description: Name.
+        required: true
+      password:
+        type: raw
+        description: (list) Password of the first FSSO collector agent.
+      password2:
+        type: raw
+        description: (list) Password of the second FSSO collector agent.
+      password3:
+        type: raw
+        description: (list) Password of the third FSSO collector agent.
+      password4:
+        type: raw
+        description: (list) Password of the fourth FSSO collector agent.
+      password5:
+        type: raw
+        description: (list) Password of the fifth FSSO collector agent.
+      port:
+        type: int
+        description: Port of the first FSSO collector agent.
+      port2:
+        type: int
+        description: Port of the second FSSO collector agent.
+      port3:
+        type: int
+        description: Port of the third FSSO collector agent.
+      port4:
+        type: int
+        description: Port of the fourth FSSO collector agent.
+      port5:
+        type: int
+        description: Port of the fifth FSSO collector agent.
+      server:
+        type: str
+        description: Domain name or IP address of the first FSSO collector agent.
+      server2:
+        type: str
+        description: Domain name or IP address of the second FSSO collector agent.
+      server3:
+        type: str
+        description: Domain name or IP address of the third FSSO collector agent.
+      server4:
+        type: str
+        description: Domain name or IP address of the fourth FSSO collector agent.
+      server5:
+        type: str
+        description: Domain name or IP address of the fifth FSSO collector agent.
+      source_ip:
+        aliases: ['source-ip']
+        type: str
+        description: Source IP for communications to FSSO agent.
+      source_ip6:
+        aliases: ['source-ip6']
+        type: str
+        description: IPv6 source for communications to FSSO agent.
+      ldap_poll:
+        aliases: ['ldap-poll']
+        type: str
+        description: Enable/disable automatic fetching of groups from LDAP server.
+        choices: ['disable', 'enable']
+      ldap_poll_filter:
+        aliases: ['ldap-poll-filter']
+        type: str
+        description: Filter used to fetch groups.
+      ldap_poll_interval:
+        aliases: ['ldap-poll-interval']
+        type: int
+        description: Interval in minutes within to fetch groups from LDAP server.
+      ssl:
+        type: str
+        description: Enable/disable use of SSL.
+        choices: ['disable', 'enable']
+      ssl_trusted_cert:
+        aliases: ['ssl-trusted-cert']
+        type: str
+        description: Trusted server certificate or CA certificate.
+      type:
+        type: str
+        description: Server type.
+        choices: ['default', 'fortiems', 'fortinac', 'fortiems-cloud']
+      user_info_server:
+        aliases: ['user-info-server']
+        type: str
+        description: LDAP server to get user information.
+      group_poll_interval:
+        aliases: ['group-poll-interval']
+        type: int
+        description: Interval in minutes within to fetch groups from FSSO server, or unset to disable.
+      interface:
+        type: str
+        description: Specify outgoing interface to reach server.
+      interface_select_method:
+        aliases: ['interface-select-method']
+        type: str
+        description: Specify how to select outgoing interface to reach server.
+        choices: ['auto', 'sdwan', 'specify']
+      logon_timeout:
+        aliases: ['logon-timeout']
+        type: int
+        description: Interval in minutes to keep logons after FSSO server down.
+      sni:
+        type: str
+        description: Server Name Indication.
+      ssl_server_host_ip_check:
+        aliases: ['ssl-server-host-ip-check']
+        type: str
+        description: Enable/disable server host/IP verification.
+        choices: ['disable', 'enable']
+      vrf_select:
+        aliases: ['vrf-select']
+        type: int
+        description: VRF ID used for connection to server.
+      fabric_force_sync:
+        aliases: ['fabric-force-sync']
+        type: str
+        description: Enable/disable forced synchronization of configuration objects from the root FortiGate unit to the downstream devices.
+        choices: ['disable', 'enable']
+      fabric_object:
+        aliases: ['fabric-object']
+        type: str
+        description: Security Fabric global object setting.
+        choices: ['disable', 'enable']
+      fabric_object_source:
+        aliases: ['fabric-object-source']
+        type: str
+        description: Source of truth for fabric object.
+        choices: ['member', 'local', 'root']
+      uuid:
+        type: str
+        description: Universally Unique Identifier
 '''
 
 EXAMPLES = '''
@@ -327,42 +363,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -422,7 +458,11 @@ def main():
                         'logon-timeout': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'int'},
                         'sni': {'v_range': [['7.2.0', '']], 'type': 'str'},
                         'ssl-server-host-ip-check': {'v_range': [['7.0.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'vrf-select': {'v_range': [['7.6.2', '']], 'type': 'int'}
+                        'vrf-select': {'v_range': [['7.6.2', '']], 'type': 'int'},
+                        'fabric-force-sync': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'fabric-object': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'fabric-object-source': {'v_range': [['8.0.0', '']], 'choices': ['member', 'local', 'root'], 'type': 'str'},
+                        'uuid': {'v_range': [['8.0.0', '']], 'type': 'str'}
                     },
                     'elements': 'dict'
                 },
@@ -458,7 +498,11 @@ def main():
                 'logon-timeout': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'int'},
                 'sni': {'v_range': [['7.2.0', '']], 'type': 'str'},
                 'ssl-server-host-ip-check': {'v_range': [['7.0.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'vrf-select': {'v_range': [['7.6.2', '']], 'type': 'int'}
+                'vrf-select': {'v_range': [['7.6.2', '']], 'type': 'int'},
+                'fabric-force-sync': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'fabric-object': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'fabric-object-source': {'v_range': [['8.0.0', '']], 'choices': ['member', 'local', 'root'], 'type': 'str'},
+                'uuid': {'v_range': [['8.0.0', '']], 'type': 'str'}
             }
         }
     }

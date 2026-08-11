@@ -15,95 +15,84 @@ module: fmgr_firewall_vip_sslciphersuites
 short_description: SSL/TLS cipher suites acceptable from a client, ordered by priority.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  vip:
+    description: The parameter (vip) in requested url.
+    type: str
+    required: true
+  firewall_vip_sslciphersuites:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      cipher:
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
-        type: str
+        description: Cipher suite name.
+        choices: ['TLS-RSA-WITH-RC4-128-MD5', 'TLS-RSA-WITH-RC4-128-SHA',
+                  'TLS-RSA-WITH-DES-CBC-SHA', 'TLS-RSA-WITH-3DES-EDE-CBC-SHA',
+                  'TLS-RSA-WITH-AES-128-CBC-SHA', 'TLS-RSA-WITH-AES-256-CBC-SHA',
+                  'TLS-RSA-WITH-AES-128-CBC-SHA256', 'TLS-RSA-WITH-AES-256-CBC-SHA256',
+                  'TLS-RSA-WITH-CAMELLIA-128-CBC-SHA', 'TLS-RSA-WITH-CAMELLIA-256-CBC-SHA',
+                  'TLS-RSA-WITH-CAMELLIA-128-CBC-SHA256', 'TLS-RSA-WITH-CAMELLIA-256-CBC-SHA256',
+                  'TLS-RSA-WITH-SEED-CBC-SHA', 'TLS-RSA-WITH-ARIA-128-CBC-SHA256',
+                  'TLS-RSA-WITH-ARIA-256-CBC-SHA384', 'TLS-DHE-RSA-WITH-DES-CBC-SHA',
+                  'TLS-DHE-RSA-WITH-3DES-EDE-CBC-SHA', 'TLS-DHE-RSA-WITH-AES-128-CBC-SHA',
+                  'TLS-DHE-RSA-WITH-AES-256-CBC-SHA', 'TLS-DHE-RSA-WITH-AES-128-CBC-SHA256',
+                  'TLS-DHE-RSA-WITH-AES-256-CBC-SHA256', 'TLS-DHE-RSA-WITH-CAMELLIA-128-CBC-SHA',
+                  'TLS-DHE-RSA-WITH-CAMELLIA-256-CBC-SHA',
+                  'TLS-DHE-RSA-WITH-CAMELLIA-128-CBC-SHA256',
+                  'TLS-DHE-RSA-WITH-CAMELLIA-256-CBC-SHA256', 'TLS-DHE-RSA-WITH-SEED-CBC-SHA',
+                  'TLS-DHE-RSA-WITH-ARIA-128-CBC-SHA256', 'TLS-DHE-RSA-WITH-ARIA-256-CBC-SHA384',
+                  'TLS-ECDHE-RSA-WITH-RC4-128-SHA', 'TLS-ECDHE-RSA-WITH-3DES-EDE-CBC-SHA',
+                  'TLS-ECDHE-RSA-WITH-AES-128-CBC-SHA', 'TLS-ECDHE-RSA-WITH-AES-256-CBC-SHA',
+                  'TLS-ECDHE-RSA-WITH-CHACHA20-POLY1305-SHA256',
+                  'TLS-ECDHE-ECDSA-WITH-CHACHA20-POLY1305-SHA256',
+                  'TLS-DHE-RSA-WITH-CHACHA20-POLY1305-SHA256',
+                  'TLS-DHE-RSA-WITH-AES-128-GCM-SHA256', 'TLS-DHE-RSA-WITH-AES-256-GCM-SHA384',
+                  'TLS-DHE-DSS-WITH-AES-128-CBC-SHA', 'TLS-DHE-DSS-WITH-AES-256-CBC-SHA',
+                  'TLS-DHE-DSS-WITH-AES-128-CBC-SHA256', 'TLS-DHE-DSS-WITH-AES-128-GCM-SHA256',
+                  'TLS-DHE-DSS-WITH-AES-256-CBC-SHA256', 'TLS-DHE-DSS-WITH-AES-256-GCM-SHA384',
+                  'TLS-ECDHE-RSA-WITH-AES-128-CBC-SHA256',
+                  'TLS-ECDHE-RSA-WITH-AES-128-GCM-SHA256',
+                  'TLS-ECDHE-RSA-WITH-AES-256-CBC-SHA384',
+                  'TLS-ECDHE-RSA-WITH-AES-256-GCM-SHA384', 'TLS-ECDHE-ECDSA-WITH-AES-128-CBC-SHA',
+                  'TLS-ECDHE-ECDSA-WITH-AES-128-CBC-SHA256',
+                  'TLS-ECDHE-ECDSA-WITH-AES-128-GCM-SHA256',
+                  'TLS-ECDHE-ECDSA-WITH-AES-256-CBC-SHA384',
+                  'TLS-ECDHE-ECDSA-WITH-AES-256-GCM-SHA384', 'TLS-RSA-WITH-AES-128-GCM-SHA256',
+                  'TLS-RSA-WITH-AES-256-GCM-SHA384', 'TLS-DHE-DSS-WITH-CAMELLIA-128-CBC-SHA',
+                  'TLS-DHE-DSS-WITH-CAMELLIA-256-CBC-SHA',
+                  'TLS-DHE-DSS-WITH-CAMELLIA-128-CBC-SHA256',
+                  'TLS-DHE-DSS-WITH-CAMELLIA-256-CBC-SHA256', 'TLS-DHE-DSS-WITH-SEED-CBC-SHA',
+                  'TLS-DHE-DSS-WITH-ARIA-128-CBC-SHA256', 'TLS-DHE-DSS-WITH-ARIA-256-CBC-SHA384',
+                  'TLS-ECDHE-RSA-WITH-ARIA-128-CBC-SHA256',
+                  'TLS-ECDHE-RSA-WITH-ARIA-256-CBC-SHA384',
+                  'TLS-ECDHE-ECDSA-WITH-ARIA-128-CBC-SHA256',
+                  'TLS-ECDHE-ECDSA-WITH-ARIA-256-CBC-SHA384', 'TLS-DHE-DSS-WITH-3DES-EDE-CBC-SHA',
+                  'TLS-DHE-DSS-WITH-DES-CBC-SHA', 'TLS-AES-128-GCM-SHA256',
+                  'TLS-AES-256-GCM-SHA384', 'TLS-CHACHA20-POLY1305-SHA256',
+                  'TLS-ECDHE-ECDSA-WITH-AES-256-CBC-SHA']
+      id:
+        type: int
+        description: Id.
         required: true
-    vip:
-        description: The parameter (vip) in requested url.
-        type: str
-        required: true
-    firewall_vip_sslciphersuites:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            cipher:
-                type: str
-                description: Cipher suite name.
-                choices: ['TLS-RSA-WITH-RC4-128-MD5', 'TLS-RSA-WITH-RC4-128-SHA',
-                          'TLS-RSA-WITH-DES-CBC-SHA', 'TLS-RSA-WITH-3DES-EDE-CBC-SHA',
-                          'TLS-RSA-WITH-AES-128-CBC-SHA', 'TLS-RSA-WITH-AES-256-CBC-SHA',
-                          'TLS-RSA-WITH-AES-128-CBC-SHA256', 'TLS-RSA-WITH-AES-256-CBC-SHA256',
-                          'TLS-RSA-WITH-CAMELLIA-128-CBC-SHA',
-                          'TLS-RSA-WITH-CAMELLIA-256-CBC-SHA',
-                          'TLS-RSA-WITH-CAMELLIA-128-CBC-SHA256',
-                          'TLS-RSA-WITH-CAMELLIA-256-CBC-SHA256', 'TLS-RSA-WITH-SEED-CBC-SHA',
-                          'TLS-RSA-WITH-ARIA-128-CBC-SHA256', 'TLS-RSA-WITH-ARIA-256-CBC-SHA384',
-                          'TLS-DHE-RSA-WITH-DES-CBC-SHA', 'TLS-DHE-RSA-WITH-3DES-EDE-CBC-SHA',
-                          'TLS-DHE-RSA-WITH-AES-128-CBC-SHA', 'TLS-DHE-RSA-WITH-AES-256-CBC-SHA',
-                          'TLS-DHE-RSA-WITH-AES-128-CBC-SHA256',
-                          'TLS-DHE-RSA-WITH-AES-256-CBC-SHA256',
-                          'TLS-DHE-RSA-WITH-CAMELLIA-128-CBC-SHA',
-                          'TLS-DHE-RSA-WITH-CAMELLIA-256-CBC-SHA',
-                          'TLS-DHE-RSA-WITH-CAMELLIA-128-CBC-SHA256',
-                          'TLS-DHE-RSA-WITH-CAMELLIA-256-CBC-SHA256',
-                          'TLS-DHE-RSA-WITH-SEED-CBC-SHA', 'TLS-DHE-RSA-WITH-ARIA-128-CBC-SHA256',
-                          'TLS-DHE-RSA-WITH-ARIA-256-CBC-SHA384',
-                          'TLS-ECDHE-RSA-WITH-RC4-128-SHA', 'TLS-ECDHE-RSA-WITH-3DES-EDE-CBC-SHA',
-                          'TLS-ECDHE-RSA-WITH-AES-128-CBC-SHA',
-                          'TLS-ECDHE-RSA-WITH-AES-256-CBC-SHA',
-                          'TLS-ECDHE-RSA-WITH-CHACHA20-POLY1305-SHA256',
-                          'TLS-ECDHE-ECDSA-WITH-CHACHA20-POLY1305-SHA256',
-                          'TLS-DHE-RSA-WITH-CHACHA20-POLY1305-SHA256',
-                          'TLS-DHE-RSA-WITH-AES-128-GCM-SHA256',
-                          'TLS-DHE-RSA-WITH-AES-256-GCM-SHA384',
-                          'TLS-DHE-DSS-WITH-AES-128-CBC-SHA', 'TLS-DHE-DSS-WITH-AES-256-CBC-SHA',
-                          'TLS-DHE-DSS-WITH-AES-128-CBC-SHA256',
-                          'TLS-DHE-DSS-WITH-AES-128-GCM-SHA256',
-                          'TLS-DHE-DSS-WITH-AES-256-CBC-SHA256',
-                          'TLS-DHE-DSS-WITH-AES-256-GCM-SHA384',
-                          'TLS-ECDHE-RSA-WITH-AES-128-CBC-SHA256',
-                          'TLS-ECDHE-RSA-WITH-AES-128-GCM-SHA256',
-                          'TLS-ECDHE-RSA-WITH-AES-256-CBC-SHA384',
-                          'TLS-ECDHE-RSA-WITH-AES-256-GCM-SHA384',
-                          'TLS-ECDHE-ECDSA-WITH-AES-128-CBC-SHA',
-                          'TLS-ECDHE-ECDSA-WITH-AES-128-CBC-SHA256',
-                          'TLS-ECDHE-ECDSA-WITH-AES-128-GCM-SHA256',
-                          'TLS-ECDHE-ECDSA-WITH-AES-256-CBC-SHA384',
-                          'TLS-ECDHE-ECDSA-WITH-AES-256-GCM-SHA384',
-                          'TLS-RSA-WITH-AES-128-GCM-SHA256', 'TLS-RSA-WITH-AES-256-GCM-SHA384',
-                          'TLS-DHE-DSS-WITH-CAMELLIA-128-CBC-SHA',
-                          'TLS-DHE-DSS-WITH-CAMELLIA-256-CBC-SHA',
-                          'TLS-DHE-DSS-WITH-CAMELLIA-128-CBC-SHA256',
-                          'TLS-DHE-DSS-WITH-CAMELLIA-256-CBC-SHA256',
-                          'TLS-DHE-DSS-WITH-SEED-CBC-SHA', 'TLS-DHE-DSS-WITH-ARIA-128-CBC-SHA256',
-                          'TLS-DHE-DSS-WITH-ARIA-256-CBC-SHA384',
-                          'TLS-ECDHE-RSA-WITH-ARIA-128-CBC-SHA256',
-                          'TLS-ECDHE-RSA-WITH-ARIA-256-CBC-SHA384',
-                          'TLS-ECDHE-ECDSA-WITH-ARIA-128-CBC-SHA256',
-                          'TLS-ECDHE-ECDSA-WITH-ARIA-256-CBC-SHA384',
-                          'TLS-DHE-DSS-WITH-3DES-EDE-CBC-SHA', 'TLS-DHE-DSS-WITH-DES-CBC-SHA',
-                          'TLS-AES-128-GCM-SHA256', 'TLS-AES-256-GCM-SHA384',
-                          'TLS-CHACHA20-POLY1305-SHA256', 'TLS-ECDHE-ECDSA-WITH-AES-256-CBC-SHA']
-            id:
-                type: int
-                description: Id.
-                required: true
-            versions:
-                type: list
-                elements: str
-                description: SSL/TLS versions that the cipher suite can be used with.
-                choices: ['ssl-3.0', 'tls-1.0', 'tls-1.1', 'tls-1.2', 'tls-1.3']
-            priority:
-                type: int
-                description: SSL/TLS cipher suites priority.
+      versions:
+        type: list
+        elements: str
+        description: SSL/TLS versions that the cipher suite can be used with.
+        choices: ['ssl-3.0', 'tls-1.0', 'tls-1.1', 'tls-1.2', 'tls-1.3']
+      priority:
+        type: int
+        description: SSL/TLS cipher suites priority.
 '''
 
 EXAMPLES = '''
@@ -127,42 +116,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

@@ -4,6 +4,44 @@ Fortinet.Fortimanager Release Notes
 
 .. contents:: Topics
 
+v2.15.0
+=======
+
+Release Summary
+---------------
+
+Release fortinet.fortimanager 2.15.0
+
+Minor Changes
+-------------
+
+- Added 19 new modules.
+- Reduced the overall project size.
+- Supported FortiManager schemas 7.4.11, 7.6.7, 8.0.0
+
+New Modules
+-----------
+
+- fortinet.fortimanager.fmgr_antivirus_profile_websocket - Configure WEBSOCKET AntiVirus options.
+- fortinet.fortimanager.fmgr_casb_useractivity_match_tenantsessionextraction - CASB user activity tenant session extraction.
+- fortinet.fortimanager.fmgr_casb_useractivity_match_tenantsessionextraction_filters - CASB user activity session extraction filters.
+- fortinet.fortimanager.fmgr_deployment_get_controller_status - Refresh status of AP/Switch/Extender controller.
+- fortinet.fortimanager.fmgr_firewall_customtag - Define custom tag table.
+- fortinet.fortimanager.fmgr_firewall_profileprotocoloptions_websocket - Configure WebSocket protocol options.
+- fortinet.fortimanager.fmgr_pm_config_pblock_firewall_localinpolicy - Configure user defined IPv4 local-in policies.
+- fortinet.fortimanager.fmgr_pm_config_pblock_firewall_localinpolicy6 - Configure user defined IPv6 local-in policies.
+- fortinet.fortimanager.fmgr_switchcontroller_securitypolicy_admin - Configure fortiswitchs admin security-policy.
+- fortinet.fortimanager.fmgr_sys_backup - Backup FortiManager configuration.
+- fortinet.fortimanager.fmgr_system_csf_trustedlist_adom - Cli system csf trusted list adom
+- fortinet.fortimanager.fmgr_user_aci - User aci
+- fortinet.fortimanager.fmgr_user_azure - User azure
+- fortinet.fortimanager.fmgr_user_azure_rule - User azure rule
+- fortinet.fortimanager.fmgr_user_guardicore - User guardicore
+- fortinet.fortimanager.fmgr_user_local_dynamicmapping - Configure local users.
+- fortinet.fortimanager.fmgr_vpn_ipsec_fec_mappings_tos - FEC redundancy mapping table for specific type of service
+- fortinet.fortimanager.fmgr_wireless_lwprofile - Configure LoRaWAN profile.
+- fortinet.fortimanager.fmgr_ztna_destination - Configure ZTNA destination.
+
 v2.14.0
 =======
 

@@ -15,70 +15,70 @@ module: fmgr_firewall_ldbmonitor
 short_description: Configure server load balancing health monitors.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  firewall_ldbmonitor:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      http_get:
+        aliases: ['http-get']
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: URL used to send a GET request to check the health of an HTTP server.
+      http_match:
+        aliases: ['http-match']
         type: str
+        description: String to match the value expected in response to an HTTP-GET request.
+      http_max_redirects:
+        aliases: ['http-max-redirects']
+        type: int
+        description: The maximum number of HTTP redirects to be allowed
+      interval:
+        type: int
+        description: Time between health checks
+      name:
+        type: str
+        description: Monitor name.
         required: true
-    firewall_ldbmonitor:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            http_get:
-                aliases: ['http-get']
-                type: str
-                description: URL used to send a GET request to check the health of an HTTP server.
-            http_match:
-                aliases: ['http-match']
-                type: str
-                description: String to match the value expected in response to an HTTP-GET request.
-            http_max_redirects:
-                aliases: ['http-max-redirects']
-                type: int
-                description: The maximum number of HTTP redirects to be allowed
-            interval:
-                type: int
-                description: Time between health checks
-            name:
-                type: str
-                description: Monitor name.
-                required: true
-            port:
-                type: int
-                description: Service port used to perform the health check.
-            retry:
-                type: int
-                description: Number health check attempts before the server is considered down
-            timeout:
-                type: int
-                description: Time to wait to receive response to a health check from a server.
-            type:
-                type: str
-                description: Select the Monitor type used by the health check monitor to check the health of the server
-                choices: ['ping', 'tcp', 'http', 'passive-sip', 'https', 'dns']
-            src_ip:
-                aliases: ['src-ip']
-                type: str
-                description: Source IP for ldb-monitor.
-            dns_match_ip:
-                aliases: ['dns-match-ip']
-                type: str
-                description: Response IP expected from DNS server.
-            dns_protocol:
-                aliases: ['dns-protocol']
-                type: str
-                description: Select the protocol used by the DNS health check monitor to check the health of the server
-                choices: ['udp', 'tcp']
-            dns_request_domain:
-                aliases: ['dns-request-domain']
-                type: str
-                description: Fully qualified domain name to resolve for the DNS probe.
+      port:
+        type: int
+        description: Service port used to perform the health check.
+      retry:
+        type: int
+        description: Number health check attempts before the server is considered down
+      timeout:
+        type: int
+        description: Time to wait to receive response to a health check from a server.
+      type:
+        type: str
+        description: Select the Monitor type used by the health check monitor to check the health of the server
+        choices: ['ping', 'tcp', 'http', 'passive-sip', 'https', 'dns']
+      src_ip:
+        aliases: ['src-ip']
+        type: str
+        description: Source IP for ldb-monitor.
+      dns_match_ip:
+        aliases: ['dns-match-ip']
+        type: str
+        description: Response IP expected from DNS server.
+      dns_protocol:
+        aliases: ['dns-protocol']
+        type: str
+        description: Select the protocol used by the DNS health check monitor to check the health of the server
+        choices: ['udp', 'tcp']
+      dns_request_domain:
+        aliases: ['dns-request-domain']
+        type: str
+        description: Fully qualified domain name to resolve for the DNS probe.
 '''
 
 EXAMPLES = '''
@@ -121,42 +121,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

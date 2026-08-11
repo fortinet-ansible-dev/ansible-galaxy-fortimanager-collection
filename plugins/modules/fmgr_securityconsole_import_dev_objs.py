@@ -15,51 +15,51 @@ module: fmgr_securityconsole_import_dev_objs
 short_description: Import objects from device to ADOM, or from ADOM to Global.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
+  - fortinet.fortimanager.general
 options:
-    securityconsole_import_dev_objs:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            add_mappings:
-                type: str
-                description: Automatically add required dynamic mappings for the device during the search stages.
-                choices: ['disable', 'enable']
-            adom:
-                type: str
-                description: Source ADOM name.
-            dst_name:
-                type: str
-                description: Name of the policy package where the objects are to be imported.
-            dst_parent:
-                type: str
-                description: Path to the folder for the target package.
-            if_all_objs:
-                type: str
-                description: If all objs.
-                choices: ['none', 'all', 'filter']
-            if_all_policy:
-                type: str
-                description: If all policy.
-                choices: ['disable', 'enable']
-            import_action:
-                type: str
-                description:
-                    - do - Perform the policy and object import.
-                    - policy_search - Preprocess and scan through device database to gather information about policies that need to be imported.
-                    - obj_search - Preprocess and scan through device database to collect objects that are required to be imported.
-                choices: ['do', 'policy_search', 'obj_search']
-            name:
-                type: str
-                description: Source device name.
-            position:
-                type: str
-                description: Position.
-                choices: ['bottom', 'top']
-            vdom:
-                type: str
-                description: Vdom.
+  securityconsole_import_dev_objs:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      add_mappings:
+        type: str
+        description: Automatically add required dynamic mappings for the device during the search stages.
+        choices: ['disable', 'enable']
+      adom:
+        type: str
+        description: Source ADOM name.
+      dst_name:
+        type: str
+        description: Name of the policy package where the objects are to be imported.
+      dst_parent:
+        type: str
+        description: Path to the folder for the target package.
+      if_all_objs:
+        type: str
+        description: If all objs.
+        choices: ['none', 'all', 'filter']
+      if_all_policy:
+        type: str
+        description: If all policy.
+        choices: ['disable', 'enable']
+      import_action:
+        type: str
+        description:
+          - do - Perform the policy and object import.
+          - policy_search - Preprocess and scan through device database to gather information about policies that need to be imported.
+          - obj_search - Preprocess and scan through device database to collect objects that are required to be imported.
+        choices: ['do', 'policy_search', 'obj_search']
+      name:
+        type: str
+        description: Source device name.
+      position:
+        type: str
+        description: Position.
+        choices: ['bottom', 'top']
+      vdom:
+        type: str
+        description: Vdom.
 '''
 
 EXAMPLES = '''
@@ -86,42 +86,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

@@ -15,51 +15,51 @@ module: fmgr_casb_saasapplication_outputattributes
 short_description: SaaS application output attributes.
 version_added: "2.14.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  saas-application:
+    description: Deprecated, please use "saas_application"
+    type: str
+  saas_application:
+    description: The parameter (saas-application) in requested url.
+    type: str
+  casb_saasapplication_outputattributes:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      attr_type:
+        aliases: ['attr-type']
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: CASB attribute type.
+        choices: ['tenant']
+      description:
         type: str
+        description: CASB attribute description.
+      name:
+        type: str
+        description: CASB attribute name.
         required: true
-    saas-application:
-        description: Deprecated, please use "saas_application"
+      required:
         type: str
-    saas_application:
-        description: The parameter (saas-application) in requested url.
+        description: CASB attribute required.
+        choices: ['disable', 'enable']
+      type:
         type: str
-    casb_saasapplication_outputattributes:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            attr_type:
-                aliases: ['attr-type']
-                type: str
-                description: CASB attribute type.
-                choices: ['tenant']
-            description:
-                type: str
-                description: CASB attribute description.
-            name:
-                type: str
-                description: CASB attribute name.
-                required: true
-            required:
-                type: str
-                description: CASB attribute required.
-                choices: ['disable', 'enable']
-            type:
-                type: str
-                description: CASB attribute format type.
-                choices: ['string', 'string-list', 'integer', 'integer-list', 'boolean']
-            optional:
-                type: str
-                description: CASB output attribute optional.
-                choices: ['disable', 'enable']
+        description: CASB attribute format type.
+        choices: ['string', 'string-list', 'integer', 'integer-list', 'boolean']
+      optional:
+        type: str
+        description: CASB output attribute optional.
+        choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -85,42 +85,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

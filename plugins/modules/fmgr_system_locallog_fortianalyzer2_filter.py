@@ -15,315 +15,327 @@ module: fmgr_system_locallog_fortianalyzer2_filter
 short_description: Filter for FortiAnalyzer2 logging.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.partial_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.partial_crud
 options:
-    system_locallog_fortianalyzer2_filter:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            devcfg:
-                type: str
-                description:
-                    - Log device configuration message.
-                    - disable - Disable setting.
-                    - enable - Enable setting.
-                choices: ['disable', 'enable']
-            devops:
-                type: str
-                description:
-                    - Managered devices operations messages.
-                    - disable - Disable setting.
-                    - enable - Enable setting.
-                choices: ['disable', 'enable']
-            diskquota:
-                type: str
-                description:
-                    - Log Fortianalyzer disk quota messages.
-                    - disable - Disable setting.
-                    - enable - Enable setting.
-                choices: ['disable', 'enable']
-            dm:
-                type: str
-                description:
-                    - Log deployment manager message.
-                    - disable - Disable setting.
-                    - enable - Enable setting.
-                choices: ['disable', 'enable']
-            dvm:
-                type: str
-                description:
-                    - Log device manager messages.
-                    - disable - Disable setting.
-                    - enable - Enable setting.
-                choices: ['disable', 'enable']
-            ediscovery:
-                type: str
-                description:
-                    - Log Fortianalyzer ediscovery messages.
-                    - disable - Disable setting.
-                    - enable - Enable setting.
-                choices: ['disable', 'enable']
-            epmgr:
-                type: str
-                description:
-                    - Log endpoint manager message.
-                    - disable - Disable setting.
-                    - enable - Enable setting.
-                choices: ['disable', 'enable']
-            event:
-                type: str
-                description:
-                    - Log event messages.
-                    - disable - Disable setting.
-                    - enable - Enable setting.
-                choices: ['disable', 'enable']
-            eventmgmt:
-                type: str
-                description:
-                    - Log Fortianalyzer event handler messages.
-                    - disable - Disable setting.
-                    - enable - Enable setting.
-                choices: ['disable', 'enable']
-            faz:
-                type: str
-                description:
-                    - Log Fortianalyzer messages.
-                    - disable - Disable setting.
-                    - enable - Enable setting.
-                choices: ['disable', 'enable']
-            fazha:
-                type: str
-                description:
-                    - Log Fortianalyzer HA messages.
-                    - disable - Disable setting.
-                    - enable - Enable setting.
-                choices: ['disable', 'enable']
-            fazsys:
-                type: str
-                description:
-                    - Log Fortianalyzer system messages.
-                    - disable - Disable setting.
-                    - enable - Enable setting.
-                choices: ['disable', 'enable']
-            fgd:
-                type: str
-                description:
-                    - Log FortiGuard service message.
-                    - disable - Disable setting.
-                    - enable - Enable setting.
-                choices: ['disable', 'enable']
-            fgfm:
-                type: str
-                description:
-                    - Log FGFM protocol message.
-                    - disable - Disable setting.
-                    - enable - Enable setting.
-                choices: ['disable', 'enable']
-            fips:
-                type: str
-                description:
-                    - Whether to log fips messages.
-                    - disable - Disable setting.
-                    - enable - Enable setting.
-                choices: ['disable', 'enable']
-            fmgws:
-                type: str
-                description:
-                    - Log web service messages.
-                    - disable - Disable setting.
-                    - enable - Enable setting.
-                choices: ['disable', 'enable']
-            fmlmgr:
-                type: str
-                description:
-                    - Log FortiMail manager message.
-                    - disable - Disable setting.
-                    - enable - Enable setting.
-                choices: ['disable', 'enable']
-            fmwmgr:
-                type: str
-                description:
-                    - Log firmware manager message.
-                    - disable - Disable setting.
-                    - enable - Enable setting.
-                choices: ['disable', 'enable']
-            fortiview:
-                type: str
-                description:
-                    - Log Fortianalyzer FortiView messages.
-                    - disable - Disable setting.
-                    - enable - Enable setting.
-                choices: ['disable', 'enable']
-            glbcfg:
-                type: str
-                description:
-                    - Log global database message.
-                    - disable - Disable setting.
-                    - enable - Enable setting.
-                choices: ['disable', 'enable']
-            ha:
-                type: str
-                description:
-                    - Log HA message.
-                    - disable - Disable setting.
-                    - enable - Enable setting.
-                choices: ['disable', 'enable']
-            hcache:
-                type: str
-                description:
-                    - Log Fortianalyzer hcache messages.
-                    - disable - Disable setting.
-                    - enable - Enable setting.
-                choices: ['disable', 'enable']
-            iolog:
-                type: str
-                description:
-                    - Log debug IO log message.
-                    - disable - Disable setting.
-                    - enable - Enable setting.
-                choices: ['disable', 'enable']
-            logd:
-                type: str
-                description:
-                    - Log the status of log daemon.
-                    - disable - Disable setting.
-                    - enable - Enable setting.
-                choices: ['disable', 'enable']
-            logdb:
-                type: str
-                description:
-                    - Log Fortianalyzer log DB messages.
-                    - disable - Disable setting.
-                    - enable - Enable setting.
-                choices: ['disable', 'enable']
-            logdev:
-                type: str
-                description:
-                    - Log Fortianalyzer log device messages.
-                    - disable - Disable setting.
-                    - enable - Enable setting.
-                choices: ['disable', 'enable']
-            logfile:
-                type: str
-                description:
-                    - Log Fortianalyzer log file messages.
-                    - enable - Enable setting.
-                    - disable - Disable setting.
-                choices: ['enable', 'disable']
-            logging:
-                type: str
-                description:
-                    - Log Fortianalyzer logging messages.
-                    - disable - Disable setting.
-                    - enable - Enable setting.
-                choices: ['disable', 'enable']
-            lrmgr:
-                type: str
-                description:
-                    - Log log and report manager message.
-                    - disable - Disable setting.
-                    - enable - Enable setting.
-                choices: ['disable', 'enable']
-            objcfg:
-                type: str
-                description:
-                    - Log object configuration change message.
-                    - disable - Disable setting.
-                    - enable - Enable setting.
-                choices: ['disable', 'enable']
-            report:
-                type: str
-                description:
-                    - Log Fortianalyzer report messages.
-                    - disable - Disable setting.
-                    - enable - Enable setting.
-                choices: ['disable', 'enable']
-            rev:
-                type: str
-                description:
-                    - Log revision history message.
-                    - disable - Disable setting.
-                    - enable - Enable setting.
-                choices: ['disable', 'enable']
-            rtmon:
-                type: str
-                description:
-                    - Log real-time monitor message.
-                    - disable - Disable setting.
-                    - enable - Enable setting.
-                choices: ['disable', 'enable']
-            scfw:
-                type: str
-                description:
-                    - Log firewall objects message.
-                    - disable - Disable setting.
-                    - enable - Enable setting.
-                choices: ['disable', 'enable']
-            scply:
-                type: str
-                description:
-                    - Log policy console message.
-                    - disable - Disable setting.
-                    - enable - Enable setting.
-                choices: ['disable', 'enable']
-            scrmgr:
-                type: str
-                description:
-                    - Log script manager message.
-                    - disable - Disable setting.
-                    - enable - Enable setting.
-                choices: ['disable', 'enable']
-            scvpn:
-                type: str
-                description:
-                    - Log VPN console message.
-                    - disable - Disable setting.
-                    - enable - Enable setting.
-                choices: ['disable', 'enable']
-            system:
-                type: str
-                description:
-                    - Log system manager message.
-                    - disable - Disable setting.
-                    - enable - Enable setting.
-                choices: ['disable', 'enable']
-            webport:
-                type: str
-                description:
-                    - Log web portal message.
-                    - disable - Disable setting.
-                    - enable - Enable setting.
-                choices: ['disable', 'enable']
-            incident:
-                type: str
-                description:
-                    - Log Fortianalyzer incident messages.
-                    - disable - Disable setting.
-                    - enable - Enable setting.
-                choices: ['disable', 'enable']
-            aid:
-                type: str
-                description:
-                    - Log aid messages.
-                    - disable - Disable setting.
-                    - enable - Enable setting.
-                choices: ['disable', 'enable']
-            docker:
-                type: str
-                description:
-                    - Docker application generic messages.
-                    - disable - Disable setting.
-                    - enable - Enable setting.
-                choices: ['disable', 'enable']
-            controller:
-                type: str
-                description:
-                    - Controller application generic messages.
-                    - disable - Disable setting.
-                    - enable - Enable setting.
-                choices: ['disable', 'enable']
+  system_locallog_fortianalyzer2_filter:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      devcfg:
+        type: str
+        description:
+          - Log device configuration message.
+          - disable - Disable setting.
+          - enable - Enable setting.
+        choices: ['disable', 'enable']
+      devops:
+        type: str
+        description:
+          - Managered devices operations messages.
+          - disable - Disable setting.
+          - enable - Enable setting.
+        choices: ['disable', 'enable']
+      diskquota:
+        type: str
+        description:
+          - Log Fortianalyzer disk quota messages.
+          - disable - Disable setting.
+          - enable - Enable setting.
+        choices: ['disable', 'enable']
+      dm:
+        type: str
+        description:
+          - Log deployment manager message.
+          - disable - Disable setting.
+          - enable - Enable setting.
+        choices: ['disable', 'enable']
+      dvm:
+        type: str
+        description:
+          - Log device manager messages.
+          - disable - Disable setting.
+          - enable - Enable setting.
+        choices: ['disable', 'enable']
+      ediscovery:
+        type: str
+        description:
+          - Log Fortianalyzer ediscovery messages.
+          - disable - Disable setting.
+          - enable - Enable setting.
+        choices: ['disable', 'enable']
+      epmgr:
+        type: str
+        description:
+          - Log endpoint manager message.
+          - disable - Disable setting.
+          - enable - Enable setting.
+        choices: ['disable', 'enable']
+      event:
+        type: str
+        description:
+          - Log event messages.
+          - disable - Disable setting.
+          - enable - Enable setting.
+        choices: ['disable', 'enable']
+      eventmgmt:
+        type: str
+        description:
+          - Log Fortianalyzer event handler messages.
+          - disable - Disable setting.
+          - enable - Enable setting.
+        choices: ['disable', 'enable']
+      faz:
+        type: str
+        description:
+          - Log Fortianalyzer messages.
+          - disable - Disable setting.
+          - enable - Enable setting.
+        choices: ['disable', 'enable']
+      fazha:
+        type: str
+        description:
+          - Log Fortianalyzer HA messages.
+          - disable - Disable setting.
+          - enable - Enable setting.
+        choices: ['disable', 'enable']
+      fazsys:
+        type: str
+        description:
+          - Log Fortianalyzer system messages.
+          - disable - Disable setting.
+          - enable - Enable setting.
+        choices: ['disable', 'enable']
+      fgd:
+        type: str
+        description:
+          - Log FortiGuard service message.
+          - disable - Disable setting.
+          - enable - Enable setting.
+        choices: ['disable', 'enable']
+      fgfm:
+        type: str
+        description:
+          - Log FGFM protocol message.
+          - disable - Disable setting.
+          - enable - Enable setting.
+        choices: ['disable', 'enable']
+      fips:
+        type: str
+        description:
+          - Whether to log fips messages.
+          - disable - Disable setting.
+          - enable - Enable setting.
+        choices: ['disable', 'enable']
+      fmgws:
+        type: str
+        description:
+          - Log web service messages.
+          - disable - Disable setting.
+          - enable - Enable setting.
+        choices: ['disable', 'enable']
+      fmlmgr:
+        type: str
+        description:
+          - Log FortiMail manager message.
+          - disable - Disable setting.
+          - enable - Enable setting.
+        choices: ['disable', 'enable']
+      fmwmgr:
+        type: str
+        description:
+          - Log firmware manager message.
+          - disable - Disable setting.
+          - enable - Enable setting.
+        choices: ['disable', 'enable']
+      fortiview:
+        type: str
+        description:
+          - Log Fortianalyzer FortiView messages.
+          - disable - Disable setting.
+          - enable - Enable setting.
+        choices: ['disable', 'enable']
+      glbcfg:
+        type: str
+        description:
+          - Log global database message.
+          - disable - Disable setting.
+          - enable - Enable setting.
+        choices: ['disable', 'enable']
+      ha:
+        type: str
+        description:
+          - Log HA message.
+          - disable - Disable setting.
+          - enable - Enable setting.
+        choices: ['disable', 'enable']
+      hcache:
+        type: str
+        description:
+          - Log Fortianalyzer hcache messages.
+          - disable - Disable setting.
+          - enable - Enable setting.
+        choices: ['disable', 'enable']
+      iolog:
+        type: str
+        description:
+          - Log debug IO log message.
+          - disable - Disable setting.
+          - enable - Enable setting.
+        choices: ['disable', 'enable']
+      logd:
+        type: str
+        description:
+          - Log the status of log daemon.
+          - disable - Disable setting.
+          - enable - Enable setting.
+        choices: ['disable', 'enable']
+      logdb:
+        type: str
+        description:
+          - Log Fortianalyzer log DB messages.
+          - disable - Disable setting.
+          - enable - Enable setting.
+        choices: ['disable', 'enable']
+      logdev:
+        type: str
+        description:
+          - Log Fortianalyzer log device messages.
+          - disable - Disable setting.
+          - enable - Enable setting.
+        choices: ['disable', 'enable']
+      logfile:
+        type: str
+        description:
+          - Log Fortianalyzer log file messages.
+          - enable - Enable setting.
+          - disable - Disable setting.
+        choices: ['enable', 'disable']
+      logging:
+        type: str
+        description:
+          - Log Fortianalyzer logging messages.
+          - disable - Disable setting.
+          - enable - Enable setting.
+        choices: ['disable', 'enable']
+      lrmgr:
+        type: str
+        description:
+          - Log log and report manager message.
+          - disable - Disable setting.
+          - enable - Enable setting.
+        choices: ['disable', 'enable']
+      objcfg:
+        type: str
+        description:
+          - Log object configuration change message.
+          - disable - Disable setting.
+          - enable - Enable setting.
+        choices: ['disable', 'enable']
+      report:
+        type: str
+        description:
+          - Log Fortianalyzer report messages.
+          - disable - Disable setting.
+          - enable - Enable setting.
+        choices: ['disable', 'enable']
+      rev:
+        type: str
+        description:
+          - Log revision history message.
+          - disable - Disable setting.
+          - enable - Enable setting.
+        choices: ['disable', 'enable']
+      rtmon:
+        type: str
+        description:
+          - Log real-time monitor message.
+          - disable - Disable setting.
+          - enable - Enable setting.
+        choices: ['disable', 'enable']
+      scfw:
+        type: str
+        description:
+          - Log firewall objects message.
+          - disable - Disable setting.
+          - enable - Enable setting.
+        choices: ['disable', 'enable']
+      scply:
+        type: str
+        description:
+          - Log policy console message.
+          - disable - Disable setting.
+          - enable - Enable setting.
+        choices: ['disable', 'enable']
+      scrmgr:
+        type: str
+        description:
+          - Log script manager message.
+          - disable - Disable setting.
+          - enable - Enable setting.
+        choices: ['disable', 'enable']
+      scvpn:
+        type: str
+        description:
+          - Log VPN console message.
+          - disable - Disable setting.
+          - enable - Enable setting.
+        choices: ['disable', 'enable']
+      system:
+        type: str
+        description:
+          - Log system manager message.
+          - disable - Disable setting.
+          - enable - Enable setting.
+        choices: ['disable', 'enable']
+      webport:
+        type: str
+        description:
+          - Log web portal message.
+          - disable - Disable setting.
+          - enable - Enable setting.
+        choices: ['disable', 'enable']
+      incident:
+        type: str
+        description:
+          - Log Fortianalyzer incident messages.
+          - disable - Disable setting.
+          - enable - Enable setting.
+        choices: ['disable', 'enable']
+      aid:
+        type: str
+        description:
+          - Log aid messages.
+          - disable - Disable setting.
+          - enable - Enable setting.
+        choices: ['disable', 'enable']
+      docker:
+        type: str
+        description:
+          - Docker application generic messages.
+          - disable - Disable setting.
+          - enable - Enable setting.
+        choices: ['disable', 'enable']
+      controller:
+        type: str
+        description:
+          - Controller application generic messages.
+          - disable - Disable setting.
+          - enable - Enable setting.
+        choices: ['disable', 'enable']
+      fazfabric:
+        type: str
+        description: Fazfabric.
+        choices: ['disable', 'enable']
+      fortism:
+        type: str
+        description: Fortism.
+        choices: ['disable', 'enable']
+      http:
+        type: str
+        description: Http.
+        choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -379,46 +391,49 @@ EXAMPLES = '''
           # aid: <value in [disable, enable]>
           # docker: <value in [disable, enable]>
           # controller: <value in [disable, enable]>
+          # fazfabric: <value in [disable, enable]>
+          # fortism: <value in [disable, enable]>
+          # http: <value in [disable, enable]>
 '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -480,7 +495,10 @@ def main():
                     'choices': ['disable', 'enable'],
                     'type': 'str'
                 },
-                'controller': {'v_range': [['7.0.9', '7.0.16'], ['7.2.4', '7.2.12'], ['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'controller': {'v_range': [['7.0.9', '7.0.16'], ['7.2.4', '7.2.12'], ['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'fazfabric': {'v_range': [['7.6.7', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'fortism': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'http': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

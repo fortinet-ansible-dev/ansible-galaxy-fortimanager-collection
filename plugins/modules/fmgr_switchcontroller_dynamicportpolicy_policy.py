@@ -15,106 +15,106 @@ module: fmgr_switchcontroller_dynamicportpolicy_policy
 short_description: Port policies with matching criteria and actions.
 version_added: "2.2.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  dynamic-port-policy:
+    description: Deprecated, please use "dynamic_port_policy"
+    type: str
+  dynamic_port_policy:
+    description: The parameter (dynamic-port-policy) in requested url.
+    type: str
+  switchcontroller_dynamicportpolicy_policy:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      802_1x:
+        aliases: ['802-1x']
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: '802.'
+      bounce_port_link:
+        aliases: ['bounce-port-link']
         type: str
+        description: Enable/disable bouncing
+        choices: ['disable', 'enable']
+      category:
+        type: str
+        description: Category of Dynamic port policy.
+        choices: ['device', 'interface-tag']
+      description:
+        type: str
+        description: Description for the policy.
+      family:
+        type: str
+        description: Match policy based on family.
+      host:
+        type: str
+        description: Match policy based on host.
+      hw_vendor:
+        aliases: ['hw-vendor']
+        type: str
+        description: Match policy based on hardware vendor.
+      interface_tags:
+        aliases: ['interface-tags']
+        type: raw
+        description: (list) Match policy based on the FortiSwitch interface object tags.
+      lldp_profile:
+        aliases: ['lldp-profile']
+        type: str
+        description: LLDP profile to be applied when using this policy.
+      mac:
+        type: str
+        description: Match policy based on MAC address.
+      name:
+        type: str
+        description: Policy name.
         required: true
-    dynamic-port-policy:
-        description: Deprecated, please use "dynamic_port_policy"
+      qos_policy:
+        aliases: ['qos-policy']
         type: str
-    dynamic_port_policy:
-        description: The parameter (dynamic-port-policy) in requested url.
+        description: QoS policy to be applied when using this policy.
+      status:
         type: str
-    switchcontroller_dynamicportpolicy_policy:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            802_1x:
-                aliases: ['802-1x']
-                type: str
-                description: '802.'
-            bounce_port_link:
-                aliases: ['bounce-port-link']
-                type: str
-                description: Enable/disable bouncing
-                choices: ['disable', 'enable']
-            category:
-                type: str
-                description: Category of Dynamic port policy.
-                choices: ['device', 'interface-tag']
-            description:
-                type: str
-                description: Description for the policy.
-            family:
-                type: str
-                description: Match policy based on family.
-            host:
-                type: str
-                description: Match policy based on host.
-            hw_vendor:
-                aliases: ['hw-vendor']
-                type: str
-                description: Match policy based on hardware vendor.
-            interface_tags:
-                aliases: ['interface-tags']
-                type: raw
-                description: (list) Match policy based on the FortiSwitch interface object tags.
-            lldp_profile:
-                aliases: ['lldp-profile']
-                type: str
-                description: LLDP profile to be applied when using this policy.
-            mac:
-                type: str
-                description: Match policy based on MAC address.
-            name:
-                type: str
-                description: Policy name.
-                required: true
-            qos_policy:
-                aliases: ['qos-policy']
-                type: str
-                description: QoS policy to be applied when using this policy.
-            status:
-                type: str
-                description: Enable/disable policy.
-                choices: ['disable', 'enable']
-            type:
-                type: str
-                description: Match policy based on type.
-            vlan_policy:
-                aliases: ['vlan-policy']
-                type: str
-                description: VLAN policy to be applied when using this policy.
-            match_period:
-                aliases: ['match-period']
-                type: int
-                description: Number of days the matched devices will be retained
-            match_type:
-                aliases: ['match-type']
-                type: str
-                description: Match and retain the devices based on the type.
-                choices: ['dynamic', 'override']
-            bounce_port_duration:
-                aliases: ['bounce-port-duration']
-                type: int
-                description: Bounce duration in seconds of a switch port where this policy is applied.
-            poe_reset:
-                aliases: ['poe-reset']
-                type: str
-                description: Enable/disable POE reset of a switch port where this policy is applied.
-                choices: ['disable', 'enable']
-            match_remove:
-                aliases: ['match-remove']
-                type: str
-                description: Options to remove the matched override devices.
-                choices: ['link-down', 'default']
+        description: Enable/disable policy.
+        choices: ['disable', 'enable']
+      type:
+        type: str
+        description: Match policy based on type.
+      vlan_policy:
+        aliases: ['vlan-policy']
+        type: str
+        description: VLAN policy to be applied when using this policy.
+      match_period:
+        aliases: ['match-period']
+        type: int
+        description: Number of days the matched devices will be retained
+      match_type:
+        aliases: ['match-type']
+        type: str
+        description: Match and retain the devices based on the type.
+        choices: ['dynamic', 'override']
+      bounce_port_duration:
+        aliases: ['bounce-port-duration']
+        type: int
+        description: Bounce duration in seconds of a switch port where this policy is applied.
+      poe_reset:
+        aliases: ['poe-reset']
+        type: str
+        description: Enable/disable POE reset of a switch port where this policy is applied.
+        choices: ['disable', 'enable']
+      match_remove:
+        aliases: ['match-remove']
+        type: str
+        description: Options to remove the matched override devices.
+        choices: ['link-down', 'default']
 '''
 
 EXAMPLES = '''
@@ -154,42 +154,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

@@ -15,61 +15,61 @@ module: fmgr_extendercontroller_extenderprofile_cellular_modem2_autoswitch
 short_description: FortiExtender auto switch configuration.
 version_added: "2.1.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.partial_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.partial_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  extender-profile:
+    description: Deprecated, please use "extender_profile"
+    type: str
+  extender_profile:
+    description: The parameter (extender-profile) in requested url.
+    type: str
+  extendercontroller_extenderprofile_cellular_modem2_autoswitch:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      dataplan:
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Automatically switch based on data usage.
+        choices: ['disable', 'enable']
+      disconnect:
         type: str
-        required: true
-    extender-profile:
-        description: Deprecated, please use "extender_profile"
+        description: Auto switch by disconnect.
+        choices: ['disable', 'enable']
+      disconnect_period:
+        aliases: ['disconnect-period']
+        type: int
+        description: Automatically switch based on disconnect period.
+      disconnect_threshold:
+        aliases: ['disconnect-threshold']
+        type: int
+        description: Automatically switch based on disconnect threshold.
+      signal:
         type: str
-    extender_profile:
-        description: The parameter (extender-profile) in requested url.
+        description: Automatically switch based on signal strength.
+        choices: ['disable', 'enable']
+      switch_back:
+        aliases: ['switch-back']
+        type: list
+        elements: str
+        description: Auto switch with switch back multi-options.
+        choices: ['time', 'timer']
+      switch_back_time:
+        aliases: ['switch-back-time']
         type: str
-    extendercontroller_extenderprofile_cellular_modem2_autoswitch:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            dataplan:
-                type: str
-                description: Automatically switch based on data usage.
-                choices: ['disable', 'enable']
-            disconnect:
-                type: str
-                description: Auto switch by disconnect.
-                choices: ['disable', 'enable']
-            disconnect_period:
-                aliases: ['disconnect-period']
-                type: int
-                description: Automatically switch based on disconnect period.
-            disconnect_threshold:
-                aliases: ['disconnect-threshold']
-                type: int
-                description: Automatically switch based on disconnect threshold.
-            signal:
-                type: str
-                description: Automatically switch based on signal strength.
-                choices: ['disable', 'enable']
-            switch_back:
-                aliases: ['switch-back']
-                type: list
-                elements: str
-                description: Auto switch with switch back multi-options.
-                choices: ['time', 'timer']
-            switch_back_time:
-                aliases: ['switch-back-time']
-                type: str
-                description: Automatically switch over to preferred SIM/carrier at a specified time in UTC
-            switch_back_timer:
-                aliases: ['switch-back-timer']
-                type: int
-                description: Automatically switch over to preferred SIM/carrier after the given time
+        description: Automatically switch over to preferred SIM/carrier at a specified time in UTC
+      switch_back_timer:
+        aliases: ['switch-back-timer']
+        type: int
+        description: Automatically switch over to preferred SIM/carrier after the given time
 '''
 
 EXAMPLES = '''
@@ -96,42 +96,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

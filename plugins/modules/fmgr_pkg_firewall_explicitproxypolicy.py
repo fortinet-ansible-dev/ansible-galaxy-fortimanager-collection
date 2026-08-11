@@ -15,335 +15,335 @@ module: fmgr_pkg_firewall_explicitproxypolicy
 short_description: Configure Explicit proxy policies.
 version_added: "2.2.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  pkg:
+    description: The parameter (pkg) in requested url.
+    type: str
+    required: true
+  pkg_firewall_explicitproxypolicy:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      action:
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Policy action.
+        choices: ['deny', 'accept']
+      active_auth_method:
+        aliases: ['active-auth-method']
         type: str
-        required: true
-    pkg:
-        description: The parameter (pkg) in requested url.
+        description: Active authentication method.
+        choices: ['ntlm', 'basic', 'digest', 'form', 'none', 'negotiate']
+      application_list:
+        aliases: ['application-list']
         type: str
-        required: true
-    pkg_firewall_explicitproxypolicy:
-        description: The top level parameters set.
-        required: false
-        type: dict
+        description: Application list.
+      av_profile:
+        aliases: ['av-profile']
+        type: str
+        description: Antivirus profile.
+      casi_profile:
+        aliases: ['casi-profile']
+        type: str
+        description: CASI profile.
+      comments:
+        type: str
+        description: Comment.
+      disclaimer:
+        type: str
+        description: Web proxy disclaimer setting.
+        choices: ['disable', 'domain', 'policy', 'user']
+      dlp_sensor:
+        aliases: ['dlp-sensor']
+        type: str
+        description: DLP sensor.
+      dstaddr:
+        type: str
+        description: Destination address name.
+      dstaddr_negate:
+        aliases: ['dstaddr-negate']
+        type: str
+        description: Enable/disable negated destination address match.
+        choices: ['disable', 'enable']
+      dstaddr6:
+        type: str
+        description: IPv6 destination address
+      dstintf:
+        type: str
+        description: Destination interface name.
+      global_label:
+        aliases: ['global-label']
+        type: str
+        description: Label for global view.
+      icap_profile:
+        aliases: ['icap-profile']
+        type: str
+        description: ICAP profile.
+      identity_based:
+        aliases: ['identity-based']
+        type: str
+        description: Enable/disable identity-based policy.
+        choices: ['disable', 'enable']
+      identity_based_policy:
+        aliases: ['identity-based-policy']
+        type: list
+        elements: dict
+        description: Identity based policy.
         suboptions:
-            action:
-                type: str
-                description: Policy action.
-                choices: ['deny', 'accept']
-            active_auth_method:
-                aliases: ['active-auth-method']
-                type: str
-                description: Active authentication method.
-                choices: ['ntlm', 'basic', 'digest', 'form', 'none', 'negotiate']
-            application_list:
-                aliases: ['application-list']
-                type: str
-                description: Application list.
-            av_profile:
-                aliases: ['av-profile']
-                type: str
-                description: Antivirus profile.
-            casi_profile:
-                aliases: ['casi-profile']
-                type: str
-                description: CASI profile.
-            comments:
-                type: str
-                description: Comment.
-            disclaimer:
-                type: str
-                description: Web proxy disclaimer setting.
-                choices: ['disable', 'domain', 'policy', 'user']
-            dlp_sensor:
-                aliases: ['dlp-sensor']
-                type: str
-                description: DLP sensor.
-            dstaddr:
-                type: str
-                description: Destination address name.
-            dstaddr_negate:
-                aliases: ['dstaddr-negate']
-                type: str
-                description: Enable/disable negated destination address match.
-                choices: ['disable', 'enable']
-            dstaddr6:
-                type: str
-                description: IPv6 destination address
-            dstintf:
-                type: str
-                description: Destination interface name.
-            global_label:
-                aliases: ['global-label']
-                type: str
-                description: Label for global view.
-            icap_profile:
-                aliases: ['icap-profile']
-                type: str
-                description: ICAP profile.
-            identity_based:
-                aliases: ['identity-based']
-                type: str
-                description: Enable/disable identity-based policy.
-                choices: ['disable', 'enable']
-            identity_based_policy:
-                aliases: ['identity-based-policy']
-                type: list
-                elements: dict
-                description: Identity based policy.
-                suboptions:
-                    application_list:
-                        aliases: ['application-list']
-                        type: str
-                        description: Application list.
-                    av_profile:
-                        aliases: ['av-profile']
-                        type: str
-                        description: Antivirus profile.
-                    casi_profile:
-                        aliases: ['casi-profile']
-                        type: str
-                        description: CASI profile.
-                    disclaimer:
-                        type: str
-                        description: Web proxy disclaimer setting.
-                        choices: ['disable', 'domain', 'policy', 'user']
-                    dlp_sensor:
-                        aliases: ['dlp-sensor']
-                        type: str
-                        description: DLP sensor.
-                    groups:
-                        type: str
-                        description: Group name.
-                    icap_profile:
-                        aliases: ['icap-profile']
-                        type: str
-                        description: ICAP profile.
-                    id:
-                        type: int
-                        description: ID.
-                    ips_sensor:
-                        aliases: ['ips-sensor']
-                        type: str
-                        description: IPS sensor.
-                    logtraffic:
-                        type: str
-                        description: Enable/disable policy log traffic.
-                        choices: ['disable', 'all', 'utm']
-                    logtraffic_start:
-                        aliases: ['logtraffic-start']
-                        type: str
-                        description: Enable/disable policy log traffic start.
-                        choices: ['disable', 'enable']
-                    mms_profile:
-                        aliases: ['mms-profile']
-                        type: str
-                        description: Mms profile
-                    profile_group:
-                        aliases: ['profile-group']
-                        type: str
-                        description: Profile group
-                    profile_protocol_options:
-                        aliases: ['profile-protocol-options']
-                        type: str
-                        description: Profile protocol options.
-                    profile_type:
-                        aliases: ['profile-type']
-                        type: str
-                        description: Profile type
-                        choices: ['single', 'group']
-                    replacemsg_override_group:
-                        aliases: ['replacemsg-override-group']
-                        type: str
-                        description: Specify authentication replacement message override group.
-                    scan_botnet_connections:
-                        aliases: ['scan-botnet-connections']
-                        type: str
-                        description: Enable/disable scanning of connections to Botnet servers.
-                        choices: ['disable', 'block', 'monitor']
-                    schedule:
-                        type: str
-                        description: Schedule name.
-                    spamfilter_profile:
-                        aliases: ['spamfilter-profile']
-                        type: str
-                        description: Spam filter profile.
-                    ssl_ssh_profile:
-                        aliases: ['ssl-ssh-profile']
-                        type: str
-                        description: SSL SSH Profile.
-                    users:
-                        type: str
-                        description: User name.
-                    utm_status:
-                        aliases: ['utm-status']
-                        type: str
-                        description: Enable AV/web/IPS protection profile.
-                        choices: ['disable', 'enable']
-                    waf_profile:
-                        aliases: ['waf-profile']
-                        type: str
-                        description: Web application firewall profile.
-                    webfilter_profile:
-                        aliases: ['webfilter-profile']
-                        type: str
-                        description: Web filter profile.
-            ip_based:
-                aliases: ['ip-based']
-                type: str
-                description: Enable/disable IP-based authentication.
-                choices: ['disable', 'enable']
-            ips_sensor:
-                aliases: ['ips-sensor']
-                type: str
-                description: IPS sensor.
-            label:
-                type: str
-                description: Label for section view.
-            logtraffic:
-                type: str
-                description: Enable/disable policy log traffic.
-                choices: ['disable', 'all', 'utm']
-            logtraffic_start:
-                aliases: ['logtraffic-start']
-                type: str
-                description: Enable/disable policy log traffic start.
-                choices: ['disable', 'enable']
-            mms_profile:
-                aliases: ['mms-profile']
-                type: str
-                description: Mms profile
-            policyid:
-                type: int
-                description: Policy ID.
-                required: true
-            profile_group:
-                aliases: ['profile-group']
-                type: str
-                description: Profile group
-            profile_protocol_options:
-                aliases: ['profile-protocol-options']
-                type: str
-                description: Profile protocol options.
-            profile_type:
-                aliases: ['profile-type']
-                type: str
-                description: Profile type
-                choices: ['single', 'group']
-            proxy:
-                type: str
-                description: Explicit proxy type.
-                choices: ['web', 'ftp', 'wanopt']
-            replacemsg_override_group:
-                aliases: ['replacemsg-override-group']
-                type: str
-                description: Specify authentication replacement message override group.
-            require_tfa:
-                aliases: ['require-tfa']
-                type: str
-                description: Enable/disable requirement of 2-factor authentication.
-                choices: ['disable', 'enable']
-            scan_botnet_connections:
-                aliases: ['scan-botnet-connections']
-                type: str
-                description: Enable/disable scanning of connections to Botnet servers.
-                choices: ['disable', 'block', 'monitor']
-            schedule:
-                type: str
-                description: Schedule name.
-            service:
-                type: str
-                description: Service name.
-            service_negate:
-                aliases: ['service-negate']
-                type: str
-                description: Enable/disable negated service match.
-                choices: ['disable', 'enable']
-            spamfilter_profile:
-                aliases: ['spamfilter-profile']
-                type: str
-                description: Spam filter profile.
-            srcaddr:
-                type: str
-                description: Source address name.
-            srcaddr_negate:
-                aliases: ['srcaddr-negate']
-                type: str
-                description: Enable/disable negated source address match.
-                choices: ['disable', 'enable']
-            srcaddr6:
-                type: str
-                description: IPv6 source address
-            ssl_ssh_profile:
-                aliases: ['ssl-ssh-profile']
-                type: str
-                description: SSL SSH Profile.
-            sso_auth_method:
-                aliases: ['sso-auth-method']
-                type: str
-                description: SSO authentication method.
-                choices: ['fsso', 'rsso', 'none']
-            status:
-                type: str
-                description: Enable/disable policy status.
-                choices: ['disable', 'enable']
-            tags:
-                type: str
-                description: Applied object tags.
-            transaction_based:
-                aliases: ['transaction-based']
-                type: str
-                description: Enable/disable transaction based authentication.
-                choices: ['disable', 'enable']
-            transparent:
-                type: str
-                description: Use IP address of client to connect to server.
-                choices: ['disable', 'enable']
-            utm_status:
-                aliases: ['utm-status']
-                type: str
-                description: Enable AV/web/IPS protection profile.
-                choices: ['disable', 'enable']
-            uuid:
-                type: str
-                description: Universally Unique IDentifier.
-            waf_profile:
-                aliases: ['waf-profile']
-                type: str
-                description: Web application firewall profile.
-            web_auth_cookie:
-                aliases: ['web-auth-cookie']
-                type: str
-                description: Enable/disable Web authentication cookie.
-                choices: ['disable', 'enable']
-            webcache:
-                type: str
-                description: Enable/disable web cache.
-                choices: ['disable', 'enable']
-            webcache_https:
-                aliases: ['webcache-https']
-                type: str
-                description: Enable/disable web cache for HTTPS.
-                choices: ['disable', 'any', 'enable']
-            webfilter_profile:
-                aliases: ['webfilter-profile']
-                type: str
-                description: Web filter profile.
-            webproxy_forward_server:
-                aliases: ['webproxy-forward-server']
-                type: str
-                description: Web proxy forward server.
-            webproxy_profile:
-                aliases: ['webproxy-profile']
-                type: str
-                description: Web proxy profile.
+          application_list:
+            aliases: ['application-list']
+            type: str
+            description: Application list.
+          av_profile:
+            aliases: ['av-profile']
+            type: str
+            description: Antivirus profile.
+          casi_profile:
+            aliases: ['casi-profile']
+            type: str
+            description: CASI profile.
+          disclaimer:
+            type: str
+            description: Web proxy disclaimer setting.
+            choices: ['disable', 'domain', 'policy', 'user']
+          dlp_sensor:
+            aliases: ['dlp-sensor']
+            type: str
+            description: DLP sensor.
+          groups:
+            type: str
+            description: Group name.
+          icap_profile:
+            aliases: ['icap-profile']
+            type: str
+            description: ICAP profile.
+          id:
+            type: int
+            description: ID.
+          ips_sensor:
+            aliases: ['ips-sensor']
+            type: str
+            description: IPS sensor.
+          logtraffic:
+            type: str
+            description: Enable/disable policy log traffic.
+            choices: ['disable', 'all', 'utm']
+          logtraffic_start:
+            aliases: ['logtraffic-start']
+            type: str
+            description: Enable/disable policy log traffic start.
+            choices: ['disable', 'enable']
+          mms_profile:
+            aliases: ['mms-profile']
+            type: str
+            description: Mms profile
+          profile_group:
+            aliases: ['profile-group']
+            type: str
+            description: Profile group
+          profile_protocol_options:
+            aliases: ['profile-protocol-options']
+            type: str
+            description: Profile protocol options.
+          profile_type:
+            aliases: ['profile-type']
+            type: str
+            description: Profile type
+            choices: ['single', 'group']
+          replacemsg_override_group:
+            aliases: ['replacemsg-override-group']
+            type: str
+            description: Specify authentication replacement message override group.
+          scan_botnet_connections:
+            aliases: ['scan-botnet-connections']
+            type: str
+            description: Enable/disable scanning of connections to Botnet servers.
+            choices: ['disable', 'block', 'monitor']
+          schedule:
+            type: str
+            description: Schedule name.
+          spamfilter_profile:
+            aliases: ['spamfilter-profile']
+            type: str
+            description: Spam filter profile.
+          ssl_ssh_profile:
+            aliases: ['ssl-ssh-profile']
+            type: str
+            description: SSL SSH Profile.
+          users:
+            type: str
+            description: User name.
+          utm_status:
+            aliases: ['utm-status']
+            type: str
+            description: Enable AV/web/IPS protection profile.
+            choices: ['disable', 'enable']
+          waf_profile:
+            aliases: ['waf-profile']
+            type: str
+            description: Web application firewall profile.
+          webfilter_profile:
+            aliases: ['webfilter-profile']
+            type: str
+            description: Web filter profile.
+      ip_based:
+        aliases: ['ip-based']
+        type: str
+        description: Enable/disable IP-based authentication.
+        choices: ['disable', 'enable']
+      ips_sensor:
+        aliases: ['ips-sensor']
+        type: str
+        description: IPS sensor.
+      label:
+        type: str
+        description: Label for section view.
+      logtraffic:
+        type: str
+        description: Enable/disable policy log traffic.
+        choices: ['disable', 'all', 'utm']
+      logtraffic_start:
+        aliases: ['logtraffic-start']
+        type: str
+        description: Enable/disable policy log traffic start.
+        choices: ['disable', 'enable']
+      mms_profile:
+        aliases: ['mms-profile']
+        type: str
+        description: Mms profile
+      policyid:
+        type: int
+        description: Policy ID.
+        required: true
+      profile_group:
+        aliases: ['profile-group']
+        type: str
+        description: Profile group
+      profile_protocol_options:
+        aliases: ['profile-protocol-options']
+        type: str
+        description: Profile protocol options.
+      profile_type:
+        aliases: ['profile-type']
+        type: str
+        description: Profile type
+        choices: ['single', 'group']
+      proxy:
+        type: str
+        description: Explicit proxy type.
+        choices: ['web', 'ftp', 'wanopt']
+      replacemsg_override_group:
+        aliases: ['replacemsg-override-group']
+        type: str
+        description: Specify authentication replacement message override group.
+      require_tfa:
+        aliases: ['require-tfa']
+        type: str
+        description: Enable/disable requirement of 2-factor authentication.
+        choices: ['disable', 'enable']
+      scan_botnet_connections:
+        aliases: ['scan-botnet-connections']
+        type: str
+        description: Enable/disable scanning of connections to Botnet servers.
+        choices: ['disable', 'block', 'monitor']
+      schedule:
+        type: str
+        description: Schedule name.
+      service:
+        type: str
+        description: Service name.
+      service_negate:
+        aliases: ['service-negate']
+        type: str
+        description: Enable/disable negated service match.
+        choices: ['disable', 'enable']
+      spamfilter_profile:
+        aliases: ['spamfilter-profile']
+        type: str
+        description: Spam filter profile.
+      srcaddr:
+        type: str
+        description: Source address name.
+      srcaddr_negate:
+        aliases: ['srcaddr-negate']
+        type: str
+        description: Enable/disable negated source address match.
+        choices: ['disable', 'enable']
+      srcaddr6:
+        type: str
+        description: IPv6 source address
+      ssl_ssh_profile:
+        aliases: ['ssl-ssh-profile']
+        type: str
+        description: SSL SSH Profile.
+      sso_auth_method:
+        aliases: ['sso-auth-method']
+        type: str
+        description: SSO authentication method.
+        choices: ['fsso', 'rsso', 'none']
+      status:
+        type: str
+        description: Enable/disable policy status.
+        choices: ['disable', 'enable']
+      tags:
+        type: str
+        description: Applied object tags.
+      transaction_based:
+        aliases: ['transaction-based']
+        type: str
+        description: Enable/disable transaction based authentication.
+        choices: ['disable', 'enable']
+      transparent:
+        type: str
+        description: Use IP address of client to connect to server.
+        choices: ['disable', 'enable']
+      utm_status:
+        aliases: ['utm-status']
+        type: str
+        description: Enable AV/web/IPS protection profile.
+        choices: ['disable', 'enable']
+      uuid:
+        type: str
+        description: Universally Unique IDentifier.
+      waf_profile:
+        aliases: ['waf-profile']
+        type: str
+        description: Web application firewall profile.
+      web_auth_cookie:
+        aliases: ['web-auth-cookie']
+        type: str
+        description: Enable/disable Web authentication cookie.
+        choices: ['disable', 'enable']
+      webcache:
+        type: str
+        description: Enable/disable web cache.
+        choices: ['disable', 'enable']
+      webcache_https:
+        aliases: ['webcache-https']
+        type: str
+        description: Enable/disable web cache for HTTPS.
+        choices: ['disable', 'any', 'enable']
+      webfilter_profile:
+        aliases: ['webfilter-profile']
+        type: str
+        description: Web filter profile.
+      webproxy_forward_server:
+        aliases: ['webproxy-forward-server']
+        type: str
+        description: Web proxy forward server.
+      webproxy_profile:
+        aliases: ['webproxy-profile']
+        type: str
+        description: Web proxy profile.
 '''
 
 EXAMPLES = '''
@@ -439,42 +439,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

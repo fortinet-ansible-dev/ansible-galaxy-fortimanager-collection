@@ -15,139 +15,137 @@ module: fmgr_user_device
 short_description: Configure devices.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  user_device:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      alias:
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
-        type: str
+        description: Device alias.
         required: true
-    user_device:
-        description: The top level parameters set.
-        required: false
-        type: dict
+      avatar:
+        type: str
+        description: Image file for avatar
+      category:
+        type: str
+        description: Device category.
+        choices: ['none', 'android-device', 'blackberry-device', 'fortinet-device', 'ios-device',
+                  'windows-device', 'amazon-device']
+      comment:
+        type: str
+        description: Comment.
+      dynamic_mapping:
+        type: list
+        elements: dict
+        description: Dynamic mapping.
         suboptions:
-            alias:
+          _scope:
+            type: list
+            elements: dict
+            description: Scope.
+            suboptions:
+              name:
                 type: str
-                description: Device alias.
-                required: true
-            avatar:
+                description: Name.
+              vdom:
                 type: str
-                description: Image file for avatar
-            category:
-                type: str
-                description: Device category.
-                choices: ['none', 'android-device', 'blackberry-device', 'fortinet-device',
-                          'ios-device', 'windows-device', 'amazon-device']
-            comment:
-                type: str
-                description: Comment.
-            dynamic_mapping:
-                type: list
-                elements: dict
-                description: Dynamic mapping.
-                suboptions:
-                    _scope:
-                        type: list
-                        elements: dict
-                        description: Scope.
-                        suboptions:
-                            name:
-                                type: str
-                                description: Name.
-                            vdom:
-                                type: str
-                                description: Vdom.
-                    avatar:
-                        type: str
-                        description: Avatar.
-                    category:
-                        type: str
-                        description: Category.
-                        choices: ['none', 'android-device', 'blackberry-device',
-                                  'fortinet-device', 'ios-device', 'windows-device',
-                                  'amazon-device']
-                    comment:
-                        type: str
-                        description: Comment.
-                    mac:
-                        type: str
-                        description: Mac.
-                    master_device:
-                        aliases: ['master-device']
-                        type: str
-                        description: Master device.
-                    tags:
-                        type: raw
-                        description: (list or str) Tags.
-                    type:
-                        type: str
-                        description: Type.
-                        choices: ['ipad', 'iphone', 'gaming-console', 'blackberry-phone',
-                                  'blackberry-playbook', 'linux-pc', 'mac', 'windows-pc',
-                                  'android-phone', 'android-tablet', 'media-streaming',
-                                  'windows-phone', 'fortinet-device', 'ip-phone',
-                                  'router-nat-device', 'other-network-device', 'windows-tablet',
-                                  'printer', 'forticam', 'fortifone', 'unknown']
-                    user:
-                        type: str
-                        description: User.
-                    family:
-                        type: str
-                        description: Family.
-                    hardware_vendor:
-                        aliases: ['hardware-vendor']
-                        type: str
-                        description: Hardware vendor.
-                    hardware_version:
-                        aliases: ['hardware-version']
-                        type: str
-                        description: Hardware version.
-                    os:
-                        type: str
-                        description: Os.
-                    software_version:
-                        aliases: ['software-version']
-                        type: str
-                        description: Software version.
-            mac:
-                type: str
-                description: Device MAC address
-            master_device:
-                aliases: ['master-device']
-                type: str
-                description: Master device
-            tagging:
-                type: list
-                elements: dict
-                description: Tagging.
-                suboptions:
-                    category:
-                        type: str
-                        description: Tag category.
-                    name:
-                        type: str
-                        description: Tagging entry name.
-                    tags:
-                        type: raw
-                        description: (list) Tags.
-            type:
-                type: str
-                description: Device type.
-                choices: ['ipad', 'iphone', 'gaming-console', 'blackberry-phone',
-                          'blackberry-playbook', 'linux-pc', 'mac', 'windows-pc', 'android-phone',
-                          'android-tablet', 'media-streaming', 'windows-phone', 'fortinet-device',
-                          'ip-phone', 'router-nat-device', 'other-network-device',
-                          'windows-tablet', 'printer', 'forticam', 'fortifone', 'unknown']
-            user:
-                type: str
-                description: User name.
-            tags:
-                type: str
-                description: Applied object tags.
+                description: Vdom.
+          avatar:
+            type: str
+            description: Avatar.
+          category:
+            type: str
+            description: Category.
+            choices: ['none', 'android-device', 'blackberry-device', 'fortinet-device',
+                      'ios-device', 'windows-device', 'amazon-device']
+          comment:
+            type: str
+            description: Comment.
+          mac:
+            type: str
+            description: Mac.
+          master_device:
+            aliases: ['master-device']
+            type: str
+            description: Master device.
+          tags:
+            type: raw
+            description: (list or str) Tags.
+          type:
+            type: str
+            description: Type.
+            choices: ['ipad', 'iphone', 'gaming-console', 'blackberry-phone',
+                      'blackberry-playbook', 'linux-pc', 'mac', 'windows-pc', 'android-phone',
+                      'android-tablet', 'media-streaming', 'windows-phone', 'fortinet-device',
+                      'ip-phone', 'router-nat-device', 'other-network-device', 'windows-tablet',
+                      'printer', 'forticam', 'fortifone', 'unknown']
+          user:
+            type: str
+            description: User.
+          family:
+            type: str
+            description: Family.
+          hardware_vendor:
+            aliases: ['hardware-vendor']
+            type: str
+            description: Hardware vendor.
+          hardware_version:
+            aliases: ['hardware-version']
+            type: str
+            description: Hardware version.
+          os:
+            type: str
+            description: Os.
+          software_version:
+            aliases: ['software-version']
+            type: str
+            description: Software version.
+      mac:
+        type: str
+        description: Device MAC address
+      master_device:
+        aliases: ['master-device']
+        type: str
+        description: Master device
+      tagging:
+        type: list
+        elements: dict
+        description: Tagging.
+        suboptions:
+          category:
+            type: str
+            description: Tag category.
+          name:
+            type: str
+            description: Tagging entry name.
+          tags:
+            type: raw
+            description: (list) Tags.
+      type:
+        type: str
+        description: Device type.
+        choices: ['ipad', 'iphone', 'gaming-console', 'blackberry-phone', 'blackberry-playbook',
+                  'linux-pc', 'mac', 'windows-pc', 'android-phone', 'android-tablet',
+                  'media-streaming', 'windows-phone', 'fortinet-device', 'ip-phone',
+                  'router-nat-device', 'other-network-device', 'windows-tablet', 'printer',
+                  'forticam', 'fortifone', 'unknown']
+      user:
+        type: str
+        description: User name.
+      tags:
+        type: str
+        description: Applied object tags.
 '''
 
 EXAMPLES = '''
@@ -192,42 +190,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

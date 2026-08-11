@@ -15,111 +15,111 @@ module: fmgr_system_docker
 short_description: Docker host.
 version_added: "2.1.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.partial_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.partial_crud
 options:
-    system_docker:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            fortiportal:
-                type: str
-                description:
-                    - Enable/disable container.
-                    - disable - Disable setting.
-                    - enable - Enable setting.
-                choices: ['disable', 'enable']
-            fortiwlm:
-                type: str
-                description:
-                    - Enable/disable container.
-                    - disable - Disable setting.
-                    - enable - Enable setting.
-                choices: ['disable', 'enable']
-            sdwancontroller:
-                type: str
-                description:
-                    - Enable/disable container.
-                    - disable - Disable setting.
-                    - enable - Enable setting.
-                choices: ['disable', 'enable']
-            status:
-                type: str
-                description:
-                    - Enable and set registry.
-                    - disable - Disable docker host service.
-                    - enable - Enable production registry.
-                    - qa - Enable QA test registry.
-                    - dev - Enable QA test registry
-                choices: ['disable', 'enable', 'qa', 'dev']
-            cpu:
-                type: int
-                description: Cpu.
-            default_address_pool_base:
-                aliases: ['default-address-pool_base']
-                type: str
-                description: Set default-address-pool CIDR.
-            default_address_pool_size:
-                aliases: ['default-address-pool_size']
-                type: int
-                description: Set default-address-pool size.
-            fortiauthenticator:
-                type: str
-                description:
-                    - Enable/disable container.
-                    - disable - Disable setting.
-                    - enable - Enable setting.
-                choices: ['disable', 'enable']
-            fortisigconverter:
-                type: str
-                description:
-                    - Enable/disable container.
-                    - disable - Disable setting.
-                    - enable - Enable setting.
-                choices: ['disable', 'enable']
-            mem:
-                type: int
-                description: Max % RAM usage.
-            docker_user_login_max:
-                aliases: ['docker-user-login-max']
-                type: int
-                description: Max login session for docker users.
-            fortisoar:
-                type: str
-                description:
-                    - Enable/disable container.
-                    - disable - Disable setting.
-                    - enable - Enable setting.
-                choices: ['disable', 'enable']
-            fortiaiops:
-                type: str
-                description:
-                    - Enable/disable container.
-                    - disable - Disable setting.
-                    - enable - Enable setting.
-                choices: ['disable', 'enable']
-            policyanalyzer:
-                type: str
-                description:
-                    - Enable/disable container.
-                    - disable - Disable setting.
-                    - enable - Enable setting.
-                choices: ['disable', 'enable']
-            universalconnector:
-                type: str
-                description:
-                    - Enable/disable container.
-                    - disable - Disable setting.
-                    - enable - Enable setting.
-                choices: ['disable', 'enable']
-            fsmcollector:
-                type: str
-                description:
-                    - Enable/disable container.
-                    - disable - Disable setting.
-                    - enable - Enable setting.
-                choices: ['disable', 'enable']
+  system_docker:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      fortiportal:
+        type: str
+        description:
+          - Enable/disable container.
+          - disable - Disable setting.
+          - enable - Enable setting.
+        choices: ['disable', 'enable']
+      fortiwlm:
+        type: str
+        description:
+          - Enable/disable container.
+          - disable - Disable setting.
+          - enable - Enable setting.
+        choices: ['disable', 'enable']
+      sdwancontroller:
+        type: str
+        description:
+          - Enable/disable container.
+          - disable - Disable setting.
+          - enable - Enable setting.
+        choices: ['disable', 'enable']
+      status:
+        type: str
+        description:
+          - Enable and set registry.
+          - disable - Disable docker host service.
+          - enable - Enable production registry.
+          - qa - Enable QA test registry.
+          - dev - Enable QA test registry
+        choices: ['disable', 'enable', 'qa', 'dev']
+      cpu:
+        type: int
+        description: Cpu.
+      default_address_pool_base:
+        aliases: ['default-address-pool_base']
+        type: str
+        description: Set default-address-pool CIDR.
+      default_address_pool_size:
+        aliases: ['default-address-pool_size']
+        type: int
+        description: Set default-address-pool size.
+      fortiauthenticator:
+        type: str
+        description:
+          - Enable/disable container.
+          - disable - Disable setting.
+          - enable - Enable setting.
+        choices: ['disable', 'enable']
+      fortisigconverter:
+        type: str
+        description:
+          - Enable/disable container.
+          - disable - Disable setting.
+          - enable - Enable setting.
+        choices: ['disable', 'enable']
+      mem:
+        type: int
+        description: Max % RAM usage.
+      docker_user_login_max:
+        aliases: ['docker-user-login-max']
+        type: int
+        description: Max login session for docker users.
+      fortisoar:
+        type: str
+        description:
+          - Enable/disable container.
+          - disable - Disable setting.
+          - enable - Enable setting.
+        choices: ['disable', 'enable']
+      fortiaiops:
+        type: str
+        description:
+          - Enable/disable container.
+          - disable - Disable setting.
+          - enable - Enable setting.
+        choices: ['disable', 'enable']
+      policyanalyzer:
+        type: str
+        description:
+          - Enable/disable container.
+          - disable - Disable setting.
+          - enable - Enable setting.
+        choices: ['disable', 'enable']
+      universalconnector:
+        type: str
+        description:
+          - Enable/disable container.
+          - disable - Disable setting.
+          - enable - Enable setting.
+        choices: ['disable', 'enable']
+      fsmcollector:
+        type: str
+        description:
+          - Enable/disable container.
+          - disable - Disable setting.
+          - enable - Enable setting.
+        choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -152,42 +152,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection

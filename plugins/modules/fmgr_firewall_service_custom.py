@@ -15,143 +15,153 @@ module: fmgr_firewall_service_custom
 short_description: Configure custom services.
 version_added: "1.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  firewall_service_custom:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      app_category:
+        aliases: ['app-category']
+        type: raw
+        description: (list) Application category ID.
+      app_service_type:
+        aliases: ['app-service-type']
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Application service type.
+        choices: ['disable', 'app-id', 'app-category']
+      application:
+        type: raw
+        description: (list) Application ID.
+      category:
         type: str
+        description: Service category.
+      check_reset_range:
+        aliases: ['check-reset-range']
+        type: str
+        description: Configure the type of ICMP error message verification.
+        choices: ['disable', 'default', 'strict']
+      color:
+        type: int
+        description: Color of icon on the GUI.
+      comment:
+        type: raw
+        description: (dict or str) Comment.
+      fqdn:
+        type: str
+        description: Fully qualified domain name.
+      helper:
+        type: str
+        description: Helper name.
+        choices: ['disable', 'auto', 'ftp', 'tftp', 'ras', 'h323', 'tns', 'mms', 'sip', 'pptp',
+                  'rtsp', 'dns-udp', 'dns-tcp', 'pmap', 'rsh', 'dcerpc', 'mgcp', 'gtp-c', 'gtp-u',
+                  'gtp-b', 'pfcp']
+      icmpcode:
+        type: int
+        description: ICMP code.
+      icmptype:
+        type: int
+        description: ICMP type.
+      iprange:
+        type: str
+        description: Start and end of the IP range associated with service.
+      name:
+        type: str
+        description: Custom service name.
         required: true
-    firewall_service_custom:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            app_category:
-                aliases: ['app-category']
-                type: raw
-                description: (list) Application category ID.
-            app_service_type:
-                aliases: ['app-service-type']
-                type: str
-                description: Application service type.
-                choices: ['disable', 'app-id', 'app-category']
-            application:
-                type: raw
-                description: (list) Application ID.
-            category:
-                type: str
-                description: Service category.
-            check_reset_range:
-                aliases: ['check-reset-range']
-                type: str
-                description: Configure the type of ICMP error message verification.
-                choices: ['disable', 'default', 'strict']
-            color:
-                type: int
-                description: Color of icon on the GUI.
-            comment:
-                type: raw
-                description: (dict or str) Comment.
-            fqdn:
-                type: str
-                description: Fully qualified domain name.
-            helper:
-                type: str
-                description: Helper name.
-                choices: ['disable', 'auto', 'ftp', 'tftp', 'ras', 'h323', 'tns', 'mms', 'sip',
-                          'pptp', 'rtsp', 'dns-udp', 'dns-tcp', 'pmap', 'rsh', 'dcerpc', 'mgcp',
-                          'gtp-c', 'gtp-u', 'gtp-b', 'pfcp']
-            icmpcode:
-                type: int
-                description: ICMP code.
-            icmptype:
-                type: int
-                description: ICMP type.
-            iprange:
-                type: str
-                description: Start and end of the IP range associated with service.
-            name:
-                type: str
-                description: Custom service name.
-                required: true
-            protocol:
-                type: str
-                description: Protocol type based on IANA numbers.
-                choices: ['ICMP', 'IP', 'TCP/UDP/SCTP', 'ICMP6', 'HTTP', 'FTP', 'CONNECT',
-                          'SOCKS', 'ALL', 'SOCKS-TCP', 'SOCKS-UDP', 'TCP/UDP/UDP-Lite/SCTP']
-            protocol_number:
-                aliases: ['protocol-number']
-                type: int
-                description: IP protocol number.
-            proxy:
-                type: str
-                description: Enable/disable web proxy service.
-                choices: ['disable', 'enable']
-            sctp_portrange:
-                aliases: ['sctp-portrange']
-                type: str
-                description: Multiple SCTP port ranges.
-            session_ttl:
-                aliases: ['session-ttl']
-                type: raw
-                description: (int or str) Session TTL
-            tcp_halfclose_timer:
-                aliases: ['tcp-halfclose-timer']
-                type: int
-                description: Wait time to close a TCP session waiting for an unanswered FIN packet
-            tcp_halfopen_timer:
-                aliases: ['tcp-halfopen-timer']
-                type: int
-                description: Wait time to close a TCP session waiting for an unanswered open session packet
-            tcp_portrange:
-                aliases: ['tcp-portrange']
-                type: str
-                description: Multiple TCP port ranges.
-            tcp_timewait_timer:
-                aliases: ['tcp-timewait-timer']
-                type: int
-                description: Set the length of the TCP TIME-WAIT state in seconds
-            udp_idle_timer:
-                aliases: ['udp-idle-timer']
-                type: int
-                description: UDP half close timeout
-            udp_portrange:
-                aliases: ['udp-portrange']
-                type: str
-                description: Multiple UDP port ranges.
-            visibility:
-                type: str
-                description: Enable/disable the visibility of the service on the GUI.
-                choices: ['disable', 'enable']
-            explicit_proxy:
-                aliases: ['explicit-proxy']
-                type: str
-                description: Enable/disable explicit web proxy service.
-                choices: ['disable', 'enable']
-            global_object:
-                aliases: ['global-object']
-                type: int
-                description: Global Object.
-            fabric_object:
-                aliases: ['fabric-object']
-                type: str
-                description: Security Fabric global object setting.
-                choices: ['disable', 'enable']
-            tcp_rst_timer:
-                aliases: ['tcp-rst-timer']
-                type: int
-                description: Set the length of the TCP CLOSE state in seconds
-            uuid:
-                type: str
-                description: Universally Unique Identifier
-            udplite_portrange:
-                aliases: ['udplite-portrange']
-                type: str
-                description: Multiple UDP-Lite port ranges.
+      protocol:
+        type: str
+        description: Protocol type based on IANA numbers.
+        choices: ['ICMP', 'IP', 'TCP/UDP/SCTP', 'ICMP6', 'HTTP', 'FTP', 'CONNECT', 'SOCKS', 'ALL',
+                  'SOCKS-TCP', 'SOCKS-UDP', 'TCP/UDP/UDP-Lite/SCTP']
+      protocol_number:
+        aliases: ['protocol-number']
+        type: int
+        description: IP protocol number.
+      proxy:
+        type: str
+        description: Enable/disable web proxy service.
+        choices: ['disable', 'enable']
+      sctp_portrange:
+        aliases: ['sctp-portrange']
+        type: str
+        description: Multiple SCTP port ranges.
+      session_ttl:
+        aliases: ['session-ttl']
+        type: raw
+        description: (int or str) Session TTL
+      tcp_halfclose_timer:
+        aliases: ['tcp-halfclose-timer']
+        type: int
+        description: Wait time to close a TCP session waiting for an unanswered FIN packet
+      tcp_halfopen_timer:
+        aliases: ['tcp-halfopen-timer']
+        type: int
+        description: Wait time to close a TCP session waiting for an unanswered open session packet
+      tcp_portrange:
+        aliases: ['tcp-portrange']
+        type: str
+        description: Multiple TCP port ranges.
+      tcp_timewait_timer:
+        aliases: ['tcp-timewait-timer']
+        type: int
+        description: Set the length of the TCP TIME-WAIT state in seconds
+      udp_idle_timer:
+        aliases: ['udp-idle-timer']
+        type: int
+        description: UDP half close timeout
+      udp_portrange:
+        aliases: ['udp-portrange']
+        type: str
+        description: Multiple UDP port ranges.
+      visibility:
+        type: str
+        description: Enable/disable the visibility of the service on the GUI.
+        choices: ['disable', 'enable']
+      explicit_proxy:
+        aliases: ['explicit-proxy']
+        type: str
+        description: Enable/disable explicit web proxy service.
+        choices: ['disable', 'enable']
+      global_object:
+        aliases: ['global-object']
+        type: int
+        description: Global Object.
+      fabric_object:
+        aliases: ['fabric-object']
+        type: str
+        description: Security Fabric global object setting.
+        choices: ['disable', 'enable']
+      tcp_rst_timer:
+        aliases: ['tcp-rst-timer']
+        type: int
+        description: Set the length of the TCP CLOSE state in seconds
+      uuid:
+        type: str
+        description: Universally Unique Identifier
+      udplite_portrange:
+        aliases: ['udplite-portrange']
+        type: str
+        description: Multiple UDP-Lite port ranges.
+      fabric_force_sync:
+        aliases: ['fabric-force-sync']
+        type: str
+        description: Enable/disable forced synchronization of configuration objects from the root FortiGate unit to the downstream devices.
+        choices: ['disable', 'enable']
+      fabric_object_source:
+        aliases: ['fabric-object-source']
+        type: str
+        description: Source of truth for fabric object.
+        choices: ['member', 'local', 'root']
 '''
 
 EXAMPLES = '''
@@ -199,42 +209,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -291,11 +301,13 @@ def main():
                 'udp-portrange': {'type': 'str'},
                 'visibility': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'explicit-proxy': {'v_range': [['6.2.0', '6.2.13']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'global-object': {'v_range': [['6.4.0', '']], 'type': 'int'},
+                'global-object': {'v_range': [['6.4.0', '7.6.7']], 'type': 'int'},
                 'fabric-object': {'v_range': [['6.4.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'tcp-rst-timer': {'v_range': [['7.0.0', '']], 'type': 'int'},
                 'uuid': {'v_range': [['7.4.2', '']], 'type': 'str'},
-                'udplite-portrange': {'v_range': [['7.6.0', '']], 'type': 'str'}
+                'udplite-portrange': {'v_range': [['7.6.0', '']], 'type': 'str'},
+                'fabric-force-sync': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'fabric-object-source': {'v_range': [['8.0.0', '']], 'choices': ['member', 'local', 'root'], 'type': 'str'}
             }
         }
     }

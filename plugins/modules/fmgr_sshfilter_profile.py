@@ -15,125 +15,141 @@ module: fmgr_sshfilter_profile
 short_description: SSH filter profile.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  sshfilter_profile:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      block:
+        type: list
+        elements: str
+        description: SSH blocking options.
+        choices: ['x11', 'shell', 'exec', 'port-forward', 'tun-forward', 'sftp', 'unknown', 'scp']
+      default_command_log:
+        aliases: ['default-command-log']
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Enable/disable logging unmatched shell commands.
+        choices: ['disable', 'enable']
+      log:
+        type: list
+        elements: str
+        description: SSH logging options.
+        choices: ['x11', 'shell', 'exec', 'port-forward', 'tun-forward', 'sftp', 'unknown', 'scp']
+      name:
         type: str
+        description: SSH filter profile name.
         required: true
-    sshfilter_profile:
-        description: The top level parameters set.
-        required: false
-        type: dict
+      shell_commands:
+        aliases: ['shell-commands']
+        type: list
+        elements: dict
+        description: Shell commands.
         suboptions:
-            block:
+          action:
+            type: str
+            description: Action to take for URL filter matches.
+            choices: ['block', 'allow']
+          alert:
+            type: str
+            description: Enable/disable alert.
+            choices: ['disable', 'enable']
+          id:
+            type: int
+            description: Id.
+          log:
+            type: str
+            description: Enable/disable logging.
+            choices: ['disable', 'enable']
+          pattern:
+            type: str
+            description: SSH shell command pattern.
+          severity:
+            type: str
+            description: Log severity.
+            choices: ['low', 'medium', 'high', 'critical']
+          type:
+            type: str
+            description: Matching type.
+            choices: ['regex', 'simple']
+      file_filter:
+        aliases: ['file-filter']
+        type: dict
+        description: File filter.
+        suboptions:
+          entries:
+            type: list
+            elements: dict
+            description: Entries.
+            suboptions:
+              action:
+                type: str
+                description: Action taken for matched file.
+                choices: ['log', 'block']
+              comment:
+                type: str
+                description: Comment.
+              direction:
+                type: str
+                description: Match files transmitted in the sessions originating or reply direction.
+                choices: ['any', 'incoming', 'outgoing']
+              file_type:
+                aliases: ['file-type']
+                type: raw
+                description: (list) Select file type.
+              filter:
+                type: str
+                description: Add a file filter.
+              password_protected:
+                aliases: ['password-protected']
+                type: str
+                description: Match password-protected files.
+                choices: ['any', 'yes']
+              protocol:
                 type: list
                 elements: str
-                description: SSH blocking options.
-                choices: ['x11', 'shell', 'exec', 'port-forward', 'tun-forward', 'sftp',
-                          'unknown', 'scp']
-            default_command_log:
-                aliases: ['default-command-log']
-                type: str
-                description: Enable/disable logging unmatched shell commands.
-                choices: ['disable', 'enable']
-            log:
-                type: list
-                elements: str
-                description: SSH logging options.
-                choices: ['x11', 'shell', 'exec', 'port-forward', 'tun-forward', 'sftp',
-                          'unknown', 'scp']
-            name:
-                type: str
-                description: SSH filter profile name.
-                required: true
-            shell_commands:
-                aliases: ['shell-commands']
-                type: list
-                elements: dict
-                description: Shell commands.
-                suboptions:
-                    action:
-                        type: str
-                        description: Action to take for URL filter matches.
-                        choices: ['block', 'allow']
-                    alert:
-                        type: str
-                        description: Enable/disable alert.
-                        choices: ['disable', 'enable']
-                    id:
-                        type: int
-                        description: Id.
-                    log:
-                        type: str
-                        description: Enable/disable logging.
-                        choices: ['disable', 'enable']
-                    pattern:
-                        type: str
-                        description: SSH shell command pattern.
-                    severity:
-                        type: str
-                        description: Log severity.
-                        choices: ['low', 'medium', 'high', 'critical']
-                    type:
-                        type: str
-                        description: Matching type.
-                        choices: ['regex', 'simple']
-            file_filter:
-                aliases: ['file-filter']
-                type: dict
-                description: File filter.
-                suboptions:
-                    entries:
-                        type: list
-                        elements: dict
-                        description: Entries.
-                        suboptions:
-                            action:
-                                type: str
-                                description: Action taken for matched file.
-                                choices: ['log', 'block']
-                            comment:
-                                type: str
-                                description: Comment.
-                            direction:
-                                type: str
-                                description: Match files transmitted in the sessions originating or reply direction.
-                                choices: ['any', 'incoming', 'outgoing']
-                            file_type:
-                                aliases: ['file-type']
-                                type: raw
-                                description: (list) Select file type.
-                            filter:
-                                type: str
-                                description: Add a file filter.
-                            password_protected:
-                                aliases: ['password-protected']
-                                type: str
-                                description: Match password-protected files.
-                                choices: ['any', 'yes']
-                            protocol:
-                                type: list
-                                elements: str
-                                description: Protocols to apply with.
-                                choices: ['ssh']
-                    log:
-                        type: str
-                        description: Enable/disable file filter logging.
-                        choices: ['disable', 'enable']
-                    scan_archive_contents:
-                        aliases: ['scan-archive-contents']
-                        type: str
-                        description: Enable/disable file filter archive contents scan.
-                        choices: ['disable', 'enable']
-                    status:
-                        type: str
-                        description: Enable/disable file filter.
-                        choices: ['disable', 'enable']
+                description: Protocols to apply with.
+                choices: ['ssh']
+          log:
+            type: str
+            description: Enable/disable file filter logging.
+            choices: ['disable', 'enable']
+          scan_archive_contents:
+            aliases: ['scan-archive-contents']
+            type: str
+            description: Enable/disable file filter archive contents scan.
+            choices: ['disable', 'enable']
+          status:
+            type: str
+            description: Enable/disable file filter.
+            choices: ['disable', 'enable']
+      fabric_force_sync:
+        aliases: ['fabric-force-sync']
+        type: str
+        description: Enable/disable forced synchronization of configuration objects from the root FortiGate unit to the downstream devices.
+        choices: ['disable', 'enable']
+      fabric_object:
+        aliases: ['fabric-object']
+        type: str
+        description: Security Fabric global object setting.
+        choices: ['disable', 'enable']
+      fabric_object_source:
+        aliases: ['fabric-object-source']
+        type: str
+        description: Source of truth for fabric object.
+        choices: ['member', 'local', 'root']
+      uuid:
+        type: str
+        description: Universally Unique Identifier
 '''
 
 EXAMPLES = '''
@@ -173,46 +189,50 @@ EXAMPLES = '''
           #   log: <value in [disable, enable]>
           #   scan_archive_contents: <value in [disable, enable]>
           #   status: <value in [disable, enable]>
+          # fabric_force_sync: <value in [disable, enable]>
+          # fabric_object: <value in [disable, enable]>
+          # fabric_object_source: <value in [member, local, root]>
+          # uuid: <string>
 '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -274,7 +294,11 @@ def main():
                         'scan-archive-contents': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.6.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'status': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.6.2']], 'choices': ['disable', 'enable'], 'type': 'str'}
                     }
-                }
+                },
+                'fabric-force-sync': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'fabric-object': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'fabric-object-source': {'v_range': [['8.0.0', '']], 'choices': ['member', 'local', 'root'], 'type': 'str'},
+                'uuid': {'v_range': [['8.0.0', '']], 'type': 'str'}
             }
         }
     }

@@ -12,151 +12,161 @@ ANSIBLE_METADATA = {'status': ['preview'],
 DOCUMENTATION = '''
 ---
 module: fmgr_firewall_proxyaddress6
-short_description: Firewall proxy address6
+short_description: Configure web proxy address6.
 version_added: "2.12.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  firewall_proxyaddress6:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      application:
+        type: list
+        elements: str
+        description: Application.
+      case_sensitivity:
+        aliases: ['case-sensitivity']
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Case sensitivity.
+        choices: ['disable', 'enable']
+      category:
+        type: list
+        elements: int
+        description: Category.
+      color:
+        type: int
+        description: Color.
+      comment:
         type: str
-        required: true
-    firewall_proxyaddress6:
-        description: The top level parameters set.
-        required: false
-        type: dict
+        description: Comment.
+      header:
+        type: str
+        description: Header.
+      header_group:
+        aliases: ['header-group']
+        type: list
+        elements: dict
+        description: Header group.
         suboptions:
-            application:
-                type: list
-                elements: str
-                description: Application.
-            case_sensitivity:
-                aliases: ['case-sensitivity']
-                type: str
-                description: Case sensitivity.
-                choices: ['disable', 'enable']
-            category:
-                type: list
-                elements: int
-                description: Category.
-            color:
-                type: int
-                description: Color.
-            comment:
-                type: str
-                description: Comment.
-            header:
-                type: str
-                description: Header.
-            header_group:
-                aliases: ['header-group']
-                type: list
-                elements: dict
-                description: Header group.
-                suboptions:
-                    case_sensitivity:
-                        aliases: ['case-sensitivity']
-                        type: str
-                        description: Case sensitivity.
-                        choices: ['disable', 'enable']
-                    header:
-                        type: str
-                        description: Header.
-                    header_name:
-                        aliases: ['header-name']
-                        type: str
-                        description: Header name.
-                    id:
-                        type: int
-                        description: Id.
-            header_name:
-                aliases: ['header-name']
-                type: str
-                description: Header name.
-            host:
-                type: list
-                elements: str
-                description: Host.
-            host_regex:
-                aliases: ['host-regex']
-                type: str
-                description: Host regex.
-            method:
-                type: list
-                elements: str
-                description: Method.
-                choices: ['delete', 'get', 'head', 'options', 'post', 'put', 'trace', 'connect']
-            name:
-                type: str
-                description: Name.
-                required: true
-            path:
-                type: str
-                description: Path.
-            post_arg:
-                aliases: ['post-arg']
-                type: str
-                description: Post arg.
-                choices: ['disable', 'enable']
-            query:
-                type: str
-                description: Query.
-            referrer:
-                type: str
-                description: Referrer.
-                choices: ['disable', 'enable']
-            tagging:
-                type: list
-                elements: dict
-                description: Tagging.
-                suboptions:
-                    category:
-                        type: list
-                        elements: str
-                        description: Category.
-                    name:
-                        type: str
-                        description: Name.
-                    tags:
-                        type: list
-                        elements: str
-                        description: Tags.
-            type:
-                type: str
-                description: Type.
-                choices: ['host-regex', 'url', 'category', 'method', 'ua', 'header',
-                          'src-advanced', 'dst-advanced', 'url-list', 'saas', 'response-header',
-                          'llm-server']
-            ua:
-                type: list
-                elements: str
-                description: Ua.
-                choices: ['chrome', 'ms', 'firefox', 'safari', 'other', 'ie', 'edge']
-            ua_max_ver:
-                aliases: ['ua-max-ver']
-                type: str
-                description: Ua max ver.
-            ua_min_ver:
-                aliases: ['ua-min-ver']
-                type: str
-                description: Ua min ver.
-            url_list:
-                aliases: ['url-list']
-                type: list
-                elements: str
-                description: Url list.
-            uuid:
-                type: str
-                description: Uuid.
-            llm_servers:
-                aliases: ['llm-servers']
-                type: list
-                elements: str
-                description: Llm servers.
+          case_sensitivity:
+            aliases: ['case-sensitivity']
+            type: str
+            description: Case sensitivity.
+            choices: ['disable', 'enable']
+          header:
+            type: str
+            description: Header.
+          header_name:
+            aliases: ['header-name']
+            type: str
+            description: Header name.
+          id:
+            type: int
+            description: Id.
+      header_name:
+        aliases: ['header-name']
+        type: str
+        description: Header name.
+      host:
+        type: list
+        elements: str
+        description: Host.
+      host_regex:
+        aliases: ['host-regex']
+        type: str
+        description: Host regex.
+      method:
+        type: list
+        elements: str
+        description: Method.
+        choices: ['delete', 'get', 'head', 'options', 'post', 'put', 'trace', 'connect', 'patch',
+                  'query', 'other', 'update']
+      name:
+        type: str
+        description: Name.
+        required: true
+      path:
+        type: str
+        description: Path.
+      post_arg:
+        aliases: ['post-arg']
+        type: str
+        description: Post arg.
+        choices: ['disable', 'enable']
+      query:
+        type: str
+        description: Query.
+      referrer:
+        type: str
+        description: Referrer.
+        choices: ['disable', 'enable']
+      tagging:
+        type: list
+        elements: dict
+        description: Tagging.
+        suboptions:
+          category:
+            type: list
+            elements: str
+            description: Category.
+          name:
+            type: str
+            description: Name.
+          tags:
+            type: list
+            elements: str
+            description: Tags.
+      type:
+        type: str
+        description: Type.
+        choices: ['host-regex', 'url', 'category', 'method', 'ua', 'header', 'src-advanced',
+                  'dst-advanced', 'url-list', 'saas', 'response-header', 'llm-server']
+      ua:
+        type: list
+        elements: str
+        description: Ua.
+        choices: ['chrome', 'ms', 'firefox', 'safari', 'other', 'ie', 'edge']
+      ua_max_ver:
+        aliases: ['ua-max-ver']
+        type: str
+        description: Ua max ver.
+      ua_min_ver:
+        aliases: ['ua-min-ver']
+        type: str
+        description: Ua min ver.
+      url_list:
+        aliases: ['url-list']
+        type: list
+        elements: str
+        description: Url list.
+      uuid:
+        type: str
+        description: Uuid.
+      llm_servers:
+        aliases: ['llm-servers']
+        type: list
+        elements: str
+        description: Llm servers.
+      custom_tags:
+        aliases: ['custom-tags']
+        type: list
+        elements: str
+        description: Custom tags.
+      display_with:
+        aliases: ['display-with']
+        type: str
+        description: Display object with first tag, all tags, or just the icon.
+        choices: ['all-tags', 'first-tag-only', 'icon-and-color']
 '''
 
 EXAMPLES = '''
@@ -165,7 +175,7 @@ EXAMPLES = '''
   connection: httpapi
   gather_facts: false
   tasks:
-    - name: Firewall proxy address6
+    - name: Configure web proxy address6.
       fortinet.fortimanager.fmgr_firewall_proxyaddress6:
         # workspace_locking_adom: <global or your adom name>
         adom: <your own value>
@@ -186,7 +196,8 @@ EXAMPLES = '''
           # header_name: <string>
           # host: <list or string>
           # host_regex: <string>
-          # method: ["delete", "get", "head", "options", "post", "put", "trace", "connect"]
+          # method: ["delete", "get", "head", "options", "post", "put", "trace", "connect",
+          #          "patch", "query", "other", "update"]
           # path: <string>
           # post_arg: <value in [disable, enable]>
           # query: <string>
@@ -202,46 +213,48 @@ EXAMPLES = '''
           # url_list: <list or string>
           # uuid: <string>
           # llm_servers: <list or string>
+          # custom_tags: <list or string>
+          # display_with: <value in [all-tags, first-tag-only, icon-and-color]>
 '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -283,7 +296,7 @@ def main():
                 'method': {
                     'v_range': [['7.6.4', '']],
                     'type': 'list',
-                    'choices': ['delete', 'get', 'head', 'options', 'post', 'put', 'trace', 'connect'],
+                    'choices': ['delete', 'get', 'head', 'options', 'post', 'put', 'trace', 'connect', 'patch', 'query', 'other', 'update'],
                     'elements': 'str'
                 },
                 'name': {'v_range': [['7.6.4', '']], 'required': True, 'type': 'str'},
@@ -319,7 +332,9 @@ def main():
                 'ua-min-ver': {'v_range': [['7.6.4', '']], 'type': 'str'},
                 'url-list': {'v_range': [['7.6.4', '']], 'type': 'list', 'elements': 'str'},
                 'uuid': {'v_range': [['7.6.4', '']], 'type': 'str'},
-                'llm-servers': {'v_range': [['7.6.5', '']], 'type': 'list', 'elements': 'str'}
+                'llm-servers': {'v_range': [['7.6.5', '']], 'type': 'list', 'elements': 'str'},
+                'custom-tags': {'v_range': [['8.0.0', '']], 'type': 'list', 'elements': 'str'},
+                'display-with': {'v_range': [['8.0.0', '']], 'choices': ['all-tags', 'first-tag-only', 'icon-and-color'], 'type': 'str'}
             }
         }
     }

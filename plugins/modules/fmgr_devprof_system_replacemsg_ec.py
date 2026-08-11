@@ -15,37 +15,37 @@ module: fmgr_devprof_system_replacemsg_ec
 short_description: Replacement messages.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.partial_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.partial_crud
 options:
-    adom:
-        description: The parameter (adom) in requested url.
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  devprof:
+    description: The parameter (devprof) in requested url.
+    type: str
+    required: true
+  devprof_system_replacemsg_ec:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      buffer:
         type: str
-        required: true
-    devprof:
-        description: The parameter (devprof) in requested url.
+        description: Message string.
+      format:
         type: str
-        required: true
-    devprof_system_replacemsg_ec:
-        description: The top level parameters set.
-        required: false
-        type: dict
-        suboptions:
-            buffer:
-                type: str
-                description: Message string.
-            format:
-                type: str
-                description: Format flag.
-                choices: ['none', 'text', 'html', 'wml']
-            header:
-                type: str
-                description: Header flag.
-                choices: ['none', 'http', '8bit']
-            msg_type:
-                aliases: ['msg-type']
-                type: str
-                description: Message type.
+        description: Format flag.
+        choices: ['none', 'text', 'html', 'wml']
+      header:
+        type: str
+        description: Header flag.
+        choices: ['none', 'http', '8bit']
+      msg_type:
+        aliases: ['msg-type']
+        type: str
+        description: Message type.
 '''
 
 EXAMPLES = '''
@@ -68,42 +68,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -119,20 +119,20 @@ def main():
         'adom': {'required': True, 'type': 'str'},
         'devprof': {'required': True, 'type': 'str'},
         'devprof_system_replacemsg_ec': {
-            'type': 'dict', 'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '7.2.1'], ['7.4.8', '7.4.10']],
+            'type': 'dict', 'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '7.2.1'], ['7.4.8', '7.4.11']],
             'options': {
-                'buffer': {'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '7.2.1'], ['7.4.8', '7.4.10']], 'type': 'str'},
+                'buffer': {'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '7.2.1'], ['7.4.8', '7.4.11']], 'type': 'str'},
                 'format': {
-                    'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '7.2.1'], ['7.4.8', '7.4.10']],
+                    'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '7.2.1'], ['7.4.8', '7.4.11']],
                     'choices': ['none', 'text', 'html', 'wml'],
                     'type': 'str'
                 },
                 'header': {
-                    'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '7.2.1'], ['7.4.8', '7.4.10']],
+                    'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '7.2.1'], ['7.4.8', '7.4.11']],
                     'choices': ['none', 'http', '8bit'],
                     'type': 'str'
                 },
-                'msg-type': {'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '7.2.1'], ['7.4.8', '7.4.10']], 'type': 'str'}
+                'msg-type': {'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '7.2.1'], ['7.4.8', '7.4.11']], 'type': 'str'}
             }
         }
     }

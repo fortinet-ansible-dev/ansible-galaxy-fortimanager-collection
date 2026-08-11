@@ -21,6 +21,7 @@ action_groups:
     - fmgr_antivirus_profile_smb
     - fmgr_antivirus_profile_smtp
     - fmgr_antivirus_profile_ssh
+    - fmgr_antivirus_profile_websocket
     - fmgr_apcfgprofile
     - fmgr_apcfgprofile_commandlist
     - fmgr_application_casi_profile
@@ -62,6 +63,8 @@ action_groups:
     - fmgr_casb_useractivity_match_rules
     - fmgr_casb_useractivity_match_tenantextraction
     - fmgr_casb_useractivity_match_tenantextraction_filters
+    - fmgr_casb_useractivity_match_tenantsessionextraction
+    - fmgr_casb_useractivity_match_tenantsessionextraction_filters
     - fmgr_certificate_template
     - fmgr_cifs_domaincontroller
     - fmgr_cifs_profile
@@ -317,6 +320,7 @@ action_groups:
     - fmgr_firewall_casbprofile_saasapplication_accessrule
     - fmgr_firewall_casbprofile_saasapplication_customcontrol
     - fmgr_firewall_casbprofile_saasapplication_customcontrol_option
+    - fmgr_firewall_customtag
     - fmgr_firewall_decryptedtrafficmirror
     - fmgr_firewall_explicitproxyaddress
     - fmgr_firewall_explicitproxyaddress_headergroup
@@ -394,6 +398,7 @@ action_groups:
     - fmgr_firewall_profileprotocoloptions_rtmp
     - fmgr_firewall_profileprotocoloptions_smtp
     - fmgr_firewall_profileprotocoloptions_ssh
+    - fmgr_firewall_profileprotocoloptions_websocket
     - fmgr_firewall_proxyaddress
     - fmgr_firewall_proxyaddress6
     - fmgr_firewall_proxyaddress6_headergroup
@@ -470,6 +475,8 @@ action_groups:
     - fmgr_fmg_script_schedule
     - fmgr_fmg_variable
     - fmgr_fmg_variable_dynamicmapping
+    - fmgr_fsp_override
+    - fmgr_fsp_override_attrs
     - fmgr_fsp_vlan
     - fmgr_fsp_vlan_dhcpserver
     - fmgr_fsp_vlan_dhcpserver_excluderange
@@ -572,6 +579,7 @@ action_groups:
     - fmgr_mpskprofile_mpskgroup
     - fmgr_mpskprofile_mpskgroup_mpskkey
     - fmgr_nacprofile
+    - fmgr_pfcp_messagefilter
     - fmgr_pkg_authentication_rule
     - fmgr_pkg_authentication_setting
     - fmgr_pkg_central_dnat
@@ -605,6 +613,7 @@ action_groups:
     - fmgr_pkg_firewall_policy6
     - fmgr_pkg_firewall_policy64
     - fmgr_pkg_firewall_policy6_sectionvalue
+    - fmgr_pkg_firewall_policy_fabricpolicy
     - fmgr_pkg_firewall_policy_sectionvalue
     - fmgr_pkg_firewall_policy_vpndstnode
     - fmgr_pkg_firewall_policy_vpnsrcnode
@@ -619,6 +628,8 @@ action_groups:
     - fmgr_pm_config_meta_reference
     - fmgr_pm_config_pblock_firewall_consolidated_policy
     - fmgr_pm_config_pblock_firewall_consolidated_policy_sectionvalue
+    - fmgr_pm_config_pblock_firewall_localinpolicy
+    - fmgr_pm_config_pblock_firewall_localinpolicy6
     - fmgr_pm_config_pblock_firewall_policy
     - fmgr_pm_config_pblock_firewall_policy6
     - fmgr_pm_config_pblock_firewall_policy6_sectionvalue
@@ -726,6 +737,7 @@ action_groups:
     - fmgr_switchcontroller_qos_queuepolicy
     - fmgr_switchcontroller_qos_queuepolicy_cosqueue
     - fmgr_switchcontroller_securitypolicy_8021x
+    - fmgr_switchcontroller_securitypolicy_admin
     - fmgr_switchcontroller_securitypolicy_captiveportal
     - fmgr_switchcontroller_securitypolicy_localaccess
     - fmgr_switchcontroller_switchinterfacetag
@@ -834,7 +846,10 @@ action_groups:
     - fmgr_template
     - fmgr_templategroup
     - fmgr_ums_setting
+    - fmgr_user_aci
     - fmgr_user_adgrp
+    - fmgr_user_azure
+    - fmgr_user_azure_rule
     - fmgr_user_certificate
     - fmgr_user_clearpass
     - fmgr_user_connector
@@ -864,11 +879,13 @@ action_groups:
     - fmgr_user_group_dynamicmapping_sslvpnoschecklist
     - fmgr_user_group_guest
     - fmgr_user_group_match
+    - fmgr_user_guardicore
     - fmgr_user_json
     - fmgr_user_krbkeytab
     - fmgr_user_ldap
     - fmgr_user_ldap_dynamicmapping
     - fmgr_user_local
+    - fmgr_user_local_dynamicmapping
     - fmgr_user_nsx
     - fmgr_user_nsx_service
     - fmgr_user_oidc
@@ -920,6 +937,7 @@ action_groups:
     - fmgr_vpn_certificate_remote
     - fmgr_vpn_ipsec_fec
     - fmgr_vpn_ipsec_fec_mappings
+    - fmgr_vpn_ipsec_fec_mappings_tos
     - fmgr_vpn_ipsec_manualkey
     - fmgr_vpn_ipsec_phase1
     - fmgr_vpn_ipsec_phase1_ipv4excluderange
@@ -1045,6 +1063,7 @@ action_groups:
     - fmgr_wireless_accesscontrollist_layer3ipv6rules
     - fmgr_wireless_address
     - fmgr_wireless_addrgrp
+    - fmgr_wireless_lwprofile
     - fmgr_wireless_ssidpolicy
     - fmgr_wireless_syslogprofile
     - fmgr_wireless_vap_ip6prefixlist
@@ -1059,6 +1078,7 @@ action_groups:
     - fmgr_wtpprofile_radio3
     - fmgr_wtpprofile_radio4
     - fmgr_wtpprofile_splittunnelingacl
+    - fmgr_ztna_destination
     - fmgr_ztna_serviceconnector
     - fmgr_ztna_trafficforwardproxy
     - fmgr_ztna_trafficforwardproxy_quic
@@ -1079,6 +1099,14 @@ action_groups:
     - fmgr_ztna_webproxy_apigateway_sslciphersuites
   all:
     - fmgr_clone
+    - fmgr_deployment_checkout_revision
+    - fmgr_deployment_cluster_move_dev
+    - fmgr_deployment_export_config
+    - fmgr_deployment_get_controller_status
+    - fmgr_deployment_get_device_revision
+    - fmgr_deployment_get_instlog
+    - fmgr_deployment_import_config
+    - fmgr_deployment_revert
     - fmgr_dvm_cmd_add_device
     - fmgr_dvm_cmd_add_devlist
     - fmgr_dvm_cmd_changehaseq
@@ -1126,9 +1154,13 @@ action_groups:
     - fmgr_generic
     - fmgr_metafields_system_admin_user
     - fmgr_move
+    - fmgr_pkg_footer_localinpolicy
+    - fmgr_pkg_footer_localinpolicy6
     - fmgr_pkg_footer_policy
     - fmgr_pkg_footer_policy6
     - fmgr_pkg_footer_shapingpolicy
+    - fmgr_pkg_header_localinpolicy
+    - fmgr_pkg_header_localinpolicy6
     - fmgr_pkg_header_policy
     - fmgr_pkg_header_policy6
     - fmgr_pkg_header_shapingpolicy
@@ -1160,6 +1192,7 @@ action_groups:
     - fmgr_securityconsole_template_cli_preview
     - fmgr_securityconsole_template_validate
     - fmgr_sys_api_sdnconnector
+    - fmgr_sys_backup
     - fmgr_sys_cloud_orchest
     - fmgr_sys_generate_wsdl
     - fmgr_sys_hitcount
@@ -1168,6 +1201,7 @@ action_groups:
     - fmgr_sys_logout
     - fmgr_sys_proxy_json
     - fmgr_sys_reboot
+    - fmgr_sys_restore
     - fmgr_sys_task_result
     - fmgr_system_admin_group
     - fmgr_system_admin_group_member
@@ -1212,6 +1246,7 @@ action_groups:
     - fmgr_system_csf
     - fmgr_system_csf_fabricconnector
     - fmgr_system_csf_trustedlist
+    - fmgr_system_csf_trustedlist_adom
     - fmgr_system_dm
     - fmgr_system_dns
     - fmgr_system_docker

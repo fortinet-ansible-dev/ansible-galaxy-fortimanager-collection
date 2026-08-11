@@ -15,207 +15,206 @@ module: fmgr_firewall_vip46
 short_description: Configure IPv4 to IPv6 virtual IPs.
 version_added: "2.0.0"
 extends_documentation_fragment:
-    - fortinet.fortimanager.general
-    - fortinet.fortimanager.general.full_crud
+  - fortinet.fortimanager.general
+  - fortinet.fortimanager.general.full_crud
 options:
-    revision_note:
-        description: The change note that can be specified when an object is created or updated.
+  revision_note:
+    description: The change note that can be specified when an object is created or updated.
+    type: str
+  adom:
+    description: The parameter (adom) in requested url.
+    type: str
+    required: true
+  firewall_vip46:
+    description: The top level parameters set.
+    required: false
+    type: dict
+    suboptions:
+      arp_reply:
+        aliases: ['arp-reply']
         type: str
-    adom:
-        description: The parameter (adom) in requested url.
+        description: Enable ARP reply.
+        choices: ['disable', 'enable']
+      color:
+        type: int
+        description: Color of icon on the GUI.
+      comment:
         type: str
-        required: true
-    firewall_vip46:
-        description: The top level parameters set.
-        required: false
-        type: dict
+        description: Comment.
+      dynamic_mapping:
+        type: list
+        elements: dict
+        description: Dynamic mapping.
         suboptions:
-            arp_reply:
-                aliases: ['arp-reply']
+          _scope:
+            type: list
+            elements: dict
+            description: Scope.
+            suboptions:
+              name:
                 type: str
-                description: Enable ARP reply.
-                choices: ['disable', 'enable']
-            color:
-                type: int
-                description: Color of icon on the GUI.
-            comment:
+                description: Name.
+              vdom:
                 type: str
-                description: Comment.
-            dynamic_mapping:
-                type: list
-                elements: dict
-                description: Dynamic mapping.
-                suboptions:
-                    _scope:
-                        type: list
-                        elements: dict
-                        description: Scope.
-                        suboptions:
-                            name:
-                                type: str
-                                description: Name.
-                            vdom:
-                                type: str
-                                description: Vdom.
-                    arp_reply:
-                        aliases: ['arp-reply']
-                        type: str
-                        description: Arp reply.
-                        choices: ['disable', 'enable']
-                    color:
-                        type: int
-                        description: Color.
-                    comment:
-                        type: str
-                        description: Comment.
-                    extip:
-                        type: str
-                        description: Extip.
-                    extport:
-                        type: str
-                        description: Extport.
-                    id:
-                        type: int
-                        description: Id.
-                    ldb_method:
-                        aliases: ['ldb-method']
-                        type: str
-                        description: Ldb method.
-                        choices: ['static', 'round-robin', 'weighted', 'least-session',
-                                  'least-rtt', 'first-alive']
-                    mappedip:
-                        type: str
-                        description: Mappedip.
-                    mappedport:
-                        type: str
-                        description: Mappedport.
-                    monitor:
-                        type: raw
-                        description: (list or str) Monitor.
-                    portforward:
-                        type: str
-                        description: Portforward.
-                        choices: ['disable', 'enable']
-                    protocol:
-                        type: str
-                        description: Protocol.
-                        choices: ['tcp', 'udp']
-                    server_type:
-                        aliases: ['server-type']
-                        type: str
-                        description: Server type.
-                        choices: ['http', 'tcp', 'udp', 'ip']
-                    src_filter:
-                        aliases: ['src-filter']
-                        type: raw
-                        description: (list) Src filter.
-                    type:
-                        type: str
-                        description: Type.
-                        choices: ['static-nat', 'server-load-balance']
-                    uuid:
-                        type: str
-                        description: Uuid.
-                    srcintf_filter:
-                        aliases: ['srcintf-filter']
-                        type: raw
-                        description: (list or str) Interfaces to which the VIP46 applies.
-            extip:
-                type: str
-                description: Start-external-IP [-end-external-IP].
-            extport:
-                type: str
-                description: External service port.
-            id:
-                type: int
-                description: Custom defined id.
-            ldb_method:
-                aliases: ['ldb-method']
-                type: str
-                description: Load balance method.
-                choices: ['static', 'round-robin', 'weighted', 'least-session', 'least-rtt',
-                          'first-alive']
-            mappedip:
-                type: str
-                description: Start-mapped-IP [-end mapped-IP].
-            mappedport:
-                type: str
-                description: Mapped service port.
-            monitor:
-                type: raw
-                description: (list or str) Health monitors.
-            name:
-                type: str
-                description: VIP46 name.
-                required: true
-            portforward:
-                type: str
-                description: Enable port forwarding.
-                choices: ['disable', 'enable']
-            protocol:
-                type: str
-                description: Mapped port protocol.
-                choices: ['tcp', 'udp']
-            realservers:
-                type: list
-                elements: dict
-                description: Realservers.
-                suboptions:
-                    client_ip:
-                        aliases: ['client-ip']
-                        type: str
-                        description: Restrict server to a client IP in this range.
-                    healthcheck:
-                        type: str
-                        description: Per server health check.
-                        choices: ['disable', 'enable', 'vip']
-                    holddown_interval:
-                        aliases: ['holddown-interval']
-                        type: int
-                        description: Hold down interval.
-                    id:
-                        type: int
-                        description: Real server ID.
-                    ip:
-                        type: str
-                        description: Mapped server IPv6.
-                    max_connections:
-                        aliases: ['max-connections']
-                        type: int
-                        description: Maximum number of connections allowed to server.
-                    monitor:
-                        type: raw
-                        description: (list or str) Health monitors.
-                    port:
-                        type: int
-                        description: Mapped server port.
-                    status:
-                        type: str
-                        description: Server administrative status.
-                        choices: ['active', 'standby', 'disable']
-                    weight:
-                        type: int
-                        description: Weight.
-            server_type:
-                aliases: ['server-type']
-                type: str
-                description: Server type.
-                choices: ['http', 'tcp', 'udp', 'ip']
-            src_filter:
-                aliases: ['src-filter']
-                type: raw
-                description: (list) Source IP filter
-            type:
-                type: str
-                description: VIP type
-                choices: ['static-nat', 'server-load-balance']
-            uuid:
-                type: str
-                description: Universally Unique Identifier
-            srcintf_filter:
-                aliases: ['srcintf-filter']
-                type: raw
-                description: (list or str) Interfaces to which the VIP46 applies.
+                description: Vdom.
+          arp_reply:
+            aliases: ['arp-reply']
+            type: str
+            description: Arp reply.
+            choices: ['disable', 'enable']
+          color:
+            type: int
+            description: Color.
+          comment:
+            type: str
+            description: Comment.
+          extip:
+            type: str
+            description: Extip.
+          extport:
+            type: str
+            description: Extport.
+          id:
+            type: int
+            description: Id.
+          ldb_method:
+            aliases: ['ldb-method']
+            type: str
+            description: Ldb method.
+            choices: ['static', 'round-robin', 'weighted', 'least-session', 'least-rtt',
+                      'first-alive']
+          mappedip:
+            type: str
+            description: Mappedip.
+          mappedport:
+            type: str
+            description: Mappedport.
+          monitor:
+            type: raw
+            description: (list or str) Monitor.
+          portforward:
+            type: str
+            description: Portforward.
+            choices: ['disable', 'enable']
+          protocol:
+            type: str
+            description: Protocol.
+            choices: ['tcp', 'udp']
+          server_type:
+            aliases: ['server-type']
+            type: str
+            description: Server type.
+            choices: ['http', 'tcp', 'udp', 'ip']
+          src_filter:
+            aliases: ['src-filter']
+            type: raw
+            description: (list) Src filter.
+          type:
+            type: str
+            description: Type.
+            choices: ['static-nat', 'server-load-balance']
+          uuid:
+            type: str
+            description: Uuid.
+          srcintf_filter:
+            aliases: ['srcintf-filter']
+            type: raw
+            description: (list or str) Interfaces to which the VIP46 applies.
+      extip:
+        type: str
+        description: Start-external-IP [-end-external-IP].
+      extport:
+        type: str
+        description: External service port.
+      id:
+        type: int
+        description: Custom defined id.
+      ldb_method:
+        aliases: ['ldb-method']
+        type: str
+        description: Load balance method.
+        choices: ['static', 'round-robin', 'weighted', 'least-session', 'least-rtt', 'first-alive']
+      mappedip:
+        type: str
+        description: Start-mapped-IP [-end mapped-IP].
+      mappedport:
+        type: str
+        description: Mapped service port.
+      monitor:
+        type: raw
+        description: (list or str) Health monitors.
+      name:
+        type: str
+        description: VIP46 name.
+        required: true
+      portforward:
+        type: str
+        description: Enable port forwarding.
+        choices: ['disable', 'enable']
+      protocol:
+        type: str
+        description: Mapped port protocol.
+        choices: ['tcp', 'udp']
+      realservers:
+        type: list
+        elements: dict
+        description: Realservers.
+        suboptions:
+          client_ip:
+            aliases: ['client-ip']
+            type: str
+            description: Restrict server to a client IP in this range.
+          healthcheck:
+            type: str
+            description: Per server health check.
+            choices: ['disable', 'enable', 'vip']
+          holddown_interval:
+            aliases: ['holddown-interval']
+            type: int
+            description: Hold down interval.
+          id:
+            type: int
+            description: Real server ID.
+          ip:
+            type: str
+            description: Mapped server IPv6.
+          max_connections:
+            aliases: ['max-connections']
+            type: int
+            description: Maximum number of connections allowed to server.
+          monitor:
+            type: raw
+            description: (list or str) Health monitors.
+          port:
+            type: int
+            description: Mapped server port.
+          status:
+            type: str
+            description: Server administrative status.
+            choices: ['active', 'standby', 'disable']
+          weight:
+            type: int
+            description: Weight.
+      server_type:
+        aliases: ['server-type']
+        type: str
+        description: Server type.
+        choices: ['http', 'tcp', 'udp', 'ip']
+      src_filter:
+        aliases: ['src-filter']
+        type: raw
+        description: (list) Source IP filter
+      type:
+        type: str
+        description: VIP type
+        choices: ['static-nat', 'server-load-balance']
+      uuid:
+        type: str
+        description: Universally Unique Identifier
+      srcintf_filter:
+        aliases: ['srcintf-filter']
+        type: raw
+        description: (list or str) Interfaces to which the VIP46 applies.
 '''
 
 EXAMPLES = '''
@@ -262,42 +261,42 @@ EXAMPLES = '''
 
 RETURN = '''
 meta:
-    description: The result of the request.
-    type: dict
-    returned: always
-    contains:
-        request_url:
-            description: The full url requested.
-            returned: always
-            type: str
-            sample: /sys/login/user
-        response_code:
-            description: The status of api request.
-            returned: always
-            type: int
-            sample: 0
-        response_data:
-            description: The api response.
-            type: list
-            returned: always
-        response_message:
-            description: The descriptive message of the api response.
-            type: str
-            returned: always
-            sample: OK.
-        system_information:
-            description: The information of the target system.
-            type: dict
-            returned: always
+  description: The result of the request.
+  type: dict
+  returned: always
+  contains:
+    request_url:
+      description: The full url requested.
+      returned: always
+      type: str
+      sample: /sys/login/user
+    response_code:
+      description: The status of api request.
+      returned: always
+      type: int
+      sample: 0
+    response_data:
+      description: The api response.
+      type: list
+      returned: always
+    response_message:
+      description: The descriptive message of the api response.
+      type: str
+      returned: always
+      sample: OK.
+    system_information:
+      description: The information of the target system.
+      type: dict
+      returned: always
 rc:
-    description: The status the request.
-    type: int
-    returned: always
-    sample: 0
+  description: The status the request.
+  type: int
+  returned: always
+  sample: 0
 version_check_warning:
-    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
-    type: list
-    returned: complex
+  description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+  type: list
+  returned: complex
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
@@ -373,7 +372,7 @@ def main():
                 'src-filter': {'type': 'raw'},
                 'type': {'choices': ['static-nat', 'server-load-balance'], 'type': 'str'},
                 'uuid': {'type': 'str'},
-                'srcintf-filter': {'v_range': [['6.2.7', '6.2.13'], ['6.4.4', '']], 'type': 'raw'}
+                'srcintf-filter': {'v_range': [['6.2.7', '6.2.13'], ['6.4.4', '7.6.7']], 'type': 'raw'}
             }
         }
     }
