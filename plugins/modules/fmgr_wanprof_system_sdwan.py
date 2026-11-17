@@ -247,6 +247,12 @@ options:
                 aliases: ['custom-profile-threshold']
                 type: int
                 description: Custom profile threshold for SLA to be marked as pass
+              fortiextender_link_cost_factor:
+                aliases: ['fortiextender-link-cost-factor']
+                type: list
+                elements: str
+                description: Criteria on which to base link selection.
+                choices: ['signal-strength', 'quota-usage']
           sla_fail_log_period:
             aliases: ['sla-fail-log-period']
             type: int
@@ -365,6 +371,24 @@ options:
             aliases: ['update-bgp-route']
             type: str
             description: Enable/disable updating the BGP route.
+            choices: ['disable', 'enable']
+          extender_interval:
+            aliases: ['extender-interval']
+            type: int
+            description: Status check interval in milliseconds, or the time between attempting to connect to the FortiExtender
+          extender_probe_timeout:
+            aliases: ['extender-probe-timeout']
+            type: int
+            description: Time to wait before a probe packet is considered lost
+          fortiextender_metric:
+            aliases: ['fortiextender-metric']
+            type: str
+            description: Enable/disable use of FortiExtender metric.
+            choices: ['disable', 'enable']
+          probe_dont_fragment:
+            aliases: ['probe-dont-fragment']
+            type: str
+            description: Enable/disable use of the Dont Fragment flag.
             choices: ['disable', 'enable']
       load_balance_mode:
         aliases: ['load-balance-mode']
@@ -491,6 +515,14 @@ options:
             aliases: ['quota-limit']
             type: int
             description: Volume quota limit assigned to this member in gigabytes
+          quota_usage_threshold:
+            aliases: ['quota-usage-threshold']
+            type: int
+            description: Configure the threshold as a percentage of the cellular data quota set in the FortiExtender dataplan.
+          signal_strength_threshold:
+            aliases: ['signal-strength-threshold']
+            type: int
+            description: Configure the threshold as a percentage of the maximum signal strength below which SDWAN determines this FortiExtender interfa...
       neighbor:
         type: list
         elements: dict
@@ -607,7 +639,7 @@ options:
             type: str
             description: Hash algorithm for selected priority members for load balance mode.
             choices: ['round-robin', 'source-ip-based', 'source-dest-ip-based', 'inbandwidth',
-                      'outbandwidth', 'bibandwidth']
+                      'outbandwidth', 'bibandwidth', 'spillover', 'weight-based-spillover']
           health_check:
             aliases: ['health-check']
             type: raw
@@ -1122,6 +1154,11 @@ options:
         aliases: ['duplication-max-discrepancy']
         type: int
         description: Maximum discrepancy between two packets for deduplication in milliseconds
+      single_advpn_per_underlay_pair:
+        aliases: ['single-advpn-per-underlay-pair']
+        type: str
+        description: Enable/disable allowance of only one ADVPN shortcut for each underlay pair
+        choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -1192,6 +1229,7 @@ EXAMPLES = '''
           #         priority_in_sla: <integer>
           #         priority_out_sla: <integer>
           #         custom_profile_threshold: <integer>
+          #         fortiextender_link_cost_factor: ["signal-strength", "quota-usage"]
           #     sla_fail_log_period: <integer>
           #     sla_pass_log_period: <integer>
           #     system_dns: <value in [disable, enable]>
@@ -1221,6 +1259,10 @@ EXAMPLES = '''
           #     latency_weight: <integer>
           #     packet_loss_weight: <integer>
           #     update_bgp_route: <value in [disable, enable]>
+          #     extender_interval: <integer>
+          #     extender_probe_timeout: <integer>
+          #     fortiextender_metric: <value in [disable, enable]>
+          #     probe_dont_fragment: <value in [disable, enable]>
           # load_balance_mode: <value in [source-ip-based, weight-based, usage-based, ...]>
           # members:
           #   - _dynamic_member: <string>
@@ -1254,6 +1296,8 @@ EXAMPLES = '''
           #     overage_volume_ratio: <integer>
           #     overage_weight: <integer>
           #     quota_limit: <integer>
+          #     quota_usage_threshold: <integer>
+          #     signal_strength_threshold: <integer>
           # neighbor:
           #   - health_check: <string>
           #     ip: <string>
@@ -1406,6 +1450,7 @@ EXAMPLES = '''
           #     vrf: <integer>
           # option: ["sdwan-overlay", "sdwan-manager"]
           # duplication_max_discrepancy: <integer>
+          # single_advpn_per_underlay_pair: <value in [disable, enable]>
 '''
 
 RETURN = '''
@@ -1538,7 +1583,13 @@ def main():
                                 'mos-threshold': {'v_range': [['7.2.0', '']], 'type': 'str'},
                                 'priority-in-sla': {'v_range': [['7.2.1', '']], 'type': 'int'},
                                 'priority-out-sla': {'v_range': [['7.2.1', '']], 'type': 'int'},
-                                'custom-profile-threshold': {'v_range': [['7.6.4', '']], 'type': 'int'}
+                                'custom-profile-threshold': {'v_range': [['7.6.4', '']], 'type': 'int'},
+                                'fortiextender-link-cost-factor': {
+                                    'v_range': [['8.0.1', '']],
+                                    'type': 'list',
+                                    'choices': ['signal-strength', 'quota-usage'],
+                                    'elements': 'str'
+                                }
                             },
                             'elements': 'dict'
                         },
@@ -1574,7 +1625,11 @@ def main():
                         'jitter-weight': {'v_range': [['7.6.4', '']], 'type': 'int'},
                         'latency-weight': {'v_range': [['7.6.4', '']], 'type': 'int'},
                         'packet-loss-weight': {'v_range': [['7.6.4', '']], 'type': 'int'},
-                        'update-bgp-route': {'v_range': [['7.6.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                        'update-bgp-route': {'v_range': [['7.6.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'extender-interval': {'v_range': [['8.0.1', '']], 'type': 'int'},
+                        'extender-probe-timeout': {'v_range': [['8.0.1', '']], 'type': 'int'},
+                        'fortiextender-metric': {'v_range': [['8.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'probe-dont-fragment': {'v_range': [['8.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
                     },
                     'elements': 'dict'
                 },
@@ -1617,7 +1672,9 @@ def main():
                         'overage-cost': {'v_range': [['8.0.0', '']], 'type': 'int'},
                         'overage-volume-ratio': {'v_range': [['8.0.0', '']], 'type': 'int'},
                         'overage-weight': {'v_range': [['8.0.0', '']], 'type': 'int'},
-                        'quota-limit': {'v_range': [['8.0.0', '']], 'type': 'int'}
+                        'quota-limit': {'v_range': [['8.0.0', '']], 'type': 'int'},
+                        'quota-usage-threshold': {'v_range': [['8.0.1', '']], 'type': 'int'},
+                        'signal-strength-threshold': {'v_range': [['8.0.1', '']], 'type': 'int'}
                     },
                     'elements': 'dict'
                 },
@@ -1659,7 +1716,10 @@ def main():
                         'groups': {'v_range': [['6.4.1', '']], 'type': 'raw'},
                         'hash-mode': {
                             'v_range': [['6.4.2', '']],
-                            'choices': ['round-robin', 'source-ip-based', 'source-dest-ip-based', 'inbandwidth', 'outbandwidth', 'bibandwidth'],
+                            'choices': [
+                                'round-robin', 'source-ip-based', 'source-dest-ip-based', 'inbandwidth', 'outbandwidth', 'bibandwidth', 'spillover',
+                                'weight-based-spillover'
+                            ],
                             'type': 'str'
                         },
                         'health-check': {'v_range': [['6.4.1', '']], 'type': 'raw'},
@@ -1834,7 +1894,8 @@ def main():
                     'elements': 'dict'
                 },
                 'option': {'v_range': [['7.6.0', '']], 'type': 'list', 'choices': ['sdwan-overlay', 'sdwan-manager'], 'elements': 'str'},
-                'duplication-max-discrepancy': {'v_range': [['7.6.2', '']], 'type': 'int'}
+                'duplication-max-discrepancy': {'v_range': [['7.6.2', '']], 'type': 'int'},
+                'single-advpn-per-underlay-pair': {'v_range': [['8.0.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

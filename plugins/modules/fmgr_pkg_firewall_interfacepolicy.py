@@ -171,6 +171,18 @@ options:
         type: str
         description: Enable/disable CASB.
         choices: ['disable', 'enable']
+      scope_member:
+        aliases: ['scope member']
+        type: list
+        elements: dict
+        description: Scope member.
+        suboptions:
+          name:
+            type: str
+            description: Name.
+          vdom:
+            type: str
+            description: Vdom.
 '''
 
 EXAMPLES = '''
@@ -331,7 +343,13 @@ def main():
                     'type': 'str'
                 },
                 'casb-profile': {'v_range': [['7.4.3', '']], 'type': 'raw'},
-                'casb-profile-status': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'casb-profile-status': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'scope member': {
+                    'v_range': [['8.0.1', '']],
+                    'type': 'list',
+                    'options': {'name': {'v_range': [['8.0.1', '']], 'type': 'str'}, 'vdom': {'v_range': [['8.0.1', '']], 'type': 'str'}},
+                    'elements': 'dict'
+                }
             }
         }
     }

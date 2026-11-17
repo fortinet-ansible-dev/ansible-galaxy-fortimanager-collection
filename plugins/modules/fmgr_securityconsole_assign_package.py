@@ -29,7 +29,7 @@ options:
           - cp_all_objs - Assign all objects during global policy assignment.
           - copy_assigned_pkg - For global policy assignment - copy assigned package from ADOM to device.
           - unassign - Remove global policy from ADOM.
-        choices: ['none', 'cp_all_objs', 'copy_assigned_pkg', 'unassign']
+        choices: ['none', 'cp_all_objs', 'copy_assigned_pkg', 'unassign', 'keep_meta']
       pkg:
         type: str
         description: Source package path and name.
@@ -50,6 +50,9 @@ options:
           pkg:
             type: str
             description: Destination ADOM policy package path and name.
+          global_pkg:
+            type: raw
+            description: (list) Optional source Global package path and name, override the Global package name defined in previous level if differs.
 '''
 
 EXAMPLES = '''
@@ -62,12 +65,13 @@ EXAMPLES = '''
       fortinet.fortimanager.fmgr_securityconsole_assign_package:
         # workspace_locking_adom: <global or your adom name>
         securityconsole_assign_package:
-          # flags: ["none", "cp_all_objs", "copy_assigned_pkg", "unassign"]
+          # flags: ["none", "cp_all_objs", "copy_assigned_pkg", "unassign", "keep_meta"]
           # pkg: <string>
           # target:
           #   - adom: <string>
           #     excluded: <value in [disable, enable]>
           #     pkg: <string>
+          #     global_pkg: <list or string>
 '''
 
 RETURN = '''
@@ -123,11 +127,16 @@ def main():
         'securityconsole_assign_package': {
             'type': 'dict', 'v_range': [['6.0.0', '']],
             'options': {
-                'flags': {'type': 'list', 'choices': ['none', 'cp_all_objs', 'copy_assigned_pkg', 'unassign'], 'elements': 'str'},
+                'flags': {'type': 'list', 'choices': ['none', 'cp_all_objs', 'copy_assigned_pkg', 'unassign', 'keep_meta'], 'elements': 'str'},
                 'pkg': {'type': 'str'},
                 'target': {
                     'type': 'list',
-                    'options': {'adom': {'type': 'str'}, 'excluded': {'choices': ['disable', 'enable'], 'type': 'str'}, 'pkg': {'type': 'str'}},
+                    'options': {
+                        'adom': {'type': 'str'},
+                        'excluded': {'choices': ['disable', 'enable'], 'type': 'str'},
+                        'pkg': {'type': 'str'},
+                        'global_pkg': {'v_range': [['8.0.1', '']], 'type': 'raw'}
+                    },
                     'elements': 'dict'
                 }
             }

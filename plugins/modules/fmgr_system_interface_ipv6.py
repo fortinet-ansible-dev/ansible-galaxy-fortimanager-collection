@@ -53,6 +53,16 @@ options:
           - disable - Disable setting.
           - enable - Enable setting.
         choices: ['disable', 'enable']
+      ip6_serviceaccess:
+        aliases: ['ip6-serviceaccess']
+        type: list
+        elements: str
+        description:
+          - Allow service access to interface.
+          - fgtupdates - FortiGate updates access.
+          - webfilter-antispam - Web filtering and antispam access.
+          - fclupdates - FortiClient updates access.
+        choices: ['fgtupdates', 'webfilter-antispam', 'fclupdates']
 '''
 
 EXAMPLES = '''
@@ -70,6 +80,7 @@ EXAMPLES = '''
           # ip6_allowaccess: ["ping", "https", "ssh", "snmp", "http", "webservice",
           #                   "https-logging", "fabric"]
           # ip6_autoconf: <value in [disable, enable]>
+          # ip6_serviceaccess: ["fgtupdates", "webfilter-antispam", "fclupdates"]
 '''
 
 RETURN = '''
@@ -132,7 +143,13 @@ def main():
                     'choices': ['ping', 'https', 'ssh', 'snmp', 'http', 'webservice', 'https-logging', 'fabric'],
                     'elements': 'str'
                 },
-                'ip6-autoconf': {'choices': ['disable', 'enable'], 'type': 'str'}
+                'ip6-autoconf': {'choices': ['disable', 'enable'], 'type': 'str'},
+                'ip6-serviceaccess': {
+                    'v_range': [['8.0.1', '']],
+                    'type': 'list',
+                    'choices': ['fgtupdates', 'webfilter-antispam', 'fclupdates'],
+                    'elements': 'str'
+                }
             }
         }
     }

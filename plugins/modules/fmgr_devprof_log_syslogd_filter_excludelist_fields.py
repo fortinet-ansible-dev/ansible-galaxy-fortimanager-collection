@@ -123,11 +123,11 @@ def main():
         'exclude-list': {'type': 'str', 'api_name': 'exclude_list'},
         'exclude_list': {'type': 'str'},
         'devprof_log_syslogd_filter_excludelist_fields': {
-            'type': 'dict', 'v_range': [['7.0.4', '7.0.16']],
+            'type': 'dict', 'v_range': [['7.0.4', '7.0.16'], ['8.0.1', '']],
             'options': {
-                'args': {'v_range': [['7.0.4', '7.0.16']], 'type': 'raw'},
-                'field': {'v_range': [['7.0.4', '7.0.16']], 'type': 'str'},
-                'negate': {'v_range': [['7.0.4', '7.0.16']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'args': {'v_range': [['7.0.4', '7.0.16'], ['8.0.1', '']], 'type': 'raw'},
+                'field': {'v_range': [['7.0.4', '7.0.16'], ['8.0.1', '']], 'type': 'str'},
+                'negate': {'v_range': [['7.0.4', '7.0.16'], ['8.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

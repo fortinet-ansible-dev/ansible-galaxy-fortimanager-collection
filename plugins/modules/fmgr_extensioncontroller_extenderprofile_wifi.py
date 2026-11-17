@@ -142,6 +142,15 @@ options:
             type: str
             description: Enable/disable Wi-Fi radio.
             choices: ['disable', 'enable']
+          persistence:
+            type: str
+            description: Enable/disable the persistence attribute of the radio profile.
+            choices: ['disable', 'enable']
+          wifi_networks:
+            aliases: ['wifi-networks']
+            type: list
+            elements: str
+            description: Wi-Fi networks.
       radio_2:
         aliases: ['radio-2']
         type: dict
@@ -227,6 +236,15 @@ options:
             type: str
             description: Enable/disable Wi-Fi radio.
             choices: ['disable', 'enable']
+          persistence:
+            type: str
+            description: Enable/disable the persistence attribute of the radio profile.
+            choices: ['disable', 'enable']
+          wifi_networks:
+            aliases: ['wifi-networks']
+            type: list
+            elements: str
+            description: Wi-Fi networks.
 '''
 
 EXAMPLES = '''
@@ -262,6 +280,8 @@ EXAMPLES = '''
           #   power_level: <integer>
           #   radio_id: <integer>
           #   status: <value in [disable, enable]>
+          #   persistence: <value in [disable, enable]>
+          #   wifi_networks: <list or string>
           # radio_2:
           #   d80211d: <value in [disable, enable]>
           #   band: <value in [5GHz]>
@@ -282,6 +302,8 @@ EXAMPLES = '''
           #   power_level: <integer>
           #   radio_id: <integer>
           #   status: <value in [disable, enable]>
+          #   persistence: <value in [disable, enable]>
+          #   wifi_networks: <list or string>
 '''
 
 RETURN = '''
@@ -391,7 +413,9 @@ def main():
                         },
                         'power-level': {'v_range': [['7.4.3', '']], 'type': 'int'},
                         'radio-id': {'v_range': [['7.4.3', '']], 'type': 'int'},
-                        'status': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                        'status': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'persistence': {'v_range': [['8.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'wifi-networks': {'v_range': [['8.0.1', '']], 'type': 'list', 'elements': 'str'}
                     }
                 },
                 'radio-2': {
@@ -429,7 +453,9 @@ def main():
                         },
                         'power-level': {'v_range': [['7.4.3', '']], 'type': 'int'},
                         'radio-id': {'v_range': [['7.4.3', '']], 'type': 'int'},
-                        'status': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                        'status': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'persistence': {'v_range': [['8.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'wifi-networks': {'v_range': [['8.0.1', '']], 'type': 'list', 'elements': 'str'}
                     }
                 }
             }

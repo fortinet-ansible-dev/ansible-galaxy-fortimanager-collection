@@ -81,6 +81,11 @@ options:
         aliases: ['vrf-select']
         type: int
         description: VRF ID used for connection to server.
+      pqc_policy:
+        aliases: ['pqc-policy']
+        type: str
+        description: Enable/disable using post-quantum cryptography for this TLS connection
+        choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -108,6 +113,7 @@ EXAMPLES = '''
           # user_attr_name: <string>
           # version: <value in [beta, v1.0]>
           # vrf_select: <integer>
+          # pqc_policy: <value in [disable, enable]>
 '''
 
 RETURN = '''
@@ -178,7 +184,8 @@ def main():
                 'url': {'v_range': [['7.2.6', '7.2.12'], ['7.4.3', '']], 'type': 'str'},
                 'user-attr-name': {'v_range': [['7.2.6', '7.2.12'], ['7.4.3', '']], 'type': 'str'},
                 'version': {'v_range': [['7.2.6', '7.2.12'], ['7.4.3', '']], 'choices': ['beta', 'v1.0'], 'type': 'str'},
-                'vrf-select': {'v_range': [['7.6.2', '']], 'type': 'int'}
+                'vrf-select': {'v_range': [['7.6.2', '']], 'type': 'int'},
+                'pqc-policy': {'v_range': [['8.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

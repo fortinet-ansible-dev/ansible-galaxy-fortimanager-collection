@@ -4,6 +4,50 @@ Fortinet.Fortimanager Release Notes
 
 .. contents:: Topics
 
+v2.16.0
+=======
+
+Release Summary
+---------------
+
+Release fortinet.fortimanager 2.16.0
+
+Minor Changes
+-------------
+
+- Added 26 new modules.
+- Supported FortiManager schemas 8.0.1 and 8.0.2.
+
+New Modules
+-----------
+
+- fortinet.fortimanager.fmgr_application_classification - Configure application classifications.
+- fortinet.fortimanager.fmgr_application_classificationscope - Configure application classification scopes.
+- fortinet.fortimanager.fmgr_devprof_system_ntp_keys - Configure authentication keys for this FortiGate to perform NTP server functionality.
+- fortinet.fortimanager.fmgr_dvmdb_generate_ztp_url - Device manager database generate ztp url
+- fortinet.fortimanager.fmgr_dvmdb_group_bytask - Device manager database group by task
+- fortinet.fortimanager.fmgr_dvmdb_workflow_batchmerge - Device manager database workflow batch merge
+- fortinet.fortimanager.fmgr_dvmdb_workflow_close - Device manager database workflow close
+- fortinet.fortimanager.fmgr_dvmdb_workflow_diff - Device manager database workflow diff
+- fortinet.fortimanager.fmgr_dvmdb_workflow_diffbase - Device manager database workflow diff base
+- fortinet.fortimanager.fmgr_dvmdb_workflow_merge - Device manager database workflow merge
+- fortinet.fortimanager.fmgr_dvmdb_workflow_patch - Device manager database workflow patch
+- fortinet.fortimanager.fmgr_exec_fgfm_autolinkdevice - Force start autolink process on link-pending device.
+- fortinet.fortimanager.fmgr_llm_server - Configure LLM Proxy servers.
+- fortinet.fortimanager.fmgr_securityconsole_package_export - Securityconsole package export
+- fortinet.fortimanager.fmgr_securityconsole_package_import - Securityconsole package import
+- fortinet.fortimanager.fmgr_switchcontroller_ptp_interfacepolicy - PTP interface-policy configuration.
+- fortinet.fortimanager.fmgr_switchcontroller_ptp_policy - PTP policy configuration.
+- fortinet.fortimanager.fmgr_system_dhcp_template - Configure DHCP server templates.
+- fortinet.fortimanager.fmgr_system_dhcp_template_excluderange - Exclude one or more ranges of IP addresses from being assigned to clients.
+- fortinet.fortimanager.fmgr_system_dhcp_template_iprange - DHCP IP range configuration.
+- fortinet.fortimanager.fmgr_system_dhcp_template_options - DHCP options.
+- fortinet.fortimanager.fmgr_system_dhcp_template_reservedaddress - Options for the DHCP server to assign IP settings to specific MAC addresses.
+- fortinet.fortimanager.fmgr_system_npu_congestionhandlingmode - MVL congestion mode configuration.
+- fortinet.fortimanager.fmgr_um_query_productapi - Get detailed information about IPS packages and signatures using the um/query/productapi endpoint.
+- fortinet.fortimanager.fmgr_webfilter_profile_ftgdimageclassification - FortiGuard image classification filter settings.
+- fortinet.fortimanager.fmgr_webfilter_profile_ftgdimageclassification_rules - Category thresholds configuration.
+
 v2.15.0
 =======
 

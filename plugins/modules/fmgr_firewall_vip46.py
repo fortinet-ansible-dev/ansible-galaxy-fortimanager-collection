@@ -338,7 +338,7 @@ def main():
                         'src-filter': {'type': 'raw'},
                         'type': {'choices': ['static-nat', 'server-load-balance'], 'type': 'str'},
                         'uuid': {'type': 'str'},
-                        'srcintf-filter': {'v_range': [['6.2.7', '6.2.13'], ['6.4.4', '']], 'type': 'raw'}
+                        'srcintf-filter': {'v_range': [['6.2.7', '6.2.13'], ['6.4.4', '8.0.0']], 'type': 'raw'}
                     },
                     'elements': 'dict'
                 },

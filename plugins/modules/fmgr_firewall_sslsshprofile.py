@@ -300,6 +300,11 @@ options:
             type: str
             description: Action based on the SSL version used being unsupported.
             choices: ['block', 'allow', 'inspect']
+          tls_handshake_mode:
+            aliases: ['tls-handshake-mode']
+            type: str
+            description: Proxy-mode TLS handshake negotiation behaviour.
+            choices: ['sync', 'dual']
       https:
         type: dict
         description: Https.
@@ -415,6 +420,11 @@ options:
             type: str
             description: Action to be taken when matched UDP packet is not QUIC.
             choices: ['block', 'allow']
+          tls_handshake_mode:
+            aliases: ['tls-handshake-mode']
+            type: str
+            description: Proxy-mode TLS handshake negotiation behaviour.
+            choices: ['sync', 'dual']
       imaps:
         type: dict
         description: Imaps.
@@ -853,6 +863,11 @@ options:
             type: str
             description: Block/allow session based on existence of encrypted-client-hello.
             choices: ['block', 'allow']
+          tls_handshake_mode:
+            aliases: ['tls-handshake-mode']
+            type: str
+            description: Proxy-mode TLS handshake negotiation behaviour.
+            choices: ['sync', 'dual']
       allowlist:
         type: str
         description: Enable/disable exempting servers by FortiGuard allowlist.
@@ -939,6 +954,11 @@ options:
             type: str
             description: Action to be taken when matched UDP packet is not QUIC.
             choices: ['block', 'allow']
+          tls_handshake_mode:
+            aliases: ['tls-handshake-mode']
+            type: str
+            description: Proxy-mode TLS handshake negotiation behaviour.
+            choices: ['sync', 'dual']
       supported_alpn:
         aliases: ['supported-alpn']
         type: str
@@ -1215,7 +1235,8 @@ def main():
                             'choices': ['ssl-3.0', 'tls-1.0', 'tls-1.1', 'tls-1.2', 'tls-1.3'],
                             'type': 'str'
                         },
-                        'unsupported-ssl-version': {'v_range': [['7.0.1', '']], 'choices': ['block', 'allow', 'inspect'], 'type': 'str'}
+                        'unsupported-ssl-version': {'v_range': [['7.0.1', '']], 'choices': ['block', 'allow', 'inspect'], 'type': 'str'},
+                        'tls-handshake-mode': {'v_range': [['8.0.1', '']], 'choices': ['sync', 'dual'], 'type': 'str'}
                     }
                 },
                 'https': {
@@ -1272,7 +1293,8 @@ def main():
                         'unsupported-ssl-version': {'v_range': [['7.0.1', '']], 'choices': ['block', 'allow', 'inspect'], 'type': 'str'},
                         'quic': {'v_range': [['7.4.1', '']], 'choices': ['disable', 'enable', 'bypass', 'block', 'inspect'], 'type': 'str'},
                         'encrypted-client-hello': {'v_range': [['7.4.3', '']], 'choices': ['block', 'allow'], 'type': 'str'},
-                        'udp-not-quic': {'v_range': [['7.6.2', '']], 'choices': ['block', 'allow'], 'type': 'str'}
+                        'udp-not-quic': {'v_range': [['7.6.2', '']], 'choices': ['block', 'allow'], 'type': 'str'},
+                        'tls-handshake-mode': {'v_range': [['8.0.1', '']], 'choices': ['sync', 'dual'], 'type': 'str'}
                     }
                 },
                 'imaps': {
@@ -1498,7 +1520,8 @@ def main():
                             'type': 'str'
                         },
                         'unsupported-ssl-version': {'v_range': [['7.0.1', '']], 'choices': ['block', 'allow', 'inspect'], 'type': 'str'},
-                        'encrypted-client-hello': {'v_range': [['7.4.3', '']], 'choices': ['block', 'allow'], 'type': 'str'}
+                        'encrypted-client-hello': {'v_range': [['7.4.3', '']], 'choices': ['block', 'allow'], 'type': 'str'},
+                        'tls-handshake-mode': {'v_range': [['8.0.1', '']], 'choices': ['sync', 'dual'], 'type': 'str'}
                     }
                 },
                 'allowlist': {'v_range': [['7.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
@@ -1525,7 +1548,8 @@ def main():
                             'type': 'str'
                         },
                         'quic': {'v_range': [['7.4.1', '']], 'choices': ['disable', 'enable', 'bypass', 'block', 'inspect'], 'type': 'str'},
-                        'udp-not-quic': {'v_range': [['7.6.2', '']], 'choices': ['block', 'allow'], 'type': 'str'}
+                        'udp-not-quic': {'v_range': [['7.6.2', '']], 'choices': ['block', 'allow'], 'type': 'str'},
+                        'tls-handshake-mode': {'v_range': [['8.0.1', '']], 'choices': ['sync', 'dual'], 'type': 'str'}
                     }
                 },
                 'supported-alpn': {'v_range': [['7.0.0', '']], 'choices': ['none', 'http1-1', 'http2', 'all'], 'type': 'str'},

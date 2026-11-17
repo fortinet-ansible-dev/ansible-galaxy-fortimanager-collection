@@ -383,6 +383,11 @@ options:
             type: str
             description: Invalid IPv4 SCTP checksum anomalies.
             choices: ['allow', 'drop', 'trap-to-host']
+          ipv4_option:
+            aliases: ['ipv4-option']
+            type: str
+            description: IPv4 options anomalies.
+            choices: ['allow', 'trap-to-host']
       gtp_enhanced_cpu_range:
         aliases: ['gtp-enhanced-cpu-range']
         type: str
@@ -2743,6 +2748,34 @@ options:
         type: str
         description: Enable/disable NPU shaping for host traffic with shaping profile on IPSec interface.
         choices: ['disable', 'enable']
+      congestion_handling_mode:
+        aliases: ['congestion-handling-mode']
+        type: dict
+        description: Congestion handling mode.
+        suboptions:
+          mode:
+            type: str
+            description: Configure Marvell switch packet congestion handling.
+            choices: ['flow-control', 'head-of-line']
+      emac_vlan_mode:
+        aliases: ['emac-vlan-mode']
+        type: str
+        description: Set the EMAC_VLAN mode.
+        choices: ['functionality', 'offloading']
+      sctp_ctrlpkt_to_host:
+        aliases: ['sctp-ctrlpkt-to-host']
+        type: str
+        description: Enable/disable IHP to trap SCTP control packets to host.
+        choices: ['disable', 'enable']
+      sctp_offload:
+        aliases: ['sctp-offload']
+        type: str
+        description: Enable/disable SCTP offloading.
+        choices: ['disable', 'enable']
+      sw_linkscan_interval:
+        aliases: ['sw-linkscan-interval']
+        type: int
+        description: NPU switch linkscan interval in milliseconds
 '''
 
 EXAMPLES = '''
@@ -2827,6 +2860,7 @@ EXAMPLES = '''
           #   sctp_clen_err: <value in [drop, trap-to-host]>
           #   uesp_minlen_err: <value in [drop, trap-to-host]>
           #   sctp_csum_err: <value in [allow, drop, trap-to-host]>
+          #   ipv4_option: <value in [allow, trap-to-host]>
           # gtp_enhanced_cpu_range: <value in [0, 1, 2]>
           # gtp_enhanced_mode: <value in [disable, enable]>
           # host_shortcut_mode: <value in [bi-directional, host-shortcut]>
@@ -3365,6 +3399,12 @@ EXAMPLES = '''
           # vlan_acct_interval: <integer>
           # default_ipsec_mcs_type: <value in [policing, shaping]>
           # mcs_host_packet_tpe_shaping: <value in [disable, enable]>
+          # congestion_handling_mode:
+          #   mode: <value in [flow-control, head-of-line]>
+          # emac_vlan_mode: <value in [functionality, offloading]>
+          # sctp_ctrlpkt_to_host: <value in [disable, enable]>
+          # sctp_offload: <value in [disable, enable]>
+          # sw_linkscan_interval: <integer>
 '''
 
 RETURN = '''
@@ -3500,7 +3540,8 @@ def main():
                         'sctp-crc-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.6.2']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
                         'sctp-clen-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.6.2']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
                         'uesp-minlen-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.6.2']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
-                        'sctp-csum-err': {'v_range': [['7.2.5', '7.2.12'], ['7.4.3', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'}
+                        'sctp-csum-err': {'v_range': [['7.2.5', '7.2.12'], ['7.4.3', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
+                        'ipv4-option': {'v_range': [['8.0.1', '']], 'choices': ['allow', 'trap-to-host'], 'type': 'str'}
                     }
                 },
                 'gtp-enhanced-cpu-range': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['0', '1', '2'], 'type': 'str'},
@@ -4596,12 +4637,21 @@ def main():
                 'extra-timeout-udp': {'v_range': [['7.6.7', '']], 'type': 'int'},
                 'gtpu-hbq-teid-load-balance': {'v_range': [['7.6.7', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'mcs-auto-start': {'v_range': [['7.6.7', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'np-linkscan-interval': {'v_range': [['7.6.7', '7.6.7']], 'type': 'int'},
+                'np-linkscan-interval': {'v_range': [['7.6.7', '7.6.7'], ['8.0.1', '']], 'type': 'int'},
                 'sw-np-rate-burst': {'v_range': [['7.6.7', '']], 'type': 'int'},
-                'vlan-accounting': {'v_range': [['7.6.7', '7.6.7']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'vlan-acct-interval': {'v_range': [['7.6.7', '7.6.7']], 'type': 'int'},
+                'vlan-accounting': {'v_range': [['7.6.7', '7.6.7'], ['8.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'vlan-acct-interval': {'v_range': [['7.6.7', '7.6.7'], ['8.0.1', '']], 'type': 'int'},
                 'default-ipsec-mcs-type': {'v_range': [['8.0.0', '']], 'choices': ['policing', 'shaping'], 'type': 'str'},
-                'mcs-host-packet-tpe-shaping': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'mcs-host-packet-tpe-shaping': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'congestion-handling-mode': {
+                    'v_range': [['8.0.1', '']],
+                    'type': 'dict',
+                    'options': {'mode': {'v_range': [['8.0.1', '']], 'choices': ['flow-control', 'head-of-line'], 'type': 'str'}}
+                },
+                'emac-vlan-mode': {'v_range': [['8.0.1', '']], 'choices': ['functionality', 'offloading'], 'type': 'str'},
+                'sctp-ctrlpkt-to-host': {'v_range': [['8.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'sctp-offload': {'v_range': [['8.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'sw-linkscan-interval': {'v_range': [['8.0.2', '']], 'type': 'int'}
             }
         }
     }

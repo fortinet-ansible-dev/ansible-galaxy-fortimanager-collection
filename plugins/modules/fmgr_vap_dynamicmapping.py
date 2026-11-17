@@ -1087,6 +1087,29 @@ options:
         type: str
         description: Enable/disable RADIUS authentication survivability
         choices: ['disable', 'enable']
+      captive_portal_api_server:
+        aliases: ['captive-portal-api-server']
+        type: str
+        description: Enable/disable captive portal API server.
+        choices: ['disable', 'enable']
+      l3_intra_roaming:
+        aliases: ['l3-intra-roaming']
+        type: str
+        description: Enable/disable layer 3 intra-controller roaming
+        choices: ['disable', 'enable']
+      owe_gcmp_support:
+        aliases: ['owe-gcmp-support']
+        type: str
+        description: OWE GCMP-256 support.
+        choices: ['AES-GCMP256', 'GCMP-256']
+      user_lockout_duration:
+        aliases: ['user-lockout-duration']
+        type: int
+        description: Time in seconds that a user account is locked out after reaching the user-lockout-threshold for repeated failed login attempts
+      user_lockout_threshold:
+        aliases: ['user-lockout-threshold']
+        type: int
+        description: Number of failed login attempts before a user account is locked out for the user-lockout-duration
 '''
 
 EXAMPLES = '''
@@ -1358,6 +1381,11 @@ EXAMPLES = '''
           # captive_portal_dynamic_redirect_url: <value in [disable, enable]>
           # radius_auth_surviv_intv: <integer>
           # radius_auth_survivability: <value in [disable, enable]>
+          # captive_portal_api_server: <value in [disable, enable]>
+          # l3_intra_roaming: <value in [disable, enable]>
+          # owe_gcmp_support: <value in [AES-GCMP256, GCMP-256]>
+          # user_lockout_duration: <integer>
+          # user_lockout_threshold: <integer>
 '''
 
 RETURN = '''
@@ -1444,7 +1472,7 @@ def main():
                 },
                 '_intf_listen-forticlient-connection': {'choices': ['disable', 'enable'], 'type': 'str'},
                 '_scope': {'type': 'list', 'options': {'name': {'type': 'str'}, 'vdom': {'type': 'str'}}, 'elements': 'dict'},
-                'acct-interim-interval': {'type': 'int'},
+                'acct-interim-interval': {'v_range': [['6.0.0', '8.0.0']], 'type': 'int'},
                 'address-group': {'type': 'str'},
                 'alias': {'type': 'str'},
                 'atf-weight': {'type': 'int'},
@@ -1459,12 +1487,12 @@ def main():
                     'elements': 'str'
                 },
                 'captive-portal-ac-name': {'type': 'str'},
-                'captive-portal-macauth-radius-secret': {'no_log': True, 'type': 'raw'},
-                'captive-portal-macauth-radius-server': {'type': 'str'},
-                'captive-portal-radius-secret': {'no_log': True, 'type': 'raw'},
-                'captive-portal-radius-server': {'type': 'str'},
-                'captive-portal-session-timeout-interval': {'type': 'int'},
-                'client-count': {'type': 'int'},
+                'captive-portal-macauth-radius-secret': {'v_range': [['6.0.0', '8.0.0']], 'no_log': True, 'type': 'raw'},
+                'captive-portal-macauth-radius-server': {'v_range': [['6.0.0', '8.0.0']], 'type': 'str'},
+                'captive-portal-radius-secret': {'v_range': [['6.0.0', '8.0.0']], 'no_log': True, 'type': 'raw'},
+                'captive-portal-radius-server': {'v_range': [['6.0.0', '8.0.0']], 'type': 'str'},
+                'captive-portal-session-timeout-interval': {'v_range': [['6.0.0', '8.0.0']], 'type': 'int'},
+                'client-count': {'v_range': [['6.0.0', '8.0.0']], 'type': 'int'},
                 'dhcp-lease-time': {'type': 'int'},
                 'dhcp-option82-circuit-id-insertion': {'choices': ['disable', 'style-1', 'style-2', 'style-3'], 'type': 'str'},
                 'dhcp-option82-insertion': {'choices': ['disable', 'enable'], 'type': 'str'},
@@ -1495,7 +1523,7 @@ def main():
                 'local-lan': {'choices': ['deny', 'allow'], 'type': 'str'},
                 'local-standalone': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'local-standalone-nat': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'local-switching': {'choices': ['disable', 'enable'], 'type': 'str'},
+                'local-switching': {'v_range': [['6.0.0', '8.0.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'mac-auth-bypass': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'mac-filter': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'mac-filter-policy-other': {'choices': ['deny', 'allow'], 'type': 'str'},
@@ -1503,8 +1531,8 @@ def main():
                 'max-clients-ap': {'type': 'int'},
                 'me-disable-thresh': {'type': 'int'},
                 'mesh-backhaul': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'mpsk': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'mpsk-concurrent-clients': {'type': 'int'},
+                'mpsk': {'v_range': [['6.0.0', '8.0.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'mpsk-concurrent-clients': {'v_range': [['6.0.0', '8.0.0']], 'type': 'int'},
                 'multicast-enhance': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'multicast-rate': {'choices': ['0', '6000', '12000', '24000'], 'type': 'str'},
                 'okc': {'choices': ['disable', 'enable'], 'type': 'str'},
@@ -1610,7 +1638,7 @@ def main():
                 'tkip-counter-measure': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'usergroup': {'type': 'raw'},
                 'utm-profile': {'type': 'str'},
-                'vdom': {'type': 'raw'},
+                'vdom': {'v_range': [['6.0.0', '8.0.0']], 'type': 'raw'},
                 'vlan-auto': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'vlan-pooling': {'choices': ['wtp-group', 'round-robin', 'hash', 'disable'], 'type': 'str'},
                 'vlanid': {'type': 'int'},
@@ -1709,7 +1737,7 @@ def main():
                 'rates-11ax-mcs-map': {'v_range': [['7.2.1', '']], 'type': 'str'},
                 'captive-portal-fw-accounting': {'v_range': [['7.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'radius-mac-auth-block-interval': {'v_range': [['7.2.2', '']], 'type': 'int'},
-                '_is_factory_setting': {'v_range': [['7.4.0', '']], 'choices': ['disable', 'enable', 'ext'], 'type': 'str'},
+                '_is_factory_setting': {'v_range': [['7.4.0', '8.0.0']], 'choices': ['disable', 'enable', 'ext'], 'type': 'str'},
                 '80211k': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 '80211v': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'roaming-acct-interim-update': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
@@ -1770,7 +1798,12 @@ def main():
                 'dhcp-option82-delimiter': {'v_range': [['7.6.7', '']], 'type': 'str'},
                 'captive-portal-dynamic-redirect-url': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'radius-auth-surviv-intv': {'v_range': [['8.0.0', '']], 'type': 'int'},
-                'radius-auth-survivability': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'radius-auth-survivability': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'captive-portal-api-server': {'v_range': [['8.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'l3-intra-roaming': {'v_range': [['8.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'owe-gcmp-support': {'v_range': [['8.0.1', '']], 'choices': ['AES-GCMP256', 'GCMP-256'], 'type': 'str'},
+                'user-lockout-duration': {'v_range': [['8.0.1', '']], 'type': 'int'},
+                'user-lockout-threshold': {'v_range': [['8.0.1', '']], 'type': 'int'}
             }
         }
     }

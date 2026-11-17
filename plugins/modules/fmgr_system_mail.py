@@ -209,10 +209,10 @@ def main():
                     'choices': ['follow-global-ssl-protocol', 'sslv3', 'tlsv1.0', 'tlsv1.1', 'tlsv1.2', 'tlsv1.3'],
                     'type': 'str'
                 },
-                'oauth2-auth-scope': {'v_range': [['7.6.7', '7.6.7']], 'type': 'str'},
-                'oauth2-auth-server': {'v_range': [['7.6.7', '7.6.7']], 'type': 'str'},
-                'oauth2-client-id': {'v_range': [['7.6.7', '7.6.7']], 'type': 'str'},
-                'oauth2-client-secret': {'v_range': [['7.6.7', '7.6.7']], 'no_log': True, 'type': 'raw'}
+                'oauth2-auth-scope': {'v_range': [['7.6.7', '7.6.7'], ['8.0.1', '']], 'type': 'str'},
+                'oauth2-auth-server': {'v_range': [['7.6.7', '7.6.7'], ['8.0.1', '']], 'type': 'str'},
+                'oauth2-client-id': {'v_range': [['7.6.7', '7.6.7'], ['8.0.1', '']], 'type': 'str'},
+                'oauth2-client-secret': {'v_range': [['7.6.7', '7.6.7'], ['8.0.1', '']], 'no_log': True, 'type': 'raw'}
             }
         }
     }

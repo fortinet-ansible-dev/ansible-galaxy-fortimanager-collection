@@ -47,7 +47,7 @@ options:
       provision:
         type: str
         description: Provision.
-        choices: ['disable', 'enable']
+        choices: ['disable', 'enable', 'ztp-reset']
       type:
         type: str
         description: Type.
@@ -94,7 +94,7 @@ EXAMPLES = '''
           # description: <string>
           # modification_time: <string>
           # script: <string>
-          # provision: <value in [disable, enable]>
+          # provision: <value in [disable, enable, ztp-reset]>
           # type: <value in [cli, jinja]>
           # variables: <list or string>
           # position: <value in [post-vdom-copy, prep-vdom-copy]>
@@ -164,7 +164,7 @@ def main():
                 'modification-time': {'v_range': [['6.0.0', '7.0.3']], 'type': 'str'},
                 'name': {'required': True, 'type': 'str'},
                 'script': {'type': 'str'},
-                'provision': {'v_range': [['7.0.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'provision': {'v_range': [['7.0.2', '']], 'choices': ['disable', 'enable', 'ztp-reset'], 'type': 'str'},
                 'type': {'v_range': [['7.0.1', '']], 'choices': ['cli', 'jinja'], 'type': 'str'},
                 'variables': {'v_range': [['7.0.1', '']], 'type': 'raw'},
                 'position': {'v_range': [['7.4.2', '']], 'choices': ['post-vdom-copy', 'prep-vdom-copy'], 'type': 'str'},

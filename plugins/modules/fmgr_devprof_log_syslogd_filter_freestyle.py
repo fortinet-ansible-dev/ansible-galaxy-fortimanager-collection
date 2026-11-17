@@ -36,7 +36,7 @@ options:
         description: Log category.
         choices: ['traffic', 'event', 'virus', 'webfilter', 'attack', 'spam', 'voip', 'dlp',
                   'app-ctrl', 'anomaly', 'waf', 'gtp', 'dns', 'ssh', 'ssl', 'file-filter', 'icap',
-                  'ztna', 'virtual-patch', 'debug']
+                  'ztna', 'virtual-patch', 'debug', 'llm', 'sctp-filter', 'forti-switch', 'casb']
       filter:
         type: str
         description: Free style filter string.
@@ -129,7 +129,7 @@ def main():
                     'v_range': [['7.0.4', '7.0.16'], ['7.2.1', '']],
                     'choices': [
                         'traffic', 'event', 'virus', 'webfilter', 'attack', 'spam', 'voip', 'dlp', 'app-ctrl', 'anomaly', 'waf', 'gtp', 'dns', 'ssh',
-                        'ssl', 'file-filter', 'icap', 'ztna', 'virtual-patch', 'debug'
+                        'ssl', 'file-filter', 'icap', 'ztna', 'virtual-patch', 'debug', 'llm', 'sctp-filter', 'forti-switch', 'casb'
                     ],
                     'type': 'str'
                 },

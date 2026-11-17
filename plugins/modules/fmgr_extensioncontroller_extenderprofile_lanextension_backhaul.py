@@ -43,7 +43,8 @@ options:
       port:
         type: str
         description: FortiExtender uplink port.
-        choices: ['wan', 'lte1', 'lte2', 'port1', 'port2', 'port3', 'port4', 'port5', 'sfp']
+        choices: ['wan', 'lte1', 'lte2', 'port1', 'port2', 'port3', 'port4', 'port5', 'sfp',
+                  'asta0', 'bsta0']
       role:
         type: str
         description: FortiExtender uplink port.
@@ -158,7 +159,7 @@ def main():
                 'name': {'v_range': [['7.2.1', '']], 'required': True, 'type': 'str'},
                 'port': {
                     'v_range': [['7.2.1', '']],
-                    'choices': ['wan', 'lte1', 'lte2', 'port1', 'port2', 'port3', 'port4', 'port5', 'sfp'],
+                    'choices': ['wan', 'lte1', 'lte2', 'port1', 'port2', 'port3', 'port4', 'port5', 'sfp', 'asta0', 'bsta0'],
                     'type': 'str'
                 },
                 'role': {'v_range': [['7.2.1', '']], 'choices': ['primary', 'secondary'], 'type': 'str'},

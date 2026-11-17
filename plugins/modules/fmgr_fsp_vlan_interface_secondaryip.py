@@ -40,7 +40,7 @@ options:
         description: Allowaccess.
         choices: ['https', 'ping', 'ssh', 'snmp', 'http', 'telnet', 'fgfm', 'auto-ipsec',
                   'radius-acct', 'probe-response', 'capwap', 'dnp', 'ftm', 'fabric', 'speed-test',
-                  'icond', 'scim', 'mqtt']
+                  'icond', 'scim', 'mqtt', 'cwmp']
       detectprotocol:
         type: list
         elements: str
@@ -93,7 +93,7 @@ EXAMPLES = '''
           id: 0 # Required variable, integer
           # allowaccess: ["https", "ping", "ssh", "snmp", "http", "telnet", "fgfm", "auto-ipsec",
           #               "radius-acct", "probe-response", "capwap", "dnp", "ftm", "fabric",
-          #               "speed-test", "icond", "scim", "mqtt"]
+          #               "speed-test", "icond", "scim", "mqtt", "cwmp"]
           # detectprotocol: ["ping", "tcp-echo", "udp-echo"]
           # detectserver: <string>
           # gwdetect: <value in [disable, enable]>
@@ -165,7 +165,7 @@ def main():
                     'type': 'list',
                     'choices': [
                         'https', 'ping', 'ssh', 'snmp', 'http', 'telnet', 'fgfm', 'auto-ipsec', 'radius-acct', 'probe-response', 'capwap', 'dnp', 'ftm',
-                        'fabric', 'speed-test', 'icond', 'scim', 'mqtt'
+                        'fabric', 'speed-test', 'icond', 'scim', 'mqtt', 'cwmp'
                     ],
                     'elements': 'str'
                 },

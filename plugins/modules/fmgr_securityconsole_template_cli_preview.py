@@ -113,15 +113,15 @@ def main():
     ]
     module_arg_spec = {
         'securityconsole_template_cli_preview': {
-            'type': 'dict', 'v_range': [['7.4.0', '']],
+            'type': 'dict', 'v_range': [['7.4.0', '8.0.0']],
             'options': {
-                'adom': {'v_range': [['7.4.0', '']], 'type': 'str'},
-                'filename': {'v_range': [['7.4.0', '']], 'type': 'str'},
-                'pkg': {'v_range': [['7.4.0', '']], 'type': 'str'},
+                'adom': {'v_range': [['7.4.0', '8.0.0']], 'type': 'str'},
+                'filename': {'v_range': [['7.4.0', '8.0.0']], 'type': 'str'},
+                'pkg': {'v_range': [['7.4.0', '8.0.0']], 'type': 'str'},
                 'scope': {
-                    'v_range': [['7.4.0', '']],
+                    'v_range': [['7.4.0', '8.0.0']],
                     'type': 'list',
-                    'options': {'name': {'v_range': [['7.4.0', '']], 'type': 'str'}, 'vdom': {'v_range': [['7.4.0', '']], 'type': 'str'}},
+                    'options': {'name': {'v_range': [['7.4.0', '8.0.0']], 'type': 'str'}, 'vdom': {'v_range': [['7.4.0', '8.0.0']], 'type': 'str'}},
                     'elements': 'dict'
                 }
             }

@@ -1388,7 +1388,7 @@ def main():
                 'fallback-tcp-threshold': {'v_range': [['7.6.4', '']], 'type': 'int'},
                 'forticlient-enforcement': {'v_range': [['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'ztna-cert-scim-authorization': {
-                    'v_range': [['7.6.7', '7.6.7']],
+                    'v_range': [['7.6.7', '7.6.7'], ['8.0.1', '']],
                     'choices': ['user-name', 'display-name', 'external-id', 'email', 'disable'],
                     'type': 'str'
                 },

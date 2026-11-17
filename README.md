@@ -1,6 +1,6 @@
 <img src="https://upload.wikimedia.org/wikipedia/commons/6/62/Fortinet_logo.svg" alt="Fortinet LOGO" width="300" />
 
-# fortinet.fortimanager:2.15.0 - configuring FortiManager
+# fortinet.fortimanager:2.16.0 - configuring FortiManager
 
 ## Description
 
@@ -97,6 +97,8 @@ The collection provides the following modules:
 * `fmgr_application_casi_profile`  Cloud Access Security Inspection.
 * `fmgr_application_casi_profile_entries`  Application entries.
 * `fmgr_application_categories`  Application categories.
+* `fmgr_application_classification`  Configure application classifications.
+* `fmgr_application_classificationscope`  Configure application classification scopes.
 * `fmgr_application_custom`  Configure custom application signatures.
 * `fmgr_application_group`  Configure firewall application groups.
 * `fmgr_application_internetservice`  Show Internet service application.
@@ -167,6 +169,7 @@ The collection provides the following modules:
 * `fmgr_devprof_system_emailserver`  Configure the email server used by the FortiGate various things.
 * `fmgr_devprof_system_global`  Configure global attributes.
 * `fmgr_devprof_system_ntp`  Configure system NTP information.
+* `fmgr_devprof_system_ntp_keys`  Configure authentication keys for this FortiGate to perform NTP server functionality.
 * `fmgr_devprof_system_ntp_ntpserver`  Configure the FortiGate to connect to any available third-party NTP server.
 * `fmgr_devprof_system_replacemsg_admin`  Replacement messages.
 * `fmgr_devprof_system_replacemsg_alertmail`  Replacement messages.
@@ -235,7 +238,9 @@ The collection provides the following modules:
 * `fmgr_dvmdb_device_replace_sn`  Replace devices serial number with new value.
 * `fmgr_dvmdb_device_vdom`  Device VDOM table.
 * `fmgr_dvmdb_folder`  Device manager database folder.
+* `fmgr_dvmdb_generate_ztp_url`  Device manager database generate ztp url.
 * `fmgr_dvmdb_group`  Device group table.
+* `fmgr_dvmdb_group_bytask`  Device manager database group by task.
 * `fmgr_dvmdb_group_objectmember`  Device group table.
 * `fmgr_dvmdb_metafields_adom`  Device manager database meta fields adom.
 * `fmgr_dvmdb_metafields_device`  Device manager database meta fields device.
@@ -247,8 +252,14 @@ The collection provides the following modules:
 * `fmgr_dvmdb_script_scriptschedule`  Script schedule table.
 * `fmgr_dvmdb_upgrade`  Device manager database upgrade.
 * `fmgr_dvmdb_workflow_approve`  Device manager database workflow approve.
+* `fmgr_dvmdb_workflow_batchmerge`  Device manager database workflow batch merge.
+* `fmgr_dvmdb_workflow_close`  Device manager database workflow close.
+* `fmgr_dvmdb_workflow_diff`  Device manager database workflow diff.
+* `fmgr_dvmdb_workflow_diffbase`  Device manager database workflow diff base.
 * `fmgr_dvmdb_workflow_discard`  Device manager database workflow discard.
 * `fmgr_dvmdb_workflow_drop`  Device manager database workflow drop.
+* `fmgr_dvmdb_workflow_merge`  Device manager database workflow merge.
+* `fmgr_dvmdb_workflow_patch`  Device manager database workflow patch.
 * `fmgr_dvmdb_workflow_reject`  Device manager database workflow reject.
 * `fmgr_dvmdb_workflow_repair`  Device manager database workflow repair.
 * `fmgr_dvmdb_workflow_revert`  Device manager database workflow revert.
@@ -317,6 +328,7 @@ The collection provides the following modules:
 * `fmgr_emailfilter_profile_smtp`  SMTP.
 * `fmgr_emailfilter_profile_yahoomail`  Yahoo! Mail.
 * `fmgr_endpointcontrol_fctems`  Configure FortiClient Enterprise Management Server.
+* `fmgr_exec_fgfm_autolinkdevice`  Force start autolink process on link-pending device.
 * `fmgr_exec_fgfm_reclaimdevtunnel`  Reclaim management tunnel to device.
 * `fmgr_extendercontroller_dataplan`  FortiExtender dataplan configuration.
 * `fmgr_extendercontroller_extenderprofile`  FortiExtender extender profile configuration.
@@ -575,8 +587,8 @@ The collection provides the following modules:
 * `fmgr_fmupdate_fdssetting_serveroverride`  Server override configure.
 * `fmgr_fmupdate_fdssetting_serveroverride_servlist`  Override server.
 * `fmgr_fmupdate_fdssetting_updateschedule`  Configure the schedule when built-in FortiGuard retrieves antivirus and IPS updates.
-* `fmgr_fmupdate_fgdsetting`  Cli fmupdate fgd setting.
-* `fmgr_fmupdate_fgdsetting_serveroverride`  Cli fmupdate fgd setting server override.
+* `fmgr_fmupdate_fgdsetting`  Configure FortiGuard fgd parameters.
+* `fmgr_fmupdate_fgdsetting_serveroverride`  Server override configure.
 * `fmgr_fmupdate_fwmsetting`  Configure firmware management settings.
 * `fmgr_fmupdate_fwmsetting_upgradetimeout`  Configure the timeout value of image upgrade process.
 * `fmgr_fmupdate_multilayer`  Configure multilayer mode.
@@ -683,6 +695,7 @@ The collection provides the following modules:
 * `fmgr_ips_sensor_entries_exemptip`  Traffic from selected source or destination IP addresses is exempt from this signature.
 * `fmgr_isolator_profile`  Isolator profile.
 * `fmgr_isolator_profile_entries`  Isolator profile entries.
+* `fmgr_llm_server`  Configure LLM Proxy servers.
 * `fmgr_log_customfield`  Configure custom log fields.
 * `fmgr_log_npuserver`  Configure all the log servers and create the server groups.
 * `fmgr_log_npuserver_servergroup`  create server group.
@@ -694,8 +707,8 @@ The collection provides the following modules:
 * `fmgr_nacprofile`  Configure WiFi network access control.
 * `fmgr_pkg_authentication_rule`  Configure Authentication Rules.
 * `fmgr_pkg_authentication_setting`  Configure authentication setting.
-* `fmgr_pkg_central_dnat`  Policy package central dnat.
-* `fmgr_pkg_central_dnat6`  Policy package central dnat6.
+* `fmgr_pkg_central_dnat`  Support optional install-on device/vdom scope member.
+* `fmgr_pkg_central_dnat6`  Support optional install-on device/vdom scope member.
 * `fmgr_pkg_firewall_acl`  Configure IPv4 access control list.
 * `fmgr_pkg_firewall_acl6`  Configure IPv6 access control list.
 * `fmgr_pkg_firewall_centralsnatmap`  Configure central SNAT policies.
@@ -807,6 +820,8 @@ The collection provides the following modules:
 * `fmgr_securityconsole_package_cancel_install`  Cancel policy install and clear preview cache.
 * `fmgr_securityconsole_package_clone`  Clone a policy package within the same ADOM.
 * `fmgr_securityconsole_package_commit`  Install policies to device from preview cache.
+* `fmgr_securityconsole_package_export`  Securityconsole package export.
+* `fmgr_securityconsole_package_import`  Securityconsole package import.
 * `fmgr_securityconsole_package_move`  Move and/or rename a policy package within the same ADOM.
 * `fmgr_securityconsole_pblock_clone`  Securityconsole policy block clone.
 * `fmgr_securityconsole_preview_result`  Retrieve the result of previous install/preview command.
@@ -872,6 +887,8 @@ The collection provides the following modules:
 * `fmgr_switchcontroller_managedswitch_systemdhcpserver_options`  DHCP options.
 * `fmgr_switchcontroller_managedswitch_systeminterface`  Configure system interface on FortiSwitch.
 * `fmgr_switchcontroller_managedswitch_vlan`  Configure VLAN assignment priority.
+* `fmgr_switchcontroller_ptp_interfacepolicy`  PTP interface-policy configuration.
+* `fmgr_switchcontroller_ptp_policy`  PTP policy configuration.
 * `fmgr_switchcontroller_ptp_profile`  Global PTP profile.
 * `fmgr_switchcontroller_qos_dot1pmap`  Configure FortiSwitch QoS 802.
 * `fmgr_switchcontroller_qos_ipdscpmap`  Configure FortiSwitch QoS IP precedence/DSCP.
@@ -941,13 +958,18 @@ The collection provides the following modules:
 * `fmgr_system_csf`  Add this device to a Security Fabric or set up a new Security Fabric on this device.
 * `fmgr_system_csf_fabricconnector`  Fabric connector configuration.
 * `fmgr_system_csf_trustedlist`  Pre-authorized and blocked security fabric nodes.
-* `fmgr_system_csf_trustedlist_adom`  Cli system csf trusted list adom.
+* `fmgr_system_csf_trustedlist_adom`  Admin domain.
 * `fmgr_system_customlanguage`  Configure custom languages.
 * `fmgr_system_dhcp_server`  Configure DHCP servers.
 * `fmgr_system_dhcp_server_excluderange`  Exclude one or more ranges of IP addresses from being assigned to clients.
 * `fmgr_system_dhcp_server_iprange`  DHCP IP range configuration.
 * `fmgr_system_dhcp_server_options`  DHCP options.
 * `fmgr_system_dhcp_server_reservedaddress`  Options for the DHCP server to assign IP settings to specific MAC addresses.
+* `fmgr_system_dhcp_template`  Configure DHCP server templates.
+* `fmgr_system_dhcp_template_excluderange`  Exclude one or more ranges of IP addresses from being assigned to clients.
+* `fmgr_system_dhcp_template_iprange`  DHCP IP range configuration.
+* `fmgr_system_dhcp_template_options`  DHCP options.
+* `fmgr_system_dhcp_template_reservedaddress`  Options for the DHCP server to assign IP settings to specific MAC addresses.
 * `fmgr_system_dm`  Configure dm.
 * `fmgr_system_dns`  DNS configuration.
 * `fmgr_system_dnsdatabase`  Configure DNS databases.
@@ -977,14 +999,14 @@ The collection provides the following modules:
 * `fmgr_system_interface_member`  Physical interfaces that belong to the aggregate or redundant interface.
 * `fmgr_system_localinpolicy`  IPv4 local in policy configuration.
 * `fmgr_system_localinpolicy6`  IPv6 local in policy configuration.
-* `fmgr_system_localinpolicy6_dport`  Cli system local in policy6 dport.
-* `fmgr_system_localinpolicy6_dst`  Cli system local in policy6 dst.
-* `fmgr_system_localinpolicy6_intf`  Cli system local in policy6 intf.
-* `fmgr_system_localinpolicy6_src`  Cli system local in policy6 src.
-* `fmgr_system_localinpolicy_dport`  Cli system local in policy dport.
-* `fmgr_system_localinpolicy_dst`  Cli system local in policy dst.
-* `fmgr_system_localinpolicy_intf`  Cli system local in policy intf.
-* `fmgr_system_localinpolicy_src`  Cli system local in policy src.
+* `fmgr_system_localinpolicy6_dport`  List of Destination port number.
+* `fmgr_system_localinpolicy6_dst`  Destination IP and prefix.
+* `fmgr_system_localinpolicy6_intf`  List of Incoming interface name.
+* `fmgr_system_localinpolicy6_src`  List of Source IP and prefix.
+* `fmgr_system_localinpolicy_dport`  List of Destination port number.
+* `fmgr_system_localinpolicy_dst`  List of Destination IP and mask.
+* `fmgr_system_localinpolicy_intf`  List of Incoming interface name.
+* `fmgr_system_localinpolicy_src`  List of Source IP and mask.
 * `fmgr_system_locallog_disk_filter`  Filter for disk logging.
 * `fmgr_system_locallog_disk_setting`  Settings for local disk logging.
 * `fmgr_system_locallog_fortianalyzer2_filter`  Filter for FortiAnalyzer2 logging.
@@ -1002,10 +1024,10 @@ The collection provides the following modules:
 * `fmgr_system_locallog_syslogd3_setting`  Settings for remote syslog server.
 * `fmgr_system_locallog_syslogd_filter`  Filter for syslog logging.
 * `fmgr_system_locallog_syslogd_setting`  Settings for remote syslog server.
-* `fmgr_system_locallog_tacacsaccounting_filter`  Cli system locallog tacacs+accounting filter.
-* `fmgr_system_locallog_tacacsaccounting_setting`  Cli system locallog tacacs+accounting setting.
+* `fmgr_system_locallog_tacacsaccounting_filter`  Settings for tacacs+ accounting events filter.
+* `fmgr_system_locallog_tacacsaccounting_setting`  Settings for tacacs+ accounting.
 * `fmgr_system_log_alert`  Log based alert settings.
-* `fmgr_system_log_apiratelimit`  Cli system log api ratelimit.
+* `fmgr_system_log_apiratelimit`  API rate limit.
 * `fmgr_system_log_devicedisable`  Disable client device logging.
 * `fmgr_system_log_deviceselector`  Accept/reject devices matching specified filter types.
 * `fmgr_system_log_fospolicystats`  FortiOS policy statistics settings.
@@ -1016,7 +1038,7 @@ The collection provides the following modules:
 * `fmgr_system_log_ratelimit_device`  Device log rate limit.
 * `fmgr_system_log_ratelimit_ratelimits`  Per device or ADOM log rate limits.
 * `fmgr_system_log_settings`  Log settings.
-* `fmgr_system_log_settings_clientcertauth`  Cli system log settings client cert auth.
+* `fmgr_system_log_settings_clientcertauth`  Configure client certificate authentication.
 * `fmgr_system_log_settings_rollinganalyzer`  Log rolling policy for Network Analyzer logs.
 * `fmgr_system_log_settings_rollinglocal`  Log rolling policy for local logs.
 * `fmgr_system_log_settings_rollingregular`  Log rolling policy for device logs.
@@ -1033,6 +1055,7 @@ The collection provides the following modules:
 * `fmgr_system_metadata_admins`  Configure admins.
 * `fmgr_system_npu`  Configure NPU attributes.
 * `fmgr_system_npu_backgroundssescan`  Configure driver background scan for SSE.
+* `fmgr_system_npu_congestionhandlingmode`  MVL congestion mode configuration.
 * `fmgr_system_npu_dosoptions`  NPU DoS configurations.
 * `fmgr_system_npu_dswdtsprofile`  Configure NPU DSW DTS profile.
 * `fmgr_system_npu_dswqueuedtsprofile`  Configure NPU DSW Queue DTS profile.
@@ -1147,6 +1170,7 @@ The collection provides the following modules:
 * `fmgr_templategroup`  Require device/vdom scope member.
 * `fmgr_um_image_upgrade`  The older API for updating the firmware of specific device.
 * `fmgr_um_image_upgrade_ext`  Update the firmware of specific device.
+* `fmgr_um_query_productapi`  Get detailed information about IPS packages and signatures using the um/query/productapi endpoint.
 * `fmgr_ums_setting`  Ums setting.
 * `fmgr_user_aci`  User aci.
 * `fmgr_user_adgrp`  Configure FSSO groups.
@@ -1339,6 +1363,8 @@ The collection provides the following modules:
 * `fmgr_webfilter_profile_antiphish_inspectionentries`  AntiPhishing entries.
 * `fmgr_webfilter_profile_filefilter`  File filter.
 * `fmgr_webfilter_profile_filefilter_entries`  File filter entries.
+* `fmgr_webfilter_profile_ftgdimageclassification`  FortiGuard image classification filter settings.
+* `fmgr_webfilter_profile_ftgdimageclassification_rules`  Category thresholds configuration.
 * `fmgr_webfilter_profile_ftgdwf`  FortiGuard Web Filter settings.
 * `fmgr_webfilter_profile_ftgdwf_filters`  FortiGuard filters.
 * `fmgr_webfilter_profile_ftgdwf_quota`  FortiGuard traffic quota settings.

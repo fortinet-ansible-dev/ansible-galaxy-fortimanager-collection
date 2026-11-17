@@ -120,13 +120,13 @@ def main():
         'adom': {'required': True, 'type': 'str'},
         'session_id': {'required': True, 'type': 'str'},
         'dvmdb_workflow_revert': {
-            'type': 'dict', 'v_range': [['6.0.0', '']],
+            'type': 'dict', 'v_range': [['6.0.0', '8.0.0']],
             'options': {
-                'desc': {'type': 'str'},
-                'fmgip': {'type': 'str'},
-                'mail_user': {'type': 'raw'},
-                'no_diff': {'type': 'int'},
-                'no_mail': {'type': 'int'}
+                'desc': {'v_range': [['6.0.0', '8.0.0']], 'type': 'str'},
+                'fmgip': {'v_range': [['6.0.0', '8.0.0']], 'type': 'str'},
+                'mail_user': {'v_range': [['6.0.0', '8.0.0']], 'type': 'raw'},
+                'no_diff': {'v_range': [['6.0.0', '8.0.0']], 'type': 'int'},
+                'no_mail': {'v_range': [['6.0.0', '8.0.0']], 'type': 'int'}
             }
         }
     }

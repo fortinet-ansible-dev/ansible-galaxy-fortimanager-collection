@@ -270,6 +270,12 @@ options:
       uuid:
         type: str
         description: Universally Unique Identifier
+      icap_log:
+        aliases: ['icap-log']
+        type: list
+        elements: str
+        description: ICAP UTM traffic log setting
+        choices: ['block', 'error', 'oversize', 'all']
 '''
 
 EXAMPLES = '''
@@ -340,6 +346,7 @@ EXAMPLES = '''
           # fabric_object: <value in [disable, enable]>
           # fabric_object_source: <value in [member, local, root]>
           # uuid: <string>
+          # icap_log: ["block", "error", "oversize", "all"]
 '''
 
 RETURN = '''
@@ -478,7 +485,8 @@ def main():
                 'fabric-force-sync': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'fabric-object': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'fabric-object-source': {'v_range': [['8.0.0', '']], 'choices': ['member', 'local', 'root'], 'type': 'str'},
-                'uuid': {'v_range': [['8.0.0', '']], 'type': 'str'}
+                'uuid': {'v_range': [['8.0.0', '']], 'type': 'str'},
+                'icap-log': {'v_range': [['8.0.1', '']], 'type': 'list', 'choices': ['block', 'error', 'oversize', 'all'], 'elements': 'str'}
             }
         }
     }

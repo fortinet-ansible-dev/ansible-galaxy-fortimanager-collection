@@ -146,6 +146,26 @@ options:
         aliases: ['quota-limit']
         type: int
         description: Volume quota limit assigned to this member in gigabytes
+      quota_usage_threshold:
+        aliases: ['quota-usage-threshold']
+        type: int
+        description: Configure the threshold as a percentage of the cellular data quota set in the FortiExtender dataplan.
+      signal_strength_threshold:
+        aliases: ['signal-strength-threshold']
+        type: int
+        description: Configure the threshold as a percentage of the maximum signal strength below which SDWAN determines this FortiExtender interface i...
+      scope_member:
+        aliases: ['scope member']
+        type: list
+        elements: dict
+        description: Scope member.
+        suboptions:
+          name:
+            type: str
+            description: Name.
+          vdom:
+            type: str
+            description: Vdom.
 '''
 
 EXAMPLES = '''
@@ -192,6 +212,11 @@ EXAMPLES = '''
           # overage_volume_ratio: <integer>
           # overage_weight: <integer>
           # quota_limit: <integer>
+          # quota_usage_threshold: <integer>
+          # signal_strength_threshold: <integer>
+          # scope_member:
+          #   - name: <string>
+          #     vdom: <string>
 '''
 
 RETURN = '''
@@ -279,7 +304,15 @@ def main():
                 'overage-cost': {'v_range': [['8.0.0', '']], 'type': 'int'},
                 'overage-volume-ratio': {'v_range': [['8.0.0', '']], 'type': 'int'},
                 'overage-weight': {'v_range': [['8.0.0', '']], 'type': 'int'},
-                'quota-limit': {'v_range': [['8.0.0', '']], 'type': 'int'}
+                'quota-limit': {'v_range': [['8.0.0', '']], 'type': 'int'},
+                'quota-usage-threshold': {'v_range': [['8.0.1', '']], 'type': 'int'},
+                'signal-strength-threshold': {'v_range': [['8.0.1', '']], 'type': 'int'},
+                'scope member': {
+                    'v_range': [['8.0.1', '']],
+                    'type': 'list',
+                    'options': {'name': {'v_range': [['8.0.1', '']], 'type': 'str'}, 'vdom': {'v_range': [['8.0.1', '']], 'type': 'str'}},
+                    'elements': 'dict'
+                }
             }
         }
     }

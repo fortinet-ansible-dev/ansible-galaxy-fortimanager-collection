@@ -119,7 +119,8 @@ options:
                   'landscape', 'twilight', 'canyon', 'northern-light', 'astronomy', 'fish',
                   'penguin', 'panda', 'polar-bear', 'parrot', 'cave', 'mountain', 'zebra',
                   'contrast-dark', 'circuit-board', 'mars', 'blue-sea', 'mariner', 'jade',
-                  'neutrino', 'dark-matter', 'forest', 'cat', 'graphite']
+                  'neutrino', 'dark-matter', 'forest', 'cat', 'graphite', 'sec-network-lt',
+                  'sec-network-dk', 'sec-operation-lt', 'sec-operation-dk', 'dune']
       http_port:
         type: int
         description: HTTP port.
@@ -401,6 +402,22 @@ options:
         type: str
         description: Custom session label mode.
         choices: ['changeable', 'unique-per-session']
+      ext_auth_trusthost_override:
+        aliases: ['ext-auth-trusthost-override']
+        type: str
+        description:
+          - Allow to use the trusthost in profile provided by the remote authentication server.
+          - disable - Disable setting.
+          - enable - Enable setting.
+        choices: ['disable', 'enable']
+      hitcount_monitor:
+        aliases: ['hitcount-monitor']
+        type: str
+        description:
+          - Enable/disable policy hitcount monitor.
+          - disable - Disable setting.
+          - enable - Enable setting.
+        choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -471,6 +488,8 @@ EXAMPLES = '''
           # admin_httpd_keep_alive_timeout: <integer>
           # custom_session_label: <value in [disable, enable]>
           # custom_session_label_mode: <value in [changeable, unique-per-session]>
+          # ext_auth_trusthost_override: <value in [disable, enable]>
+          # hitcount_monitor: <value in [disable, enable]>
 '''
 
 RETURN = '''
@@ -541,7 +560,8 @@ def main():
                         'blue', 'green', 'red', 'melongene', 'spring', 'summer', 'autumn', 'winter', 'space', 'calla-lily', 'binary-tunnel', 'diving',
                         'dreamy', 'technology', 'landscape', 'twilight', 'canyon', 'northern-light', 'astronomy', 'fish', 'penguin', 'panda',
                         'polar-bear', 'parrot', 'cave', 'mountain', 'zebra', 'contrast-dark', 'circuit-board', 'mars', 'blue-sea', 'mariner', 'jade',
-                        'neutrino', 'dark-matter', 'forest', 'cat', 'graphite'
+                        'neutrino', 'dark-matter', 'forest', 'cat', 'graphite', 'sec-network-lt', 'sec-network-dk', 'sec-operation-lt',
+                        'sec-operation-dk', 'dune'
                     ],
                     'type': 'str'
                 },
@@ -592,9 +612,11 @@ def main():
                 'rtm-max-monitor-by-size': {'v_range': [['7.4.7', '7.4.11'], ['7.6.3', '']], 'type': 'int'},
                 'show-sdwan-manager': {'v_range': [['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'admin-scp': {'v_range': [['7.4.8', '7.4.11'], ['7.6.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'admin-httpd-keep-alive-timeout': {'v_range': [['7.4.11', '7.4.11'], ['7.6.7', '']], 'type': 'int'},
+                'admin-httpd-keep-alive-timeout': {'v_range': [['7.4.11', '7.4.11'], ['7.6.7', '8.0.0']], 'type': 'int'},
                 'custom-session-label': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'custom-session-label-mode': {'v_range': [['8.0.0', '']], 'choices': ['changeable', 'unique-per-session'], 'type': 'str'}
+                'custom-session-label-mode': {'v_range': [['8.0.0', '']], 'choices': ['changeable', 'unique-per-session'], 'type': 'str'},
+                'ext-auth-trusthost-override': {'v_range': [['8.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'hitcount-monitor': {'v_range': [['8.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

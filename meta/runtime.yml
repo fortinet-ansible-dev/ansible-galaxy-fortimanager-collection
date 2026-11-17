@@ -1,6 +1,257 @@
 ---
 requires_ansible: ">=2.16.0"
 action_groups:
+  all:
+    - fmgr_clone
+    - fmgr_deployment_get_controller_status
+    - fmgr_dvm_cmd_add_device
+    - fmgr_dvm_cmd_add_devlist
+    - fmgr_dvm_cmd_changehaseq
+    - fmgr_dvm_cmd_del_device
+    - fmgr_dvm_cmd_del_devlist
+    - fmgr_dvm_cmd_discover_device
+    - fmgr_dvm_cmd_import_devlist
+    - fmgr_dvm_cmd_reload_devlist
+    - fmgr_dvm_cmd_update_device
+    - fmgr_dvm_cmd_update_devlist
+    - fmgr_dvmdb_adom
+    - fmgr_dvmdb_metafields_adom
+    - fmgr_dvmdb_metafields_device
+    - fmgr_dvmdb_metafields_group
+    - fmgr_dvmdb_upgrade
+    - fmgr_exec_fgfm_autolinkdevice
+    - fmgr_exec_fgfm_reclaimdevtunnel
+    - fmgr_fact
+    - fmgr_fmupdate_analyzer_virusreport
+    - fmgr_fmupdate_avips_advancedlog
+    - fmgr_fmupdate_avips_webproxy
+    - fmgr_fmupdate_customurllist
+    - fmgr_fmupdate_diskquota
+    - fmgr_fmupdate_fctservices
+    - fmgr_fmupdate_fdssetting
+    - fmgr_fmupdate_fdssetting_pushoverride
+    - fmgr_fmupdate_fdssetting_pushoverridetoclient
+    - fmgr_fmupdate_fdssetting_pushoverridetoclient_announceip
+    - fmgr_fmupdate_fdssetting_serveroverride
+    - fmgr_fmupdate_fdssetting_serveroverride_servlist
+    - fmgr_fmupdate_fdssetting_updateschedule
+    - fmgr_fmupdate_fgdsetting
+    - fmgr_fmupdate_fgdsetting_serveroverride
+    - fmgr_fmupdate_fwmsetting
+    - fmgr_fmupdate_fwmsetting_upgradetimeout
+    - fmgr_fmupdate_multilayer
+    - fmgr_fmupdate_publicnetwork
+    - fmgr_fmupdate_serveraccesspriorities
+    - fmgr_fmupdate_serveraccesspriorities_privateserver
+    - fmgr_fmupdate_serveroverridestatus
+    - fmgr_fmupdate_service
+    - fmgr_fmupdate_webspam_fgdsetting
+    - fmgr_fmupdate_webspam_fgdsetting_serveroverride
+    - fmgr_fmupdate_webspam_fgdsetting_serveroverride_servlist
+    - fmgr_fmupdate_webspam_webproxy
+    - fmgr_generic
+    - fmgr_metafields_system_admin_user
+    - fmgr_move
+    - fmgr_pkg_footer_policy
+    - fmgr_pkg_footer_policy6
+    - fmgr_pkg_footer_shapingpolicy
+    - fmgr_pkg_header_policy
+    - fmgr_pkg_header_policy6
+    - fmgr_pkg_header_shapingpolicy
+    - fmgr_pm_config_metafields_firewall_address
+    - fmgr_pm_config_metafields_firewall_addrgrp
+    - fmgr_pm_config_metafields_firewall_centralsnatmap
+    - fmgr_pm_config_metafields_firewall_policy
+    - fmgr_pm_config_metafields_firewall_service_custom
+    - fmgr_pm_config_metafields_firewall_service_group
+    - fmgr_pm_config_reset_database
+    - fmgr_pm_pkg_global
+    - fmgr_rename
+    - fmgr_securityconsole_abort
+    - fmgr_securityconsole_assign_package
+    - fmgr_securityconsole_cliprof_check
+    - fmgr_securityconsole_import_dev_objs
+    - fmgr_securityconsole_install_device
+    - fmgr_securityconsole_install_objects_v2
+    - fmgr_securityconsole_install_package
+    - fmgr_securityconsole_install_preview
+    - fmgr_securityconsole_package_cancel_install
+    - fmgr_securityconsole_package_clone
+    - fmgr_securityconsole_package_commit
+    - fmgr_securityconsole_package_export
+    - fmgr_securityconsole_package_import
+    - fmgr_securityconsole_package_move
+    - fmgr_securityconsole_pblock_clone
+    - fmgr_securityconsole_preview_result
+    - fmgr_securityconsole_reinstall_package
+    - fmgr_securityconsole_sign_certificate_template
+    - fmgr_securityconsole_template_cli_preview
+    - fmgr_securityconsole_template_validate
+    - fmgr_sys_api_sdnconnector
+    - fmgr_sys_backup
+    - fmgr_sys_cloud_orchest
+    - fmgr_sys_generate_wsdl
+    - fmgr_sys_hitcount
+    - fmgr_sys_login_challenge
+    - fmgr_sys_login_user
+    - fmgr_sys_logout
+    - fmgr_sys_proxy_json
+    - fmgr_sys_reboot
+    - fmgr_sys_task_result
+    - fmgr_system_admin_group
+    - fmgr_system_admin_group_member
+    - fmgr_system_admin_ldap
+    - fmgr_system_admin_ldap_adom
+    - fmgr_system_admin_profile
+    - fmgr_system_admin_profile_datamaskcustomfields
+    - fmgr_system_admin_profile_writepasswdprofiles
+    - fmgr_system_admin_profile_writepasswduserlist
+    - fmgr_system_admin_radius
+    - fmgr_system_admin_setting
+    - fmgr_system_admin_tacacs
+    - fmgr_system_admin_user
+    - fmgr_system_admin_user_adom
+    - fmgr_system_admin_user_adomexclude
+    - fmgr_system_admin_user_appfilter
+    - fmgr_system_admin_user_dashboard
+    - fmgr_system_admin_user_dashboardtabs
+    - fmgr_system_admin_user_ipsfilter
+    - fmgr_system_admin_user_metadata
+    - fmgr_system_admin_user_policyblock
+    - fmgr_system_admin_user_policypackage
+    - fmgr_system_admin_user_restrictdevvdom
+    - fmgr_system_admin_user_webfilter
+    - fmgr_system_alertconsole
+    - fmgr_system_alertemail
+    - fmgr_system_alertevent
+    - fmgr_system_alertevent_alertdestination
+    - fmgr_system_autodelete
+    - fmgr_system_autodelete_dlpfilesautodeletion
+    - fmgr_system_autodelete_logautodeletion
+    - fmgr_system_autodelete_quarantinefilesautodeletion
+    - fmgr_system_autodelete_reportautodeletion
+    - fmgr_system_backup_allsettings
+    - fmgr_system_certificate_ca
+    - fmgr_system_certificate_crl
+    - fmgr_system_certificate_local
+    - fmgr_system_certificate_oftp
+    - fmgr_system_certificate_remote
+    - fmgr_system_certificate_ssh
+    - fmgr_system_connector
+    - fmgr_system_csf
+    - fmgr_system_csf_fabricconnector
+    - fmgr_system_csf_trustedlist
+    - fmgr_system_csf_trustedlist_adom
+    - fmgr_system_dm
+    - fmgr_system_dns
+    - fmgr_system_docker
+    - fmgr_system_fips
+    - fmgr_system_fmgcluster
+    - fmgr_system_fmgcluster_peer
+    - fmgr_system_fortiview_autocache
+    - fmgr_system_fortiview_setting
+    - fmgr_system_global
+    - fmgr_system_guiact
+    - fmgr_system_ha
+    - fmgr_system_ha_monitoredinterfaces
+    - fmgr_system_ha_monitoredips
+    - fmgr_system_ha_peer
+    - fmgr_system_hascheduledcheck
+    - fmgr_system_interface
+    - fmgr_system_interface_ipv6
+    - fmgr_system_interface_member
+    - fmgr_system_localinpolicy
+    - fmgr_system_localinpolicy6
+    - fmgr_system_localinpolicy6_dport
+    - fmgr_system_localinpolicy6_dst
+    - fmgr_system_localinpolicy6_intf
+    - fmgr_system_localinpolicy6_src
+    - fmgr_system_localinpolicy_dport
+    - fmgr_system_localinpolicy_dst
+    - fmgr_system_localinpolicy_intf
+    - fmgr_system_localinpolicy_src
+    - fmgr_system_locallog_disk_filter
+    - fmgr_system_locallog_disk_setting
+    - fmgr_system_locallog_fortianalyzer2_filter
+    - fmgr_system_locallog_fortianalyzer2_setting
+    - fmgr_system_locallog_fortianalyzer3_filter
+    - fmgr_system_locallog_fortianalyzer3_setting
+    - fmgr_system_locallog_fortianalyzer_filter
+    - fmgr_system_locallog_fortianalyzer_setting
+    - fmgr_system_locallog_memory_filter
+    - fmgr_system_locallog_memory_setting
+    - fmgr_system_locallog_setting
+    - fmgr_system_locallog_syslogd2_filter
+    - fmgr_system_locallog_syslogd2_setting
+    - fmgr_system_locallog_syslogd3_filter
+    - fmgr_system_locallog_syslogd3_setting
+    - fmgr_system_locallog_syslogd_filter
+    - fmgr_system_locallog_syslogd_setting
+    - fmgr_system_locallog_tacacsaccounting_filter
+    - fmgr_system_locallog_tacacsaccounting_setting
+    - fmgr_system_log_alert
+    - fmgr_system_log_apiratelimit
+    - fmgr_system_log_devicedisable
+    - fmgr_system_log_deviceselector
+    - fmgr_system_log_fospolicystats
+    - fmgr_system_log_interfacestats
+    - fmgr_system_log_ioc
+    - fmgr_system_log_maildomain
+    - fmgr_system_log_ratelimit
+    - fmgr_system_log_ratelimit_device
+    - fmgr_system_log_ratelimit_ratelimits
+    - fmgr_system_log_settings
+    - fmgr_system_log_settings_clientcertauth
+    - fmgr_system_log_settings_rollinganalyzer
+    - fmgr_system_log_settings_rollinglocal
+    - fmgr_system_log_settings_rollingregular
+    - fmgr_system_log_topology
+    - fmgr_system_log_ueba
+    - fmgr_system_logfetch_clientprofile
+    - fmgr_system_logfetch_clientprofile_devicefilter
+    - fmgr_system_logfetch_clientprofile_logfilter
+    - fmgr_system_logfetch_serversettings
+    - fmgr_system_mail
+    - fmgr_system_mcpolicydisabledadoms
+    - fmgr_system_metadata_admins
+    - fmgr_system_ntp
+    - fmgr_system_ntp_ntpserver
+    - fmgr_system_passwordpolicy
+    - fmgr_system_report_autocache
+    - fmgr_system_report_estbrowsetime
+    - fmgr_system_report_group
+    - fmgr_system_report_group_chartalternative
+    - fmgr_system_report_group_groupby
+    - fmgr_system_report_setting
+    - fmgr_system_route
+    - fmgr_system_route6
+    - fmgr_system_saml
+    - fmgr_system_saml_fabricidp
+    - fmgr_system_sniffer
+    - fmgr_system_snmp_community
+    - fmgr_system_snmp_community_hosts
+    - fmgr_system_snmp_community_hosts6
+    - fmgr_system_snmp_sysinfo
+    - fmgr_system_snmp_user
+    - fmgr_system_socfabric
+    - fmgr_system_socfabric_trustedlist
+    - fmgr_system_sql
+    - fmgr_system_sql_customindex
+    - fmgr_system_sql_customskipidx
+    - fmgr_system_sql_tsindexfield
+    - fmgr_system_sslciphersuites
+    - fmgr_system_syslog
+    - fmgr_system_webproxy
+    - fmgr_system_workflow_approvalmatrix
+    - fmgr_system_workflow_approvalmatrix_approver
+    - fmgr_um_image_upgrade
+    - fmgr_um_image_upgrade_ext
+    - fmgr_um_query_productapi
+    - fmgr_vpn_ssl_settings
+    - fmgr_vpn_ssl_settings_authenticationrule
+    - metadata:
+        extend_group:
+          - adom
   adom:
     - fmgr_adom_options
     - fmgr_antivirus_mmschecksum
@@ -27,6 +278,8 @@ action_groups:
     - fmgr_application_casi_profile
     - fmgr_application_casi_profile_entries
     - fmgr_application_categories
+    - fmgr_application_classification
+    - fmgr_application_classificationscope
     - fmgr_application_custom
     - fmgr_application_group
     - fmgr_application_internetservice
@@ -96,6 +349,7 @@ action_groups:
     - fmgr_devprof_system_emailserver
     - fmgr_devprof_system_global
     - fmgr_devprof_system_ntp
+    - fmgr_devprof_system_ntp_keys
     - fmgr_devprof_system_ntp_ntpserver
     - fmgr_devprof_system_replacemsg_admin
     - fmgr_devprof_system_replacemsg_alertmail
@@ -153,7 +407,9 @@ action_groups:
     - fmgr_dvmdb_device_replace_sn
     - fmgr_dvmdb_device_vdom
     - fmgr_dvmdb_folder
+    - fmgr_dvmdb_generate_ztp_url
     - fmgr_dvmdb_group
+    - fmgr_dvmdb_group_bytask
     - fmgr_dvmdb_group_objectmember
     - fmgr_dvmdb_revision
     - fmgr_dvmdb_script
@@ -161,8 +417,14 @@ action_groups:
     - fmgr_dvmdb_script_objectmember
     - fmgr_dvmdb_script_scriptschedule
     - fmgr_dvmdb_workflow_approve
+    - fmgr_dvmdb_workflow_batchmerge
+    - fmgr_dvmdb_workflow_close
+    - fmgr_dvmdb_workflow_diff
+    - fmgr_dvmdb_workflow_diffbase
     - fmgr_dvmdb_workflow_discard
     - fmgr_dvmdb_workflow_drop
+    - fmgr_dvmdb_workflow_merge
+    - fmgr_dvmdb_workflow_patch
     - fmgr_dvmdb_workflow_reject
     - fmgr_dvmdb_workflow_repair
     - fmgr_dvmdb_workflow_revert
@@ -475,8 +737,6 @@ action_groups:
     - fmgr_fmg_script_schedule
     - fmgr_fmg_variable
     - fmgr_fmg_variable_dynamicmapping
-    - fmgr_fsp_override
-    - fmgr_fsp_override_attrs
     - fmgr_fsp_vlan
     - fmgr_fsp_vlan_dhcpserver
     - fmgr_fsp_vlan_dhcpserver_excluderange
@@ -571,6 +831,7 @@ action_groups:
     - fmgr_ips_sensor_entries_exemptip
     - fmgr_isolator_profile
     - fmgr_isolator_profile_entries
+    - fmgr_llm_server
     - fmgr_log_customfield
     - fmgr_log_npuserver
     - fmgr_log_npuserver_servergroup
@@ -579,7 +840,6 @@ action_groups:
     - fmgr_mpskprofile_mpskgroup
     - fmgr_mpskprofile_mpskgroup_mpskkey
     - fmgr_nacprofile
-    - fmgr_pfcp_messagefilter
     - fmgr_pkg_authentication_rule
     - fmgr_pkg_authentication_setting
     - fmgr_pkg_central_dnat
@@ -613,7 +873,6 @@ action_groups:
     - fmgr_pkg_firewall_policy6
     - fmgr_pkg_firewall_policy64
     - fmgr_pkg_firewall_policy6_sectionvalue
-    - fmgr_pkg_firewall_policy_fabricpolicy
     - fmgr_pkg_firewall_policy_sectionvalue
     - fmgr_pkg_firewall_policy_vpndstnode
     - fmgr_pkg_firewall_policy_vpnsrcnode
@@ -729,6 +988,8 @@ action_groups:
     - fmgr_switchcontroller_managedswitch_systemdhcpserver_options
     - fmgr_switchcontroller_managedswitch_systeminterface
     - fmgr_switchcontroller_managedswitch_vlan
+    - fmgr_switchcontroller_ptp_interfacepolicy
+    - fmgr_switchcontroller_ptp_policy
     - fmgr_switchcontroller_ptp_profile
     - fmgr_switchcontroller_qos_dot1pmap
     - fmgr_switchcontroller_qos_ipdscpmap
@@ -750,6 +1011,11 @@ action_groups:
     - fmgr_system_dhcp_server_iprange
     - fmgr_system_dhcp_server_options
     - fmgr_system_dhcp_server_reservedaddress
+    - fmgr_system_dhcp_template
+    - fmgr_system_dhcp_template_excluderange
+    - fmgr_system_dhcp_template_iprange
+    - fmgr_system_dhcp_template_options
+    - fmgr_system_dhcp_template_reservedaddress
     - fmgr_system_dnsdatabase
     - fmgr_system_dnsdatabase_dnsentry
     - fmgr_system_externalresource
@@ -763,6 +1029,7 @@ action_groups:
     - fmgr_system_meta_sysmetafields
     - fmgr_system_npu
     - fmgr_system_npu_backgroundssescan
+    - fmgr_system_npu_congestionhandlingmode
     - fmgr_system_npu_dosoptions
     - fmgr_system_npu_dswdtsprofile
     - fmgr_system_npu_dswqueuedtsprofile
@@ -1035,6 +1302,8 @@ action_groups:
     - fmgr_webfilter_profile_antiphish_inspectionentries
     - fmgr_webfilter_profile_filefilter
     - fmgr_webfilter_profile_filefilter_entries
+    - fmgr_webfilter_profile_ftgdimageclassification
+    - fmgr_webfilter_profile_ftgdimageclassification_rules
     - fmgr_webfilter_profile_ftgdwf
     - fmgr_webfilter_profile_ftgdwf_filters
     - fmgr_webfilter_profile_ftgdwf_quota
@@ -1097,262 +1366,3 @@ action_groups:
     - fmgr_ztna_webproxy_apigateway_quic
     - fmgr_ztna_webproxy_apigateway_realservers
     - fmgr_ztna_webproxy_apigateway_sslciphersuites
-  all:
-    - fmgr_clone
-    - fmgr_deployment_checkout_revision
-    - fmgr_deployment_cluster_move_dev
-    - fmgr_deployment_export_config
-    - fmgr_deployment_get_controller_status
-    - fmgr_deployment_get_device_revision
-    - fmgr_deployment_get_instlog
-    - fmgr_deployment_import_config
-    - fmgr_deployment_revert
-    - fmgr_dvm_cmd_add_device
-    - fmgr_dvm_cmd_add_devlist
-    - fmgr_dvm_cmd_changehaseq
-    - fmgr_dvm_cmd_del_device
-    - fmgr_dvm_cmd_del_devlist
-    - fmgr_dvm_cmd_discover_device
-    - fmgr_dvm_cmd_import_devlist
-    - fmgr_dvm_cmd_reload_devlist
-    - fmgr_dvm_cmd_update_device
-    - fmgr_dvm_cmd_update_devlist
-    - fmgr_dvmdb_adom
-    - fmgr_dvmdb_metafields_adom
-    - fmgr_dvmdb_metafields_device
-    - fmgr_dvmdb_metafields_group
-    - fmgr_dvmdb_upgrade
-    - fmgr_exec_fgfm_reclaimdevtunnel
-    - fmgr_fact
-    - fmgr_fmupdate_analyzer_virusreport
-    - fmgr_fmupdate_avips_advancedlog
-    - fmgr_fmupdate_avips_webproxy
-    - fmgr_fmupdate_customurllist
-    - fmgr_fmupdate_diskquota
-    - fmgr_fmupdate_fctservices
-    - fmgr_fmupdate_fdssetting
-    - fmgr_fmupdate_fdssetting_pushoverride
-    - fmgr_fmupdate_fdssetting_pushoverridetoclient
-    - fmgr_fmupdate_fdssetting_pushoverridetoclient_announceip
-    - fmgr_fmupdate_fdssetting_serveroverride
-    - fmgr_fmupdate_fdssetting_serveroverride_servlist
-    - fmgr_fmupdate_fdssetting_updateschedule
-    - fmgr_fmupdate_fgdsetting
-    - fmgr_fmupdate_fgdsetting_serveroverride
-    - fmgr_fmupdate_fwmsetting
-    - fmgr_fmupdate_fwmsetting_upgradetimeout
-    - fmgr_fmupdate_multilayer
-    - fmgr_fmupdate_publicnetwork
-    - fmgr_fmupdate_serveraccesspriorities
-    - fmgr_fmupdate_serveraccesspriorities_privateserver
-    - fmgr_fmupdate_serveroverridestatus
-    - fmgr_fmupdate_service
-    - fmgr_fmupdate_webspam_fgdsetting
-    - fmgr_fmupdate_webspam_fgdsetting_serveroverride
-    - fmgr_fmupdate_webspam_fgdsetting_serveroverride_servlist
-    - fmgr_fmupdate_webspam_webproxy
-    - fmgr_generic
-    - fmgr_metafields_system_admin_user
-    - fmgr_move
-    - fmgr_pkg_footer_localinpolicy
-    - fmgr_pkg_footer_localinpolicy6
-    - fmgr_pkg_footer_policy
-    - fmgr_pkg_footer_policy6
-    - fmgr_pkg_footer_shapingpolicy
-    - fmgr_pkg_header_localinpolicy
-    - fmgr_pkg_header_localinpolicy6
-    - fmgr_pkg_header_policy
-    - fmgr_pkg_header_policy6
-    - fmgr_pkg_header_shapingpolicy
-    - fmgr_pm_config_metafields_firewall_address
-    - fmgr_pm_config_metafields_firewall_addrgrp
-    - fmgr_pm_config_metafields_firewall_centralsnatmap
-    - fmgr_pm_config_metafields_firewall_policy
-    - fmgr_pm_config_metafields_firewall_service_custom
-    - fmgr_pm_config_metafields_firewall_service_group
-    - fmgr_pm_config_reset_database
-    - fmgr_pm_pkg_global
-    - fmgr_rename
-    - fmgr_securityconsole_abort
-    - fmgr_securityconsole_assign_package
-    - fmgr_securityconsole_cliprof_check
-    - fmgr_securityconsole_import_dev_objs
-    - fmgr_securityconsole_install_device
-    - fmgr_securityconsole_install_objects_v2
-    - fmgr_securityconsole_install_package
-    - fmgr_securityconsole_install_preview
-    - fmgr_securityconsole_package_cancel_install
-    - fmgr_securityconsole_package_clone
-    - fmgr_securityconsole_package_commit
-    - fmgr_securityconsole_package_move
-    - fmgr_securityconsole_pblock_clone
-    - fmgr_securityconsole_preview_result
-    - fmgr_securityconsole_reinstall_package
-    - fmgr_securityconsole_sign_certificate_template
-    - fmgr_securityconsole_template_cli_preview
-    - fmgr_securityconsole_template_validate
-    - fmgr_sys_api_sdnconnector
-    - fmgr_sys_backup
-    - fmgr_sys_cloud_orchest
-    - fmgr_sys_generate_wsdl
-    - fmgr_sys_hitcount
-    - fmgr_sys_login_challenge
-    - fmgr_sys_login_user
-    - fmgr_sys_logout
-    - fmgr_sys_proxy_json
-    - fmgr_sys_reboot
-    - fmgr_sys_restore
-    - fmgr_sys_task_result
-    - fmgr_system_admin_group
-    - fmgr_system_admin_group_member
-    - fmgr_system_admin_ldap
-    - fmgr_system_admin_ldap_adom
-    - fmgr_system_admin_profile
-    - fmgr_system_admin_profile_datamaskcustomfields
-    - fmgr_system_admin_profile_writepasswdprofiles
-    - fmgr_system_admin_profile_writepasswduserlist
-    - fmgr_system_admin_radius
-    - fmgr_system_admin_setting
-    - fmgr_system_admin_tacacs
-    - fmgr_system_admin_user
-    - fmgr_system_admin_user_adom
-    - fmgr_system_admin_user_adomexclude
-    - fmgr_system_admin_user_appfilter
-    - fmgr_system_admin_user_dashboard
-    - fmgr_system_admin_user_dashboardtabs
-    - fmgr_system_admin_user_ipsfilter
-    - fmgr_system_admin_user_metadata
-    - fmgr_system_admin_user_policyblock
-    - fmgr_system_admin_user_policypackage
-    - fmgr_system_admin_user_restrictdevvdom
-    - fmgr_system_admin_user_webfilter
-    - fmgr_system_alertconsole
-    - fmgr_system_alertemail
-    - fmgr_system_alertevent
-    - fmgr_system_alertevent_alertdestination
-    - fmgr_system_autodelete
-    - fmgr_system_autodelete_dlpfilesautodeletion
-    - fmgr_system_autodelete_logautodeletion
-    - fmgr_system_autodelete_quarantinefilesautodeletion
-    - fmgr_system_autodelete_reportautodeletion
-    - fmgr_system_backup_allsettings
-    - fmgr_system_certificate_ca
-    - fmgr_system_certificate_crl
-    - fmgr_system_certificate_local
-    - fmgr_system_certificate_oftp
-    - fmgr_system_certificate_remote
-    - fmgr_system_certificate_ssh
-    - fmgr_system_connector
-    - fmgr_system_csf
-    - fmgr_system_csf_fabricconnector
-    - fmgr_system_csf_trustedlist
-    - fmgr_system_csf_trustedlist_adom
-    - fmgr_system_dm
-    - fmgr_system_dns
-    - fmgr_system_docker
-    - fmgr_system_fips
-    - fmgr_system_fmgcluster
-    - fmgr_system_fmgcluster_peer
-    - fmgr_system_fortiview_autocache
-    - fmgr_system_fortiview_setting
-    - fmgr_system_global
-    - fmgr_system_guiact
-    - fmgr_system_ha
-    - fmgr_system_ha_monitoredinterfaces
-    - fmgr_system_ha_monitoredips
-    - fmgr_system_ha_peer
-    - fmgr_system_hascheduledcheck
-    - fmgr_system_interface
-    - fmgr_system_interface_ipv6
-    - fmgr_system_interface_member
-    - fmgr_system_localinpolicy
-    - fmgr_system_localinpolicy6
-    - fmgr_system_localinpolicy6_dport
-    - fmgr_system_localinpolicy6_dst
-    - fmgr_system_localinpolicy6_intf
-    - fmgr_system_localinpolicy6_src
-    - fmgr_system_localinpolicy_dport
-    - fmgr_system_localinpolicy_dst
-    - fmgr_system_localinpolicy_intf
-    - fmgr_system_localinpolicy_src
-    - fmgr_system_locallog_disk_filter
-    - fmgr_system_locallog_disk_setting
-    - fmgr_system_locallog_fortianalyzer2_filter
-    - fmgr_system_locallog_fortianalyzer2_setting
-    - fmgr_system_locallog_fortianalyzer3_filter
-    - fmgr_system_locallog_fortianalyzer3_setting
-    - fmgr_system_locallog_fortianalyzer_filter
-    - fmgr_system_locallog_fortianalyzer_setting
-    - fmgr_system_locallog_memory_filter
-    - fmgr_system_locallog_memory_setting
-    - fmgr_system_locallog_setting
-    - fmgr_system_locallog_syslogd2_filter
-    - fmgr_system_locallog_syslogd2_setting
-    - fmgr_system_locallog_syslogd3_filter
-    - fmgr_system_locallog_syslogd3_setting
-    - fmgr_system_locallog_syslogd_filter
-    - fmgr_system_locallog_syslogd_setting
-    - fmgr_system_locallog_tacacsaccounting_filter
-    - fmgr_system_locallog_tacacsaccounting_setting
-    - fmgr_system_log_alert
-    - fmgr_system_log_apiratelimit
-    - fmgr_system_log_devicedisable
-    - fmgr_system_log_deviceselector
-    - fmgr_system_log_fospolicystats
-    - fmgr_system_log_interfacestats
-    - fmgr_system_log_ioc
-    - fmgr_system_log_maildomain
-    - fmgr_system_log_ratelimit
-    - fmgr_system_log_ratelimit_device
-    - fmgr_system_log_ratelimit_ratelimits
-    - fmgr_system_log_settings
-    - fmgr_system_log_settings_clientcertauth
-    - fmgr_system_log_settings_rollinganalyzer
-    - fmgr_system_log_settings_rollinglocal
-    - fmgr_system_log_settings_rollingregular
-    - fmgr_system_log_topology
-    - fmgr_system_log_ueba
-    - fmgr_system_logfetch_clientprofile
-    - fmgr_system_logfetch_clientprofile_devicefilter
-    - fmgr_system_logfetch_clientprofile_logfilter
-    - fmgr_system_logfetch_serversettings
-    - fmgr_system_mail
-    - fmgr_system_mcpolicydisabledadoms
-    - fmgr_system_metadata_admins
-    - fmgr_system_ntp
-    - fmgr_system_ntp_ntpserver
-    - fmgr_system_passwordpolicy
-    - fmgr_system_report_autocache
-    - fmgr_system_report_estbrowsetime
-    - fmgr_system_report_group
-    - fmgr_system_report_group_chartalternative
-    - fmgr_system_report_group_groupby
-    - fmgr_system_report_setting
-    - fmgr_system_route
-    - fmgr_system_route6
-    - fmgr_system_saml
-    - fmgr_system_saml_fabricidp
-    - fmgr_system_sniffer
-    - fmgr_system_snmp_community
-    - fmgr_system_snmp_community_hosts
-    - fmgr_system_snmp_community_hosts6
-    - fmgr_system_snmp_sysinfo
-    - fmgr_system_snmp_user
-    - fmgr_system_socfabric
-    - fmgr_system_socfabric_trustedlist
-    - fmgr_system_sql
-    - fmgr_system_sql_customindex
-    - fmgr_system_sql_customskipidx
-    - fmgr_system_sql_tsindexfield
-    - fmgr_system_sslciphersuites
-    - fmgr_system_syslog
-    - fmgr_system_webproxy
-    - fmgr_system_workflow_approvalmatrix
-    - fmgr_system_workflow_approvalmatrix_approver
-    - fmgr_um_image_upgrade
-    - fmgr_um_image_upgrade_ext
-    - fmgr_vpn_ssl_settings
-    - fmgr_vpn_ssl_settings_authenticationrule
-    - metadata:
-        extend_group:
-          - adom

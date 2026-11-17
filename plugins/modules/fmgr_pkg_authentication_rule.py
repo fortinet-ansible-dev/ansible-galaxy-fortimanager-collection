@@ -120,6 +120,18 @@ options:
         type: str
         description: Enable/disable logout of a user from the current session.
         choices: ['disable', 'enable']
+      scope_member:
+        aliases: ['scope member']
+        type: list
+        elements: dict
+        description: Scope member.
+        suboptions:
+          name:
+            type: str
+            description: Name.
+          vdom:
+            type: str
+            description: Vdom.
 '''
 
 EXAMPLES = '''
@@ -156,6 +168,9 @@ EXAMPLES = '''
           # form_auth_fallback: <value in [disable, enable]>
           # web_proxy: <list or string>
           # session_logout: <value in [disable, enable]>
+          # scope_member:
+          #   - name: <string>
+          #     vdom: <string>
 '''
 
 RETURN = '''
@@ -234,7 +249,13 @@ def main():
                 'cert-auth-cookie': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'form-auth-fallback': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'web-proxy': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'type': 'raw'},
-                'session-logout': {'v_range': [['7.6.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'session-logout': {'v_range': [['7.6.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'scope member': {
+                    'v_range': [['8.0.1', '']],
+                    'type': 'list',
+                    'options': {'name': {'v_range': [['8.0.1', '']], 'type': 'str'}, 'vdom': {'v_range': [['8.0.1', '']], 'type': 'str'}},
+                    'elements': 'dict'
+                }
             }
         }
     }

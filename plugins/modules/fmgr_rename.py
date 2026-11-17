@@ -82,6 +82,8 @@ options:
           - 'application_casi_profile'
           - 'application_casi_profile_entries'
           - 'application_categories'
+          - 'application_classification'
+          - 'application_classificationscope'
           - 'application_custom'
           - 'application_group'
           - 'application_internetservice_entry'
@@ -442,6 +444,7 @@ options:
           - 'ips_sensor_entries_exemptip'
           - 'isolator_profile'
           - 'isolator_profile_entries'
+          - 'llm_server'
           - 'log_customfield'
           - 'log_npuserver_serverinfo'
           - 'mpskprofile'
@@ -555,6 +558,8 @@ options:
           - 'switchcontroller_managedswitch_systemdhcpserver_iprange'
           - 'switchcontroller_managedswitch_systemdhcpserver_options'
           - 'switchcontroller_managedswitch_systeminterface'
+          - 'switchcontroller_ptp_interfacepolicy'
+          - 'switchcontroller_ptp_policy'
           - 'switchcontroller_ptp_profile'
           - 'switchcontroller_qos_dot1pmap'
           - 'switchcontroller_qos_ipdscpmap'
@@ -602,6 +607,11 @@ options:
           - 'system_dhcp_server_iprange'
           - 'system_dhcp_server_options'
           - 'system_dhcp_server_reservedaddress'
+          - 'system_dhcp_template'
+          - 'system_dhcp_template_excluderange'
+          - 'system_dhcp_template_iprange'
+          - 'system_dhcp_template_options'
+          - 'system_dhcp_template_reservedaddress'
           - 'system_dnsdatabase'
           - 'system_dnsdatabase_dnsentry'
           - 'system_externalresource'
@@ -1037,6 +1047,22 @@ def main():
             ],
             'mkey': 'id'
         },
+        'application_classification': {
+            'params': ['adom', 'classification'],
+            'urls': [
+                '/pm/config/adom/{adom}/obj/application/classification/{classification}',
+                '/pm/config/global/obj/application/classification/{classification}'
+            ],
+            'mkey': 'name', 'v_range': [['8.0.1', '']]
+        },
+        'application_classificationscope': {
+            'params': ['adom', 'classification-scope'],
+            'urls': [
+                '/pm/config/adom/{adom}/obj/application/classification-scope/{classification-scope}',
+                '/pm/config/global/obj/application/classification-scope/{classification-scope}'
+            ],
+            'mkey': 'name', 'v_range': [['8.0.1', '']]
+        },
         'application_custom': {
             'params': ['adom', 'custom'],
             'urls': [
@@ -1388,7 +1414,7 @@ def main():
             'urls': [
                 '/pm/config/adom/{adom}/devprof/{devprof}/log/syslogd/filter/exclude-list/{exclude-list}'
             ],
-            'mkey': 'id', 'v_range': [['7.0.4', '7.0.16']]
+            'mkey': 'id', 'v_range': [['7.0.4', '7.0.16'], ['8.0.1', '']]
         },
         'devprof_log_syslogd_filter_freestyle': {
             'params': ['adom', 'devprof', 'free-style'],
@@ -1690,7 +1716,7 @@ def main():
                 '/dvmdb/global/script/{script}',
                 '/dvmdb/script/{script}'
             ],
-            'mkey': 'name'
+            'mkey': 'name', 'v_range': [['6.0.0', '8.0.0']]
         },
         'dvmdb_script_scriptschedule': {
             'params': ['adom', 'script', 'script_schedule'],
@@ -1699,7 +1725,7 @@ def main():
                 '/dvmdb/global/script/{script}/script_schedule/{script_schedule}',
                 '/dvmdb/script/{script}/script_schedule/{script_schedule}'
             ],
-            'mkey': 'name'
+            'mkey': 'name', 'v_range': [['6.0.0', '8.0.0']]
         },
         'dynamic_address': {
             'params': ['adom', 'address'],
@@ -3922,6 +3948,14 @@ def main():
             ],
             'mkey': 'id', 'v_range': [['7.6.4', '']]
         },
+        'llm_server': {
+            'params': ['adom', 'server'],
+            'urls': [
+                '/pm/config/adom/{adom}/obj/llm/server/{server}',
+                '/pm/config/global/obj/llm/server/{server}'
+            ],
+            'mkey': 'name', 'v_range': [['8.0.1', '']]
+        },
         'log_customfield': {
             'params': ['adom', 'custom-field'],
             'urls': [
@@ -4769,6 +4803,22 @@ def main():
             ],
             'mkey': 'name', 'v_range': [['7.6.4', '7.6.6']]
         },
+        'switchcontroller_ptp_interfacepolicy': {
+            'params': ['adom', 'interface-policy'],
+            'urls': [
+                '/pm/config/adom/{adom}/obj/switch-controller/ptp/interface-policy/{interface-policy}',
+                '/pm/config/global/obj/switch-controller/ptp/interface-policy/{interface-policy}'
+            ],
+            'mkey': 'name', 'v_range': [['8.0.1', '']]
+        },
+        'switchcontroller_ptp_policy': {
+            'params': ['adom', 'policy'],
+            'urls': [
+                '/pm/config/adom/{adom}/obj/switch-controller/ptp/policy/{policy}',
+                '/pm/config/global/obj/switch-controller/ptp/policy/{policy}'
+            ],
+            'mkey': 'name', 'v_range': [['8.0.1', '']]
+        },
         'switchcontroller_ptp_profile': {
             'params': ['adom', 'profile'],
             'urls': [
@@ -5118,6 +5168,46 @@ def main():
                 '/pm/config/global/obj/system/dhcp/server/{server}/reserved-address/{reserved-address}'
             ],
             'mkey': 'id'
+        },
+        'system_dhcp_template': {
+            'params': ['adom', 'template'],
+            'urls': [
+                '/pm/config/adom/{adom}/obj/system/dhcp/template/{template}',
+                '/pm/config/global/obj/system/dhcp/template/{template}'
+            ],
+            'mkey': 'name', 'v_range': [['8.0.1', '']]
+        },
+        'system_dhcp_template_excluderange': {
+            'params': ['adom', 'template', 'exclude-range'],
+            'urls': [
+                '/pm/config/adom/{adom}/obj/system/dhcp/template/{template}/exclude-range/{exclude-range}',
+                '/pm/config/global/obj/system/dhcp/template/{template}/exclude-range/{exclude-range}'
+            ],
+            'mkey': 'id', 'v_range': [['8.0.1', '']]
+        },
+        'system_dhcp_template_iprange': {
+            'params': ['adom', 'template', 'ip-range'],
+            'urls': [
+                '/pm/config/adom/{adom}/obj/system/dhcp/template/{template}/ip-range/{ip-range}',
+                '/pm/config/global/obj/system/dhcp/template/{template}/ip-range/{ip-range}'
+            ],
+            'mkey': 'id', 'v_range': [['8.0.1', '']]
+        },
+        'system_dhcp_template_options': {
+            'params': ['adom', 'template', 'options'],
+            'urls': [
+                '/pm/config/adom/{adom}/obj/system/dhcp/template/{template}/options/{options}',
+                '/pm/config/global/obj/system/dhcp/template/{template}/options/{options}'
+            ],
+            'mkey': 'id', 'v_range': [['8.0.1', '']]
+        },
+        'system_dhcp_template_reservedaddress': {
+            'params': ['adom', 'template', 'reserved-address'],
+            'urls': [
+                '/pm/config/adom/{adom}/obj/system/dhcp/template/{template}/reserved-address/{reserved-address}',
+                '/pm/config/global/obj/system/dhcp/template/{template}/reserved-address/{reserved-address}'
+            ],
+            'mkey': 'id', 'v_range': [['8.0.1', '']]
         },
         'system_dnsdatabase': {
             'params': ['adom', 'dns-database'],

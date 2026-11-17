@@ -900,7 +900,7 @@ options:
             aliases: ['sam-server-type']
             type: str
             description: Select SAM server type
-            choices: ['ip', 'fqdn']
+            choices: ['ip', 'fqdn', 'ipv6']
           d80211d:
             aliases: ['80211d']
             type: str
@@ -997,6 +997,10 @@ options:
           vap9:
             type: str
             description: Virtual Access Point
+          sam_server_ip6:
+            aliases: ['sam-server-ip6']
+            type: str
+            description: SAM test server IPv6 address.
       radio_2:
         aliases: ['radio-2']
         type: dict
@@ -1347,7 +1351,7 @@ options:
             aliases: ['sam-server-type']
             type: str
             description: Select SAM server type
-            choices: ['ip', 'fqdn']
+            choices: ['ip', 'fqdn', 'ipv6']
           d80211d:
             aliases: ['80211d']
             type: str
@@ -1444,6 +1448,10 @@ options:
           vap9:
             type: str
             description: Virtual Access Point
+          sam_server_ip6:
+            aliases: ['sam-server-ip6']
+            type: str
+            description: SAM test server IPv6 address.
       radio_3:
         aliases: ['radio-3']
         type: dict
@@ -1794,7 +1802,7 @@ options:
             aliases: ['sam-server-type']
             type: str
             description: Select SAM server type
-            choices: ['ip', 'fqdn']
+            choices: ['ip', 'fqdn', 'ipv6']
           d80211d:
             aliases: ['80211d']
             type: str
@@ -1891,6 +1899,10 @@ options:
           vap9:
             type: str
             description: Virtual Access Point
+          sam_server_ip6:
+            aliases: ['sam-server-ip6']
+            type: str
+            description: SAM test server IPv6 address.
       radio_4:
         aliases: ['radio-4']
         type: dict
@@ -2241,7 +2253,7 @@ options:
             aliases: ['sam-server-type']
             type: str
             description: Select SAM server type
-            choices: ['ip', 'fqdn']
+            choices: ['ip', 'fqdn', 'ipv6']
           d80211d:
             aliases: ['80211d']
             type: str
@@ -2338,6 +2350,10 @@ options:
           vap9:
             type: str
             description: Virtual Access Point
+          sam_server_ip6:
+            aliases: ['sam-server-ip6']
+            type: str
+            description: SAM test server IPv6 address.
       console_login:
         aliases: ['console-login']
         type: str
@@ -2588,6 +2604,33 @@ options:
         type: str
         description: Enable/disable data channel IPSec offloading
         choices: ['disable', 'enable']
+      apcfg_lte_apn:
+        aliases: ['apcfg-lte-apn']
+        type: str
+        description: APN
+      apcfg_lte_auth_username:
+        aliases: ['apcfg-lte-auth-username']
+        type: str
+        description: Username of LTE Authentication.
+      apcfg_lte_auth_password:
+        aliases: ['apcfg-lte-auth-password']
+        type: raw
+        description: (list) Password of LTE Authentication.
+      apcfg_lte_ip_type:
+        aliases: ['apcfg-lte-ip-type']
+        type: str
+        description: LTE IP Type
+        choices: ['ipv4', 'ipv6']
+      apcfg_lte_auth_type:
+        aliases: ['apcfg-lte-auth-type']
+        type: str
+        description: LTE Authentication Type
+        choices: ['none', 'auto', 'PAP', 'CHAP']
+      apcfg_lte:
+        aliases: ['apcfg-lte']
+        type: str
+        description: Enable/disable AP local LTE configuration
+        choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -2799,7 +2842,7 @@ EXAMPLES = '''
           #   sam_cwp_username: <string>
           #   sam_server_fqdn: <string>
           #   sam_server_ip: <string>
-          #   sam_server_type: <value in [ip, fqdn]>
+          #   sam_server_type: <value in [ip, fqdn, ipv6]>
           #   d80211d: <value in [disable, enable]>
           #   optional_antenna: <value in [none, FANT-04ABGN-0606-O-N, FANT-04ABGN-1414-P-N, ...]>
           #   mimo_mode: <value in [default, 1x1, 2x2, ...]>
@@ -2823,6 +2866,7 @@ EXAMPLES = '''
           #   vap15: <string>
           #   vap16: <string>
           #   vap9: <string>
+          #   sam_server_ip6: <string>
           # radio_2:
           #   airtime_fairness: <value in [disable, enable]>
           #   amsdu: <value in [disable, enable]>
@@ -2905,7 +2949,7 @@ EXAMPLES = '''
           #   sam_cwp_username: <string>
           #   sam_server_fqdn: <string>
           #   sam_server_ip: <string>
-          #   sam_server_type: <value in [ip, fqdn]>
+          #   sam_server_type: <value in [ip, fqdn, ipv6]>
           #   d80211d: <value in [disable, enable]>
           #   optional_antenna: <value in [none, FANT-04ABGN-0606-O-N, FANT-04ABGN-1414-P-N, ...]>
           #   mimo_mode: <value in [default, 1x1, 2x2, ...]>
@@ -2929,6 +2973,7 @@ EXAMPLES = '''
           #   vap15: <string>
           #   vap16: <string>
           #   vap9: <string>
+          #   sam_server_ip6: <string>
           # radio_3:
           #   airtime_fairness: <value in [disable, enable]>
           #   amsdu: <value in [disable, enable]>
@@ -3011,7 +3056,7 @@ EXAMPLES = '''
           #   sam_cwp_username: <string>
           #   sam_server_fqdn: <string>
           #   sam_server_ip: <string>
-          #   sam_server_type: <value in [ip, fqdn]>
+          #   sam_server_type: <value in [ip, fqdn, ipv6]>
           #   d80211d: <value in [disable, enable]>
           #   optional_antenna: <value in [none, FANT-04ABGN-0606-O-N, FANT-04ABGN-1414-P-N, ...]>
           #   mimo_mode: <value in [default, 1x1, 2x2, ...]>
@@ -3035,6 +3080,7 @@ EXAMPLES = '''
           #   vap15: <string>
           #   vap16: <string>
           #   vap9: <string>
+          #   sam_server_ip6: <string>
           # radio_4:
           #   airtime_fairness: <value in [disable, enable]>
           #   amsdu: <value in [disable, enable]>
@@ -3117,7 +3163,7 @@ EXAMPLES = '''
           #   sam_cwp_username: <string>
           #   sam_server_fqdn: <string>
           #   sam_server_ip: <string>
-          #   sam_server_type: <value in [ip, fqdn]>
+          #   sam_server_type: <value in [ip, fqdn, ipv6]>
           #   d80211d: <value in [disable, enable]>
           #   optional_antenna: <value in [none, FANT-04ABGN-0606-O-N, FANT-04ABGN-1414-P-N, ...]>
           #   mimo_mode: <value in [default, 1x1, 2x2, ...]>
@@ -3141,6 +3187,7 @@ EXAMPLES = '''
           #   vap15: <string>
           #   vap16: <string>
           #   vap9: <string>
+          #   sam_server_ip6: <string>
           # console_login: <value in [disable, enable]>
           # esl_ses_dongle:
           #   apc_addr_type: <value in [fqdn, ip]>
@@ -3196,6 +3243,12 @@ EXAMPLES = '''
           # lw_profile: <list or string>
           # 80211mc_mode: <value in [auto, initiator, responder]>
           # ipsec_offload: <value in [disable, enable]>
+          # apcfg_lte_apn: <string>
+          # apcfg_lte_auth_username: <string>
+          # apcfg_lte_auth_password: <list or string>
+          # apcfg_lte_ip_type: <value in [ipv4, ipv6]>
+          # apcfg_lte_auth_type: <value in [none, auto, PAP, ...]>
+          # apcfg_lte: <value in [disable, enable]>
 '''
 
 RETURN = '''
@@ -3577,7 +3630,7 @@ def main():
                         'sam-cwp-username': {'v_range': [['7.0.1', '']], 'type': 'str'},
                         'sam-server-fqdn': {'v_range': [['7.0.1', '']], 'type': 'str'},
                         'sam-server-ip': {'v_range': [['7.0.1', '']], 'type': 'str'},
-                        'sam-server-type': {'v_range': [['7.0.1', '']], 'choices': ['ip', 'fqdn'], 'type': 'str'},
+                        'sam-server-type': {'v_range': [['7.0.1', '']], 'choices': ['ip', 'fqdn', 'ipv6'], 'type': 'str'},
                         '80211d': {'v_range': [['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'optional-antenna': {
                             'v_range': [['7.2.3', '']],
@@ -3611,7 +3664,8 @@ def main():
                         'vap14': {'v_range': [['8.0.0', '']], 'type': 'str'},
                         'vap15': {'v_range': [['8.0.0', '']], 'type': 'str'},
                         'vap16': {'v_range': [['8.0.0', '']], 'type': 'str'},
-                        'vap9': {'v_range': [['8.0.0', '']], 'type': 'str'}
+                        'vap9': {'v_range': [['8.0.0', '']], 'type': 'str'},
+                        'sam-server-ip6': {'v_range': [['8.0.1', '']], 'type': 'str'}
                     }
                 },
                 'radio-2': {
@@ -3736,7 +3790,7 @@ def main():
                         'sam-cwp-username': {'v_range': [['7.0.1', '']], 'type': 'str'},
                         'sam-server-fqdn': {'v_range': [['7.0.1', '']], 'type': 'str'},
                         'sam-server-ip': {'v_range': [['7.0.1', '']], 'type': 'str'},
-                        'sam-server-type': {'v_range': [['7.0.1', '']], 'choices': ['ip', 'fqdn'], 'type': 'str'},
+                        'sam-server-type': {'v_range': [['7.0.1', '']], 'choices': ['ip', 'fqdn', 'ipv6'], 'type': 'str'},
                         '80211d': {'v_range': [['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'optional-antenna': {
                             'v_range': [['7.2.3', '']],
@@ -3770,7 +3824,8 @@ def main():
                         'vap14': {'v_range': [['8.0.0', '']], 'type': 'str'},
                         'vap15': {'v_range': [['8.0.0', '']], 'type': 'str'},
                         'vap16': {'v_range': [['8.0.0', '']], 'type': 'str'},
-                        'vap9': {'v_range': [['8.0.0', '']], 'type': 'str'}
+                        'vap9': {'v_range': [['8.0.0', '']], 'type': 'str'},
+                        'sam-server-ip6': {'v_range': [['8.0.1', '']], 'type': 'str'}
                     }
                 },
                 'radio-3': {
@@ -3895,7 +3950,7 @@ def main():
                         'sam-cwp-username': {'v_range': [['7.0.1', '']], 'type': 'str'},
                         'sam-server-fqdn': {'v_range': [['7.0.1', '']], 'type': 'str'},
                         'sam-server-ip': {'v_range': [['7.0.1', '']], 'type': 'str'},
-                        'sam-server-type': {'v_range': [['7.0.1', '']], 'choices': ['ip', 'fqdn'], 'type': 'str'},
+                        'sam-server-type': {'v_range': [['7.0.1', '']], 'choices': ['ip', 'fqdn', 'ipv6'], 'type': 'str'},
                         '80211d': {'v_range': [['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'optional-antenna': {
                             'v_range': [['7.2.3', '']],
@@ -3929,7 +3984,8 @@ def main():
                         'vap14': {'v_range': [['8.0.0', '']], 'type': 'str'},
                         'vap15': {'v_range': [['8.0.0', '']], 'type': 'str'},
                         'vap16': {'v_range': [['8.0.0', '']], 'type': 'str'},
-                        'vap9': {'v_range': [['8.0.0', '']], 'type': 'str'}
+                        'vap9': {'v_range': [['8.0.0', '']], 'type': 'str'},
+                        'sam-server-ip6': {'v_range': [['8.0.1', '']], 'type': 'str'}
                     }
                 },
                 'radio-4': {
@@ -4054,7 +4110,7 @@ def main():
                         'sam-cwp-username': {'v_range': [['7.0.1', '']], 'type': 'str'},
                         'sam-server-fqdn': {'v_range': [['7.0.1', '']], 'type': 'str'},
                         'sam-server-ip': {'v_range': [['7.0.1', '']], 'type': 'str'},
-                        'sam-server-type': {'v_range': [['7.0.1', '']], 'choices': ['ip', 'fqdn'], 'type': 'str'},
+                        'sam-server-type': {'v_range': [['7.0.1', '']], 'choices': ['ip', 'fqdn', 'ipv6'], 'type': 'str'},
                         '80211d': {'v_range': [['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'optional-antenna': {
                             'v_range': [['7.2.3', '']],
@@ -4088,7 +4144,8 @@ def main():
                         'vap14': {'v_range': [['8.0.0', '']], 'type': 'str'},
                         'vap15': {'v_range': [['8.0.0', '']], 'type': 'str'},
                         'vap16': {'v_range': [['8.0.0', '']], 'type': 'str'},
-                        'vap9': {'v_range': [['8.0.0', '']], 'type': 'str'}
+                        'vap9': {'v_range': [['8.0.0', '']], 'type': 'str'},
+                        'sam-server-ip6': {'v_range': [['8.0.1', '']], 'type': 'str'}
                     }
                 },
                 'console-login': {'v_range': [['6.2.9', '6.2.13'], ['6.4.8', '6.4.15'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
@@ -4158,7 +4215,13 @@ def main():
                 'apcfg-auto-cert-scep-url': {'v_range': [['7.6.5', '']], 'type': 'str'},
                 'lw-profile': {'v_range': [['7.6.5', '']], 'type': 'raw'},
                 '80211mc-mode': {'v_range': [['8.0.0', '']], 'choices': ['auto', 'initiator', 'responder'], 'type': 'str'},
-                'ipsec-offload': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'ipsec-offload': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'apcfg-lte-apn': {'v_range': [['8.0.2', '']], 'type': 'str'},
+                'apcfg-lte-auth-username': {'v_range': [['8.0.2', '']], 'type': 'str'},
+                'apcfg-lte-auth-password': {'v_range': [['8.0.2', '']], 'no_log': True, 'type': 'raw'},
+                'apcfg-lte-ip-type': {'v_range': [['8.0.2', '']], 'choices': ['ipv4', 'ipv6'], 'type': 'str'},
+                'apcfg-lte-auth-type': {'v_range': [['8.0.2', '']], 'choices': ['none', 'auto', 'PAP', 'CHAP'], 'type': 'str'},
+                'apcfg-lte': {'v_range': [['8.0.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

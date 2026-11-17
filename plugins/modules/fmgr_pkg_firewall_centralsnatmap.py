@@ -139,6 +139,18 @@ options:
         aliases: ['custom-tags']
         type: raw
         description: (list) Custom tags.
+      scope_member:
+        aliases: ['scope member']
+        type: list
+        elements: dict
+        description: Scope member.
+        suboptions:
+          name:
+            type: str
+            description: Name.
+          vdom:
+            type: str
+            description: Vdom.
 '''
 
 EXAMPLES = '''
@@ -265,7 +277,13 @@ def main():
                 'ipv6': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'src-addr': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'type': 'raw'},
                 'src-addr6': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'type': 'raw'},
-                'custom-tags': {'v_range': [['8.0.0', '']], 'type': 'raw'}
+                'custom-tags': {'v_range': [['8.0.0', '']], 'type': 'raw'},
+                'scope member': {
+                    'v_range': [['8.0.1', '']],
+                    'type': 'list',
+                    'options': {'name': {'v_range': [['8.0.1', '']], 'type': 'str'}, 'vdom': {'v_range': [['8.0.1', '']], 'type': 'str'}},
+                    'elements': 'dict'
+                }
             }
         }
     }

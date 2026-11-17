@@ -12,7 +12,7 @@ ANSIBLE_METADATA = {'status': ['preview'],
 DOCUMENTATION = '''
 ---
 module: fmgr_system_localinpolicy6_intf
-short_description: Cli system local in policy6 intf
+short_description: List of Incoming interface name.
 version_added: "2.12.0"
 extends_documentation_fragment:
   - fortinet.fortimanager.general
@@ -41,7 +41,7 @@ EXAMPLES = '''
   connection: httpapi
   gather_facts: false
   tasks:
-    - name: Cli system local in policy6 intf
+    - name: List of Incoming interface name.
       fortinet.fortimanager.fmgr_system_localinpolicy6_intf:
         # workspace_locking_adom: <global or your adom name>
         local_in_policy6: <your own value>

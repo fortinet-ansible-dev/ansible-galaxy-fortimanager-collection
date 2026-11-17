@@ -114,7 +114,7 @@ options:
             choices: ['fos', 'foc', 'fml', 'fch', 'fwb', 'log', 'fct', 'faz', 'fsa', 'fsw', 'fmg',
                       'fdd', 'fac', 'fpx', 'fna', 'fdc', 'ffw', 'fsr', 'fad', 'fap', 'fxt', 'fts',
                       'fai', 'fwc', 'fis', 'fed', 'fabric', 'fpa', 'fca', 'ftc', 'fss', 'sim',
-                      'fra', 'fdt']
+                      'fra', 'fdt', 'fhm']
           state:
             type: int
             description: State.
@@ -163,6 +163,9 @@ options:
           secondary_dns_ip6_4:
             type: int
             description: Secondary dns ip6 4.
+          workflow_peradmin_install_others:
+            type: int
+            description: Workflow peradmin install others.
       import_devices:
         aliases: ['import-devices']
         type: list
@@ -248,7 +251,7 @@ options:
                       'offline_mode', 'is_model', 'fips_mode', 'linked_to_model', 'ip-conflict',
                       'faz-autosync', 'need_reset', 'backup_mode', 'azure_vwan_nva',
                       'fgsp_configured', 'cnf_mode', 'sase_managed', 'override_management_intf',
-                      'sdwan_management', 'deny_api_access']
+                      'sdwan_management', 'deny_api_access', 'no_siem_logfwd']
           foslic_cpu:
             type: int
             description: VM Meter vCPU count.
@@ -400,7 +403,7 @@ options:
             choices: ['unknown', 'fos', 'fsw', 'foc', 'fml', 'faz', 'fwb', 'fch', 'fct', 'log',
                       'fmg', 'fsa', 'fdd', 'fac', 'fpx', 'fna', 'fdc', 'ffw', 'fsr', 'fad', 'fap',
                       'fxt', 'fts', 'fai', 'fwc', 'fis', 'fed', 'fpa', 'fca', 'ftc', 'fss', 'fra',
-                      'sim', 'fdt']
+                      'sim', 'fdt', 'fhm']
           os_ver:
             type: str
             description: Os ver.
@@ -590,7 +593,8 @@ EXAMPLES = '''
           #     restricted_prds: ["fos", "foc", "fml", "fch", "fwb", "log", "fct", "faz", "fsa",
           #                       "fsw", "fmg", "fdd", "fac", "fpx", "fna", "fdc", "ffw", "fsr",
           #                       "fad", "fap", "fxt", "fts", "fai", "fwc", "fis", "fed",
-          #                       "fabric", "fpa", "fca", "ftc", "fss", "sim", "fra", "fdt"]
+          #                       "fabric", "fpa", "fca", "ftc", "fss", "sim", "fra", "fdt",
+          #                       "fhm"]
           #     state: <integer>
           #     uuid: <string>
           #     create_time: <integer>
@@ -607,6 +611,7 @@ EXAMPLES = '''
           #     secondary_dns_ip6_2: <integer>
           #     secondary_dns_ip6_3: <integer>
           #     secondary_dns_ip6_4: <integer>
+          #     workflow_peradmin_install_others: <integer>
           # import_devices:
           #   - adm_pass: <list or string>
           #     adm_usr: <string>
@@ -632,7 +637,7 @@ EXAMPLES = '''
           #             "offline_mode", "is_model", "fips_mode", "linked_to_model", "ip-conflict",
           #             "faz-autosync", "need_reset", "backup_mode", "azure_vwan_nva",
           #             "fgsp_configured", "cnf_mode", "sase_managed", "override_management_intf",
-          #             "sdwan_management", "deny_api_access"]
+          #             "sdwan_management", "deny_api_access", "no_siem_logfwd"]
           #     foslic_cpu: <integer>
           #     foslic_dr_site: <value in [disable, enable]>
           #     foslic_inst_time: <integer>
@@ -802,9 +807,9 @@ def main():
                         'log_disk_quota_split_ratio': {'type': 'int'},
                         'log_file_retention_hours': {'type': 'int'},
                         'meta fields': {'type': 'dict'},
-                        'mig_mr': {'v_range': [['6.0.0', '7.6.6'], ['8.0.0', '']], 'type': 'int'},
+                        'mig_mr': {'v_range': [['6.0.0', '7.6.6'], ['8.0.0', '8.0.0']], 'type': 'int'},
                         'mig_os_ver': {
-                            'v_range': [['6.0.0', '7.6.6'], ['8.0.0', '']],
+                            'v_range': [['6.0.0', '7.6.6'], ['8.0.0', '8.0.0']],
                             'choices': ['unknown', '0.0', '1.0', '2.0', '3.0', '4.0', '5.0', '6.0', '7.0', '8.0', '9.0'],
                             'type': 'str'
                         },
@@ -816,7 +821,8 @@ def main():
                             'type': 'raw',
                             'choices': [
                                 'fos', 'foc', 'fml', 'fch', 'fwb', 'log', 'fct', 'faz', 'fsa', 'fsw', 'fmg', 'fdd', 'fac', 'fpx', 'fna', 'fdc', 'ffw',
-                                'fsr', 'fad', 'fap', 'fxt', 'fts', 'fai', 'fwc', 'fis', 'fed', 'fabric', 'fpa', 'fca', 'ftc', 'fss', 'sim', 'fra', 'fdt'
+                                'fsr', 'fad', 'fap', 'fxt', 'fts', 'fai', 'fwc', 'fis', 'fed', 'fabric', 'fpa', 'fca', 'ftc', 'fss', 'sim', 'fra', 'fdt',
+                                'fhm'
                             ]
                         },
                         'state': {'type': 'int'},
@@ -834,7 +840,8 @@ def main():
                         'secondary_dns_ip6_1': {'v_range': [['7.4.3', '']], 'type': 'int'},
                         'secondary_dns_ip6_2': {'v_range': [['7.4.3', '']], 'type': 'int'},
                         'secondary_dns_ip6_3': {'v_range': [['7.4.3', '']], 'type': 'int'},
-                        'secondary_dns_ip6_4': {'v_range': [['7.4.3', '']], 'type': 'int'}
+                        'secondary_dns_ip6_4': {'v_range': [['7.4.3', '']], 'type': 'int'},
+                        'workflow_peradmin_install_others': {'v_range': [['8.0.1', '']], 'type': 'int'}
                     },
                     'elements': 'dict'
                 },
@@ -872,7 +879,7 @@ def main():
                             'choices': [
                                 'has_hdd', 'vdom_enabled', 'discover', 'reload', 'interim_build', 'offline_mode', 'is_model', 'fips_mode',
                                 'linked_to_model', 'ip-conflict', 'faz-autosync', 'need_reset', 'backup_mode', 'azure_vwan_nva', 'fgsp_configured',
-                                'cnf_mode', 'sase_managed', 'override_management_intf', 'sdwan_management', 'deny_api_access'
+                                'cnf_mode', 'sase_managed', 'override_management_intf', 'sdwan_management', 'deny_api_access', 'no_siem_logfwd'
                             ],
                             'elements': 'str'
                         },
@@ -930,7 +937,7 @@ def main():
                             'choices': [
                                 'unknown', 'fos', 'fsw', 'foc', 'fml', 'faz', 'fwb', 'fch', 'fct', 'log', 'fmg', 'fsa', 'fdd', 'fac', 'fpx', 'fna',
                                 'fdc', 'ffw', 'fsr', 'fad', 'fap', 'fxt', 'fts', 'fai', 'fwc', 'fis', 'fed', 'fpa', 'fca', 'ftc', 'fss', 'fra', 'sim',
-                                'fdt'
+                                'fdt', 'fhm'
                             ],
                             'type': 'str'
                         },

@@ -90,6 +90,8 @@ options:
           - 'application_casi_profile'
           - 'application_casi_profile_entries'
           - 'application_categories'
+          - 'application_classification'
+          - 'application_classificationscope'
           - 'application_custom'
           - 'application_group'
           - 'application_internetservice'
@@ -160,6 +162,7 @@ options:
           - 'devprof_system_emailserver'
           - 'devprof_system_global'
           - 'devprof_system_ntp'
+          - 'devprof_system_ntp_keys'
           - 'devprof_system_ntp_ntpserver'
           - 'devprof_system_replacemsg_admin'
           - 'devprof_system_replacemsg_alertmail'
@@ -675,6 +678,7 @@ options:
           - 'ips_sensor_override_exemptip'
           - 'isolator_profile'
           - 'isolator_profile_entries'
+          - 'llm_server'
           - 'log_customfield'
           - 'log_npuserver'
           - 'log_npuserver_servergroup'
@@ -844,6 +848,8 @@ options:
           - 'switchcontroller_managedswitch_systemdhcpserver_options'
           - 'switchcontroller_managedswitch_systeminterface'
           - 'switchcontroller_managedswitch_vlan'
+          - 'switchcontroller_ptp_interfacepolicy'
+          - 'switchcontroller_ptp_policy'
           - 'switchcontroller_ptp_profile'
           - 'switchcontroller_qos_dot1pmap'
           - 'switchcontroller_qos_ipdscpmap'
@@ -911,6 +917,11 @@ options:
           - 'system_dhcp_server_iprange'
           - 'system_dhcp_server_options'
           - 'system_dhcp_server_reservedaddress'
+          - 'system_dhcp_template'
+          - 'system_dhcp_template_excluderange'
+          - 'system_dhcp_template_iprange'
+          - 'system_dhcp_template_options'
+          - 'system_dhcp_template_reservedaddress'
           - 'system_dm'
           - 'system_dns'
           - 'system_dnsdatabase'
@@ -996,6 +1007,7 @@ options:
           - 'system_metadata_admins'
           - 'system_npu'
           - 'system_npu_backgroundssescan'
+          - 'system_npu_congestionhandlingmode'
           - 'system_npu_dosoptions'
           - 'system_npu_dswdtsprofile'
           - 'system_npu_dswqueuedtsprofile'
@@ -1307,6 +1319,8 @@ options:
           - 'webfilter_profile_antiphish_inspectionentries'
           - 'webfilter_profile_filefilter'
           - 'webfilter_profile_filefilter_entries'
+          - 'webfilter_profile_ftgdimageclassification'
+          - 'webfilter_profile_ftgdimageclassification_rules'
           - 'webfilter_profile_ftgdwf'
           - 'webfilter_profile_ftgdwf_filters'
           - 'webfilter_profile_ftgdwf_quota'
@@ -1667,6 +1681,26 @@ def main():
                 '/pm/config/global/obj/application/categories/{categories}'
             ],
             'v_range': [['6.0.0', '']]
+        },
+        'application_classification': {
+            'params': ['adom', 'classification'],
+            'urls': [
+                '/pm/config/adom/{adom}/obj/application/classification',
+                '/pm/config/adom/{adom}/obj/application/classification/{classification}',
+                '/pm/config/global/obj/application/classification',
+                '/pm/config/global/obj/application/classification/{classification}'
+            ],
+            'v_range': [['8.0.1', '']]
+        },
+        'application_classificationscope': {
+            'params': ['adom', 'classification-scope'],
+            'urls': [
+                '/pm/config/adom/{adom}/obj/application/classification-scope',
+                '/pm/config/adom/{adom}/obj/application/classification-scope/{classification-scope}',
+                '/pm/config/global/obj/application/classification-scope',
+                '/pm/config/global/obj/application/classification-scope/{classification-scope}'
+            ],
+            'v_range': [['8.0.1', '']]
         },
         'application_custom': {
             'params': ['adom', 'custom'],
@@ -2238,7 +2272,7 @@ def main():
                 '/pm/config/adom/{adom}/devprof/{devprof}/log/syslogd/filter/exclude-list',
                 '/pm/config/adom/{adom}/devprof/{devprof}/log/syslogd/filter/exclude-list/{exclude-list}'
             ],
-            'v_range': [['7.0.4', '7.0.16']]
+            'v_range': [['7.0.4', '7.0.16'], ['8.0.1', '']]
         },
         'devprof_log_syslogd_filter_excludelist_fields': {
             'params': ['adom', 'devprof', 'exclude-list', 'fields'],
@@ -2246,7 +2280,7 @@ def main():
                 '/pm/config/adom/{adom}/devprof/{devprof}/log/syslogd/filter/exclude-list/{exclude-list}/fields',
                 '/pm/config/adom/{adom}/devprof/{devprof}/log/syslogd/filter/exclude-list/{exclude-list}/fields/{fields}'
             ],
-            'v_range': [['7.0.4', '7.0.16']]
+            'v_range': [['7.0.4', '7.0.16'], ['8.0.1', '']]
         },
         'devprof_log_syslogd_filter_freestyle': {
             'params': ['adom', 'devprof', 'free-style'],
@@ -2321,6 +2355,14 @@ def main():
                 '/pm/config/adom/{adom}/devprof/{devprof}/system/ntp'
             ],
             'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '']]
+        },
+        'devprof_system_ntp_keys': {
+            'params': ['adom', 'devprof', 'keys'],
+            'urls': [
+                '/pm/config/adom/{adom}/devprof/{devprof}/system/ntp/keys',
+                '/pm/config/adom/{adom}/devprof/{devprof}/system/ntp/keys/{keys}'
+            ],
+            'v_range': [['8.0.1', '']]
         },
         'devprof_system_ntp_ntpserver': {
             'params': ['adom', 'devprof', 'ntpserver'],
@@ -2869,7 +2911,7 @@ def main():
                 '/dvmdb/script',
                 '/dvmdb/script/{script}'
             ],
-            'v_range': [['6.0.0', '']]
+            'v_range': [['6.0.0', '8.0.0']]
         },
         'dvmdb_script_log_latest': {
             'params': ['adom'],
@@ -2945,7 +2987,7 @@ def main():
                 '/dvmdb/script/{script}/script_schedule',
                 '/dvmdb/script/{script}/script_schedule/{script_schedule}'
             ],
-            'v_range': [['6.0.0', '']]
+            'v_range': [['6.0.0', '8.0.0']]
         },
         'dvmdb_workflow': {
             'params': ['adom', 'workflow'],
@@ -7135,6 +7177,16 @@ def main():
             ],
             'v_range': [['7.6.4', '']]
         },
+        'llm_server': {
+            'params': ['adom', 'server'],
+            'urls': [
+                '/pm/config/adom/{adom}/obj/llm/server',
+                '/pm/config/adom/{adom}/obj/llm/server/{server}',
+                '/pm/config/global/obj/llm/server',
+                '/pm/config/global/obj/llm/server/{server}'
+            ],
+            'v_range': [['8.0.1', '']]
+        },
         'log_customfield': {
             'params': ['adom', 'custom-field'],
             'urls': [
@@ -8618,6 +8670,26 @@ def main():
             ],
             'v_range': [['7.4.2', '7.4.10'], ['7.6.0', '7.6.6']]
         },
+        'switchcontroller_ptp_interfacepolicy': {
+            'params': ['adom', 'interface-policy'],
+            'urls': [
+                '/pm/config/adom/{adom}/obj/switch-controller/ptp/interface-policy',
+                '/pm/config/adom/{adom}/obj/switch-controller/ptp/interface-policy/{interface-policy}',
+                '/pm/config/global/obj/switch-controller/ptp/interface-policy',
+                '/pm/config/global/obj/switch-controller/ptp/interface-policy/{interface-policy}'
+            ],
+            'v_range': [['8.0.1', '']]
+        },
+        'switchcontroller_ptp_policy': {
+            'params': ['adom', 'policy'],
+            'urls': [
+                '/pm/config/adom/{adom}/obj/switch-controller/ptp/policy',
+                '/pm/config/adom/{adom}/obj/switch-controller/ptp/policy/{policy}',
+                '/pm/config/global/obj/switch-controller/ptp/policy',
+                '/pm/config/global/obj/switch-controller/ptp/policy/{policy}'
+            ],
+            'v_range': [['8.0.1', '']]
+        },
         'switchcontroller_ptp_profile': {
             'params': ['adom', 'profile'],
             'urls': [
@@ -9181,6 +9253,56 @@ def main():
                 '/pm/config/global/obj/system/dhcp/server/{server}/reserved-address/{reserved-address}'
             ],
             'v_range': [['6.0.0', '']]
+        },
+        'system_dhcp_template': {
+            'params': ['adom', 'template'],
+            'urls': [
+                '/pm/config/adom/{adom}/obj/system/dhcp/template',
+                '/pm/config/adom/{adom}/obj/system/dhcp/template/{template}',
+                '/pm/config/global/obj/system/dhcp/template',
+                '/pm/config/global/obj/system/dhcp/template/{template}'
+            ],
+            'v_range': [['8.0.1', '']]
+        },
+        'system_dhcp_template_excluderange': {
+            'params': ['adom', 'exclude-range', 'template'],
+            'urls': [
+                '/pm/config/adom/{adom}/obj/system/dhcp/template/{template}/exclude-range',
+                '/pm/config/adom/{adom}/obj/system/dhcp/template/{template}/exclude-range/{exclude-range}',
+                '/pm/config/global/obj/system/dhcp/template/{template}/exclude-range',
+                '/pm/config/global/obj/system/dhcp/template/{template}/exclude-range/{exclude-range}'
+            ],
+            'v_range': [['8.0.1', '']]
+        },
+        'system_dhcp_template_iprange': {
+            'params': ['adom', 'ip-range', 'template'],
+            'urls': [
+                '/pm/config/adom/{adom}/obj/system/dhcp/template/{template}/ip-range',
+                '/pm/config/adom/{adom}/obj/system/dhcp/template/{template}/ip-range/{ip-range}',
+                '/pm/config/global/obj/system/dhcp/template/{template}/ip-range',
+                '/pm/config/global/obj/system/dhcp/template/{template}/ip-range/{ip-range}'
+            ],
+            'v_range': [['8.0.1', '']]
+        },
+        'system_dhcp_template_options': {
+            'params': ['adom', 'options', 'template'],
+            'urls': [
+                '/pm/config/adom/{adom}/obj/system/dhcp/template/{template}/options',
+                '/pm/config/adom/{adom}/obj/system/dhcp/template/{template}/options/{options}',
+                '/pm/config/global/obj/system/dhcp/template/{template}/options',
+                '/pm/config/global/obj/system/dhcp/template/{template}/options/{options}'
+            ],
+            'v_range': [['8.0.1', '']]
+        },
+        'system_dhcp_template_reservedaddress': {
+            'params': ['adom', 'reserved-address', 'template'],
+            'urls': [
+                '/pm/config/adom/{adom}/obj/system/dhcp/template/{template}/reserved-address',
+                '/pm/config/adom/{adom}/obj/system/dhcp/template/{template}/reserved-address/{reserved-address}',
+                '/pm/config/global/obj/system/dhcp/template/{template}/reserved-address',
+                '/pm/config/global/obj/system/dhcp/template/{template}/reserved-address/{reserved-address}'
+            ],
+            'v_range': [['8.0.1', '']]
         },
         'system_dm': {
             'params': [],
@@ -9834,6 +9956,14 @@ def main():
                 '/pm/config/global/obj/system/npu/background-sse-scan'
             ],
             'v_range': [['6.4.8', '6.4.15'], ['7.0.3', '']]
+        },
+        'system_npu_congestionhandlingmode': {
+            'params': ['adom'],
+            'urls': [
+                '/pm/config/adom/{adom}/obj/system/npu/congestion-handling-mode',
+                '/pm/config/global/obj/system/npu/congestion-handling-mode'
+            ],
+            'v_range': [['8.0.1', '']]
         },
         'system_npu_dosoptions': {
             'params': ['adom'],
@@ -12708,6 +12838,24 @@ def main():
             ],
             'v_range': [['6.2.0', '7.6.2']]
         },
+        'webfilter_profile_ftgdimageclassification': {
+            'params': ['adom', 'profile'],
+            'urls': [
+                '/pm/config/adom/{adom}/obj/webfilter/profile/{profile}/ftgd-image-classification',
+                '/pm/config/global/obj/webfilter/profile/{profile}/ftgd-image-classification'
+            ],
+            'v_range': [['8.0.1', '']]
+        },
+        'webfilter_profile_ftgdimageclassification_rules': {
+            'params': ['adom', 'profile', 'rules'],
+            'urls': [
+                '/pm/config/adom/{adom}/obj/webfilter/profile/{profile}/ftgd-image-classification/rules',
+                '/pm/config/adom/{adom}/obj/webfilter/profile/{profile}/ftgd-image-classification/rules/{rules}',
+                '/pm/config/global/obj/webfilter/profile/{profile}/ftgd-image-classification/rules',
+                '/pm/config/global/obj/webfilter/profile/{profile}/ftgd-image-classification/rules/{rules}'
+            ],
+            'v_range': [['8.0.1', '']]
+        },
         'webfilter_profile_ftgdwf': {
             'params': ['adom', 'profile'],
             'urls': [
@@ -13339,6 +13487,8 @@ def main():
                         'application_casi_profile',
                         'application_casi_profile_entries',
                         'application_categories',
+                        'application_classification',
+                        'application_classificationscope',
                         'application_custom',
                         'application_group',
                         'application_internetservice',
@@ -13409,6 +13559,7 @@ def main():
                         'devprof_system_emailserver',
                         'devprof_system_global',
                         'devprof_system_ntp',
+                        'devprof_system_ntp_keys',
                         'devprof_system_ntp_ntpserver',
                         'devprof_system_replacemsg_admin',
                         'devprof_system_replacemsg_alertmail',
@@ -13924,6 +14075,7 @@ def main():
                         'ips_sensor_override_exemptip',
                         'isolator_profile',
                         'isolator_profile_entries',
+                        'llm_server',
                         'log_customfield',
                         'log_npuserver',
                         'log_npuserver_servergroup',
@@ -14093,6 +14245,8 @@ def main():
                         'switchcontroller_managedswitch_systemdhcpserver_options',
                         'switchcontroller_managedswitch_systeminterface',
                         'switchcontroller_managedswitch_vlan',
+                        'switchcontroller_ptp_interfacepolicy',
+                        'switchcontroller_ptp_policy',
                         'switchcontroller_ptp_profile',
                         'switchcontroller_qos_dot1pmap',
                         'switchcontroller_qos_ipdscpmap',
@@ -14160,6 +14314,11 @@ def main():
                         'system_dhcp_server_iprange',
                         'system_dhcp_server_options',
                         'system_dhcp_server_reservedaddress',
+                        'system_dhcp_template',
+                        'system_dhcp_template_excluderange',
+                        'system_dhcp_template_iprange',
+                        'system_dhcp_template_options',
+                        'system_dhcp_template_reservedaddress',
                         'system_dm',
                         'system_dns',
                         'system_dnsdatabase',
@@ -14245,6 +14404,7 @@ def main():
                         'system_metadata_admins',
                         'system_npu',
                         'system_npu_backgroundssescan',
+                        'system_npu_congestionhandlingmode',
                         'system_npu_dosoptions',
                         'system_npu_dswdtsprofile',
                         'system_npu_dswqueuedtsprofile',
@@ -14556,6 +14716,8 @@ def main():
                         'webfilter_profile_antiphish_inspectionentries',
                         'webfilter_profile_filefilter',
                         'webfilter_profile_filefilter_entries',
+                        'webfilter_profile_ftgdimageclassification',
+                        'webfilter_profile_ftgdimageclassification_rules',
                         'webfilter_profile_ftgdwf',
                         'webfilter_profile_ftgdwf_filters',
                         'webfilter_profile_ftgdwf_quota',

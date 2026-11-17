@@ -57,6 +57,15 @@ options:
         type: str
         description: Name.
         required: true
+      default_mapping:
+        aliases: ['default-mapping']
+        type: str
+        description: Default mapping.
+        choices: ['disable', 'enable']
+      defmap_cert:
+        aliases: ['defmap-cert']
+        type: str
+        description: Support meta variable
 '''
 
 EXAMPLES = '''
@@ -78,6 +87,8 @@ EXAMPLES = '''
           #       - name: <string>
           #         vdom: <string>
           #     local_cert: <string>
+          # default_mapping: <value in [disable, enable]>
+          # defmap_cert: <string>
 '''
 
 RETURN = '''
@@ -145,7 +156,9 @@ def main():
                     },
                     'elements': 'dict'
                 },
-                'name': {'required': True, 'type': 'str'}
+                'name': {'required': True, 'type': 'str'},
+                'default-mapping': {'v_range': [['8.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'defmap-cert': {'v_range': [['8.0.1', '']], 'type': 'str'}
             }
         }
     }

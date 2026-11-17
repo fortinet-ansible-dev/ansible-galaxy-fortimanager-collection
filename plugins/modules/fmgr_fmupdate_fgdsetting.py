@@ -12,7 +12,7 @@ ANSIBLE_METADATA = {'status': ['preview'],
 DOCUMENTATION = '''
 ---
 module: fmgr_fmupdate_fgdsetting
-short_description: Cli fmupdate fgd setting
+short_description: Configure FortiGuard fgd parameters.
 version_added: "2.10.0"
 extends_documentation_fragment:
   - fortinet.fortimanager.general
@@ -245,7 +245,7 @@ EXAMPLES = '''
   connection: httpapi
   gather_facts: false
   tasks:
-    - name: Cli fmupdate fgd setting
+    - name: Configure FortiGuard fgd parameters.
       fortinet.fortimanager.fmgr_fmupdate_fgdsetting:
         # workspace_locking_adom: <global or your adom name>
         fmupdate_fgdsetting:
@@ -420,7 +420,7 @@ def main():
                 'wf-dn-cache-max-number': {'v_range': [['7.6.3', '']], 'type': 'int'},
                 'wf-log': {'v_range': [['7.6.3', '']], 'choices': ['disable', 'nourl', 'all'], 'type': 'str'},
                 'wf-preload': {'v_range': [['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'delta-ratio': {'v_range': [['7.6.7', '7.6.7']], 'type': 'int'}
+                'delta-ratio': {'v_range': [['7.6.7', '7.6.7'], ['8.0.1', '']], 'type': 'int'}
             }
         }
     }

@@ -917,7 +917,7 @@ options:
         choices: ['serdes-sfp', 'sgmii-sfp', 'cfp2-sr10', 'cfp2-lr4', 'serdes-copper-sfp', 'sr',
                   'cr', 'lr', 'qsfp28-sr4', 'qsfp28-lr4', 'qsfp28-cr4', 'sr4', 'cr4', 'lr4',
                   'none', 'gmii', 'sgmii', 'sr2', 'lr2', 'cr2', 'sr8', 'lr8', 'cr8', 'dr',
-                  'sr-lr', 'kr']
+                  'sr-lr', 'kr', 'caui4', 'sr4-long-dac']
       member:
         type: raw
         description: (list or str) Member.
@@ -1108,7 +1108,7 @@ options:
             description: Allowaccess.
             choices: ['https', 'ping', 'ssh', 'snmp', 'http', 'telnet', 'fgfm', 'auto-ipsec',
                       'radius-acct', 'probe-response', 'capwap', 'dnp', 'ftm', 'fabric',
-                      'speed-test', 'icond', 'scim', 'mqtt']
+                      'speed-test', 'icond', 'scim', 'mqtt', 'cwmp']
           detectprotocol:
             type: list
             elements: str
@@ -2015,6 +2015,20 @@ options:
         aliases: ['tx-queue-len']
         type: int
         description: TX queue length.
+      captive_portal_api_server:
+        aliases: ['captive-portal-api-server']
+        type: str
+        description: Enable/disable captive portal API server.
+        choices: ['disable', 'enable']
+      remote_management_ip:
+        aliases: ['remote-management-ip']
+        type: raw
+        description: (list) High Availability in-band remote management IP address of this interface.
+      stp_root_guard:
+        aliases: ['stp-root-guard']
+        type: str
+        description: Enable/disable STP Root Guard.
+        choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -2286,7 +2300,7 @@ EXAMPLES = '''
           # secondaryip:
           #   - allowaccess: ["https", "ping", "ssh", "snmp", "http", "telnet", "fgfm",
           #                   "auto-ipsec", "radius-acct", "probe-response", "capwap", "dnp",
-          #                   "ftm", "fabric", "speed-test", "icond", "scim", "mqtt"]
+          #                   "ftm", "fabric", "speed-test", "icond", "scim", "mqtt", "cwmp"]
           #     detectprotocol: ["ping", "tcp-echo", "udp-echo"]
           #     detectserver: <string>
           #     gwdetect: <value in [disable, enable]>
@@ -2493,6 +2507,9 @@ EXAMPLES = '''
           # outbandwidth_source: <value in [default, measured]>
           # switch_controller_fortilink_settings: <list or string>
           # tx_queue_len: <integer>
+          # captive_portal_api_server: <value in [disable, enable]>
+          # remote_management_ip: <list or string>
+          # stp_root_guard: <value in [disable, enable]>
 '''
 
 RETURN = '''
@@ -2573,38 +2590,39 @@ def main():
                 'bfd-desired-min-tx': {'type': 'int'},
                 'bfd-detect-mult': {'type': 'int'},
                 'bfd-required-min-rx': {'type': 'int'},
-                'broadcast-forticlient-discovery': {'choices': ['disable', 'enable'], 'type': 'str'},
+                'broadcast-forticlient-discovery': {'v_range': [['6.0.0', '8.0.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'broadcast-forward': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'captive-portal': {'type': 'int'},
                 'cli-conn-status': {'type': 'int'},
                 'color': {'type': 'int'},
-                'ddns': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'ddns-auth': {'choices': ['disable', 'tsig'], 'type': 'str'},
-                'ddns-domain': {'type': 'str'},
-                'ddns-key': {'no_log': True, 'type': 'raw'},
-                'ddns-keyname': {'no_log': True, 'type': 'str'},
-                'ddns-password': {'no_log': True, 'type': 'raw'},
+                'ddns': {'v_range': [['6.0.0', '8.0.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'ddns-auth': {'v_range': [['6.0.0', '8.0.0']], 'choices': ['disable', 'tsig'], 'type': 'str'},
+                'ddns-domain': {'v_range': [['6.0.0', '8.0.0']], 'type': 'str'},
+                'ddns-key': {'v_range': [['6.0.0', '8.0.0']], 'no_log': True, 'type': 'raw'},
+                'ddns-keyname': {'v_range': [['6.0.0', '8.0.0']], 'no_log': True, 'type': 'str'},
+                'ddns-password': {'v_range': [['6.0.0', '8.0.0']], 'no_log': True, 'type': 'raw'},
                 'ddns-server': {
+                    'v_range': [['6.0.0', '8.0.0']],
                     'choices': [
                         'dhs.org', 'dyndns.org', 'dyns.net', 'tzo.com', 'ods.org', 'vavic.com', 'now.net.cn', 'dipdns.net', 'easydns.com', 'genericDDNS'
                     ],
                     'type': 'str'
                 },
-                'ddns-server-ip': {'type': 'str'},
-                'ddns-sn': {'type': 'str'},
-                'ddns-ttl': {'type': 'int'},
-                'ddns-username': {'type': 'str'},
-                'ddns-zone': {'type': 'str'},
+                'ddns-server-ip': {'v_range': [['6.0.0', '8.0.0']], 'type': 'str'},
+                'ddns-sn': {'v_range': [['6.0.0', '8.0.0']], 'type': 'str'},
+                'ddns-ttl': {'v_range': [['6.0.0', '8.0.0']], 'type': 'int'},
+                'ddns-username': {'v_range': [['6.0.0', '8.0.0']], 'type': 'str'},
+                'ddns-zone': {'v_range': [['6.0.0', '8.0.0']], 'type': 'str'},
                 'dedicated-to': {'choices': ['none', 'management'], 'type': 'str'},
                 'defaultgw': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'description': {'type': 'str'},
                 'detected-peer-mtu': {'type': 'int'},
-                'detectprotocol': {'type': 'list', 'choices': ['ping', 'tcp-echo', 'udp-echo'], 'elements': 'str'},
-                'detectserver': {'type': 'str'},
-                'device-access-list': {'type': 'raw'},
+                'detectprotocol': {'v_range': [['6.0.0', '8.0.0']], 'type': 'list', 'choices': ['ping', 'tcp-echo', 'udp-echo'], 'elements': 'str'},
+                'detectserver': {'v_range': [['6.0.0', '8.0.0']], 'type': 'str'},
+                'device-access-list': {'v_range': [['6.0.0', '8.0.0']], 'type': 'raw'},
                 'device-identification': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'device-identification-active-scan': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'device-netscan': {'choices': ['disable', 'enable'], 'type': 'str'},
+                'device-identification-active-scan': {'v_range': [['6.0.0', '8.0.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'device-netscan': {'v_range': [['6.0.0', '8.0.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'device-user-identification': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'devindex': {'type': 'int'},
                 'dhcp-client-identifier': {'type': 'str'},
@@ -2616,13 +2634,13 @@ def main():
                 'disc-retry-timeout': {'type': 'int'},
                 'disconnect-threshold': {'type': 'int'},
                 'distance': {'type': 'int'},
-                'dns-query': {'choices': ['disable', 'recursive', 'non-recursive'], 'type': 'str'},
+                'dns-query': {'v_range': [['6.0.0', '8.0.0']], 'choices': ['disable', 'recursive', 'non-recursive'], 'type': 'str'},
                 'dns-server-override': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'drop-fragment': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'drop-overlapped-fragment': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'egress-cos': {'choices': ['disable', 'cos0', 'cos1', 'cos2', 'cos3', 'cos4', 'cos5', 'cos6', 'cos7'], 'type': 'str'},
                 'egress-shaping-profile': {'type': 'str'},
-                'endpoint-compliance': {'choices': ['disable', 'enable'], 'type': 'str'},
+                'endpoint-compliance': {'v_range': [['6.0.0', '8.0.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'estimated-downstream-bandwidth': {'type': 'int'},
                 'estimated-upstream-bandwidth': {'type': 'int'},
                 'explicit-ftp-proxy': {'choices': ['disable', 'enable'], 'type': 'str'},
@@ -2633,12 +2651,12 @@ def main():
                 'fail-alert-method': {'choices': ['link-failed-signal', 'link-down'], 'type': 'str'},
                 'fail-detect': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'fail-detect-option': {'type': 'list', 'choices': ['detectserver', 'link-down'], 'elements': 'str'},
-                'fdp': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'fortiheartbeat': {'choices': ['disable', 'enable'], 'type': 'str'},
+                'fdp': {'v_range': [['6.0.0', '8.0.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'fortiheartbeat': {'v_range': [['6.0.0', '8.0.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'fortilink': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'fortilink-backup-link': {'type': 'int'},
                 'fortilink-split-interface': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'fortilink-stacking': {'choices': ['disable', 'enable'], 'type': 'str'},
+                'fortilink-stacking': {'v_range': [['6.0.0', '8.0.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'forward-domain': {'type': 'int'},
                 'forward-error-correction': {
                     'choices': [
@@ -2648,6 +2666,7 @@ def main():
                     'type': 'str'
                 },
                 'fp-anomaly': {
+                    'v_range': [['6.0.0', '8.0.0']],
                     'type': 'list',
                     'choices': [
                         'drop_tcp_fin_noack', 'pass_winnuke', 'pass_tcpland', 'pass_udpland', 'pass_icmpland', 'pass_ipland', 'pass_iprr', 'pass_ipssrr',
@@ -2658,20 +2677,20 @@ def main():
                     ],
                     'elements': 'str'
                 },
-                'fp-disable': {'type': 'list', 'choices': ['all', 'ipsec', 'none'], 'elements': 'str'},
+                'fp-disable': {'v_range': [['6.0.0', '8.0.0']], 'type': 'list', 'choices': ['all', 'ipsec', 'none'], 'elements': 'str'},
                 'gateway-address': {'type': 'str'},
                 'gi-gk': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'gwaddr': {'v_range': [['6.0.0', '7.2.0']], 'type': 'str'},
-                'gwdetect': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'ha-priority': {'type': 'int'},
+                'gwdetect': {'v_range': [['6.0.0', '8.0.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'ha-priority': {'v_range': [['6.0.0', '8.0.0']], 'type': 'int'},
                 'icmp-accept-redirect': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'icmp-redirect': {'choices': ['disable', 'enable'], 'type': 'str'},
+                'icmp-redirect': {'v_range': [['6.0.0', '8.0.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'icmp-send-redirect': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'ident-accept': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'idle-timeout': {'type': 'int'},
-                'if-mdix': {'choices': ['auto', 'normal', 'crossover'], 'type': 'str'},
-                'if-media': {'choices': ['auto', 'copper', 'fiber'], 'type': 'str'},
-                'in-force-vlan-cos': {'type': 'int'},
+                'if-mdix': {'v_range': [['6.0.0', '8.0.0']], 'choices': ['auto', 'normal', 'crossover'], 'type': 'str'},
+                'if-media': {'v_range': [['6.0.0', '8.0.0']], 'choices': ['auto', 'copper', 'fiber'], 'type': 'str'},
+                'in-force-vlan-cos': {'v_range': [['6.0.0', '8.0.0']], 'type': 'int'},
                 'inbandwidth': {'type': 'int'},
                 'ingress-cos': {'choices': ['disable', 'cos0', 'cos1', 'cos2', 'cos3', 'cos4', 'cos5', 'cos6', 'cos7'], 'type': 'str'},
                 'ingress-spillover-threshold': {'type': 'int'},
@@ -2805,11 +2824,11 @@ def main():
                 'lcp-echo-interval': {'type': 'int'},
                 'lcp-max-echo-fails': {'type': 'int'},
                 'link-up-delay': {'type': 'int'},
-                'listen-forticlient-connection': {'choices': ['disable', 'enable'], 'type': 'str'},
+                'listen-forticlient-connection': {'v_range': [['6.0.0', '8.0.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'lldp-network-policy': {'type': 'str'},
                 'lldp-reception': {'choices': ['disable', 'enable', 'vdom'], 'type': 'str'},
                 'lldp-transmission': {'choices': ['enable', 'disable', 'vdom'], 'type': 'str'},
-                'log': {'choices': ['disable', 'enable'], 'type': 'str'},
+                'log': {'v_range': [['6.0.0', '8.0.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'macaddr': {'type': 'str'},
                 'management-ip': {'type': 'str'},
                 'max-egress-burst-rate': {'type': 'int'},
@@ -2817,7 +2836,8 @@ def main():
                 'mediatype': {
                     'choices': [
                         'serdes-sfp', 'sgmii-sfp', 'cfp2-sr10', 'cfp2-lr4', 'serdes-copper-sfp', 'sr', 'cr', 'lr', 'qsfp28-sr4', 'qsfp28-lr4',
-                        'qsfp28-cr4', 'sr4', 'cr4', 'lr4', 'none', 'gmii', 'sgmii', 'sr2', 'lr2', 'cr2', 'sr8', 'lr8', 'cr8', 'dr', 'sr-lr', 'kr'
+                        'qsfp28-cr4', 'sr4', 'cr4', 'lr4', 'none', 'gmii', 'sgmii', 'sr2', 'lr2', 'cr2', 'sr8', 'lr8', 'cr8', 'dr', 'sr-lr', 'kr',
+                        'caui4', 'sr4-long-dac'
                     ],
                     'type': 'str'
                 },
@@ -2832,13 +2852,13 @@ def main():
                 'ndiscforward': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'netbios-forward': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'netflow-sampler': {'choices': ['disable', 'tx', 'rx', 'both'], 'type': 'str'},
-                'npu-fastpath': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'nst': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'out-force-vlan-cos': {'type': 'int'},
+                'npu-fastpath': {'v_range': [['6.0.0', '8.0.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'nst': {'v_range': [['6.0.0', '8.0.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'out-force-vlan-cos': {'v_range': [['6.0.0', '8.0.0']], 'type': 'int'},
                 'outbandwidth': {'type': 'int'},
                 'padt-retry-timeout': {'type': 'int'},
                 'password': {'no_log': True, 'type': 'raw'},
-                'peer-interface': {'type': 'raw'},
+                'peer-interface': {'v_range': [['6.0.0', '8.0.0']], 'type': 'raw'},
                 'phy-mode': {
                     'choices': ['auto', 'adsl', 'vdsl', 'adsl-auto', 'vdsl2', 'adsl2+', 'adsl2', 'g.dmt', 't1.413', 'g.lite', 'g-dmt', 't1-413', 'g-lite'],
                     'type': 'str'
@@ -2864,7 +2884,7 @@ def main():
                 'role': {'choices': ['lan', 'wan', 'dmz', 'undefined'], 'type': 'str'},
                 'sample-direction': {'choices': ['rx', 'tx', 'both'], 'type': 'str'},
                 'sample-rate': {'type': 'int'},
-                'scan-botnet-connections': {'choices': ['disable', 'block', 'monitor'], 'type': 'str'},
+                'scan-botnet-connections': {'v_range': [['6.0.0', '8.0.0']], 'choices': ['disable', 'block', 'monitor'], 'type': 'str'},
                 'secondary-IP': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'secondaryip': {
                     'type': 'list',
@@ -2873,7 +2893,7 @@ def main():
                             'type': 'list',
                             'choices': [
                                 'https', 'ping', 'ssh', 'snmp', 'http', 'telnet', 'fgfm', 'auto-ipsec', 'radius-acct', 'probe-response', 'capwap', 'dnp',
-                                'ftm', 'fabric', 'speed-test', 'icond', 'scim', 'mqtt'
+                                'ftm', 'fabric', 'speed-test', 'icond', 'scim', 'mqtt', 'cwmp'
                             ],
                             'elements': 'str'
                         },
@@ -2918,22 +2938,22 @@ def main():
                 'src-check': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'status': {'choices': ['down', 'up'], 'type': 'str'},
                 'stp': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'stp-ha-slave': {'choices': ['disable', 'enable', 'priority-adjust'], 'type': 'str'},
+                'stp-ha-slave': {'v_range': [['6.0.0', '8.0.0']], 'choices': ['disable', 'enable', 'priority-adjust'], 'type': 'str'},
                 'stpforward': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'stpforward-mode': {'choices': ['rpl-all-ext-id', 'rpl-bridge-ext-id', 'rpl-nothing'], 'type': 'str'},
-                'strip-priority-vlan-tag': {'choices': ['disable', 'enable'], 'type': 'str'},
+                'strip-priority-vlan-tag': {'v_range': [['6.0.0', '8.0.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'subst': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'substitute-dst-mac': {'type': 'str'},
                 'switch': {'type': 'str'},
                 'switch-controller-access-vlan': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'switch-controller-arp-inspection': {'choices': ['disable', 'enable', 'monitor'], 'type': 'str'},
-                'switch-controller-auth': {'choices': ['radius', 'usergroup'], 'type': 'str'},
+                'switch-controller-auth': {'v_range': [['6.0.0', '8.0.0']], 'choices': ['radius', 'usergroup'], 'type': 'str'},
                 'switch-controller-dhcp-snooping': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'switch-controller-dhcp-snooping-option82': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'switch-controller-dhcp-snooping-verify-mac': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'switch-controller-igmp-snooping': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'switch-controller-learning-limit': {'type': 'int'},
-                'switch-controller-radius-server': {'type': 'str'},
+                'switch-controller-radius-server': {'v_range': [['6.0.0', '8.0.0']], 'type': 'str'},
                 'switch-controller-traffic-policy': {'type': 'str'},
                 'tc-mode': {'choices': ['ptm', 'atm'], 'type': 'str'},
                 'tcp-mss': {'type': 'int'},
@@ -3098,9 +3118,9 @@ def main():
                     'choices': ['tag', 'untag', 'passthrough'],
                     'type': 'str'
                 },
-                'generic-receive-offload': {'v_range': [['7.0.5', '7.0.16'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'generic-receive-offload': {'v_range': [['7.0.5', '7.0.16'], ['7.2.1', '8.0.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'interconnect-profile': {'v_range': [['7.0.5', '7.0.16'], ['7.2.1', '']], 'choices': ['default', 'profile1', 'profile2'], 'type': 'str'},
-                'large-receive-offload': {'v_range': [['7.0.5', '7.0.16'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'large-receive-offload': {'v_range': [['7.0.5', '7.0.16'], ['7.2.1', '8.0.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'annex': {
                     'v_range': [['7.0.10', '7.0.16'], ['7.2.5', '7.2.12'], ['7.4.2', '']],
                     'choices': ['a', 'b', 'j', 'bjm', 'i', 'al', 'm', 'aijlm', 'bj'],
@@ -3114,9 +3134,9 @@ def main():
                 'default-purdue-level': {'v_range': [['7.4.0', '']], 'choices': ['1', '2', '3', '4', '5', '1.5', '2.5', '3.5', '5.5'], 'type': 'str'},
                 'dhcp-broadcast-flag': {'v_range': [['7.4.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'dhcp-smart-relay': {'v_range': [['7.4.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'switch-controller-offloading': {'v_range': [['7.4.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'switch-controller-offloading-gw': {'v_range': [['7.4.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'switch-controller-offloading-ip': {'v_range': [['7.4.0', '']], 'type': 'str'},
+                'switch-controller-offloading': {'v_range': [['7.4.0', '8.0.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'switch-controller-offloading-gw': {'v_range': [['7.4.0', '8.0.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'switch-controller-offloading-ip': {'v_range': [['7.4.0', '8.0.0']], 'type': 'str'},
                 'dhcp-relay-circuit-id': {'v_range': [['7.4.1', '']], 'type': 'str'},
                 'dhcp-relay-source-ip': {'v_range': [['7.4.1', '']], 'type': 'str'},
                 'switch-controller-offload': {'v_range': [['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
@@ -3158,7 +3178,10 @@ def main():
                 'ipam-conflicts': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'outbandwidth-source': {'v_range': [['8.0.0', '']], 'choices': ['default', 'measured'], 'type': 'str'},
                 'switch-controller-fortilink-settings': {'v_range': [['8.0.0', '']], 'type': 'raw'},
-                'tx-queue-len': {'v_range': [['8.0.0', '']], 'type': 'int'}
+                'tx-queue-len': {'v_range': [['8.0.0', '']], 'type': 'int'},
+                'captive-portal-api-server': {'v_range': [['8.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'remote-management-ip': {'v_range': [['8.0.1', '']], 'type': 'raw'},
+                'stp-root-guard': {'v_range': [['8.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

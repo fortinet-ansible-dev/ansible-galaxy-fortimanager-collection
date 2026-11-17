@@ -49,6 +49,11 @@ options:
         type: str
         description: Minimum supported protocol version for SSL/TLS connections
         choices: ['default', 'TLSv1', 'TLSv1-1', 'TLSv1-2', 'SSLv3', 'TLSv1-3']
+      pqc_policy:
+        aliases: ['pqc-policy']
+        type: str
+        description: Enable/disable using post-quantum cryptography for TLS connection
+        choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -151,7 +156,8 @@ def main():
                 'port': {'type': 'int'},
                 'secure': {'choices': ['none', 'starttls', 'pop3s'], 'type': 'str'},
                 'server': {'type': 'str'},
-                'ssl-min-proto-version': {'choices': ['default', 'TLSv1', 'TLSv1-1', 'TLSv1-2', 'SSLv3', 'TLSv1-3'], 'type': 'str'}
+                'ssl-min-proto-version': {'choices': ['default', 'TLSv1', 'TLSv1-1', 'TLSv1-2', 'SSLv3', 'TLSv1-3'], 'type': 'str'},
+                'pqc-policy': {'v_range': [['8.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

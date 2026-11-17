@@ -268,17 +268,21 @@ def main():
                 'curve-name': {'v_range': [['6.2.1', '']], 'choices': ['secp256r1', 'secp384r1', 'secp521r1'], 'type': 'str'},
                 'scep-ca-identifier': {'v_range': [['7.0.4', '']], 'type': 'str'},
                 'subject-alt-name': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'type': 'str'},
-                'enroll-protocol': {'v_range': [['7.6.7', '7.6.7']], 'choices': ['scep', 'est'], 'type': 'str'},
-                'est-ca-id': {'v_range': [['7.6.7', '7.6.7']], 'type': 'str'},
-                'est-client-cert': {'v_range': [['7.6.7', '7.6.7']], 'type': 'raw'},
-                'est-http-password': {'v_range': [['7.6.7', '7.6.7']], 'no_log': True, 'type': 'raw'},
-                'est-http-username': {'v_range': [['7.6.7', '7.6.7']], 'type': 'str'},
-                'est-regeneration-method': {'v_range': [['7.6.7', '7.6.7']], 'choices': ['create-new-key', 'use-existing-key'], 'type': 'str'},
-                'est-server-cert': {'v_range': [['7.6.7', '7.6.7']], 'type': 'raw'},
-                'est-server-url': {'v_range': [['7.6.7', '7.6.7']], 'type': 'str'},
-                'est-srp-password': {'v_range': [['7.6.7', '7.6.7']], 'no_log': True, 'type': 'raw'},
-                'est-srp-username': {'v_range': [['7.6.7', '7.6.7']], 'type': 'str'},
-                'source-ip': {'v_range': [['7.6.7', '7.6.7']], 'type': 'str'},
+                'enroll-protocol': {'v_range': [['7.6.7', '7.6.7'], ['8.0.1', '']], 'choices': ['scep', 'est'], 'type': 'str'},
+                'est-ca-id': {'v_range': [['7.6.7', '7.6.7'], ['8.0.1', '']], 'type': 'str'},
+                'est-client-cert': {'v_range': [['7.6.7', '7.6.7'], ['8.0.1', '']], 'type': 'raw'},
+                'est-http-password': {'v_range': [['7.6.7', '7.6.7'], ['8.0.1', '']], 'no_log': True, 'type': 'raw'},
+                'est-http-username': {'v_range': [['7.6.7', '7.6.7'], ['8.0.1', '']], 'type': 'str'},
+                'est-regeneration-method': {
+                    'v_range': [['7.6.7', '7.6.7'], ['8.0.1', '']],
+                    'choices': ['create-new-key', 'use-existing-key'],
+                    'type': 'str'
+                },
+                'est-server-cert': {'v_range': [['7.6.7', '7.6.7'], ['8.0.1', '']], 'type': 'raw'},
+                'est-server-url': {'v_range': [['7.6.7', '7.6.7'], ['8.0.1', '']], 'type': 'str'},
+                'est-srp-password': {'v_range': [['7.6.7', '7.6.7'], ['8.0.1', '']], 'no_log': True, 'type': 'raw'},
+                'est-srp-username': {'v_range': [['7.6.7', '7.6.7'], ['8.0.1', '']], 'type': 'str'},
+                'source-ip': {'v_range': [['7.6.7', '7.6.7'], ['8.0.1', '']], 'type': 'str'},
                 'validity': {'v_range': [['8.0.0', '']], 'type': 'int'}
             }
         }

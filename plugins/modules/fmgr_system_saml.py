@@ -234,6 +234,14 @@ options:
         type: str
         description: Signature algorithm.
         choices: ['rsa-sha256', 'rsa-sha512']
+      custom_sp_entity_id:
+        aliases: ['custom-sp-entity-id']
+        type: str
+        description:
+          - Enable/disable custom SP entity ID
+          - disable - Disable custom SP entity ID.
+          - enable - Enable custom SP entity ID.
+        choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -288,6 +296,7 @@ EXAMPLES = '''
           # idp_digest_method: <value in [sha256, sha512]>
           # idp_signature_algorithm: <value in [rsa-sha256, rsa-sha512]>
           # signature_algorithm: <value in [rsa-sha256, rsa-sha512]>
+          # custom_sp_entity_id: <value in [disable, enable]>
 '''
 
 RETURN = '''
@@ -395,7 +404,8 @@ def main():
                 'digest-method': {'v_range': [['8.0.0', '']], 'choices': ['sha256', 'sha512'], 'type': 'str'},
                 'idp-digest-method': {'v_range': [['8.0.0', '']], 'choices': ['sha256', 'sha512'], 'type': 'str'},
                 'idp-signature-algorithm': {'v_range': [['8.0.0', '']], 'choices': ['rsa-sha256', 'rsa-sha512'], 'type': 'str'},
-                'signature-algorithm': {'v_range': [['8.0.0', '']], 'choices': ['rsa-sha256', 'rsa-sha512'], 'type': 'str'}
+                'signature-algorithm': {'v_range': [['8.0.0', '']], 'choices': ['rsa-sha256', 'rsa-sha512'], 'type': 'str'},
+                'custom-sp-entity-id': {'v_range': [['8.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

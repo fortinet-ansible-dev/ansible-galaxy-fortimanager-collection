@@ -231,6 +231,18 @@ options:
         aliases: ['internet-service-fortiguard']
         type: raw
         description: (list) FortiGuard Internet Service name.
+      scope_member:
+        aliases: ['scope member']
+        type: list
+        elements: dict
+        description: Scope member.
+        suboptions:
+          name:
+            type: str
+            description: Name.
+          vdom:
+            type: str
+            description: Vdom.
 '''
 
 EXAMPLES = '''
@@ -384,7 +396,13 @@ def main():
                 'http-response-match': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'service-type': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'choices': ['service', 'internet-service'], 'type': 'str'},
                 'internet-service-src-fortiguard': {'v_range': [['7.6.4', '']], 'type': 'raw'},
-                'internet-service-fortiguard': {'v_range': [['7.6.4', '']], 'type': 'raw'}
+                'internet-service-fortiguard': {'v_range': [['7.6.4', '']], 'type': 'raw'},
+                'scope member': {
+                    'v_range': [['8.0.1', '']],
+                    'type': 'list',
+                    'options': {'name': {'v_range': [['8.0.1', '']], 'type': 'str'}, 'vdom': {'v_range': [['8.0.1', '']], 'type': 'str'}},
+                    'elements': 'dict'
+                }
             }
         }
     }

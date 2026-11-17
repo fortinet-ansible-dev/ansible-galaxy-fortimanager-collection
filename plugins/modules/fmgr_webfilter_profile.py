@@ -656,6 +656,63 @@ options:
       uuid:
         type: str
         description: Universally Unique Identifier
+      ftgd_image_classification:
+        aliases: ['ftgd-image-classification']
+        type: dict
+        description: Ftgd image classification.
+        suboptions:
+          file_size_maximum:
+            aliases: ['file-size-maximum']
+            type: int
+            description: File size above which no classification request is performed in kilobytes
+          file_size_minimum:
+            aliases: ['file-size-minimum']
+            type: int
+            description: Minimum file size to trigger a classification request in kilobytes
+          file_types:
+            aliases: ['file-types']
+            type: raw
+            description: (list) Select file type.
+          http_method:
+            aliases: ['http-method']
+            type: str
+            description: Select HTTP requests methods that will be scanned.
+            choices: ['disable', 'all', 'get', 'post']
+          rating_error_action:
+            aliases: ['rating-error-action']
+            type: str
+            description: Action to take if FortiGuard image classification query fails.
+            choices: ['block', 'log', 'allow']
+          rating_quota_reached_action:
+            aliases: ['rating-quota-reached-action']
+            type: str
+            description: Action to take when FortiGuard image classification signals the rate limit is reached.
+            choices: ['block', 'log', 'allow']
+          rating_timeout:
+            aliases: ['rating-timeout']
+            type: int
+            description: FortiGuard image classification timeout in seconds
+          rating_timeout_action:
+            aliases: ['rating-timeout-action']
+            type: str
+            description: Action to take if FortiGuard image classification times out.
+            choices: ['block', 'log', 'allow']
+          rules:
+            type: list
+            elements: dict
+            description: Rules.
+            suboptions:
+              block_threshold:
+                aliases: ['block-threshold']
+                type: int
+                description: Rating above which the image is blocked
+              category:
+                type: str
+                description: Category name.
+              log_threshold:
+                aliases: ['log-threshold']
+                type: int
+                description: Rating above which the image is logged
 '''
 
 EXAMPLES = '''
@@ -815,6 +872,19 @@ EXAMPLES = '''
           # fabric_object: <value in [disable, enable]>
           # fabric_object_source: <value in [member, local, root]>
           # uuid: <string>
+          # ftgd_image_classification:
+          #   file_size_maximum: <integer>
+          #   file_size_minimum: <integer>
+          #   file_types: <list or string>
+          #   http_method: <value in [disable, all, get, ...]>
+          #   rating_error_action: <value in [block, log, allow]>
+          #   rating_quota_reached_action: <value in [block, log, allow]>
+          #   rating_timeout: <integer>
+          #   rating_timeout_action: <value in [block, log, allow]>
+          #   rules:
+          #     - block_threshold: <integer>
+          #       category: <string>
+          #       log_threshold: <integer>
 '''
 
 RETURN = '''
@@ -1158,7 +1228,31 @@ def main():
                 'fabric-force-sync': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'fabric-object': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'fabric-object-source': {'v_range': [['8.0.0', '']], 'choices': ['member', 'local', 'root'], 'type': 'str'},
-                'uuid': {'v_range': [['8.0.0', '']], 'type': 'str'}
+                'uuid': {'v_range': [['8.0.0', '']], 'type': 'str'},
+                'ftgd-image-classification': {
+                    'v_range': [['8.0.1', '']],
+                    'type': 'dict',
+                    'options': {
+                        'file-size-maximum': {'v_range': [['8.0.1', '']], 'type': 'int'},
+                        'file-size-minimum': {'v_range': [['8.0.1', '']], 'type': 'int'},
+                        'file-types': {'v_range': [['8.0.1', '']], 'type': 'raw'},
+                        'http-method': {'v_range': [['8.0.1', '']], 'choices': ['disable', 'all', 'get', 'post'], 'type': 'str'},
+                        'rating-error-action': {'v_range': [['8.0.1', '']], 'choices': ['block', 'log', 'allow'], 'type': 'str'},
+                        'rating-quota-reached-action': {'v_range': [['8.0.1', '']], 'choices': ['block', 'log', 'allow'], 'type': 'str'},
+                        'rating-timeout': {'v_range': [['8.0.1', '']], 'type': 'int'},
+                        'rating-timeout-action': {'v_range': [['8.0.1', '']], 'choices': ['block', 'log', 'allow'], 'type': 'str'},
+                        'rules': {
+                            'v_range': [['8.0.1', '']],
+                            'type': 'list',
+                            'options': {
+                                'block-threshold': {'v_range': [['8.0.1', '']], 'type': 'int'},
+                                'category': {'v_range': [['8.0.1', '']], 'type': 'str'},
+                                'log-threshold': {'v_range': [['8.0.1', '']], 'type': 'int'}
+                            },
+                            'elements': 'dict'
+                        }
+                    }
+                }
             }
         }
     }

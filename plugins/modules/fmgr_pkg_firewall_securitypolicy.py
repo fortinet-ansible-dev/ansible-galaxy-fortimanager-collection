@@ -420,6 +420,18 @@ options:
         aliases: ['llm-profile']
         type: raw
         description: (list) Name of an existing LLM profile.
+      scope_member:
+        aliases: ['scope member']
+        type: list
+        elements: dict
+        description: Scope member.
+        suboptions:
+          name:
+            type: str
+            description: Name.
+          vdom:
+            type: str
+            description: Vdom.
 '''
 
 EXAMPLES = '''
@@ -531,6 +543,9 @@ EXAMPLES = '''
           # creation_time: <integer>
           # custom_tags: <list or string>
           # llm_profile: <list or string>
+          # scope_member:
+          #   - name: <string>
+          #     vdom: <string>
 '''
 
 RETURN = '''
@@ -723,7 +738,13 @@ def main():
                 'internet-service6-src-fortiguard': {'v_range': [['7.6.4', '']], 'type': 'raw'},
                 'creation-time': {'v_range': [['7.6.7', '']], 'type': 'int'},
                 'custom-tags': {'v_range': [['8.0.0', '']], 'type': 'raw'},
-                'llm-profile': {'v_range': [['8.0.0', '']], 'type': 'raw'}
+                'llm-profile': {'v_range': [['8.0.0', '']], 'type': 'raw'},
+                'scope member': {
+                    'v_range': [['8.0.1', '']],
+                    'type': 'list',
+                    'options': {'name': {'v_range': [['8.0.1', '']], 'type': 'str'}, 'vdom': {'v_range': [['8.0.1', '']], 'type': 'str'}},
+                    'elements': 'dict'
+                }
             }
         }
     }

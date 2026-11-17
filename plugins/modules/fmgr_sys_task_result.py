@@ -25,6 +25,9 @@ options:
       taskid:
         type: int
         description: Taskid.
+      del_after_read:
+        type: int
+        description: Del after read.
 '''
 
 EXAMPLES = '''
@@ -38,6 +41,7 @@ EXAMPLES = '''
         # workspace_locking_adom: <global or your adom name>
         sys_task_result:
           # taskid: <integer>
+          # del_after_read: <integer>
 '''
 
 RETURN = '''
@@ -92,7 +96,10 @@ def main():
     module_arg_spec = {
         'sys_task_result': {
             'type': 'dict', 'v_range': [['6.4.8', '6.4.15'], ['7.0.3', '']],
-            'options': {'taskid': {'v_range': [['6.4.8', '6.4.15'], ['7.0.3', '']], 'type': 'int'}}
+            'options': {
+                'taskid': {'v_range': [['6.4.8', '6.4.15'], ['7.0.3', '']], 'type': 'int'},
+                'del_after_read': {'v_range': [['8.0.1', '']], 'type': 'int'}
+            }
         }
     }
 

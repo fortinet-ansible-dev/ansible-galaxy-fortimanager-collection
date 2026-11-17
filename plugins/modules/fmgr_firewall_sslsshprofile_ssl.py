@@ -131,6 +131,11 @@ options:
         type: str
         description: Block/allow session based on existence of encrypted-client-hello.
         choices: ['block', 'allow']
+      tls_handshake_mode:
+        aliases: ['tls-handshake-mode']
+        type: str
+        description: Proxy-mode TLS handshake negotiation behaviour.
+        choices: ['sync', 'dual']
 '''
 
 EXAMPLES = '''
@@ -164,6 +169,7 @@ EXAMPLES = '''
           # min_allowed_ssl_version: <value in [ssl-3.0, tls-1.0, tls-1.1, ...]>
           # unsupported_ssl_version: <value in [block, allow, inspect]>
           # encrypted_client_hello: <value in [block, allow]>
+          # tls_handshake_mode: <value in [sync, dual]>
 '''
 
 RETURN = '''
@@ -242,7 +248,8 @@ def main():
                 'cert-probe-failure': {'v_range': [['7.0.1', '']], 'choices': ['block', 'allow'], 'type': 'str'},
                 'min-allowed-ssl-version': {'v_range': [['7.0.3', '']], 'choices': ['ssl-3.0', 'tls-1.0', 'tls-1.1', 'tls-1.2', 'tls-1.3'], 'type': 'str'},
                 'unsupported-ssl-version': {'v_range': [['7.0.1', '']], 'choices': ['block', 'allow', 'inspect'], 'type': 'str'},
-                'encrypted-client-hello': {'v_range': [['7.4.3', '']], 'choices': ['block', 'allow'], 'type': 'str'}
+                'encrypted-client-hello': {'v_range': [['7.4.3', '']], 'choices': ['block', 'allow'], 'type': 'str'},
+                'tls-handshake-mode': {'v_range': [['8.0.1', '']], 'choices': ['sync', 'dual'], 'type': 'str'}
             }
         }
     }

@@ -109,6 +109,10 @@ options:
             aliases: ['vrf-select']
             type: int
             description: VRF ID used for connection to server.
+          source_ip_interface:
+            aliases: ['source-ip-interface']
+            type: raw
+            description: (list) Source IP interface for communication with the TACACS+ server.
       key:
         type: raw
         description: (list) Key to access the primary server.
@@ -158,6 +162,10 @@ options:
         aliases: ['vrf-select']
         type: int
         description: VRF ID used for connection to server.
+      source_ip_interface:
+        aliases: ['source-ip-interface']
+        type: raw
+        description: (list) Source IP interface for communication with the TACACS+ server.
 '''
 
 EXAMPLES = '''
@@ -193,6 +201,7 @@ EXAMPLES = '''
           #     interface_select_method: <value in [auto, sdwan, specify]>
           #     status_ttl: <integer>
           #     vrf_select: <integer>
+          #     source_ip_interface: <list or string>
           # key: <list or string>
           # port: <integer>
           # secondary_key: <list or string>
@@ -205,6 +214,7 @@ EXAMPLES = '''
           # interface_select_method: <value in [auto, sdwan, specify]>
           # status_ttl: <integer>
           # vrf_select: <integer>
+          # source_ip_interface: <list or string>
 '''
 
 RETURN = '''
@@ -286,7 +296,8 @@ def main():
                             'type': 'str'
                         },
                         'status-ttl': {'v_range': [['7.4.3', '']], 'type': 'int'},
-                        'vrf-select': {'v_range': [['7.6.2', '']], 'type': 'int'}
+                        'vrf-select': {'v_range': [['7.6.2', '']], 'type': 'int'},
+                        'source-ip-interface': {'v_range': [['8.0.1', '']], 'type': 'raw'}
                     },
                     'elements': 'dict'
                 },
@@ -302,7 +313,8 @@ def main():
                 'interface': {'v_range': [['6.2.5', '6.2.13'], ['6.4.1', '']], 'type': 'str'},
                 'interface-select-method': {'v_range': [['6.2.5', '6.2.13'], ['6.4.1', '']], 'choices': ['auto', 'sdwan', 'specify'], 'type': 'str'},
                 'status-ttl': {'v_range': [['7.4.3', '']], 'type': 'int'},
-                'vrf-select': {'v_range': [['7.6.2', '']], 'type': 'int'}
+                'vrf-select': {'v_range': [['7.6.2', '']], 'type': 'int'},
+                'source-ip-interface': {'v_range': [['8.0.1', '']], 'type': 'raw'}
             }
         }
     }

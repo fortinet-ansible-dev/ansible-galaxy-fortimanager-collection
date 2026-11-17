@@ -1166,6 +1166,23 @@ options:
         aliases: ['ztna-ems-tag6']
         type: raw
         description: (list) Source ZTNA FortiClient EMS tag IPv6 names.
+      ztna_ems_tag6_negate:
+        aliases: ['ztna-ems-tag6-negate']
+        type: str
+        description: When enabled ztna-ems-tag6 specifies what the tags must NOT be.
+        choices: ['disable', 'enable']
+      scope_member:
+        aliases: ['scope member']
+        type: list
+        elements: dict
+        description: Scope member.
+        suboptions:
+          name:
+            type: str
+            description: Name.
+          vdom:
+            type: str
+            description: Vdom.
 '''
 
 EXAMPLES = '''
@@ -1447,6 +1464,10 @@ EXAMPLES = '''
           # skip_vrf_match: <value in [disable, enable]>
           # ztna_destination: <list or string>
           # ztna_ems_tag6: <list or string>
+          # ztna_ems_tag6_negate: <value in [disable, enable]>
+          # scope_member:
+          #   - name: <string>
+          #     vdom: <string>
 '''
 
 RETURN = '''
@@ -1798,7 +1819,14 @@ def main():
                 },
                 'skip-vrf-match': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'ztna-destination': {'v_range': [['8.0.0', '']], 'type': 'raw'},
-                'ztna-ems-tag6': {'v_range': [['8.0.0', '']], 'type': 'raw'}
+                'ztna-ems-tag6': {'v_range': [['8.0.0', '']], 'type': 'raw'},
+                'ztna-ems-tag6-negate': {'v_range': [['8.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'scope member': {
+                    'v_range': [['8.0.1', '']],
+                    'type': 'list',
+                    'options': {'name': {'v_range': [['8.0.1', '']], 'type': 'str'}, 'vdom': {'v_range': [['8.0.1', '']], 'type': 'str'}},
+                    'elements': 'dict'
+                }
             }
         }
     }

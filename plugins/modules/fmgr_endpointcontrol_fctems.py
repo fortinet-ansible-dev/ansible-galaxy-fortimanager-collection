@@ -180,6 +180,18 @@ options:
         aliases: ['cloud-authentication-access-key']
         type: str
         description: FortiClient EMS Cloud multitenancy access key
+      scope_member:
+        aliases: ['scope member']
+        type: list
+        elements: dict
+        description: Scope member.
+        suboptions:
+          name:
+            type: str
+            description: Name.
+          vdom:
+            type: str
+            description: Vdom.
 '''
 
 EXAMPLES = '''
@@ -231,6 +243,9 @@ EXAMPLES = '''
           # verified_cn: <string>
           # verifying_ca: <string>
           # cloud_authentication_access_key: <string>
+          # scope_member:
+          #   - name: <string>
+          #     vdom: <string>
 '''
 
 RETURN = '''
@@ -330,7 +345,13 @@ def main():
                 'send-tags-to-all-vdoms': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'verified-cn': {'v_range': [['7.4.2', '']], 'type': 'str'},
                 'verifying-ca': {'v_range': [['7.4.2', '']], 'type': 'str'},
-                'cloud-authentication-access-key': {'v_range': [['7.4.3', '']], 'no_log': True, 'type': 'str'}
+                'cloud-authentication-access-key': {'v_range': [['7.4.3', '']], 'no_log': True, 'type': 'str'},
+                'scope member': {
+                    'v_range': [['8.0.1', '']],
+                    'type': 'list',
+                    'options': {'name': {'v_range': [['8.0.1', '']], 'type': 'str'}, 'vdom': {'v_range': [['8.0.1', '']], 'type': 'str'}},
+                    'elements': 'dict'
+                }
             }
         }
     }

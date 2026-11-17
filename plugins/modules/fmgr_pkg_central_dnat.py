@@ -12,7 +12,7 @@ ANSIBLE_METADATA = {'status': ['preview'],
 DOCUMENTATION = '''
 ---
 module: fmgr_pkg_central_dnat
-short_description: Policy package central dnat
+short_description: Support optional install-on device/vdom scope member.
 version_added: "2.0.0"
 extends_documentation_fragment:
   - fortinet.fortimanager.general
@@ -38,6 +38,18 @@ options:
         type: raw
         description: (list or str) Name.
         required: true
+      scope_member:
+        aliases: ['scope member']
+        type: list
+        elements: dict
+        description: Scope member.
+        suboptions:
+          name:
+            type: str
+            description: Name.
+          vdom:
+            type: str
+            description: Vdom.
 '''
 
 EXAMPLES = '''
@@ -133,7 +145,15 @@ def main():
         'revision_note': {'type': 'str'},
         'pkg_central_dnat': {
             'type': 'dict', 'v_range': [['6.0.0', '']],
-            'options': {'name': {'required': True, 'type': 'raw'}}
+            'options': {
+                'name': {'required': True, 'type': 'raw'},
+                'scope member': {
+                    'v_range': [['8.0.1', '']],
+                    'type': 'list',
+                    'options': {'name': {'v_range': [['8.0.1', '']], 'type': 'str'}, 'vdom': {'v_range': [['8.0.1', '']], 'type': 'str'}},
+                    'elements': 'dict'
+                }
+            }
         }
     }
 

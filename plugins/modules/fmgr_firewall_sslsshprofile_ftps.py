@@ -123,6 +123,11 @@ options:
         type: str
         description: Action based on the SSL version used being unsupported.
         choices: ['block', 'allow', 'inspect']
+      tls_handshake_mode:
+        aliases: ['tls-handshake-mode']
+        type: str
+        description: Proxy-mode TLS handshake negotiation behaviour.
+        choices: ['sync', 'dual']
 '''
 
 EXAMPLES = '''
@@ -155,6 +160,7 @@ EXAMPLES = '''
           # unsupported_ssl_negotiation: <value in [allow, block]>
           # min_allowed_ssl_version: <value in [ssl-3.0, tls-1.0, tls-1.1, ...]>
           # unsupported_ssl_version: <value in [block, allow, inspect]>
+          # tls_handshake_mode: <value in [sync, dual]>
 '''
 
 RETURN = '''
@@ -232,7 +238,8 @@ def main():
                 'unsupported-ssl-cipher': {'v_range': [['6.4.0', '']], 'choices': ['allow', 'block'], 'type': 'str'},
                 'unsupported-ssl-negotiation': {'v_range': [['6.4.0', '']], 'choices': ['allow', 'block'], 'type': 'str'},
                 'min-allowed-ssl-version': {'v_range': [['7.0.3', '']], 'choices': ['ssl-3.0', 'tls-1.0', 'tls-1.1', 'tls-1.2', 'tls-1.3'], 'type': 'str'},
-                'unsupported-ssl-version': {'v_range': [['7.0.1', '']], 'choices': ['block', 'allow', 'inspect'], 'type': 'str'}
+                'unsupported-ssl-version': {'v_range': [['7.0.1', '']], 'choices': ['block', 'allow', 'inspect'], 'type': 'str'},
+                'tls-handshake-mode': {'v_range': [['8.0.1', '']], 'choices': ['sync', 'dual'], 'type': 'str'}
             }
         }
     }

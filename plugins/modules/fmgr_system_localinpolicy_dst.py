@@ -12,7 +12,7 @@ ANSIBLE_METADATA = {'status': ['preview'],
 DOCUMENTATION = '''
 ---
 module: fmgr_system_localinpolicy_dst
-short_description: Cli system local in policy dst
+short_description: List of Destination IP and mask.
 version_added: "2.12.0"
 extends_documentation_fragment:
   - fortinet.fortimanager.general
@@ -41,7 +41,7 @@ EXAMPLES = '''
   connection: httpapi
   gather_facts: false
   tasks:
-    - name: Cli system local in policy dst
+    - name: List of Destination IP and mask.
       fortinet.fortimanager.fmgr_system_localinpolicy_dst:
         # workspace_locking_adom: <global or your adom name>
         local_in_policy: <your own value>

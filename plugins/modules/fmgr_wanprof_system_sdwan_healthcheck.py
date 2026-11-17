@@ -175,6 +175,12 @@ options:
             aliases: ['custom-profile-threshold']
             type: int
             description: Custom profile threshold for SLA to be marked as pass
+          fortiextender_link_cost_factor:
+            aliases: ['fortiextender-link-cost-factor']
+            type: list
+            elements: str
+            description: Criteria on which to base link selection.
+            choices: ['signal-strength', 'quota-usage']
       sla_fail_log_period:
         aliases: ['sla-fail-log-period']
         type: int
@@ -294,6 +300,36 @@ options:
         type: str
         description: Enable/disable updating the BGP route.
         choices: ['disable', 'enable']
+      extender_interval:
+        aliases: ['extender-interval']
+        type: int
+        description: Status check interval in milliseconds, or the time between attempting to connect to the FortiExtender
+      extender_probe_timeout:
+        aliases: ['extender-probe-timeout']
+        type: int
+        description: Time to wait before a probe packet is considered lost
+      fortiextender_metric:
+        aliases: ['fortiextender-metric']
+        type: str
+        description: Enable/disable use of FortiExtender metric.
+        choices: ['disable', 'enable']
+      probe_dont_fragment:
+        aliases: ['probe-dont-fragment']
+        type: str
+        description: Enable/disable use of the Dont Fragment flag.
+        choices: ['disable', 'enable']
+      scope_member:
+        aliases: ['scope member']
+        type: list
+        elements: dict
+        description: Scope member.
+        suboptions:
+          name:
+            type: str
+            description: Name.
+          vdom:
+            type: str
+            description: Vdom.
 '''
 
 EXAMPLES = '''
@@ -346,6 +382,7 @@ EXAMPLES = '''
           #     priority_in_sla: <integer>
           #     priority_out_sla: <integer>
           #     custom_profile_threshold: <integer>
+          #     fortiextender_link_cost_factor: ["signal-strength", "quota-usage"]
           # sla_fail_log_period: <integer>
           # sla_pass_log_period: <integer>
           # system_dns: <value in [disable, enable]>
@@ -375,6 +412,13 @@ EXAMPLES = '''
           # latency_weight: <integer>
           # packet_loss_weight: <integer>
           # update_bgp_route: <value in [disable, enable]>
+          # extender_interval: <integer>
+          # extender_probe_timeout: <integer>
+          # fortiextender_metric: <value in [disable, enable]>
+          # probe_dont_fragment: <value in [disable, enable]>
+          # scope_member:
+          #   - name: <string>
+          #     vdom: <string>
 '''
 
 RETURN = '''
@@ -479,7 +523,13 @@ def main():
                         'mos-threshold': {'v_range': [['7.2.0', '']], 'type': 'str'},
                         'priority-in-sla': {'v_range': [['7.2.1', '']], 'type': 'int'},
                         'priority-out-sla': {'v_range': [['7.2.1', '']], 'type': 'int'},
-                        'custom-profile-threshold': {'v_range': [['7.6.4', '']], 'type': 'int'}
+                        'custom-profile-threshold': {'v_range': [['7.6.4', '']], 'type': 'int'},
+                        'fortiextender-link-cost-factor': {
+                            'v_range': [['8.0.1', '']],
+                            'type': 'list',
+                            'choices': ['signal-strength', 'quota-usage'],
+                            'elements': 'str'
+                        }
                     },
                     'elements': 'dict'
                 },
@@ -511,7 +561,17 @@ def main():
                 'jitter-weight': {'v_range': [['7.6.4', '']], 'type': 'int'},
                 'latency-weight': {'v_range': [['7.6.4', '']], 'type': 'int'},
                 'packet-loss-weight': {'v_range': [['7.6.4', '']], 'type': 'int'},
-                'update-bgp-route': {'v_range': [['7.6.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'update-bgp-route': {'v_range': [['7.6.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'extender-interval': {'v_range': [['8.0.1', '']], 'type': 'int'},
+                'extender-probe-timeout': {'v_range': [['8.0.1', '']], 'type': 'int'},
+                'fortiextender-metric': {'v_range': [['8.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'probe-dont-fragment': {'v_range': [['8.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'scope member': {
+                    'v_range': [['8.0.1', '']],
+                    'type': 'list',
+                    'options': {'name': {'v_range': [['8.0.1', '']], 'type': 'str'}, 'vdom': {'v_range': [['8.0.1', '']], 'type': 'str'}},
+                    'elements': 'dict'
+                }
             }
         }
     }

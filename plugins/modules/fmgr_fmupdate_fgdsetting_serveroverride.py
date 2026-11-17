@@ -12,7 +12,7 @@ ANSIBLE_METADATA = {'status': ['preview'],
 DOCUMENTATION = '''
 ---
 module: fmgr_fmupdate_fgdsetting_serveroverride
-short_description: Cli fmupdate fgd setting server override
+short_description: Server override configure.
 version_added: "2.10.0"
 extends_documentation_fragment:
   - fortinet.fortimanager.general
@@ -57,7 +57,7 @@ EXAMPLES = '''
   connection: httpapi
   gather_facts: false
   tasks:
-    - name: Cli fmupdate fgd setting server override
+    - name: Server override configure.
       fortinet.fortimanager.fmgr_fmupdate_fgdsetting_serveroverride:
         # workspace_locking_adom: <global or your adom name>
         fmupdate_fgdsetting_serveroverride:

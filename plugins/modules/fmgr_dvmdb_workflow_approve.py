@@ -33,6 +33,12 @@ options:
       desc:
         type: str
         description: Desc.
+      render_html:
+        type: int
+        description: Render html.
+      uuid:
+        type: str
+        description: Uuid.
 '''
 
 EXAMPLES = '''
@@ -48,6 +54,8 @@ EXAMPLES = '''
         session_id: <your own value>
         dvmdb_workflow_approve:
           # desc: <string>
+          # render_html: <integer>
+          # uuid: <string>
 '''
 
 RETURN = '''
@@ -105,7 +113,11 @@ def main():
         'session_id': {'required': True, 'type': 'str'},
         'dvmdb_workflow_approve': {
             'type': 'dict', 'v_range': [['6.0.0', '']],
-            'options': {'desc': {'type': 'str'}}
+            'options': {
+                'desc': {'type': 'str'},
+                'render_html': {'v_range': [['8.0.1', '']], 'type': 'int'},
+                'uuid': {'v_range': [['8.0.1', '']], 'type': 'str'}
+            }
         }
     }
 

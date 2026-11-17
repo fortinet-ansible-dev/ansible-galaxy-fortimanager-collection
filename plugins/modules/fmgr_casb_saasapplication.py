@@ -133,6 +133,9 @@ options:
       popularity:
         type: int
         description: SaaS application signature popularity.
+      risk:
+        type: int
+        description: SaaS application signature risk.
 '''
 
 EXAMPLES = '''
@@ -173,6 +176,7 @@ EXAMPLES = '''
           # display_name: <string>
           # icon_id: <integer>
           # popularity: <integer>
+          # risk: <integer>
 '''
 
 RETURN = '''
@@ -268,7 +272,8 @@ def main():
                 'category': {'v_range': [['8.0.0', '']], 'type': 'str'},
                 'display-name': {'v_range': [['8.0.0', '']], 'type': 'str'},
                 'icon-id': {'v_range': [['8.0.0', '']], 'type': 'int'},
-                'popularity': {'v_range': [['8.0.0', '']], 'type': 'int'}
+                'popularity': {'v_range': [['8.0.0', '']], 'type': 'int'},
+                'risk': {'v_range': [['8.0.1', '']], 'type': 'int'}
             }
         }
     }

@@ -53,6 +53,18 @@ options:
         type: str
         description: Enable/disable selection of ADVPN based on SDWAN information.
         choices: ['disable', 'enable']
+      scope_member:
+        aliases: ['scope member']
+        type: list
+        elements: dict
+        description: Scope member.
+        suboptions:
+          name:
+            type: str
+            description: Name.
+          vdom:
+            type: str
+            description: Vdom.
 '''
 
 EXAMPLES = '''
@@ -73,6 +85,9 @@ EXAMPLES = '''
           # minimum_sla_meet_members: <integer>
           # advpn_health_check: <string>
           # advpn_select: <value in [disable, enable]>
+          # scope_member:
+          #   - name: <string>
+          #     vdom: <string>
 '''
 
 RETURN = '''
@@ -138,7 +153,13 @@ def main():
                 },
                 'minimum-sla-meet-members': {'v_range': [['7.4.1', '']], 'type': 'int'},
                 'advpn-health-check': {'v_range': [['7.4.2', '']], 'type': 'str'},
-                'advpn-select': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'advpn-select': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'scope member': {
+                    'v_range': [['8.0.1', '']],
+                    'type': 'list',
+                    'options': {'name': {'v_range': [['8.0.1', '']], 'type': 'str'}, 'vdom': {'v_range': [['8.0.1', '']], 'type': 'str'}},
+                    'elements': 'dict'
+                }
             }
         }
     }

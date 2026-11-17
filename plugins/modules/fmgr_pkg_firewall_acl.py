@@ -67,6 +67,18 @@ options:
         type: str
         description: Pass/drop fragments that match L3 information.
         choices: ['pass', 'drop']
+      scope_member:
+        aliases: ['scope member']
+        type: list
+        elements: dict
+        description: Scope member.
+        suboptions:
+          name:
+            type: str
+            description: Name.
+          vdom:
+            type: str
+            description: Vdom.
 '''
 
 EXAMPLES = '''
@@ -92,6 +104,9 @@ EXAMPLES = '''
           # status: <value in [disable, enable]>
           # uuid: <string>
           # fragment: <value in [pass, drop]>
+          # scope_member:
+          #   - name: <string>
+          #     vdom: <string>
 '''
 
 RETURN = '''
@@ -159,7 +174,13 @@ def main():
                 'srcaddr': {'v_range': [['7.2.0', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '']], 'type': 'raw'},
                 'status': {'v_range': [['7.2.0', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'uuid': {'v_range': [['7.2.0', '7.2.0']], 'type': 'str'},
-                'fragment': {'v_range': [['7.4.3', '']], 'choices': ['pass', 'drop'], 'type': 'str'}
+                'fragment': {'v_range': [['7.4.3', '']], 'choices': ['pass', 'drop'], 'type': 'str'},
+                'scope member': {
+                    'v_range': [['8.0.1', '']],
+                    'type': 'list',
+                    'options': {'name': {'v_range': [['8.0.1', '']], 'type': 'str'}, 'vdom': {'v_range': [['8.0.1', '']], 'type': 'str'}},
+                    'elements': 'dict'
+                }
             }
         }
     }

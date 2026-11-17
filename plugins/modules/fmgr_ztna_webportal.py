@@ -162,6 +162,16 @@ options:
         type: str
         description: Ak manager.
         choices: ['disable', 'enable']
+      dns_result_preference:
+        aliases: ['dns-result-preference']
+        type: str
+        description: Configure DNS result preference
+        choices: ['ipv4-only', 'ipv6-only', 'ipv46']
+      dynamic_bookmarks:
+        aliases: ['dynamic-bookmarks']
+        type: list
+        elements: str
+        description: Dynamic bookmarks.
 '''
 
 EXAMPLES = '''
@@ -205,6 +215,8 @@ EXAMPLES = '''
           # llm_profile: <list or string>
           # llm_proxy: <value in [disable, enable]>
           # ak_manager: <value in [disable, enable]>
+          # dns_result_preference: <value in [ipv4-only, ipv6-only, ipv46]>
+          # dynamic_bookmarks: <list or string>
 '''
 
 RETURN = '''
@@ -295,7 +307,9 @@ def main():
                 'vip6': {'v_range': [['7.6.4', '']], 'type': 'list', 'elements': 'str'},
                 'llm-profile': {'v_range': [['7.6.5', '']], 'type': 'list', 'elements': 'str'},
                 'llm-proxy': {'v_range': [['7.6.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'ak-manager': {'v_range': [['7.6.7', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'ak-manager': {'v_range': [['7.6.7', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'dns-result-preference': {'v_range': [['8.0.1', '']], 'choices': ['ipv4-only', 'ipv6-only', 'ipv46'], 'type': 'str'},
+                'dynamic-bookmarks': {'v_range': [['8.0.1', '']], 'type': 'list', 'elements': 'str'}
             }
         }
     }

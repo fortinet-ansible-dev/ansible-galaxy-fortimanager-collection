@@ -12,7 +12,7 @@ ANSIBLE_METADATA = {'status': ['preview'],
 DOCUMENTATION = '''
 ---
 module: fmgr_system_localinpolicy6_dport
-short_description: Cli system local in policy6 dport
+short_description: List of Destination port number.
 version_added: "2.12.0"
 extends_documentation_fragment:
   - fortinet.fortimanager.general
@@ -41,7 +41,7 @@ EXAMPLES = '''
   connection: httpapi
   gather_facts: false
   tasks:
-    - name: Cli system local in policy6 dport
+    - name: List of Destination port number.
       fortinet.fortimanager.fmgr_system_localinpolicy6_dport:
         # workspace_locking_adom: <global or your adom name>
         local_in_policy6: <your own value>

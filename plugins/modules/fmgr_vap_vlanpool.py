@@ -46,6 +46,13 @@ options:
         aliases: ['wtp-group']
         type: str
         description: WTP group name.
+      network:
+        type: str
+        description: Static Subnetwork.
+      rrobin:
+        type: str
+        description: Enable/disable round robin
+        choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -64,6 +71,8 @@ EXAMPLES = '''
           id: 0 # Required variable, integer
           # _wtp_group: <string>
           # wtp_group: <string>
+          # network: <string>
+          # rrobin: <value in [disable, enable]>
 '''
 
 RETURN = '''
@@ -125,7 +134,9 @@ def main():
             'options': {
                 '_wtp-group': {'type': 'str'},
                 'id': {'required': True, 'type': 'int'},
-                'wtp-group': {'v_range': [['6.0.0', '6.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '']], 'type': 'str'}
+                'wtp-group': {'v_range': [['6.0.0', '6.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '']], 'type': 'str'},
+                'network': {'v_range': [['8.0.1', '']], 'type': 'str'},
+                'rrobin': {'v_range': [['8.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

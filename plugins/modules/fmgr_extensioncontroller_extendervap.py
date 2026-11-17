@@ -104,7 +104,8 @@ options:
         description: Wi-Fi security.
         choices: ['OPEN', 'WPA2-Personal', 'WPA-WPA2-Personal', 'WPA3-SAE', 'WPA3-SAE-Transition',
                   'WPA2-Enterprise', 'WPA3-Enterprise-only', 'WPA3-Enterprise-transition',
-                  'WPA3-Enterprise-192-bit']
+                  'WPA3-Enterprise-192-bit', 'WPA-Personal', 'WPA-Enterprise',
+                  'WPA-WPA2-Enterprise']
       ssid:
         type: str
         description: Wi-Fi SSID.
@@ -120,7 +121,7 @@ options:
       type:
         type: str
         description: Wi-Fi VAP type local-vap / lan-extension-vap.
-        choices: ['local-vap', 'lan-ext-vap']
+        choices: ['local-vap', 'lan-ext-vap', 'wifi-network']
       security_exempt_list:
         aliases: ['security-exempt-list']
         type: list
@@ -144,6 +145,14 @@ options:
         aliases: ['security-redirect-url']
         type: str
         description: Optional URL for redirecting users after they pass captive portal authentication.
+      identity:
+        type: list
+        elements: str
+        description: Wi-Fi EAP Identity.
+      password:
+        type: list
+        elements: str
+        description: Wi-Fi EAP Password.
 '''
 
 EXAMPLES = '''
@@ -178,12 +187,14 @@ EXAMPLES = '''
           # ssid: <string>
           # start_ip: <string>
           # target_wake_time: <value in [disable, enable]>
-          # type: <value in [local-vap, lan-ext-vap]>
+          # type: <value in [local-vap, lan-ext-vap, wifi-network]>
           # security_exempt_list: <list or string>
           # security_external_web: <string>
           # security_groups: <list or string>
           # security_mode: <value in [none, captive-portal]>
           # security_redirect_url: <string>
+          # identity: <list or string>
+          # password: <list or string>
 '''
 
 RETURN = '''
@@ -267,19 +278,21 @@ def main():
                     'v_range': [['7.4.7', '7.4.11'], ['7.6.3', '']],
                     'choices': [
                         'OPEN', 'WPA2-Personal', 'WPA-WPA2-Personal', 'WPA3-SAE', 'WPA3-SAE-Transition', 'WPA2-Enterprise', 'WPA3-Enterprise-only',
-                        'WPA3-Enterprise-transition', 'WPA3-Enterprise-192-bit'
+                        'WPA3-Enterprise-transition', 'WPA3-Enterprise-192-bit', 'WPA-Personal', 'WPA-Enterprise', 'WPA-WPA2-Enterprise'
                     ],
                     'type': 'str'
                 },
                 'ssid': {'v_range': [['7.4.7', '7.4.11'], ['7.6.3', '']], 'type': 'str'},
                 'start-ip': {'v_range': [['7.4.7', '7.4.11'], ['7.6.3', '']], 'type': 'str'},
                 'target-wake-time': {'v_range': [['7.4.7', '7.4.11'], ['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'type': {'v_range': [['7.4.7', '7.4.11'], ['7.6.3', '']], 'choices': ['local-vap', 'lan-ext-vap'], 'type': 'str'},
+                'type': {'v_range': [['7.4.7', '7.4.11'], ['7.6.3', '']], 'choices': ['local-vap', 'lan-ext-vap', 'wifi-network'], 'type': 'str'},
                 'security-exempt-list': {'v_range': [['8.0.0', '']], 'type': 'list', 'elements': 'str'},
                 'security-external-web': {'v_range': [['8.0.0', '']], 'type': 'str'},
                 'security-groups': {'v_range': [['8.0.0', '']], 'type': 'list', 'elements': 'str'},
                 'security-mode': {'v_range': [['8.0.0', '']], 'choices': ['none', 'captive-portal'], 'type': 'str'},
-                'security-redirect-url': {'v_range': [['8.0.0', '']], 'type': 'str'}
+                'security-redirect-url': {'v_range': [['8.0.0', '']], 'type': 'str'},
+                'identity': {'v_range': [['8.0.1', '']], 'type': 'list', 'elements': 'str'},
+                'password': {'v_range': [['8.0.1', '']], 'no_log': True, 'type': 'list', 'elements': 'str'}
             }
         }
     }

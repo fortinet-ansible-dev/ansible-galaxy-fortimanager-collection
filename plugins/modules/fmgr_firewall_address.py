@@ -739,7 +739,7 @@ def main():
                         'comment': {'type': 'raw'},
                         'country': {'type': 'str'},
                         'end-ip': {'type': 'str'},
-                        'end-mac': {'type': 'str'},
+                        'end-mac': {'v_range': [['6.0.0', '8.0.0']], 'type': 'str'},
                         'epg-name': {'type': 'str'},
                         'filter': {'type': 'str'},
                         'fqdn': {'type': 'str'},
@@ -751,10 +751,10 @@ def main():
                         'sdn-addr-type': {'choices': ['private', 'public', 'all'], 'type': 'str'},
                         'sdn-tag': {'type': 'str'},
                         'start-ip': {'type': 'str'},
-                        'start-mac': {'type': 'str'},
+                        'start-mac': {'v_range': [['6.0.0', '8.0.0']], 'type': 'str'},
                         'subnet': {'type': 'str'},
                         'subnet-name': {'type': 'str'},
-                        'tags': {'type': 'raw'},
+                        'tags': {'v_range': [['6.0.0', '8.0.0']], 'type': 'raw'},
                         'tenant': {'type': 'str'},
                         'type': {
                             'choices': [
@@ -763,12 +763,12 @@ def main():
                             ],
                             'type': 'str'
                         },
-                        'url': {'type': 'str'},
+                        'url': {'v_range': [['6.0.0', '8.0.0']], 'type': 'str'},
                         'uuid': {'type': 'str'},
-                        'visibility': {'choices': ['disable', 'enable'], 'type': 'str'},
+                        'visibility': {'v_range': [['6.0.0', '8.0.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'wildcard': {'type': 'str'},
                         'wildcard-fqdn': {'type': 'str'},
-                        '_image-base64': {'v_range': [['6.2.2', '']], 'type': 'str'},
+                        '_image-base64': {'v_range': [['6.2.2', '8.0.0']], 'type': 'str'},
                         'clearpass-spt': {
                             'v_range': [['6.2.2', '']],
                             'choices': ['unknown', 'healthy', 'quarantine', 'checkup', 'transition', 'infected', 'transient'],
@@ -783,7 +783,7 @@ def main():
                             ],
                             'type': 'str'
                         },
-                        'global-object': {'v_range': [['6.4.0', '']], 'type': 'int'},
+                        'global-object': {'v_range': [['6.4.0', '8.0.0']], 'type': 'int'},
                         'obj-tag': {'v_range': [['6.4.2', '']], 'type': 'str'},
                         'obj-type': {'v_range': [['6.4.2', '']], 'choices': ['ip', 'mac'], 'type': 'str'},
                         'fabric-object': {'v_range': [['6.4.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},

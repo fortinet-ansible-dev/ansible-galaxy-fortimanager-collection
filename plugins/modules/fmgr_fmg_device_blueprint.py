@@ -135,6 +135,11 @@ options:
         aliases: ['firmware-template']
         type: str
         description: Firmware template.
+      autolink_retrieve:
+        aliases: ['autolink-retrieve']
+        type: str
+        description: Autolink retrieve.
+        choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -175,6 +180,7 @@ EXAMPLES = '''
           # cluster_worker: <list or string>
           # cert_template: <list or string>
           # firmware_template: <string>
+          # autolink_retrieve: <value in [disable, enable]>
 '''
 
 RETURN = '''
@@ -258,7 +264,8 @@ def main():
                 'vm-log-disk': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'cluster-worker': {'v_range': [['7.6.7', '']], 'type': 'raw'},
                 'cert-template': {'v_range': [['8.0.0', '']], 'type': 'raw'},
-                'firmware-template': {'v_range': [['8.0.0', '']], 'type': 'str'}
+                'firmware-template': {'v_range': [['8.0.0', '']], 'type': 'str'},
+                'autolink-retrieve': {'v_range': [['8.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

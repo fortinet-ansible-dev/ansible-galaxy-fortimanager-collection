@@ -110,7 +110,7 @@ options:
                   'offline_mode', 'is_model', 'fips_mode', 'linked_to_model', 'ip-conflict',
                   'faz-autosync', 'need_reset', 'backup_mode', 'azure_vwan_nva',
                   'fgsp_configured', 'cnf_mode', 'sase_managed', 'override_management_intf',
-                  'sdwan_management', 'deny_api_access']
+                  'sdwan_management', 'deny_api_access', 'no_siem_logfwd']
       foslic_cpu:
         type: int
         description: VM Meter vCPU count.
@@ -262,7 +262,7 @@ options:
         choices: ['unknown', 'fos', 'fsw', 'foc', 'fml', 'faz', 'fwb', 'fch', 'fct', 'log', 'fmg',
                   'fsa', 'fdd', 'fac', 'fpx', 'fna', 'fdc', 'ffw', 'fsr', 'fad', 'fap', 'fxt',
                   'fts', 'fai', 'fwc', 'fis', 'fed', 'fpa', 'fca', 'ftc', 'fss', 'fra', 'sim',
-                  'fdt']
+                  'fdt', 'fhm']
       os_ver:
         type: str
         description: Os ver.
@@ -532,7 +532,7 @@ def main():
                     'choices': [
                         'has_hdd', 'vdom_enabled', 'discover', 'reload', 'interim_build', 'offline_mode', 'is_model', 'fips_mode', 'linked_to_model',
                         'ip-conflict', 'faz-autosync', 'need_reset', 'backup_mode', 'azure_vwan_nva', 'fgsp_configured', 'cnf_mode', 'sase_managed',
-                        'override_management_intf', 'sdwan_management', 'deny_api_access'
+                        'override_management_intf', 'sdwan_management', 'deny_api_access', 'no_siem_logfwd'
                     ],
                     'elements': 'str'
                 },
@@ -586,7 +586,7 @@ def main():
                 'os_type': {
                     'choices': [
                         'unknown', 'fos', 'fsw', 'foc', 'fml', 'faz', 'fwb', 'fch', 'fct', 'log', 'fmg', 'fsa', 'fdd', 'fac', 'fpx', 'fna', 'fdc', 'ffw',
-                        'fsr', 'fad', 'fap', 'fxt', 'fts', 'fai', 'fwc', 'fis', 'fed', 'fpa', 'fca', 'ftc', 'fss', 'fra', 'sim', 'fdt'
+                        'fsr', 'fad', 'fap', 'fxt', 'fts', 'fai', 'fwc', 'fis', 'fed', 'fpa', 'fca', 'ftc', 'fss', 'fra', 'sim', 'fdt', 'fhm'
                     ],
                     'type': 'str'
                 },

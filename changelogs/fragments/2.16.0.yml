@@ -1,0 +1,4 @@
+release_summary: Release fortinet.fortimanager 2.16.0
+minor_changes:
+  - Added 26 new modules.
+  - Supported FortiManager schemas 8.0.1 and 8.0.2.

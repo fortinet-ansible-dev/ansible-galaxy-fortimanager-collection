@@ -74,7 +74,7 @@ options:
             aliases: ['key-type']
             type: str
             description: Select NTP authentication type.
-            choices: ['SHA1', 'SHA256', 'MD5']
+            choices: ['SHA1', 'SHA256', 'MD5', 'AES128']
           vrf_select:
             aliases: ['vrf-select']
             type: int
@@ -127,6 +127,31 @@ options:
         description:
           - Support meta variable
           - Source IP address for communication to the NTP server.
+      keys:
+        type: list
+        elements: dict
+        description: Keys.
+        suboptions:
+          key:
+            type: raw
+            description: (list) Key for MD5
+          key_id:
+            aliases: ['key-id']
+            type: int
+            description: Key ID for authentication.
+          key_type:
+            aliases: ['key-type']
+            type: str
+            description: Select NTP authentication type.
+            choices: ['SHA1', 'SHA256', 'MD5', 'AES128']
+          ntpv3:
+            type: str
+            description: Enable to use NTPv3 instead of NTPv4.
+            choices: ['disable', 'enable']
+          status:
+            type: str
+            description: Enable to use the authentication key.
+            choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -151,7 +176,7 @@ EXAMPLES = '''
           #     interface: <string>
           #     interface_select_method: <value in [auto, sdwan, specify]>
           #     ip_type: <value in [IPv6, IPv4, Both]>
-          #     key_type: <value in [SHA1, SHA256, MD5]>
+          #     key_type: <value in [SHA1, SHA256, MD5, ...]>
           #     vrf_select: <integer>
           # ntpsync: <value in [disable, enable]>
           # source_ip6: <string>
@@ -164,6 +189,12 @@ EXAMPLES = '''
           # interface: <list or string>
           # server_mode: <value in [disable, enable]>
           # source_ip: <string>
+          # keys:
+          #   - key: <list or string>
+          #     key_id: <integer>
+          #     key_type: <value in [SHA1, SHA256, MD5, ...]>
+          #     ntpv3: <value in [disable, enable]>
+          #     status: <value in [disable, enable]>
 '''
 
 RETURN = '''
@@ -242,7 +273,7 @@ def main():
                             'type': 'str'
                         },
                         'ip-type': {'v_range': [['7.4.2', '']], 'choices': ['IPv6', 'IPv4', 'Both'], 'type': 'str'},
-                        'key-type': {'v_range': [['7.4.3', '']], 'choices': ['SHA1', 'SHA256', 'MD5'], 'type': 'str'},
+                        'key-type': {'v_range': [['7.4.3', '']], 'choices': ['SHA1', 'SHA256', 'MD5', 'AES128'], 'type': 'str'},
                         'vrf-select': {'v_range': [['7.6.2', '']], 'type': 'int'}
                     },
                     'elements': 'dict'
@@ -257,7 +288,20 @@ def main():
                 'key-type': {'v_range': [['6.2.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '']], 'choices': ['MD5', 'SHA1', 'SHA256'], 'type': 'str'},
                 'interface': {'v_range': [['7.2.6', '7.2.12'], ['7.4.3', '']], 'type': 'raw'},
                 'server-mode': {'v_range': [['7.2.6', '7.2.12'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'source-ip': {'v_range': [['7.2.6', '7.2.12'], ['7.4.3', '']], 'type': 'str'}
+                'source-ip': {'v_range': [['7.2.6', '7.2.12'], ['7.4.3', '']], 'type': 'str'},
+                'keys': {
+                    'v_range': [['8.0.1', '']],
+                    'no_log': True,
+                    'type': 'list',
+                    'options': {
+                        'key': {'v_range': [['8.0.1', '']], 'no_log': True, 'type': 'raw'},
+                        'key-id': {'v_range': [['8.0.1', '']], 'no_log': True, 'type': 'int'},
+                        'key-type': {'v_range': [['8.0.1', '']], 'choices': ['SHA1', 'SHA256', 'MD5', 'AES128'], 'type': 'str'},
+                        'ntpv3': {'v_range': [['8.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'status': {'v_range': [['8.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                    },
+                    'elements': 'dict'
+                }
             }
         }
     }

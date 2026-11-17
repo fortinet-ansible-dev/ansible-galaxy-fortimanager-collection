@@ -136,14 +136,14 @@ def main():
         'adom': {'required': True, 'type': 'str'},
         'script': {'required': True, 'type': 'str'},
         'dvmdb_script_scriptschedule': {
-            'type': 'dict', 'v_range': [['6.0.0', '']],
+            'type': 'dict', 'v_range': [['6.0.0', '8.0.0']],
             'options': {
-                'datetime': {'type': 'str'},
-                'day_of_week': {'choices': ['unknown', 'sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'], 'type': 'str'},
-                'device': {'type': 'int'},
-                'name': {'required': True, 'type': 'str'},
-                'run_on_db': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'type': {'choices': ['auto', 'onetime', 'daily', 'weekly', 'monthly'], 'type': 'str'}
+                'datetime': {'v_range': [['6.0.0', '8.0.0']], 'type': 'str'},
+                'day_of_week': {'v_range': [['6.0.0', '8.0.0']], 'choices': ['unknown', 'sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'], 'type': 'str'},
+                'device': {'v_range': [['6.0.0', '8.0.0']], 'type': 'int'},
+                'name': {'v_range': [['6.0.0', '8.0.0']], 'required': True, 'type': 'str'},
+                'run_on_db': {'v_range': [['6.0.0', '8.0.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'type': {'v_range': [['6.0.0', '8.0.0']], 'choices': ['auto', 'onetime', 'daily', 'weekly', 'monthly'], 'type': 'str'}
             }
         }
     }

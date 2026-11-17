@@ -47,6 +47,9 @@ options:
       schedule_time:
         type: str
         description: Schedule time.
+      adom:
+        type: raw
+        description: (list) Adom.
 '''
 
 EXAMPLES = '''
@@ -66,6 +69,7 @@ EXAMPLES = '''
           # flags: <value in [f_boot_alt_partition, f_skip_retrieve, f_skip_multi_steps, ...]>
           # image: <string>
           # schedule_time: <string>
+          # adom: <list or string>
 '''
 
 RETURN = '''
@@ -134,7 +138,8 @@ def main():
                     'type': 'str'
                 },
                 'image': {'v_range': [['7.2.1', '']], 'type': 'str'},
-                'schedule_time': {'v_range': [['7.2.1', '']], 'type': 'str'}
+                'schedule_time': {'v_range': [['7.2.1', '']], 'type': 'str'},
+                'adom': {'v_range': [['8.0.2', '']], 'type': 'raw'}
             }
         }
     }

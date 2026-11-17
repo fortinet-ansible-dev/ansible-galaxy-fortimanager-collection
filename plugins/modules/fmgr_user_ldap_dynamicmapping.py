@@ -272,6 +272,11 @@ options:
       uuid:
         type: str
         description: Universally Unique Identifier
+      pqc_policy:
+        aliases: ['pqc-policy']
+        type: str
+        description: Enable/disable using post-quantum cryptography for this TLS connection
+        choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -378,17 +383,17 @@ def main():
             'options': {
                 '_scope': {'type': 'list', 'options': {'name': {'type': 'str'}, 'vdom': {'type': 'str'}}, 'elements': 'dict'},
                 'account-key-filter': {'no_log': True, 'type': 'str'},
-                'account-key-name': {'no_log': True, 'type': 'str'},
+                'account-key-name': {'v_range': [['6.0.0', '8.0.0']], 'no_log': True, 'type': 'str'},
                 'account-key-processing': {'choices': ['same', 'strip'], 'type': 'str'},
                 'ca-cert': {'type': 'str'},
                 'cnid': {'type': 'str'},
                 'dn': {'type': 'str'},
-                'filter': {'type': 'str'},
-                'group': {'type': 'str'},
+                'filter': {'v_range': [['6.0.0', '8.0.0']], 'type': 'str'},
+                'group': {'v_range': [['6.0.0', '8.0.0']], 'type': 'str'},
                 'group-filter': {'type': 'str'},
                 'group-member-check': {'choices': ['user-attr', 'group-object', 'posix-group-object'], 'type': 'str'},
                 'group-object-filter': {'type': 'str'},
-                'group-object-search-base': {'type': 'str'},
+                'group-object-search-base': {'v_range': [['6.0.0', '8.0.0']], 'type': 'str'},
                 'group-search-base': {'type': 'str'},
                 'member-attr': {'type': 'str'},
                 'obtain-user-info': {'choices': ['disable', 'enable'], 'type': 'str'},
@@ -396,7 +401,7 @@ def main():
                 'password-expiry-warning': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'password-renewal': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'port': {'type': 'int'},
-                'retrieve-protection-profile': {'type': 'str'},
+                'retrieve-protection-profile': {'v_range': [['6.0.0', '8.0.0']], 'type': 'str'},
                 'search-type': {'type': 'list', 'choices': ['nested', 'recursive'], 'elements': 'str'},
                 'secondary-server': {'type': 'str'},
                 'secure': {'choices': ['disable', 'starttls', 'ldaps'], 'type': 'str'},
@@ -430,11 +435,12 @@ def main():
                     'type': 'str'
                 },
                 'vrf-select': {'v_range': [['7.6.2', '']], 'type': 'int'},
-                'validate-server-certificate': {'v_range': [['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'validate-server-certificate': {'v_range': [['7.6.3', '8.0.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'fabric-force-sync': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'fabric-object': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'fabric-object-source': {'v_range': [['8.0.0', '']], 'choices': ['member', 'local', 'root'], 'type': 'str'},
-                'uuid': {'v_range': [['8.0.0', '']], 'type': 'str'}
+                'uuid': {'v_range': [['8.0.0', '']], 'type': 'str'},
+                'pqc-policy': {'v_range': [['8.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

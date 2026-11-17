@@ -1788,6 +1788,32 @@ options:
         type: str
         description: Configure TCP congestion control algorithm
         choices: ['cubic', 'bbr']
+      scanunit_cache_entry_ttl:
+        aliases: ['scanunit-cache-entry-ttl']
+        type: int
+        description: Maximum lifespan of query results cached in the scanunit daemon in hours
+      disk_scan_timeout:
+        aliases: ['disk-scan-timeout']
+        type: int
+        description: Configure the maximum the number of seconds for execute disk scan.
+      gui_initial_firewall_policy_setup:
+        aliases: ['gui-initial-firewall-policy-setup']
+        type: str
+        description: Enable/disable the initial firewall policy setup wizard on the GUI.
+        choices: ['disable', 'enable']
+      gui_table_menu_style:
+        aliases: ['gui-table-menu-style']
+        type: str
+        description: Table menu style in the GUI.
+        choices: ['inline', 'bottom', 'top']
+      alarm_poll_interval:
+        aliases: ['alarm-poll-interval']
+        type: int
+        description: Alarm poll interval.
+      scim_db_fz_limit:
+        aliases: ['scim-db-fz-limit']
+        type: int
+        description: Limit of each SCIM database file size in megabytes
 '''
 
 EXAMPLES = '''
@@ -2212,6 +2238,12 @@ EXAMPLES = '''
           # gui_restrict_theme_change: <value in [disable, enable]>
           # gui_custom_theme: <list or string>
           # tcp_congestion_control: <value in [cubic, bbr]>
+          # scanunit_cache_entry_ttl: <integer>
+          # disk_scan_timeout: <integer>
+          # gui_initial_firewall_policy_setup: <value in [disable, enable]>
+          # gui_table_menu_style: <value in [inline, bottom, top]>
+          # alarm_poll_interval: <integer>
+          # scim_db_fz_limit: <integer>
 '''
 
 RETURN = '''
@@ -2807,13 +2839,19 @@ def main():
                 'admin-http-rate-limit-exempt-auth': {'v_range': [['7.6.7', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'admin-http-request-header-timeout': {'v_range': [['7.6.7', '']], 'type': 'int'},
                 'admin-http-unauthenticated-request-body-timeout': {'v_range': [['7.6.7', '']], 'type': 'int'},
-                'admin-http-login-request-size-limit': {'v_range': [['7.6.7', '7.6.7']], 'type': 'int'},
-                'admin-http-json-request-limit': {'v_range': [['7.6.7', '7.6.7']], 'type': 'int'},
+                'admin-http-login-request-size-limit': {'v_range': [['7.6.7', '7.6.7'], ['8.0.1', '']], 'type': 'int'},
+                'admin-http-json-request-limit': {'v_range': [['7.6.7', '7.6.7'], ['8.0.1', '']], 'type': 'int'},
                 'admin-http-rate-limit-max-requests': {'v_range': [['7.6.7', '']], 'type': 'int'},
                 'log-fsck-timeout': {'v_range': [['8.0.0', '']], 'type': 'int'},
                 'gui-restrict-theme-change': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'gui-custom-theme': {'v_range': [['8.0.0', '']], 'type': 'raw'},
-                'tcp-congestion-control': {'v_range': [['8.0.0', '']], 'choices': ['cubic', 'bbr'], 'type': 'str'}
+                'tcp-congestion-control': {'v_range': [['8.0.0', '']], 'choices': ['cubic', 'bbr'], 'type': 'str'},
+                'scanunit-cache-entry-ttl': {'v_range': [['8.0.1', '']], 'type': 'int'},
+                'disk-scan-timeout': {'v_range': [['8.0.1', '']], 'type': 'int'},
+                'gui-initial-firewall-policy-setup': {'v_range': [['8.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'gui-table-menu-style': {'v_range': [['8.0.1', '']], 'choices': ['inline', 'bottom', 'top'], 'type': 'str'},
+                'alarm-poll-interval': {'v_range': [['8.0.1', '']], 'type': 'int'},
+                'scim-db-fz-limit': {'v_range': [['8.0.2', '']], 'type': 'int'}
             }
         }
     }

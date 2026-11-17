@@ -159,6 +159,18 @@ options:
         aliases: ['qos-policy']
         type: raw
         description: (list) Switch Port qos-policy action to be applied on the matched NAC policy.
+      scope_member:
+        aliases: ['scope member']
+        type: list
+        elements: dict
+        description: Scope member.
+        suboptions:
+          name:
+            type: str
+            description: Name.
+          vdom:
+            type: str
+            description: Vdom.
 '''
 
 EXAMPLES = '''
@@ -205,6 +217,9 @@ EXAMPLES = '''
           # match_remove: <value in [link-down, default]>
           # port_setting_override: <value in [disable, enable]>
           # qos_policy: <list or string>
+          # scope_member:
+          #   - name: <string>
+          #     vdom: <string>
 '''
 
 RETURN = '''
@@ -297,7 +312,13 @@ def main():
                 'switch-auto-auth': {'v_range': [['7.2.6', '7.2.12'], ['7.4.3', '7.6.7']], 'choices': ['disable', 'enable', 'global'], 'type': 'str'},
                 'match-remove': {'v_range': [['7.6.3', '']], 'choices': ['link-down', 'default'], 'type': 'str'},
                 'port-setting-override': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'qos-policy': {'v_range': [['8.0.0', '']], 'type': 'raw'}
+                'qos-policy': {'v_range': [['8.0.0', '']], 'type': 'raw'},
+                'scope member': {
+                    'v_range': [['8.0.1', '']],
+                    'type': 'list',
+                    'options': {'name': {'v_range': [['8.0.1', '']], 'type': 'str'}, 'vdom': {'v_range': [['8.0.1', '']], 'type': 'str'}},
+                    'elements': 'dict'
+                }
             }
         }
     }

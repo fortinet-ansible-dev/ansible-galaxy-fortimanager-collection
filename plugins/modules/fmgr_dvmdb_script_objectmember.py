@@ -111,8 +111,8 @@ def main():
         'adom': {'required': True, 'type': 'str'},
         'script': {'required': True, 'type': 'str'},
         'dvmdb_script_objectmember': {
-            'type': 'dict', 'v_range': [['6.0.0', '']],
-            'options': {'name': {'type': 'str'}, 'vdom': {'type': 'str'}}
+            'type': 'dict', 'v_range': [['6.0.0', '8.0.0']],
+            'options': {'name': {'v_range': [['6.0.0', '8.0.0']], 'type': 'str'}, 'vdom': {'v_range': [['6.0.0', '8.0.0']], 'type': 'str'}}
         }
     }
 

@@ -125,6 +125,13 @@ options:
           - disable - Disable setting.
           - enable - Enable setting.
         choices: ['disable', 'enable']
+      meter:
+        type: str
+        description:
+          - Enable/disable Meter service for Meter update
+          - disable - Disable setting.
+          - enable - Enable setting.
+        choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -150,6 +157,7 @@ EXAMPLES = '''
           # query_iot_vulnerability: <value in [disable, enable]>
           # query_ioc: <value in [disable, enable]>
           # geoip: <value in [disable, enable]>
+          # meter: <value in [disable, enable]>
 '''
 
 RETURN = '''
@@ -217,7 +225,8 @@ def main():
                 'query-iot-collection': {'v_range': [['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'query-iot-vulnerability': {'v_range': [['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'query-ioc': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'geoip': {'v_range': [['7.4.11', '7.4.11'], ['7.6.7', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'geoip': {'v_range': [['7.4.11', '7.4.11'], ['7.6.7', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'meter': {'v_range': [['8.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

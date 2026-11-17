@@ -116,15 +116,15 @@ def main():
     ]
     module_arg_spec = {
         'securityconsole_template_validate': {
-            'type': 'dict', 'v_range': [['7.6.5', '']],
+            'type': 'dict', 'v_range': [['7.6.5', '8.0.0']],
             'options': {
-                'adom': {'v_range': [['7.6.5', '']], 'type': 'list', 'elements': 'str'},
-                'flags': {'v_range': [['7.6.5', '']], 'type': 'list', 'choices': ['none', 'json', 'default_cfg'], 'elements': 'str'},
-                'pkg': {'v_range': [['7.6.5', '']], 'type': 'str'},
+                'adom': {'v_range': [['7.6.5', '8.0.0']], 'type': 'list', 'elements': 'str'},
+                'flags': {'v_range': [['7.6.5', '8.0.0']], 'type': 'list', 'choices': ['none', 'json', 'default_cfg'], 'elements': 'str'},
+                'pkg': {'v_range': [['7.6.5', '8.0.0']], 'type': 'str'},
                 'scope': {
-                    'v_range': [['7.6.5', '']],
+                    'v_range': [['7.6.5', '8.0.0']],
                     'type': 'list',
-                    'options': {'name': {'v_range': [['7.6.5', '']], 'type': 'str'}, 'vdom': {'v_range': [['7.6.5', '']], 'type': 'str'}},
+                    'options': {'name': {'v_range': [['7.6.5', '8.0.0']], 'type': 'str'}, 'vdom': {'v_range': [['7.6.5', '8.0.0']], 'type': 'str'}},
                     'elements': 'dict'
                 }
             }

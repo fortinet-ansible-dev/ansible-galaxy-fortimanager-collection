@@ -489,6 +489,18 @@ options:
         type: list
         elements: str
         description: ZTNA destinations
+      scope_member:
+        aliases: ['scope member']
+        type: list
+        elements: dict
+        description: Scope member.
+        suboptions:
+          name:
+            type: str
+            description: Name.
+          vdom:
+            type: str
+            description: Vdom.
 '''
 
 EXAMPLES = '''
@@ -602,6 +614,9 @@ EXAMPLES = '''
           # fsso_groups: <list or string>
           # llm_profile: <list or string>
           # ztna_destination: <list or string>
+          # scope_member:
+          #   - name: <string>
+          #     vdom: <string>
 '''
 
 RETURN = '''
@@ -760,7 +775,13 @@ def main():
                 'custom-tags': {'v_range': [['8.0.0', '']], 'type': 'list', 'elements': 'str'},
                 'fsso-groups': {'v_range': [['8.0.0', '']], 'type': 'list', 'elements': 'str'},
                 'llm-profile': {'v_range': [['8.0.0', '']], 'type': 'list', 'elements': 'str'},
-                'ztna-destination': {'v_range': [['8.0.0', '']], 'type': 'list', 'elements': 'str'}
+                'ztna-destination': {'v_range': [['8.0.0', '']], 'type': 'list', 'elements': 'str'},
+                'scope member': {
+                    'v_range': [['8.0.1', '']],
+                    'type': 'list',
+                    'options': {'name': {'v_range': [['8.0.1', '']], 'type': 'str'}, 'vdom': {'v_range': [['8.0.1', '']], 'type': 'str'}},
+                    'elements': 'dict'
+                }
             }
         }
     }

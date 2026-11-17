@@ -654,7 +654,7 @@ def main():
                 'dns-server3': {'type': 'str'},
                 'dns-service': {'choices': ['default', 'specify', 'local'], 'type': 'str'},
                 'domain': {'type': 'str'},
-                'enable': {'choices': ['disable', 'enable'], 'type': 'str'},
+                'enable': {'v_range': [['6.0.0', '8.0.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'exclude-range': {
                     'type': 'list',
                     'options': {
@@ -703,12 +703,12 @@ def main():
                 'ntp-server2': {'type': 'str'},
                 'ntp-server3': {'type': 'str'},
                 'ntp-service': {'choices': ['default', 'specify', 'local'], 'type': 'str'},
-                'option1': {'type': 'raw'},
-                'option2': {'type': 'raw'},
-                'option3': {'type': 'raw'},
-                'option4': {'type': 'str'},
-                'option5': {'type': 'str'},
-                'option6': {'type': 'str'},
+                'option1': {'v_range': [['6.0.0', '8.0.0']], 'type': 'raw'},
+                'option2': {'v_range': [['6.0.0', '8.0.0']], 'type': 'raw'},
+                'option3': {'v_range': [['6.0.0', '8.0.0']], 'type': 'raw'},
+                'option4': {'v_range': [['6.0.0', '8.0.0']], 'type': 'str'},
+                'option5': {'v_range': [['6.0.0', '8.0.0']], 'type': 'str'},
+                'option6': {'v_range': [['6.0.0', '8.0.0']], 'type': 'str'},
                 'options': {
                     'type': 'list',
                     'options': {

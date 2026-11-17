@@ -50,7 +50,7 @@ options:
                       'hibun', '7z', 'xz', 'msofficex', 'mach-o', 'dmg', '.net', 'xar', 'chm',
                       'iso', 'crx', 'sis', 'prc', 'class', 'jad', 'cod', 'flac', 'registry',
                       'hwp', 'rpm', 'c/cpp', 'pfile', 'lzip', 'wasm', 'sylk', 'shellscript',
-                      'dll', 'jnlp', 'jar', 'css', 'com', 'python', 'genscript']
+                      'dll', 'jnlp', 'jar', 'css', 'com', 'python', 'genscript', 'webp', 'avif']
           filter_type:
             aliases: ['filter-type']
             type: str
@@ -178,7 +178,7 @@ def main():
                                 'petite', 'jpeg', 'gif', 'tiff', 'png', 'bmp', 'msi', 'mpeg', 'mov', 'mp3', 'wma', 'wav', 'pdf', 'avi', 'rm', 'torrent',
                                 'hibun', '7z', 'xz', 'msofficex', 'mach-o', 'dmg', '.net', 'xar', 'chm', 'iso', 'crx', 'sis', 'prc', 'class', 'jad',
                                 'cod', 'flac', 'registry', 'hwp', 'rpm', 'c/cpp', 'pfile', 'lzip', 'wasm', 'sylk', 'shellscript', 'dll', 'jnlp', 'jar',
-                                'css', 'com', 'python', 'genscript'
+                                'css', 'com', 'python', 'genscript', 'webp', 'avif'
                             ],
                             'type': 'str'
                         },

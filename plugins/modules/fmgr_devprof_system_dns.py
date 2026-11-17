@@ -146,6 +146,16 @@ options:
         aliases: ['root-servers']
         type: str
         description: Configure up to two preferred servers that serve the DNS root zone
+      cert_verify:
+        aliases: ['cert-verify']
+        type: str
+        description: Enable/disable server certificate verification for DNS over TLS/HTTPS.
+        choices: ['disable', 'enable']
+      ocsp_stapling_request:
+        aliases: ['ocsp-stapling-request']
+        type: str
+        description: Enable/disable OCSP stapling request in DoT/DoH TLS handshake.
+        choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -189,6 +199,8 @@ EXAMPLES = '''
           # hostname_ttl: <integer>
           # hostname_limit: <integer>
           # root_servers: <string>
+          # cert_verify: <value in [disable, enable]>
+          # ocsp_stapling_request: <value in [disable, enable]>
 '''
 
 RETURN = '''
@@ -286,7 +298,9 @@ def main():
                 'source-ip-interface': {'v_range': [['7.6.5', '']], 'type': 'raw'},
                 'hostname-ttl': {'v_range': [['7.6.5', '']], 'type': 'int'},
                 'hostname-limit': {'v_range': [['7.6.5', '']], 'type': 'int'},
-                'root-servers': {'v_range': [['7.6.5', '']], 'type': 'str'}
+                'root-servers': {'v_range': [['7.6.5', '']], 'type': 'str'},
+                'cert-verify': {'v_range': [['8.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'ocsp-stapling-request': {'v_range': [['8.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

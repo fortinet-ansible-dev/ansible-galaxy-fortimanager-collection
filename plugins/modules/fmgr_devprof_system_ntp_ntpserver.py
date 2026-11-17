@@ -70,7 +70,7 @@ options:
         aliases: ['key-type']
         type: str
         description: Select NTP authentication type.
-        choices: ['SHA1', 'SHA256', 'MD5']
+        choices: ['SHA1', 'SHA256', 'MD5', 'AES128']
       vrf_select:
         aliases: ['vrf-select']
         type: int
@@ -99,7 +99,7 @@ EXAMPLES = '''
           # interface: <string>
           # interface_select_method: <value in [auto, sdwan, specify]>
           # ip_type: <value in [IPv6, IPv4, Both]>
-          # key_type: <value in [SHA1, SHA256, MD5]>
+          # key_type: <value in [SHA1, SHA256, MD5, ...]>
           # vrf_select: <integer>
 '''
 
@@ -171,7 +171,7 @@ def main():
                     'type': 'str'
                 },
                 'ip-type': {'v_range': [['7.4.2', '']], 'choices': ['IPv6', 'IPv4', 'Both'], 'type': 'str'},
-                'key-type': {'v_range': [['7.4.3', '']], 'choices': ['SHA1', 'SHA256', 'MD5'], 'type': 'str'},
+                'key-type': {'v_range': [['7.4.3', '']], 'choices': ['SHA1', 'SHA256', 'MD5', 'AES128'], 'type': 'str'},
                 'vrf-select': {'v_range': [['7.6.2', '']], 'type': 'int'}
             }
         }

@@ -12,7 +12,7 @@ ANSIBLE_METADATA = {'status': ['preview'],
 DOCUMENTATION = '''
 ---
 module: fmgr_system_csf_trustedlist_adom
-short_description: Cli system csf trusted list adom
+short_description: Admin domain.
 version_added: "2.15.0"
 extends_documentation_fragment:
   - fortinet.fortimanager.general

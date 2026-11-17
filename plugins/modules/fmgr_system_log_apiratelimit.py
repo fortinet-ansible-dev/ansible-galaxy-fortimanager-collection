@@ -12,7 +12,7 @@ ANSIBLE_METADATA = {'status': ['preview'],
 DOCUMENTATION = '''
 ---
 module: fmgr_system_log_apiratelimit
-short_description: Cli system log api ratelimit
+short_description: API rate limit.
 version_added: "2.13.0"
 extends_documentation_fragment:
   - fortinet.fortimanager.general
@@ -39,7 +39,7 @@ EXAMPLES = '''
   connection: httpapi
   gather_facts: false
   tasks:
-    - name: Cli system log api ratelimit
+    - name: API rate limit.
       fortinet.fortimanager.fmgr_system_log_apiratelimit:
         # workspace_locking_adom: <global or your adom name>
         system_log_apiratelimit:

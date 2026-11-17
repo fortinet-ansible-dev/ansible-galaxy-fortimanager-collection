@@ -74,6 +74,21 @@ options:
         aliases: ['src-ip']
         type: str
         description: Src ip.
+      ca_cert:
+        aliases: ['ca-cert']
+        type: str
+        description: CA of server certificate.
+      client_cert:
+        aliases: ['client-cert']
+        type: str
+        description: Client certificate.
+      protocol:
+        type: str
+        description:
+          - Transport protocol.
+          - tcp - TCP
+          - tls - TLS over TCP.
+        choices: ['tcp', 'tls']
 '''
 
 EXAMPLES = '''
@@ -178,7 +193,10 @@ def main():
                 'server': {'type': 'str'},
                 'tertiary-key': {'no_log': True, 'type': 'raw'},
                 'tertiary-server': {'type': 'str'},
-                'src-ip': {'v_range': [['7.6.5', '']], 'type': 'str'}
+                'src-ip': {'v_range': [['7.6.5', '']], 'type': 'str'},
+                'ca-cert': {'v_range': [['8.0.1', '']], 'type': 'str'},
+                'client-cert': {'v_range': [['8.0.1', '']], 'type': 'str'},
+                'protocol': {'v_range': [['8.0.1', '']], 'choices': ['tcp', 'tls'], 'type': 'str'}
             }
         }
     }

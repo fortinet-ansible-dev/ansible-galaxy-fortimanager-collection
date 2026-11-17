@@ -657,6 +657,10 @@ options:
                 type: str
                 description: Type.
                 choices: ['certificate', 'domain']
+      FHM_custom_field1:
+        aliases: ['FHM-custom-field1']
+        type: str
+        description: Name of custom log field to index.
 '''
 
 EXAMPLES = '''
@@ -800,6 +804,7 @@ EXAMPLES = '''
           #       domain: <string>
           #       id: <integer>
           #       type: <value in [certificate, domain]>
+          # FHM_custom_field1: <string>
 '''
 
 RETURN = '''
@@ -1020,7 +1025,8 @@ def main():
                             'elements': 'dict'
                         }
                     }
-                }
+                },
+                'FHM-custom-field1': {'v_range': [['8.0.1', '']], 'type': 'str'}
             }
         }
     }

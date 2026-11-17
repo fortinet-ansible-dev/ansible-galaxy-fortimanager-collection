@@ -381,7 +381,7 @@ options:
         aliases: ['sam-server-type']
         type: str
         description: Select SAM server type
-        choices: ['ip', 'fqdn']
+        choices: ['ip', 'fqdn', 'ipv6']
       d80211d:
         aliases: ['80211d']
         type: str
@@ -477,6 +477,10 @@ options:
       vap9:
         type: str
         description: Virtual Access Point
+      sam_server_ip6:
+        aliases: ['sam-server-ip6']
+        type: str
+        description: SAM test server IPv6 address.
 '''
 
 EXAMPLES = '''
@@ -571,7 +575,7 @@ EXAMPLES = '''
           # sam_cwp_username: <string>
           # sam_server_fqdn: <string>
           # sam_server_ip: <string>
-          # sam_server_type: <value in [ip, fqdn]>
+          # sam_server_type: <value in [ip, fqdn, ipv6]>
           # d80211d: <value in [disable, enable]>
           # optional_antenna: <value in [none, FANT-04ABGN-0606-O-N, FANT-04ABGN-1414-P-N, ...]>
           # mimo_mode: <value in [default, 1x1, 2x2, ...]>
@@ -595,6 +599,7 @@ EXAMPLES = '''
           # vap15: <string>
           # vap16: <string>
           # vap9: <string>
+          # sam_server_ip6: <string>
 '''
 
 RETURN = '''
@@ -746,7 +751,7 @@ def main():
                 'sam-cwp-username': {'v_range': [['7.0.1', '']], 'type': 'str'},
                 'sam-server-fqdn': {'v_range': [['7.0.1', '']], 'type': 'str'},
                 'sam-server-ip': {'v_range': [['7.0.1', '']], 'type': 'str'},
-                'sam-server-type': {'v_range': [['7.0.1', '']], 'choices': ['ip', 'fqdn'], 'type': 'str'},
+                'sam-server-type': {'v_range': [['7.0.1', '']], 'choices': ['ip', 'fqdn', 'ipv6'], 'type': 'str'},
                 '80211d': {'v_range': [['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'optional-antenna': {
                     'v_range': [['7.2.3', '']],
@@ -776,7 +781,8 @@ def main():
                 'vap14': {'v_range': [['8.0.0', '']], 'type': 'str'},
                 'vap15': {'v_range': [['8.0.0', '']], 'type': 'str'},
                 'vap16': {'v_range': [['8.0.0', '']], 'type': 'str'},
-                'vap9': {'v_range': [['8.0.0', '']], 'type': 'str'}
+                'vap9': {'v_range': [['8.0.0', '']], 'type': 'str'},
+                'sam-server-ip6': {'v_range': [['8.0.1', '']], 'type': 'str'}
             }
         }
     }

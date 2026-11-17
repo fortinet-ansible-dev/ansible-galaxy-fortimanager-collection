@@ -615,6 +615,11 @@ options:
         type: list
         elements: str
         description: Virtual IPv6 name.
+      dns_result_preference:
+        aliases: ['dns-result-preference']
+        type: str
+        description: Configure DNS result preference
+        choices: ['ipv4-only', 'ipv6-only', 'ipv46']
 '''
 
 EXAMPLES = '''
@@ -737,6 +742,7 @@ EXAMPLES = '''
           # svr_pool_ttl: <integer>
           # vip: <list or string>
           # vip6: <list or string>
+          # dns_result_preference: <value in [ipv4-only, ipv6-only, ipv46]>
 '''
 
 RETURN = '''
@@ -1034,7 +1040,8 @@ def main():
                 'svr-pool-server-max-request': {'v_range': [['7.6.4', '']], 'type': 'int'},
                 'svr-pool-ttl': {'v_range': [['7.6.4', '']], 'type': 'int'},
                 'vip': {'v_range': [['7.6.4', '']], 'type': 'list', 'elements': 'str'},
-                'vip6': {'v_range': [['7.6.4', '']], 'type': 'list', 'elements': 'str'}
+                'vip6': {'v_range': [['7.6.4', '']], 'type': 'list', 'elements': 'str'},
+                'dns-result-preference': {'v_range': [['8.0.1', '']], 'choices': ['ipv4-only', 'ipv6-only', 'ipv46'], 'type': 'str'}
             }
         }
     }

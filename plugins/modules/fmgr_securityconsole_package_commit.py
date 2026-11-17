@@ -40,7 +40,7 @@ options:
         type: list
         elements: str
         description: Auto_lock_ws - Automatically lock and unlock workspace when performing security console task.
-        choices: ['auto_lock_ws']
+        choices: ['auto_lock_ws', 'auto_unlock_ws']
       preview_taskid:
         type: int
         description: Preview taskid.
@@ -60,7 +60,7 @@ EXAMPLES = '''
           # scope:
           #   - name: <string>
           #     vdom: <string>
-          # flags: ["auto_lock_ws"]
+          # flags: ["auto_lock_ws", "auto_unlock_ws"]
           # preview_taskid: <integer>
 '''
 
@@ -119,8 +119,13 @@ def main():
             'options': {
                 'adom': {'type': 'str'},
                 'scope': {'type': 'list', 'options': {'name': {'type': 'str'}, 'vdom': {'type': 'str'}}, 'elements': 'dict'},
-                'flags': {'v_range': [['7.4.6', '7.4.11'], ['7.6.2', '']], 'type': 'list', 'choices': ['auto_lock_ws'], 'elements': 'str'},
-                'preview_taskid': {'v_range': [['7.6.7', '7.6.7']], 'type': 'int'}
+                'flags': {
+                    'v_range': [['7.4.6', '7.4.11'], ['7.6.2', '']],
+                    'type': 'list',
+                    'choices': ['auto_lock_ws', 'auto_unlock_ws'],
+                    'elements': 'str'
+                },
+                'preview_taskid': {'v_range': [['7.6.7', '7.6.7'], ['8.0.1', '']], 'type': 'int'}
             }
         }
     }

@@ -255,6 +255,28 @@ options:
             type: str
             description: Enable/disable matching of suppressed original neighbor.
             choices: ['disable', 'enable']
+          match_largecommunity:
+            aliases: ['match-largecommunity']
+            type: raw
+            description: (list) Match BGP large community list.
+          match_largecommunity_exact:
+            aliases: ['match-largecommunity-exact']
+            type: str
+            description: Enable/disable exact matching of large communities.
+            choices: ['disable', 'enable']
+          set_largecommunity:
+            aliases: ['set-largecommunity']
+            type: raw
+            description: (list) Large community.
+          set_largecommunity_additive:
+            aliases: ['set-largecommunity-additive']
+            type: str
+            description: Enable/disable adding set-largecommunity to existing large community.
+            choices: ['disable', 'enable']
+          set_largecommunity_delete:
+            aliases: ['set-largecommunity-delete']
+            type: raw
+            description: (list) Delete communities matching large community list.
 '''
 
 EXAMPLES = '''
@@ -323,6 +345,11 @@ EXAMPLES = '''
           #     set_vpnv6_nexthop: <string>
           #     set_vpnv6_nexthop_local: <string>
           #     match_suppress: <value in [disable, enable]>
+          #     match_largecommunity: <list or string>
+          #     match_largecommunity_exact: <value in [disable, enable]>
+          #     set_largecommunity: <list or string>
+          #     set_largecommunity_additive: <value in [disable, enable]>
+          #     set_largecommunity_delete: <list or string>
 '''
 
 RETURN = '''
@@ -437,7 +464,12 @@ def main():
                         'set-vpnv4-nexthop': {'v_range': [['7.4.1', '']], 'type': 'str'},
                         'set-vpnv6-nexthop': {'v_range': [['7.4.2', '']], 'type': 'str'},
                         'set-vpnv6-nexthop-local': {'v_range': [['7.4.2', '']], 'type': 'str'},
-                        'match-suppress': {'v_range': [['7.6.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                        'match-suppress': {'v_range': [['7.6.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'match-largecommunity': {'v_range': [['8.0.1', '']], 'type': 'raw'},
+                        'match-largecommunity-exact': {'v_range': [['8.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'set-largecommunity': {'v_range': [['8.0.1', '']], 'type': 'raw'},
+                        'set-largecommunity-additive': {'v_range': [['8.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'set-largecommunity-delete': {'v_range': [['8.0.1', '']], 'type': 'raw'}
                     },
                     'elements': 'dict'
                 }

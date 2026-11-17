@@ -372,6 +372,11 @@ options:
         type: str
         description: Enable/disable preference of the FQDN as host header, if resolved by DNS, in the CONNECT request to FortiGuard servers.
         choices: ['disable', 'enable']
+      fortiguard_server_location:
+        aliases: ['fortiguard-server-location']
+        type: str
+        description: Location from which to receive FortiGuard services.
+        choices: ['usa', 'automatic', 'eu']
 '''
 
 EXAMPLES = '''
@@ -465,6 +470,7 @@ EXAMPLES = '''
           # ia_expiration: <integer>
           # ia_license: <integer>
           # proxy_fqdn_host: <value in [disable, enable]>
+          # fortiguard_server_location: <value in [usa, automatic, eu]>
 '''
 
 RETURN = '''
@@ -606,7 +612,8 @@ def main():
                 'fnbi-license': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'type': 'int'},
                 'ia-expiration': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'type': 'int'},
                 'ia-license': {'v_range': [['7.4.8', '7.4.11'], ['7.6.4', '']], 'type': 'int'},
-                'proxy-fqdn-host': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'proxy-fqdn-host': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'fortiguard-server-location': {'v_range': [['8.0.1', '']], 'choices': ['usa', 'automatic', 'eu'], 'type': 'str'}
             }
         }
     }

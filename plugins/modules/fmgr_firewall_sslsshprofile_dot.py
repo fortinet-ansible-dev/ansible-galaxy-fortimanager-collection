@@ -109,6 +109,11 @@ options:
         type: str
         description: Action to be taken when matched UDP packet is not QUIC.
         choices: ['block', 'allow']
+      tls_handshake_mode:
+        aliases: ['tls-handshake-mode']
+        type: str
+        description: Proxy-mode TLS handshake negotiation behaviour.
+        choices: ['sync', 'dual']
 '''
 
 EXAMPLES = '''
@@ -138,6 +143,7 @@ EXAMPLES = '''
           # min_allowed_ssl_version: <value in [ssl-3.0, tls-1.0, tls-1.1, ...]>
           # quic: <value in [disable, enable, bypass, ...]>
           # udp_not_quic: <value in [block, allow]>
+          # tls_handshake_mode: <value in [sync, dual]>
 '''
 
 RETURN = '''
@@ -212,7 +218,8 @@ def main():
                 'unsupported-ssl-version': {'v_range': [['7.0.1', '']], 'choices': ['block', 'allow', 'inspect'], 'type': 'str'},
                 'min-allowed-ssl-version': {'v_range': [['7.0.3', '']], 'choices': ['ssl-3.0', 'tls-1.0', 'tls-1.1', 'tls-1.2', 'tls-1.3'], 'type': 'str'},
                 'quic': {'v_range': [['7.4.1', '']], 'choices': ['disable', 'enable', 'bypass', 'block', 'inspect'], 'type': 'str'},
-                'udp-not-quic': {'v_range': [['7.6.2', '']], 'choices': ['block', 'allow'], 'type': 'str'}
+                'udp-not-quic': {'v_range': [['7.6.2', '']], 'choices': ['block', 'allow'], 'type': 'str'},
+                'tls-handshake-mode': {'v_range': [['8.0.1', '']], 'choices': ['sync', 'dual'], 'type': 'str'}
             }
         }
     }

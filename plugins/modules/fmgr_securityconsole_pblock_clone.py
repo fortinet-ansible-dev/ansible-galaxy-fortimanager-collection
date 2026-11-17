@@ -31,6 +31,9 @@ options:
       pblock:
         type: str
         description: Pblock.
+      dst_adom:
+        type: raw
+        description: (list) Dst adom.
 '''
 
 EXAMPLES = '''
@@ -46,6 +49,7 @@ EXAMPLES = '''
           # adom: <string>
           # dst_name: <string>
           # pblock: <string>
+          # dst_adom: <list or string>
 '''
 
 RETURN = '''
@@ -100,7 +104,12 @@ def main():
     module_arg_spec = {
         'securityconsole_pblock_clone': {
             'type': 'dict', 'v_range': [['6.0.0', '']],
-            'options': {'adom': {'type': 'str'}, 'dst_name': {'type': 'str'}, 'pblock': {'type': 'str'}}
+            'options': {
+                'adom': {'type': 'str'},
+                'dst_name': {'type': 'str'},
+                'pblock': {'type': 'str'},
+                'dst_adom': {'v_range': [['8.0.1', '']], 'type': 'raw'}
+            }
         }
     }
 

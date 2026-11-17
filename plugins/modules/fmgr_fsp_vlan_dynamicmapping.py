@@ -882,7 +882,7 @@ options:
                 description: Management access settings for the secondary IP address.
                 choices: ['https', 'ping', 'ssh', 'snmp', 'http', 'telnet', 'fgfm', 'auto-ipsec',
                           'radius-acct', 'probe-response', 'capwap', 'dnp', 'ftm', 'fabric',
-                          'speed-test', 'icond', 'scim', 'mqtt']
+                          'speed-test', 'icond', 'scim', 'mqtt', 'cwmp']
               detectprotocol:
                 type: list
                 elements: str
@@ -996,7 +996,7 @@ options:
             description: Allowaccess.
             choices: ['https', 'ping', 'ssh', 'snmp', 'http', 'telnet', 'fgfm', 'radius-acct',
                       'probe-response', 'dnp', 'ftm', 'fabric', 'speed-test', 'icond', 'scim',
-                      'mqtt']
+                      'mqtt', 'cwmp']
           dhcp_relay_request_all_server:
             aliases: ['dhcp-relay-request-all-server']
             type: str
@@ -1223,7 +1223,7 @@ EXAMPLES = '''
           #   secondaryip:
           #     - allowaccess: ["https", "ping", "ssh", "snmp", "http", "telnet", "fgfm",
           #                     "auto-ipsec", "radius-acct", "probe-response", "capwap", "dnp",
-          #                     "ftm", "fabric", "speed-test", "icond", "scim", "mqtt"]
+          #                     "ftm", "fabric", "speed-test", "icond", "scim", "mqtt", "cwmp"]
           #       detectprotocol: ["ping", "tcp-echo", "udp-echo"]
           #       detectserver: <string>
           #       gwdetect: <value in [disable, enable]>
@@ -1254,7 +1254,7 @@ EXAMPLES = '''
           #       vrip: <string>
           #   allowaccess: ["https", "ping", "ssh", "snmp", "http", "telnet", "fgfm",
           #                 "radius-acct", "probe-response", "dnp", "ftm", "fabric", "speed-test",
-          #                 "icond", "scim", "mqtt"]
+          #                 "icond", "scim", "mqtt", "cwmp"]
           #   dhcp_relay_request_all_server: <value in [disable, enable]>
           #   switch_controller_access_vlan: <value in [disable, enable]>
 '''
@@ -1341,7 +1341,7 @@ def main():
                         'dns-server4': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'str'},
                         'dns-service': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['default', 'specify', 'local'], 'type': 'str'},
                         'domain': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'str'},
-                        'enable': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'enable': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '8.0.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'exclude-range': {
                             'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                             'type': 'list',
@@ -1391,12 +1391,12 @@ def main():
                         'ntp-server2': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'str'},
                         'ntp-server3': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'str'},
                         'ntp-service': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['default', 'specify', 'local'], 'type': 'str'},
-                        'option1': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'raw'},
-                        'option2': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'raw'},
-                        'option3': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'raw'},
-                        'option4': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'str'},
-                        'option5': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'str'},
-                        'option6': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'str'},
+                        'option1': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '8.0.0']], 'type': 'raw'},
+                        'option2': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '8.0.0']], 'type': 'raw'},
+                        'option3': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '8.0.0']], 'type': 'raw'},
+                        'option4': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '8.0.0']], 'type': 'str'},
+                        'option5': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '8.0.0']], 'type': 'str'},
+                        'option6': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '8.0.0']], 'type': 'str'},
                         'options': {
                             'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                             'type': 'list',
@@ -1633,7 +1633,7 @@ def main():
                                     'type': 'list',
                                     'choices': [
                                         'https', 'ping', 'ssh', 'snmp', 'http', 'telnet', 'fgfm', 'auto-ipsec', 'radius-acct', 'probe-response',
-                                        'capwap', 'dnp', 'ftm', 'fabric', 'speed-test', 'icond', 'scim', 'mqtt'
+                                        'capwap', 'dnp', 'ftm', 'fabric', 'speed-test', 'icond', 'scim', 'mqtt', 'cwmp'
                                     ],
                                     'elements': 'str'
                                 },
@@ -1649,7 +1649,7 @@ def main():
                                 'id': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
                                 'ip': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'str'},
                                 'ping-serv-status': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.0']], 'type': 'int'},
-                                'seq': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                                'seq': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '8.0.0']], 'type': 'int'},
                                 'secip-relay-ip': {'v_range': [['7.4.0', '']], 'type': 'str'}
                             },
                             'elements': 'dict'
@@ -1691,7 +1691,7 @@ def main():
                             'type': 'list',
                             'choices': [
                                 'https', 'ping', 'ssh', 'snmp', 'http', 'telnet', 'fgfm', 'radius-acct', 'probe-response', 'dnp', 'ftm', 'fabric',
-                                'speed-test', 'icond', 'scim', 'mqtt'
+                                'speed-test', 'icond', 'scim', 'mqtt', 'cwmp'
                             ],
                             'elements': 'str'
                         },

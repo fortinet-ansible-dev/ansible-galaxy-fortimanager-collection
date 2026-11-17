@@ -540,7 +540,8 @@ options:
                   'technology', 'landscape', 'twilight', 'canyon', 'northern-light', 'astronomy',
                   'fish', 'penguin', 'mountain', 'panda', 'parrot', 'cave', 'zebra',
                   'contrast-dark', 'mariner', 'jade', 'neutrino', 'dark-matter', 'forest', 'cat',
-                  'graphite']
+                  'graphite', 'sec-network-lt', 'sec-network-dk', 'sec-operation-lt',
+                  'sec-operation-dk', 'dune']
       adom_access:
         aliases: ['adom-access']
         type: str
@@ -591,6 +592,10 @@ options:
         type: str
         description: Autoreg user.
         choices: ['disable', 'enable']
+      remote_login_max:
+        aliases: ['remote-login-max']
+        type: int
+        description: Max login sessions per remote username
 '''
 
 EXAMPLES = '''
@@ -791,7 +796,7 @@ def main():
                         'blue', 'green', 'red', 'melongene', 'spring', 'summer', 'autumn', 'winter', 'circuit-board', 'calla-lily', 'binary-tunnel',
                         'mars', 'blue-sea', 'technology', 'landscape', 'twilight', 'canyon', 'northern-light', 'astronomy', 'fish', 'penguin',
                         'mountain', 'panda', 'parrot', 'cave', 'zebra', 'contrast-dark', 'mariner', 'jade', 'neutrino', 'dark-matter', 'forest', 'cat',
-                        'graphite'
+                        'graphite', 'sec-network-lt', 'sec-network-dk', 'sec-operation-lt', 'sec-operation-dk', 'dune'
                     ],
                     'type': 'str'
                 },
@@ -808,7 +813,8 @@ def main():
                     'elements': 'dict'
                 },
                 'old-password': {'v_range': [['7.2.11', '7.2.12'], ['7.4.7', '7.4.11'], ['7.6.3', '']], 'no_log': True, 'type': 'str'},
-                'autoreg-user': {'v_range': [['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'autoreg-user': {'v_range': [['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'remote-login-max': {'v_range': [['8.0.1', '']], 'type': 'int'}
             }
         }
     }

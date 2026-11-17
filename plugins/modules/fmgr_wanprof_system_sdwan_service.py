@@ -89,7 +89,7 @@ options:
         type: str
         description: Hash algorithm for selected priority members for load balance mode.
         choices: ['round-robin', 'source-ip-based', 'source-dest-ip-based', 'inbandwidth',
-                  'outbandwidth', 'bibandwidth']
+                  'outbandwidth', 'bibandwidth', 'spillover', 'weight-based-spillover']
       health_check:
         aliases: ['health-check']
         type: raw
@@ -329,6 +329,18 @@ options:
         type: str
         description: Overlay/underlay bandwidth-type.
         choices: ['overlay', 'underlay']
+      scope_member:
+        aliases: ['scope member']
+        type: list
+        elements: dict
+        description: Scope member.
+        suboptions:
+          name:
+            type: str
+            description: Name.
+          vdom:
+            type: str
+            description: Vdom.
 '''
 
 EXAMPLES = '''
@@ -415,6 +427,9 @@ EXAMPLES = '''
           # fib_best_match_force: <value in [disable, enable]>
           # internet_service_fortiguard: <list or string>
           # bandwidth_type: <value in [overlay, underlay]>
+          # scope_member:
+          #   - name: <string>
+          #     vdom: <string>
 '''
 
 RETURN = '''
@@ -487,7 +502,10 @@ def main():
                 'groups': {'v_range': [['6.4.1', '']], 'type': 'raw'},
                 'hash-mode': {
                     'v_range': [['6.4.2', '']],
-                    'choices': ['round-robin', 'source-ip-based', 'source-dest-ip-based', 'inbandwidth', 'outbandwidth', 'bibandwidth'],
+                    'choices': [
+                        'round-robin', 'source-ip-based', 'source-dest-ip-based', 'inbandwidth', 'outbandwidth', 'bibandwidth', 'spillover',
+                        'weight-based-spillover'
+                    ],
                     'type': 'str'
                 },
                 'health-check': {'v_range': [['6.4.1', '']], 'type': 'raw'},
@@ -553,7 +571,13 @@ def main():
                 'comment': {'v_range': [['7.6.0', '']], 'type': 'str'},
                 'fib-best-match-force': {'v_range': [['7.4.9', '7.4.11'], ['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'internet-service-fortiguard': {'v_range': [['7.6.4', '']], 'type': 'raw'},
-                'bandwidth-type': {'v_range': [['8.0.0', '']], 'choices': ['overlay', 'underlay'], 'type': 'str'}
+                'bandwidth-type': {'v_range': [['8.0.0', '']], 'choices': ['overlay', 'underlay'], 'type': 'str'},
+                'scope member': {
+                    'v_range': [['8.0.1', '']],
+                    'type': 'list',
+                    'options': {'name': {'v_range': [['8.0.1', '']], 'type': 'str'}, 'vdom': {'v_range': [['8.0.1', '']], 'type': 'str'}},
+                    'elements': 'dict'
+                }
             }
         }
     }

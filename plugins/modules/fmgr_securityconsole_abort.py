@@ -96,7 +96,7 @@ def main():
     module_arg_spec = {
         'securityconsole_abort': {
             'type': 'dict', 'v_range': [['6.0.0', '']],
-            'options': {'adom': {'type': 'str'}, 'preview_taskid': {'v_range': [['7.6.7', '7.6.7']], 'type': 'int'}}
+            'options': {'adom': {'type': 'str'}, 'preview_taskid': {'v_range': [['7.6.7', '7.6.7'], ['8.0.1', '']], 'type': 'int'}}
         }
     }
 

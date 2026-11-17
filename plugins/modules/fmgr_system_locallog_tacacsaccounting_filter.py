@@ -12,7 +12,7 @@ ANSIBLE_METADATA = {'status': ['preview'],
 DOCUMENTATION = '''
 ---
 module: fmgr_system_locallog_tacacsaccounting_filter
-short_description: Cli system locallog tacacs+accounting filter
+short_description: Settings for tacacs+ accounting events filter.
 version_added: "2.13.0"
 extends_documentation_fragment:
   - fortinet.fortimanager.general
@@ -46,7 +46,7 @@ EXAMPLES = '''
   connection: httpapi
   gather_facts: false
   tasks:
-    - name: Cli system locallog tacacs+accounting filter
+    - name: Settings for tacacs+ accounting events filter.
       fortinet.fortimanager.fmgr_system_locallog_tacacsaccounting_filter:
         # workspace_locking_adom: <global or your adom name>
         system_locallog_tacacsaccounting_filter:

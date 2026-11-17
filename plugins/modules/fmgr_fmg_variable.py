@@ -62,7 +62,7 @@ options:
       type:
         type: str
         description: Type.
-        choices: ['normal', 'password']
+        choices: ['normal', 'password', 'json']
 '''
 
 EXAMPLES = '''
@@ -85,7 +85,7 @@ EXAMPLES = '''
           #         vdom: <string>
           #     value: <string>
           # value: <string>
-          # type: <value in [normal, password]>
+          # type: <value in [normal, password, json]>
 '''
 
 RETURN = '''
@@ -161,7 +161,7 @@ def main():
                 },
                 'name': {'v_range': [['7.2.0', '']], 'required': True, 'type': 'str'},
                 'value': {'v_range': [['7.2.0', '']], 'type': 'str'},
-                'type': {'v_range': [['7.6.4', '']], 'choices': ['normal', 'password'], 'type': 'str'}
+                'type': {'v_range': [['7.6.4', '']], 'choices': ['normal', 'password', 'json'], 'type': 'str'}
             }
         }
     }

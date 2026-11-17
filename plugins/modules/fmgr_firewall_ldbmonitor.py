@@ -79,6 +79,10 @@ options:
         aliases: ['dns-request-domain']
         type: str
         description: Fully qualified domain name to resolve for the DNS probe.
+      vrf_select:
+        aliases: ['vrf-select']
+        type: int
+        description: VRF ID used for connection to server.
 '''
 
 EXAMPLES = '''
@@ -187,7 +191,8 @@ def main():
                 'src-ip': {'v_range': [['6.4.0', '']], 'type': 'str'},
                 'dns-match-ip': {'v_range': [['7.0.0', '']], 'type': 'str'},
                 'dns-protocol': {'v_range': [['7.0.0', '']], 'choices': ['udp', 'tcp'], 'type': 'str'},
-                'dns-request-domain': {'v_range': [['7.0.0', '']], 'type': 'str'}
+                'dns-request-domain': {'v_range': [['7.0.0', '']], 'type': 'str'},
+                'vrf-select': {'v_range': [['8.0.1', '']], 'type': 'int'}
             }
         }
     }

@@ -379,7 +379,8 @@ options:
               port:
                 type: str
                 description: FortiExtender uplink port.
-                choices: ['wan', 'lte1', 'lte2', 'port1', 'port2', 'port3', 'port4', 'port5', 'sfp']
+                choices: ['wan', 'lte1', 'lte2', 'port1', 'port2', 'port3', 'port4', 'port5',
+                          'sfp', 'asta0', 'bsta0']
               role:
                 type: str
                 description: FortiExtender uplink port.
@@ -601,6 +602,14 @@ options:
                 type: str
                 description: Enable/disable Wi-Fi radio.
                 choices: ['disable', 'enable']
+              persistence:
+                type: str
+                description: Enable/disable the persistence attribute of the radio profile.
+                choices: ['disable', 'enable']
+              wifi_networks:
+                aliases: ['wifi-networks']
+                type: raw
+                description: (list) Wi-Fi networks.
           radio_2:
             aliases: ['radio-2']
             type: dict
@@ -684,6 +693,19 @@ options:
                 type: str
                 description: Enable/disable Wi-Fi radio.
                 choices: ['disable', 'enable']
+              persistence:
+                type: str
+                description: Enable/disable the persistence attribute of the radio profile.
+                choices: ['disable', 'enable']
+              wifi_networks:
+                aliases: ['wifi-networks']
+                type: raw
+                description: (list) Wi-Fi networks.
+      lanext_always_mode:
+        aliases: ['lanext-always-mode']
+        type: str
+        description: Enable/disable LAN extension always mode.
+        choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -832,6 +854,8 @@ EXAMPLES = '''
           #     power_level: <integer>
           #     radio_id: <integer>
           #     status: <value in [disable, enable]>
+          #     persistence: <value in [disable, enable]>
+          #     wifi_networks: <list or string>
           #   radio_2:
           #     d80211d: <value in [disable, enable]>
           #     band: <value in [5GHz]>
@@ -852,6 +876,9 @@ EXAMPLES = '''
           #     power_level: <integer>
           #     radio_id: <integer>
           #     status: <value in [disable, enable]>
+          #     persistence: <value in [disable, enable]>
+          #     wifi_networks: <list or string>
+          # lanext_always_mode: <value in [disable, enable]>
 '''
 
 RETURN = '''
@@ -1058,7 +1085,7 @@ def main():
                                 'name': {'v_range': [['7.2.1', '']], 'type': 'str'},
                                 'port': {
                                     'v_range': [['7.2.1', '']],
-                                    'choices': ['wan', 'lte1', 'lte2', 'port1', 'port2', 'port3', 'port4', 'port5', 'sfp'],
+                                    'choices': ['wan', 'lte1', 'lte2', 'port1', 'port2', 'port3', 'port4', 'port5', 'sfp', 'asta0', 'bsta0'],
                                     'type': 'str'
                                 },
                                 'role': {'v_range': [['7.2.1', '']], 'choices': ['primary', 'secondary'], 'type': 'str'},
@@ -1171,7 +1198,9 @@ def main():
                                 },
                                 'power-level': {'v_range': [['7.4.3', '']], 'type': 'int'},
                                 'radio-id': {'v_range': [['7.4.3', '']], 'type': 'int'},
-                                'status': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                                'status': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                                'persistence': {'v_range': [['8.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                                'wifi-networks': {'v_range': [['8.0.1', '']], 'type': 'raw'}
                             }
                         },
                         'radio-2': {
@@ -1209,11 +1238,14 @@ def main():
                                 },
                                 'power-level': {'v_range': [['7.4.3', '']], 'type': 'int'},
                                 'radio-id': {'v_range': [['7.4.3', '']], 'type': 'int'},
-                                'status': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                                'status': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                                'persistence': {'v_range': [['8.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                                'wifi-networks': {'v_range': [['8.0.1', '']], 'type': 'raw'}
                             }
                         }
                     }
-                }
+                },
+                'lanext-always-mode': {'v_range': [['8.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

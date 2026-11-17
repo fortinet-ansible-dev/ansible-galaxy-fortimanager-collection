@@ -75,6 +75,10 @@ options:
       uuid:
         type: str
         description: Universally Unique Identifier
+      type:
+        type: str
+        description: Type of EDM source file
+        choices: ['csv', 'hash-db']
 '''
 
 EXAMPLES = '''
@@ -100,6 +104,7 @@ EXAMPLES = '''
           # fabric_object: <value in [disable, enable]>
           # fabric_object_source: <value in [member, local, root]>
           # uuid: <string>
+          # type: <value in [csv, hash-db]>
 '''
 
 RETURN = '''
@@ -174,7 +179,8 @@ def main():
                 'fabric-force-sync': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'fabric-object': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'fabric-object-source': {'v_range': [['8.0.0', '']], 'choices': ['member', 'local', 'root'], 'type': 'str'},
-                'uuid': {'v_range': [['8.0.0', '']], 'type': 'str'}
+                'uuid': {'v_range': [['8.0.0', '']], 'type': 'str'},
+                'type': {'v_range': [['8.0.1', '']], 'choices': ['csv', 'hash-db'], 'type': 'str'}
             }
         }
     }

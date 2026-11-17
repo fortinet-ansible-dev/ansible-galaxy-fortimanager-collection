@@ -90,6 +90,15 @@ options:
       uuid:
         type: str
         description: Universally Unique Identifier
+      address6:
+        type: list
+        elements: str
+        description: IPv6 address or IPv6 address group of the ZTNA destination.
+      ems_report_proxy:
+        aliases: ['ems-report-proxy']
+        type: list
+        elements: str
+        description: Traffic forward proxy under which this destination is reported to FortiClient EMS
 '''
 
 EXAMPLES = '''
@@ -176,7 +185,9 @@ def main():
                 'ssh-host-key-validation': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'tunnel-encryption': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'type': {'v_range': [['8.0.0', '']], 'choices': ['on-premise', 'saas'], 'type': 'str'},
-                'uuid': {'v_range': [['8.0.0', '']], 'type': 'str'}
+                'uuid': {'v_range': [['8.0.0', '']], 'type': 'str'},
+                'address6': {'v_range': [['8.0.1', '']], 'type': 'list', 'elements': 'str'},
+                'ems-report-proxy': {'v_range': [['8.0.1', '']], 'type': 'list', 'elements': 'str'}
             }
         }
     }

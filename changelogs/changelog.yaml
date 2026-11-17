@@ -1355,3 +1355,99 @@ releases:
         name: fmgr_ztna_destination
         namespace: ""
     release_date: "2026-08-11"
+  2.16.0:
+    changes:
+      minor_changes:
+        - Added 26 new modules.
+        - Supported FortiManager schemas 8.0.1 and 8.0.2.
+      release_summary: Release fortinet.fortimanager 2.16.0
+    fragments:
+      - 2.16.0.yml
+    modules:
+      - description: Configure application classifications.
+        name: fmgr_application_classification
+        namespace: ""
+      - description: Configure application classification scopes.
+        name: fmgr_application_classificationscope
+        namespace: ""
+      - description:
+          Configure authentication keys for this FortiGate to perform NTP
+          server functionality.
+        name: fmgr_devprof_system_ntp_keys
+        namespace: ""
+      - description: Device manager database generate ztp url
+        name: fmgr_dvmdb_generate_ztp_url
+        namespace: ""
+      - description: Device manager database group by task
+        name: fmgr_dvmdb_group_bytask
+        namespace: ""
+      - description: Device manager database workflow batch merge
+        name: fmgr_dvmdb_workflow_batchmerge
+        namespace: ""
+      - description: Device manager database workflow close
+        name: fmgr_dvmdb_workflow_close
+        namespace: ""
+      - description: Device manager database workflow diff
+        name: fmgr_dvmdb_workflow_diff
+        namespace: ""
+      - description: Device manager database workflow diff base
+        name: fmgr_dvmdb_workflow_diffbase
+        namespace: ""
+      - description: Device manager database workflow merge
+        name: fmgr_dvmdb_workflow_merge
+        namespace: ""
+      - description: Device manager database workflow patch
+        name: fmgr_dvmdb_workflow_patch
+        namespace: ""
+      - description: Force start autolink process on link-pending device.
+        name: fmgr_exec_fgfm_autolinkdevice
+        namespace: ""
+      - description: Configure LLM Proxy servers.
+        name: fmgr_llm_server
+        namespace: ""
+      - description: Securityconsole package export
+        name: fmgr_securityconsole_package_export
+        namespace: ""
+      - description: Securityconsole package import
+        name: fmgr_securityconsole_package_import
+        namespace: ""
+      - description: PTP interface-policy configuration.
+        name: fmgr_switchcontroller_ptp_interfacepolicy
+        namespace: ""
+      - description: PTP policy configuration.
+        name: fmgr_switchcontroller_ptp_policy
+        namespace: ""
+      - description: Configure DHCP server templates.
+        name: fmgr_system_dhcp_template
+        namespace: ""
+      - description:
+          Exclude one or more ranges of IP addresses from being assigned
+          to clients.
+        name: fmgr_system_dhcp_template_excluderange
+        namespace: ""
+      - description: DHCP IP range configuration.
+        name: fmgr_system_dhcp_template_iprange
+        namespace: ""
+      - description: DHCP options.
+        name: fmgr_system_dhcp_template_options
+        namespace: ""
+      - description:
+          Options for the DHCP server to assign IP settings to specific MAC
+          addresses.
+        name: fmgr_system_dhcp_template_reservedaddress
+        namespace: ""
+      - description: MVL congestion mode configuration.
+        name: fmgr_system_npu_congestionhandlingmode
+        namespace: ""
+      - description:
+          Get detailed information about IPS packages and signatures using
+          the um/query/productapi endpoint.
+        name: fmgr_um_query_productapi
+        namespace: ""
+      - description: FortiGuard image classification filter settings.
+        name: fmgr_webfilter_profile_ftgdimageclassification
+        namespace: ""
+      - description: Category thresholds configuration.
+        name: fmgr_webfilter_profile_ftgdimageclassification_rules
+        namespace: ""
+    release_date: "2026-11-17"

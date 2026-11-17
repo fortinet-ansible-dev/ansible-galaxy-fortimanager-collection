@@ -100,6 +100,18 @@ options:
         aliases: ['custom-tags']
         type: raw
         description: (list) Custom tags.
+      scope_member:
+        aliases: ['scope member']
+        type: list
+        elements: dict
+        description: Scope member.
+        suboptions:
+          name:
+            type: str
+            description: Name.
+          vdom:
+            type: str
+            description: Vdom.
 '''
 
 EXAMPLES = '''
@@ -225,7 +237,13 @@ def main():
                 'uuid': {'v_range': [['7.0.0', '']], 'type': 'str'},
                 'ips-sensor': {'v_range': [['7.4.2', '']], 'type': 'str'},
                 'utm-status': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'custom-tags': {'v_range': [['8.0.0', '']], 'type': 'raw'}
+                'custom-tags': {'v_range': [['8.0.0', '']], 'type': 'raw'},
+                'scope member': {
+                    'v_range': [['8.0.1', '']],
+                    'type': 'list',
+                    'options': {'name': {'v_range': [['8.0.1', '']], 'type': 'str'}, 'vdom': {'v_range': [['8.0.1', '']], 'type': 'str'}},
+                    'elements': 'dict'
+                }
             }
         }
     }

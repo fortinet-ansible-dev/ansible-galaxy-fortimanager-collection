@@ -95,7 +95,7 @@ options:
         type: str
         description: Type.
         choices: ['ipprefix', 'iprange', 'nsx', 'dynamic', 'fqdn', 'template', 'mac', 'geography',
-                  'route-tag', 'wildcard']
+                  'route-tag', 'wildcard', 'ipam']
       uuid:
         type: str
         description: Uuid.
@@ -220,6 +220,16 @@ options:
         aliases: ['tag-uuid']
         type: str
         description: Foreign UUID of dynamic address object.
+      ipam_allocate_unique:
+        aliases: ['ipam-allocate-unique']
+        type: str
+        description: Allocate unique prefix for FortiIPAM managed fabric-object address6.
+        choices: ['disable', 'enable']
+      managed_subnetwork_size:
+        aliases: ['managed-subnetwork-size']
+        type: str
+        description: IPv6 prefix to be allocated by FortiIPAM for this address.
+        choices: ['56', '57', '58', '59', '60', '61', '62', '63', '64']
 '''
 
 EXAMPLES = '''
@@ -344,11 +354,11 @@ def main():
                 'tags': {'type': 'raw'},
                 'template': {'type': 'str'},
                 'type': {
-                    'choices': ['ipprefix', 'iprange', 'nsx', 'dynamic', 'fqdn', 'template', 'mac', 'geography', 'route-tag', 'wildcard'],
+                    'choices': ['ipprefix', 'iprange', 'nsx', 'dynamic', 'fqdn', 'template', 'mac', 'geography', 'route-tag', 'wildcard', 'ipam'],
                     'type': 'str'
                 },
                 'uuid': {'type': 'str'},
-                'visibility': {'choices': ['disable', 'enable'], 'type': 'str'},
+                'visibility': {'v_range': [['6.0.0', '8.0.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'subnet-segment': {
                     'v_range': [['6.2.1', '']],
                     'type': 'list',
@@ -359,11 +369,11 @@ def main():
                     },
                     'elements': 'dict'
                 },
-                '_image-base64': {'v_range': [['6.2.2', '']], 'type': 'str'},
-                'end-mac': {'v_range': [['6.2.5', '6.2.13'], ['6.4.1', '']], 'type': 'str'},
-                'start-mac': {'v_range': [['6.2.5', '6.2.13'], ['6.4.1', '']], 'type': 'str'},
+                '_image-base64': {'v_range': [['6.2.2', '8.0.0']], 'type': 'str'},
+                'end-mac': {'v_range': [['6.2.5', '6.2.13'], ['6.4.1', '8.0.0']], 'type': 'str'},
+                'start-mac': {'v_range': [['6.2.5', '6.2.13'], ['6.4.1', '8.0.0']], 'type': 'str'},
                 'country': {'v_range': [['6.4.0', '']], 'type': 'str'},
-                'global-object': {'v_range': [['6.4.0', '']], 'type': 'int'},
+                'global-object': {'v_range': [['6.4.0', '8.0.0']], 'type': 'int'},
                 'fabric-object': {'v_range': [['6.4.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'macaddr': {'v_range': [['7.0.0', '']], 'type': 'raw'},
                 'epg-name': {'v_range': [['7.2.1', '']], 'type': 'str'},
@@ -383,7 +393,9 @@ def main():
                 'sub-type': {'v_range': [['8.0.0', '']], 'choices': ['sdn', 'ems-tag', '8021x'], 'type': 'str'},
                 'tag-detection-level': {'v_range': [['8.0.0', '']], 'type': 'str'},
                 'tag-type': {'v_range': [['8.0.0', '']], 'type': 'str'},
-                'tag-uuid': {'v_range': [['8.0.0', '']], 'type': 'str'}
+                'tag-uuid': {'v_range': [['8.0.0', '']], 'type': 'str'},
+                'ipam-allocate-unique': {'v_range': [['8.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'managed-subnetwork-size': {'v_range': [['8.0.1', '']], 'choices': ['56', '57', '58', '59', '60', '61', '62', '63', '64'], 'type': 'str'}
             }
         }
     }

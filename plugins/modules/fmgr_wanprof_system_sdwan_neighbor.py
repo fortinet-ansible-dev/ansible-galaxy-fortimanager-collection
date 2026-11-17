@@ -66,6 +66,18 @@ options:
         type: str
         description: Route-metric of neighbor.
         choices: ['preferable', 'priority']
+      scope_member:
+        aliases: ['scope member']
+        type: list
+        elements: dict
+        description: Scope member.
+        suboptions:
+          name:
+            type: str
+            description: Name.
+          vdom:
+            type: str
+            description: Vdom.
 '''
 
 EXAMPLES = '''
@@ -90,6 +102,9 @@ EXAMPLES = '''
           # mode: <value in [sla, speedtest]>
           # service_id: <string>
           # route_metric: <value in [preferable, priority]>
+          # scope_member:
+          #   - name: <string>
+          #     vdom: <string>
 '''
 
 RETURN = '''
@@ -155,7 +170,13 @@ def main():
                 'minimum-sla-meet-members': {'v_range': [['7.2.0', '']], 'type': 'int'},
                 'mode': {'v_range': [['7.0.1', '']], 'choices': ['sla', 'speedtest'], 'type': 'str'},
                 'service-id': {'v_range': [['7.4.1', '']], 'type': 'str'},
-                'route-metric': {'v_range': [['7.6.2', '']], 'choices': ['preferable', 'priority'], 'type': 'str'}
+                'route-metric': {'v_range': [['7.6.2', '']], 'choices': ['preferable', 'priority'], 'type': 'str'},
+                'scope member': {
+                    'v_range': [['8.0.1', '']],
+                    'type': 'list',
+                    'options': {'name': {'v_range': [['8.0.1', '']], 'type': 'str'}, 'vdom': {'v_range': [['8.0.1', '']], 'type': 'str'}},
+                    'elements': 'dict'
+                }
             }
         }
     }

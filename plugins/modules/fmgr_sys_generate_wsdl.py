@@ -95,8 +95,8 @@ def main():
     ]
     module_arg_spec = {
         'sys_generate_wsdl': {
-            'type': 'dict', 'v_range': [['6.0.0', '']],
-            'options': {'endpoint': {'type': 'str'}, 'target': {'type': 'str'}}
+            'type': 'dict', 'v_range': [['6.0.0', '8.0.0']],
+            'options': {'endpoint': {'v_range': [['6.0.0', '8.0.0']], 'type': 'str'}, 'target': {'v_range': [['6.0.0', '8.0.0']], 'type': 'str'}}
         }
     }
 

@@ -104,8 +104,8 @@ def main():
         'adom': {'required': True, 'type': 'str'},
         'session_id': {'required': True, 'type': 'str'},
         'dvmdb_workflow_repair': {
-            'type': 'dict', 'v_range': [['6.0.0', '']],
-            'options': {'desc': {'type': 'str'}}
+            'type': 'dict', 'v_range': [['6.0.0', '8.0.0']],
+            'options': {'desc': {'v_range': [['6.0.0', '8.0.0']], 'type': 'str'}}
         }
     }
 

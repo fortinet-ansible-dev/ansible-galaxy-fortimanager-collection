@@ -289,33 +289,38 @@ def main():
     module_arg_spec = {
         'adom': {'required': True, 'type': 'str'},
         'dvmdb_script': {
-            'type': 'dict', 'v_range': [['6.0.0', '']],
+            'type': 'dict', 'v_range': [['6.0.0', '8.0.0']],
             'options': {
-                'content': {'type': 'str'},
-                'desc': {'type': 'str'},
-                'filter_build': {'type': 'int'},
-                'filter_device': {'type': 'int'},
-                'filter_hostname': {'type': 'str'},
-                'filter_ostype': {'choices': ['unknown', 'fos'], 'type': 'str'},
-                'filter_osver': {'choices': ['unknown', '4.00', '5.00', '6.00'], 'type': 'str'},
-                'filter_platform': {'type': 'str'},
-                'filter_serial': {'type': 'str'},
-                'modification_time': {'type': 'str'},
-                'name': {'required': True, 'type': 'str'},
+                'content': {'v_range': [['6.0.0', '8.0.0']], 'type': 'str'},
+                'desc': {'v_range': [['6.0.0', '8.0.0']], 'type': 'str'},
+                'filter_build': {'v_range': [['6.0.0', '8.0.0']], 'type': 'int'},
+                'filter_device': {'v_range': [['6.0.0', '8.0.0']], 'type': 'int'},
+                'filter_hostname': {'v_range': [['6.0.0', '8.0.0']], 'type': 'str'},
+                'filter_ostype': {'v_range': [['6.0.0', '8.0.0']], 'choices': ['unknown', 'fos'], 'type': 'str'},
+                'filter_osver': {'v_range': [['6.0.0', '8.0.0']], 'choices': ['unknown', '4.00', '5.00', '6.00'], 'type': 'str'},
+                'filter_platform': {'v_range': [['6.0.0', '8.0.0']], 'type': 'str'},
+                'filter_serial': {'v_range': [['6.0.0', '8.0.0']], 'type': 'str'},
+                'modification_time': {'v_range': [['6.0.0', '8.0.0']], 'type': 'str'},
+                'name': {'v_range': [['6.0.0', '8.0.0']], 'required': True, 'type': 'str'},
                 'script_schedule': {
+                    'v_range': [['6.0.0', '8.0.0']],
                     'type': 'list',
                     'options': {
-                        'datetime': {'type': 'str'},
-                        'day_of_week': {'choices': ['unknown', 'sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'], 'type': 'str'},
-                        'device': {'type': 'int'},
-                        'name': {'type': 'str'},
-                        'run_on_db': {'choices': ['disable', 'enable'], 'type': 'str'},
-                        'type': {'choices': ['auto', 'onetime', 'daily', 'weekly', 'monthly'], 'type': 'str'}
+                        'datetime': {'v_range': [['6.0.0', '8.0.0']], 'type': 'str'},
+                        'day_of_week': {
+                            'v_range': [['6.0.0', '8.0.0']],
+                            'choices': ['unknown', 'sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'],
+                            'type': 'str'
+                        },
+                        'device': {'v_range': [['6.0.0', '8.0.0']], 'type': 'int'},
+                        'name': {'v_range': [['6.0.0', '8.0.0']], 'type': 'str'},
+                        'run_on_db': {'v_range': [['6.0.0', '8.0.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'type': {'v_range': [['6.0.0', '8.0.0']], 'choices': ['auto', 'onetime', 'daily', 'weekly', 'monthly'], 'type': 'str'}
                     },
                     'elements': 'dict'
                 },
-                'target': {'choices': ['device_database', 'remote_device', 'adom_database'], 'type': 'str'},
-                'type': {'choices': ['cli', 'tcl', 'cligrp', 'tclgrp', 'jinja'], 'type': 'str'}
+                'target': {'v_range': [['6.0.0', '8.0.0']], 'choices': ['device_database', 'remote_device', 'adom_database'], 'type': 'str'},
+                'type': {'v_range': [['6.0.0', '8.0.0']], 'choices': ['cli', 'tcl', 'cligrp', 'tclgrp', 'jinja'], 'type': 'str'}
             }
         }
     }

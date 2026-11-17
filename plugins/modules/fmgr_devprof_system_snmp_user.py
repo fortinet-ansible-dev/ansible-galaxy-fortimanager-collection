@@ -143,6 +143,10 @@ options:
         aliases: ['vrf-select']
         type: int
         description: VRF ID used for connection to server.
+      source_ip_interface:
+        aliases: ['source-ip-interface']
+        type: raw
+        description: (list) Source IP interface for SNMP traps.
 '''
 
 EXAMPLES = '''
@@ -335,7 +339,8 @@ def main():
                 'vdoms': {'v_range': [['7.2.0', '']], 'type': 'raw'},
                 'interface': {'v_range': [['7.6.0', '']], 'type': 'raw'},
                 'interface-select-method': {'v_range': [['7.6.0', '']], 'choices': ['auto', 'sdwan', 'specify'], 'type': 'str'},
-                'vrf-select': {'v_range': [['7.6.2', '']], 'type': 'int'}
+                'vrf-select': {'v_range': [['7.6.2', '']], 'type': 'int'},
+                'source-ip-interface': {'v_range': [['8.0.1', '']], 'type': 'raw'}
             }
         }
     }

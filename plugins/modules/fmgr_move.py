@@ -125,6 +125,7 @@ options:
           - 'ips_sensor_entries'
           - 'ips_sensor_filter'
           - 'isolator_profile_entries'
+          - 'llm_server'
           - 'mpskprofile_mpskgroup'
           - 'mpskprofile_mpskgroup_mpskkey'
           - 'pkg_authentication_rule'
@@ -170,6 +171,7 @@ options:
           - 'sshfilter_profile_shellcommands'
           - 'switchcontroller_dynamicportpolicy_policy'
           - 'switchcontroller_managedswitch'
+          - 'system_dhcp_template_iprange'
           - 'system_externalresource'
           - 'system_sdnconnector_compartmentlist'
           - 'system_sdnconnector_externalaccountlist'
@@ -640,6 +642,14 @@ def main():
             ],
             'v_range': [['7.6.4', '']]
         },
+        'llm_server': {
+            'params': ['adom', 'server'],
+            'urls': [
+                '/pm/config/adom/{adom}/obj/llm/server/{server}',
+                '/pm/config/global/obj/llm/server/{server}'
+            ],
+            'v_range': [['8.0.1', '']]
+        },
         'mpskprofile_mpskgroup': {
             'params': ['adom', 'mpsk-group', 'mpsk-profile'],
             'urls': [
@@ -947,6 +957,14 @@ def main():
                 '/pm/config/adom/{adom}/obj/switch-controller/managed-switch/{managed-switch}',
                 '/pm/config/global/obj/switch-controller/managed-switch/{managed-switch}'
             ]
+        },
+        'system_dhcp_template_iprange': {
+            'params': ['adom', 'ip-range', 'template'],
+            'urls': [
+                '/pm/config/adom/{adom}/obj/system/dhcp/template/{template}/ip-range/{ip-range}',
+                '/pm/config/global/obj/system/dhcp/template/{template}/ip-range/{ip-range}'
+            ],
+            'v_range': [['8.0.1', '']]
         },
         'system_externalresource': {
             'params': ['adom', 'external-resource'],

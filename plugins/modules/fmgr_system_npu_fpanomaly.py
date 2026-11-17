@@ -360,6 +360,11 @@ options:
         type: str
         description: Invalid IPv4 SCTP checksum anomalies.
         choices: ['allow', 'drop', 'trap-to-host']
+      ipv4_option:
+        aliases: ['ipv4-option']
+        type: str
+        description: IPv4 options anomalies.
+        choices: ['allow', 'trap-to-host']
 '''
 
 EXAMPLES = '''
@@ -439,6 +444,7 @@ EXAMPLES = '''
           # sctp_clen_err: <value in [drop, trap-to-host]>
           # uesp_minlen_err: <value in [drop, trap-to-host]>
           # sctp_csum_err: <value in [allow, drop, trap-to-host]>
+          # ipv4_option: <value in [allow, trap-to-host]>
 '''
 
 RETURN = '''
@@ -562,7 +568,8 @@ def main():
                 'sctp-crc-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.6.2']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
                 'sctp-clen-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.6.2']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
                 'uesp-minlen-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.6.2']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
-                'sctp-csum-err': {'v_range': [['7.2.5', '7.2.12'], ['7.4.3', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'}
+                'sctp-csum-err': {'v_range': [['7.2.5', '7.2.12'], ['7.4.3', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
+                'ipv4-option': {'v_range': [['8.0.1', '']], 'choices': ['allow', 'trap-to-host'], 'type': 'str'}
             }
         }
     }

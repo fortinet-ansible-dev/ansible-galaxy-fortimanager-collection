@@ -75,6 +75,12 @@ options:
         aliases: ['custom-profile-threshold']
         type: int
         description: Custom profile threshold for SLA to be marked as pass
+      fortiextender_link_cost_factor:
+        aliases: ['fortiextender-link-cost-factor']
+        type: list
+        elements: str
+        description: Criteria on which to base link selection.
+        choices: ['signal-strength', 'quota-usage']
 '''
 
 EXAMPLES = '''
@@ -101,6 +107,7 @@ EXAMPLES = '''
           # priority_in_sla: <integer>
           # priority_out_sla: <integer>
           # custom_profile_threshold: <integer>
+          # fortiextender_link_cost_factor: ["signal-strength", "quota-usage"]
 '''
 
 RETURN = '''
@@ -173,7 +180,13 @@ def main():
                 'mos-threshold': {'v_range': [['7.2.0', '']], 'type': 'str'},
                 'priority-in-sla': {'v_range': [['7.2.1', '']], 'type': 'int'},
                 'priority-out-sla': {'v_range': [['7.2.1', '']], 'type': 'int'},
-                'custom-profile-threshold': {'v_range': [['7.6.4', '']], 'type': 'int'}
+                'custom-profile-threshold': {'v_range': [['7.6.4', '']], 'type': 'int'},
+                'fortiextender-link-cost-factor': {
+                    'v_range': [['8.0.1', '']],
+                    'type': 'list',
+                    'choices': ['signal-strength', 'quota-usage'],
+                    'elements': 'str'
+                }
             }
         }
     }

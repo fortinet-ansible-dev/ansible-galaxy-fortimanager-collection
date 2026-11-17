@@ -170,7 +170,7 @@ def main():
                     'options': {'name': {'v_range': [['7.4.4', '']], 'type': 'str'}, 'vdom': {'v_range': [['7.4.4', '']], 'type': 'str'}},
                     'elements': 'dict'
                 },
-                'preview_taskid': {'v_range': [['7.6.7', '7.6.7']], 'type': 'int'}
+                'preview_taskid': {'v_range': [['7.6.7', '7.6.7'], ['8.0.1', '']], 'type': 'int'}
             }
         }
     }

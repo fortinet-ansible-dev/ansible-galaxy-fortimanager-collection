@@ -241,7 +241,7 @@ options:
             elements: str
             description: Network protocols.
             choices: ['http', 'ssh', 'telnet', 'ftp', 'dns', 'smtp', 'pop3', 'imap', 'snmp',
-                      'nntp', 'https']
+                      'nntp', 'https', 'quic']
           violation_action:
             aliases: ['violation-action']
             type: str
@@ -455,7 +455,7 @@ def main():
                         'services': {
                             'v_range': [['6.2.0', '']],
                             'type': 'list',
-                            'choices': ['http', 'ssh', 'telnet', 'ftp', 'dns', 'smtp', 'pop3', 'imap', 'snmp', 'nntp', 'https'],
+                            'choices': ['http', 'ssh', 'telnet', 'ftp', 'dns', 'smtp', 'pop3', 'imap', 'snmp', 'nntp', 'https', 'quic'],
                             'elements': 'str'
                         },
                         'violation-action': {'v_range': [['6.2.0', '']], 'choices': ['block', 'monitor', 'pass'], 'type': 'str'}

@@ -41,7 +41,7 @@ options:
           - copy_only - Only copy to device db.
         choices: ['none', 'cp_all_objs', 'preview', 'generate_rev', 'copy_assigned_pkg',
                   'unassign', 'ifpolicy_only', 'no_ifpolicy', 'objs_only', 'auto_lock_ws',
-                  'check_pkg_st', 'copy_only']
+                  'check_pkg_st', 'copy_only', 'no_devdb_changes']
       target:
         type: list
         elements: dict
@@ -76,7 +76,7 @@ EXAMPLES = '''
           # adom: <string>
           # flags: ["none", "cp_all_objs", "preview", "generate_rev", "copy_assigned_pkg",
           #         "unassign", "ifpolicy_only", "no_ifpolicy", "objs_only", "auto_lock_ws",
-          #         "check_pkg_st", "copy_only"]
+          #         "check_pkg_st", "copy_only", "no_devdb_changes"]
           # target:
           #   - pkg: <string>
           #     scope:
@@ -142,7 +142,7 @@ def main():
                     'type': 'list',
                     'choices': [
                         'none', 'cp_all_objs', 'preview', 'generate_rev', 'copy_assigned_pkg', 'unassign', 'ifpolicy_only', 'no_ifpolicy', 'objs_only',
-                        'auto_lock_ws', 'check_pkg_st', 'copy_only'
+                        'auto_lock_ws', 'check_pkg_st', 'copy_only', 'no_devdb_changes'
                     ],
                     'elements': 'str'
                 },

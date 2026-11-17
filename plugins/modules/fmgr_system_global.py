@@ -530,7 +530,7 @@ options:
           - disabled - Workspace disabled.
           - normal - Workspace lock mode.
           - workflow - Workspace workflow mode.
-        choices: ['disabled', 'normal', 'workflow', 'per-adom']
+        choices: ['disabled', 'normal', 'workflow', 'per-adom', 'per-admin']
       clone_name_option:
         aliases: ['clone-name-option']
         type: str
@@ -751,7 +751,8 @@ options:
                   'diffie-hellman-group14-sha256', 'diffie-hellman-group16-sha512',
                   'diffie-hellman-group18-sha512', 'diffie-hellman-group-exchange-sha1',
                   'diffie-hellman-group-exchange-sha256', 'curve25519-sha256@libssh.org',
-                  'ecdh-sha2-nistp256', 'ecdh-sha2-nistp384', 'ecdh-sha2-nistp521']
+                  'ecdh-sha2-nistp256', 'ecdh-sha2-nistp384', 'ecdh-sha2-nistp521',
+                  'sntrup761x25519-sha512', 'mlkem768x25519-sha256']
       ssh_mac_algo:
         aliases: ['ssh-mac-algo']
         type: list
@@ -1028,6 +1029,42 @@ options:
         type: str
         description: Http extended log.
         choices: ['disable', 'enable']
+      apache_keepalive_timeout:
+        aliases: ['apache-keepalive-timeout']
+        type: int
+        description: Set apache keepalive timeout
+      bkup_mode_shared_objs:
+        aliases: ['bkup-mode-shared-objs']
+        type: str
+        description:
+          - Enable/disable shared objects in backup ADOMs.
+          - disable - Disable shared objects in backup ADOMs
+          - enable - Enable shared objects in backup ADOMs
+        choices: ['disable', 'enable']
+      usb_port:
+        aliases: ['usb-port']
+        type: str
+        description:
+          - Enable/disable USB ports.
+          - disable - Disable USB ports
+          - enable - Enable USB ports
+        choices: ['disable', 'enable']
+      webwork_job_timeout:
+        aliases: ['webwork-job-timeout']
+        type: int
+        description: Seconds before a webworker child is killed
+      webwork_max_processes:
+        aliases: ['webwork-max-processes']
+        type: int
+        description: Maximum concurrent webworker child processes
+      workflow_peradmin_install_others:
+        aliases: ['workflow-peradmin-install-others']
+        type: str
+        description:
+          - Enable/disable Allow super admin install others&apos; change.
+          - disable - Do not allow super admin install others&apos; change.
+          - enable - allow super admin install others&apos; change.
+        choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -1211,7 +1248,7 @@ def main():
                     'elements': 'str'
                 },
                 'workflow-max-sessions': {'type': 'int'},
-                'workspace-mode': {'choices': ['disabled', 'normal', 'workflow', 'per-adom'], 'type': 'str'},
+                'workspace-mode': {'choices': ['disabled', 'normal', 'workflow', 'per-adom', 'per-admin'], 'type': 'str'},
                 'clone-name-option': {'v_range': [['6.2.2', '']], 'choices': ['default', 'keep'], 'type': 'str'},
                 'fgfm-ca-cert': {'v_range': [['6.2.3', '']], 'type': 'str'},
                 'mc-policy-disabled-adoms': {
@@ -1281,7 +1318,8 @@ def main():
                     'choices': [
                         'diffie-hellman-group1-sha1', 'diffie-hellman-group14-sha1', 'diffie-hellman-group14-sha256', 'diffie-hellman-group16-sha512',
                         'diffie-hellman-group18-sha512', 'diffie-hellman-group-exchange-sha1', 'diffie-hellman-group-exchange-sha256',
-                        'curve25519-sha256@libssh.org', 'ecdh-sha2-nistp256', 'ecdh-sha2-nistp384', 'ecdh-sha2-nistp521'
+                        'curve25519-sha256@libssh.org', 'ecdh-sha2-nistp256', 'ecdh-sha2-nistp384', 'ecdh-sha2-nistp521', 'sntrup761x25519-sha512',
+                        'mlkem768x25519-sha256'
                     ],
                     'elements': 'str'
                 },
@@ -1353,7 +1391,13 @@ def main():
                 'device-policy-package-lock-allow-add': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'gui-object-protect': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'gui-object-search': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'http-extended-log': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'http-extended-log': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'apache-keepalive-timeout': {'v_range': [['8.0.1', '']], 'type': 'int'},
+                'bkup-mode-shared-objs': {'v_range': [['8.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'usb-port': {'v_range': [['8.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'webwork-job-timeout': {'v_range': [['8.0.1', '']], 'type': 'int'},
+                'webwork-max-processes': {'v_range': [['8.0.1', '']], 'type': 'int'},
+                'workflow-peradmin-install-others': {'v_range': [['8.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

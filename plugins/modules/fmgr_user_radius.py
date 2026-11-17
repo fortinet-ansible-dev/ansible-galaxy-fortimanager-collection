@@ -638,7 +638,7 @@ options:
             aliases: ['call-station-id-type']
             type: str
             description: Calling & Called station identifier type configuration
-            choices: ['legacy', 'IP', 'MAC']
+            choices: ['legacy', 'IP', 'MAC', 'MAC-INTF']
           switch_controller_nas_ip_dynamic:
             aliases: ['switch-controller-nas-ip-dynamic']
             type: str
@@ -675,6 +675,11 @@ options:
           uuid:
             type: str
             description: Universally Unique Identifier
+          pqc_policy:
+            aliases: ['pqc-policy']
+            type: str
+            description: Enable/disable using post-quantum cryptography for this TLS connection
+            choices: ['disable', 'enable']
       h3c_compatibility:
         aliases: ['h3c-compatibility']
         type: str
@@ -950,7 +955,7 @@ options:
         aliases: ['call-station-id-type']
         type: str
         description: Calling & Called station identifier type configuration
-        choices: ['legacy', 'IP', 'MAC']
+        choices: ['legacy', 'IP', 'MAC', 'MAC-INTF']
       switch_controller_nas_ip_dynamic:
         aliases: ['switch-controller-nas-ip-dynamic']
         type: str
@@ -987,6 +992,11 @@ options:
       uuid:
         type: str
         description: Universally Unique Identifier
+      pqc_policy:
+        aliases: ['pqc-policy']
+        type: str
+        description: Enable/disable using post-quantum cryptography for this TLS connection
+        choices: ['disable', 'enable']
 '''
 
 EXAMPLES = '''
@@ -1117,6 +1127,7 @@ def main():
                         'auth-type': {'choices': ['pap', 'chap', 'ms_chap', 'ms_chap_v2', 'auto'], 'type': 'str'},
                         'class': {'type': 'raw'},
                         'dp-carrier-endpoint-attribute': {
+                            'v_range': [['6.0.0', '8.0.0']],
                             'choices': [
                                 'User-Name', 'User-Password', 'CHAP-Password', 'NAS-IP-Address', 'NAS-Port', 'Service-Type', 'Framed-Protocol',
                                 'Framed-IP-Address', 'Framed-IP-Netmask', 'Framed-Routing', 'Filter-Id', 'Framed-MTU', 'Framed-Compression',
@@ -1131,6 +1142,7 @@ def main():
                             'type': 'str'
                         },
                         'dp-carrier-endpoint-block-attribute': {
+                            'v_range': [['6.0.0', '8.0.0']],
                             'choices': [
                                 'User-Name', 'User-Password', 'CHAP-Password', 'NAS-IP-Address', 'NAS-Port', 'Service-Type', 'Framed-Protocol',
                                 'Framed-IP-Address', 'Framed-IP-Netmask', 'Framed-Routing', 'Filter-Id', 'Framed-MTU', 'Framed-Compression',
@@ -1144,14 +1156,15 @@ def main():
                             ],
                             'type': 'str'
                         },
-                        'dp-context-timeout': {'type': 'int'},
-                        'dp-flush-ip-session': {'choices': ['disable', 'enable'], 'type': 'str'},
-                        'dp-hold-time': {'type': 'int'},
-                        'dp-http-header': {'type': 'str'},
-                        'dp-http-header-fallback': {'choices': ['ip-header-address', 'default-profile'], 'type': 'str'},
-                        'dp-http-header-status': {'choices': ['disable', 'enable'], 'type': 'str'},
-                        'dp-http-header-suppress': {'choices': ['disable', 'enable'], 'type': 'str'},
+                        'dp-context-timeout': {'v_range': [['6.0.0', '8.0.0']], 'type': 'int'},
+                        'dp-flush-ip-session': {'v_range': [['6.0.0', '8.0.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'dp-hold-time': {'v_range': [['6.0.0', '8.0.0']], 'type': 'int'},
+                        'dp-http-header': {'v_range': [['6.0.0', '8.0.0']], 'type': 'str'},
+                        'dp-http-header-fallback': {'v_range': [['6.0.0', '8.0.0']], 'choices': ['ip-header-address', 'default-profile'], 'type': 'str'},
+                        'dp-http-header-status': {'v_range': [['6.0.0', '8.0.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'dp-http-header-suppress': {'v_range': [['6.0.0', '8.0.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'dp-log-dyn_flags': {
+                            'v_range': [['6.0.0', '8.0.0']],
                             'type': 'list',
                             'choices': [
                                 'none', 'protocol-error', 'profile-missing', 'context-missing', 'accounting-stop-missed', 'accounting-event',
@@ -1159,9 +1172,10 @@ def main():
                             ],
                             'elements': 'str'
                         },
-                        'dp-log-period': {'type': 'int'},
-                        'dp-mem-percent': {'type': 'int'},
+                        'dp-log-period': {'v_range': [['6.0.0', '8.0.0']], 'type': 'int'},
+                        'dp-mem-percent': {'v_range': [['6.0.0', '8.0.0']], 'type': 'int'},
                         'dp-profile-attribute': {
+                            'v_range': [['6.0.0', '8.0.0']],
                             'choices': [
                                 'User-Name', 'User-Password', 'CHAP-Password', 'NAS-IP-Address', 'NAS-Port', 'Service-Type', 'Framed-Protocol',
                                 'Framed-IP-Address', 'Framed-IP-Netmask', 'Framed-Routing', 'Filter-Id', 'Framed-MTU', 'Framed-Compression',
@@ -1175,25 +1189,29 @@ def main():
                             ],
                             'type': 'str'
                         },
-                        'dp-profile-attribute-key': {'no_log': True, 'type': 'str'},
-                        'dp-radius-response': {'choices': ['disable', 'enable'], 'type': 'str'},
-                        'dp-radius-server-port': {'type': 'int'},
-                        'dp-secret': {'no_log': True, 'type': 'raw'},
-                        'dp-validate-request-secret': {'choices': ['disable', 'enable'], 'type': 'str'},
-                        'dynamic-profile': {'choices': ['disable', 'enable'], 'type': 'str'},
-                        'endpoint-translation': {'choices': ['disable', 'enable'], 'type': 'str'},
-                        'ep-carrier-endpoint-convert-hex': {'choices': ['disable', 'enable'], 'type': 'str'},
-                        'ep-carrier-endpoint-header': {'type': 'str'},
-                        'ep-carrier-endpoint-header-suppress': {'choices': ['disable', 'enable'], 'type': 'str'},
-                        'ep-carrier-endpoint-prefix': {'choices': ['disable', 'enable'], 'type': 'str'},
-                        'ep-carrier-endpoint-prefix-range-max': {'type': 'int'},
-                        'ep-carrier-endpoint-prefix-range-min': {'type': 'int'},
-                        'ep-carrier-endpoint-prefix-string': {'type': 'str'},
-                        'ep-carrier-endpoint-source': {'choices': ['http-header', 'cookie'], 'type': 'str'},
-                        'ep-ip-header': {'type': 'str'},
-                        'ep-ip-header-suppress': {'choices': ['disable', 'enable'], 'type': 'str'},
-                        'ep-missing-header-fallback': {'choices': ['session-ip', 'policy-profile'], 'type': 'str'},
-                        'ep-profile-query-type': {'choices': ['session-ip', 'extract-ip', 'extract-carrier-endpoint'], 'type': 'str'},
+                        'dp-profile-attribute-key': {'v_range': [['6.0.0', '8.0.0']], 'no_log': True, 'type': 'str'},
+                        'dp-radius-response': {'v_range': [['6.0.0', '8.0.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'dp-radius-server-port': {'v_range': [['6.0.0', '8.0.0']], 'type': 'int'},
+                        'dp-secret': {'v_range': [['6.0.0', '8.0.0']], 'no_log': True, 'type': 'raw'},
+                        'dp-validate-request-secret': {'v_range': [['6.0.0', '8.0.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'dynamic-profile': {'v_range': [['6.0.0', '8.0.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'endpoint-translation': {'v_range': [['6.0.0', '8.0.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'ep-carrier-endpoint-convert-hex': {'v_range': [['6.0.0', '8.0.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'ep-carrier-endpoint-header': {'v_range': [['6.0.0', '8.0.0']], 'type': 'str'},
+                        'ep-carrier-endpoint-header-suppress': {'v_range': [['6.0.0', '8.0.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'ep-carrier-endpoint-prefix': {'v_range': [['6.0.0', '8.0.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'ep-carrier-endpoint-prefix-range-max': {'v_range': [['6.0.0', '8.0.0']], 'type': 'int'},
+                        'ep-carrier-endpoint-prefix-range-min': {'v_range': [['6.0.0', '8.0.0']], 'type': 'int'},
+                        'ep-carrier-endpoint-prefix-string': {'v_range': [['6.0.0', '8.0.0']], 'type': 'str'},
+                        'ep-carrier-endpoint-source': {'v_range': [['6.0.0', '8.0.0']], 'choices': ['http-header', 'cookie'], 'type': 'str'},
+                        'ep-ip-header': {'v_range': [['6.0.0', '8.0.0']], 'type': 'str'},
+                        'ep-ip-header-suppress': {'v_range': [['6.0.0', '8.0.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'ep-missing-header-fallback': {'v_range': [['6.0.0', '8.0.0']], 'choices': ['session-ip', 'policy-profile'], 'type': 'str'},
+                        'ep-profile-query-type': {
+                            'v_range': [['6.0.0', '8.0.0']],
+                            'choices': ['session-ip', 'extract-ip', 'extract-carrier-endpoint'],
+                            'type': 'str'
+                        },
                         'h3c-compatibility': {'choices': ['disable', 'enable'], 'type': 'str'},
                         'nas-ip': {'type': 'str'},
                         'password-encoding': {'choices': ['ISO-8859-1', 'auto'], 'type': 'str'},
@@ -1269,7 +1287,7 @@ def main():
                         'tertiary-secret': {'no_log': True, 'type': 'raw'},
                         'tertiary-server': {'type': 'str'},
                         'timeout': {'type': 'int'},
-                        'use-group-for-profile': {'choices': ['disable', 'enable'], 'type': 'str'},
+                        'use-group-for-profile': {'v_range': [['6.0.0', '8.0.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'use-management-vdom': {'choices': ['disable', 'enable'], 'type': 'str'},
                         'username-case-sensitive': {'choices': ['disable', 'enable'], 'type': 'str'},
                         'interface': {'v_range': [['6.2.5', '6.2.13'], ['6.4.1', '']], 'type': 'str'},
@@ -1327,7 +1345,7 @@ def main():
                         'transport-protocol': {'v_range': [['7.4.0', '']], 'choices': ['udp', 'tcp', 'tls'], 'type': 'str'},
                         'account-key-cert-field': {'v_range': [['7.4.1', '']], 'choices': ['othername', 'rfc822name', 'dnsname', 'cn'], 'type': 'str'},
                         'account-key-processing': {'v_range': [['7.4.1', '']], 'choices': ['same', 'strip'], 'type': 'str'},
-                        'call-station-id-type': {'v_range': [['7.4.1', '']], 'choices': ['legacy', 'IP', 'MAC'], 'type': 'str'},
+                        'call-station-id-type': {'v_range': [['7.4.1', '']], 'choices': ['legacy', 'IP', 'MAC', 'MAC-INTF'], 'type': 'str'},
                         'switch-controller-nas-ip-dynamic': {
                             'v_range': [['7.2.6', '7.2.12'], ['7.4.2', '']],
                             'choices': ['disable', 'enable'],
@@ -1343,7 +1361,8 @@ def main():
                         'fabric-force-sync': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'fabric-object': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'fabric-object-source': {'v_range': [['8.0.0', '']], 'choices': ['member', 'local', 'root'], 'type': 'str'},
-                        'uuid': {'v_range': [['8.0.0', '']], 'type': 'str'}
+                        'uuid': {'v_range': [['8.0.0', '']], 'type': 'str'},
+                        'pqc-policy': {'v_range': [['8.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
                     },
                     'elements': 'dict'
                 },
@@ -1456,7 +1475,7 @@ def main():
                 'transport-protocol': {'v_range': [['7.4.0', '']], 'choices': ['udp', 'tcp', 'tls'], 'type': 'str'},
                 'account-key-cert-field': {'v_range': [['7.4.1', '']], 'choices': ['othername', 'rfc822name', 'dnsname', 'cn'], 'type': 'str'},
                 'account-key-processing': {'v_range': [['7.4.1', '']], 'choices': ['same', 'strip'], 'type': 'str'},
-                'call-station-id-type': {'v_range': [['7.4.1', '']], 'choices': ['legacy', 'IP', 'MAC'], 'type': 'str'},
+                'call-station-id-type': {'v_range': [['7.4.1', '']], 'choices': ['legacy', 'IP', 'MAC', 'MAC-INTF'], 'type': 'str'},
                 'switch-controller-nas-ip-dynamic': {'v_range': [['7.2.6', '7.2.12'], ['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'source-ip-interface': {'v_range': [['7.6.0', '']], 'type': 'raw'},
                 'require-message-authenticator': {
@@ -1468,7 +1487,8 @@ def main():
                 'fabric-force-sync': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'fabric-object': {'v_range': [['8.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'fabric-object-source': {'v_range': [['8.0.0', '']], 'choices': ['member', 'local', 'root'], 'type': 'str'},
-                'uuid': {'v_range': [['8.0.0', '']], 'type': 'str'}
+                'uuid': {'v_range': [['8.0.0', '']], 'type': 'str'},
+                'pqc-policy': {'v_range': [['8.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

@@ -468,6 +468,11 @@ options:
         type: list
         elements: str
         description: Ssl hpkp primary.
+      dns_result_preference:
+        aliases: ['dns-result-preference']
+        type: str
+        description: Configure DNS result preference
+        choices: ['ipv4-only', 'ipv6-only', 'ipv46']
 '''
 
 EXAMPLES = '''
@@ -556,6 +561,7 @@ EXAMPLES = '''
           #     priority: <integer>
           #     versions: ["ssl-3.0", "tls-1.0", "tls-1.1", "tls-1.2", "tls-1.3"]
           # ssl_hpkp_primary: <list or string>
+          # dns_result_preference: <value in [ipv4-only, ipv6-only, ipv46]>
 '''
 
 RETURN = '''
@@ -790,7 +796,8 @@ def main():
                     },
                     'elements': 'dict'
                 },
-                'ssl-hpkp-primary': {'v_range': [['7.6.4', '']], 'type': 'list', 'elements': 'str'}
+                'ssl-hpkp-primary': {'v_range': [['7.6.4', '']], 'type': 'list', 'elements': 'str'},
+                'dns-result-preference': {'v_range': [['8.0.1', '']], 'choices': ['ipv4-only', 'ipv6-only', 'ipv46'], 'type': 'str'}
             }
         }
     }

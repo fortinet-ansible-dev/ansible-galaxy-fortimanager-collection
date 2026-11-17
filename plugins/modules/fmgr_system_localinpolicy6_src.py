@@ -12,7 +12,7 @@ ANSIBLE_METADATA = {'status': ['preview'],
 DOCUMENTATION = '''
 ---
 module: fmgr_system_localinpolicy6_src
-short_description: Cli system local in policy6 src
+short_description: List of Source IP and prefix.
 version_added: "2.12.0"
 extends_documentation_fragment:
   - fortinet.fortimanager.general
@@ -41,7 +41,7 @@ EXAMPLES = '''
   connection: httpapi
   gather_facts: false
   tasks:
-    - name: Cli system local in policy6 src
+    - name: List of Source IP and prefix.
       fortinet.fortimanager.fmgr_system_localinpolicy6_src:
         # workspace_locking_adom: <global or your adom name>
         local_in_policy6: <your own value>

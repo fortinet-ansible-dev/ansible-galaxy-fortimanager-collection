@@ -12,7 +12,7 @@ ANSIBLE_METADATA = {'status': ['preview'],
 DOCUMENTATION = '''
 ---
 module: fmgr_system_log_settings_clientcertauth
-short_description: Cli system log settings client cert auth
+short_description: Configure client certificate authentication.
 version_added: "2.13.0"
 extends_documentation_fragment:
   - fortinet.fortimanager.general
@@ -63,7 +63,7 @@ EXAMPLES = '''
   connection: httpapi
   gather_facts: false
   tasks:
-    - name: Cli system log settings client cert auth
+    - name: Configure client certificate authentication.
       fortinet.fortimanager.fmgr_system_log_settings_clientcertauth:
         # workspace_locking_adom: <global or your adom name>
         system_log_settings_clientcertauth:

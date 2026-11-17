@@ -36,7 +36,7 @@ options:
       model:
         type: str
         description: Model.
-        choices: ['FTL100G', 'WINDOWS', 'ftl-100g', 'windows', 'macos']
+        choices: ['FTL100G', 'WINDOWS', 'ftl-100g', 'windows', 'macos', 'linux']
       name:
         type: str
         description: Name of the agent profile.
@@ -117,7 +117,7 @@ def main():
             'type': 'dict', 'v_range': [['7.6.3', '']],
             'options': {
                 'comment': {'v_range': [['7.6.3', '']], 'type': 'str'},
-                'model': {'v_range': [['7.6.3', '']], 'choices': ['FTL100G', 'WINDOWS', 'ftl-100g', 'windows', 'macos'], 'type': 'str'},
+                'model': {'v_range': [['7.6.3', '']], 'choices': ['FTL100G', 'WINDOWS', 'ftl-100g', 'windows', 'macos', 'linux'], 'type': 'str'},
                 'name': {'v_range': [['7.6.3', '']], 'required': True, 'type': 'str'}
             }
         }
